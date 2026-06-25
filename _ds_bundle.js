@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"6af8514bc4c8","components/core/Card.jsx":"46e2dbd3e4da","components/core/Chip.jsx":"3aa9f88a2fa5","components/core/Tabs.jsx":"1a6bf17d7b3d","components/core/Badge.jsx":"d9b434a84f8c","components/core/Input.jsx":"a708410a3a1a","components/core/Avatar.jsx":"85b9b49b2b31","components/core/Button.jsx":"9fbb86eb0636","components/core/Select.jsx":"1092bf39890d","components/core/Slider.jsx":"b71a424e374f","components/core/Switch.jsx":"b5c1e4456040","components/core/Checkbox.jsx":"4669a6c7d06e","components/core/IconButton.jsx":"ce9d5fc90c74","components/core/RadioGroup.jsx":"945a11970cc2","components/core/SegmentedControl.jsx":"ac03fcc46c9c","components/data/Table.jsx":"b22cd982753e","components/data/KpiCard.jsx":"c0c0b20c2679","components/data/Stepper.jsx":"6aba5aee2fb8","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"1666a8058352","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"7a90dfb0d252","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/DecisionAlert.jsx":"4c7dd632925c","components/charts/BarChart.jsx":"6ee50f241430","components/charts/LineChart.jsx":"5b3bf436b421","components/charts/Sparkline.jsx":"86a0ac509008","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/overlay/Menu.jsx":"63b5ee1c6dee","components/overlay/Modal.jsx":"4c96a4f5278c","components/overlay/Toast.jsx":"949b417a36c5","components/overlay/Drawer.jsx":"717a9b4888d5","components/overlay/Popover.jsx":"1ad9ccc50560","components/overlay/Tooltip.jsx":"bd5c243bed5a","components/feedback/Banner.jsx":"c78ef4666920","components/marketing/FaqItem.jsx":"7f7a9fd9d203","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"62c48dce4f84"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"6af8514bc4c8","components/core/Card.jsx":"46e2dbd3e4da","components/core/Chip.jsx":"3aa9f88a2fa5","components/core/Tabs.jsx":"1a6bf17d7b3d","components/core/Badge.jsx":"d9b434a84f8c","components/core/Input.jsx":"a708410a3a1a","components/core/Avatar.jsx":"85b9b49b2b31","components/core/Button.jsx":"9fbb86eb0636","components/core/Select.jsx":"1092bf39890d","components/core/Slider.jsx":"b71a424e374f","components/core/Switch.jsx":"b5c1e4456040","components/core/Checkbox.jsx":"4669a6c7d06e","components/core/IconButton.jsx":"ce9d5fc90c74","components/core/RadioGroup.jsx":"945a11970cc2","components/core/SegmentedControl.jsx":"ac03fcc46c9c","components/data/Table.jsx":"b22cd982753e","components/data/KpiCard.jsx":"c0c0b20c2679","components/data/Stepper.jsx":"6aba5aee2fb8","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"1666a8058352","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"7a90dfb0d252","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/DecisionAlert.jsx":"4c7dd632925c","components/charts/Legend.jsx":"a5bf7d976544","components/charts/Heatmap.jsx":"39d4fc9e105e","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"f3fb06d1b10a","components/charts/LineChart.jsx":"5b3bf436b421","components/charts/Sparkline.jsx":"86a0ac509008","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"9202e27afaf6","components/charts/ScatterChart.jsx":"c55e7b153e0d","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"c92cb58abc12","components/overlay/Menu.jsx":"63b5ee1c6dee","components/overlay/Modal.jsx":"4c96a4f5278c","components/overlay/Toast.jsx":"949b417a36c5","components/overlay/Drawer.jsx":"717a9b4888d5","components/overlay/Popover.jsx":"1ad9ccc50560","components/overlay/Tooltip.jsx":"bd5c243bed5a","components/feedback/Banner.jsx":"c78ef4666920","components/marketing/FaqItem.jsx":"7f7a9fd9d203","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"62c48dce4f84","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/RecommendationCard.jsx":"d7d888885396","components/app/Sidebar.jsx":"85fcfcd79fd7","components/app/StatTile.jsx":"2c0c56e88b04","components/app/DataTable.jsx":"7ebaa02c6530","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/CommandPalette.jsx":"cf88b04bffa0","components/app/DateRangePicker.jsx":"cd89be7fa32f"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -1825,6 +1825,236 @@ function DecisionAlert({
 __ds_scope.DecisionAlert = DecisionAlert;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/data/DecisionAlert.jsx", error: String((e && e.message) || e) }); }
 
+// components/charts/Legend.jsx
+try { (() => {
+/**
+ * Alfred AI — Legend
+ * Swatch + label key for any chart. Row (default) or column layout; each item
+ * may carry an optional right-aligned value. Colors default through the brand
+ * categorical palette so a legend always matches the chart beside it.
+ */
+const PALETTE = ["#FF8431", "#A7A7FC", "#FFB07B", "#7B7BF5", "#2FB67C", "#F26A1B", "#C9C9FF", "#E5484D"];
+function Legend({
+  items = [],
+  direction = "row",
+  style = {}
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: direction === "column" ? "column" : "row",
+      flexWrap: "wrap",
+      gap: direction === "column" ? 8 : 18,
+      ...style
+    }
+  }, items.map((it, i) => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 11,
+      height: 11,
+      borderRadius: 3,
+      flex: "none",
+      background: it.color || PALETTE[i % PALETTE.length]
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)"
+    }
+  }, it.label), it.value != null && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, it.value))));
+}
+__ds_scope.Legend = Legend;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/Legend.jsx", error: String((e && e.message) || e) }); }
+
+// components/charts/Heatmap.jsx
+try { (() => {
+/**
+ * Alfred AI — Heatmap
+ * A matrix heatmap for two-dimensional intensity — e.g. creative fatigue by
+ * audience segment × week. `rows` label each row (left), `cols` label each
+ * column (top), and `values` is a rows×cols grid of numbers. Each cell is
+ * tinted from a faint peach (low) to full brand orange (high) by
+ * value / maxValue, where `maxValue` defaults to the data max. Numbers print
+ * centered with theme-aware contrast (dark on light cells, white on strong
+ * cells). Pass `valueFormat` to format the printed value; an optional
+ * intensity legend strip shows the scale.
+ */
+const ORANGE_RGB = "255, 132, 49"; // var(--orange-500) #FF8431
+
+function Heatmap({
+  rows = [],
+  cols = [],
+  values = [],
+  maxValue,
+  valueFormat,
+  legend = true,
+  style = {}
+}) {
+  const nCols = cols.length;
+  const fmt = typeof valueFormat === "function" ? valueFormat : v => Number.isInteger(v) ? `${v}` : `${Math.round(v * 10) / 10}`;
+
+  // Gather every defined numeric value to derive the scale.
+  const flat = [];
+  for (let r = 0; r < rows.length; r++) {
+    for (let c = 0; c < nCols; c++) {
+      const v = values?.[r]?.[c];
+      if (typeof v === "number" && !Number.isNaN(v)) flat.push(v);
+    }
+  }
+  const dataMax = flat.length ? Math.max(...flat) : 0;
+  const dataMin = flat.length ? Math.min(...flat) : 0;
+  const top = typeof maxValue === "number" && maxValue > 0 ? maxValue : dataMax || 1;
+  const labelStyle = {
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-xs)",
+    fontWeight: "var(--fw-medium)",
+    color: "var(--text-muted)"
+  };
+
+  // Empty / prop-less render.
+  if (rows.length === 0 || nCols === 0) {
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: "100%",
+        ...style
+      }
+    }, /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: 0,
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        color: "var(--text-muted)"
+      }
+    }, "I don't have any data to map yet."));
+  }
+
+  // alpha = value / maxValue, floored so the lightest cells still read as a
+  // soft orange-50 tint rather than vanishing into the surface.
+  const cellBg = t => `rgba(${ORANGE_RGB}, ${(0.08 + t * 0.92).toFixed(3)})`;
+  const cellFg = t => t >= 0.66 ? "var(--text-on-brand)" : "var(--text-primary)";
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      ...style
+    },
+    role: "figure",
+    "aria-label": "Intensity heatmap"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      overflowX: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: `minmax(64px, auto) repeat(${nCols}, minmax(40px, 1fr))`,
+      gap: 6,
+      minWidth: nCols > 6 ? `${nCols * 56 + 72}px` : undefined
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    key: "corner"
+  }), cols.map((c, ci) => /*#__PURE__*/React.createElement("div", {
+    key: `col-${ci}`,
+    style: {
+      ...labelStyle,
+      display: "flex",
+      alignItems: "flex-end",
+      justifyContent: "center",
+      textAlign: "center",
+      paddingBottom: 2
+    }
+  }, c)), rows.map((rLabel, r) => /*#__PURE__*/React.createElement(React.Fragment, {
+    key: `row-${r}`
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...labelStyle,
+      color: "var(--text-secondary)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-end",
+      paddingRight: 10,
+      whiteSpace: "nowrap"
+    }
+  }, rLabel), cols.map((cLabel, c) => {
+    const raw = values?.[r]?.[c];
+    const has = typeof raw === "number" && !Number.isNaN(raw);
+    const t = has ? Math.max(0, Math.min(1, raw / top)) : 0;
+    return /*#__PURE__*/React.createElement("div", {
+      key: `cell-${r}-${c}`,
+      title: has ? `${rLabel} · ${cLabel}: ${fmt(raw)}` : `${rLabel} · ${cLabel}`,
+      style: {
+        minHeight: 42,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "var(--radius-md)",
+        background: has ? cellBg(t) : "var(--surface-sunken)",
+        border: has ? "none" : "1px dashed var(--border-subtle)",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-semibold)",
+        letterSpacing: "var(--ls-tight)",
+        fontVariantNumeric: "tabular-nums",
+        color: has ? cellFg(t) : "var(--text-placeholder)"
+      }
+    }, has ? fmt(raw) : "");
+  }))))), legend && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginTop: 14
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...labelStyle,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, fmt(dataMin)), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      flex: 1,
+      maxWidth: 240,
+      height: 8,
+      borderRadius: "var(--radius-pill)",
+      background: "linear-gradient(90deg, var(--orange-50) 0%, var(--orange-200) 45%, var(--orange-500) 100%)",
+      border: "1px solid var(--border-subtle)"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...labelStyle,
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, fmt(top)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...labelStyle,
+      marginLeft: 4,
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      textTransform: "uppercase",
+      letterSpacing: "var(--ls-caps)"
+    }
+  }, "Intensity")));
+}
+__ds_scope.Heatmap = Heatmap;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/Heatmap.jsx", error: String((e && e.message) || e) }); }
+
 // components/charts/BarChart.jsx
 try { (() => {
 /**
@@ -1899,6 +2129,163 @@ function BarChart({
 }
 __ds_scope.BarChart = BarChart;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/BarChart.jsx", error: String((e && e.message) || e) }); }
+
+// components/charts/AreaChart.jsx
+try { (() => {
+/**
+ * Alfred AI — AreaChart
+ * Multi-series area/line trend with a real plot frame: y-axis gridlines + ticks,
+ * x-axis labels, and an inline legend for 2+ series. Built for performance-over-
+ * time views (ROAS vs target, spend by channel). `series`: [{ name, color?,
+ * points: number[] }]; `labels` align to the point index. Colors default through
+ * the brand categorical palette. Pass `valueFormat` to format the y-axis ticks.
+ */
+const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+const niceRound = v => {
+  const a = Math.abs(v);
+  if (a >= 100) return Math.round(v);
+  if (a >= 10) return Math.round(v * 10) / 10;
+  return Math.round(v * 100) / 100;
+};
+function AreaChart({
+  series = [],
+  labels = [],
+  height = 220,
+  yTicks = 4,
+  valueFormat,
+  fill = true,
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const W = 660,
+    padL = 46,
+    padR = 10,
+    padT = 12,
+    padB = 26;
+  const plotW = W - padL - padR,
+    plotH = height - padT - padB;
+  const all = series.flatMap(s => s.points);
+  const rawMax = Math.max(...all, 0),
+    rawMin = Math.min(...all, 0);
+  const max = rawMax,
+    min = rawMin < 0 ? rawMin : 0;
+  const span = max - min || 1;
+  const n = labels.length || Math.max(...series.map(s => s.points.length), 1);
+  const x = i => padL + i / (n - 1 || 1) * plotW;
+  const y = v => padT + plotH - (v - min) / span * plotH;
+  const fmt = valueFormat || (v => niceRound(v));
+  const ticks = Array.from({
+    length: yTicks + 1
+  }, (_, i) => min + span * i / yTicks);
+  const every = Math.ceil(n / 8) || 1;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: `0 0 ${W} ${height}`,
+    width: "100%",
+    height: height,
+    style: {
+      display: "block"
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, series.map((s, si) => {
+    const c = s.color || PALETTE[si % PALETTE.length];
+    return /*#__PURE__*/React.createElement("linearGradient", {
+      key: si,
+      id: `${uid}f${si}`,
+      x1: "0",
+      y1: "0",
+      x2: "0",
+      y2: "1"
+    }, /*#__PURE__*/React.createElement("stop", {
+      offset: "0%",
+      style: {
+        stopColor: c,
+        stopOpacity: 0.22
+      }
+    }), /*#__PURE__*/React.createElement("stop", {
+      offset: "100%",
+      style: {
+        stopColor: c,
+        stopOpacity: 0
+      }
+    }));
+  })), ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
+    key: i
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: padL,
+    x2: W - padR,
+    y1: y(t),
+    y2: y(t),
+    stroke: "var(--border-subtle)",
+    strokeWidth: "1"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: padL - 8,
+    y: y(t) + 4,
+    textAnchor: "end",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)"
+  }, fmt(t)))), series.map((s, si) => {
+    const c = s.color || PALETTE[si % PALETTE.length];
+    const line = s.points.map((v, i) => `${i ? "L" : "M"} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(" ");
+    const area = `${line} L ${x(s.points.length - 1).toFixed(1)} ${y(min).toFixed(1)} L ${x(0).toFixed(1)} ${y(min).toFixed(1)} Z`;
+    return /*#__PURE__*/React.createElement("g", {
+      key: si
+    }, fill && /*#__PURE__*/React.createElement("path", {
+      d: area,
+      fill: `url(#${uid}f${si})`
+    }), /*#__PURE__*/React.createElement("path", {
+      d: line,
+      fill: "none",
+      stroke: c,
+      strokeWidth: "2.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }));
+  }), labels.map((l, i) => i % every === 0 ? /*#__PURE__*/React.createElement("text", {
+    key: i,
+    x: x(i),
+    y: height - 7,
+    textAnchor: "middle",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)"
+  }, l) : null)), series.length > 1 && series.some(s => s.name) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 18,
+      marginTop: 10,
+      paddingLeft: padL
+    }
+  }, series.map((s, si) => /*#__PURE__*/React.createElement("span", {
+    key: si,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 11,
+      height: 11,
+      borderRadius: 3,
+      flex: "none",
+      background: s.color || PALETTE[si % PALETTE.length]
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)"
+    }
+  }, s.name)))));
+}
+__ds_scope.AreaChart = AreaChart;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/AreaChart.jsx", error: String((e && e.message) || e) }); }
 
 // components/charts/LineChart.jsx
 try { (() => {
@@ -2142,6 +2529,332 @@ function DonutChart({
 __ds_scope.DonutChart = DonutChart;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/DonutChart.jsx", error: String((e && e.message) || e) }); }
 
+// components/charts/GaugeChart.jsx
+try { (() => {
+/**
+ * Alfred AI — GaugeChart
+ * A 270° radial gauge for a single score (AI Visibility Score, account health).
+ * A sunken background rail carries a brand-gradient value arc that sweeps
+ * clockwise from the 7-o'clock start, proportional to value/max. Optional
+ * `segments` ([{ upTo, color }]) tint threshold zones (red/amber/green) along
+ * the rail so you can read where the score sits. `valueFormat` formats the big
+ * center readout; `label` sits above it and `sub` below. Theme-aware: surfaces
+ * and text invert on dark, while the brand gradient stays identical.
+ */
+function GaugeChart({
+  value = 0,
+  max = 100,
+  label = "",
+  sub = "",
+  segments = [],
+  size = 200,
+  valueFormat = v => `${Math.round(v)}`,
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const m = max || 1;
+  const ratio = Math.max(0, Math.min(1, value / m));
+  const fmt = valueFormat || (v => `${Math.round(v)}`);
+
+  // —— Geometry: 270° sweep with a 90° gap centered on the bottom ——
+  const START = 135; // lower-left start (~7 o'clock)
+  const SWEEP = 270;
+  const sw = Math.max(10, Math.round(size * 0.085)); // rail thickness
+  const pad = sw / 2 + 2;
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = size / 2 - pad;
+  const polar = deg => {
+    const a = Math.PI / 180 * deg;
+    return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  };
+  const arc = (startDeg, endDeg) => {
+    const [x0, y0] = polar(startDeg);
+    const [x1, y1] = polar(endDeg);
+    const large = endDeg - startDeg > 180 ? 1 : 0;
+    return `M ${x0.toFixed(2)} ${y0.toFixed(2)} A ${r} ${r} 0 ${large} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`;
+  };
+  const valueAngle = START + ratio * SWEEP;
+  const [knobX, knobY] = polar(valueAngle);
+
+  // threshold zones across the full rail (sorted, clamped)
+  const zones = (segments || []).filter(z => z && typeof z.upTo === "number").map(z => ({
+    upTo: Math.max(0, Math.min(m, z.upTo)),
+    color: z.color
+  })).sort((a, b) => a.upTo - b.upTo);
+
+  // bottom-end labels + cropped viewBox height
+  const bottomArc = cy + r * Math.sin(135 * Math.PI / 180) + sw / 2;
+  const endFont = Math.max(10, Math.round(size * 0.06));
+  const endY = bottomArc + endFont + 2;
+  const H = Math.ceil(endY + endFont * 0.35);
+  const valueFont = Math.round(size * 0.26);
+  const aria = `${label ? `${label}: ` : ""}${fmt(value)} of ${fmt(m)}`;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      width: size,
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: H,
+    viewBox: `0 0 ${size} ${H}`,
+    role: "img",
+    "aria-label": aria,
+    style: {
+      display: "block",
+      overflow: "visible"
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+    id: `${uid}g`,
+    gradientUnits: "userSpaceOnUse",
+    x1: cx - r,
+    y1: cy - r,
+    x2: cx + r,
+    y2: cy + r
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    stopColor: "var(--periwinkle-400)"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "72%",
+    stopColor: "var(--orange-500)"
+  }))), /*#__PURE__*/React.createElement("path", {
+    d: arc(START, START + SWEEP),
+    fill: "none",
+    stroke: "var(--surface-sunken)",
+    strokeWidth: sw,
+    strokeLinecap: "round"
+  }), zones.map((z, i) => {
+    const startFrac = (i === 0 ? 0 : zones[i - 1].upTo) / m;
+    const endFrac = z.upTo / m;
+    if (endFrac <= startFrac) return null;
+    return /*#__PURE__*/React.createElement("path", {
+      key: `z${i}`,
+      d: arc(START + startFrac * SWEEP, START + endFrac * SWEEP),
+      fill: "none",
+      stroke: z.color,
+      strokeWidth: sw,
+      strokeOpacity: "0.5",
+      strokeLinecap: "butt"
+    });
+  }), ratio > 0.0001 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: arc(START, valueAngle),
+    fill: "none",
+    stroke: `url(#${uid}g)`,
+    strokeWidth: sw,
+    strokeLinecap: "round"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: knobX,
+    cy: knobY,
+    r: sw * 0.34,
+    fill: "var(--surface-card)",
+    stroke: "var(--orange-500)",
+    strokeWidth: "2.5"
+  })), /*#__PURE__*/React.createElement("text", {
+    x: polar(START)[0],
+    y: endY,
+    textAnchor: "middle",
+    fontFamily: "var(--font-sans)",
+    fontSize: endFont,
+    fill: "var(--text-muted)"
+  }, fmt(0)), /*#__PURE__*/React.createElement("text", {
+    x: polar(START + SWEEP)[0],
+    y: endY,
+    textAnchor: "middle",
+    fontFamily: "var(--font-sans)",
+    fontSize: endFont,
+    fill: "var(--text-muted)"
+  }, fmt(m))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: size,
+      height: size,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      pointerEvents: "none",
+      padding: `0 ${sw}px`
+    }
+  }, label && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-semibold)",
+      color: "var(--text-secondary)",
+      lineHeight: 1.2
+    }
+  }, label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontWeight: "var(--fw-bold)",
+      fontSize: valueFont,
+      lineHeight: 1,
+      letterSpacing: "var(--ls-tight)",
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums",
+      whiteSpace: "nowrap",
+      marginTop: label ? 4 : 0
+    }
+  }, fmt(value)), sub && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      lineHeight: 1.2,
+      marginTop: 4
+    }
+  }, sub)));
+}
+__ds_scope.GaugeChart = GaugeChart;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/GaugeChart.jsx", error: String((e && e.message) || e) }); }
+
+// components/charts/BulletChart.jsx
+try { (() => {
+/**
+ * Alfred AI — BulletChart
+ * Horizontal actual-vs-target bullet bars for KPI-vs-goal reads (ROAS vs
+ * target, pipeline vs plan, CAC vs ceiling). Each row pairs a measure bar
+ * against a target tick, optionally over graded qualitative bands.
+ *
+ * `items`: [{ label, value, target, max, ranges }]
+ *   - max     scales the row (defaults to value/target headroom).
+ *   - target  draws a vertical tick mark.
+ *   - ranges  optional [poorUpTo, okUpTo] — graded light-gray bands behind
+ *             the measure bar (poor → ok → good, lightening as they improve).
+ * The measure bar is the brand gradient; the value is printed right, tabular.
+ * Pass `valueFormat` to control how value + target are printed.
+ */
+const addCommas = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const niceNum = v => {
+  if (typeof v !== "number" || !Number.isFinite(v)) return v;
+  const a = Math.abs(v);
+  if (a >= 1000) return addCommas(Math.round(v));
+  if (a >= 100) return String(Math.round(v));
+  if (a >= 10) return String(Math.round(v * 10) / 10);
+  return String(Math.round(v * 100) / 100);
+};
+const clampPct = n => Math.max(0, Math.min(100, n));
+function BulletChart({
+  items = [],
+  valueFormat,
+  style = {}
+}) {
+  const fmt = valueFormat || niceNum;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 16,
+      width: "100%",
+      ...style
+    }
+  }, items.map((it, i) => {
+    const value = Number(it.value) || 0;
+    const target = typeof it.target === "number" ? it.target : null;
+    const top = it.max || Math.max(value, target || 0, 1);
+    const ranges = Array.isArray(it.ranges) ? it.ranges : [];
+    const valuePct = clampPct(value / top * 100);
+    const targetPct = target != null ? clampPct(target / top * 100) : null;
+    const poorPct = ranges.length > 0 ? clampPct(ranges[0] / top * 100) : null;
+    const okPct = ranges.length > 1 ? clampPct(ranges[1] / top * 100) : null;
+    const ariaLabel = `${it.label || `Metric ${i + 1}`}: ${fmt(value)}` + (target != null ? `, target ${fmt(target)}` : "");
+    return /*#__PURE__*/React.createElement("div", {
+      key: it.label != null ? `${it.label}-${i}` : i,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 16
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 132,
+        flex: "none",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-medium)",
+        color: "var(--text-secondary)",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis"
+      }
+    }, it.label), /*#__PURE__*/React.createElement("div", {
+      role: "img",
+      "aria-label": ariaLabel,
+      style: {
+        position: "relative",
+        flex: 1,
+        minWidth: 0,
+        height: 36,
+        borderRadius: "var(--radius-sm)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-sunken)",
+        overflow: "hidden"
+      }
+    }, poorPct != null && /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        left: 0,
+        width: `${poorPct}%`,
+        background: "var(--border-default)"
+      }
+    }), okPct != null && /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        left: `${poorPct}%`,
+        width: `${Math.max(okPct - poorPct, 0)}%`,
+        background: "var(--border-subtle)"
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: "50%",
+        left: 0,
+        transform: "translateY(-50%)",
+        width: `${valuePct}%`,
+        height: 14,
+        borderRadius: "var(--radius-pill)",
+        background: "var(--gradient-brand)",
+        boxShadow: "var(--shadow-xs)"
+      }
+    }), targetPct != null && /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: 5,
+        bottom: 5,
+        left: `${targetPct}%`,
+        width: 3,
+        transform: "translateX(-50%)",
+        borderRadius: "var(--radius-pill)",
+        background: "var(--text-primary)",
+        boxShadow: "0 0 0 1.5px var(--surface-card)"
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: "none",
+        minWidth: 52,
+        textAlign: "right",
+        fontFamily: "var(--font-display)",
+        fontSize: "var(--text-base)",
+        fontWeight: "var(--fw-semibold)",
+        letterSpacing: "var(--ls-tight)",
+        color: "var(--text-primary)",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, fmt(value)));
+  }));
+}
+__ds_scope.BulletChart = BulletChart;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/BulletChart.jsx", error: String((e && e.message) || e) }); }
+
 // components/charts/FunnelChart.jsx
 try { (() => {
 /**
@@ -2204,6 +2917,889 @@ function FunnelChart({
 }
 __ds_scope.FunnelChart = FunnelChart;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/FunnelChart.jsx", error: String((e && e.message) || e) }); }
+
+// components/charts/SankeyChart.jsx
+try { (() => {
+/**
+ * Alfred AI — SankeyChart
+ * A simplified left→right Sankey for attribution / cross-module signal routing.
+ * `nodes`: [{ id, label, col }] where `col` is the 0-based column index. `links`:
+ * [{ source, target, value }] referencing node ids. Nodes are laid out in evenly
+ * spaced columns; each node's height is proportional to the larger of its in/out
+ * flow, and links render as filled bezier ribbons whose thickness equals `value`,
+ * tinted from the source node's palette color. Built for a handful of links across
+ * 2–3 columns (e.g. "Paid social → MQL → Won"). Pass `valueFormat` to format the
+ * throughput printed next to each node.
+ */
+const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+function SankeyChart({
+  nodes = [],
+  links = [],
+  height = 300,
+  nodeWidth = 14,
+  valueFormat = v => Math.round(v),
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const [hover, setHover] = React.useState(null);
+  const W = 720,
+    padL = 82,
+    padR = 82,
+    padT = 22,
+    padB = 22;
+  const plotW = W - padL - padR;
+  const plotH = Math.max(height - padT - padB, 12);
+  const nodeGap = 18;
+  const fmt = valueFormat;
+
+  // —— flow totals per node ——
+  const inflow = {},
+    outflow = {};
+  links.forEach(l => {
+    outflow[l.source] = (outflow[l.source] || 0) + (l.value || 0);
+    inflow[l.target] = (inflow[l.target] || 0) + (l.value || 0);
+  });
+  const nodeValue = id => Math.max(inflow[id] || 0, outflow[id] || 0);
+  const maxCol = nodes.reduce((m, n) => Math.max(m, n.col || 0), 0);
+  const colX = col => padL + (maxCol ? col / maxCol : 0) * (plotW - nodeWidth);
+
+  // —— group nodes by column (order preserved) ——
+  const columns = {};
+  nodes.forEach(n => {
+    const c = n.col || 0;
+    if (!columns[c]) columns[c] = [];
+    columns[c].push(n);
+  });
+
+  // —— one shared value→px scale so ribbon thickness always equals value ——
+  let scale = Infinity;
+  Object.keys(columns).forEach(c => {
+    const colNodes = columns[c];
+    const total = colNodes.reduce((s, n) => s + nodeValue(n.id), 0);
+    if (total > 0) {
+      const avail = plotH - (colNodes.length - 1) * nodeGap;
+      scale = Math.min(scale, Math.max(avail, 1) / total);
+    }
+  });
+  if (!isFinite(scale) || scale <= 0) scale = 1;
+
+  // —— assign a palette color + index to each node ——
+  const colorOf = {},
+    idxOf = {};
+  nodes.forEach((n, i) => {
+    colorOf[n.id] = PALETTE[i % PALETTE.length];
+    idxOf[n.id] = i;
+  });
+
+  // —— node geometry (vertically centered within each column) ——
+  const pos = {};
+  Object.keys(columns).map(Number).sort((a, b) => a - b).forEach(c => {
+    const colNodes = columns[c];
+    const total = colNodes.reduce((s, n) => s + nodeValue(n.id), 0);
+    const contentH = total * scale + (colNodes.length - 1) * nodeGap;
+    let y = padT + (plotH - contentH) / 2;
+    colNodes.forEach(n => {
+      const h = Math.max(nodeValue(n.id) * scale, 2);
+      pos[n.id] = {
+        x: colX(c),
+        y,
+        h,
+        col: c,
+        label: n.label,
+        color: colorOf[n.id]
+      };
+      y += h + nodeGap;
+    });
+  });
+  const cy = id => pos[id] ? pos[id].y + pos[id].h / 2 : 0;
+
+  // —— ribbon endpoints, stacked + centered on each node edge ——
+  const outAcc = {},
+    inAcc = {};
+  nodes.forEach(n => {
+    const p = pos[n.id];
+    if (!p) return;
+    outAcc[n.id] = p.y + (p.h - (outflow[n.id] || 0) * scale) / 2;
+    inAcc[n.id] = p.y + (p.h - (inflow[n.id] || 0) * scale) / 2;
+  });
+  const bySource = {},
+    byTarget = {};
+  links.forEach((l, i) => {
+    if (!bySource[l.source]) bySource[l.source] = [];
+    bySource[l.source].push(i);
+    if (!byTarget[l.target]) byTarget[l.target] = [];
+    byTarget[l.target].push(i);
+  });
+
+  // source-side offsets sorted by target position (and vice-versa) to limit crossings
+  const sTopY = {},
+    tTopY = {};
+  Object.keys(bySource).forEach(sid => {
+    if (pos[sid] == null) return;
+    bySource[sid].slice().sort((a, b) => cy(links[a].target) - cy(links[b].target)).forEach(li => {
+      sTopY[li] = outAcc[sid];
+      outAcc[sid] += (links[li].value || 0) * scale;
+    });
+  });
+  Object.keys(byTarget).forEach(tid => {
+    if (pos[tid] == null) return;
+    byTarget[tid].slice().sort((a, b) => cy(links[a].source) - cy(links[b].source)).forEach(li => {
+      tTopY[li] = inAcc[tid];
+      inAcc[tid] += (links[li].value || 0) * scale;
+    });
+  });
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: `0 0 ${W} ${height}`,
+    width: "100%",
+    height: height,
+    style: {
+      display: "block"
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, nodes.map((n, i) => /*#__PURE__*/React.createElement("linearGradient", {
+    key: n.id,
+    id: `${uid}g${i}`,
+    x1: "0",
+    y1: "0",
+    x2: "1",
+    y2: "0"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    stopColor: colorOf[n.id],
+    stopOpacity: "0.46"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "100%",
+    stopColor: colorOf[n.id],
+    stopOpacity: "0.16"
+  })))), links.map((l, i) => {
+    const s = pos[l.source],
+      t = pos[l.target];
+    if (!s || !t) return null;
+    const th = Math.max((l.value || 0) * scale, 1);
+    const sx = s.x + nodeWidth,
+      tx = t.x;
+    const sTop = sTopY[i],
+      tTop = tTopY[i];
+    if (sTop == null || tTop == null) return null;
+    const mx = (sx + tx) / 2;
+    const d = `M ${sx.toFixed(1)} ${sTop.toFixed(1)}` + ` C ${mx.toFixed(1)} ${sTop.toFixed(1)} ${mx.toFixed(1)} ${tTop.toFixed(1)} ${tx.toFixed(1)} ${tTop.toFixed(1)}` + ` L ${tx.toFixed(1)} ${(tTop + th).toFixed(1)}` + ` C ${mx.toFixed(1)} ${(tTop + th).toFixed(1)} ${mx.toFixed(1)} ${(sTop + th).toFixed(1)} ${sx.toFixed(1)} ${(sTop + th).toFixed(1)} Z`;
+    const active = hover === i;
+    return /*#__PURE__*/React.createElement("path", {
+      key: i,
+      d: d,
+      fill: `url(#${uid}g${idxOf[l.source]})`,
+      fillOpacity: active ? 1 : 0.9,
+      stroke: s.color,
+      strokeOpacity: active ? 0.6 : 0,
+      strokeWidth: "1.25",
+      onMouseEnter: () => setHover(i),
+      onMouseLeave: () => setHover(null),
+      style: {
+        transition: "fill-opacity 160ms var(--ease-standard), stroke-opacity 160ms var(--ease-standard)"
+      }
+    });
+  }), nodes.map(n => {
+    const p = pos[n.id];
+    if (!p) return null;
+    return /*#__PURE__*/React.createElement("rect", {
+      key: n.id,
+      x: p.x,
+      y: p.y,
+      width: nodeWidth,
+      height: p.h,
+      rx: "3",
+      fill: p.color
+    });
+  }), nodes.map(n => {
+    const p = pos[n.id];
+    if (!p) return null;
+    const center = p.y + p.h / 2;
+    const isLeft = p.col === 0;
+    const isRight = p.col === maxCol && maxCol !== 0;
+    let x, anchor, ly;
+    if (isRight) {
+      x = p.x + nodeWidth + 9;
+      anchor = "start";
+      ly = center + 4;
+    } else if (isLeft) {
+      x = p.x - 9;
+      anchor = "end";
+      ly = center + 4;
+    } else {
+      x = p.x + nodeWidth / 2;
+      anchor = "middle";
+      ly = p.y - 8;
+    }
+    return /*#__PURE__*/React.createElement("text", {
+      key: n.id,
+      x: x,
+      y: ly,
+      textAnchor: anchor,
+      fontFamily: "var(--font-sans)",
+      fontSize: "12.5",
+      fontWeight: "var(--fw-semibold)",
+      fill: "var(--text-primary)"
+    }, n.label, /*#__PURE__*/React.createElement("tspan", {
+      dx: "6",
+      fontWeight: "var(--fw-medium)",
+      fill: "var(--text-muted)",
+      style: {
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, fmt(nodeValue(n.id))));
+  })));
+}
+__ds_scope.SankeyChart = SankeyChart;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/SankeyChart.jsx", error: String((e && e.message) || e) }); }
+
+// components/charts/ScatterChart.jsx
+try { (() => {
+/**
+ * Alfred AI — ScatterChart
+ * An x/y scatter for two-variable comparison (e.g. spend vs ROAS by campaign).
+ * Real plot frame: x + y axes, both gridlines, formatted axis tick labels, and
+ * small axis titles (`xLabel` along the bottom, `yLabel` rotated up the left).
+ * `points`: [{ x, y, label?, color?, r? }] — each renders as a soft glowing
+ * circle (palette color by index unless `color` set, radius 6 unless `r` set)
+ * with its label beside it. Axes auto-scale to nice rounded maxima; override
+ * with `xMax`/`yMax`, and format ticks with `valueFormatX` / `valueFormatY`.
+ */
+const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+const X_TICKS = 4,
+  Y_TICKS = 4;
+const niceRound = v => {
+  const a = Math.abs(v);
+  if (a >= 100) return Math.round(v);
+  if (a >= 10) return Math.round(v * 10) / 10;
+  return Math.round(v * 100) / 100;
+};
+
+// Round a data maximum up to a clean axis maximum, giving natural headroom.
+const niceMax = (v, ticks) => {
+  if (!(v > 0)) return ticks;
+  const rough = v / ticks;
+  const pow = Math.pow(10, Math.floor(Math.log10(rough)));
+  const n = rough / pow;
+  const step = (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * pow;
+  return Math.ceil(v / step) * step;
+};
+function ScatterChart({
+  points = [],
+  xLabel,
+  yLabel,
+  height = 260,
+  xMax,
+  yMax,
+  valueFormatX,
+  valueFormatY,
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const W = 660,
+    padL = 54,
+    padR = 18,
+    padT = 16,
+    padB = 46;
+  const plotW = W - padL - padR,
+    plotH = height - padT - padB;
+  const plotB = padT + plotH;
+  const xs = points.map(p => Number(p.x) || 0);
+  const ys = points.map(p => Number(p.y) || 0);
+  const xTop = (xMax ?? niceMax(Math.max(...xs, 0), X_TICKS)) || 1;
+  const yTop = (yMax ?? niceMax(Math.max(...ys, 0), Y_TICKS)) || 1;
+  const xPx = v => padL + v / xTop * plotW;
+  const yPx = v => plotB - v / yTop * plotH;
+  const fmtX = valueFormatX || (v => niceRound(v));
+  const fmtY = valueFormatY || (v => niceRound(v));
+  const xTickVals = Array.from({
+    length: X_TICKS + 1
+  }, (_, i) => xTop * i / X_TICKS);
+  const yTickVals = Array.from({
+    length: Y_TICKS + 1
+  }, (_, i) => yTop * i / Y_TICKS);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: `0 0 ${W} ${height}`,
+    width: "100%",
+    height: height,
+    style: {
+      display: "block",
+      overflow: "visible"
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, points.map((p, i) => {
+    const c = p.color || PALETTE[i % PALETTE.length];
+    return /*#__PURE__*/React.createElement("radialGradient", {
+      key: i,
+      id: `${uid}h${i}`,
+      cx: "50%",
+      cy: "50%",
+      r: "50%"
+    }, /*#__PURE__*/React.createElement("stop", {
+      offset: "0%",
+      style: {
+        stopColor: c,
+        stopOpacity: 0.34
+      }
+    }), /*#__PURE__*/React.createElement("stop", {
+      offset: "100%",
+      style: {
+        stopColor: c,
+        stopOpacity: 0
+      }
+    }));
+  })), xTickVals.map((t, i) => /*#__PURE__*/React.createElement("g", {
+    key: `x${i}`
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: xPx(t),
+    x2: xPx(t),
+    y1: padT,
+    y2: plotB,
+    stroke: "var(--border-subtle)",
+    strokeWidth: "1"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: xPx(t),
+    y: plotB + 17,
+    textAnchor: "middle",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)",
+    style: {
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, fmtX(t)))), yTickVals.map((t, i) => /*#__PURE__*/React.createElement("g", {
+    key: `y${i}`
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: padL,
+    x2: W - padR,
+    y1: yPx(t),
+    y2: yPx(t),
+    stroke: "var(--border-subtle)",
+    strokeWidth: "1"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: padL - 9,
+    y: yPx(t) + 4,
+    textAnchor: "end",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)",
+    style: {
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, fmtY(t)))), /*#__PURE__*/React.createElement("line", {
+    x1: padL,
+    x2: padL,
+    y1: padT,
+    y2: plotB,
+    stroke: "var(--border-default)",
+    strokeWidth: "1"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: padL,
+    x2: W - padR,
+    y1: plotB,
+    y2: plotB,
+    stroke: "var(--border-default)",
+    strokeWidth: "1"
+  }), points.map((p, i) => {
+    const c = p.color || PALETTE[i % PALETTE.length];
+    const r = p.r || 6;
+    const cx = xPx(Number(p.x) || 0);
+    const cy = yPx(Number(p.y) || 0);
+    return /*#__PURE__*/React.createElement("g", {
+      key: i
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: cx,
+      cy: cy,
+      r: r + 7,
+      fill: `url(#${uid}h${i})`
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: cx,
+      cy: cy,
+      r: r,
+      fill: c,
+      fillOpacity: "0.92",
+      stroke: "var(--surface-card)",
+      strokeWidth: "1.5"
+    }), p.label != null && p.label !== "" && /*#__PURE__*/React.createElement("text", {
+      x: cx + r + 7,
+      y: cy + 4,
+      fontFamily: "var(--font-sans)",
+      fontSize: "11",
+      fontWeight: "var(--fw-medium)",
+      fill: "var(--text-secondary)"
+    }, p.label));
+  }), xLabel ? /*#__PURE__*/React.createElement("text", {
+    x: padL + plotW / 2,
+    y: height - 6,
+    textAnchor: "middle",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fontWeight: "var(--fw-semibold)",
+    letterSpacing: "0.04em",
+    fill: "var(--text-muted)"
+  }, xLabel) : null, yLabel ? /*#__PURE__*/React.createElement("text", {
+    x: 15,
+    y: padT + plotH / 2,
+    textAnchor: "middle",
+    transform: `rotate(-90 15 ${padT + plotH / 2})`,
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fontWeight: "var(--fw-semibold)",
+    letterSpacing: "0.04em",
+    fill: "var(--text-muted)"
+  }, yLabel) : null));
+}
+__ds_scope.ScatterChart = ScatterChart;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/ScatterChart.jsx", error: String((e && e.message) || e) }); }
+
+// components/charts/WaterfallChart.jsx
+try { (() => {
+/**
+ * Alfred AI — WaterfallChart
+ * Shows how a total is built from running increments / decrements (e.g. starting
+ * budget → channel adds → waste cut → projected pipeline). `items`:
+ * [{ label, value, type?, color? }]. `type` "start" | "end" draws an absolute
+ * total from the baseline in a neutral ink; an omitted `type` is a delta that
+ * floats from the running cumulative — positive reads as a gain (success green),
+ * negative as a cut (danger red). Bars are linked by thin dashed connectors at the
+ * running-total level. Pass `valueFormat` to format y-axis ticks + value labels
+ * (e.g. v => "$" + v + "K").
+ */
+const niceRound = v => {
+  const a = Math.abs(v);
+  if (a >= 100) return Math.round(v);
+  if (a >= 10) return Math.round(v * 10) / 10;
+  return Math.round(v * 100) / 100;
+};
+
+// Smallest "nice" number (1/2/2.5/5/10 × 10ⁿ) ≥ x — for round axis ticks.
+const niceCeil = x => {
+  if (!(x > 0)) return 0;
+  const exp = Math.floor(Math.log10(x));
+  const f = x / Math.pow(10, exp);
+  const nf = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10;
+  return nf * Math.pow(10, exp);
+};
+function WaterfallChart({
+  items = [],
+  height = 240,
+  valueFormat,
+  style = {}
+}) {
+  const W = 680,
+    padL = 50,
+    padR = 14,
+    padT = 16,
+    padB = 30;
+  const plotW = W - padL - padR,
+    plotH = height - padT - padB;
+  const yTicks = 4;
+  const fmt = valueFormat || (v => niceRound(v));
+
+  // —— Resolve each item into a drawable bar (running cumulative) ——
+  let cum = 0;
+  const bars = items.map((it, i) => {
+    const value = it.value || 0;
+    const isTotal = it.type === "start" || it.type === "end";
+    let bottom, top;
+    if (isTotal) {
+      bottom = 0;
+      top = value;
+      cum = value;
+    } else if (value >= 0) {
+      bottom = cum;
+      top = cum + value;
+      cum += value;
+    } else {
+      bottom = cum + value;
+      top = cum;
+      cum += value;
+    }
+    return {
+      key: `${it.label ?? "bar"}-${i}`,
+      label: it.label,
+      value,
+      isTotal,
+      color: it.color,
+      bottom,
+      top,
+      cumAfter: cum
+    };
+  });
+
+  // —— Vertical domain with a little headroom, snapped to round ticks ——
+  const edges = bars.flatMap(b => [b.top, b.bottom]).concat([0]);
+  const dataMax = Math.max(...edges);
+  const dataMin = Math.min(...edges);
+  const loV = Math.min(0, dataMin);
+  const hiPad = dataMax + (dataMax - loV || 1) * 0.08;
+  const step = niceCeil((hiPad - loV) / yTicks) || 1;
+  const minD = Math.floor(loV / step) * step;
+  const maxD = Math.max(Math.ceil(hiPad / step) * step, minD + step);
+  const span = maxD - minD || 1;
+  const ticks = [];
+  for (let v = minD; v <= maxD + 1e-9; v += step) ticks.push(v);
+
+  // —— Geometry ——
+  const n = bars.length || 1;
+  const band = plotW / n;
+  const barW = Math.min(band * 0.56, 46);
+  const cx = i => padL + band * (i + 0.5);
+  const y = v => padT + plotH - (v - minD) / span * plotH;
+  const barColor = b => b.color || (b.isTotal ? "var(--text-primary)" : b.value >= 0 ? "var(--success-500)" : "var(--danger-500)");
+  const labelText = b => {
+    if (b.isTotal) return fmt(b.value);
+    const sign = b.value > 0 ? "+" : b.value < 0 ? "−" : "";
+    return sign + fmt(Math.abs(b.value));
+  };
+  const legend = [bars.some(b => b.isTotal) && {
+    k: "total",
+    label: "Total",
+    color: "var(--text-primary)"
+  }, bars.some(b => !b.isTotal && b.value > 0) && {
+    k: "inc",
+    label: "Increase",
+    color: "var(--success-500)"
+  }, bars.some(b => !b.isTotal && b.value < 0) && {
+    k: "dec",
+    label: "Decrease",
+    color: "var(--danger-500)"
+  }].filter(Boolean);
+  const aria = items.length ? `Waterfall from ${bars[0].label ?? "start"} to ${bars[bars.length - 1].label ?? "end"}` : "Waterfall chart";
+  if (bars.length === 0) {
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: "100%",
+        height,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        color: "var(--text-muted)",
+        ...style
+      }
+    }, "I don't have any steps to chart yet.");
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: `0 0 ${W} ${height}`,
+    width: "100%",
+    height: height,
+    style: {
+      display: "block"
+    },
+    role: "img",
+    "aria-label": aria
+  }, ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
+    key: `t${i}`
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: padL,
+    x2: W - padR,
+    y1: y(t),
+    y2: y(t),
+    stroke: "var(--border-subtle)",
+    strokeWidth: "1"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: padL - 8,
+    y: y(t) + 4,
+    textAnchor: "end",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)",
+    style: {
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, fmt(niceRound(t))))), minD < 0 && /*#__PURE__*/React.createElement("line", {
+    x1: padL,
+    x2: W - padR,
+    y1: y(0),
+    y2: y(0),
+    stroke: "var(--border-default)",
+    strokeWidth: "1.5"
+  }), bars.map((b, i) => i < bars.length - 1 ? /*#__PURE__*/React.createElement("line", {
+    key: `c${b.key}`,
+    x1: cx(i) + barW / 2,
+    x2: cx(i + 1) - barW / 2,
+    y1: y(b.cumAfter),
+    y2: y(b.cumAfter),
+    stroke: "var(--text-muted)",
+    strokeWidth: "1",
+    strokeDasharray: "3 3",
+    opacity: "0.7"
+  }) : null), bars.map((b, i) => {
+    const lowV = Math.min(b.top, b.bottom);
+    const highV = Math.max(b.top, b.bottom);
+    const ry = y(highV);
+    const rh = Math.max(y(lowV) - y(highV), 1);
+    return /*#__PURE__*/React.createElement("g", {
+      key: b.key
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: cx(i) - barW / 2,
+      y: ry,
+      width: barW,
+      height: rh,
+      rx: Math.min(4, barW / 2),
+      fill: barColor(b)
+    }), /*#__PURE__*/React.createElement("text", {
+      x: cx(i),
+      y: ry - 8,
+      textAnchor: "middle",
+      fontFamily: "var(--font-sans)",
+      fontSize: "11",
+      fontWeight: "700",
+      fill: barColor(b),
+      style: {
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, labelText(b)));
+  }), bars.map((b, i) => /*#__PURE__*/React.createElement("text", {
+    key: `x${b.key}`,
+    x: cx(i),
+    y: height - 9,
+    textAnchor: "middle",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)"
+  }, b.label))), legend.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 18,
+      marginTop: 12,
+      paddingLeft: padL
+    }
+  }, legend.map(l => /*#__PURE__*/React.createElement("span", {
+    key: l.k,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 11,
+      height: 11,
+      borderRadius: 3,
+      flex: "none",
+      background: l.color
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)"
+    }
+  }, l.label)))));
+}
+__ds_scope.WaterfallChart = WaterfallChart;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/WaterfallChart.jsx", error: String((e && e.message) || e) }); }
+
+// components/charts/StackedBarChart.jsx
+try { (() => {
+const { Legend } = __ds_scope;
+/**
+ * Alfred AI — StackedBarChart
+ * Vertical bars for comparing several series across categories, with a real plot
+ * frame: y-axis gridlines + ticks, x-axis labels under each group, and an inline
+ * legend. `stacked` (default) stacks series within one bar per label; set it false
+ * to render grouped, side-by-side bars. `data`: [{ label, [key]: number }];
+ * `keys`: the series keys to plot, in stack order (bottom → top). Colors default
+ * through the brand categorical palette; pass `colors` to override per index.
+ * `valueFormat` formats the y-axis ticks. Built for channel-mix views — e.g.
+ * "I've split each quarter's pipeline across social, search and email for you."
+ */
+const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+const BAR_RADIUS = 8; // top-corner rounding — mirrors var(--radius-sm)
+
+const num = v => Number.isFinite(+v) ? +v : 0;
+const niceRound = v => {
+  const a = Math.abs(v);
+  if (a >= 100) return Math.round(v);
+  if (a >= 10) return Math.round(v * 10) / 10;
+  return Math.round(v * 100) / 100;
+};
+const niceCeil = v => {
+  if (!(v > 0)) return 1;
+  const pow = Math.pow(10, Math.floor(Math.log10(v)));
+  const n = v / pow;
+  const step = n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10;
+  return step * pow;
+};
+// Rectangle path with only the two TOP corners rounded (radius clamped to fit).
+const topRounded = (x, y, w, h, r) => {
+  const rr = Math.max(0, Math.min(r, w / 2, h));
+  return `M${x},${y + h} L${x},${y + rr} Q${x},${y} ${x + rr},${y} L${x + w - rr},${y} Q${x + w},${y} ${x + w},${y + rr} L${x + w},${y + h} Z`;
+};
+function StackedBarChart({
+  data = [],
+  keys = [],
+  colors,
+  height = 220,
+  stacked = true,
+  valueFormat,
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const W = 660,
+    padL = 46,
+    padR = 14,
+    padT = 14,
+    padB = 30;
+  const plotW = W - padL - padR,
+    plotH = height - padT - padB;
+  const yTicks = 4;
+  const grouped = !stacked;
+  const palAt = i => Array.isArray(colors) && colors[i] || PALETTE[i % PALETTE.length];
+  const fmt = valueFormat || niceRound;
+  const totals = data.map(d => keys.reduce((s, k) => s + num(d && d[k]), 0));
+  const rawMax = grouped ? Math.max(0, ...data.flatMap(d => keys.map(k => num(d && d[k])))) : Math.max(0, ...totals);
+  const top = niceCeil(rawMax);
+  const n = data.length;
+  const bandW = n ? plotW / n : plotW;
+  const yScale = v => padT + plotH - v / top * plotH;
+  const ticks = Array.from({
+    length: yTicks + 1
+  }, (_, i) => top * i / yTicks);
+  const barW = Math.min(bandW * 0.5, 56); // single stacked bar
+  const innerW = bandW * 0.74; // grouped cluster footprint
+  const nKeys = keys.length || 1;
+  const gGap = nKeys > 1 ? Math.min(6, innerW * 0.05) : 0;
+  const gBarW = Math.max((innerW - gGap * (nKeys - 1)) / nKeys, 1);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: `0 0 ${W} ${height}`,
+    width: "100%",
+    height: height,
+    style: {
+      display: "block"
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+    id: `${uid}sheen`,
+    x1: "0",
+    y1: "0",
+    x2: "0",
+    y2: "1"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    style: {
+      stopColor: "var(--white)",
+      stopOpacity: 0.16
+    }
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "58%",
+    style: {
+      stopColor: "var(--white)",
+      stopOpacity: 0
+    }
+  }))), ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
+    key: `grid${i}`
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: padL,
+    x2: W - padR,
+    y1: yScale(t),
+    y2: yScale(t),
+    stroke: i === 0 ? "var(--border-default)" : "var(--border-subtle)",
+    strokeWidth: "1"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: padL - 8,
+    y: yScale(t) + 4,
+    textAnchor: "end",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)"
+  }, fmt(t)))), data.map((d, i) => {
+    const xc = padL + bandW * (i + 0.5);
+    if (grouped) {
+      const start = xc - innerW / 2;
+      return /*#__PURE__*/React.createElement("g", {
+        key: `bar${i}`
+      }, keys.map((k, j) => {
+        const v = num(d && d[k]);
+        if (v <= 0) return null;
+        const bx = start + j * (gBarW + gGap);
+        const by = yScale(v);
+        const bh = Math.max(yScale(0) - by, 2);
+        const dPath = topRounded(bx, by, gBarW, bh, Math.min(BAR_RADIUS, gBarW / 2));
+        return /*#__PURE__*/React.createElement("g", {
+          key: `seg${i}-${j}`
+        }, /*#__PURE__*/React.createElement("path", {
+          d: dPath,
+          fill: palAt(j)
+        }), /*#__PURE__*/React.createElement("path", {
+          d: dPath,
+          fill: `url(#${uid}sheen)`
+        }));
+      }));
+    }
+
+    // stacked
+    const bx = xc - barW / 2;
+    let acc = 0;
+    let lastIdx = -1;
+    keys.forEach((k, j) => {
+      if (num(d && d[k]) > 0) lastIdx = j;
+    });
+    return /*#__PURE__*/React.createElement("g", {
+      key: `bar${i}`
+    }, keys.map((k, j) => {
+      const v = num(d && d[k]);
+      if (v <= 0) return null;
+      const y0 = yScale(acc);
+      acc += v;
+      const y1 = yScale(acc);
+      const h = y0 - y1;
+      return j === lastIdx ? /*#__PURE__*/React.createElement("path", {
+        key: `seg${i}-${j}`,
+        d: topRounded(bx, y1, barW, h, Math.min(BAR_RADIUS, barW / 2)),
+        fill: palAt(j)
+      }) : /*#__PURE__*/React.createElement("rect", {
+        key: `seg${i}-${j}`,
+        x: bx,
+        y: y1,
+        width: barW,
+        height: h,
+        fill: palAt(j)
+      });
+    }), totals[i] > 0 && /*#__PURE__*/React.createElement("path", {
+      d: topRounded(bx, yScale(totals[i]), barW, yScale(0) - yScale(totals[i]), Math.min(BAR_RADIUS, barW / 2)),
+      fill: `url(#${uid}sheen)`
+    }));
+  }), data.map((d, i) => /*#__PURE__*/React.createElement("text", {
+    key: `lbl${i}`,
+    x: padL + bandW * (i + 0.5),
+    y: height - 9,
+    textAnchor: "middle",
+    fontFamily: "var(--font-sans)",
+    fontSize: "11",
+    fill: "var(--text-muted)"
+  }, d && d.label))), keys.length > 0 && /*#__PURE__*/React.createElement(Legend, {
+    items: keys.map((k, i) => ({
+      label: k,
+      color: palAt(i)
+    })),
+    style: {
+      marginTop: 14
+    }
+  }));
+}
+__ds_scope.StackedBarChart = StackedBarChart;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/StackedBarChart.jsx", error: String((e && e.message) || e) }); }
 
 // components/overlay/Menu.jsx
 try { (() => {
@@ -3231,6 +4827,2959 @@ function AgentStatus({
 __ds_scope.AgentStatus = AgentStatus;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/AgentStatus.jsx", error: String((e && e.message) || e) }); }
 
+// components/trust/CausalChain.jsx
+try { (() => {
+/**
+ * Alfred AI — CausalChain
+ * The etiological signature of Alfred Core's Causal Reasoning Engine: a
+ * horizontal cause → effect → impact chain. Each step is a small node card,
+ * tinted by `kind` (cause = periwinkle, effect = orange, impact = danger),
+ * connected by chevron glyphs. An optional uppercase title eyebrow sits above,
+ * and when `confidence` is given a trailing "<n>% causal confidence" chip
+ * closes the chain like a verdict. Wraps responsively; fully self-contained.
+ *
+ * steps: [{ label, detail, kind }]   kind ∈ "cause" | "effect" | "impact"
+ */
+function CausalChain({
+  steps = [],
+  confidence = null,
+  title = "",
+  style = {}
+}) {
+  const KIND = {
+    cause: {
+      accent: "var(--periwinkle-400)",
+      label: "Cause"
+    },
+    effect: {
+      accent: "var(--orange-500)",
+      label: "Effect"
+    },
+    impact: {
+      accent: "var(--danger-500)",
+      label: "Impact"
+    }
+  };
+  const resolve = k => KIND[k] || KIND.effect;
+  const tabular = {
+    fontVariantNumeric: "tabular-nums",
+    fontFeatureSettings: '"tnum" 1'
+  };
+  const hasConf = confidence !== undefined && confidence !== null && confidence !== "" && !Number.isNaN(Number(confidence));
+  const conf = hasConf ? Math.max(0, Math.min(100, Math.round(Number(confidence)))) : null;
+  const confTone = conf == null ? "var(--text-muted)" : conf >= 70 ? "var(--success-500)" : conf >= 40 ? "var(--warning-500)" : "var(--danger-500)";
+
+  // Eyebrow ----------------------------------------------------------------
+  const eyebrow = title ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 7,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--text-muted)",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "5",
+    cy: "6",
+    r: "2.5"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "19",
+    cy: "18",
+    r: "2.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M7.5 6H13a4 4 0 0 1 4 4v5.5"
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, title)) : null;
+
+  // Empty state ------------------------------------------------------------
+  if (steps.length === 0) {
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        ...style
+      }
+    }, eyebrow, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        color: "var(--text-muted)"
+      }
+    }, "I haven't traced a causal chain for this yet."));
+  }
+
+  // Build the interleaved row of nodes + connectors -----------------------
+  const items = [];
+  steps.forEach((step, i) => {
+    const meta = resolve(step.kind);
+    items.push(/*#__PURE__*/React.createElement("article", {
+      key: `node-${i}`,
+      style: {
+        flex: "1 1 158px",
+        minWidth: 148,
+        maxWidth: 280,
+        display: "flex",
+        flexDirection: "column",
+        gap: 9,
+        background: "var(--surface-card)",
+        border: "1px solid var(--border-subtle)",
+        borderRadius: "var(--radius-lg)",
+        padding: 15,
+        boxShadow: "var(--shadow-xs)",
+        position: "relative",
+        overflow: "hidden"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        position: "absolute",
+        left: 0,
+        top: 0,
+        bottom: 0,
+        width: 3,
+        background: meta.accent
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 9
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: "relative",
+        width: 30,
+        height: 30,
+        flex: "none",
+        borderRadius: "var(--radius-md)",
+        overflow: "hidden",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        position: "absolute",
+        inset: 0,
+        background: meta.accent,
+        opacity: 0.14
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: "relative",
+        display: "inline-flex"
+      }
+    }, /*#__PURE__*/React.createElement(KindGlyph, {
+      kind: step.kind,
+      color: meta.accent
+    }))), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        letterSpacing: "var(--ls-caps)",
+        textTransform: "uppercase",
+        color: meta.accent
+      }
+    }, meta.label), /*#__PURE__*/React.createElement("span", {
+      style: {
+        marginLeft: "auto",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        color: "var(--text-muted)",
+        ...tabular
+      }
+    }, String(i + 1).padStart(2, "0"))), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-semibold)",
+        lineHeight: "var(--lh-snug)",
+        color: "var(--text-primary)"
+      }
+    }, step.label), step.detail ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        lineHeight: "var(--lh-normal)",
+        color: "var(--text-muted)"
+      }
+    }, step.detail) : null));
+    if (i < steps.length - 1) items.push(/*#__PURE__*/React.createElement(Chevron, {
+      key: `chev-${i}`
+    }));
+  });
+
+  // Trailing confidence chip — the verdict that closes the chain
+  if (conf != null) {
+    items.push(/*#__PURE__*/React.createElement(Chevron, {
+      key: "chev-conf"
+    }));
+    items.push(/*#__PURE__*/React.createElement("span", {
+      key: "conf",
+      title: `${conf}% causal confidence`,
+      style: {
+        alignSelf: "center",
+        flex: "none",
+        position: "relative",
+        overflow: "hidden",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 9,
+        padding: "9px 15px",
+        borderRadius: "var(--radius-pill)",
+        background: "var(--surface-card)",
+        border: "1px solid var(--border-subtle)",
+        boxShadow: "var(--shadow-xs)"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        position: "absolute",
+        inset: 0,
+        background: confTone,
+        opacity: 0.1
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        position: "relative",
+        width: 8,
+        height: 8,
+        flex: "none",
+        borderRadius: "var(--radius-pill)",
+        background: confTone
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: "relative",
+        display: "inline-flex",
+        alignItems: "baseline",
+        gap: 6
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-display)",
+        fontSize: "var(--text-base)",
+        fontWeight: "var(--fw-bold)",
+        letterSpacing: "var(--ls-tight)",
+        color: confTone,
+        ...tabular
+      }
+    }, conf, "%"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        fontWeight: "var(--fw-medium)",
+        color: "var(--text-secondary)"
+      }
+    }, "causal confidence"))));
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": title || "Causal chain",
+    style: {
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, eyebrow, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "stretch",
+      gap: 10
+    }
+  }, items));
+}
+
+/* Internal — the directional connector between two nodes. */
+function Chevron() {
+  return /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      alignSelf: "center",
+      display: "inline-flex",
+      alignItems: "center",
+      color: "var(--text-muted)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 6l6 6-6 6",
+    opacity: "0.4"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 6l6 6-6 6"
+  })));
+}
+
+/* Internal — a distinct line glyph per causal role. */
+function KindGlyph({
+  kind,
+  color = "currentColor",
+  size = 18
+}) {
+  const common = {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: color,
+    strokeWidth: 1.75,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": true
+  };
+  if (kind === "cause") {
+    // spark — the trigger that sets the chain in motion
+    return /*#__PURE__*/React.createElement("svg", common, /*#__PURE__*/React.createElement("path", {
+      d: "M13 2 3 14h9l-1 8 10-12h-9l1-8z"
+    }));
+  }
+  if (kind === "impact") {
+    // target — where the consequence lands
+    return /*#__PURE__*/React.createElement("svg", common, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "5"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "1.5"
+    }));
+  }
+  // effect (default) — the downstream ripple
+  return /*#__PURE__*/React.createElement("svg", common, /*#__PURE__*/React.createElement("path", {
+    d: "M22 12h-4l-3 9L9 3l-3 9H2"
+  }));
+}
+__ds_scope.CausalChain = CausalChain;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/CausalChain.jsx", error: String((e && e.message) || e) }); }
+
+// components/trust/DecisionLog.jsx
+try { (() => {
+const { Badge } = __ds_scope;
+/**
+ * Alfred AI — DecisionLog
+ * The "every change logged" audit trail. A vertical timeline where each entry
+ * is a decision Alfred took (or didn't), pinned to a connecting rail with a
+ * status node: acted (solid green check), pending (orange ring, gently
+ * pulsing) or dismissed (muted x). Each row reads time -> title -> optional
+ * detail, an optional outcome pill (e.g. "+6% coverage") and who signed off.
+ * Newest first. Self-contained — inline SVG glyphs, no asset deps, theme-aware.
+ *
+ * entries: [{ time, title, detail, outcome, status, actor }]
+ *   status ∈ "acted" | "pending" | "dismissed"
+ */
+function DecisionLog({
+  entries = [],
+  title = "",
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const pulse = `dl-pulse-${uid}`;
+  const GAP = 22; // vertical space between rows; the rail bridges it
+
+  const resolve = s => s === "acted" || s === "dismissed" ? s : "pending";
+
+  // Outcome pill reuses the house Badge palette (tints read in light + dark).
+  const outcomeTone = s => s === "acted" ? "success" : s === "dismissed" ? "neutral" : "warning";
+  return /*#__PURE__*/React.createElement("section", {
+    "aria-label": title || "Decision log",
+    style: {
+      fontFamily: "var(--font-sans)",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      padding: 22,
+      boxShadow: "var(--shadow-xs)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("style", null, `@keyframes ${pulse}{0%,100%{opacity:.12;transform:scale(1)}50%{opacity:.42;transform:scale(1.55)}}`), title && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 18
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: "var(--radius-md)",
+      flex: "none",
+      background: "var(--accent-soft)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--orange-500)",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "8.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 7.5V12l3 1.7"
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)"
+    }
+  }, title), entries.length > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: "auto",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-semibold)",
+      color: "var(--text-muted)"
+    }
+  }, entries.length, " ", entries.length === 1 ? "change" : "changes")), entries.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 12,
+      padding: "4px 2px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: "var(--radius-circle)",
+      flex: "none",
+      background: "var(--surface-sunken)",
+      border: "1.5px solid var(--border-default)",
+      color: "var(--text-muted)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "15",
+    height: "15",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "8.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 7.5V12l3 1.7"
+  }))), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      maxWidth: 360,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-muted)",
+      lineHeight: "var(--lh-normal)"
+    }
+  }, "I haven't logged any decisions yet. Once I act, every change shows up here with its outcome and who approved it.")) : /*#__PURE__*/React.createElement("div", null, entries.map((entry, i) => {
+    const st = resolve(entry.status);
+    const isLast = i === entries.length - 1;
+    return /*#__PURE__*/React.createElement("div", {
+      key: `${entry.time || "t"}-${entry.title || "e"}-${i}`,
+      style: {
+        display: "flex",
+        gap: 14,
+        paddingBottom: isLast ? 0 : GAP
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "relative",
+        width: 30,
+        flex: "none",
+        display: "flex",
+        justifyContent: "center"
+      }
+    }, !isLast && /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        position: "absolute",
+        top: 32,
+        bottom: -GAP,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: 2,
+        borderRadius: "var(--radius-pill)",
+        background: "var(--border-default)"
+      }
+    }), /*#__PURE__*/React.createElement(StatusNode, {
+      status: st,
+      pulse: pulse
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        minWidth: 0,
+        paddingTop: 1
+      }
+    }, entry.time && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        fontWeight: "var(--fw-medium)",
+        color: "var(--text-muted)",
+        letterSpacing: "0.01em",
+        marginBottom: 3
+      }
+    }, entry.time), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: 8
+      }
+    }, entry.title && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-base)",
+        fontWeight: "var(--fw-bold)",
+        color: "var(--text-primary)",
+        lineHeight: "var(--lh-snug)"
+      }
+    }, entry.title), entry.outcome && /*#__PURE__*/React.createElement(Badge, {
+      tone: outcomeTone(st),
+      dot: st !== "acted",
+      style: {
+        flex: "none"
+      }
+    }, st === "acted" && /*#__PURE__*/React.createElement("svg", {
+      width: "12",
+      height: "12",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true",
+      style: {
+        flex: "none"
+      }
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M3.5 15.5l5-5 3.5 3.5 7.5-7.5"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M16 6h4.5v4.5"
+    })), entry.outcome)), entry.detail && /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: "4px 0 0",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        color: "var(--text-secondary)",
+        lineHeight: "var(--lh-normal)"
+      }
+    }, entry.detail), entry.actor && /*#__PURE__*/React.createElement("span", {
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        marginTop: 8,
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        color: "var(--text-muted)"
+      }
+    }, /*#__PURE__*/React.createElement("svg", {
+      width: "13",
+      height: "13",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.75",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true",
+      style: {
+        flex: "none"
+      }
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "8.5",
+      r: "3.3"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M5.5 19c.6-3.2 3.2-5 6.5-5s5.9 1.8 6.5 5"
+    })), entry.actor)));
+  })));
+}
+
+/* Internal — the rail node. Acted = solid green check, pending = pulsing orange
+   ring with a clock glyph, dismissed = quiet muted x. */
+function StatusNode({
+  status = "pending",
+  pulse = ""
+}) {
+  const size = 30;
+  if (status === "acted") {
+    return /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: "relative",
+        width: size,
+        height: size,
+        flex: "none",
+        borderRadius: "var(--radius-circle)",
+        background: "var(--success-500)",
+        boxShadow: "var(--shadow-xs)",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, /*#__PURE__*/React.createElement("svg", {
+      width: "16",
+      height: "16",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "var(--text-on-brand)",
+      strokeWidth: "2.4",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M5 12.5l4 4 9.5-10"
+    })));
+  }
+  if (status === "dismissed") {
+    return /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: "relative",
+        width: size,
+        height: size,
+        flex: "none",
+        borderRadius: "var(--radius-circle)",
+        background: "var(--surface-sunken)",
+        border: "1.5px solid var(--border-default)",
+        color: "var(--text-muted)",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, /*#__PURE__*/React.createElement("svg", {
+      width: "14",
+      height: "14",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M7.5 7.5l9 9M16.5 7.5l-9 9"
+    })));
+  }
+
+  // pending — orange ring with a soft pulsing halo
+  return /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      width: size,
+      height: size,
+      flex: "none",
+      color: "var(--orange-500)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      inset: -3,
+      borderRadius: "var(--radius-circle)",
+      background: "var(--orange-500)",
+      opacity: 0.16,
+      ...(pulse ? {
+        animation: `${pulse} 1.8s var(--ease-standard) infinite`
+      } : {})
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      width: size,
+      height: size,
+      borderRadius: "var(--radius-circle)",
+      background: "var(--surface-card)",
+      border: "2px solid var(--orange-500)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 7.5V12l3 1.6"
+  }))));
+}
+__ds_scope.DecisionLog = DecisionLog;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/DecisionLog.jsx", error: String((e && e.message) || e) }); }
+
+// components/trust/SourceTrace.jsx
+try { (() => {
+/**
+ * Alfred AI — SourceTrace
+ * The "no black box" trust pattern: shows exactly which connected tools an
+ * insight was grounded in, each with a live sync status. Renders a small
+ * uppercase eyebrow, then either a wrapping row of chips (layout="row") or a
+ * stacked list of rows (layout="list"). Self-contained — no asset deps.
+ *
+ * sources: [{ name, detail, status }]  status ∈ "live" | "syncing" | "stale"
+ */
+function SourceTrace({
+  sources = [],
+  title = "Grounded in",
+  layout = "row",
+  // "row" | "list"
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const pulse = `st-pulse-${uid}`;
+  const STATUS = {
+    live: {
+      color: "var(--success-500)",
+      label: "Live",
+      animate: false
+    },
+    syncing: {
+      color: "var(--warning-500)",
+      label: "Syncing",
+      animate: true
+    },
+    stale: {
+      color: "var(--danger-500)",
+      label: "Stale",
+      animate: false
+    }
+  };
+  const resolve = s => STATUS[s] || STATUS.live;
+  const eyebrow = /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--text-muted)",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M9 12l2 2 4-4"
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, title));
+  return /*#__PURE__*/React.createElement("section", {
+    "aria-label": `${title} — ${sources.length} connected ${sources.length === 1 ? "source" : "sources"}`,
+    style: {
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("style", null, `@keyframes ${pulse}{0%,100%{opacity:.18;transform:scale(1)}50%{opacity:.7;transform:scale(1.45)}}`), eyebrow, sources.length === 0 ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-muted)"
+    }
+  }, "I haven't grounded this in any connected sources yet.") : layout === "list" ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-lg)",
+      overflow: "hidden",
+      boxShadow: "var(--shadow-xs)"
+    }
+  }, sources.map((src, i) => {
+    const s = resolve(src.status);
+    return /*#__PURE__*/React.createElement("div", {
+      key: `${src.name}-${i}`,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        padding: "11px 14px",
+        borderTop: i > 0 ? "1px solid var(--border-subtle)" : "none"
+      }
+    }, /*#__PURE__*/React.createElement(StatusDot, {
+      color: s.color,
+      animate: s.animate,
+      pulse: pulse
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-semibold)",
+        color: "var(--text-primary)"
+      }
+    }, src.name), src.detail && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        color: "var(--text-muted)"
+      }
+    }, src.detail), /*#__PURE__*/React.createElement("span", {
+      style: {
+        marginLeft: "auto",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        letterSpacing: "var(--ls-caps)",
+        textTransform: "uppercase",
+        color: s.color
+      }
+    }, s.label));
+  })) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 8
+    }
+  }, sources.map((src, i) => {
+    const s = resolve(src.status);
+    return /*#__PURE__*/React.createElement("span", {
+      key: `${src.name}-${i}`,
+      title: `${src.name} — ${s.label}`,
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "6px 12px 6px 9px",
+        background: "var(--surface-sunken)",
+        border: "1px solid var(--border-subtle)",
+        borderRadius: "var(--radius-pill)"
+      }
+    }, /*#__PURE__*/React.createElement(StatusDot, {
+      color: s.color,
+      animate: s.animate,
+      pulse: pulse
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-semibold)",
+        color: "var(--text-primary)",
+        lineHeight: 1
+      }
+    }, src.name), src.detail && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        color: "var(--text-muted)",
+        lineHeight: 1
+      }
+    }, src.detail));
+  })));
+}
+
+/* Internal — a status dot with a soft halo (pulsing when actively syncing). */
+function StatusDot({
+  color = "var(--success-500)",
+  animate = false,
+  pulse = ""
+}) {
+  return /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      width: 16,
+      height: 16,
+      flex: "none",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      borderRadius: "var(--radius-circle)",
+      background: color,
+      opacity: 0.18,
+      ...(animate && pulse ? {
+        animation: `${pulse} 1.6s var(--ease-standard) infinite`
+      } : {})
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      width: 8,
+      height: 8,
+      borderRadius: "var(--radius-circle)",
+      background: color
+    }
+  }));
+}
+__ds_scope.SourceTrace = SourceTrace;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/SourceTrace.jsx", error: String((e && e.message) || e) }); }
+
+// components/trust/DataFreshness.jsx
+try { (() => {
+/**
+ * Alfred AI — DataFreshness
+ * A compact trust indicator. Silent stale data is a trust failure, so I
+ * surface it: a status dot (fresh = live green pulse, syncing = amber,
+ * stale = red), the line "Synced <updatedAgo>" and, when a source count is
+ * given, "· <count> sources live". Self-contained — the pulse is a CSS
+ * keyframe scoped by a unique useId class, no external timers.
+ */
+function DataFreshness({
+  updatedAgo = "just now",
+  count,
+  status = "fresh",
+  label,
+  style = {}
+}) {
+  const STATUS = {
+    fresh: {
+      color: "var(--success-500)",
+      word: "",
+      pulse: true
+    },
+    syncing: {
+      color: "var(--warning-500)",
+      word: "Syncing",
+      pulse: false
+    },
+    stale: {
+      color: "var(--danger-500)",
+      word: "Stale",
+      pulse: false
+    }
+  };
+  const s = STATUS[status] || STATUS.fresh;
+  const word = label != null ? label : s.word;
+  const uid = React.useId().replace(/:/g, "");
+  const cls = `df-${uid}`;
+  const dotBase = {
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    width: 8,
+    height: 8,
+    borderRadius: "var(--radius-circle)",
+    background: s.color,
+    transform: "translate(-50%, -50%)"
+  };
+  return /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 7,
+      padding: "5px 11px 5px 9px",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-pill)",
+      boxShadow: "var(--shadow-xs)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      lineHeight: 1,
+      whiteSpace: "nowrap",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("style", null, `
+        @keyframes ${cls}-pulse {
+          0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.55; }
+          70%  { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
+          100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
+        }
+        .${cls}-ring { animation: ${cls}-pulse 2.1s var(--ease-standard) infinite; }
+        @media (prefers-reduced-motion: reduce) { .${cls}-ring { animation: none; } }
+      `), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      width: 8,
+      height: 8,
+      flex: "none"
+    }
+  }, s.pulse && /*#__PURE__*/React.createElement("span", {
+    className: `${cls}-ring`,
+    style: dotBase
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...dotBase,
+      boxShadow: `0 0 0 3px color-mix(in srgb, ${s.color} 18%, transparent)`
+    }
+  })), word ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: "var(--fw-bold)",
+      color: s.color,
+      letterSpacing: "0.01em"
+    }
+  }, word) : null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--text-secondary)",
+      fontWeight: "var(--fw-medium)"
+    }
+  }, "Synced ", updatedAgo), count != null ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--text-muted)"
+    }
+  }, "\xB7 ", count, " ", count === 1 ? "source" : "sources", " live") : null);
+}
+__ds_scope.DataFreshness = DataFreshness;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/DataFreshness.jsx", error: String((e && e.message) || e) }); }
+
+// components/trust/ConfidenceMeter.jsx
+try { (() => {
+/**
+ * Alfred AI — ConfidenceMeter
+ * A graded confidence bar for Alfred's Causal Confidence Score / calibration.
+ * A pill-shaped track carries the full danger → warning → success spectrum; a
+ * surface-coloured veil dims the unreached portion and a slim thumb marks the
+ * value. The value reads "<n>% confident" and a tone word (low / moderate /
+ * high) is derived from thresholds — both coloured by tone, in both themes.
+ */
+function ConfidenceMeter({
+  value = 0,
+  label = "Confidence",
+  showValue = true,
+  size = "md",
+  style = {}
+}) {
+  const raw = typeof value === "number" ? value : Number(value) || 0;
+  const pct = Math.max(0, Math.min(100, Math.round(raw)));
+  const tone = pct >= 70 ? {
+    word: "high",
+    color: "var(--success-500)"
+  } : pct >= 40 ? {
+    word: "moderate",
+    color: "var(--warning-500)"
+  } : {
+    word: "low",
+    color: "var(--danger-500)"
+  };
+  const sizes = {
+    sm: {
+      track: 7,
+      notch: 4,
+      poke: 2,
+      labelFont: "var(--text-xs)",
+      valueFont: "var(--text-sm)",
+      subFont: "var(--text-2xs)",
+      gap: 8
+    },
+    md: {
+      track: 10,
+      notch: 5,
+      poke: 3,
+      labelFont: "var(--text-sm)",
+      valueFont: "var(--text-base)",
+      subFont: "var(--text-xs)",
+      gap: 10
+    },
+    lg: {
+      track: 14,
+      notch: 6,
+      poke: 3,
+      labelFont: "var(--text-base)",
+      valueFont: "var(--text-lg)",
+      subFont: "var(--text-sm)",
+      gap: 12
+    }
+  };
+  const s = sizes[size] || sizes.md;
+  const tabular = {
+    fontVariantNumeric: "tabular-nums",
+    fontFeatureSettings: '"tnum" 1'
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    role: "meter",
+    "aria-valuenow": pct,
+    "aria-valuemin": 0,
+    "aria-valuemax": 100,
+    "aria-label": `${label || "Confidence"}: ${pct}% confident, ${tone.word} confidence`,
+    style: {
+      display: "block",
+      width: "100%",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "baseline",
+      justifyContent: "space-between",
+      gap: 12,
+      marginBottom: s.gap
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      minWidth: 0
+    }
+  }, label ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: s.labelFont,
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-secondary)",
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis"
+    }
+  }, label) : null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: "var(--radius-pill)",
+      background: tone.color
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: tone.color
+    }
+  }, tone.word))), showValue ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "baseline",
+      gap: 5,
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: s.valueFont,
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-tight)",
+      color: tone.color,
+      ...tabular
+    }
+  }, pct, "%"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: s.subFont,
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-muted)"
+    }
+  }, "confident")) : null), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      height: s.track
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      borderRadius: "var(--radius-pill)",
+      overflow: "hidden",
+      background: "linear-gradient(90deg, var(--danger-500) 0%, var(--warning-500) 50%, var(--success-500) 100%)",
+      boxShadow: "inset 0 0 0 1px var(--border-subtle)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      left: `${pct}%`,
+      right: 0,
+      background: "var(--surface-card)",
+      opacity: 0.55
+    }
+  })), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      top: -s.poke,
+      bottom: -s.poke,
+      left: `${pct}%`,
+      transform: `translateX(${-pct}%)`,
+      width: s.notch,
+      borderRadius: "var(--radius-pill)",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-default)",
+      boxShadow: "var(--shadow-sm)"
+    }
+  })));
+}
+__ds_scope.ConfidenceMeter = ConfidenceMeter;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/ConfidenceMeter.jsx", error: String((e && e.message) || e) }); }
+
+// components/trust/RecommendationCard.jsx
+try { (() => {
+const { Button, Badge, ConfidenceMeter } = __ds_scope;
+/**
+ * Alfred AI — RecommendationCard
+ * Alfred's recommendation in the draft → approve → act loop. A soft card with a
+ * left priority rail (high = danger, opportunity = success, medium = orange), an
+ * "Alfred recommends" eyebrow + priority Badge, the title, reasoning and an
+ * emphasised projected-impact line, an optional inline ConfidenceMeter, and a
+ * footer of actions — defaulting to a primary "Approve" and a ghost "Dismiss".
+ */
+function RecommendationCard({
+  title = "Scale LinkedIn ABM +30%",
+  reasoning = "Cost-per-lead fell 22% on the new ABM audience and is holding. Scaling while efficiency lasts captures pipeline before competitors.",
+  impact = "+$30K pipeline this month",
+  confidence = 78,
+  priority = "opportunity",
+  // "high" | "opportunity" | "medium"
+  actions = [],
+  // [{ label, onClick, variant }]
+  onApprove = () => {},
+  onDismiss = () => {},
+  style = {}
+}) {
+  const map = {
+    high: {
+      rail: "var(--danger-500)",
+      badge: "danger",
+      label: "High priority"
+    },
+    opportunity: {
+      rail: "var(--success-500)",
+      badge: "success",
+      label: "Opportunity"
+    },
+    medium: {
+      rail: "var(--orange-500)",
+      badge: "warning",
+      label: "Medium priority"
+    }
+  };
+  const p = map[priority] || map.opportunity;
+  const useActions = Array.isArray(actions) && actions.length > 0;
+  const ghostFix = {
+    color: "var(--text-secondary)"
+  };
+  const check = /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M20 6 L9 17 L4 12"
+  }));
+  const cross = /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 6 L18 18 M18 6 L6 18"
+  }));
+  return /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": `Alfred recommendation: ${title}`,
+    style: {
+      position: "relative",
+      overflow: "hidden",
+      boxSizing: "border-box",
+      width: "100%",
+      maxWidth: 460,
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-md)",
+      padding: "20px 22px 20px 24px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 16,
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      left: 0,
+      top: 0,
+      bottom: 0,
+      width: 5,
+      background: p.rail
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 10,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 24,
+      height: 24,
+      flex: "none",
+      borderRadius: "var(--radius-sm)",
+      background: "var(--gradient-brand)",
+      boxShadow: "var(--shadow-xs)",
+      color: "var(--text-on-brand)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "13",
+    height: "13",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    fill: "currentColor"
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)",
+      whiteSpace: "nowrap"
+    }
+  }, "Alfred recommends")), /*#__PURE__*/React.createElement(Badge, {
+    tone: p.badge,
+    dot: true
+  }, p.label)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--text-primary)"
+    }
+  }, title), reasoning ? /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: "var(--text-sm)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-secondary)"
+    }
+  }, reasoning) : null), impact ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      padding: "10px 12px",
+      borderRadius: "var(--radius-md)",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 30,
+      height: 30,
+      flex: "none",
+      borderRadius: "var(--radius-sm)",
+      background: "var(--accent-soft)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--orange-500)",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M7 17 L17 7"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M7 7 H17 V17"
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, "Projected impact"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)"
+    }
+  }, impact))) : null, confidence != null ? /*#__PURE__*/React.createElement(ConfidenceMeter, {
+    value: confidence,
+    label: "Alfred's confidence",
+    size: "sm"
+  }) : null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      gap: 10,
+      marginTop: 2
+    }
+  }, useActions ? actions.map((a, i) => {
+    const v = a.variant || (i === 0 ? "primary" : "ghost");
+    return /*#__PURE__*/React.createElement(Button, {
+      key: a.label ? `${a.label}-${i}` : i,
+      size: "sm",
+      variant: v,
+      onClick: a.onClick || (() => {}),
+      style: v === "ghost" ? ghostFix : undefined
+    }, a.label);
+  }) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
+    size: "sm",
+    variant: "primary",
+    onClick: onApprove,
+    iconLeft: check
+  }, "Approve"), /*#__PURE__*/React.createElement(Button, {
+    size: "sm",
+    variant: "ghost",
+    onClick: onDismiss,
+    iconLeft: cross,
+    style: ghostFix
+  }, "Dismiss"))));
+}
+__ds_scope.RecommendationCard = RecommendationCard;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/RecommendationCard.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/Sidebar.jsx
+try { (() => {
+/**
+ * Alfred AI — Sidebar
+ * The product navigation rail: a light card surface with a hairline right
+ * border. Each item is a full-width button; the active item lifts to a warm
+ * orange-50 fill with orange-600 bold text. Optional header (e.g. a logo) sits
+ * at the top and an optional footer is pinned to the bottom.
+ */
+function Sidebar({
+  items = [],
+  active = null,
+  onSelect = () => {},
+  header = null,
+  footer = null,
+  width = 248,
+  style = {}
+}) {
+  return /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Primary",
+    style: {
+      boxSizing: "border-box",
+      width,
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      background: "var(--surface-card)",
+      borderRight: "1px solid var(--border-subtle)",
+      padding: "16px 12px",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, header && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "4px 8px 14px",
+      marginBottom: 6,
+      borderBottom: "1px solid var(--border-subtle)"
+    }
+  }, header), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 2,
+      paddingTop: header ? 8 : 0
+    }
+  }, items.map(item => /*#__PURE__*/React.createElement(SidebarItem, {
+    key: item.id,
+    item: item,
+    active: item.id === active,
+    onSelect: onSelect
+  }))), footer && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: "auto",
+      paddingTop: 14,
+      borderTop: "1px solid var(--border-subtle)"
+    }
+  }, footer));
+}
+function SidebarItem({
+  item = {},
+  active = false,
+  onSelect = () => {}
+}) {
+  const [hover, setHover] = React.useState(false);
+  const labelColor = active ? "var(--orange-600)" : hover ? "var(--text-primary)" : "var(--text-secondary)";
+  const iconColor = active ? "var(--orange-500)" : hover ? "var(--text-secondary)" : "var(--text-muted)";
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => onSelect(item.id),
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    "aria-current": active ? "page" : undefined,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      width: "100%",
+      textAlign: "left",
+      border: "1px solid transparent",
+      cursor: "pointer",
+      padding: "9px 12px",
+      borderRadius: "var(--radius-md)",
+      background: active ? "var(--orange-50)" : hover ? "var(--surface-sunken)" : "transparent",
+      color: labelColor,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
+      lineHeight: 1.2,
+      transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 20,
+      height: 20,
+      flex: "none",
+      color: iconColor
+    }
+  }, item.icon || /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "var(--radius-pill)",
+      background: "currentColor",
+      opacity: active ? 1 : 0.55
+    }
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, item.label), item.badge != null && item.badge !== "" && /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "none",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      minWidth: 20,
+      height: 20,
+      padding: "0 7px",
+      borderRadius: "var(--radius-pill)",
+      background: active ? "var(--orange-500)" : "var(--orange-100)",
+      color: active ? "var(--text-on-brand)" : "var(--orange-700)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      lineHeight: 1
+    }
+  }, item.badge));
+}
+__ds_scope.Sidebar = Sidebar;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/Sidebar.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/StatTile.jsx
+try { (() => {
+const { Sparkline } = __ds_scope;
+/**
+ * Alfred AI — StatTile
+ * A KPI tile with an inline trend — a richer KpiCard. Card surface with a top
+ * row (accent-dotted label + a delta pill coloured by direction), a big display
+ * value, an optional caption, and a full-bleed sparkline footer when `points`
+ * is a non-empty number array. `color` overrides the accent dot.
+ */
+function StatTile({
+  label = "",
+  value = "",
+  delta = null,
+  // e.g. "+12.4%"
+  direction = "up",
+  // "up" | "down" | "flat"
+  caption = "",
+  points = [],
+  color = "var(--orange-500)",
+  // accent override
+  style = {}
+}) {
+  const dirs = {
+    up: {
+      color: "var(--success-500)",
+      bg: "var(--success-100)",
+      border: "transparent",
+      glyph: "M12 19V5M6 11l6-6 6 6"
+    },
+    down: {
+      color: "var(--danger-500)",
+      bg: "var(--danger-100)",
+      border: "transparent",
+      glyph: "M12 5v14M6 13l6 6 6-6"
+    },
+    flat: {
+      color: "var(--text-muted)",
+      bg: "var(--surface-sunken)",
+      border: "var(--border-subtle)",
+      glyph: "M5 12h14M15 8l4 4-4 4"
+    }
+  };
+  const d = dirs[direction] || dirs.up;
+  const hasTrend = Array.isArray(points) && points.length > 0;
+  const pad = 20;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
+      minWidth: 200,
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      padding: pad,
+      boxShadow: "var(--shadow-sm)",
+      overflow: "hidden",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "var(--radius-pill)",
+      background: color,
+      flex: "none"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-muted)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, label)), delta != null && delta !== "" && /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 3,
+      flex: "none",
+      padding: "3px 8px",
+      borderRadius: "var(--radius-pill)",
+      background: d.bg,
+      color: d.color,
+      border: `1px solid ${d.border}`,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-bold)",
+      lineHeight: 1
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "12",
+    height: "12",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: d.glyph
+  })), delta)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: 34,
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      color: "var(--text-primary)",
+      lineHeight: 1
+    }
+  }, value), caption !== "" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)"
+    }
+  }, caption), hasTrend && /*#__PURE__*/React.createElement("div", {
+    style: {
+      margin: `8px ${-pad}px ${-pad}px`,
+      lineHeight: 0
+    }
+  }, /*#__PURE__*/React.createElement(Sparkline, {
+    points: points,
+    height: 48,
+    stroke: 2.5
+  })));
+}
+__ds_scope.StatTile = StatTile;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/StatTile.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/DataTable.jsx
+try { (() => {
+const { Pagination } = __ds_scope;
+/**
+ * Alfred AI — DataTable
+ * A real product data table: uppercase tracked headers, hairline rows, a
+ * prominent first label column and right-aligned numeric columns set in
+ * tabular numerals. Headers sort client-side (numbers vs strings, with a caret
+ * glyph marking direction), rows can carry selection checkboxes, and when a
+ * pageSize is given the body pages with the composed Pagination control below.
+ * Theme-aware (light app / dark site), SSR-safe and self-contained.
+ *
+ * columns: [{ key, header, align, render, sortable }]
+ *   align   — "left" (default) | "right" | "center"; "right" gets tabular nums
+ *   render  — (value, row) => node, for custom cells
+ *   sortable — set false to lock a single column when the table is sortable
+ */
+
+/* Pull a comparable number out of a formatted cell ("$84.2K", "5.1x", "62%"). */
+function toNumber(v) {
+  if (typeof v === "number") return v;
+  if (typeof v !== "string") return null;
+  const m = v.replace(/[\s,]/g, "").match(/^[^\d.-]*(-?\d*\.?\d+)\s*([kmb%x]?)/i);
+  if (!m) return null;
+  let n = parseFloat(m[1]);
+  if (!Number.isFinite(n)) return null;
+  const suffix = (m[2] || "").toLowerCase();
+  if (suffix === "k") n *= 1e3;else if (suffix === "m") n *= 1e6;else if (suffix === "b") n *= 1e9;
+  return n;
+}
+function compareValues(a, b) {
+  const an = toNumber(a);
+  const bn = toNumber(b);
+  if (an != null && bn != null) return an - bn;
+  return String(a == null ? "" : a).localeCompare(String(b == null ? "" : b), undefined, {
+    numeric: true,
+    sensitivity: "base"
+  });
+}
+function SortGlyph({
+  dir
+}) {
+  // dir: "asc" | "desc" | null (inactive = faint up/down)
+  const active = dir === "asc" || dir === "desc";
+  const path = dir === "asc" ? /*#__PURE__*/React.createElement("path", {
+    d: "M7 14l5-5 5 5"
+  }) : dir === "desc" ? /*#__PURE__*/React.createElement("path", {
+    d: "M7 10l5 5 5-5"
+  }) : /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("path", {
+    d: "M8 10l4-4 4 4"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M8 14l4 4 4-4"
+  }));
+  return /*#__PURE__*/React.createElement("svg", {
+    width: "13",
+    height: "13",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      flex: "none",
+      opacity: active ? 1 : 0.4,
+      color: active ? "var(--orange-500)" : "currentColor"
+    },
+    "aria-hidden": "true"
+  }, path);
+}
+function CheckBox({
+  checked = false,
+  mixed = false,
+  onChange = () => {},
+  label = "Select"
+}) {
+  const on = checked || mixed;
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "checkbox",
+    "aria-checked": mixed ? "mixed" : checked,
+    "aria-label": label,
+    onClick: onChange,
+    style: {
+      width: 18,
+      height: 18,
+      flex: "none",
+      padding: 0,
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "var(--radius-xs)",
+      border: `1.5px solid ${on ? "var(--orange-500)" : "var(--border-default)"}`,
+      background: on ? "var(--orange-500)" : "var(--surface-card)",
+      color: "var(--text-on-brand)",
+      cursor: "pointer",
+      transition: "background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard)"
+    }
+  }, mixed ? /*#__PURE__*/React.createElement("svg", {
+    width: "12",
+    height: "12",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "3",
+    strokeLinecap: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 12h12"
+  })) : checked ? /*#__PURE__*/React.createElement("svg", {
+    width: "12",
+    height: "12",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "3",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12.5l4 4 10-10"
+  })) : null);
+}
+function DataTable({
+  columns = [],
+  rows = [],
+  sortable = true,
+  initialSort,
+  pageSize,
+  selectable = false,
+  style = {}
+}) {
+  const [sort, setSort] = React.useState(() => initialSort && initialSort.key ? {
+    key: initialSort.key,
+    dir: initialSort.dir === "desc" ? "desc" : "asc"
+  } : null);
+  const [page, setPage] = React.useState(1);
+  const [selected, setSelected] = React.useState(() => new Set());
+  const [hovered, setHovered] = React.useState(null);
+  const canSort = col => sortable && col && col.sortable !== false;
+
+  // Stable identity per row (row.id when present, else original index).
+  const keyed = React.useMemo(() => rows.map((row, i) => ({
+    row,
+    k: row && row.id != null ? row.id : i
+  })), [rows]);
+  const sorted = React.useMemo(() => {
+    if (!sort || !sort.key) return keyed;
+    const dir = sort.dir === "desc" ? -1 : 1;
+    const copy = keyed.slice();
+    copy.sort((A, B) => compareValues(A.row[sort.key], B.row[sort.key]) * dir);
+    return copy;
+  }, [keyed, sort]);
+  const total = sorted.length;
+  const paginated = pageSize != null && pageSize > 0;
+  const pageCount = paginated ? Math.max(1, Math.ceil(total / pageSize)) : 1;
+  const safePage = Math.min(Math.max(1, page), pageCount); // clamp for display, never set state in render
+  const view = paginated ? sorted.slice((safePage - 1) * pageSize, safePage * pageSize) : sorted;
+  const viewKeys = view.map(item => item.k);
+  const allSelected = viewKeys.length > 0 && viewKeys.every(k => selected.has(k));
+  const someSelected = viewKeys.some(k => selected.has(k));
+  const toggleSort = col => {
+    if (!canSort(col)) return;
+    setSort(prev => prev && prev.key === col.key ? {
+      key: col.key,
+      dir: prev.dir === "asc" ? "desc" : "asc"
+    } : {
+      key: col.key,
+      dir: "asc"
+    });
+  };
+  const toggleRow = k => setSelected(prev => {
+    const next = new Set(prev);
+    if (next.has(k)) next.delete(k);else next.add(k);
+    return next;
+  });
+  const toggleAll = () => setSelected(prev => {
+    const next = new Set(prev);
+    if (allSelected) viewKeys.forEach(k => next.delete(k));else viewKeys.forEach(k => next.add(k));
+    return next;
+  });
+  const align = col => col && (col.align === "right" || col.align === "center") ? col.align : "left";
+  const cellPad = "13px 18px";
+  const start = total === 0 ? 0 : (safePage - 1) * pageSize + 1;
+  const end = paginated ? Math.min(safePage * pageSize, total) : total;
+  const showFooter = paginated || selectable && selected.size > 0;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-xs)",
+      overflow: "hidden",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      overflowX: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      tableLayout: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+    style: {
+      background: "var(--surface-sunken)"
+    }
+  }, selectable && /*#__PURE__*/React.createElement("th", {
+    scope: "col",
+    style: {
+      width: 1,
+      padding: cellPad,
+      borderBottom: "1px solid var(--border-default)",
+      verticalAlign: "middle"
+    }
+  }, /*#__PURE__*/React.createElement(CheckBox, {
+    checked: allSelected,
+    mixed: someSelected && !allSelected,
+    onChange: toggleAll,
+    label: "Select all rows"
+  })), columns.map((col, ci) => {
+    const a = align(col);
+    const sortable_ = canSort(col);
+    const dir = sort && sort.key === col.key ? sort.dir : null;
+    const headerStyle = {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: dir ? "var(--text-secondary)" : "var(--text-muted)",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      flexDirection: a === "right" ? "row-reverse" : "row"
+    };
+    return /*#__PURE__*/React.createElement("th", {
+      key: col.key != null ? col.key : ci,
+      scope: "col",
+      "aria-sort": dir ? dir === "asc" ? "ascending" : "descending" : "none",
+      style: {
+        padding: cellPad,
+        textAlign: a,
+        whiteSpace: "nowrap",
+        borderBottom: "1px solid var(--border-default)",
+        verticalAlign: "middle"
+      }
+    }, sortable_ ? /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      onClick: () => toggleSort(col),
+      style: {
+        ...headerStyle,
+        appearance: "none",
+        background: "transparent",
+        border: "none",
+        margin: 0,
+        padding: 0,
+        cursor: "pointer"
+      }
+    }, /*#__PURE__*/React.createElement("span", null, col.header), /*#__PURE__*/React.createElement(SortGlyph, {
+      dir: dir
+    })) : /*#__PURE__*/React.createElement("span", {
+      style: headerStyle
+    }, col.header));
+  }))), /*#__PURE__*/React.createElement("tbody", null, view.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+    colSpan: columns.length + (selectable ? 1 : 0),
+    style: {
+      padding: "40px 18px",
+      textAlign: "center",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-muted)"
+    }
+  }, "I don't have any rows to show yet.")) : view.map((item, ri) => {
+    const isSel = selected.has(item.k);
+    const isHover = hovered === item.k;
+    const last = ri === view.length - 1;
+    const bg = isSel ? "var(--accent-soft)" : isHover ? "var(--surface-sunken)" : "transparent";
+    return /*#__PURE__*/React.createElement("tr", {
+      key: item.k,
+      onMouseEnter: () => setHovered(item.k),
+      onMouseLeave: () => setHovered(null),
+      "aria-selected": selectable ? isSel : undefined,
+      style: {
+        background: bg,
+        transition: "background var(--dur-fast) var(--ease-standard)"
+      }
+    }, selectable && /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: cellPad,
+        borderBottom: last ? "none" : "1px solid var(--border-subtle)",
+        verticalAlign: "middle"
+      }
+    }, /*#__PURE__*/React.createElement(CheckBox, {
+      checked: isSel,
+      onChange: () => toggleRow(item.k),
+      label: "Select row"
+    })), columns.map((col, ci) => {
+      const a = align(col);
+      const value = item.row[col.key];
+      const content = typeof col.render === "function" ? col.render(value, item.row) : value;
+      const isLabel = ci === 0;
+      return /*#__PURE__*/React.createElement("td", {
+        key: col.key != null ? col.key : ci,
+        style: {
+          padding: cellPad,
+          textAlign: a,
+          verticalAlign: "middle",
+          borderBottom: last ? "none" : "1px solid var(--border-subtle)",
+          fontFamily: "var(--font-sans)",
+          fontSize: "var(--text-sm)",
+          lineHeight: "var(--lh-normal)",
+          fontWeight: a === "right" || isLabel ? "var(--fw-semibold)" : "var(--fw-medium)",
+          color: a === "right" || isLabel ? "var(--text-primary)" : "var(--text-secondary)",
+          fontVariantNumeric: a === "right" ? "tabular-nums" : "normal",
+          whiteSpace: "nowrap"
+        }
+      }, content);
+    }));
+  })))), showFooter && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "12px 18px",
+      borderTop: "1px solid var(--border-subtle)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-muted)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, selectable && selected.size > 0 ? `${selected.size} selected` : paginated ? `Showing ${start}–${end} of ${total}` : `${total} rows`), paginated && pageCount > 1 && /*#__PURE__*/React.createElement(Pagination, {
+    page: safePage,
+    pageCount: pageCount,
+    onChange: setPage
+  })));
+}
+__ds_scope.DataTable = DataTable;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/DataTable.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/FilterBar.jsx
+try { (() => {
+const { SegmentedControl, Select, Chip } = __ds_scope;
+/**
+ * Alfred AI — FilterBar
+ * A horizontal analytics filter bar that sits above a table or chart. Each
+ * entry in `filters` renders a house control by `type`:
+ *   - "segmented" → SegmentedControl (mutually-exclusive view toggle)
+ *   - "select"    → Select (compact dropdown)
+ *   - "chip"      → a togglable Chip, or a single-select Chip group when the
+ *                   filter supplies `options`
+ * An optional eyebrow label sits before each control; `right` is pinned to the
+ * far right (e.g. an export button). onChange(id, value) fires on any change.
+ */
+function FilterBar({
+  filters = [],
+  onChange,
+  right,
+  style = {}
+}) {
+  const emit = typeof onChange === "function" ? onChange : () => {};
+  const labelStyle = {
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-2xs)",
+    fontWeight: "var(--fw-bold)",
+    letterSpacing: "var(--ls-caps)",
+    textTransform: "uppercase",
+    color: "var(--text-muted)",
+    whiteSpace: "nowrap",
+    flex: "none"
+  };
+  const renderControl = f => {
+    const opts = Array.isArray(f.options) ? f.options : [];
+    if (f.type === "segmented") {
+      return /*#__PURE__*/React.createElement(SegmentedControl, {
+        size: "sm",
+        options: opts,
+        value: f.value,
+        onChange: v => emit(f.id, v)
+      });
+    }
+    if (f.type === "select") {
+      return /*#__PURE__*/React.createElement(Select, {
+        options: opts,
+        value: f.value || "",
+        onChange: e => emit(f.id, e.target.value),
+        placeholder: f.placeholder || "All",
+        style: {
+          width: f.width || 180
+        }
+      });
+    }
+    if (f.type === "chip") {
+      // A group of single-select chips when options are provided…
+      if (opts.length) {
+        return /*#__PURE__*/React.createElement("span", {
+          style: {
+            display: "inline-flex",
+            flexWrap: "wrap",
+            gap: 6
+          }
+        }, opts.map((o, oi) => /*#__PURE__*/React.createElement(Chip, {
+          key: o.value ?? oi,
+          selected: f.value === o.value,
+          onClick: () => emit(f.id, f.value === o.value ? null : o.value)
+        }, o.label)));
+      }
+      // …otherwise a single on/off toggle chip.
+      return /*#__PURE__*/React.createElement(Chip, {
+        selected: !!f.value,
+        onClick: () => emit(f.id, !f.value)
+      }, f.label || "Filter");
+    }
+    return null;
+  };
+  const isSingleToggleChip = f => f.type === "chip" && !(Array.isArray(f.options) && f.options.length);
+  return /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": "Filters",
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      gap: 14,
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-xl)",
+      padding: "12px 16px",
+      boxShadow: "var(--shadow-xs)",
+      ...style
+    }
+  }, filters.length > 0 && /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      color: "var(--text-muted)",
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M4 5h16l-6 7.2V19l-4 2v-8.8z"
+  }))), filters.map((f, i) => {
+    const showLabel = !!f.label && !isSingleToggleChip(f);
+    return /*#__PURE__*/React.createElement("div", {
+      key: f.id || i,
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+        flex: "none"
+      }
+    }, showLabel && /*#__PURE__*/React.createElement("span", {
+      style: labelStyle
+    }, f.label), renderControl(f));
+  }), right != null && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginLeft: "auto",
+      display: "inline-flex",
+      alignItems: "center",
+      flex: "none"
+    }
+  }, right));
+}
+__ds_scope.FilterBar = FilterBar;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/FilterBar.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/PageHeader.jsx
+try { (() => {
+/**
+ * Alfred AI — PageHeader
+ * The page-title block for the product app: an optional muted breadcrumb row,
+ * a display-scale title + muted subtitle on the left with an actions node on
+ * the right, and an optional underline tablist below. Closes with a hairline
+ * border. Theme-aware (light app / dark site) and self-contained.
+ */
+
+function HeaderTab({
+  label = "",
+  active = false,
+  onClick = () => {}
+}) {
+  const [hover, setHover] = React.useState(false);
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "tab",
+    "aria-selected": active,
+    onClick: onClick,
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    style: {
+      appearance: "none",
+      background: "transparent",
+      border: "none",
+      borderBottom: `2px solid ${active ? "var(--orange-500)" : "transparent"}`,
+      margin: 0,
+      padding: "0 1px 12px",
+      cursor: "pointer",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
+      color: active ? "var(--text-primary)" : hover ? "var(--text-secondary)" : "var(--text-muted)",
+      whiteSpace: "nowrap",
+      transition: "color var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard)"
+    }
+  }, label);
+}
+function PageHeader({
+  title = "",
+  subtitle = "",
+  breadcrumb = [],
+  actions = null,
+  tabs = [],
+  activeTab = null,
+  onTabChange = () => {},
+  style = {}
+}) {
+  const hasTabs = tabs.length > 0;
+  const activeId = activeTab != null ? activeTab : tabs[0] && tabs[0].id;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      fontFamily: "var(--font-sans)",
+      borderBottom: "1px solid var(--border-subtle)",
+      paddingBottom: hasTabs ? 0 : 20,
+      ...style
+    }
+  }, breadcrumb.length > 0 && /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Breadcrumb",
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      gap: 7,
+      marginBottom: 12
+    }
+  }, breadcrumb.map((c, i) => {
+    const last = i === breadcrumb.length - 1;
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      key: `${i}-${c && c.label || ""}`
+    }, i > 0 && /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        color: "var(--text-muted)",
+        fontSize: "var(--text-xs)",
+        lineHeight: 1
+      }
+    }, "/"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        fontWeight: last ? "var(--fw-semibold)" : "var(--fw-medium)",
+        color: last ? "var(--text-secondary)" : "var(--text-muted)"
+      }
+    }, c && c.label));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: 0
+    }
+  }, title && /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h2)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--text-primary)"
+    }
+  }, title), subtitle && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "6px 0 0",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-regular)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-muted)"
+    }
+  }, subtitle)), actions && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      flex: "none"
+    }
+  }, actions)), hasTabs && /*#__PURE__*/React.createElement("div", {
+    role: "tablist",
+    "aria-label": title ? `${title} sections` : "Sections",
+    style: {
+      display: "flex",
+      gap: 24,
+      marginTop: 20,
+      marginBottom: -1,
+      overflowX: "auto"
+    }
+  }, tabs.map(t => /*#__PURE__*/React.createElement(HeaderTab, {
+    key: t.id != null ? t.id : t.label,
+    label: t.label,
+    active: t.id === activeId,
+    onClick: () => onTabChange(t.id)
+  }))));
+}
+__ds_scope.PageHeader = PageHeader;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/PageHeader.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/CommandPalette.jsx
+try { (() => {
+const { Button } = __ds_scope;
+/**
+ * Alfred AI — CommandPalette
+ * The flagship "Seek Alfred" surface: an elevated, rounded panel with a
+ * controlled ask/search field (gradient sparkle mark — the single gradient
+ * element of the view), a primary Ask affordance, and selectable suggestion
+ * rows grouped under a quiet eyebrow. Supports an optional recent section and
+ * a footer hint. Keyboard-aware (Enter asks, ↑/↓ moves selection) and fully
+ * theme-aware so it reads cleanly on the light app and the dark site.
+ *
+ * onChange(nextValue, event) — mirrors value, like a search box.
+ * onSubmit(query)            — fires on Enter, the Ask button, or a row click.
+ */
+
+function SparkleIcon({
+  size = 18,
+  color = "currentColor",
+  strokeWidth = 1.75
+}) {
+  return /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: color,
+    strokeWidth: strokeWidth,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 3.5l1.55 4.6a3 3 0 0 0 1.9 1.9L20 11.5l-4.55 1.5a3 3 0 0 0-1.9 1.9L12 19.5l-1.55-4.6a3 3 0 0 0-1.9-1.9L4 11.5l4.55-1.5a3 3 0 0 0 1.9-1.9z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M19 4.2l.32.95.95.33-.95.32-.32.95-.32-.95-.95-.32.95-.33z"
+  }));
+}
+function EnterIcon({
+  size = 14,
+  color = "currentColor"
+}) {
+  return /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: color,
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "9 10 4 15 9 20"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M20 4v7a4 4 0 0 1-4 4H4"
+  }));
+}
+const DEFAULT_SUGGESTIONS = [{
+  label: "Why did CAC rise 18% last week?",
+  hint: "diagnose"
+}, {
+  label: "Forecast Q3 pipeline against plan",
+  hint: "forecast"
+}, {
+  label: "Which channel is underspending today?",
+  hint: "spend"
+}, {
+  label: "Draft the Monday revenue standup",
+  hint: "summarize"
+}];
+function CommandPalette({
+  placeholder = "Ask Alfred or search anything…",
+  suggestions = [],
+  value,
+  onChange,
+  onSubmit,
+  footer,
+  recent,
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const isControlled = value !== undefined;
+  const [internal, setInternal] = React.useState("");
+  const [focused, setFocused] = React.useState(false);
+  const [activeIdx, setActiveIdx] = React.useState(-1);
+  const current = isControlled ? value : internal;
+  const currentStr = current == null ? "" : String(current);
+  const query = currentStr.trim();
+  const sugList = suggestions.length ? suggestions : DEFAULT_SUGGESTIONS;
+  const recentList = (Array.isArray(recent) ? recent : []).map(r => typeof r === "string" ? {
+    label: r
+  } : r).filter(r => r && r.label);
+  const askRow = query ? [{
+    label: query
+  }] : [];
+  const items = [...askRow, ...sugList, ...recentList];
+  const sugStart = askRow.length;
+  const recentStart = askRow.length + sugList.length;
+  const submit = text => {
+    const q = (text == null ? "" : String(text)).trim();
+    if (!q) return;
+    if (onSubmit) onSubmit(q);
+  };
+  const handleChange = e => {
+    const next = e.target.value;
+    if (!isControlled) setInternal(next);
+    setActiveIdx(-1);
+    if (onChange) onChange(next, e);
+  };
+  const handleKeyDown = e => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveIdx(i => Math.min(i + 1, items.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveIdx(i => Math.max(i - 1, -1));
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      const sel = activeIdx >= 0 ? items[activeIdx] : null;
+      submit(sel ? sel.label : currentStr);
+    } else if (e.key === "Escape") {
+      setActiveIdx(-1);
+    }
+  };
+  const rowBase = {
+    display: "flex",
+    alignItems: "center",
+    gap: 12,
+    width: "100%",
+    textAlign: "left",
+    border: "none",
+    cursor: "pointer",
+    padding: "10px 10px",
+    borderRadius: "var(--radius-md)",
+    background: "transparent",
+    font: "inherit",
+    transition: "background var(--dur-fast) var(--ease-standard)"
+  };
+  const chipBase = {
+    width: 30,
+    height: 30,
+    flex: "none",
+    borderRadius: "var(--radius-sm)",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "color var(--dur-fast) var(--ease-standard), background var(--dur-fast) var(--ease-standard)"
+  };
+  const hintPill = {
+    flex: "none",
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-2xs)",
+    fontWeight: "var(--fw-medium)",
+    letterSpacing: "0.02em",
+    color: "var(--text-muted)",
+    padding: "3px 9px",
+    borderRadius: "var(--radius-pill)",
+    border: "1px solid var(--border-subtle)",
+    background: "var(--surface-card)"
+  };
+  const kbd = {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 4,
+    height: 20,
+    minWidth: 20,
+    padding: "0 5px",
+    borderRadius: "var(--radius-sm)",
+    border: "1px solid var(--border-subtle)",
+    background: "var(--surface-card)",
+    color: "var(--text-muted)"
+  };
+  const eyebrow = text => /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)",
+      padding: "12px 10px 5px"
+    }
+  }, text);
+  const renderRow = (item, flatIdx, variant) => {
+    const active = activeIdx === flatIdx;
+    const isAsk = variant === "ask";
+    return /*#__PURE__*/React.createElement("button", {
+      key: `${variant}-${flatIdx}-${item.label}`,
+      type: "button",
+      onClick: () => submit(item.label),
+      onMouseEnter: () => setActiveIdx(flatIdx),
+      onMouseLeave: () => setActiveIdx(i => i === flatIdx ? -1 : i),
+      style: {
+        ...rowBase,
+        background: active ? "var(--accent-soft)" : "transparent"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...chipBase,
+        background: isAsk ? "var(--orange-500)" : "var(--surface-sunken)",
+        color: isAsk ? "var(--text-on-brand)" : active ? "var(--orange-500)" : "var(--text-muted)"
+      }
+    }, item.icon ? item.icon : /*#__PURE__*/React.createElement(SparkleIcon, {
+      size: 15,
+      color: "currentColor"
+    })), /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: 1,
+        minWidth: 0,
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-medium)",
+        color: "var(--text-primary)",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis"
+      }
+    }, isAsk ? /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--text-secondary)",
+        fontWeight: "var(--fw-semibold)"
+      }
+    }, "Ask Alfred"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--text-muted)"
+      }
+    }, `  “${item.label}”`)) : item.label), item.hint && !isAsk && /*#__PURE__*/React.createElement("span", {
+      style: hintPill
+    }, item.hint), /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...kbd,
+        opacity: active || isAsk ? 1 : 0,
+        transition: "opacity var(--dur-fast) var(--ease-standard)"
+      }
+    }, /*#__PURE__*/React.createElement(EnterIcon, {
+      size: 13
+    })));
+  };
+  const defaultFooter = /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "11px 16px",
+      borderTop: "1px solid var(--border-subtle)",
+      background: "var(--surface-sunken)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...kbd,
+      padding: "0 6px"
+    }
+  }, /*#__PURE__*/React.createElement(EnterIcon, {
+    size: 13
+  })), "Enter to ask", /*#__PURE__*/React.createElement("span", {
+    style: {
+      opacity: 0.5
+    }
+  }, "\xB7"), "Arrow keys to browse"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis"
+    }
+  }, "I reason over your live data"));
+  const footerNode = footer === undefined ? defaultFooter : footer;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      maxWidth: 600,
+      fontFamily: "var(--font-sans)",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-lg)",
+      overflow: "hidden",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("style", null, `.cp-input-${uid}::placeholder{color:var(--text-placeholder);opacity:1;}`), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "16px 16px 12px",
+      borderBottom: "1px solid var(--border-subtle)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      padding: "8px 8px 8px 10px",
+      background: "var(--surface-card)",
+      borderRadius: "var(--radius-lg)",
+      border: `1.5px solid ${focused ? "var(--orange-500)" : "var(--border-default)"}`,
+      boxShadow: focused ? "var(--shadow-focus)" : "var(--shadow-xs)",
+      transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 38,
+      height: 38,
+      flex: "none",
+      borderRadius: "var(--radius-md)",
+      background: "var(--gradient-brand)",
+      boxShadow: "var(--shadow-xs)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement(SparkleIcon, {
+    size: 20,
+    color: "var(--text-on-brand)"
+  })), /*#__PURE__*/React.createElement("input", {
+    className: `cp-input-${uid}`,
+    type: "text",
+    "aria-label": placeholder,
+    placeholder: placeholder,
+    value: currentStr,
+    onChange: handleChange,
+    onKeyDown: handleKeyDown,
+    onFocus: () => setFocused(true),
+    onBlur: () => setFocused(false),
+    style: {
+      flex: 1,
+      minWidth: 0,
+      border: "none",
+      outline: "none",
+      background: "transparent",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-base)",
+      color: "var(--text-primary)",
+      height: 38,
+      lineHeight: "38px"
+    }
+  }), /*#__PURE__*/React.createElement(Button, {
+    size: "sm",
+    variant: "primary",
+    disabled: !query,
+    onClick: () => submit(currentStr),
+    iconLeft: /*#__PURE__*/React.createElement(SparkleIcon, {
+      size: 15,
+      color: "var(--text-on-brand)"
+    }),
+    style: {
+      flex: "none"
+    }
+  }, "Ask"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "8px 8px",
+      maxHeight: 340,
+      overflowY: "auto"
+    }
+  }, askRow.map((it, i) => renderRow(it, i, "ask")), sugList.length > 0 && eyebrow("Suggested"), sugList.map((it, i) => renderRow(it, sugStart + i, "sug")), recentList.length > 0 && eyebrow("Recent"), recentList.map((it, i) => renderRow(it, recentStart + i, "recent"))), footerNode);
+}
+__ds_scope.CommandPalette = CommandPalette;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/CommandPalette.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/DateRangePicker.jsx
+try { (() => {
+/**
+ * Alfred AI — DateRangePicker
+ * A preset date-range control: a connected segmented pill group (active preset
+ * fills orange) with an optional date readout. When "custom" is selected — or a
+ * `rangeLabel` is supplied — it reveals the resolved range (e.g. "1 Apr – 30 Jun")
+ * beside a small calendar glyph. Controlled via `value`; emits onChange(value).
+ */
+const DEFAULT_PRESETS = [{
+  value: "7d",
+  label: "7 days"
+}, {
+  value: "30d",
+  label: "30 days"
+}, {
+  value: "qtd",
+  label: "Quarter"
+}, {
+  value: "custom",
+  label: "Custom"
+}];
+function DateRangePicker({
+  value = "30d",
+  presets = DEFAULT_PRESETS,
+  onChange = () => {},
+  rangeLabel = "",
+  style = {}
+}) {
+  const items = Array.isArray(presets) && presets.length ? presets : DEFAULT_PRESETS;
+  const emit = v => {
+    if (typeof onChange === "function") onChange(v);
+  };
+  const [hover, setHover] = React.useState(null);
+  const showRange = value === "custom" || !!rangeLabel;
+
+  // Per-segment state, used to drop the hairline divider next to any
+  // active / hovered segment so the orange pill reads as one clean shape.
+  const stateAt = i => ({
+    active: value === items[i].value,
+    hot: hover === items[i].value
+  });
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      flexWrap: "wrap",
+      gap: 10,
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": "Date range",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-pill)",
+      padding: 4,
+      boxShadow: "var(--shadow-xs)"
+    }
+  }, items.map((p, i) => {
+    const active = value === p.value;
+    const hot = hover === p.value;
+    const prev = i > 0 ? stateAt(i - 1) : null;
+    const cur = stateAt(i);
+    const divider = prev && !prev.active && !prev.hot && !cur.active && !cur.hot;
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      key: p.value
+    }, i > 0 && /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        width: 1,
+        height: 16,
+        flex: "none",
+        margin: "0 1px",
+        background: divider ? "var(--border-default)" : "transparent",
+        transition: "background var(--dur-base) var(--ease-standard)"
+      }
+    }), /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      "aria-pressed": active,
+      onClick: () => emit(p.value),
+      onMouseEnter: () => setHover(p.value),
+      onMouseLeave: () => setHover(null),
+      style: {
+        border: "none",
+        cursor: "pointer",
+        padding: "8px 16px",
+        lineHeight: 1,
+        borderRadius: "var(--radius-pill)",
+        whiteSpace: "nowrap",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
+        color: active ? "var(--text-on-brand)" : hot ? "var(--orange-600)" : "var(--text-secondary)",
+        background: active ? "var(--orange-500)" : hot ? "var(--accent-soft)" : "transparent",
+        boxShadow: active ? "var(--shadow-sm)" : "none",
+        transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)"
+      }
+    }, p.label));
+  })), showRange && /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      padding: "8px 14px",
+      borderRadius: "var(--radius-pill)",
+      border: "1px solid var(--border-subtle)",
+      background: "var(--surface-card)",
+      boxShadow: "var(--shadow-xs)",
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "15",
+    height: "15",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      color: "var(--orange-500)",
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "3.5",
+    y: "5",
+    width: "17",
+    height: "16",
+    rx: "3"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M3.5 9.5h17"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M8 3.5v3M16 3.5v3"
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: rangeLabel ? "var(--fw-semibold)" : "var(--fw-medium)",
+      color: rangeLabel ? "var(--text-primary)" : "var(--text-muted)"
+    }
+  }, rangeLabel || "Pick a range")));
+}
+__ds_scope.DateRangePicker = DateRangePicker;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/DateRangePicker.jsx", error: String((e && e.message) || e) }); }
+
 __ds_ns.Icon = __ds_scope.Icon;
 
 __ds_ns.Logo = __ds_scope.Logo;
@@ -3281,7 +7830,13 @@ __ds_ns.ProgressBar = __ds_scope.ProgressBar;
 
 __ds_ns.DecisionAlert = __ds_scope.DecisionAlert;
 
+__ds_ns.Legend = __ds_scope.Legend;
+
+__ds_ns.Heatmap = __ds_scope.Heatmap;
+
 __ds_ns.BarChart = __ds_scope.BarChart;
+
+__ds_ns.AreaChart = __ds_scope.AreaChart;
 
 __ds_ns.LineChart = __ds_scope.LineChart;
 
@@ -3289,7 +7844,19 @@ __ds_ns.Sparkline = __ds_scope.Sparkline;
 
 __ds_ns.DonutChart = __ds_scope.DonutChart;
 
+__ds_ns.GaugeChart = __ds_scope.GaugeChart;
+
+__ds_ns.BulletChart = __ds_scope.BulletChart;
+
 __ds_ns.FunnelChart = __ds_scope.FunnelChart;
+
+__ds_ns.SankeyChart = __ds_scope.SankeyChart;
+
+__ds_ns.ScatterChart = __ds_scope.ScatterChart;
+
+__ds_ns.WaterfallChart = __ds_scope.WaterfallChart;
+
+__ds_ns.StackedBarChart = __ds_scope.StackedBarChart;
 
 __ds_ns.Menu = __ds_scope.Menu;
 
@@ -3314,5 +7881,31 @@ __ds_ns.StepFlow = __ds_scope.StepFlow;
 __ds_ns.SignalCard = __ds_scope.SignalCard;
 
 __ds_ns.AgentStatus = __ds_scope.AgentStatus;
+
+__ds_ns.CausalChain = __ds_scope.CausalChain;
+
+__ds_ns.DecisionLog = __ds_scope.DecisionLog;
+
+__ds_ns.SourceTrace = __ds_scope.SourceTrace;
+
+__ds_ns.DataFreshness = __ds_scope.DataFreshness;
+
+__ds_ns.ConfidenceMeter = __ds_scope.ConfidenceMeter;
+
+__ds_ns.RecommendationCard = __ds_scope.RecommendationCard;
+
+__ds_ns.Sidebar = __ds_scope.Sidebar;
+
+__ds_ns.StatTile = __ds_scope.StatTile;
+
+__ds_ns.DataTable = __ds_scope.DataTable;
+
+__ds_ns.FilterBar = __ds_scope.FilterBar;
+
+__ds_ns.PageHeader = __ds_scope.PageHeader;
+
+__ds_ns.CommandPalette = __ds_scope.CommandPalette;
+
+__ds_ns.DateRangePicker = __ds_scope.DateRangePicker;
 
 })();

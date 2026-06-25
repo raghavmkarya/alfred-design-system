@@ -72,6 +72,31 @@ const PROPS = {
   Breadcrumb: { items: [{ label: "Home" }, { label: "Marketing" }, { label: "Spend" }] },
   Pagination: { page: 3, pageCount: 12, onChange: noop },
   Stepper: { steps: [{ label: "Connect" }, { label: "Configure" }, { label: "Launch" }], current: 1 },
+  // —— Tier 1: charts ——
+  Legend: { items: [{ label: "Paid social", color: "#FF8431" }, { label: "Search", color: "#A7A7FC" }] },
+  AreaChart: { series: [{ name: "ROAS", points: [3.1, 3.4, 3.8, 4.2, 4.8] }, { name: "Target", points: [3, 3, 3.5, 4, 4] }], labels: ["W1", "W2", "W3", "W4", "W5"] },
+  StackedBarChart: { data: [{ label: "Q1", social: 38, search: 26, email: 18 }, { label: "Q2", social: 42, search: 24, email: 20 }], keys: ["social", "search", "email"] },
+  Heatmap: { rows: ["Mon", "Tue", "Wed"], cols: ["25-34", "35-44", "45+"], values: [[3.2, 2.1, 1.0], [3.6, 2.4, 1.2], [2.8, 2.0, 0.9]] },
+  GaugeChart: { value: 72, max: 100, label: "AI Visibility", sub: "out of 100" },
+  WaterfallChart: { items: [{ label: "Plan", value: 295, type: "start" }, { label: "Search +", value: 40 }, { label: "Waste cut", value: -12 }, { label: "Projected", value: 323, type: "end" }], valueFormat: (v) => "$" + v + "K" },
+  BulletChart: { items: [{ label: "Blended ROAS", value: 4.8, target: 4.0, max: 6 }, { label: "CAC ($)", value: 184, target: 200, max: 300 }] },
+  SankeyChart: { nodes: [{ id: "social", label: "Paid social", col: 0 }, { id: "mql", label: "MQL", col: 1 }, { id: "won", label: "Won", col: 2 }], links: [{ source: "social", target: "mql", value: 60 }, { source: "mql", target: "won", value: 30 }] },
+  ScatterChart: { points: [{ x: 84, y: 5.1, label: "PMax" }, { x: 61, y: 4.6, label: "Meta" }, { x: 48, y: 3.9, label: "LinkedIn" }], xLabel: "Spend ($K)", yLabel: "ROAS" },
+  // —— Tier 1: trust ——
+  ConfidenceMeter: { value: 82, label: "Causal confidence" },
+  SourceTrace: { sources: [{ name: "GA4", detail: "sessions", status: "live" }, { name: "HubSpot", detail: "pipeline", status: "live" }] },
+  RecommendationCard: { title: "Scale LinkedIn ABM +30%", reasoning: "CPL fell 22% and is holding.", impact: "+$30K pipeline", confidence: 78 },
+  DecisionLog: { entries: [{ time: "Today, 8:02 AM", title: "Reallocated $18K to Performance Max", outcome: "+6% coverage", status: "acted" }, { time: "Yesterday", title: "Scaled LinkedIn +30%", status: "acted" }] },
+  DataFreshness: { updatedAgo: "6m ago", count: 6, status: "fresh" },
+  CausalChain: { steps: [{ label: "Ops resourcing cut", kind: "cause" }, { label: "2 deals stalled", kind: "effect" }, { label: "$380K downgrade", kind: "impact" }], confidence: 74 },
+  // —— Tier 1: app ——
+  Sidebar: { items: [{ id: "home", label: "Home" }, { id: "spend", label: "Spend & ROI", badge: "3" }], active: "home" },
+  PageHeader: { title: "Spend & ROI", subtitle: "Where every dollar is working", breadcrumb: [{ label: "Home" }, { label: "Marketing" }] },
+  DataTable: { columns: [{ key: "name", header: "Campaign" }, { key: "spend", header: "Spend", align: "right" }, { key: "roas", header: "ROAS", align: "right" }], rows: [{ name: "PMax", spend: "$84.2K", roas: "5.1x" }, { name: "Meta", spend: "$61.0K", roas: "4.6x" }] },
+  FilterBar: { filters: [{ type: "segmented", id: "range", options: [{ value: "7d", label: "7d" }, { value: "30d", label: "30d" }], value: "30d" }, { type: "select", id: "ch", label: "Channel", options: [{ value: "all", label: "All" }], value: "all" }] },
+  DateRangePicker: { value: "30d" },
+  CommandPalette: { suggestions: [{ label: "Why did CAC rise last week?", hint: "diagnose" }, { label: "Forecast Q3 pipeline", hint: "forecast" }] },
+  StatTile: { label: "Blended ROAS", value: "4.8x", delta: "+12.4%", direction: "up", caption: "vs 30d", points: [3.1, 3.4, 3.8, 4.2, 4.8] },
 };
 
 const names = Object.keys(ns).filter((k) => !k.startsWith("__") && typeof ns[k] === "function");
