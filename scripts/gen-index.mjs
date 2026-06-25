@@ -25,7 +25,8 @@ const GROUP_META = {
   Spacing: { icon: "fullscreen", order: 6 },
   Brand: { icon: "bookmark", order: 7 },
   Templates: { icon: "export", order: 8 },
-  Slides: { icon: "demo-play", order: 9 },
+  Decks: { icon: "demo-play", order: 9 },
+  Slides: { icon: "fullscreen", order: 10 },
 };
 const groups = [...new Set(allCards.map((c) => c.group))]
   .sort((a, b) => (GROUP_META[a]?.order || 99) - (GROUP_META[b]?.order || 99));

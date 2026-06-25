@@ -3,6 +3,27 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-06-25 — Presentation deck library (16 decks)
+
+### Added
+- **`deck.css`** — a shared on-brand 16:9 slide-layout library (`templates/deck/deck.css`):
+  cover, section divider, statement, agenda, content+stat, metric grid, process steps,
+  comparison, table, quote, timeline, big-stat band, CTA, integration wall, tinted icons.
+  Pairs with the existing `deck-stage.js` runtime + `ds-base.js`.
+- **16 ready-to-present decks** (`templates/decks/`), grounded in the product-marketing source
+  and verified on-brand (sentence case, no emoji, sourced stats):
+  - **Marketing (5):** platform vision · product overview · webinar (the end of the dashboard
+    era) · category POV (decision vs business intelligence) · brand & messaging guide.
+  - **Sales (6):** pitch · business case & ROI · competitive (why Alfred) · product demo ·
+    security & trust · pricing & packaging.
+  - **Operations (5):** onboarding & implementation · QBR template · internal all-hands ·
+    integrations runbook · customer success playbook.
+- **`templates/decks/index.html`** — a gallery linking all 16 decks by function.
+
+### Changed
+- Gallery `index.html` regenerated (50 preview cards); new **Decks** group in `gen-index.mjs`;
+  17 deck cards registered in `_ds_manifest.json`. Docs updated (SKILL/readme/map).
+
 ## 2026-06-25 — App kit completes the product + onboarding kit
 
 ### Added

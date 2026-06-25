@@ -1,0 +1,199 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Sales — security & trust" subtitle="Your data is yours, full stop" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Security &amp; trust</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Alfred for Marketing · Security &amp; trust</span>
+        <h1 class="cover-title">Your data is yours.<br/>Full stop.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">Read-only by default, encrypted throughout, fully audited — and never used to train anyone else's Alfred. Here is exactly how.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — The trust objection -->
+  <section data-label="The trust objection">
+    <div class="frame bg-canvas">
+      <div class="pad center">
+        <span class="eyebrow">The objection</span>
+        <p class="statement" style="margin-top:22px">The question on a security review isn't "what can Alfred do?" It's <span class="accent">"can I trust what it tells me — and where does my data go?"</span></p>
+        <p class="statement-sub">Fair. You have been burned before — by a dashboard that looked authoritative and was quietly wrong. So Alfred earns the trust by design, rather than assuming it.</p>
+      </div>
+      <span class="page">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — Section divider -->
+  <section data-label="Section — Trust by design">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">The principle</div>
+        <h1 class="sec-title">Trust, by architecture.</h1>
+        <p class="sec-sub">Every safeguard that follows is a design decision, not a policy promise — read-only access, data isolation and no cross-customer training are built into how Alfred works.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">03</span>
+    </div>
+  </section>
+
+  <!-- 04 — Read-only by default -->
+  <section data-label="Read-only by default">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">How access works</span>
+        <h2 class="h2" style="margin-top:14px">Read-only by default. Write only when you say so.</h2>
+        <div class="steps" style="grid-template-columns:repeat(4,1fr);margin-top:54px">
+          <div class="step"><span class="step-rail"></span><span class="step-n">1</span><div class="step-t">Connect read-only</div><div class="step-b">Secure read-only API links to your stack. Alfred can see your data; it cannot change it.</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">2</span><div class="step-t">Encrypt</div><div class="step-b">Every connection and synced record is encrypted in transit and at rest. No exceptions.</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">3</span><div class="step-t">Authorise write-back</div><div class="step-b">Acting inside your tools stays off until you explicitly grant it — per integration.</div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-t">Log everything</div><div class="step-b">Every read, recommendation and write lands in a full, exportable audit trail.</div></div>
+        </div>
+      </div>
+      <span class="page">04</span>
+    </div>
+  </section>
+
+  <!-- 05 — Data governance -->
+  <section data-label="Data governance">
+    <div class="frame bg-white">
+      <div class="pad tight">
+        <span class="eyebrow">Data governance</span>
+        <h2 class="h2" style="margin-top:12px">Four lines that don't move</h2>
+        <div class="grid4" style="margin-top:28px">
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/security-lock.svg)"></span></span><div class="c-h">Data isolation</div><p class="c-b">Each customer's data lives in its own isolated boundary. No shared tables, no commingling across accounts.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/locked-feature.svg)"></span></span><div class="c-h">Private pattern library</div><p class="c-b">The patterns Alfred learns about your business stay in your tenant. They are yours, and only yours.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/pricing-cross.svg)"></span></span><div class="c-h">No cross-customer training</div><p class="c-b">Your data never trains another customer's Alfred — or any shared foundational model. Ever.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/integration-success.svg)"></span></span><div class="c-h">API-only model usage</div><p class="c-b">Foundational models are reached through APIs only. No third-party data sharing, no data sold on.</p></div>
+        </div>
+      </div>
+      <span class="page">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — Audit & access -->
+  <section data-label="Audit & access">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">Audit &amp; access</span>
+        <h2 class="h2" style="margin-top:14px">Who did what, when — always on the record</h2>
+        <div class="grid3" style="margin-top:30px">
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/audit-log.svg)"></span></span><div class="c-h">Full audit trail</div><p class="c-b">Every read, recommendation and write-back is logged with who, what and when — exportable for review at any time.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/read-only.svg)"></span></span><div class="c-h">Role-based access</div><p class="c-b">RBAC on Max and Enterprise. People see and do only what their role permits — nothing further.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/security-lock.svg)"></span></span><div class="c-h">Authorised write-back only</div><p class="c-b">Alfred acts in your tools only after you explicitly authorise it, per integration. Write-back is encrypted, and every action is recorded.</p></div>
+        </div>
+      </div>
+      <span class="page">06</span>
+    </div>
+  </section>
+
+  <!-- 07 — No black box -->
+  <section data-label="No black box">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">No black box</span>
+          <h2 class="h2" style="margin:14px 0 26px">Every insight shows its work</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Traceable to source.</b> Each number reconciles back to the system it came from — GA4, Google Ads, HubSpot, Salesforce.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Reasoned, not asserted.</b> Every recommendation carries its why: the root cause and the evidence behind it.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Causal Confidence Score.</b> Each hypothesis is scored, so you know exactly how much weight to give it.</p></div>
+        </div>
+        <div class="card ink glow" style="align-self:stretch">
+          <div style="position:relative">
+            <div class="eyebrow on-dark" style="font-size:12px">Alfred · Spend Mix agent · Northwind Co. (illustrative)</div>
+            <div class="h3" style="color:#fff;margin:14px 0 10px">Move $18K from Search to LinkedIn</div>
+            <p class="c-b" style="margin:0 0 20px">Northwind's Search CAC rose 14% over 7 days while LinkedIn held its pipeline efficiency. Reallocating protects an estimated $96K in projected pipeline.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+              <span class="tag on-dark plain">Source · GA4</span>
+              <span class="tag on-dark plain">Google Ads</span>
+              <span class="tag on-dark plain">HubSpot</span>
+            </div>
+            <span class="tag green">Causal confidence 0.86</span>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — Compounding but contained -->
+  <section data-label="Compounding but contained">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">The memory</span>
+        <p class="statement" style="color:#fff;margin-top:22px">Alfred's edge is the institutional memory it builds about <span class="accent">your</span> business. That memory compounds for you — and is never packaged, sold, or used to sharpen a competitor's Alfred.</p>
+        <p class="statement-sub" style="color:var(--periwinkle-200)">After roughly six months, Alfred Core holds the patterns, outcomes and causes specific to your organisation. Contained inside your tenant. Never commercialised.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — Posture summary -->
+  <section data-label="Security posture">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Security posture</span>
+        <h2 class="h2" style="margin-top:14px">The whole posture, on one slide</h2>
+        <div class="grid2" style="margin-top:32px">
+          <div>
+            <div class="pt"><span class="pt-dot"></span><p>Secure <b>read-only API</b> connections by default.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p>Encrypted <b>write-back only</b> on explicit, per-integration authorisation.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p><b>Full audit trail</b> across reads, recommendations and writes.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p><b>Data isolation</b> between every customer.</p></div>
+          </div>
+          <div>
+            <div class="pt"><span class="pt-dot"></span><p>A <b>private pattern library</b> per customer — never shared.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p><b>No cross-customer training</b>; API-only foundational-model usage.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p>No third-party data sharing; <b>no sale</b> of your intelligence.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p>Up to a year of history synced in week one, <b>zero engineering</b>.</p></div>
+          </div>
+        </div>
+      </div>
+      <span class="page">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — Close -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Bring your security team</span>
+        <h2 class="cta-title" style="margin-top:18px">Hand us your checklist. We'll meet it line by line.</h2>
+        <p class="cta-sub">Read-only to start, encrypted throughout, audited end to end. Time to first insight: under a week.</p>
+        <span class="cta-chip">Book a security review →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">seekalfred.ai · hello@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">10</span>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>

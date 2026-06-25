@@ -1,0 +1,257 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Sales — why Alfred (competitive)" subtitle="How Alfred differs from BI, generic AI and analytics" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Why Alfred (competitive)</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Competitive overview · Alfred for Marketing</span>
+        <h1 class="cover-title">Everything in your stack reports.<br/>Alfred decides.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">A side-by-side look at how Alfred differs from BI tools, generic AI, marketing analytics and your CRM — and the one question only Alfred answers.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — Statement / section divider -->
+  <section data-label="Section — The premise">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">The premise</div>
+        <h1 class="sec-title">We don't compete with your stack — we make it intelligent.</h1>
+        <p class="sec-sub">Alfred sits on top of the tools you already pay for, reasons across them, and turns them into decisions. It replaces the work between your data and your call — not the data itself.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — The category -->
+  <section data-label="The category">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">The category</span>
+        <h2 class="h2" style="margin-top:14px">Three questions. Alfred answers the one that matters.</h2>
+        <div class="grid3" style="margin-top:34px">
+          <div class="card soft">
+            <span class="card-ic peri"><span class="ic peri" style="--i:url(../../assets/icons/sort.svg)"></span></span>
+            <div class="c-h">Business intelligence</div>
+            <p class="c-b"><b style="color:var(--ink-900)">"What happened?"</b><br/>Power BI, Looker, Tableau. Dashboards built for your data team to explore and report.</p>
+          </div>
+          <div class="card soft">
+            <span class="card-ic peri"><span class="ic peri" style="--i:url(../../assets/icons/trend-up.svg)"></span></span>
+            <div class="c-h">Predictive analytics</div>
+            <p class="c-b"><b style="color:var(--ink-900)">"What will happen?"</b><br/>Forecasts and projections — still left to you to interpret and act on.</p>
+          </div>
+          <div class="card grad">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/web-stack-connected.svg)"></span></span>
+            <div class="c-h">Decision intelligence</div>
+            <p class="c-b"><b style="color:#fff">"What should we do, and why?"</b><br/>Alfred — the only one that answers this, and can act on it inside your tools.</p>
+          </div>
+        </div>
+        <p class="body muted" style="margin-top:26px">Category distinction: BI looks backward, predictive looks forward — decision intelligence tells you the move and the reason behind it.</p>
+      </div>
+      <span class="page">03</span>
+    </div>
+  </section>
+
+  <!-- 04 — vs BI tools -->
+  <section data-label="vs BI tools">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">vs BI tools</span>
+        <h2 class="h2" style="margin-top:14px">Built for your data team. Alfred was built for you.</h2>
+        <div class="vs" style="margin-top:30px">
+          <div class="vs-col vs-them">
+            <div class="vs-h">Power BI · Looker · Tableau</div>
+            <div class="vs-row">You ask the question; you build the query</div>
+            <div class="vs-row">Shows what happened, not what to do about it</div>
+            <div class="vs-row">Needs an analyst to set up and maintain</div>
+            <div class="vs-row">Optimised for exploration and reporting</div>
+            <div class="vs-row">The insight ends at the chart</div>
+          </div>
+          <div class="vs-col vs-alfred glow">
+            <div class="vs-h">Alfred</div>
+            <div class="vs-row">Alfred asks the questions for you, every morning</div>
+            <div class="vs-row">Every signal carries a root cause and a recommended action</div>
+            <div class="vs-row">Live in under two weeks, zero engineering</div>
+            <div class="vs-row">Optimised for the decision a leader has to make</div>
+            <div class="vs-row">From insight to execution in one step</div>
+          </div>
+        </div>
+      </div>
+      <span class="page">04</span>
+    </div>
+  </section>
+
+  <!-- 05 — vs generic AI / Copilot -->
+  <section data-label="vs generic AI">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">vs generic AI</span>
+        <h2 class="h2" style="margin-top:14px">Copilot helps you work faster. Alfred helps you decide faster.</h2>
+        <div class="vs" style="margin-top:30px">
+          <div class="vs-col vs-them">
+            <div class="vs-h">Copilot · ChatGPT</div>
+            <div class="vs-row">Lives in your documents, email and chat</div>
+            <div class="vs-row">Answers from what you paste or prompt</div>
+            <div class="vs-row">Drafts, summarises, accelerates the task</div>
+            <div class="vs-row">No memory of your numbers or what worked</div>
+            <div class="vs-row">Generic model, generic context</div>
+          </div>
+          <div class="vs-col vs-alfred glow">
+            <div class="vs-h">Alfred</div>
+            <div class="vs-row">Lives in your data — spend, pipeline, funnel</div>
+            <div class="vs-row">Answers from your connected, reconciled stack</div>
+            <div class="vs-row">Decides, recommends, and acts on the call</div>
+            <div class="vs-row">Remembers this company's patterns and outcomes</div>
+            <div class="vs-row">A private pattern library — your context only</div>
+          </div>
+        </div>
+      </div>
+      <span class="page">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — vs marketing analytics & CRM -->
+  <section data-label="vs analytics & CRM">
+    <div class="frame bg-canvas">
+      <div class="pad tight">
+        <span class="eyebrow">vs analytics &amp; CRM</span>
+        <h2 class="h2" style="margin-top:12px">Your analytics and CRM record. Alfred reasons.</h2>
+        <table class="tbl" style="margin-top:24px">
+          <thead><tr><th>Tool</th><th>What it gives you</th><th>What Alfred gives you</th></tr></thead>
+          <tbody>
+            <tr><td>Marketing analytics</td><td>Tells you which ad worked</td><td>Tells you what that means for next quarter</td></tr>
+            <tr><td>Your CRM</td><td>Stores what already happened</td><td>Tells you what's about to happen — and what to do</td></tr>
+            <tr><td>Spreadsheets &amp; decks</td><td>A snapshot, rebuilt by hand each week</td><td>A live brief that updates and explains itself</td></tr>
+          </tbody>
+        </table>
+        <p class="body muted" style="margin-top:18px">One in three teams run 5–15 tools just to measure ROI (NIQ CMO Outlook 2026). Alfred turns all of them into one reconciled answer.</p>
+      </div>
+      <span class="page">06</span>
+    </div>
+  </section>
+
+  <!-- 07 — vs doing nothing -->
+  <section data-label="vs doing nothing">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">vs doing nothing</span>
+          <h2 class="h2" style="margin:14px 0 26px">The most expensive option is the status quo.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Budget compounds against you.</b> Every hour between an issue and its resolution, spend keeps drifting the wrong way.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Issues surface days late.</b> Creative fatigue, a tracking break or a CAC spike hides in aggregate until the damage is done.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Alfred closes the gap.</b> From issue detected to action taken in under two hours — not three to five days.</p></div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">&lt; 2 hrs</div>
+          <div class="stat-cap">from issue detected to action taken</div>
+          <div class="stat-sub">Design-partner teams cut resolution from 3–5 days to under two hours, and reduced wasted spend by 12%.</div>
+        </div>
+      </div></div>
+      <span class="page">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — Section divider: the wedge -->
+  <section data-label="Section — The wedge">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">The wedge</div>
+        <h1 class="sec-title">Everyone else shows symptoms. Alfred finds the cause.</h1>
+        <p class="sec-sub">A dashboard shows the conversion drop. Alfred tells you whether it's creative fatigue, a tracking break or an auction shift — and what to do about it.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — Root cause intelligence -->
+  <section data-label="Root cause intelligence">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Root cause intelligence</span>
+          <h2 class="h2" style="margin:14px 0 26px">From "what changed" to "why" — with a confidence score.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Etiological by design.</b> Alfred's Causal Reasoning Engine hunts for causes, not just correlations.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Every hypothesis is scored.</b> A Causal Confidence Score tells you exactly how much to trust the read.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Signals don't stay siloed.</b> The Cross-Module Signal Router traces a marketing signal to its sales and finance implications.</p></div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">85%</div>
+          <div class="stat-cap">of marketing questions answered without an analyst</div>
+          <div class="stat-sub">Root cause plus a recommended action on every alert — not another chart left for you to interpret.</div>
+        </div>
+      </div></div>
+      <span class="page">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — The moat -->
+  <section data-label="The moat">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">The moat</span>
+          <h2 class="h2" style="margin:14px 0 26px">The one thing a competitor can never copy: your institutional memory.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Unified institutional memory.</b> Alfred Core learns <i>this</i> organisation's patterns, outcomes and causal associations.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>It can't be backfilled.</b> After roughly six months it holds context a competitor can't compress or recreate.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Not the model, not the features.</b> The moat is the memory accumulated inside your business — and it compounds every month.</p></div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">6 mo</div>
+          <div class="stat-cap">to a memory no competitor can backfill</div>
+          <div class="stat-sub">No cross-customer training. A private pattern library, yours alone — the switching cost is the intelligence itself.</div>
+        </div>
+      </div></div>
+      <span class="page">10</span>
+    </div>
+  </section>
+
+  <!-- 11 — Close -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">The bottom line</span>
+        <h2 class="cta-title" style="margin-top:18px">Your stack reports the past. Alfred decides the next move.</h2>
+        <p class="cta-sub">See Alfred run against your own data. Time to first insight: under a week.</p>
+        <span class="cta-chip">Book a working session →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">seekalfred.ai · hello@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">11</span>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Operations — onboarding" subtitle="From signup to first brief in under a week" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Onboarding &amp; implementation</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Alfred for Marketing · Onboarding &amp; implementation</span>
+        <h1 class="cover-title">From signup to your first brief in under a week.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">A guided two-week onboarding — Connect, Calibrate, first brief — with zero engineering from your team.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — The promise -->
+  <section data-label="The promise">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">The promise</span>
+        <p class="statement" style="color:#fff;margin-top:22px">First insight in <span class="accent">under a week</span>. Full operational readiness in <span class="accent">two</span>.</p>
+        <p class="statement-sub" style="color:var(--periwinkle-200)">No warehouse to build, no engineering tickets, no months-long rollout. Secure read-only connections, calibrated to your KPIs — then Alfred starts deciding alongside you.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — The two-week plan -->
+  <section data-label="The two-week plan">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">The plan</span>
+        <h2 class="h2" style="margin-top:14px">Two weeks, three milestones</h2>
+        <div class="timeline" style="grid-template-columns:repeat(3,1fr);margin-top:64px">
+          <div class="tl"><span class="tl-rail"></span><span class="tl-dot"></span><div class="tl-w">Week 1 · Connect</div><div class="tl-t">Plug in the stack</div><div class="tl-b">Secure read-only API integrations. Up to a year of history synced. Zero engineering.</div></div>
+          <div class="tl"><span class="tl-rail"></span><span class="tl-dot"></span><div class="tl-w">Weeks 1–2 · Calibrate</div><div class="tl-t">Tune to how you operate</div><div class="tl-b">KPIs, alert thresholds, channels and business objectives, set to your priorities.</div></div>
+          <div class="tl"><span class="tl-dot"></span><div class="tl-w">Week 2 · First brief</div><div class="tl-t">Alfred runs your morning</div><div class="tl-b">Your first daily briefing lands — what changed, why, and what needs a decision.</div></div>
+        </div>
+        <p class="body muted" style="margin-top:52px">Time-to-first-insight under one week · full operational readiness in roughly two.</p>
+      </div>
+      <span class="page">03</span>
+    </div>
+  </section>
+
+  <!-- 04 — Step 1 Connect -->
+  <section data-label="Step 1 — Connect">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Step 1 · Connect</span>
+          <h2 class="h2" style="margin:14px 0 26px">Plug Alfred into your stack — read-only.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Secure read-only APIs.</b> Alfred reads; it never writes back without your explicit authorisation.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Up to a year of history.</b> Synced on connect, so patterns are visible from day one.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Zero engineering.</b> No SDKs, no data pipeline to build — connections, not a project.</p></div>
+        </div>
+        <div class="card soft">
+          <span class="card-ic peri"><span class="ic peri" style="--i:url(../../assets/icons/web-stack-connected.svg)"></span></span>
+          <div class="c-h" style="margin-top:14px">Connects in week one</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+            <span class="tag neutral plain">Google Ads</span>
+            <span class="tag neutral plain">Meta Ads</span>
+            <span class="tag neutral plain">LinkedIn Ads</span>
+            <span class="tag neutral plain">Amazon Ads</span>
+            <span class="tag neutral plain">GA4</span>
+            <span class="tag neutral plain">HubSpot</span>
+            <span class="tag neutral plain">Salesforce</span>
+            <span class="tag neutral plain">Search Console</span>
+            <span class="tag neutral plain">Slack</span>
+            <span class="tag neutral plain">Email</span>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">04</span>
+    </div>
+  </section>
+
+  <!-- 05 — Step 2 Calibrate -->
+  <section data-label="Step 2 — Calibrate">
+    <div class="frame bg-white">
+      <div class="pad tight">
+        <span class="eyebrow">Step 2 · Calibrate</span>
+        <h2 class="h2" style="margin-top:12px">Tune Alfred to how you actually operate</h2>
+        <div class="grid4" style="margin-top:32px">
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/channel-mix.svg)"></span></span><div class="c-h">KPIs that matter</div><p class="c-b">The numbers leadership is measured on — reconciled into one source of truth.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/alert-warning.svg)"></span></span><div class="c-h">Alert thresholds</div><p class="c-b">When should Alfred interrupt your morning? Set what counts as worth a decision.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/web-stack-connected.svg)"></span></span><div class="c-h">Channels &amp; sources</div><p class="c-b">Confirm the connected channels Alfred reasons across, weighted to your mix.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/pin.svg)"></span></span><div class="c-h">Business objectives</div><p class="c-b">This quarter's goals, so recommendations are framed against what you're driving.</p></div>
+        </div>
+        <p class="body muted" style="margin-top:30px">A single calibration session sets the baseline. Thresholds and objectives stay tunable as you learn.</p>
+      </div>
+      <span class="page">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — The aha moment (gradient divider) -->
+  <section data-label="Step 3 — The first brief">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">Step 3 · The first brief</div>
+        <h1 class="sec-title">The aha moment.</h1>
+        <p class="sec-sub">The first morning Alfred surfaces something you didn't know — a segment fatiguing, spend drifting, a number that doesn't reconcile — and it's right. That's when onboarding becomes habit.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+  <!-- 07 — Roles & seats -->
+  <section data-label="Roles &amp; seats">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Roles &amp; seats</span>
+          <h2 class="h2" style="margin:14px 0 26px">A leader seat, plus seats for your team.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Leader seat.</b> The decision-maker's view — the daily brief, on-demand answers, and approvals.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Team seats.</b> Analysts and managers work inside the same reconciled source of truth.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Role-based access.</b> RBAC plus a full audit trail on Max and Enterprise — every action logged.</p></div>
+        </div>
+        <div class="card soft">
+          <div class="c-h">Seats by plan</div>
+          <div style="margin-top:14px">
+            <div class="kv"><span class="k">Starter</span><span class="v">3 users</span></div>
+            <div class="kv"><span class="k">Growth</span><span class="v">8 users</span></div>
+            <div class="kv"><span class="k">Max</span><span class="v">25 users</span></div>
+            <div class="kv"><span class="k">Enterprise</span><span class="v">Custom</span></div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — What we need from your team -->
+  <section data-label="What we need from you">
+    <div class="frame bg-canvas">
+      <div class="pad tight">
+        <span class="eyebrow">Your side of the table</span>
+        <h2 class="h2" style="margin-top:12px">What we need from you</h2>
+        <div class="grid2" style="margin-top:30px">
+          <div class="pt"><span class="pt-dot"></span><p><b>Admin to grant connections.</b> Someone who can authorise read-only API access to each tool.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Your priority KPIs.</b> The handful of numbers that matter, and what "good" looks like for each.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Alert thresholds.</b> When Alfred should interrupt your morning versus simply note it.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Channels &amp; objectives.</b> The mix that matters and the goals you're driving this quarter.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>One calibration session.</b> A single working session in week one.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>One named owner.</b> The leader who receives the first brief — and acts on it.</p></div>
+        </div>
+      </div>
+      <span class="page">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — Success criteria -->
+  <section data-label="Success criteria">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Definition of done</span>
+        <h2 class="h2" style="margin-top:14px">First brief delivered — and acted on — in week one</h2>
+        <div class="grid3" style="margin-top:34px">
+          <div class="metric"><div class="m-lab">Time to first insight</div><div class="m-val grad">&lt; 1 wk</div><div class="m-sub">from signup to first brief</div></div>
+          <div class="metric"><div class="m-lab">Full operational readiness</div><div class="m-val grad">~2 wks</div><div class="m-sub">connected and calibrated</div></div>
+          <div class="metric"><div class="m-lab">Decisions acted on</div><div class="m-val grad">1+</div><div class="m-sub">in week one, from the brief</div></div>
+        </div>
+        <p class="body muted" style="margin-top:28px">Success isn't the brief landing — it's the first decision it drives: a reallocation approved, an alert resolved, or a question answered without an analyst.</p>
+      </div>
+      <span class="page">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — Close -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Let's begin</span>
+        <h2 class="cta-title" style="margin-top:18px">Let's get your first brief on the calendar.</h2>
+        <p class="cta-sub">Connections in days, first insight in under a week, full readiness in two. Book your week-one calibration session.</p>
+        <span class="cta-chip">Schedule onboarding →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">seekalfred.ai · hello@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>

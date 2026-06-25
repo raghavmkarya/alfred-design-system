@@ -1,0 +1,245 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Marketing — webinar" subtitle="The end of the dashboard era" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Marketing webinar</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Alfred for Marketing · Demand-gen webinar</span>
+        <h1 class="cover-title">The end of the dashboard era.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">Dashboards report what happened. Alfred tells you what changed, why, and what to do next — so you decide in minutes, not days.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — Agenda -->
+  <section data-label="Agenda">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">What we'll cover</span>
+        <h2 class="h2" style="margin-top:14px">Agenda</h2>
+        <div class="rule sm"></div>
+        <div class="ix-grid" style="margin-top:8px">
+          <div class="ix-item"><span class="ix-num">01</span><div><div class="ix-t">Why dashboards fail leaders</div><div class="ix-d">Reporting isn't deciding</div></div></div>
+          <div class="ix-item"><span class="ix-num">02</span><div><div class="ix-t">Notification vs intelligence</div><div class="ix-d">"CPA increased 34%" — and what's missing</div></div></div>
+          <div class="ix-item"><span class="ix-num">03</span><div><div class="ix-t">Symptoms vs causes</div><div class="ix-d">Diagnostic vs etiological</div></div></div>
+          <div class="ix-item"><span class="ix-num">04</span><div><div class="ix-t">The morning brief</div><div class="ix-d">Your day, already decided</div></div></div>
+          <div class="ix-item"><span class="ix-num">05</span><div><div class="ix-t">Seek Alfred</div><div class="ix-d">Ask anything, answered from your data</div></div></div>
+          <div class="ix-item"><span class="ix-num">06</span><div><div class="ix-t">What to do Monday</div><div class="ix-d">Three moves, and how to start</div></div></div>
+        </div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — Section divider: why dashboards fail leaders -->
+  <section data-label="Section — Why dashboards fail">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">Why dashboards fail leaders</div>
+        <h1 class="sec-title">Reporting isn't deciding.</h1>
+        <p class="sec-sub">A dashboard hands you forty charts and a question. By the time someone reconciles them into an answer, the budget has already moved. 63% of leaders miss opportunities because decisions take too long — PwC CMO Survey 2025.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+  <!-- 04 — Notification vs intelligence -->
+  <section data-label="Notification vs intelligence">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">Notification vs intelligence</span>
+        <h2 class="h2" style="margin-top:12px">"CPA increased 34%" is an alarm, not an answer.</h2>
+        <div class="grid2" style="margin-top:30px;align-items:stretch">
+          <div class="card">
+            <div class="vs-h" style="margin-bottom:14px">Your dashboard</div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+              <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/alert-warning.svg)"></span></span>
+              <div style="font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:-0.02em;color:var(--ink-900)">CPA increased 34%</div>
+            </div>
+            <p class="c-b" style="font-size:16px">No cause. No context. No next step. You open six more tabs to find out why — and the spend keeps drifting while you look.</p>
+          </div>
+          <div class="card ink glow">
+            <div class="vs-h" style="color:var(--periwinkle-200);margin-bottom:14px">Alfred</div>
+            <p class="c-b" style="font-size:16.5px;line-height:1.55">CPA is up 34% on Google Ads, driven by your top-spending campaign: creative fatigue in the enterprise segment, where CTR has fallen 22% over six days. Shift $14K to the retargeting set — I model CPA back to baseline within four days.</p>
+            <div style="margin-top:18px"><span class="tag on-dark">Resolution in under 2 hours · approve to act</span></div>
+          </div>
+        </div>
+      </div>
+      <span class="page">04</span>
+    </div>
+  </section>
+
+  <!-- 05 — Diagnostic vs etiological -->
+  <section data-label="Symptoms vs causes">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Symptoms vs causes</span>
+        <h2 class="h2" style="margin-top:12px">Most tools are diagnostic. Alfred is etiological.</h2>
+        <div class="vs" style="margin-top:28px">
+          <div class="vs-col vs-them">
+            <div class="vs-h">Diagnostic — what happened</div>
+            <div class="vs-row">CPA increased 34% this week</div>
+            <div class="vs-row">Conversions dropped on Tuesday</div>
+            <div class="vs-row">Blended ROAS is below target</div>
+            <div class="vs-row">Pipeline contribution is down</div>
+            <div class="vs-row">You're left to chase the "why"</div>
+          </div>
+          <div class="vs-col vs-alfred glow">
+            <div class="vs-h">Etiological — why, and what to do</div>
+            <div class="vs-row">Creative fatigue in the enterprise segment</div>
+            <div class="vs-row">A tracking tag broke after a site deploy</div>
+            <div class="vs-row">Spend drifted into a saturated channel</div>
+            <div class="vs-row">One campaign is hiding a CAC spike</div>
+            <div class="vs-row">Every hypothesis carries a Causal Confidence Score</div>
+          </div>
+        </div>
+      </div>
+      <span class="page">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — The morning brief -->
+  <section data-label="The morning brief">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">The daily marketing briefing</span>
+          <h2 class="h2" style="margin:14px 0 26px">Your day, already decided for you.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>What changed.</b> Overnight movement across spend, funnel and creative — reconciled into one plain-language narrative.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Why it changed.</b> A root cause attached to every shift, not just the number on a chart.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>What needs a decision.</b> Prioritised by business impact, with the recommended action ready to approve.</p></div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--gray-150)">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:19px;color:var(--ink-900)">Your daily brief</div>
+            <div style="font-size:13px;color:var(--ink-500)">Tuesday · 7:00am</div>
+          </div>
+          <div style="padding:8px 22px">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--gray-150)">
+              <span class="tag red" style="flex:none">Decide</span>
+              <span style="font-size:14.5px;color:var(--ink-700);line-height:1.4">CPA up 34% on Google Ads — reallocate $14K to retargeting</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--gray-150)">
+              <span class="tag amber" style="flex:none">Watch</span>
+              <span style="font-size:14.5px;color:var(--ink-700);line-height:1.4">LinkedIn creative fatiguing in the mid-market segment</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 0">
+              <span class="tag green" style="flex:none">On track</span>
+              <span style="font-size:14.5px;color:var(--ink-700);line-height:1.4">Blended ROAS holding at 4.8x, ahead of plan</span>
+            </div>
+          </div>
+          <div style="padding:15px 22px;background:var(--bg-canvas);font-size:13.5px;color:var(--ink-600)">Three things need you this morning. Everything else, I've handled.</div>
+        </div>
+      </div></div>
+      <span class="page">06</span>
+    </div>
+  </section>
+
+  <!-- 07 — Seek Alfred -->
+  <section data-label="Seek Alfred">
+    <div class="frame bg-ink">
+      <div class="pad">
+        <span class="eyebrow on-dark">Seek Alfred · on-demand answers</span>
+        <h2 class="h2 on-dark" style="margin-top:14px;color:#fff">Ask anything. Answered from your data.</h2>
+        <div style="margin-top:34px;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:var(--radius-pill);padding:15px 24px;max-width:760px">
+          <span class="ic white" style="--i:url(../../assets/icons/web-clarity.svg)"></span>
+          <span style="font-size:18px;color:#fff">Why did our blended CAC jump last week?</span>
+        </div>
+        <div class="card grad" style="margin-top:22px;max-width:900px">
+          <div class="c-h">Alfred</div>
+          <p class="c-b" style="font-size:17.5px;line-height:1.55">Blended CAC rose to $184, up 11% week over week. The driver is Meta prospecting — spend grew 18% while conversion rate slipped, so you're paying more for fewer signups. Hold Meta prospecting flat and move $9K into retargeting; I model CAC back under $170 within a week.</p>
+        </div>
+        <p class="body on-dark" style="margin-top:24px;color:rgba(255,255,255,0.7)">85% of marketing questions, answered without waiting on an analyst.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — The proof -->
+  <section data-label="The proof">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">The proof · why this matters now</span>
+        <h2 class="h2" style="margin-top:12px">The data is everywhere. The decision is missing.</h2>
+        <div class="band" style="grid-template-columns:repeat(3,1fr);margin-top:42px">
+          <div>
+            <div class="bn">54%</div>
+            <div class="bl">of leaders say connecting data sources is a major barrier to insight<br/><span style="color:var(--ink-400)">NIQ CMO Outlook 2026</span></div>
+          </div>
+          <div>
+            <div class="bn">63%</div>
+            <div class="bl">miss opportunities because decisions take too long<br/><span style="color:var(--ink-400)">PwC CMO Survey 2025</span></div>
+          </div>
+          <div>
+            <div class="bn">~90%</div>
+            <div class="bl">of B2B teams face attribution challenges from fragmented data<br/><span style="color:var(--ink-400)">RevSure / Heinz 2026</span></div>
+          </div>
+        </div>
+        <p class="body muted" style="margin-top:34px">Only 37% of teams have a centralised data repository (NIQ 2026), and board pressure on marketing rose 21% from 2023 to 2025 (The CMO Survey, Spring 2025). The gap isn't more reporting — it's the decision.</p>
+      </div>
+      <span class="page">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — What to do Monday -->
+  <section data-label="What to do Monday">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">What to do Monday</span>
+        <h2 class="h2" style="margin-top:12px">Three moves to start deciding faster.</h2>
+        <div class="grid2" style="margin-top:34px;row-gap:24px;column-gap:64px">
+          <div class="pt"><span class="pt-dot"></span><p><b>Map your stack.</b> List every tool where spend, pipeline and creative live. Five to fifteen? That fragmentation is the real problem.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Name your recurring question.</b> The one you always wait on an analyst for. That becomes your first "Seek Alfred".</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Time your slowest decision.</b> Measure how long issue-to-action takes today. That gap is what Alfred closes to under 2 hours.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Connect read-only.</b> No engineering. Up to a year of history syncs in week one; your first daily brief lands in week two.</p></div>
+        </div>
+      </div>
+      <span class="page">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — Close / CTA -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Start this week</span>
+        <h2 class="cta-title" style="margin-top:18px">Decide in minutes. Not days.</h2>
+        <p class="cta-sub">Time to first insight: under a week. Full readiness: two. No engineering required — I'll be running your mornings before the month is out.</p>
+        <span class="cta-chip">Book a working session →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">Get the sample daily brief and the dashboard-era teardown · seekalfred.ai · hello@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>

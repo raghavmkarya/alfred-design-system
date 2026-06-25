@@ -121,7 +121,8 @@ ui_kits/app/          ← multi-screen product workspace (light): briefing, Seek
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
 ui_kits/website/      ← marketing site recreation (dark)
 templates/sections/   ← copy-paste marketing section blocks (window.Sec* components)
-templates/deck/       ← on-brand 16:9 presentation deck
+templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout library + starter deck
+templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
 slides/               ← presentation templates (cover, index, section, content)
 scripts/              ← tooling, incl. verify-render.mjs
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)

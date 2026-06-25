@@ -1,0 +1,273 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Sales — pitch deck" subtitle="The core outbound pitch: problem → Alfred → product → proof → pricing → close" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Sales pitch</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Alfred for Marketing · Sales overview</span>
+        <h1 class="cover-title">Stop reading reports.<br/>Start making decisions.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">Alfred turns your entire marketing stack into one daily brief — what changed, why, and what to do next.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — Agenda -->
+  <section data-label="Agenda">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">What we'll cover</span>
+        <h2 class="h2" style="margin-top:14px">Agenda</h2>
+        <div class="rule sm"></div>
+        <div class="ix-grid" style="margin-top:8px">
+          <div class="ix-item"><span class="ix-num">01</span><div><div class="ix-t">The problem</div><div class="ix-d">Data everywhere, decisions nowhere</div></div></div>
+          <div class="ix-item"><span class="ix-num">02</span><div><div class="ix-t">Meet Alfred</div><div class="ix-d">Decision intelligence, not dashboards</div></div></div>
+          <div class="ix-item"><span class="ix-num">03</span><div><div class="ix-t">How it works</div><div class="ix-d">Connect → Analyze → Recommend → Act</div></div></div>
+          <div class="ix-item"><span class="ix-num">04</span><div><div class="ix-t">The product</div><div class="ix-d">Six capabilities, one intelligence layer</div></div></div>
+          <div class="ix-item"><span class="ix-num">05</span><div><div class="ix-t">Proof &amp; the moat</div><div class="ix-d">Outcomes, and why it compounds</div></div></div>
+          <div class="ix-item"><span class="ix-num">06</span><div><div class="ix-t">Pricing &amp; next steps</div><div class="ix-d">Get to first insight in under a week</div></div></div>
+        </div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — The problem -->
+  <section data-label="The problem">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">The problem</span>
+          <h2 class="h2" style="margin:14px 0 26px">You have the data. You don't have the decision.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Fragmented across tools.</b> Spend, pipeline and creative live in 5–15 systems that don't talk in plain language.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Dashboards show symptoms.</b> A conversion drop, but not whether it's fatigue, an algorithm, or a tracking error.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>The report lands too late.</b> By the time an analyst reconciles it, the budget has already drifted.</p></div>
+        </div>
+        <div class="card ink glow">
+          <div style="position:relative">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-0.03em;background:var(--gradient-brand-reverse);-webkit-background-clip:text;background-clip:text;color:transparent">54%</div>
+            <div class="c-b" style="margin:6px 0 22px">of leaders say connecting data sources is a major barrier to insight <span style="opacity:.7">— NIQ 2026</span></div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-0.03em;background:var(--gradient-brand-reverse);-webkit-background-clip:text;background-clip:text;color:transparent">63%</div>
+            <div class="c-b" style="margin:6px 0 22px">miss opportunities because decisions take too long <span style="opacity:.7">— PwC 2025</span></div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-0.03em;background:var(--gradient-brand-reverse);-webkit-background-clip:text;background-clip:text;color:transparent">1 in 3</div>
+            <div class="c-b" style="margin:6px 0 0">rely on 5–15 tools just to measure ROI <span style="opacity:.7">— NIQ 2026</span></div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">03</span>
+    </div>
+  </section>
+
+  <!-- 04 — Section divider -->
+  <section data-label="Section — The cost of slow">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">The stakes</div>
+        <h1 class="sec-title">The cost of slow.</h1>
+        <p class="sec-sub">Every hour between issue and action, budget compounds against you. Speed of correction now beats quality of launch.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+  <!-- 05 — Before / after -->
+  <section data-label="Before / after">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">Before / after</span>
+        <h2 class="h2" style="margin-top:14px">From reacting to deciding</h2>
+        <div class="vs" style="margin-top:32px">
+          <div class="vs-col vs-them">
+            <div class="vs-h">Before Alfred</div>
+            <div class="vs-row">Monitor six dashboards every morning</div>
+            <div class="vs-row">Hours preparing the board narrative</div>
+            <div class="vs-row">Discover campaign issues days late</div>
+            <div class="vs-row">Defend budget on instinct</div>
+            <div class="vs-row">Wait on the analyst for every question</div>
+          </div>
+          <div class="vs-col vs-alfred glow">
+            <div class="vs-h">With Alfred</div>
+            <div class="vs-row">One prioritised brief, pre-contextualised</div>
+            <div class="vs-row">Walk in with a complete, evidence-based story</div>
+            <div class="vs-row">Act within hours, before impact compounds</div>
+            <div class="vs-row">Approve reallocations with projected revenue</div>
+            <div class="vs-row">Answer 85% of questions yourself, instantly</div>
+          </div>
+        </div>
+      </div>
+      <span class="page">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — Meet Alfred -->
+  <section data-label="Meet Alfred">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Meet Alfred</span>
+        <p class="statement" style="color:#fff;margin-top:22px">Not another dashboard. A decision intelligence platform that tells you <span class="accent">what changed, why, and what to do</span> — every morning.</p>
+        <p class="statement-sub" style="color:var(--periwinkle-200)">Alfred connects your stack, reasons across it 24/7, and delivers decision-ready intelligence in plain language. Proactive, not reactive. From insight to execution in one step.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">06</span>
+    </div>
+  </section>
+
+  <!-- 07 — How it works -->
+  <section data-label="How it works">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">How it works</span>
+        <h2 class="h2" style="margin-top:14px">Four steps, fully automated</h2>
+        <div class="steps" style="grid-template-columns:repeat(4,1fr);margin-top:54px">
+          <div class="step"><span class="step-rail"></span><span class="step-n">1</span><div class="step-t">Connect</div><div class="step-b">Read-only API links to your existing stack. Up to a year of history, zero engineering.</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">2</span><div class="step-t">Analyze</div><div class="step-b">Continuous correlation across channels, spend and funnel — 24 hours a day.</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">3</span><div class="step-t">Recommend</div><div class="step-b">Decision-ready intelligence, prioritised by business impact, in plain language.</div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-t">Act</div><div class="step-b">Approve and Alfred executes inside your tools. Every change logged and traceable.</div></div>
+        </div>
+      </div>
+      <span class="page">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — Six capabilities -->
+  <section data-label="The product">
+    <div class="frame bg-white">
+      <div class="pad tight">
+        <span class="eyebrow">The product</span>
+        <h2 class="h2" style="margin-top:12px">Six capabilities, one intelligence layer</h2>
+        <div class="grid3" style="margin-top:28px">
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/channel-mix.svg)"></span></span><div class="c-h">Unified KPI Cockpit</div><p class="c-b">One reconciled version of the truth, formatted for leadership — not analyst exploration.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/alert-warning.svg)"></span></span><div class="c-h">Real-time decision alerts</div><p class="c-b">Every alert carries root cause and a recommended action. Resolution cut to under 2 hours.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/demo-play.svg)"></span></span><div class="c-h">Creative lifecycle</div><p class="c-b">Fatigue detected per audience segment, before the drop shows in aggregate metrics.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/budget.svg)"></span></span><div class="c-h">Spend &amp; ROI intelligence</div><p class="c-b">Where to increase, hold or reduce — with reasoning, modelled onto pipeline.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/audit-log.svg)"></span></span><div class="c-h">Daily briefing</div><p class="c-b">A plain-language morning narrative: what changed, why, and what needs a decision.</p></div>
+          <div class="card"><span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/web-clarity.svg)"></span></span><div class="c-h">AI visibility score</div><p class="c-b">Whether AI search recommends you to buyers — and exactly what to fix if it doesn't.</p></div>
+        </div>
+      </div>
+      <span class="page">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — Outcomes -->
+  <section data-label="Proof">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">Proven outcomes</span>
+        <h2 class="h2" style="margin-top:14px">What changes when Alfred runs your mornings</h2>
+        <div class="grid4" style="margin-top:34px">
+          <div class="metric"><div class="m-lab">Faster decision cycles</div><div class="m-val grad">70%</div><div class="m-sub">time-to-decision</div></div>
+          <div class="metric"><div class="m-lab">Wasted spend reduced</div><div class="m-val grad">12%</div><div class="m-sub">reclaimed by Alfred</div></div>
+          <div class="metric"><div class="m-lab">Weekly hours reclaimed</div><div class="m-val grad">15+</div><div class="m-sub">per leader</div></div>
+          <div class="metric"><div class="m-lab">Questions without an analyst</div><div class="m-val grad">85%</div><div class="m-sub">answered on demand</div></div>
+        </div>
+        <p class="body muted" style="margin-top:26px">Across Alfred design-partner teams. Market context: 63% of marketing leaders miss opportunities because decisions take too long (PwC CMO Survey 2025).</p>
+      </div>
+      <span class="page">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — Why Alfred -->
+  <section data-label="Why Alfred">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Why Alfred</span>
+        <h2 class="h2" style="margin-top:12px">Everyone else describes the problem. Alfred decides.</h2>
+        <table class="tbl" style="margin-top:22px">
+          <thead><tr><th>Category</th><th>What they do</th><th>What Alfred does</th></tr></thead>
+          <tbody>
+            <tr><td>BI tools</td><td>Built for the data team to explore and report</td><td>Built for you — decisions, not queries</td></tr>
+            <tr><td>Generic AI</td><td>Helps you work faster in your documents</td><td>Helps you decide faster, in your data</td></tr>
+            <tr><td>Marketing analytics</td><td>Tells you which ad worked</td><td>Tells you what it means for next quarter</td></tr>
+            <tr><td>Doing nothing</td><td>Manual reconciliation; budget compounds</td><td>Closes the issue-to-action gap to &lt; 2 hours</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="page">10</span>
+    </div>
+  </section>
+
+  <!-- 11 — The moat -->
+  <section data-label="The moat">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">The moat</span>
+          <h2 class="h2" style="margin:14px 0 26px">It gets sharper every month — and competitors can't backfill that.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Institutional memory.</b> Alfred Core learns <i>this</i> company's patterns, outcomes and causes.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Two-way integrations.</b> It doesn't just read — it acts, and records what worked.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Decision quality.</b> Recommendations get more accurate without retraining a model.</p></div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">6 mo</div>
+          <div class="stat-cap">to a memory a competitor can't compress or copy</div>
+          <div class="stat-sub">The switching cost isn't the product — it's the institutional memory accumulated inside it.</div>
+        </div>
+      </div></div>
+      <span class="page">11</span>
+    </div>
+  </section>
+
+  <!-- 12 — Pricing -->
+  <section data-label="Pricing">
+    <div class="frame bg-white">
+      <div class="pad tight">
+        <span class="eyebrow">Pricing</span>
+        <h2 class="h2" style="margin-top:12px">Pick the tier that matches your stack</h2>
+        <table class="tbl" style="margin-top:22px">
+          <thead><tr><th>Plan</th><th class="num">Price / mo</th><th class="num">Users</th><th>AI chat</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td>Starter</td><td class="num">$199</td><td class="num">3</td><td>Suggestions only</td><td>A first marketing stack</td></tr>
+            <tr class="hl"><td>Growth</td><td class="num">$499</td><td class="num">8</td><td>Full + write-back</td><td>Scaling teams</td></tr>
+            <tr><td>Max</td><td class="num">$999</td><td class="num">25</td><td>Full + write-back</td><td>Multi-channel at scale</td></tr>
+            <tr><td>Enterprise</td><td class="num">Custom</td><td class="num">Custom</td><td>Tailored</td><td>RBAC, audit, custom SLAs</td></tr>
+          </tbody>
+        </table>
+        <p class="body muted" style="margin-top:16px">Billed annually. Enterprise is fully tailored — engage via sales.</p>
+      </div>
+      <span class="page">12</span>
+    </div>
+  </section>
+
+  <!-- 13 — Close -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Get started</span>
+        <h2 class="cta-title" style="margin-top:18px">Be the most prepared person in every room.</h2>
+        <p class="cta-sub">Time to first insight: under a week. Full readiness: two. No engineering required.</p>
+        <span class="cta-chip">Book a working session →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">seekalfred.ai · hello@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>
