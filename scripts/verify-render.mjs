@@ -13,6 +13,8 @@ const get = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error(
 // Each entry: [jsxFile, [exported window globals to render]]
 const KITS = [
   ["ui_kits/app/Screens.jsx", ["KpiCockpit", "SpendRoi", "AlertsInbox", "Integrations", "SettingsScreen"]],
+  ["ui_kits/app/Screens2.jsx", ["DailyBrief", "SeekAlfred", "CreativeLifecycle", "AiVisibility"]],
+  ["ui_kits/onboarding/Onboarding.jsx", ["OnboardingFlow"]],
   ["templates/sections/SectionsA.jsx", ["SecLogoCloud", "SecBentoGrid", "SecFeatureSplit", "SecComparison"]],
   ["templates/sections/SectionsB.jsx", ["SecPricingTiers", "SecTestimonial", "SecIntegrationsGrid", "SecWaitlistCTA"]],
   ["templates/sections/SectionsC.jsx", ["SecPricingComparison", "SecBlogGrid", "SecChangelog"]],
