@@ -20,8 +20,11 @@ production code, depending on the need.
 - `assets/` — `logos/` (color + white lockups), `icons/` (single-color brand glyphs), `fonts/`.
 - `components/` — React primitives (brand: Logo, Icon · core: Button, IconButton, Input,
   Checkbox, Switch, Card, Badge, Avatar, Tabs · data: KpiCard, DecisionAlert, ProgressBar).
-- `ui_kits/app/` — multi-screen Alfred workspace (light): auth → home, KPI cockpit, spend & ROI,
-  decision alerts, integrations, settings. Routed from the sidebar; screens in `Screens.jsx`.
+- `ui_kits/app/` — multi-screen Alfred workspace (light): auth → home, daily briefing, Seek Alfred,
+  KPI cockpit, spend & ROI, decision alerts, creative lifecycle, AI visibility, integrations,
+  settings. Routed from the sidebar; screens in `Screens.jsx` + `Screens2.jsx`.
+- `ui_kits/onboarding/` — standalone first-run flow (light): connect your stack → calibrate →
+  first brief, on the four-stage operating model. Single component in `Onboarding.jsx`.
 - `ui_kits/website/` — the dark seekalfred.ai marketing site recreation.
 - `templates/sections/` — copy-paste marketing section blocks (logo cloud, bento, feature split,
   comparison, pricing, testimonial, integrations, CTA) — each a `window.Sec*` component.

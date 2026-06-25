@@ -16,6 +16,10 @@ const GLYPHS = {
   settings: <><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1M18.7 18.7l-2.1-2.1M7.4 7.4 5.3 5.3"/></>,
   search: <><circle cx="11" cy="11" r="6.5"/><path d="m20 20-3.5-3.5"/></>,
   send: <><path d="M4 12 21 4l-7 17-3-7-7-3Z"/></>,
+  briefing: <><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></>,
+  ask: <><path d="M20 4H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h4v3l4-3h8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1Z"/></>,
+  creative: <><rect x="3.5" y="4.5" width="17" height="13" rx="2"/><circle cx="9" cy="9.5" r="1.4"/><path d="m6 17 4.5-4.5 3 3L17 11l3.5 3.5"/></>,
+  visibility: <><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.8"/></>,
 };
 
 function NavItem({ glyph, label, active, badge, onClick }) {

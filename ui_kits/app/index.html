@@ -1,4 +1,4 @@
-<!-- @dsCard group="Alfred App" viewport="1440x900" name="Alfred — CMO workspace" subtitle="Login → briefing, KPI cockpit, spend, alerts, integrations & settings" -->
+<!-- @dsCard group="Alfred App" viewport="1440x900" name="Alfred — CMO workspace" subtitle="Login → briefing, Seek Alfred, KPI cockpit, spend, alerts, creative, AI visibility, integrations & settings" -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,6 +23,7 @@
 <script type="text/babel" src="AuthScreen.jsx"></script>
 <script type="text/babel" src="Dashboard.jsx"></script>
 <script type="text/babel" src="Screens.jsx"></script>
+<script type="text/babel" src="Screens2.jsx"></script>
 <script type="text/babel">
 const LOGOROOT = "../../assets/logos";
 const ICONROOT = "../../assets/icons";
@@ -30,9 +31,13 @@ const { Avatar, Badge } = window.AlfredAIDesignSystem_1ce241;
 
 const NAV = [
   { id: "home", glyph: "home", label: "Home" },
+  { id: "briefing", glyph: "briefing", label: "Daily Briefing" },
+  { id: "ask", glyph: "ask", label: "Seek Alfred" },
   { id: "cockpit", glyph: "cockpit", label: "KPI Cockpit" },
   { id: "spend", glyph: "spend", label: "Spend & ROI" },
   { id: "alerts", glyph: "alerts", label: "Decision Alerts", badge: "3" },
+  { id: "creative", glyph: "creative", label: "Creative" },
+  { id: "visibility", glyph: "visibility", label: "AI Visibility" },
   { id: "integrations", glyph: "integrations", label: "Integrations" },
   { id: "settings", glyph: "settings", label: "Settings" },
 ];
@@ -51,9 +56,13 @@ function Bell() {
 
 const SCREENS = {
   home: () => <window.Dashboard />,
+  briefing: () => <window.DailyBrief />,
+  ask: () => <window.SeekAlfred />,
   cockpit: () => <window.KpiCockpit />,
   spend: () => <window.SpendRoi />,
   alerts: () => <window.AlertsInbox />,
+  creative: () => <window.CreativeLifecycle />,
+  visibility: () => <window.AiVisibility />,
   integrations: () => <window.Integrations />,
   settings: () => <window.SettingsScreen />,
 };
@@ -65,9 +74,13 @@ function App() {
 
   const titles = {
     home: ["Home", "Tuesday, 11 June · Northwind Co."],
+    briefing: ["Daily Briefing", "What changed, why, and what to do"],
+    ask: ["Seek Alfred", "Ask anything — answered from your data"],
     cockpit: ["Unified KPI Cockpit", "All metrics, one source of truth"],
     spend: ["Spend & ROI Intelligence", "Where every dollar is working"],
     alerts: ["Real-Time Decision Alerts", "What needs your attention now"],
+    creative: ["Creative Lifecycle", "Fatigue, caught before the metrics show it"],
+    visibility: ["AI Visibility Score", "Whether AI recommends you — and what to fix"],
     integrations: ["Integrations", "Connect your marketing stack"],
     settings: ["Settings", "Workspace & team"],
   };

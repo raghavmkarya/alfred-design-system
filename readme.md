@@ -117,7 +117,8 @@ tokens/               ← colors, typography, spacing/radius/shadow/motion, font
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
 components/           ← React primitives (brand · core · data · marketing) + @dsCard previews
 guidelines/           ← foundation specimen cards (color / type / spacing / brand)
-ui_kits/app/          ← multi-screen product workspace (light)
+ui_kits/app/          ← multi-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility…
+ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
 ui_kits/website/      ← marketing site recreation (dark)
 templates/sections/   ← copy-paste marketing section blocks (window.Sec* components)
 templates/deck/       ← on-brand 16:9 presentation deck

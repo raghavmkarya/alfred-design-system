@@ -3,6 +3,23 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-06-25 — App kit completes the product + onboarding kit
+
+### Added
+- **Four flagship app screens** (`ui_kits/app/Screens2.jsx`), so the workspace now covers all six
+  product capabilities: **Daily Briefing** (the full "Read less, know more" morning narrative),
+  **Seek Alfred** (on-demand answers grounded in sources, with the reasoning trace), **Creative
+  Lifecycle** (asset-level fatigue scoring) and **AI Visibility Score** (the unique-to-Alfred AI
+  citation tracker). Wired into the sidebar nav + routing in `ui_kits/app/index.html`.
+- **Onboarding kit** (`ui_kits/onboarding/`) — a standalone first-run flow on the four-stage
+  operating model: connect your stack → calibrate → first brief. Its own `@dsCard`.
+- New app nav glyphs (briefing, ask, creative, visibility) in `AppShell.jsx`.
+
+### Changed
+- `scripts/verify-render.mjs` now also renders the new screens + onboarding flow (10 kit
+  components, all clean).
+- Regenerated `index.html` (33 preview cards) and refreshed the `Alfred App` card subtitles.
+
 ## 2026-06-25 — Component library expansion + tooling
 
 ### Added
