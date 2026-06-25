@@ -1,0 +1,273 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Operations — customer success playbook" subtitle="Driving adoption, retention and expansion" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Customer success playbook</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Customer success · Internal playbook</span>
+        <h1 class="cover-title">Driving adoption,<br/>retention and expansion.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">How we turn a connected account into a customer who decides with Alfred every morning — and grows with it.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — Agenda -->
+  <section data-label="Agenda">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">The playbook</span>
+        <h2 class="h2" style="margin-top:14px">What we'll run through</h2>
+        <div class="rule sm"></div>
+        <div class="ix-grid" style="margin-top:8px">
+          <div class="ix-item"><span class="ix-num">01</span><div><div class="ix-t">Activate</div><div class="ix-d">The first brief acted on, in week one</div></div></div>
+          <div class="ix-item"><span class="ix-num">02</span><div><div class="ix-t">Score health</div><div class="ix-d">The three signals that predict renewal</div></div></div>
+          <div class="ix-item"><span class="ix-num">03</span><div><div class="ix-t">Build the habit</div><div class="ix-d">Onboard → aha → habit → expand</div></div></div>
+          <div class="ix-item"><span class="ix-num">04</span><div><div class="ix-t">Save at-risk accounts</div><div class="ix-d">Read the signal, run the play</div></div></div>
+          <div class="ix-item"><span class="ix-num">05</span><div><div class="ix-t">Expand</div><div class="ix-d">The signal-router cross-sell</div></div></div>
+          <div class="ix-item"><span class="ix-num">06</span><div><div class="ix-t">Cadence &amp; voice</div><div class="ix-d">QBRs, and capturing customer words</div></div></div>
+        </div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — North-star statement -->
+  <section data-label="North star">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Our north star</span>
+        <p class="statement" style="color:#fff;margin-top:22px">We don't count logins or seats. We count <span class="accent">decisions acted on</span> — every brief that becomes a change Alfred made inside the customer's tools.</p>
+        <p class="statement-sub" style="color:var(--periwinkle-200)">Alfred earns its keep the moment a recommendation is approved and executed. Our job is to make that moment happen in week one — and every week after.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">03</span>
+    </div>
+  </section>
+
+  <!-- 04 — Activation moment -->
+  <section data-label="Activation">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Activation</span>
+          <h2 class="h2" style="margin:14px 0 26px">The moment that predicts everything: the first brief acted on</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Connect in week 1.</b> Secure read-only APIs, up to a year of history synced, zero engineering.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Calibrate across weeks 1–2.</b> KPIs, alert thresholds, channels and business objectives.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Week 2, the first briefing lands.</b> Activation is the first recommendation a leader approves — not the first login.</p></div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">&lt; 1 wk</div>
+          <div class="stat-cap">to the first insight a leader acts on</div>
+          <div class="stat-sub">Full operational readiness in ~2 weeks. Push for one acted-on decision before the second brief — accounts that act early are the accounts that renew.</div>
+        </div>
+      </div></div>
+      <span class="page">04</span>
+    </div>
+  </section>
+
+  <!-- 05 — Health scoring -->
+  <section data-label="Health scoring">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Health scoring</span>
+        <h2 class="h2" style="margin-top:12px">Three signals tell you an account will renew</h2>
+        <p class="body muted" style="margin-top:10px">Sample account: Northwind Co. (illustrative). Any single bar below threshold is an early warning, not a renewal-day surprise.</p>
+        <div style="margin-top:34px;display:flex;flex-direction:column;gap:26px">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+              <div style="font-size:18px;color:var(--ink-900)"><b>Memory depth</b> <span style="color:var(--ink-500)">· 5 of 6 months toward a defensible institutional memory</span></div>
+              <span class="tag amber">Approaching the moat</span>
+            </div>
+            <div class="bar" style="height:12px"><div class="bar-fill" style="width:83%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+              <div style="font-size:18px;color:var(--ink-900)"><b>Recommendation acceptance rate</b> <span style="color:var(--ink-500)">· acted on 78% of recommendations this quarter</span></div>
+              <span class="tag green">Healthy</span>
+            </div>
+            <div class="bar" style="height:12px"><div class="bar-fill" style="width:78%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+              <div style="font-size:18px;color:var(--ink-900)"><b>Data freshness</b> <span style="color:var(--ink-500)">· 10 of 10 read-only connectors syncing on schedule</span></div>
+              <span class="tag green">All sources live</span>
+            </div>
+            <div class="bar" style="height:12px"><div class="bar-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+      </div>
+      <span class="page">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — Section divider -->
+  <section data-label="Section — The adoption journey">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">The adoption journey</div>
+        <h1 class="sec-title">From connected to compounding.</h1>
+        <p class="sec-sub">Onboard, aha, habit, expand. Move every account to the next stage before momentum stalls.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+  <!-- 07 — Adoption journey timeline -->
+  <section data-label="Adoption journey">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">The journey, stage by stage</span>
+        <h2 class="h2" style="margin-top:12px">Four stages, one direction</h2>
+        <div class="timeline" style="grid-template-columns:repeat(4,1fr);margin-top:48px">
+          <div class="tl"><span class="tl-rail"></span><span class="tl-dot"></span><div class="tl-w">Week 1–2</div><div class="tl-t">Onboard</div><div class="tl-b">Connect the stack, calibrate KPIs and thresholds, deliver the first daily briefing.</div></div>
+          <div class="tl"><span class="tl-rail"></span><span class="tl-dot"></span><div class="tl-w">Week 2–3</div><div class="tl-t">Aha</div><div class="tl-b">First recommendation acted on. Resolution drops from 3–5 days to under 2 hours.</div></div>
+          <div class="tl"><span class="tl-rail"></span><span class="tl-dot"></span><div class="tl-w">Month 1–3</div><div class="tl-t">Habit</div><div class="tl-b">The morning brief becomes routine. 85% of questions answered without an analyst; 15+ hours reclaimed weekly.</div></div>
+          <div class="tl"><span class="tl-rail"></span><span class="tl-dot"></span><div class="tl-w">Month 3–6+</div><div class="tl-t">Expand</div><div class="tl-b">Institutional memory deepens; the signal router surfaces cross-module opportunities worth a new module.</div></div>
+        </div>
+      </div>
+      <span class="page">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — Save plays -->
+  <section data-label="Save plays">
+    <div class="frame bg-white">
+      <div class="pad tight">
+        <span class="eyebrow">Save plays</span>
+        <h2 class="h2" style="margin-top:12px">When health dips, read the signal and run the play</h2>
+        <div class="grid3" style="margin-top:28px">
+          <div class="card">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/trend-down.svg)"></span></span>
+            <div style="margin:14px 0 8px"><span class="tag amber">Acceptance sliding</span></div>
+            <p class="c-b">Recommendations are read but not acted on. <b style="color:var(--ink-900)">Play:</b> sit in on a morning brief, retune thresholds with the leader, re-anchor on one decision a week.</p>
+          </div>
+          <div class="card">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/refresh.svg)"></span></span>
+            <div style="margin:14px 0 8px"><span class="tag red">A source went stale</span></div>
+            <p class="c-b">A connector stopped syncing and the single source of truth is cracking. <b style="color:var(--ink-900)">Play:</b> reconnect the read-only API, re-sync history, restore confidence in the numbers.</p>
+          </div>
+          <div class="card">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/mql.svg)"></span></span>
+            <div style="margin:14px 0 8px"><span class="tag amber">Single-threaded</span></div>
+            <p class="c-b">Only one champion logs in; the account walks out if they do. <b style="color:var(--ink-900)">Play:</b> add seats, route the brief to the leadership team, widen the blast radius.</p>
+          </div>
+        </div>
+      </div>
+      <span class="page">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — Expansion: the signal-router cross-sell -->
+  <section data-label="Expansion">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Expansion</span>
+          <h2 class="h2" style="margin:14px 0 26px">Every cross-module signal is a qualified expansion lead</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>The router does the work.</b> Alfred Core's Cross-Module Signal Router routes a marketing signal to its sales and finance implications.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Listen for revenue consequences.</b> When a marketing pattern carries a deal-risk implication, that's the moment to introduce Alfred for Sales.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>You're not upselling a feature.</b> You're extending intelligence the customer already trusts.</p></div>
+        </div>
+        <div class="card ink glow">
+          <div style="position:relative">
+            <div style="margin-bottom:18px"><span class="tag on-dark plain">Worked example · Northwind Co.</span></div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--periwinkle-200)">Marketing signal</div>
+            <div style="font-size:16px;color:#fff;line-height:1.4;margin:6px 0 16px">Paid-social pipeline contribution is up 8%, but MQL→SQL has slipped below the 34% baseline.</div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--orange-500)">↓ routed by the signal router</div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--periwinkle-200);margin-top:16px">Sales implication</div>
+            <div style="font-size:16px;color:#fff;line-height:1.4;margin:6px 0 18px">The new segment won't convert without coaching — a deal-risk pattern, not a marketing one.</div>
+            <div style="border-top:1px solid rgba(255,255,255,0.14);padding-top:16px">
+              <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-500)">Expansion lead</div>
+              <div style="font-size:16px;color:#fff;line-height:1.4;margin-top:6px">Introduce Alfred for Sales — the Sales Play Engine. "Catch it at risk, not at lost."</div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — QBR cadence -->
+  <section data-label="Cadence">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Cadence</span>
+        <h2 class="h2" style="margin-top:14px">The rhythm that keeps accounts compounding</h2>
+        <div class="steps" style="grid-template-columns:repeat(4,1fr);margin-top:54px">
+          <div class="step"><span class="step-rail"></span><span class="step-n">1</span><div class="step-t">Daily</div><div class="step-b">Alfred delivers the brief. We watch the adoption signals, not the content — is it being acted on?</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">2</span><div class="step-t">Weekly</div><div class="step-b">A 15-minute check: acceptance rate, any fresh blockers, and one win worth amplifying.</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">3</span><div class="step-t">Monthly</div><div class="step-b">Health-score review. Trigger a save play before renewal is ever at stake.</div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-t">Quarterly · QBR</div><div class="step-b">Prove outcomes, show the memory Alfred has built, open the expansion conversation.</div></div>
+        </div>
+        <p class="body muted" style="margin-top:40px">Run every QBR on outcomes, not usage: decisions acted on, hours reclaimed, wasted spend reduced — then next quarter's objectives.</p>
+      </div>
+      <span class="page">10</span>
+    </div>
+  </section>
+
+  <!-- 11 — Voice of customer -->
+  <section data-label="Voice of customer">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Capture the words</span>
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote" style="font-size:34px;margin-top:0">I used to spend Monday reconciling six dashboards. Now I read one paragraph and I already know where to move budget.</p>
+          <div class="byline"><span class="ava"></span><div><div class="nm">Priya Menon</div><div class="rl">CMO, Northwind Co. (illustrative)</div></div></div>
+        </div>
+        <div class="card soft">
+          <div class="c-h">Why customer words out-convert polished copy</div>
+          <div class="pt" style="margin-top:14px"><span class="pt-dot"></span><p>Record the <b>verbatim</b>, never your paraphrase — "read one paragraph," "know where to move budget."</p></div>
+          <div class="pt"><span class="pt-dot"></span><p>The phrases customers repeat are the ones that move buyers. They beat any line we'd write for them.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p>Tag every quote to a capability and an outcome, then hand it to marketing and sales.</p></div>
+        </div>
+      </div></div>
+      <span class="page">11</span>
+    </div>
+  </section>
+
+  <!-- 12 — Close -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">The playbook in one line</span>
+        <h2 class="cta-title" style="margin-top:18px">Make every account act — then expand.</h2>
+        <p class="cta-sub">Activate in week one, protect health every month, and turn trusted intelligence into the next module.</p>
+        <span class="cta-chip">Open the CS playbook →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">seekalfred.ai · success@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">12</span>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>

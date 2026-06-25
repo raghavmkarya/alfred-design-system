@@ -28,7 +28,11 @@ production code, depending on the need.
 - `ui_kits/website/` — the dark seekalfred.ai marketing site recreation.
 - `templates/sections/` — copy-paste marketing section blocks (logo cloud, bento, feature split,
   comparison, pricing, testimonial, integrations, CTA) — each a `window.Sec*` component.
-- `templates/deck/` — on-brand 16:9 presentation deck.
+- `templates/deck/` — the 16:9 deck runtime (`deck-stage.js`, `ds-base.js`) + the shared
+  `deck.css` slide-layout library and the starter deck.
+- `templates/decks/` — 16 ready-to-present decks across marketing, sales & operations
+  (pitch, ROI, competitive, demo, security, pricing, onboarding, QBR, all-hands, runbook…);
+  `index.html` is the gallery. Build new decks from `deck.css` classes.
 - `slides/` — presentation templates (cover, index, section divider, content+stat).
 - `guidelines/` — foundation specimen cards.
 

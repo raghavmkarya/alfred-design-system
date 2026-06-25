@@ -1,0 +1,346 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Sales — product demo" subtitle="A guided walkthrough of Alfred for Marketing" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Product demo</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Alfred for Marketing · Product demo</span>
+        <h1 class="cover-title">A guided walk<br/>through Alfred.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">The same workspace a marketing leader opens every morning — the brief, the cockpit, the alerts, and the answers. Here's how a day runs on Alfred.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — The workspace at a glance -->
+  <section data-label="The workspace at a glance">
+    <div class="frame bg-white">
+      <div class="pad">
+        <div style="display:grid;grid-template-columns:316px 1fr;gap:56px;align-items:center;height:100%">
+          <div class="card soft" style="padding:18px;display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:10px;padding:6px 8px 16px">
+              <img src="../../assets/logos/alfred-icon.svg" style="height:22px" alt="" />
+              <span style="font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-0.01em">alfred ai</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;background:var(--orange-50)">
+              <span class="ic" style="--i:url(../../assets/icons/audit-log.svg);width:18px;height:18px"></span>
+              <span style="font-weight:600;font-size:14.5px;color:var(--orange-600)">Daily Brief</span>
+              <span class="tag orange plain" style="margin-left:auto;font-size:10px;padding:3px 8px">Open</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px">
+              <span class="ic ink" style="--i:url(../../assets/icons/channel-mix.svg);width:18px;height:18px"></span>
+              <span style="font-weight:600;font-size:14.5px;color:var(--ink-700)">Unified KPI Cockpit</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px">
+              <span class="ic ink" style="--i:url(../../assets/icons/alert-warning.svg);width:18px;height:18px"></span>
+              <span style="font-weight:600;font-size:14.5px;color:var(--ink-700)">Anomaly Detection</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px">
+              <span class="ic ink" style="--i:url(../../assets/icons/budget.svg);width:18px;height:18px"></span>
+              <span style="font-weight:600;font-size:14.5px;color:var(--ink-700)">Spend Mix</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px">
+              <span class="ic ink" style="--i:url(../../assets/icons/demo-play.svg);width:18px;height:18px"></span>
+              <span style="font-weight:600;font-size:14.5px;color:var(--ink-700)">Creative Fatigue</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px">
+              <span class="ic ink" style="--i:url(../../assets/icons/web-clarity.svg);width:18px;height:18px"></span>
+              <span style="font-weight:600;font-size:14.5px;color:var(--ink-700)">AI Visibility</span>
+            </div>
+          </div>
+          <div>
+            <span class="eyebrow">The workspace</span>
+            <h2 class="h2" style="margin:14px 0 26px">Everything Alfred watches, in one place.</h2>
+            <div class="pt"><span class="pt-dot"></span><p><b>Six agents, always on.</b> Daily Brief, the KPI cockpit, anomaly detection, spend mix, creative fatigue and AI visibility run continuously in the background.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p><b>Three ways it reaches you.</b> A prioritised daily brief, on-demand answers when you Seek Alfred, and proactive alerts the moment something moves.</p></div>
+            <div class="pt"><span class="pt-dot"></span><p><b>Built for you, not an analyst.</b> Plain language, leadership-ready — no queries to write, no dashboards to maintain.</p></div>
+          </div>
+        </div>
+      </div>
+      <span class="page">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — Section divider -->
+  <section data-label="Section — A morning with Alfred">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">The walkthrough</div>
+        <h1 class="sec-title">A morning with Alfred.</h1>
+        <p class="sec-sub">We'll open the workspace the way Priya, CMO at Northwind, does — and watch the day arrive already triaged.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">03</span>
+    </div>
+  </section>
+
+  <!-- 04 — Daily briefing -->
+  <section data-label="Daily briefing">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Daily marketing briefing</span>
+          <h2 class="h2" style="margin:14px 0 24px">The day arrives already triaged.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>A narrative, not a dashboard.</b> What changed overnight, why it changed, and what needs a decision — in plain language.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Decisions come pre-drafted.</b> Each one carries its projected impact. You approve, hold, or ask why — you don't start an investigation.</p></div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="padding:16px 22px;border-bottom:1px solid var(--gray-150);display:flex;justify-content:space-between;align-items:center">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:18px">Daily briefing · Tue 25 Jun</div>
+            <span class="tag peri">2 decisions waiting</span>
+          </div>
+          <div style="padding:18px 22px">
+            <p style="font-size:15.5px;line-height:1.55;color:var(--ink-700);margin:0 0 16px">"Good morning, Priya. Blended ROAS held at 4.8x overnight. The one thing that moved: LinkedIn CPL rose 14% on the prospecting set. I've drafted two decisions."</p>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:var(--bg-canvas);margin-bottom:10px">
+              <span class="card-ic" style="width:36px;height:36px"><span class="ic" style="--i:url(../../assets/icons/budget.svg);width:18px;height:18px"></span></span>
+              <div style="flex:1">
+                <div style="font-weight:700;font-size:14px;color:var(--ink-900)">Reallocate $18K — LinkedIn → Google retargeting</div>
+                <div style="font-size:12.5px;color:var(--ink-500)">Projected CPL −9%, pipeline held</div>
+              </div>
+              <span class="tag orange plain" style="font-size:12px">Approve</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:var(--bg-canvas)">
+              <span class="card-ic peri" style="width:36px;height:36px"><span class="ic peri" style="--i:url(../../assets/icons/demo-play.svg);width:18px;height:18px"></span></span>
+              <div style="flex:1">
+                <div style="font-weight:700;font-size:14px;color:var(--ink-900)">Pause 'Spring launch' creative on Meta</div>
+                <div style="font-size:12.5px;color:var(--ink-500)">Fatigue confirmed in the 35–44 segment</div>
+              </div>
+              <span class="tag neutral plain" style="font-size:12px">Review</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">04</span>
+    </div>
+  </section>
+
+  <!-- 05 — Unified KPI cockpit -->
+  <section data-label="Unified KPI cockpit">
+    <div class="frame bg-white">
+      <div class="pad tight">
+        <span class="eyebrow">Unified KPI cockpit</span>
+        <h2 class="h2" style="margin-top:12px">Northwind's whole funnel, one number each.</h2>
+        <div class="grid4" style="margin-top:28px">
+          <div class="metric"><div class="m-lab">Blended ROAS</div><div class="m-val">4.8x</div><div class="m-delta">+7% QoQ</div></div>
+          <div class="metric"><div class="m-lab">Marketing spend</div><div class="m-val">$312K</div><div class="m-sub">this quarter</div></div>
+          <div class="metric"><div class="m-lab">Blended CAC</div><div class="m-val">$184</div><div class="m-delta">−6% QoQ</div></div>
+          <div class="metric"><div class="m-lab">Pipeline created</div><div class="m-val">$2.68M</div><div class="m-delta">+8% QoQ</div></div>
+        </div>
+        <div class="card soft" style="margin-top:18px;padding:0;display:grid;grid-template-columns:repeat(3,1fr)">
+          <div style="padding:16px 24px;border-right:1px solid var(--gray-150)"><span style="font-size:13px;color:var(--ink-500)">MQL → SQL</span><div style="font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--ink-900);margin-top:4px">34%</div></div>
+          <div style="padding:16px 24px;border-right:1px solid var(--gray-150)"><span style="font-size:13px;color:var(--ink-500)">Revenue-attribution accuracy</span><div style="font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--ink-900);margin-top:4px">+15%</div></div>
+          <div style="padding:16px 24px"><span style="font-size:13px;color:var(--ink-500)">Wasted spend</span><div style="font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--ink-900);margin-top:4px">−9%</div></div>
+        </div>
+        <p class="body muted" style="margin-top:16px">Reconciled nightly across Google Ads, Meta, LinkedIn, GA4, HubSpot and Salesforce — one source of truth for leadership, not an analyst's exploration surface.</p>
+      </div>
+      <span class="page">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — Real-time decision alerts -->
+  <section data-label="Real-time decision alerts">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Real-time decision alerts</span>
+          <h2 class="h2" style="margin:14px 0 24px">It doesn't just flag the drop. It explains it.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Root cause, not the symptom.</b> Alfred isolates whether it's bidding, fatigue, tracking or demand — before you have to ask.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>A recommended action, pre-modelled.</b> You approve or push back; you don't open an investigation.</p></div>
+          <div style="margin-top:22px"><span class="tag orange">Resolution cut from 3–5 days to under 2 hours</span></div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="padding:16px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--gray-150)">
+            <span class="card-ic" style="width:38px;height:38px;background:var(--danger-100)"><span class="ic" style="--i:url(../../assets/icons/alert-warning.svg);background:var(--danger-500);width:18px;height:18px"></span></span>
+            <div>
+              <div style="font-weight:700;font-size:15px;color:var(--ink-900)">CPL spike · Google Search</div>
+              <div style="font-size:12.5px;color:var(--ink-500)">Detected 2 hours ago</div>
+            </div>
+            <span class="tag red" style="margin-left:auto">High</span>
+          </div>
+          <div style="padding:18px 22px">
+            <div class="eyebrow" style="font-size:11px;color:var(--ink-500)">Root cause</div>
+            <p style="font-size:14.5px;line-height:1.5;color:var(--ink-700);margin:6px 0 16px">A bid-strategy change on 'Brand — Exact' pushed CPL from $42 to $61 (+45%). Conversion volume is flat — this is cost, not lost demand.</p>
+            <div class="eyebrow" style="font-size:11px;color:var(--ink-500)">Recommended action</div>
+            <p style="font-size:14.5px;line-height:1.5;color:var(--ink-700);margin:6px 0 16px">Revert to target-CPA bidding at $45 and cap daily spend. Projected: CPL back under $46 within 24 hours.</p>
+            <div style="display:flex;gap:10px">
+              <span class="tag orange plain">Approve &amp; revert</span>
+              <span class="tag neutral plain">Ask Alfred why</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">06</span>
+    </div>
+  </section>
+
+  <!-- 07 — Spend & ROI intelligence -->
+  <section data-label="Spend & ROI intelligence">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">Spend &amp; ROI intelligence</span>
+        <h2 class="h2" style="margin-top:12px">Where the next dollar should go — and why.</h2>
+        <div class="grid3" style="margin-top:28px">
+          <div class="card">
+            <span class="tag green">Increase</span>
+            <div class="c-h" style="margin:14px 0 8px;display:flex;align-items:center;gap:8px">Google retargeting <span class="ic" style="--i:url(../../assets/icons/trend-up.svg);background:var(--success-500);width:18px;height:18px"></span></div>
+            <p class="c-b">+$18K/mo. ROAS 6.2x and still below saturation — modelled +$140K pipeline this quarter.</p>
+          </div>
+          <div class="card">
+            <span class="tag amber">Hold</span>
+            <div class="c-h" style="margin:14px 0 8px;display:flex;align-items:center;gap:8px">Meta prospecting <span class="ic" style="--i:url(../../assets/icons/trend-flat.svg);background:var(--orange-500);width:18px;height:18px"></span></div>
+            <p class="c-b">Steady at $64K. Efficient, but the creative is aging — revisit in two weeks.</p>
+          </div>
+          <div class="card">
+            <span class="tag red">Reduce</span>
+            <div class="c-h" style="margin:14px 0 8px;display:flex;align-items:center;gap:8px">LinkedIn broad <span class="ic" style="--i:url(../../assets/icons/trend-down.svg);background:var(--danger-500);width:18px;height:18px"></span></div>
+            <p class="c-b">−$12K/mo. CPL 38% over target with flat pipeline contribution.</p>
+          </div>
+        </div>
+        <p class="body muted" style="margin-top:24px">Every move is modelled onto pipeline — not channel ROAS alone — so you optimise revenue, not vanity efficiency.</p>
+      </div>
+      <span class="page">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — Creative lifecycle -->
+  <section data-label="Creative lifecycle">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Creative lifecycle intelligence</span>
+          <h2 class="h2" style="margin:14px 0 24px">Fatigue, caught per segment.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Per audience, not in aggregate.</b> The 35–44 cohort is wearing out while blended CTR still reads a healthy 1.9%.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Rotate before the drop.</b> You refresh creative before performance — and spend — actually fall.</p></div>
+        </div>
+        <div class="card" style="padding:22px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:18px">'Spring launch' set · Meta</div>
+            <span class="tag amber">Fatigue rising</span>
+          </div>
+          <div style="font-size:13px;color:var(--ink-500);margin-bottom:20px">Blended CTR 1.9% — looks fine. Per segment, it isn't.</div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="font-weight:600;color:var(--ink-900)">35–44</span><span style="font-weight:700;color:var(--danger-500)">CTR −31% · 9 days</span></div>
+            <div class="bar"><div class="bar-fill" style="width:82%;background:var(--danger-500)"></div></div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="font-weight:600;color:var(--ink-900)">25–34</span><span style="font-weight:700;color:var(--orange-600)">CTR −12% · 9 days</span></div>
+            <div class="bar"><div class="bar-fill" style="width:52%;background:var(--orange-500)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="font-weight:600;color:var(--ink-900)">45–54</span><span style="font-weight:700;color:var(--success-500)">Fresh</span></div>
+            <div class="bar"><div class="bar-fill" style="width:20%;background:var(--success-500)"></div></div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — AI visibility score -->
+  <section data-label="AI visibility score">
+    <div class="frame bg-ink glow">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow on-dark">AI visibility score · unique to Alfred</span>
+          <h2 class="h2" style="color:#fff;margin:16px 0 20px">When buyers ask AI, does it recommend you?</h2>
+          <div style="font-family:var(--font-display);font-weight:700;font-size:118px;line-height:1;letter-spacing:-0.04em;background:var(--gradient-brand-reverse);-webkit-background-clip:text;background-clip:text;color:transparent">62</div>
+          <div style="color:var(--periwinkle-200);font-size:16px;font-weight:600;margin-top:4px">AI Visibility Score · out of 100</div>
+          <p style="color:rgba(255,255,255,0.82);font-size:16px;line-height:1.5;margin:18px 0 0;max-width:460px">"You're recommended for 'marketing analytics for SaaS' — but invisible for 'decision intelligence platform', where your buyers are now searching."</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="eyebrow on-dark" style="font-size:12px">What to fix first</div>
+          <div class="card ink" style="background:rgba(255,255,255,0.06);display:flex;gap:14px;align-items:center;padding:18px 20px">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/web-clarity.svg)"></span></span>
+            <div><div style="font-weight:700;color:#fff;font-size:15px">Own the category query</div><div style="font-size:13px;color:var(--periwinkle-200)">Publish a definitive answer page for 'decision intelligence platform'.</div></div>
+          </div>
+          <div class="card ink" style="background:rgba(255,255,255,0.06);display:flex;gap:14px;align-items:center;padding:18px 20px">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/web-stack-connected.svg)"></span></span>
+            <div><div style="font-weight:700;color:#fff;font-size:15px">Strengthen citations</div><div style="font-size:13px;color:var(--periwinkle-200)">Earn third-party mentions on G2 and review sites AI models trust.</div></div>
+          </div>
+          <div class="card ink" style="background:rgba(255,255,255,0.06);display:flex;gap:14px;align-items:center;padding:18px 20px">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/channel-mix.svg)"></span></span>
+            <div><div style="font-weight:700;color:#fff;font-size:15px">Ship a comparison page</div><div style="font-size:13px;color:var(--periwinkle-200)">'BI vs decision intelligence' — the question buyers ask before they ask AI.</div></div>
+          </div>
+        </div>
+      </div></div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — Seek Alfred -->
+  <section data-label="Seek Alfred">
+    <div class="frame bg-canvas">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">Seek Alfred</span>
+          <h2 class="h2" style="margin:14px 0 22px">Ask anything. Answered from your data.</h2>
+          <p class="lead" style="margin-bottom:22px">No query builder, no waiting on an analyst. Ask in plain language; Alfred answers with the number and the reasoning behind it.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px">
+            <span class="tag neutral plain">Best channel this month?</span>
+            <span class="tag neutral plain">Where am I wasting spend?</span>
+            <span class="tag neutral plain">Will I hit pipeline target?</span>
+          </div>
+          <span class="tag orange">85% of questions answered without an analyst</span>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="padding:16px 20px;border-bottom:1px solid var(--gray-150);background:#fff;display:flex;align-items:flex-start;gap:12px">
+            <span style="font-weight:700;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--periwinkle-600);padding-top:3px">You asked</span>
+            <span style="font-size:15.5px;color:var(--ink-900);font-weight:600;line-height:1.4">"Why did CAC go up last week — is it a problem?"</span>
+          </div>
+          <div style="padding:18px 20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <img src="../../assets/logos/alfred-icon.svg" style="height:18px" alt="" />
+              <span style="font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-500)">Alfred</span>
+            </div>
+            <p style="font-size:15.5px;line-height:1.55;color:var(--ink-700);margin:0">Blended CAC rose to <b>$184 (+6%)</b>. The driver is LinkedIn prospecting — CPL climbed 14% after the Jun 18 audience expansion. It's recoverable: narrow back to your core ICP and CAC returns to ~$172 within a week. Pipeline quality is unaffected.</p>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">10</span>
+    </div>
+  </section>
+
+  <!-- 11 — Close / CTA -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Get started</span>
+        <h2 class="cta-title" style="margin-top:18px">See your own first brief inside a week.</h2>
+        <p class="cta-sub">Connect read-only in week one. Your first daily briefing lands by week two — no engineering required.</p>
+        <span class="cta-chip">Book a working session →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">seekalfred.ai · hello@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">11</span>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>
