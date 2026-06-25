@@ -18,8 +18,12 @@ production code, depending on the need.
 - `styles.css` — link this one file; everything is CSS custom properties.
 - `tokens/` — colors, typography, spacing/radius/shadow/motion, fonts (@font-face), base defaults.
 - `assets/` — `logos/` (color + white lockups), `icons/` (single-color brand glyphs), `fonts/`.
-- `components/` — React primitives (brand: Logo, Icon · core: Button, IconButton, Input,
-  Checkbox, Switch, Card, Badge, Avatar, Tabs · data: KpiCard, DecisionAlert, ProgressBar).
+- `components/` — 64 components: brand (Logo, Icon) · core (Button, Input, Select, Switch, Chip,
+  Card, Badge, Avatar, Tabs…) · data (KpiCard, DecisionAlert, Table, Stepper…) · charts (Area,
+  Stacked, Gauge, Waterfall, Bullet, Scatter, Sankey, Heatmap, Legend + spark/line/bar/donut/funnel)
+  · trust (ConfidenceMeter, SourceTrace, RecommendationCard, DecisionLog, DataFreshness, CausalChain)
+  · app (Sidebar, PageHeader, DataTable, FilterBar, DateRangePicker, CommandPalette, StatTile) ·
+  overlay (Modal, Drawer, Toast, Tooltip, Popover, Menu) · feedback (Banner) · marketing.
 - `ui_kits/app/` — multi-screen Alfred workspace (light): auth → home, daily briefing, Seek Alfred,
   KPI cockpit, spend & ROI, decision alerts, creative lifecycle, AI visibility, integrations,
   settings. Routed from the sidebar; screens in `Screens.jsx` + `Screens2.jsx`.

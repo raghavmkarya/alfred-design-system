@@ -3,6 +3,27 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-06-25 — Tier 1 component expansion (charts, trust, app) — 42 → 64
+
+### Added
+- **Data-viz depth (9 charts).** A real plot foundation — `AreaChart` (multi-series, y-axis
+  ticks, gridlines, legend) + `Legend`, plus `StackedBarChart`, `Heatmap`, `GaugeChart`,
+  `WaterfallChart`, `BulletChart`, `SankeyChart`, `ScatterChart`. Charts now ship a categorical
+  palette and axes/gridlines/legends — the decision-intelligence kit the product needs.
+- **Trust primitives (6).** The "no black box" set: `ConfidenceMeter` (causal confidence),
+  `SourceTrace` (where an insight came from), `RecommendationCard` (the draft → approve → act
+  loop), `DecisionLog` (audit trail), `DataFreshness` (stale-data guardrail), and `CausalChain`
+  (the cause → effect → impact signature of the Causal Reasoning Engine).
+- **App connective tissue (7).** `Sidebar`, `PageHeader`, `DataTable` (sortable), `FilterBar`,
+  `DateRangePicker`, `StatTile` (KPI + inline sparkline), and `CommandPalette` — the flagship
+  "Seek Alfred" surface as a real component.
+- Preview cards for each group; 22 new `*.prompt.md` docs; new `trust`/`app` source groups.
+
+### Notes
+- All 64 components render clean via `scripts/verify-components.mjs` (sample props added) and were
+  render-checked at the pixel level. Built with a hand-authored chart foundation + exemplar, then a
+  multi-agent workflow for the fleet, then an SSR render/fix pass.
+
 ## 2026-06-25 — Presentation deck library (16 decks)
 
 ### Added

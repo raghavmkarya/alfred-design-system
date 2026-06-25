@@ -1,0 +1,90 @@
+<!-- @dsCard group="Components" viewport="760x1640" name="Charts — advanced (area, stacked, gauge, waterfall, bullet, scatter, sankey, heatmap)" subtitle="Plot frames with axes, gridlines & legends for decision intelligence" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 704px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .span2 { grid-column: span 2; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { AreaChart, StackedBarChart, WaterfallChart, ScatterChart, Heatmap, SankeyChart, GaugeChart, BulletChart, Legend } = window.AlfredAIDesignSystem_1ce241;
+const K = (v) => "$" + v + "K";
+function Demo() {
+  return (
+    <div className="grid">
+      <div className="panel span2">
+        <div className="lbl">Area — spend by channel</div>
+        <AreaChart valueFormat={K} labels={["W1","W2","W3","W4","W5","W6","W7","W8"]} series={[
+          {name:"Paid social",points:[120,140,132,168,180,205,230,268]},
+          {name:"Search",points:[90,96,110,120,140,150,160,176]},
+          {name:"Email",points:[40,44,42,60,58,70,72,88]}]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Stacked bar — channel mix</div>
+        <StackedBarChart keys={["Social","Search","Email"]} data={[
+          {label:"Q1",Social:38,Search:26,Email:18},{label:"Q2",Social:42,Search:24,Email:20},
+          {label:"Q3",Social:46,Search:22,Email:21},{label:"Q4",Social:44,Search:28,Email:24}]} />
+      </div>
+      <div className="panel" style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+        <div className="lbl" style={{alignSelf:"flex-start"}}>Gauge — AI Visibility</div>
+        <GaugeChart value={72} max={100} label="AI Visibility" sub="out of 100" />
+      </div>
+      <div className="panel span2">
+        <div className="lbl">Waterfall — budget → projected pipeline</div>
+        <WaterfallChart valueFormat={K} items={[
+          {label:"Plan",value:295,type:"start"},{label:"Search +",value:40},{label:"Waste cut",value:-12},
+          {label:"Social +",value:25},{label:"Projected",value:348,type:"end"}]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Bullet — actual vs target</div>
+        <BulletChart items={[
+          {label:"Blended ROAS",value:4.8,target:4.0,max:6},
+          {label:"Pipeline ($M)",value:2.68,target:2.4,max:3.5},
+          {label:"CAC ($)",value:184,target:200,max:300}]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Scatter — spend vs ROAS</div>
+        <ScatterChart xLabel="Spend ($K)" yLabel="ROAS" points={[
+          {x:84,y:5.1,label:"PMax"},{x:61,y:4.6,label:"Meta"},{x:48,y:3.9,label:"LinkedIn"},
+          {x:39,y:6.8,label:"Brand"},{x:27,y:2.1,label:"YouTube"}]} />
+      </div>
+      <div className="panel span2">
+        <div className="lbl">Sankey — attribution flow</div>
+        <SankeyChart nodes={[
+          {id:"social",label:"Paid social",col:0},{id:"search",label:"Search",col:0},
+          {id:"mql",label:"MQL",col:1},{id:"sql",label:"SQL",col:1},{id:"won",label:"Won",col:2}]}
+          links={[
+          {source:"social",target:"mql",value:60},{source:"social",target:"sql",value:24},
+          {source:"search",target:"mql",value:30},{source:"mql",target:"won",value:40},{source:"sql",target:"won",value:20}]} />
+      </div>
+      <div className="panel span2">
+        <div className="lbl">Heatmap — creative fatigue by segment × week</div>
+        <Heatmap rows={["Wk 1","Wk 2","Wk 3","Wk 4"]} cols={["25–34","35–44","45–54","55+"]} values={[
+          [3.2,2.1,1.4,0.8],[3.6,2.4,1.6,0.9],[3.9,2.8,1.8,1.0],[4.2,3.0,2.0,1.1]]} />
+      </div>
+      <div className="panel span2">
+        <div className="lbl">Legend</div>
+        <Legend items={[
+          {label:"Paid social",color:"#FF8431",value:"38%"},{label:"Search",color:"#A7A7FC",value:"26%"},
+          {label:"Email",color:"#2FB67C",value:"18%"},{label:"Organic",color:"#7B7BF5",value:"12%"}]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

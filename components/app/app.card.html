@@ -1,0 +1,82 @@
+<!-- @dsCard group="Components" viewport="900x1320" name="App — sidebar, page header, data table, filter bar, command palette" subtitle="The product's connective tissue, as reusable components" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .stack { display: flex; flex-direction: column; gap: 18px; max-width: 844px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .panel.p0 { padding: 0; overflow: hidden; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { CommandPalette, DataTable, PageHeader, FilterBar, DateRangePicker, StatTile, Sidebar } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="stack">
+      <div className="panel">
+        <div className="lbl">CommandPalette — the Seek Alfred surface</div>
+        <CommandPalette suggestions={[
+          {label:"Why did CAC rise last week?",hint:"diagnose"},
+          {label:"Forecast Q3 pipeline",hint:"forecast"},
+          {label:"Which channel is underspending?",hint:"spend"}]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">DataTable — sortable, right-aligned numerics</div>
+        <DataTable
+          columns={[{key:"name",header:"Campaign"},{key:"spend",header:"Spend",align:"right"},{key:"roas",header:"ROAS",align:"right"},{key:"cac",header:"CAC",align:"right"}]}
+          rows={[
+            {name:"Performance Max",spend:"$84.2K",roas:"5.1x",cac:"$142"},
+            {name:"Meta Retargeting",spend:"$61.0K",roas:"4.6x",cac:"$168"},
+            {name:"LinkedIn ABM",spend:"$48.5K",roas:"3.9x",cac:"$210"},
+            {name:"Brand search",spend:"$39.1K",roas:"6.8x",cac:"$96"}]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">PageHeader</div>
+        <PageHeader title="Spend & ROI Intelligence" subtitle="Where every dollar is working"
+          breadcrumb={[{label:"Home"},{label:"Marketing"},{label:"Spend"}]} />
+      </div>
+      <div className="row">
+        <div className="panel">
+          <div className="lbl">FilterBar</div>
+          <FilterBar filters={[
+            {type:"segmented",id:"range",options:[{value:"7d",label:"7d"},{value:"30d",label:"30d"},{value:"qtd",label:"QTD"}],value:"30d"},
+            {type:"select",id:"channel",label:"Channel",options:[{value:"all",label:"All channels"},{value:"paid",label:"Paid"}],value:"all"}]} />
+          <div style={{height:18}} />
+          <div className="lbl">DateRangePicker</div>
+          <DateRangePicker value="30d" />
+        </div>
+        <div className="panel">
+          <div className="lbl">StatTile — KPI with inline trend</div>
+          <StatTile label="Blended ROAS" value="4.8x" delta="+12.4%" direction="up" caption="vs last 30 days"
+            points={[3.1,3.4,3.2,3.8,4.0,3.7,4.2,4.8]} />
+        </div>
+      </div>
+      <div className="row">
+        <div className="panel p0" style={{height:300}}>
+          <Sidebar active="spend" items={[
+            {id:"home",label:"Home"},{id:"briefing",label:"Daily Briefing"},{id:"cockpit",label:"KPI Cockpit"},
+            {id:"spend",label:"Spend & ROI"},{id:"alerts",label:"Decision Alerts",badge:"3"},{id:"creative",label:"Creative"}]} />
+        </div>
+        <div className="panel" style={{display:"flex",alignItems:"center",justifyContent:"center",color:"var(--text-muted)",fontSize:"var(--text-sm)"}}>
+          <div style={{textAlign:"center",lineHeight:1.5}}>Sidebar pairs with PageHeader and the<br/>data components to compose a full screen.</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

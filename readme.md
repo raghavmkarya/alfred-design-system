@@ -115,7 +115,7 @@ _ds_bundle.js         ← compiled React components → window.AlfredAIDesignSys
 _ds_manifest.json     ← component manifest for claude.ai/design
 tokens/               ← colors, typography, spacing/radius/shadow/motion, fonts, base defaults
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
-components/           ← React primitives (brand · core · data · marketing) + @dsCard previews
+components/           ← 64 components (brand · core · data · charts · trust · app · overlay · feedback · marketing) + @dsCard previews
 guidelines/           ← foundation specimen cards (color / type / spacing / brand)
 ui_kits/app/          ← multi-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility…
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
@@ -129,10 +129,16 @@ SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes
 ```
 
-**Components** (on `window.AlfredAIDesignSystem_1ce241`): `Logo`, `Icon`, `Button`,
-`IconButton`, `Input`, `Checkbox`, `Switch`, `Card`, `Badge`, `Avatar`, `Tabs`, `KpiCard`,
-`DecisionAlert`, `ProgressBar`, and the marketing set `SignalCard`, `StepFlow`, `StatBand`,
-`FaqItem`, `AgentStatus`.
+**Components** (64, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`; **core**
+`Button`, `IconButton`, `Input`, `Select`, `Checkbox`, `Switch`, `Slider`, `RadioGroup`,
+`SegmentedControl`, `Chip`, `Card`, `Badge`, `Avatar`, `Tabs`; **data** `KpiCard`, `DecisionAlert`,
+`ProgressBar`, `Table`, `Stepper`, `Skeleton`, `Breadcrumb`, `EmptyState`, `Pagination`; **charts**
+`Sparkline`, `LineChart`, `AreaChart`, `BarChart`, `StackedBarChart`, `DonutChart`, `FunnelChart`,
+`GaugeChart`, `WaterfallChart`, `BulletChart`, `ScatterChart`, `Heatmap`, `SankeyChart`, `Legend`;
+**trust** `ConfidenceMeter`, `SourceTrace`, `RecommendationCard`, `DecisionLog`, `DataFreshness`,
+`CausalChain`; **app** `Sidebar`, `PageHeader`, `DataTable`, `FilterBar`, `DateRangePicker`,
+`CommandPalette`, `StatTile`; **overlay** `Menu`, `Modal`, `Toast`, `Drawer`, `Popover`, `Tooltip`;
+**feedback** `Banner`; **marketing** `SignalCard`, `StepFlow`, `StatBand`, `FaqItem`, `AgentStatus`.
 
 ---
 

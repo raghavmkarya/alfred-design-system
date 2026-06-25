@@ -1,0 +1,76 @@
+<!-- @dsCard group="Components" viewport="760x1340" name="Trust — confidence, sources, recommendations, decision log, causal chain" subtitle="The no-black-box primitives: traceable, confident, approvable" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 704px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .span2 { grid-column: span 2; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { RecommendationCard, CausalChain, DecisionLog, ConfidenceMeter, SourceTrace, DataFreshness } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="grid">
+      <div className="panel span2">
+        <div className="lbl">RecommendationCard — the draft → approve → act loop</div>
+        <RecommendationCard
+          title="Scale LinkedIn ABM +30%"
+          reasoning="Cost-per-lead fell 22% on the new ABM audience and is holding. Scaling while efficiency lasts captures pipeline before competitors."
+          impact="+$30K pipeline this month"
+          confidence={78} />
+      </div>
+      <div className="panel span2">
+        <div className="lbl">CausalChain — cause → effect → impact</div>
+        <CausalChain confidence={74} steps={[
+          {label:"Ops resourcing cut",detail:"6 weeks ago",kind:"cause"},
+          {label:"2 late-stage deals stalled",kind:"effect"},
+          {label:"$380K forecast downgrade",kind:"impact"}]} />
+      </div>
+      <div className="panel span2">
+        <div className="lbl">DecisionLog — every change, logged</div>
+        <DecisionLog entries={[
+          {time:"Today, 8:02 AM",title:"Reallocated $18K to Performance Max",outcome:"+6% non-brand coverage",status:"acted",actor:"Priya approved"},
+          {time:"Yesterday",title:"Scaled LinkedIn ABM +30%",status:"acted"},
+          {time:"Mon",title:"Paused fatigued Meta creative",status:"dismissed",detail:"Kept live one more week"}]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">ConfidenceMeter</div>
+        <ConfidenceMeter value={82} label="Causal confidence" />
+        <div style={{height:14}} />
+        <ConfidenceMeter value={46} label="Forecast confidence" />
+      </div>
+      <div className="panel">
+        <div className="lbl">SourceTrace — grounded in</div>
+        <SourceTrace layout="list" sources={[
+          {name:"GA4",detail:"sessions · conversions",status:"live"},
+          {name:"HubSpot",detail:"pipeline",status:"live"},
+          {name:"Google Ads",detail:"spend",status:"live"}]} />
+      </div>
+      <div className="panel span2">
+        <div className="lbl">DataFreshness</div>
+        <div style={{display:"flex",gap:14,flexWrap:"wrap"}}>
+          <DataFreshness updatedAgo="6m ago" count={6} status="fresh" />
+          <DataFreshness updatedAgo="syncing…" status="syncing" />
+          <DataFreshness updatedAgo="3h ago" status="stale" label="Meta Ads" />
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>
