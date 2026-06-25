@@ -50,23 +50,32 @@ where the skill is loaded. Claude will:
 
 ## Install it into your own Claude design (claude.ai/design) project
 
-claude.ai/design imports files from a **local folder via Claude Code** — it can't pull a GitHub
-URL directly, so you clone first, then let Claude Code upload it into your own project. Two
-steps:
+Everyone uses their **own** claude.ai/design account — this repo is the shared source. The
+whole thing is already in the **claude.ai/design upload format**, so there's no build step.
+
+**Easiest — connect this repo when creating a design system.** In claude.ai/design, create a
+new design system and point it at this repository's URL:
+
+```
+https://github.com/raghavmkarya/alfred-design-system
+```
+
+The repo is public and already in upload format, so it imports directly — the prebuilt bundle
+(`_ds_bundle.js` → `window.AlfredAIDesignSystem_1ce241`), token CSS (`styles.css` + `tokens/`),
+manifest (`_ds_manifest.json`), and `@dsCard` preview cards all come across. No local clone
+needed.
+
+**Alternative — sync from a local clone via Claude Code.** If you'd rather push from your
+machine (e.g. to make edits first), clone the repo and run `/design-sync` in a Claude Code
+session inside it — it creates/updates your project and uploads the same files.
 
 ```bash
 git clone https://github.com/raghavmkarya/alfred-design-system
 ```
 
-Then, in a Claude Code session inside that folder, ask it to **sync this design system into your
-claude.ai/design project** (run `/design-sync`). It creates the project if you don't have one
-and uploads everything the tool needs — the prebuilt bundle (`_ds_bundle.js` →
-`window.AlfredAIDesignSystem_1ce241`), the token CSS (`styles.css` + `tokens/`), the manifest
-(`_ds_manifest.json`), and the `@dsCard` preview cards. That's it.
-
 > The bundled `.design-sync/` folder is the *original author's* project link — not yours. Ignore
-> it; your own sync creates a fresh link for your project. (`uploads/` and `scripts/` are
-> source/tooling and aren't uploaded.)
+> it; your own project gets its own link. (`uploads/` and `scripts/` are source/tooling, not part
+> of the design system.)
 
 ---
 
