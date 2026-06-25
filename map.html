@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred — Design System Map</title>
+<style>
+  :root{
+    --orange-500:#FF8431; --orange-600:#F06E18; --orange-50:#FFF3EA;
+    --periwinkle-400:#A7A7FC; --periwinkle-50:#EFEFFE;
+    --ink-900:#02021E; --ink-700:#2A2A40; --ink-500:#5B5B72; --ink-400:#84849A;
+    --bg:#F7F7FB; --surface:#FFFFFF; --sunken:#F1F1F6;
+    --border:rgba(2,2,30,.08); --border-strong:rgba(2,2,30,.14);
+    --gradient-brand:linear-gradient(135deg,#A7A7FC 0%,#FF8431 100%);
+    --shadow-sm:0 4px 14px rgba(2,2,30,.06); --shadow-md:0 10px 30px rgba(2,2,30,.09);
+    --r-input:12px; --r-card:24px; --r-lg:32px; --maxw:1180px;
+  }
+  /* Real brand fonts — they live in this repo */
+  @font-face{font-family:'Clash Display';src:url('assets/fonts/ClashDisplay-Semibold.woff2') format('woff2');font-weight:600;font-display:swap}
+  @font-face{font-family:'Clash Display';src:url('assets/fonts/ClashDisplay-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+  @font-face{font-family:'Satoshi';src:url('assets/fonts/Satoshi-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Satoshi';src:url('assets/fonts/Satoshi-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+  @font-face{font-family:'Satoshi';src:url('assets/fonts/Satoshi-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+  @font-face{font-family:'Bricolage Grotesque';src:url('assets/fonts/BricolageGrotesque-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink-900);font-family:'Satoshi',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Clash Display','Satoshi',sans-serif;letter-spacing:-.02em;font-weight:600;line-height:1.12}
+  a{color:var(--orange-600);text-decoration:none}a:hover{text-decoration:underline}
+  code{font-family:ui-monospace,Menlo,monospace;background:var(--sunken);padding:1px 6px;border-radius:6px;font-size:.86em}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-400)}
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--border)}
+  .topbar .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 22px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+  .brand .dot{width:22px;height:22px;border-radius:7px;background:var(--gradient-brand);box-shadow:var(--shadow-sm)}
+  .brand .wm{font-family:'Clash Display',sans-serif;font-size:16px}
+  .brand .sub{color:var(--ink-400);font-weight:500;font-size:13px;border-left:1px solid var(--border-strong);padding-left:12px}
+  .legend{margin-left:auto;display:flex;gap:14px;align-items:center}
+  .btn{font-family:inherit;font-size:13px;font-weight:600;border:0;cursor:pointer;border-radius:var(--r-input);padding:9px 14px;background:var(--orange-500);color:#fff;transition:transform .12s,box-shadow .12s}
+  .btn:hover{box-shadow:0 8px 22px rgba(255,132,49,.4);transform:translateY(-1px)}
+  .wrap{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:212px 1fr;gap:30px;padding:26px 22px 80px}
+  nav.side{position:sticky;top:74px;align-self:start;max-height:calc(100vh - 94px);overflow:auto;font-size:13.5px}
+  nav.side a{display:block;color:var(--ink-500);padding:7px 12px;border-radius:10px;border-left:2px solid transparent;font-weight:500}
+  nav.side a:hover{background:var(--surface);text-decoration:none;color:var(--ink-900)}
+  nav.side a.active{color:var(--ink-900);background:var(--surface);border-left-color:var(--orange-500);font-weight:600;box-shadow:var(--shadow-sm)}
+  main{min-width:0}section{scroll-margin-top:78px;margin-bottom:30px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:24px 26px;box-shadow:var(--shadow-sm)}
+  section>h2{font-size:24px;margin:0 0 4px}.lede{color:var(--ink-500);margin:2px 0 16px;max-width:72ch}
+  .hero{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px;position:relative;overflow:hidden;box-shadow:var(--shadow-md)}
+  .hero::after{content:"";position:absolute;inset:0;background:var(--gradient-brand);opacity:.08;pointer-events:none}
+  .hero h1{font-size:34px;margin:.2em 0 .15em;position:relative}
+  .hero .tag{font-family:'Clash Display',sans-serif;color:var(--orange-600);font-size:17px;position:relative}
+  .grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+  .mini{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+  .mini h4{margin:0 0 6px;font-size:15px}.mini p{margin:0;font-size:13.5px;color:var(--ink-500)}
+  ul.tight{margin:6px 0 0;padding-left:18px}ul.tight li{margin:4px 0;font-size:13.5px;color:var(--ink-700)}
+  /* swatches */
+  .sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .chip{border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm)}
+  .chip .c{height:74px}.chip .m{padding:8px 11px;font-size:12px}.chip .m b{display:block;font-size:12.5px}.chip .m span{color:var(--ink-400);font-family:ui-monospace,Menlo,monospace;font-size:11px}
+  .gradbar{height:74px;border-radius:16px;background:var(--gradient-brand);box-shadow:var(--shadow-sm);margin-top:4px}
+  /* type samples */
+  .ts{padding:14px 0;border-bottom:1px solid var(--border)}.ts:last-child{border-bottom:0}
+  .ts .lab{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-400);font-weight:700;margin-bottom:6px}
+  .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:999px}
+  .b-ok{background:#E7F7EE;color:#0E7A45}.b-note{background:var(--periwinkle-50);color:#5B5BD6}
+  .callout{border-left:3px solid var(--orange-500);background:var(--orange-50);border-radius:0 14px 14px 0;padding:13px 16px;margin:10px 0;font-size:13.5px}
+  .callout .q{font-weight:700}
+  .demo{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
+  .d-btn{font-family:'Satoshi',sans-serif;font-weight:600;font-size:14px;border:0;border-radius:12px;padding:11px 18px;background:var(--orange-500);color:#fff;cursor:pointer;transition:box-shadow .15s}
+  .d-btn:hover{box-shadow:0 8px 22px rgba(255,132,49,.4)}
+  .d-btn.sec{background:var(--sunken);color:var(--ink-900)}
+  .d-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:18px 20px;box-shadow:var(--shadow-md);font-size:13.5px;max-width:280px}
+  .d-pill{border-radius:999px;background:var(--ink-900);color:#fff;font-size:12px;padding:6px 13px}
+  .note-wrap{margin-top:16px;border-top:1px dashed var(--border-strong);padding-top:14px}
+  .note-wrap label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-600)}
+  textarea.note{width:100%;margin-top:7px;min-height:60px;resize:vertical;border:1px solid var(--border-strong);border-radius:var(--r-input);padding:11px 13px;font-family:inherit;font-size:13.5px;color:var(--ink-900);background:#FFFDFB}
+  textarea.note:focus{outline:none;border-color:var(--orange-500);box-shadow:0 0 0 3px rgba(255,132,49,.15)}
+  .saved{font-size:11px;color:var(--ink-400);margin-left:8px}
+  footer{max-width:var(--maxw);margin:0 auto;padding:24px 22px 60px;color:var(--ink-400);font-size:12.5px}
+  @media (max-width:880px){.wrap{grid-template-columns:1fr}nav.side{display:none}.g2,.g3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <div class="brand"><span class="dot"></span><span class="wm">alfred ai</span><span class="sub">Design System Map</span></div>
+  <div class="legend"><a href="index.html" class="btn" style="background:var(--ink-900)">Open live showcase</a><button class="btn" id="exportBtn">Export my notes</button></div>
+</div></div>
+
+<div class="wrap">
+  <nav class="side" id="sidenav">
+    <a href="#snapshot">Brand in one breath</a>
+    <a href="#color">Color</a>
+    <a href="#type">Type</a>
+    <a href="#form">Form &amp; feel</a>
+    <a href="#contents">What's in it</a>
+    <a href="#use">How to use</a>
+    <a href="#voice">Voice &amp; icons</a>
+    <a href="#fillin">Notes &amp; decisions</a>
+  </nav>
+  <main>
+    <div class="hero">
+      <span class="eyebrow">Source of truth for all Alfred visual work</span>
+      <h1>The Alfred design system.</h1>
+      <div class="tag">Warm, premium, decisive. White space is the canvas; color is an accent.</div>
+      <p class="lede" style="margin-top:14px">Tokens, a prebuilt React component bundle, two UI kits, templates, slides, and brand assets — ready for Claude Code and claude.ai/design. This page is a quick visual tour you can annotate; the live, interactive showcase is <a href="index.html">index.html</a>.</p>
+    </div>
+
+    <section id="snapshot">
+      <h2>Brand in one breath</h2>
+      <div class="card">
+        <div class="grid g3">
+          <div class="mini"><h4>Color as accent</h4><p>Orange = action, periwinkle = cool accent, ink = text. White space is the canvas — never wallpaper. One gradient element per view.</p></div>
+          <div class="mini"><h4>Expressive + functional type</h4><p>Clash Display for headlines &amp; KPI values; Satoshi for body, UI, tables; Bricolage for editorial marketing accents.</p></div>
+          <div class="mini"><h4>Soft &amp; diffuse</h4><p>Soft corners (12 / 24 / 32px), soft vertical shadows, a warm orange glow on the primary button hover. Nothing sharp.</p></div>
+        </div>
+        <div class="note-wrap"><label>Your notes — brand</label><textarea class="note" id="n-brand" placeholder="What feels right? Anything you'd evolve?"></textarea></div>
+      </div>
+    </section>
+
+    <section id="color">
+      <h2>Color</h2>
+      <p class="lede">Orange and periwinkle are identical in light and dark; only surfaces and text invert.</p>
+      <div class="card">
+        <div class="sw">
+          <div class="chip"><div class="c" style="background:#FF8431"></div><div class="m"><b>Orange 500</b><span>#FF8431 · action</span></div></div>
+          <div class="chip"><div class="c" style="background:#A7A7FC"></div><div class="m"><b>Periwinkle 400</b><span>#A7A7FC · cool accent</span></div></div>
+          <div class="chip"><div class="c" style="background:#02021E"></div><div class="m"><b>Ink 900</b><span>#02021E · text</span></div></div>
+          <div class="chip"><div class="c" style="background:#0C0C0A"></div><div class="m"><b>Ink 950</b><span>#0C0C0A · dark bg</span></div></div>
+          <div class="chip"><div class="c" style="background:#F7F7FB;border-bottom:1px solid var(--border)"></div><div class="m"><b>Surface</b><span>near-white canvas</span></div></div>
+        </div>
+        <p style="margin:16px 0 4px"><span class="eyebrow">Signature gradient — periwinkle → orange, 135°</span></p>
+        <div class="gradbar"></div>
+        <p style="margin:8px 0 0;font-size:12.5px;color:var(--ink-400)">One gradient element per view; pair with white, never with another gradient.</p>
+        <div class="note-wrap"><label>Your notes — color</label><textarea class="note" id="n-color" placeholder="Palette questions or additions…"></textarea></div>
+      </div>
+    </section>
+
+    <section id="type">
+      <h2>Type</h2>
+      <p class="lede">If the real fonts loaded, the samples below render in Clash / Satoshi / Bricolage.</p>
+      <div class="card">
+        <div class="ts"><div class="lab">Clash Display — headlines, KPI values (tight tracking)</div><div style="font-family:'Clash Display',sans-serif;font-size:30px;font-weight:600;letter-spacing:-.02em">Read less, know more.</div></div>
+        <div class="ts"><div class="lab">Satoshi — body, UI, tables</div><div style="font-family:'Satoshi',sans-serif;font-size:16px">Alfred connects your stack and tells you what to act on next — decisions in minutes, not days.</div></div>
+        <div class="ts"><div class="lab">Bricolage Grotesque — optional editorial accent (marketing only)</div><div style="font-family:'Bricolage Grotesque',serif;font-size:22px;font-weight:600">Built for the leaders who decide things.</div></div>
+        <p style="margin:12px 0 0;font-size:12.5px;color:var(--ink-400)">Website/marketing surfaces swap to Satoshi headlines + Inter body under <code>[data-theme="dark"]</code>.</p>
+        <div class="note-wrap"><label>Your notes — type</label><textarea class="note" id="n-type" placeholder="Type questions…"></textarea></div>
+      </div>
+    </section>
+
+    <section id="form">
+      <h2>Form &amp; feel</h2>
+      <div class="card">
+        <div class="grid g2">
+          <div>
+            <span class="eyebrow">Live samples</span>
+            <div class="demo"><button class="d-btn">Reallocate budget</button><button class="d-btn sec">Cancel</button><span class="d-pill">Pro</span></div>
+            <div class="d-card" style="margin-top:12px"><b style="font-family:'Clash Display',sans-serif">+$48K</b><div style="color:var(--ink-500)">projected revenue from this reallocation</div></div>
+          </div>
+          <div>
+            <span class="eyebrow">Rules</span>
+            <ul class="tight">
+              <li>Radii: inputs/buttons 12px, cards 24px, large surfaces 32px, pills round.</li>
+              <li>Shadows: soft, vertical, low-contrast. Primary button gets a warm orange glow on hover.</li>
+              <li>Light app vs dark site — only surfaces/text invert; accents stay constant.</li>
+              <li>Motion: gentle ease-out, 120–360ms. No bounce or infinite decoration.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note-wrap"><label>Your notes — form</label><textarea class="note" id="n-form" placeholder="Form/feel questions…"></textarea></div>
+      </div>
+    </section>
+
+    <section id="contents">
+      <h2>What's in it</h2>
+      <div class="card">
+        <div class="grid g3">
+          <div class="mini"><h4>Tokens</h4><p><code>styles.css</code> + <code>tokens/</code> — colors, type, spacing/radius/shadow/motion, fonts, base.</p></div>
+          <div class="mini"><h4>Components</h4><p>19 React primitives on <code>window.AlfredAIDesignSystem_1ce241</code> — brand, core, data, marketing sets.</p></div>
+          <div class="mini"><h4>UI kits</h4><p><code>ui_kits/app</code> (light product workspace) &amp; <code>ui_kits/website</code> (dark marketing site).</p></div>
+          <div class="mini"><h4>Templates &amp; slides</h4><p>Copy-paste marketing section blocks, a deck template, and presentation slides.</p></div>
+          <div class="mini"><h4>Assets</h4><p>Logos (color + white), single-color brand icons, fonts.</p></div>
+          <div class="mini"><h4>Guidelines</h4><p>Foundation specimen cards for color, type, spacing, brand.</p></div>
+        </div>
+        <p style="margin:12px 0 0;font-size:13px">See it all live in <a href="index.html">index.html</a> (the showcase gallery).</p>
+        <div class="note-wrap"><label>Your notes — contents</label><textarea class="note" id="n-contents" placeholder="Components or assets to add?"></textarea></div>
+      </div>
+    </section>
+
+    <section id="use">
+      <h2>How to use</h2>
+      <div class="card">
+        <div class="grid g3">
+          <div class="mini"><h4>In Claude Code</h4><p>Installed as the skill <code>alfred-ai-design</code> (user + project level). Invoke <code>/alfred-ai-design</code> and design on-brand.</p></div>
+          <div class="mini"><h4>In claude.ai/design</h4><p>Already in upload format. Connect this repo's URL when creating a design system, or sync from a local clone.</p></div>
+          <div class="mini"><h4>Directly</h4><p>Link <code>styles.css</code>, load <code>_ds_bundle.js</code>, destructure components. <code>data-theme="dark"</code> for dark.</p></div>
+        </div>
+        <div class="note-wrap"><label>Your notes — usage</label><textarea class="note" id="n-use" placeholder="Usage questions…"></textarea></div>
+      </div>
+    </section>
+
+    <section id="voice">
+      <h2>Voice &amp; icons</h2>
+      <div class="card">
+        <div class="grid g2">
+          <div><span class="eyebrow">Voice</span><ul class="tight">
+            <li>First-person chief of staff: Alfred says "I", speaks to "you".</li>
+            <li>Lead with the decision or the number, then the reasoning.</li>
+            <li>Sentence case everywhere; UPPERCASE only for small tracked eyebrows.</li>
+            <li><b>No emoji.</b> Warmth comes from palette and type, not decoration.</li>
+          </ul></div>
+          <div><span class="eyebrow">Icons &amp; logos</span><ul class="tight">
+            <li>Custom single-color SVG icon set (line style, ~16–24px), tinted via <code>currentColor</code>.</li>
+            <li>Never substitute emoji or unicode symbols.</li>
+            <li>Logo lockups in color + all-white; white only on ink or the gradient. Never recolor the gradient mark.</li>
+          </ul></div>
+        </div>
+        <div class="note-wrap"><label>Your notes — voice &amp; icons</label><textarea class="note" id="n-voice" placeholder="Voice/icon questions…"></textarea></div>
+      </div>
+    </section>
+
+    <section id="fillin">
+      <h2>Notes &amp; decisions</h2>
+      <p class="lede">Open or recently-made calls worth tracking.</p>
+      <div class="card">
+        <div class="callout"><span class="q">Font licensing — decided.</span> <span class="badge b-note">Public repo</span> Satoshi &amp; Clash Display files are bundled in the public repo despite the Fontshare license restricting redistribution; you chose to keep them. Revisit if Fontshare ever objects.
+          <div class="note-wrap" style="border:0;padding:6px 0 0;margin:6px 0 0"><textarea class="note" id="q-fonts" placeholder="Any change of stance?"></textarea></div></div>
+        <div class="callout"><span class="q">Components or patterns to add?</span> Anything you keep needing that the kit doesn't cover yet.
+          <div class="note-wrap" style="border:0;padding:6px 0 0;margin:6px 0 0"><textarea class="note" id="q-add" placeholder="Wishlist…"></textarea></div></div>
+        <div class="callout"><span class="q">Brand evolutions to consider?</span> Anything about the look you'd push as Alfred matures.
+          <div class="note-wrap" style="border:0;padding:6px 0 0;margin:6px 0 0"><textarea class="note" id="q-evolve" placeholder="Ideas…"></textarea></div></div>
+      </div>
+    </section>
+  </main>
+</div>
+<footer>Snapshot generated 2026-06-25 from the <code>alfred-design-system</code> repo. The live interactive showcase is <a href="index.html">index.html</a>; the docs (<code>readme.md</code>, <code>SKILL.md</code>, <code>tokens/</code>) are canon. Notes live in this browser only — use Export to save them.</footer>
+
+<script>
+(function(){
+  var KEY='alfred-ds-notes-v1',store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){store={};}
+  document.querySelectorAll('textarea.note').forEach(function(t){
+    if(store[t.id])t.value=store[t.id];
+    var tag=document.createElement('span');tag.className='saved';
+    t.addEventListener('input',function(){store[t.id]=t.value;localStorage.setItem(KEY,JSON.stringify(store));tag.textContent='saved';clearTimeout(t._m);t._m=setTimeout(function(){tag.textContent='';},1200);});
+    var w=t.closest('.note-wrap'),l=w&&w.querySelector('label');if(l)l.appendChild(tag);
+  });
+  var links=[].slice.call(document.querySelectorAll('nav.side a')),map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(a){a.classList.remove('active');});var a=map[en.target.id];if(a)a.classList.add('active');}});},{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){io.observe(s);});
+  var META={'n-brand':'Brand','n-color':'Color','n-type':'Type','n-form':'Form & feel','n-contents':'Contents','n-use':'Usage','n-voice':'Voice & icons','q-fonts':'DECISION — font licensing','q-add':'INPUT — components to add','q-evolve':'INPUT — brand evolutions'};
+  document.getElementById('exportBtn').addEventListener('click',function(){
+    var d=new Date().toISOString().slice(0,10),L=['# Alfred design system — my notes ('+d+')','','> Exported from map.html.',''],any=false;
+    Object.keys(META).forEach(function(id){var el=document.getElementById(id);if(el&&el.value.trim()){any=true;L.push('## '+META[id],'',el.value.trim(),'');}});
+    if(!any)L.push('_(No notes typed yet.)_');
+    var b=new Blob([L.join('\n')],{type:'text/markdown'}),u=URL.createObjectURL(b),a=document.createElement('a');
+    a.href=u;a.download='alfred-ds-notes-'+d+'.md';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove();},100);
+  });
+})();
+</script>
+</body>
+</html>

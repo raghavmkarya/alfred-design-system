@@ -109,6 +109,7 @@ If you're not going through a Claude surface, consume it like any static design 
 ## What's in here
 
 ```
+map.html              ← visual tour of the system + your notes (the live component gallery is index.html)
 styles.css            ← global entry point (import this one file)
 _ds_bundle.js         ← compiled React components → window.AlfredAIDesignSystem_1ce241
 _ds_manifest.json     ← component manifest for claude.ai/design
