@@ -50,37 +50,23 @@ where the skill is loaded. Claude will:
 
 ## Install it into your own Claude design (claude.ai/design) project
 
-Everyone uses their **own** claude.ai/design account and project — this repo is just the shared
-source you copy from. The whole thing is already in the **claude.ai/design upload format**, so
-there's no build step: you import it into a fresh project of your own.
-
-**1. Get the files.**
+claude.ai/design imports files from a **local folder via Claude Code** — it can't pull a GitHub
+URL directly, so you clone first, then let Claude Code upload it into your own project. Two
+steps:
 
 ```bash
 git clone https://github.com/raghavmkarya/alfred-design-system
 ```
 
-**2. Create a new project** in your own claude.ai/design account.
+Then, in a Claude Code session inside that folder, ask it to **sync this design system into your
+claude.ai/design project** (run `/design-sync`). It creates the project if you don't have one
+and uploads everything the tool needs — the prebuilt bundle (`_ds_bundle.js` →
+`window.AlfredAIDesignSystem_1ce241`), the token CSS (`styles.css` + `tokens/`), the manifest
+(`_ds_manifest.json`), and the `@dsCard` preview cards. That's it.
 
-**3. Import this design system into it.** Everything the tool needs is here:
-
-- **Prebuilt bundle** — `_ds_bundle.js` (`@ds-bundle` header), exposing every component on
-  `window.AlfredAIDesignSystem_1ce241`.
-- **Token closure** — `styles.css` `@import`s `tokens/*.css` (colors, typography, spacing,
-  fonts, base), so the whole visual system loads from one file.
-- **Manifest** — `_ds_manifest.json` describes the component contracts (`.d.ts`-backed).
-- **Preview cards** — `@dsCard` / `@template` cards across `components/`, `guidelines/`,
-  `templates/`, and `slides/` render specimens in the design tool.
-
-The fastest path is to point Claude Code at your clone and ask it to sync the design system to
-your new project — it uploads the bundle, token CSS, manifest, and preview cards for you. (Paths
-under `uploads/` and `scripts/` are source/tooling and don't need to be uploaded.)
-
-**4. Ignore the bundled `.design-sync/` folder** — it records the *original author's* project
-link (`projectId`), not yours. Delete it or let your own first sync create a fresh link for
-your project. Because this is a hand-authored "off-script" system (no converter/build), each
-sync **re-verifies** the render rather than relying on a build hash; see `.design-sync/NOTES.md`
-for the specifics.
+> The bundled `.design-sync/` folder is the *original author's* project link — not yours. Ignore
+> it; your own sync creates a fresh link for your project. (`uploads/` and `scripts/` are
+> source/tooling and aren't uploaded.)
 
 ---
 
