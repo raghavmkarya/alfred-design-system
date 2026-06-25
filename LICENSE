@@ -1,0 +1,39 @@
+Alfred AI Design System
+Copyright (c) 2026 Alfred AI. All rights reserved.
+
+This repository and its contents — including the design tokens, components,
+guidelines, brand assets, logos, and the Alfred AI name and marks — are the
+proprietary property of Alfred AI. They are published here for reference and
+authorized collaboration only.
+
+You MAY:
+  - View, read, and reference this material.
+
+You MAY NOT, without prior written permission from Alfred AI:
+  - Copy, redistribute, sublicense, sell, or host this material or substantial
+    portions of it;
+  - Use the Alfred AI name, logos, wordmark, or brand assets in any product,
+    service, or material;
+  - Create derivative works from the design system or brand assets.
+
+No trademark, patent, or other rights are granted except as expressly stated
+above.
+
+THE MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. IN NO EVENT SHALL ALFRED AI BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY ARISING FROM OR IN CONNECTION WITH THE MATERIAL OR ITS USE.
+
+--------------------------------------------------------------------------------
+THIRD-PARTY COMPONENTS
+
+This repository bundles fonts that are licensed separately by their owners and
+are NOT covered by the terms above. Their respective licenses govern their use:
+
+  - Satoshi, Clash Display — © Indian Type Foundry, licensed via Fontshare
+    (ITF Free Font License). Free to use; redistribution of the font files is
+    restricted. See https://www.fontshare.com/licenses/itf-ffl
+  - Bricolage Grotesque — SIL Open Font License 1.1
+  - Inter — SIL Open Font License 1.1
+
+If you are not Alfred AI, obtain Satoshi and Clash Display directly from
+Fontshare rather than relying on the copies in this repository.
