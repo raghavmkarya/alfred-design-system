@@ -1,0 +1,123 @@
+/* ============================================================
+   Alfred AI — Color Tokens
+   Sourced from the Alfred brand guideline (Figma).
+   Primary = warm orange · Secondary = periwinkle · Ink = near-black
+   ============================================================ */
+:root {
+  /* —— Brand primaries (raw) ——————————————————————— */
+  --orange-700: #C75A12;
+  --orange-600: #F26A1B;
+  --orange-500: #FF8431;   /* core brand orange */
+  --orange-400: #FFA040;
+  --orange-300: #FFB07B;
+  --orange-200: #FDB381;
+  --orange-100: #FFDBC3;
+  --orange-50:  #FFF3EA;
+
+  --periwinkle-600: #7B7BF5;
+  --periwinkle-500: #9797FF;
+  --periwinkle-400: #A7A7FC;   /* core brand periwinkle */
+  --periwinkle-300: #ADADFF;
+  --periwinkle-200: #C9C9FF;
+  --periwinkle-100: #E7E7FF;
+  --periwinkle-50:  #F3F3FF;
+
+  /* —— Ink / neutrals ————————————————————————————— */
+  --ink-900: #02021E;   /* primary text, headlines */
+  --ink-800: #1B1B33;
+  --ink-700: #323232;   /* body on light */
+  --ink-600: #505050;
+  --ink-500: #6B6B78;   /* muted / secondary text */
+  --ink-400: #9CA3AF;   /* placeholder, captions */
+  --slate-300: #B7C5CF; /* muted slate (specimen labels) */
+
+  --gray-200: #D9D9D9;  /* hairline / disabled border */
+  --gray-150: #E6E6E6;
+  --gray-100: #F1F1F1;
+  --gray-50:  #F9F9F9;  /* app canvas / subtle fill */
+  --white: #FFFFFF;
+  --black: #000000;
+
+  /* —— Semantic ——————————————————————————————————— */
+  --success-500: #2FB67C;
+  --success-100: #E3F6EE;
+  --warning-500: #FF8431;  /* warm — reuses brand orange */
+  --warning-100: #FFF0E3;
+  --danger-500:  #E5484D;
+  --danger-100:  #FCE8E9;
+  --info-500:    #A7A7FC;  /* periwinkle */
+  --info-100:    #EDEDFF;
+
+  /* —— Brand gradient ————————————————————————————— */
+  /* The signature periwinkle → orange diagonal (logo + progress bars) */
+  --gradient-brand: linear-gradient(135deg, #A7A7FC 0%, #FF8431 72%); /* @kind color */
+  --gradient-brand-soft: linear-gradient(135deg, #C9C9FF 0%, #FFB07B 80%); /* @kind color */
+  --gradient-brand-reverse: linear-gradient(135deg, #FF8431 0%, #A7A7FC 100%); /* @kind color */
+  /* Ambient page glow used behind auth / hero (soft, low-opacity) */
+  --glow-periwinkle: radial-gradient(60% 55% at 22% 18%, rgba(167,167,252,0.42) 0%, rgba(167,167,252,0) 70%); /* @kind color */
+  --glow-orange:     radial-gradient(58% 60% at 88% 92%, rgba(255,132,49,0.38) 0%, rgba(255,132,49,0) 70%); /* @kind color */
+
+  /* —— Semantic surface / text aliases ————————————————— */
+  --bg-page: #FFFFFF;
+  --bg-canvas: var(--gray-50);          /* app background */
+  --surface-card: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  --surface-sunken: var(--gray-50);
+  --surface-input: var(--orange-50);    /* peach-tinted fields (auth) */
+  --surface-input-plain: #FFFFFF;
+
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-600);
+  --text-muted: var(--ink-500);
+  --text-placeholder: var(--ink-400);
+  --text-on-brand: #FFFFFF;
+  --text-link: var(--orange-500);
+
+  --border-subtle: var(--gray-150);
+  --border-default: var(--gray-200);
+  --border-strong: var(--ink-400);
+  --border-focus: var(--orange-500);
+
+  --accent: var(--orange-500);
+  --accent-hover: var(--orange-600);
+  --accent-press: var(--orange-700);
+  --accent-soft: var(--orange-50);
+
+  /* —— Dark marketing surfaces (raw) — warm near-blacks, matching the live site —— */
+  --ink-950: #0C0C0A;   /* darkest page bg (marketing hero) */
+  --ink-925: #111110;   /* dark section band */
+  --ink-875: #171715;   /* raised dark card */
+}
+
+/* ============================================================
+   Dark theme — the seekalfred.ai marketing aesthetic.
+   Apply with <html data-theme="dark"> or any [data-theme="dark"] scope.
+   Brand orange / periwinkle / gradient stay identical; only
+   surfaces & text invert. Pair with --glow-* for the ambient hero.
+   ============================================================ */
+[data-theme="dark"] {
+  --bg-page: var(--ink-950);          /* #0C0C0A warm near-black */
+  --bg-canvas: var(--ink-950);        /* page & canvas share the warm near-black */
+  --surface-card: var(--ink-875);     /* #171715 */
+  --surface-raised: #1E1E1C;          /* warm raised card */
+  --surface-sunken: var(--ink-925);   /* #111110 — alternating section band */
+  --surface-input: rgba(255,255,255,0.05);
+  --surface-input-plain: rgba(255,255,255,0.04);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: rgb(204, 204, 204);  /* live "secondary text" */
+  --text-muted: rgba(255,255,255,0.55);
+  --text-placeholder: rgba(255,255,255,0.40);
+  --text-on-brand: #FFFFFF;
+  --text-link: var(--orange-400);
+
+  --border-subtle: #1A1A18;           /* warm hairline */
+  --border-default: #222220;          /* live "Border" #222222, warmed */
+  --border-strong: #33332F;
+  --border-focus: var(--orange-400);
+
+  --accent-soft: rgba(255,132,49,0.14);
+  /* Dark-tuned ambient glow — richer, used behind the hero */
+  --glow-periwinkle: radial-gradient(58% 52% at 18% 12%, rgba(167,167,252,0.30) 0%, rgba(167,167,252,0) 70%); /* @kind color */
+  --glow-orange:     radial-gradient(60% 58% at 90% 96%, rgba(255,132,49,0.26) 0%, rgba(255,132,49,0) 70%); /* @kind color */
+}

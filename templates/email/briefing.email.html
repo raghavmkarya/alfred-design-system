@@ -1,0 +1,91 @@
+<!-- @dsCard group="Templates" viewport="640x860" name="Email — daily briefing" subtitle="Transactional email: Alfred's morning briefing" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>Alfred — Daily briefing</title>
+<!--
+  Self-contained transactional email. Table layout + inline styles for client
+  compatibility; brand hex values are inlined (custom fonts don't load in most
+  clients, so Satoshi falls back to system sans). For production, swap the
+  relative logo src for a hosted https URL.
+-->
+</head>
+<body style="margin:0; padding:0; background:#F9F9F9;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F9F9F9;">
+  <tr><td align="center" style="padding:28px 16px;">
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FFFFFF; border:1px solid #E6E6E6; border-radius:24px; overflow:hidden; font-family:'Satoshi',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+
+      <!-- Header -->
+      <tr><td style="padding:24px 28px; border-bottom:1px solid #F1F1F1;">
+        <img src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" height="26" style="height:26px; display:block;" />
+      </td></tr>
+
+      <!-- Briefing spotlight (ink card) -->
+      <tr><td style="padding:28px 28px 8px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#02021E; border-radius:20px;">
+          <tr><td style="padding:26px 26px 24px;">
+            <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#FFA040;">Daily briefing · 8:00 AM</div>
+            <div style="font-size:22px; font-weight:700; color:#FFFFFF; line-height:1.3; margin:12px 0 8px;">Good morning, Priya. Spend is pacing 6% hot — but ROAS is up.</div>
+            <div style="font-size:15px; color:#C9C9FF; line-height:1.55;">Paid social drove 38% of pipeline this week. I've flagged two budget reallocations worth an estimated <strong style="color:#FFFFFF;">+$48K in revenue</strong>. Three creatives are entering fatigue.</div>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- KPI row -->
+      <tr><td style="padding:18px 28px 8px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="33%" style="padding:6px;">
+              <table role="presentation" width="100%" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;"><tr><td style="padding:16px;">
+                <div style="font-size:12px; color:#6B6B78;">Blended ROAS</div>
+                <div style="font-size:24px; font-weight:700; color:#02021E; letter-spacing:-0.02em;">4.8x</div>
+                <div style="font-size:12px; font-weight:700; color:#2FB67C;">▲ 12.4%</div>
+              </td></tr></table>
+            </td>
+            <td width="33%" style="padding:6px;">
+              <table role="presentation" width="100%" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;"><tr><td style="padding:16px;">
+                <div style="font-size:12px; color:#6B6B78;">Spend</div>
+                <div style="font-size:24px; font-weight:700; color:#02021E; letter-spacing:-0.02em;">$312K</div>
+                <div style="font-size:12px; font-weight:700; color:#FF8431;">▲ 6.1% hot</div>
+              </td></tr></table>
+            </td>
+            <td width="33%" style="padding:6px;">
+              <table role="presentation" width="100%" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;"><tr><td style="padding:16px;">
+                <div style="font-size:12px; color:#6B6B78;">Blended CAC</div>
+                <div style="font-size:24px; font-weight:700; color:#02021E; letter-spacing:-0.02em;">$184</div>
+                <div style="font-size:12px; font-weight:700; color:#2FB67C;">▼ 8.0%</div>
+              </td></tr></table>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- Decision alert -->
+      <tr><td style="padding:14px 28px 4px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #F1F1F1; border-left:3px solid #E5484D; border-radius:14px;">
+          <tr><td style="padding:16px 18px;">
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.6px; text-transform:uppercase; color:#E5484D;">Needs action · 12m ago</div>
+            <div style="font-size:16px; font-weight:700; color:#02021E; margin:6px 0 4px;">Google Ads over budget</div>
+            <div style="font-size:14px; color:#505050; line-height:1.5;">Brand campaign exhausts its cap in 4 days. Shift $18K to Performance Max to protect non-brand coverage.</div>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- CTA -->
+      <tr><td align="center" style="padding:22px 28px 30px;">
+        <a href="#" style="display:inline-block; background:#FF8431; color:#FFFFFF; font-size:15px; font-weight:700; text-decoration:none; padding:14px 28px; border-radius:12px;">Review reallocations</a>
+      </td></tr>
+
+      <!-- Footer -->
+      <tr><td style="padding:22px 28px; background:#F9F9F9; border-top:1px solid #F1F1F1;">
+        <div style="font-size:12px; color:#6B6B78; line-height:1.6;">You're receiving the daily briefing for Northwind Co.<br/>Alfred AI · Decisions, on demand · <a href="#" style="color:#FF8431; text-decoration:none;">Manage preferences</a></div>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>

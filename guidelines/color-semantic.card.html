@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Semantic states" subtitle="Success · Warning · Danger · Info" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: #fff; padding: 20px; font-family: var(--font-sans); }
+  .scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .pair { display:flex; gap:8px; }
+  .chip { height: 56px; flex:1; border-radius: var(--radius-md); border: 1px solid rgba(2,2,30,0.06); }
+  .name { font-size: 12px; font-weight: 700; color: var(--ink-800); margin-top:10px; }
+  .hex { font-size: 11px; color: var(--ink-500); }
+</style>
+</head>
+<body>
+  <div class="scale" id="s"></div>
+<script>
+  const steps = [
+    ["Success","#2FB67C","#E3F6EE"],["Warning","#FF8431","#FFF0E3"],
+    ["Danger","#E5484D","#FCE8E9"],["Info","#A7A7FC","#EDEDFF"]
+  ];
+  document.getElementById('s').innerHTML = steps.map(([n,a,b])=>
+    `<div><div class="pair"><div class="chip" style="background:${a}"></div><div class="chip" style="background:${b}"></div></div><div class="name">${n}</div><div class="hex">${a} / ${b}</div></div>`
+  ).join('');
+</script>
+</body>
+</html>

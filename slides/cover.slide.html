@@ -1,0 +1,36 @@
+<!-- @dsCard group="Slides" viewport="1280x720" name="Slide — Cover" subtitle="Title cover with orange headline & logo" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; }
+  .slide {
+    width: 1280px; height: 720px; position: relative; overflow: hidden;
+    background: radial-gradient(70% 80% at 92% 96%, rgba(255,176,123,0.28) 0%, rgba(255,176,123,0) 60%),
+                radial-gradient(60% 70% at 4% 4%, rgba(167,167,252,0.16) 0%, rgba(167,167,252,0) 60%), #fff;
+    box-sizing: border-box; padding: 96px 110px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .eyebrow { font-family: var(--font-sans); font-size: 16px; font-weight: 700; letter-spacing: 0.14em;
+             text-transform: uppercase; color: var(--periwinkle-600); margin-bottom: 26px; }
+  .title { font-family: var(--font-display); font-weight: 700; font-size: 86px; line-height: 0.98;
+           letter-spacing: -0.03em; color: var(--orange-500); max-width: 900px; margin: 0; }
+  .rule { width: 96px; height: 4px; background: var(--orange-500); border-radius: 2px; margin: 34px 0 22px; }
+  .sub { font-family: var(--font-sans); font-size: 22px; font-weight: 500; color: var(--ink-600); margin: 0; }
+  .logo { position: absolute; left: 110px; bottom: 72px; height: 34px; }
+  .page { position: absolute; right: 110px; bottom: 72px; font-family: var(--font-sans); font-size: 16px;
+          color: var(--ink-400); font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="eyebrow">Alfred ai · 2026</div>
+    <h1 class="title">Your AI chief of staff for marketing.</h1>
+    <div class="rule"></div>
+    <p class="sub">How Alfred turns scattered data into daily decisions.</p>
+    <img class="logo" src="../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+    <span class="page">01</span>
+  </div>
+</body>
+</html>

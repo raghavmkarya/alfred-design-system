@@ -1,0 +1,90 @@
+<!-- @dsCard group="Alfred App" viewport="1440x900" name="Alfred — CMO workspace" subtitle="Login → briefing, KPI cockpit, spend, alerts, integrations & settings" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Workspace</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg-canvas); overflow: hidden; }
+  #root { position: absolute; inset: 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="AppShell.jsx"></script>
+<script type="text/babel" src="AuthScreen.jsx"></script>
+<script type="text/babel" src="Dashboard.jsx"></script>
+<script type="text/babel" src="Screens.jsx"></script>
+<script type="text/babel">
+const LOGOROOT = "../../assets/logos";
+const ICONROOT = "../../assets/icons";
+const { Avatar, Badge } = window.AlfredAIDesignSystem_1ce241;
+
+const NAV = [
+  { id: "home", glyph: "home", label: "Home" },
+  { id: "cockpit", glyph: "cockpit", label: "KPI Cockpit" },
+  { id: "spend", glyph: "spend", label: "Spend & ROI" },
+  { id: "alerts", glyph: "alerts", label: "Decision Alerts", badge: "3" },
+  { id: "integrations", glyph: "integrations", label: "Integrations" },
+  { id: "settings", glyph: "settings", label: "Settings" },
+];
+
+function Bell() {
+  return (
+    <button title="Alerts" style={{
+      position: "relative", width: 42, height: 42, borderRadius: "50%", border: "1px solid var(--border-subtle)",
+      background: "#fff", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--ink-600)",
+    }}>
+      <window.NavGlyph d={window.AppGlyphs.alerts} size={19} />
+      <span style={{ position: "absolute", top: 8, right: 9, width: 9, height: 9, borderRadius: "50%", background: "var(--orange-500)", border: "2px solid #fff" }} />
+    </button>
+  );
+}
+
+const SCREENS = {
+  home: () => <window.Dashboard />,
+  cockpit: () => <window.KpiCockpit />,
+  spend: () => <window.SpendRoi />,
+  alerts: () => <window.AlertsInbox />,
+  integrations: () => <window.Integrations />,
+  settings: () => <window.SettingsScreen />,
+};
+
+function App() {
+  const [authed, setAuthed] = React.useState(false);
+  const [active, setActive] = React.useState("home");
+  if (!authed) return <window.AuthScreen onSignedIn={() => setAuthed(true)} />;
+
+  const titles = {
+    home: ["Home", "Tuesday, 11 June · Northwind Co."],
+    cockpit: ["Unified KPI Cockpit", "All metrics, one source of truth"],
+    spend: ["Spend & ROI Intelligence", "Where every dollar is working"],
+    alerts: ["Real-Time Decision Alerts", "What needs your attention now"],
+    integrations: ["Integrations", "Connect your marketing stack"],
+    settings: ["Settings", "Workspace & team"],
+  };
+  const [title, subtitle] = titles[active];
+
+  return (
+    <window.AppShell
+      nav={NAV} active={active} onNav={setActive}
+      title={title} subtitle={subtitle}
+      logoRoot={LOGOROOT} iconRoot={ICONROOT}
+      headerRight={<><Bell /><Avatar name="Priya Menon" size={42} /></>}
+    >
+      {(SCREENS[active] || SCREENS.home)()}
+    </window.AppShell>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!-- @dsCard group="Components" viewport="700x720" name="Data & feedback — table, states, nav, banner, toast" subtitle="Table, empty/loading, breadcrumb, pagination, stepper, banner, toast, menu" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: flex; flex-direction: column; gap: 20px; max-width: 644px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Table, Badge, EmptyState, Skeleton, Breadcrumb, Pagination, Stepper, Banner, Toast, Menu, Button } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  const [page, setPage] = React.useState(3);
+  return (
+    <div className="grid">
+      <div className="panel">
+        <div className="lbl">Breadcrumb &amp; Stepper</div>
+        <Breadcrumb items={[{label:'Home'},{label:'Marketing'},{label:'Spend & ROI'}]} />
+        <div style={{height:18}} />
+        <Stepper current={1} steps={[{label:'Connect'},{label:'Configure'},{label:'Launch'}]} />
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Table</div>
+        <Table
+          columns={[
+            {key:'name',header:'Campaign'},
+            {key:'spend',header:'Spend',align:'right'},
+            {key:'roas',header:'ROAS',align:'right'},
+            {key:'status',header:'Status',render:(v)=> <Badge tone={v==='Scaling'?'success':v==='Holding'?'warning':'danger'} dot>{v}</Badge>},
+          ]}
+          rows={[
+            {name:'Performance Max', spend:'$84.2K', roas:'5.1x', status:'Scaling'},
+            {name:'Meta — Retargeting', spend:'$61.0K', roas:'4.6x', status:'Scaling'},
+            {name:'YouTube — Awareness', spend:'$27.4K', roas:'2.1x', status:'At risk'},
+          ]} />
+        <div style={{marginTop:14, display:'flex', justifyContent:'flex-end'}}>
+          <Pagination page={page} pageCount={12} onChange={setPage} />
+        </div>
+      </div>
+
+      <div className="two">
+        <div className="panel">
+          <div className="lbl">Empty state</div>
+          <EmptyState title="No alerts" body="You're all caught up — I'll flag anything that needs a decision." action={<Button size="sm" variant="outline">Refresh</Button>} />
+        </div>
+        <div className="panel">
+          <div className="lbl">Loading — skeleton</div>
+          <div style={{display:'flex', gap:12}}>
+            <Skeleton width={44} height={44} radius="var(--radius-lg)" />
+            <div style={{flex:1}}><Skeleton lines={3} /></div>
+          </div>
+        </div>
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Banner &amp; Toast</div>
+        <Banner tone="warning" title="Spend pacing hot" onDismiss={()=>{}}>Spend is 6% over plan this cycle — I've drafted two reallocations.</Banner>
+        <div style={{height:14}} />
+        <Toast tone="success" title="Reallocation queued" onClose={()=>{}}>+$48K projected this quarter.</Toast>
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Menu (in a Popover)</div>
+        <div style={{display:'inline-block', border:'1px solid var(--border-subtle)', borderRadius:'var(--radius-lg)', boxShadow:'var(--shadow-md)', padding:8, background:'#fff'}}>
+          <Menu items={[{label:'Edit'},{label:'Duplicate'},{label:'Export'},{divider:true},{label:'Delete', danger:true}]} />
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

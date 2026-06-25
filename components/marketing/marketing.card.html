@@ -1,0 +1,69 @@
+<!-- @dsCard group="Components" viewport="700x640" name="Marketing — signals, steps, stats, FAQ" subtitle="SignalCard, StepFlow, StatBand, AgentStatus & FaqItem (dark)" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 26px;
+    background-image: var(--glow-periwinkle), var(--glow-orange); }
+  .wrap { display: flex; flex-direction: column; gap: 22px; max-width: 648px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold);
+         letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { SignalCard, StepFlow, StatBand, FaqItem, AgentStatus } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="wrap">
+      <div>
+        <div className="lbl">Signal cards</div>
+        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:12}}>
+          <SignalCard tone="truth" label="One source of truth" statement="Pipeline is down 12% this quarter." trace="Seen by Marketing, Sales & Finance" />
+          <SignalCard tone="signal" label="Signal detected" statement="Lead quality down 14% this week" trace="Traced to a new paid social" />
+          <SignalCard tone="early" label="Caught early" statement="Spend pacing 6% hot" trace="3 days before cap" />
+          <SignalCard tone="action" label="Aligned action" statement="Shift spend to search." trace="Owners notified, no meeting needed" />
+        </div>
+      </div>
+      <div>
+        <div className="lbl">Step flow</div>
+        <StepFlow steps={[
+          {title:"Learn", body:"Understands how your business operates."},
+          {title:"Nudges", body:"Surfaces signals early, with reasons."},
+          {title:"Recommends", body:"Direction grounded in your history."},
+          {title:"Acts", body:"Turns decisions into traceable execution."},
+        ]} />
+      </div>
+      <div>
+        <div className="lbl">Stat band</div>
+        <StatBand stats={[{value:"90+",label:"AI implementations"},{value:"$90M+",label:"Cost savings"},{value:"90x",label:"Productivity boost"}]} />
+      </div>
+      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:18, alignItems:'start'}}>
+        <div>
+          <div className="lbl">Agent reasoning</div>
+          <AgentStatus query="Which deals are at risk this week?" activeStep={2}
+            steps={["Analysing campaign spends","Synthesising root cause","Isolating performance shifts","Correlating fatigue patterns"]} />
+        </div>
+        <div>
+          <div className="lbl">FAQ</div>
+          <FaqItem question="What is decision intelligence?" defaultOpen>
+            Turning raw business data into clear, explained, decision-ready answers — the synthesis a leader would otherwise do by hand.
+          </FaqItem>
+          <FaqItem question="What does Alfred connect to?">Your marketing, sales & finance stack.</FaqItem>
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

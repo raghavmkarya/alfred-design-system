@@ -1,0 +1,24 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Elevation & shadow" subtitle="Soft, diffuse, low-contrast" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; font-family: var(--font-sans); }
+  .row { display:flex; gap:26px; }
+  .col { display:flex; flex-direction:column; align-items:center; gap:12px; }
+  .box { width: 96px; height: 72px; background: #fff; border-radius: var(--radius-xl); border:1px solid var(--border-subtle); }
+  .n { font-size: 11px; color: var(--ink-700); font-weight:700; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="col"><div class="box" style="box-shadow:var(--shadow-sm)"></div><div class="n">sm</div></div>
+    <div class="col"><div class="box" style="box-shadow:var(--shadow-md)"></div><div class="n">md</div></div>
+    <div class="col"><div class="box" style="box-shadow:var(--shadow-lg)"></div><div class="n">lg</div></div>
+    <div class="col"><div class="box" style="box-shadow:var(--shadow-xl)"></div><div class="n">xl</div></div>
+    <div class="col"><div class="box" style="box-shadow:var(--shadow-brand); border-color:var(--orange-200)"></div><div class="n">brand glow</div></div>
+  </div>
+</body>
+</html>

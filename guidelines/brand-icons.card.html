@@ -1,0 +1,30 @@
+<!-- @dsCard group="Brand" viewport="700x280" name="Icon library" subtitle="Custom CMO-intelligence glyph set — tintable" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: #fff; padding: 22px; font-family: var(--font-sans); }
+  .grid { display:grid; grid-template-columns: repeat(9, 1fr); gap: 16px 10px; }
+  .ic { display:flex; flex-direction:column; align-items:center; gap:7px; }
+  .gl { width: 26px; height: 26px; background: var(--ink-800);
+        -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center;
+        -webkit-mask-size:contain; mask-size:contain; }
+  .nm { font-size: 9px; color: var(--ink-500); text-align:center; }
+  .note { font-size:11px; color:var(--ink-400); margin-top:18px; }
+</style>
+</head>
+<body>
+  <div class="grid" id="g"></div>
+  <div class="note">Single-color glyphs rendered as CSS masks → tint with any brand color via <code>Icon</code>.</div>
+<script>
+  const names = ["trend-up","trend-down","trend-flat","budget","mql","channel-mix","refresh","sort","export",
+  "delete","close","bookmark","pin","fullscreen","cta-arrow","alert-warning","locked-feature","step-locked",
+  "integration-success","security-lock","gdpr","read-only","audit-log","pricing-cross","web-clarity","web-stack-connected","demo-play"];
+  document.getElementById('g').innerHTML = names.map(n=>
+    `<div class="ic"><span class="gl" style="-webkit-mask-image:url(../assets/icons/${n}.svg);mask-image:url(../assets/icons/${n}.svg)"></span><span class="nm">${n}</span></div>`
+  ).join('');
+</script>
+</body>
+</html>

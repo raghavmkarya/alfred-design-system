@@ -1,0 +1,93 @@
+/* ============================================================
+   Alfred AI — Typography Tokens
+   Display: Clash Display · Text/UI: Satoshi · Accent: Bricolage Grotesque
+   ============================================================ */
+:root {
+  /* —— Families ——————————————————————————————————— */
+  --font-display: "Clash Display", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-accent: "Bricolage Grotesque", "Satoshi", ui-sans-serif, sans-serif;
+  --font-mono: "Satoshi", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* —— Weights ————————————————————————————————————— */
+  --fw-light: 300;     /* @kind font */
+  --fw-regular: 400;   /* @kind font */
+  --fw-medium: 500;    /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+  --fw-bold: 700;      /* @kind font */
+  --fw-black: 900;     /* @kind font */
+
+  /* —— Type scale (px) ————————————————————————————— */
+  --text-display-2xl: 96px;  /* hero / cover */
+  --text-display-xl: 72px;
+  --text-display-lg: 56px;
+  --text-display-md: 44px;
+  --text-h1: 36px;
+  --text-h2: 30px;
+  --text-h3: 24px;
+  --text-h4: 20px;
+  --text-lg: 18px;
+  --text-base: 16px;
+  --text-sm: 14px;
+  --text-xs: 12px;
+  --text-2xs: 11px;
+
+  /* —— Line heights ———————————————————————————————— */
+  --lh-tight: 1.04;     /* @kind other */ /* big display */
+  --lh-snug: 1.16;      /* @kind other */ /* headings */
+  --lh-normal: 1.45;    /* @kind other */ /* body */
+  --lh-relaxed: 1.6;    /* @kind other */
+
+  /* —— Letter spacing —————————————————————————————— */
+  --ls-tighter: -0.03em;  /* large Clash display @kind other */
+  --ls-tight: -0.015em;   /* @kind other */
+  --ls-normal: 0;         /* @kind other */
+  --ls-wide: 0.02em;      /* @kind other */
+  --ls-caps: 0.08em;      /* eyebrow / overline @kind other */
+
+  --font-inter: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ============================================================
+   Website / marketing typography — matches the live seekalfred.ai site.
+   The dark theme is used ONLY by website materials (the marketing site,
+   section templates, dark guideline cards), so scoping the font swap here
+   re-skins website surfaces without touching the light product app, slides
+   or deck (which keep Clash Display headlines + Satoshi body).
+   Live site: Satoshi headlines · Inter body.
+   ============================================================ */
+[data-theme="dark"] {
+  --font-display: "Satoshi", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* —— Typographic helper classes ——————————————————————— */
+.alfred-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tighter);
+  color: var(--text-primary);
+}
+.alfred-heading {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+.alfred-body {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+}
+.alfred-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

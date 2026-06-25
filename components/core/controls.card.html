@@ -1,0 +1,72 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Controls — select, segmented, radio, slider, chip" subtitle="Form & input controls beyond the core set" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: flex; flex-direction: column; gap: 22px; max-width: 644px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Select, SegmentedControl, RadioGroup, Slider, Chip } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  const [mod, setMod] = React.useState("mkt");
+  const [range, setRange] = React.useState("w");
+  const [plan, setPlan] = React.useState("growth");
+  const [cap, setCap] = React.useState(180);
+  const [filters, setFilters] = React.useState(["Paid social", "Search"]);
+  return (
+    <div className="grid">
+      <div className="panel" style={{display:'flex', gap:18, flexWrap:'wrap'}}>
+        <div style={{flex:'1 1 240px'}}>
+          <div className="lbl">Select</div>
+          <Select label="Module" value={mod} onChange={e=>setMod(e.target.value)}
+            options={[{value:'mkt',label:'Alfred for Marketing'},{value:'sales',label:'Alfred for Sales'},{value:'fin',label:'Alfred for Finance'}]} />
+        </div>
+        <div style={{flex:'1 1 240px'}}>
+          <div className="lbl">Segmented</div>
+          <SegmentedControl value={range} onChange={setRange}
+            options={[{value:'d',label:'Day'},{value:'w',label:'Week'},{value:'m',label:'Month'},{value:'q',label:'Qtr'}]} />
+        </div>
+      </div>
+
+      <div className="panel" style={{display:'flex', gap:28, flexWrap:'wrap'}}>
+        <div style={{flex:'1 1 200px'}}>
+          <div className="lbl">Radio group</div>
+          <RadioGroup value={plan} onChange={setPlan}
+            options={[{value:'starter',label:'Starter'},{value:'growth',label:'Growth'},{value:'enterprise',label:'Enterprise'}]} />
+        </div>
+        <div style={{flex:'1 1 280px'}}>
+          <div className="lbl">Slider</div>
+          <Slider label="Target CAC" value={cap} onChange={setCap} min={80} max={320} />
+        </div>
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Chips — filters</div>
+        <div className="row">
+          {filters.map(f => <Chip key={f} tone="brand" onRemove={()=>setFilters(filters.filter(x=>x!==f))}>{f}</Chip>)}
+          <Chip>Email</Chip>
+          <Chip tone="info">Organic</Chip>
+          <Chip selected>Events</Chip>
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

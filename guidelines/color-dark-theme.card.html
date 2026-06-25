@@ -1,0 +1,36 @@
+<!-- @dsCard group="Colors" viewport="700x200" name="Dark theme" subtitle="Marketing surfaces — [data-theme=dark]" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-page);
+    background-image: var(--glow-periwinkle), var(--glow-orange); font-family: var(--font-sans); }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 16px; }
+  .sw { display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 48px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); }
+  .name { font-size: 11px; font-weight: 700; color: var(--text-secondary); }
+  .hex { font-size: 10px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl);
+    padding: 16px 18px; display: inline-flex; align-items: center; gap: 12px; box-shadow: var(--shadow-md); }
+  .pill { display:inline-flex; align-items:center; gap:7px; padding:5px 11px; border-radius:var(--radius-pill);
+    background: rgba(255,132,49,0.14); color: var(--orange-400); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+  .dot { width:7px; height:7px; border-radius:50%; background: var(--orange-400); }
+  .stmt { color: var(--text-primary); font-weight: 700; font-size: 15px; }
+</style>
+</head>
+<body>
+  <div class="row" id="s"></div>
+  <div class="card">
+    <span class="pill"><span class="dot"></span>Signal detected</span>
+    <span class="stmt">Lead quality down 14% this week</span>
+  </div>
+<script>
+  const steps = [["Page","#08081A"],["Canvas","#0E0E1F"],["Card","#16162E"],["Raised","#1C1C38"],["Sunken","#0B0B1C"]];
+  document.getElementById('s').innerHTML = steps.map(([n,h])=>
+    `<div class="sw"><div class="chip" style="background:${h}"></div><div class="name">${n}</div><div class="hex">${h}</div></div>`
+  ).join('');
+</script>
+</body>
+</html>

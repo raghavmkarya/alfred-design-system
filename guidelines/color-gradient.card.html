@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Brand gradient & glow" subtitle="The periwinkle→orange signature and ambient page glow" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: #fff; padding: 20px; font-family: var(--font-sans); }
+  .wrap { display:grid; grid-template-columns: 1.4fr 1fr; gap:16px; }
+  .g { border-radius: var(--radius-2xl); border:1px solid rgba(2,2,30,0.06); display:flex; align-items:flex-end; padding:14px; }
+  .cap { font-size:11px; font-weight:700; }
+  .glow { position:relative; border-radius: var(--radius-2xl); border:1px solid var(--border-subtle); background:#fff; overflow:hidden; }
+  .glow::before { content:""; position:absolute; inset:0; background: var(--glow-periwinkle), var(--glow-orange); }
+  .glow .cap { position:relative; align-self:flex-end; color: var(--ink-700); padding:14px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div class="g" style="height:64px; background: var(--gradient-brand);"><span class="cap" style="color:#fff">--gradient-brand · 135° · A7A7FC → FF8431</span></div>
+      <div class="g" style="height:44px; background: var(--gradient-brand-soft);"><span class="cap" style="color:var(--ink-800)">--gradient-brand-soft</span></div>
+    </div>
+    <div class="glow" style="height:120px; display:flex;"><span class="cap">Ambient glow (auth / hero)</span></div>
+  </div>
+</body>
+</html>

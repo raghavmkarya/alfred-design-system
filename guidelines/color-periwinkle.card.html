@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Secondary — Periwinkle" subtitle="The cool counterpoint to brand orange" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: #fff; padding: 20px; font-family: var(--font-sans); }
+  .scale { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .sw { display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 64px; border-radius: var(--radius-lg); border: 1px solid rgba(2,2,30,0.06); }
+  .name { font-size: 11px; font-weight: 700; color: var(--ink-800); }
+  .hex { font-size: 11px; color: var(--ink-500); font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="scale" id="s"></div>
+<script>
+  const steps = [
+    ["50","#F3F3FF"],["100","#E7E7FF"],["200","#C9C9FF"],["300","#ADADFF"],
+    ["400","#A7A7FC"],["500","#9797FF"],["600","#7B7BF5"]
+  ];
+  document.getElementById('s').innerHTML = steps.map(([n,h])=>
+    `<div class="sw"><div class="chip" style="background:${h}"></div><div class="name">Periwinkle ${n}</div><div class="hex">${h}</div></div>`
+  ).join('');
+</script>
+</body>
+</html>

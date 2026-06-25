@@ -1,0 +1,9 @@
+{
+  "projectId": "ffaac5ec-88c5-411c-b366-f81b55b70a22",
+  "projectName": "Alfred AI Design System",
+  "shape": "off-script",
+  "localDir": ".",
+  "globalName": "AlfredAIDesignSystem_1ce241",
+  "excludes": ["uploads/**", "scripts/**", "_adherence.oxlintrc.json", ".design-sync/**", "**/.DS_Store"],
+  "notes": "Hand-authored static design system, already in upload format (prebuilt _ds_bundle.js + @dsCard preview cards + manifest + styles.css token closure). No converter/build; render-verified via scripts/verify-render.mjs. No _ds_sync.json anchor — re-sync re-verifies."
+}

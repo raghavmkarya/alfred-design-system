@@ -1,0 +1,58 @@
+<!-- @dsCard group="Components" viewport="700x600" name="Charts — spark, line, bar, donut, funnel" subtitle="On-brand gradient data viz" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 644px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .span2 { grid-column: span 2; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Sparkline, LineChart, BarChart, DonutChart, FunnelChart } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="grid">
+      <div className="panel span2">
+        <div className="lbl">Line chart — Blended ROAS</div>
+        <LineChart points={[3.1,3.4,3.2,3.8,4.0,3.7,4.2,4.5,4.3,4.8]} labels={["W1","W2","W3","W4","W5","W6","W7","W8","W9","W10"]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Sparkline</div>
+        <Sparkline points={[12,14,13.2,16.8,18,17.6,20.5,23,22.4,26.8]} height={70} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Bar — spend</div>
+        <BarChart height={120} data={[
+          {label:'Social',value:38,display:'$84K'},{label:'Search',value:26,display:'$61K'},
+          {label:'Email',value:18,display:'$39K'},{label:'Other',value:12,display:'$27K'}]} />
+      </div>
+      <div className="panel" style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+        <div className="lbl" style={{alignSelf:'flex-start'}}>Donut — channel mix</div>
+        <DonutChart centerLabel="$312K" centerSub="spend" segments={[
+          {label:'Social',value:38},{label:'Search',value:26},{label:'Email',value:18},{label:'Organic',value:12},{label:'Other',value:6}]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Funnel</div>
+        <FunnelChart steps={[
+          {label:'Visitors',value:100,display:'48.2K'},{label:'MQL',value:64,display:'30.8K'},
+          {label:'SQL',value:34,display:'16.4K'},{label:'Won',value:8,display:'3.9K'}]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

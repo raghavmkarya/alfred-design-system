@@ -1,0 +1,250 @@
+{
+  "colorStyles": [
+    {
+      "name": "orange-700",
+      "light": "#C75A12"
+    },
+    {
+      "name": "orange-600",
+      "light": "#F26A1B"
+    },
+    {
+      "name": "orange-500",
+      "light": "#FF8431"
+    },
+    {
+      "name": "orange-400",
+      "light": "#FFA040"
+    },
+    {
+      "name": "orange-300",
+      "light": "#FFB07B"
+    },
+    {
+      "name": "orange-200",
+      "light": "#FDB381"
+    },
+    {
+      "name": "orange-100",
+      "light": "#FFDBC3"
+    },
+    {
+      "name": "orange-50",
+      "light": "#FFF3EA"
+    },
+    {
+      "name": "periwinkle-600",
+      "light": "#7B7BF5"
+    },
+    {
+      "name": "periwinkle-500",
+      "light": "#9797FF"
+    },
+    {
+      "name": "periwinkle-400",
+      "light": "#A7A7FC"
+    },
+    {
+      "name": "periwinkle-300",
+      "light": "#ADADFF"
+    },
+    {
+      "name": "periwinkle-200",
+      "light": "#C9C9FF"
+    },
+    {
+      "name": "periwinkle-100",
+      "light": "#E7E7FF"
+    },
+    {
+      "name": "periwinkle-50",
+      "light": "#F3F3FF"
+    },
+    {
+      "name": "ink-900",
+      "light": "#02021E"
+    },
+    {
+      "name": "ink-800",
+      "light": "#1B1B33"
+    },
+    {
+      "name": "ink-700",
+      "light": "#323232"
+    },
+    {
+      "name": "ink-600",
+      "light": "#505050"
+    },
+    {
+      "name": "ink-500",
+      "light": "#6B6B78"
+    },
+    {
+      "name": "ink-400",
+      "light": "#9CA3AF"
+    },
+    {
+      "name": "slate-300",
+      "light": "#B7C5CF"
+    },
+    {
+      "name": "gray-200",
+      "light": "#D9D9D9"
+    },
+    {
+      "name": "gray-150",
+      "light": "#E6E6E6"
+    },
+    {
+      "name": "gray-100",
+      "light": "#F1F1F1"
+    },
+    {
+      "name": "gray-50",
+      "light": "#F9F9F9"
+    },
+    {
+      "name": "white",
+      "light": "#FFFFFF"
+    },
+    {
+      "name": "black",
+      "light": "#000000"
+    },
+    {
+      "name": "success-500",
+      "light": "#2FB67C"
+    },
+    {
+      "name": "success-100",
+      "light": "#E3F6EE"
+    },
+    {
+      "name": "warning-500",
+      "light": "#FF8431"
+    },
+    {
+      "name": "warning-100",
+      "light": "#FFF0E3"
+    },
+    {
+      "name": "danger-500",
+      "light": "#E5484D"
+    },
+    {
+      "name": "danger-100",
+      "light": "#FCE8E9"
+    },
+    {
+      "name": "info-500",
+      "light": "#A7A7FC"
+    },
+    {
+      "name": "info-100",
+      "light": "#EDEDFF"
+    },
+    {
+      "name": "bg-page",
+      "light": "#FFFFFF"
+    },
+    {
+      "name": "surface-card",
+      "light": "#FFFFFF"
+    },
+    {
+      "name": "surface-raised",
+      "light": "#FFFFFF",
+      "dark": "#1E1E1C"
+    },
+    {
+      "name": "surface-input-plain",
+      "light": "#FFFFFF",
+      "dark": "rgba(255,255,255,0.04)"
+    },
+    {
+      "name": "text-on-brand",
+      "light": "#FFFFFF",
+      "dark": "#FFFFFF"
+    },
+    {
+      "name": "ink-950",
+      "light": "#0C0C0A"
+    },
+    {
+      "name": "ink-925",
+      "light": "#111110"
+    },
+    {
+      "name": "ink-875",
+      "light": "#171715"
+    }
+  ],
+  "textStyles": [
+    {
+      "name": "text-display-2xl",
+      "fontSize": "96px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-display-xl",
+      "fontSize": "72px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-display-lg",
+      "fontSize": "56px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-display-md",
+      "fontSize": "44px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-h1",
+      "fontSize": "36px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-h2",
+      "fontSize": "30px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-h3",
+      "fontSize": "24px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-h4",
+      "fontSize": "20px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-lg",
+      "fontSize": "18px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-base",
+      "fontSize": "16px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-sm",
+      "fontSize": "14px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-xs",
+      "fontSize": "12px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
+      "name": "text-2xs",
+      "fontSize": "11px",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<!-- @dsCard group="Templates" viewport="1200x630" name="Social — OG card" subtitle="1200×630 open-graph / share image" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<title>Alfred — OG card</title>
+<style>
+  html, body { margin: 0; }
+  .stage {
+    width: 1200px; height: 630px; position: relative; overflow: hidden; box-sizing: border-box;
+    background:
+      radial-gradient(60% 80% at 88% 12%, rgba(255,132,49,0.28) 0%, rgba(255,132,49,0) 60%),
+      radial-gradient(55% 75% at 8% 95%, rgba(167,167,252,0.20) 0%, rgba(167,167,252,0) 62%),
+      #0C0C0A;
+    padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .eyebrow { font-family: var(--font-sans); font-size: 20px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--orange-400); }
+  .title { font-family: var(--font-display); font-weight: 600; font-size: 76px; line-height: 1.04;
+    letter-spacing: -0.03em; color: #fff; max-width: 920px; margin: 20px 0 0; }
+  .title .grad { background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .row { display: flex; align-items: center; justify-content: space-between; }
+  .sub { font-family: var(--font-sans); font-size: 24px; color: rgba(255,255,255,0.74); }
+  .rule { position: absolute; left: 80px; right: 80px; bottom: 132px; height: 1px; background: rgba(255,255,255,0.10); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div>
+    <span class="eyebrow">Decision intelligence platform</span>
+    <h1 class="title">The AI memory powering <span class="grad">every decision</span> across your organisation.</h1>
+  </div>
+  <div class="rule"></div>
+  <div class="row">
+    <img src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" style="height:34px;" />
+    <span class="sub">seekalfred.ai</span>
+  </div>
+</div>
+</body>
+</html>

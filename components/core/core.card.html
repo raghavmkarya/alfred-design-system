@@ -1,0 +1,101 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Core — buttons, forms, surfaces" subtitle="Buttons, inputs, toggles, tabs, badges & avatars" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: flex; flex-direction: column; gap: 26px; max-width: 644px; }
+  .row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold);
+         letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Button, IconButton, Input, Checkbox, Switch, Tabs, Badge, Avatar, Card } = window.AlfredAIDesignSystem_1ce241;
+const R = "../../assets/icons";
+function Demo() {
+  const [tab, setTab] = React.useState("cockpit");
+  const [on, setOn] = React.useState(true);
+  const [chk, setChk] = React.useState(true);
+  const [pw, setPw] = React.useState(false);
+  return (
+    <div className="grid">
+      <div className="panel">
+        <div className="lbl">Buttons</div>
+        <div className="row" style={{marginBottom:12}}>
+          <Button variant="primary">Sign in</Button>
+          <Button variant="secondary">Invite</Button>
+          <Button variant="outline">Export</Button>
+          <Button variant="ghost">Cancel</Button>
+          <Button variant="subtle">Snooze</Button>
+        </div>
+        <div className="row">
+          <Button size="sm">Small</Button>
+          <Button size="md" iconRight={<IconButton name="cta-arrow" iconRoot={R} variant="ghost" size={18} iconSize={14} style={{pointerEvents:'none'}}/>}>Continue</Button>
+          <Button variant="danger" size="sm">Delete</Button>
+          <Button variant="primary" disabled>Disabled</Button>
+        </div>
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Inputs</div>
+        <div style={{display:'flex', gap:16, flexWrap:'wrap'}}>
+          <div style={{flex:'1 1 280px'}}>
+            <Input label="Email Address" placeholder="cmo@brand.com" fill="tint" />
+          </div>
+          <div style={{flex:'1 1 280px'}}>
+            <Input label="Password" type={pw?'text':'password'} placeholder="••••••••" fill="tint"
+              trailing={<IconButton name={pw?'fullscreen':'read-only'} iconRoot={R} variant="ghost" size={28} iconSize={16} onClick={()=>setPw(!pw)} />} />
+          </div>
+        </div>
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Selection</div>
+        <div className="row" style={{gap:28}}>
+          <Checkbox checked={chk} onChange={setChk} label="Remember me" />
+          <Switch checked={on} onChange={setOn} label="Daily briefing" />
+        </div>
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Tabs</div>
+        <Tabs value={tab} onChange={setTab} tabs={[
+          {id:'cockpit', label:'KPI Cockpit'}, {id:'spend', label:'Spend & ROI'},
+          {id:'alerts', label:'Alerts'}, {id:'team', label:'Team'},
+        ]} />
+      </div>
+
+      <div className="panel">
+        <div className="lbl">Badges &amp; Avatars</div>
+        <div className="row" style={{marginBottom:14}}>
+          <Badge tone="brand" dot>Live</Badge>
+          <Badge tone="success" dot>On track</Badge>
+          <Badge tone="warning" dot>Pacing low</Badge>
+          <Badge tone="danger" dot>Over budget</Badge>
+          <Badge tone="info">Beta</Badge>
+          <Badge tone="neutral">Draft</Badge>
+        </div>
+        <div className="row">
+          <Avatar name="Anand Rao" />
+          <Avatar name="Dhiraj K" tone="ink" />
+          <Avatar name="Raghav" tone="periwinkle" size={48} />
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* Generate a <Name>.prompt.md next to each component — the design agent's usage
+   reference. Description comes from the component's JSDoc, the props table is
+   parsed from its .d.ts, and a curated example shows idiomatic composition.
+   Existing .prompt.md files are left untouched (hand-authored ones win).
+   Run: node scripts/gen-prompts.mjs */
+import fs from "node:fs";
+import path from "node:path";
+
+const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
+const COMPONENTS_DIR = path.join(ROOT, "components");
+const NS = "window.AlfredAIDesignSystem_1ce241";
+
+// Curated, idiomatic examples (JSX). Keyed by component name.
+const EXAMPLES = {
+  Button: `<Button variant="primary" size="lg">Reallocate budget</Button>`,
+  IconButton: `<IconButton name="refresh" variant="ghost" title="Refresh" iconRoot="../../assets/icons" />`,
+  Input: `<Input label="Work email" value={email} onChange={e => setEmail(e.target.value)} fill="plain" />`,
+  Select: `<Select label="Module" value={mod} onChange={e => setMod(e.target.value)}\n  options={[{ value: "mkt", label: "Marketing" }, { value: "sales", label: "Sales" }]} />`,
+  Checkbox: `<Checkbox checked={on} onChange={setOn} label="Email me the daily briefing" />`,
+  Switch: `<Switch checked={alerts} onChange={setAlerts} label="Real-time alerts" />`,
+  RadioGroup: `<RadioGroup label="Plan" value={plan} onChange={setPlan}\n  options={[{ value: "starter", label: "Starter" }, { value: "growth", label: "Growth" }]} />`,
+  SegmentedControl: `<SegmentedControl value={range} onChange={setRange}\n  options={[{ value: "d", label: "Day" }, { value: "w", label: "Week" }, { value: "m", label: "Month" }]} />`,
+  Slider: `<Slider label="Budget cap" value={cap} onChange={setCap} min={0} max={500} />`,
+  Tabs: `<Tabs value={tab} onChange={setTab} tabs={[{ id: "mkt", label: "Marketing" }, { id: "sales", label: "Sales" }]} />`,
+  Chip: `<Chip tone="brand" onRemove={() => removeFilter("paid-social")}>Paid social</Chip>`,
+  Badge: `<Badge tone="danger" dot>3 need action</Badge>`,
+  Avatar: `<Avatar name="Priya Menon" size={40} />`,
+  Card: `<Card tone="surface" padding={24} shadow="md">Floating content</Card>`,
+  Logo: `<Logo height={28} tone="color" root="../../assets/logos" />`,
+  Icon: `<Icon name="trend-up" size={20} color="var(--orange-500)" root="../../assets/icons" />`,
+  KpiCard: `<KpiCard label="Blended ROAS" value="4.8x" delta="+12.4%" direction="up" caption="vs last 30d" icon="trend-up" iconRoot="../../assets/icons" />`,
+  DecisionAlert: `<DecisionAlert priority="high" time="12m ago" title="Google Ads over budget"\n  insight="Brand campaign exhausts its cap in 4 days. Shift $18K to Performance Max."\n  action="Reallocate budget" iconRoot="../../assets/icons" />`,
+  ProgressBar: `<ProgressBar value={62} tone="gradient" height={9} />`,
+  Table: `<Table columns={[{ key: "name", header: "Campaign" }, { key: "roas", header: "ROAS", align: "right" }]}\n  rows={[{ name: "Performance Max", roas: "5.1x" }]} />`,
+  EmptyState: `<EmptyState title="No alerts" body="You're all caught up — I'll flag anything that needs a decision." action={<Button>Refresh</Button>} />`,
+  Skeleton: `<Skeleton lines={3} />`,
+  Breadcrumb: `<Breadcrumb items={[{ label: "Home" }, { label: "Marketing" }, { label: "Spend & ROI" }]} />`,
+  Pagination: `<Pagination page={page} pageCount={12} onChange={setPage} />`,
+  Stepper: `<Stepper current={1} steps={[{ label: "Connect" }, { label: "Configure" }, { label: "Launch" }]} />`,
+  Banner: `<Banner tone="warning" title="Spend pacing hot" onDismiss={dismiss}>Spend is 6% over plan this cycle.</Banner>`,
+  Modal: `<Modal open={open} onClose={close} title="Reallocate budget"\n  footer={<><Button variant="ghost" onClick={close}>Cancel</Button><Button onClick={confirm}>Reallocate</Button></>}>\n  Shift $18K from Brand to Performance Max?\n</Modal>`,
+  Drawer: `<Drawer open={open} onClose={close} title="Filters">…filter controls…</Drawer>`,
+  Toast: `<Toast tone="success" title="Reallocation queued" onClose={dismiss}>+$48K projected this quarter.</Toast>`,
+  Tooltip: `<Tooltip label="Return on ad spend"><span>ROAS</span></Tooltip>`,
+  Popover: `<Popover open={open} onOpenChange={setOpen} trigger={<IconButton name="sort" iconRoot="../../assets/icons" />}>\n  <Menu items={[{ label: "Newest" }, { label: "Top spend" }]} />\n</Popover>`,
+  Menu: `<Menu items={[{ label: "Edit" }, { label: "Duplicate" }, { divider: true }, { label: "Delete", danger: true }]} />`,
+  Sparkline: `<Sparkline points={[3.1, 3.8, 3.4, 4.2, 4.0, 4.8]} />`,
+  LineChart: `<LineChart points={[120, 168, 180, 230, 268]} labels={["W1", "W2", "W3", "W4", "W5"]} />`,
+  BarChart: `<BarChart data={[{ label: "Search", value: 26 }, { label: "Social", value: 38, display: "$84K" }]} />`,
+  DonutChart: `<DonutChart segments={[{ label: "Paid", value: 38 }, { label: "Search", value: 26 }]} centerLabel="$312K" centerSub="spend" />`,
+  FunnelChart: `<FunnelChart steps={[{ label: "Visitors", value: 100 }, { label: "MQL", value: 64 }, { label: "Won", value: 8 }]} />`,
+  SignalCard: `<SignalCard tone="signal" label="SIGNAL DETECTED" statement="Lead quality down 14% this week" trace="Traced to a new paid social campaign" />`,
+  StatBand: `<StatBand stats={[{ value: "90x", label: "Productivity boost" }, { value: "$90M+", label: "Cost savings" }]} />`,
+  StepFlow: `<StepFlow steps={[{ title: "Learn", body: "…" }, { title: "Acts", body: "…" }]} />`,
+  FaqItem: `<FaqItem question="What is decision intelligence?">Turning data into decision-ready answers.</FaqItem>`,
+  AgentStatus: `<AgentStatus query="What's the biggest risk right now?" steps={["Analysing campaign spends", "Synthesising root cause"]} />`,
+};
+
+const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+  const p = path.join(dir, e.name);
+  return e.isDirectory() ? walk(p) : p.endsWith(".jsx") ? [p] : [];
+});
+
+const jsdocOf = (jsx) => {
+  const m = jsx.match(/\/\*\*([\s\S]*?)\*\//);
+  if (!m) return "";
+  return m[1].split("\n").map((l) => l.replace(/^\s*\*\s?/, "").trim()).filter(Boolean)
+    .filter((l) => !/^Alfred AI —/.test(l)).join(" ").trim();
+};
+
+const propsOf = (dtsPath) => {
+  if (!fs.existsSync(dtsPath)) return [];
+  const dts = fs.readFileSync(dtsPath, "utf8");
+  const body = dts.match(/export interface \w*Props\s*\{([\s\S]*?)\n\}/);
+  if (!body) return [];
+  const rows = [];
+  let doc = "";
+  for (const raw of body[1].split("\n")) {
+    const line = raw.trim();
+    if (!line) continue;
+    const dm = line.match(/^\/\*\*\s*(.*?)\s*\*\/$/);
+    if (dm) { doc = dm[1]; continue; }
+    const fm = line.match(/^([A-Za-z0-9_]+)(\?)?:\s*(.+);$/);
+    if (fm) {
+      const def = (doc.match(/@default\s+(.+?)\s*$/) || [])[1];
+      const cleanDoc = doc.replace(/@default\s+.+$/, "").trim();
+      rows.push({ name: fm[1], optional: !!fm[2], type: fm[3].trim(), doc: cleanDoc, def });
+      doc = "";
+    }
+  }
+  return rows;
+};
+
+let count = 0, skipped = 0;
+for (const jsxPath of walk(COMPONENTS_DIR)) {
+  const dir = path.dirname(jsxPath);
+  const name = path.basename(jsxPath, ".jsx");
+  const promptPath = path.join(dir, `${name}.prompt.md`);
+  if (fs.existsSync(promptPath)) { skipped++; continue; }
+  const jsx = fs.readFileSync(jsxPath, "utf8");
+  const desc = jsdocOf(jsx);
+  const props = propsOf(path.join(dir, `${name}.d.ts`));
+  const example = EXAMPLES[name];
+
+  const propTable = props.length
+    ? ["| Prop | Type | Default | Notes |", "| --- | --- | --- | --- |",
+       ...props.map((p) => `| \`${p.name}${p.optional ? "?" : ""}\` | \`${p.type.replace(/\|/g, "\\|")}\` | ${p.def ? `\`${p.def}\`` : "—"} | ${p.doc || ""} |`)].join("\n")
+    : "_Props are documented in the `.d.ts`._";
+
+  const md = `# ${name}
+
+${desc}
+
+## Props
+
+${propTable}
+
+## Usage
+
+\`\`\`jsx
+const { ${name} } = ${NS};
+
+${example || `<${name} />`}
+\`\`\`
+
+## Notes
+- Styled entirely from design-system tokens (\`var(--…)\`); it inherits the active theme, so it works on the light app and the dark website without changes.
+- Sentence case, first-person "chief of staff" voice in copy. No emoji.
+`;
+  fs.writeFileSync(promptPath, md);
+  count++;
+}
+console.log(`Generated ${count} prompt.md files (${skipped} left as-is).`);

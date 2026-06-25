@@ -1,0 +1,46 @@
+<!-- @dsCard group="Slides" viewport="1280x720" name="Slide — Content + stat" subtitle="Headline, supporting points and a metric callout" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; background: #fff;
+    box-sizing: border-box; padding: 90px 110px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+  .eyebrow { font-family: var(--font-sans); font-size: 15px; font-weight: 700; letter-spacing: 0.14em;
+             text-transform: uppercase; color: var(--periwinkle-600); margin-bottom: 18px; }
+  .title { font-family: var(--font-display); font-weight: 600; font-size: 50px; line-height: 1.04;
+           letter-spacing: -0.025em; color: var(--ink-900); margin: 0 0 28px; }
+  .pt { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+  .dot { width: 22px; height: 22px; border-radius: 7px; background: var(--orange-50); flex: none; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .dot::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange-500); }
+  .pt p { font-family: var(--font-sans); font-size: 19px; color: var(--ink-700); line-height: 1.45; margin: 0; }
+  .pt b { color: var(--ink-900); }
+  .stat { background: var(--ink-900); border-radius: var(--radius-3xl); padding: 48px 44px; position: relative; overflow: hidden; }
+  .stat::before { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 80% at 100% 100%, rgba(255,132,49,0.5) 0%, rgba(255,132,49,0) 60%); }
+  .big { position: relative; font-family: var(--font-display); font-weight: 700; font-size: 110px; line-height: 1;
+         letter-spacing: -0.04em; background: var(--gradient-brand-reverse); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .cap { position: relative; font-family: var(--font-sans); font-size: 20px; color: #fff; margin-top: 14px; font-weight: 500; }
+  .sub2 { position: relative; font-family: var(--font-sans); font-size: 15px; color: var(--periwinkle-200); margin-top: 8px; }
+  .logo { position: absolute; left: 110px; bottom: 56px; height: 24px; opacity: .85; }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div>
+      <div class="eyebrow">Why Alfred</div>
+      <h2 class="title">Marketing leaders lose hours stitching dashboards together.</h2>
+      <div class="pt"><span class="dot"></span><p><b>Fragmented data.</b> Spend, pipeline and creative live in six different tools.</p></div>
+      <div class="pt"><span class="dot"></span><p><b>Slow decisions.</b> By the time a report lands, the budget has already drifted.</p></div>
+      <div class="pt"><span class="dot"></span><p><b>No analyst on call.</b> Questions wait for the weekly review.</p></div>
+    </div>
+    <div class="stat">
+      <div class="big">15h</div>
+      <div class="cap">saved per week, per marketing leader</div>
+      <div class="sub2">Average across Alfred design-partner teams</div>
+    </div>
+    <img class="logo" src="../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+  </div>
+</body>
+</html>

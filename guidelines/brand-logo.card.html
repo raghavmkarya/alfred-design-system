@@ -1,0 +1,46 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Logo lockups" subtitle="Full lockup, mark & wordmark — color and white" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: #fff; padding: 0; font-family: var(--font-sans); }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; }
+  .cell { padding: 28px 30px; display:flex; flex-direction:column; gap:16px; justify-content:center; }
+  .light { background: #fff; }
+  .dark { background: var(--ink-900); }
+  .glow { position:relative; overflow:hidden; }
+  .glow::before { content:""; position:absolute; inset:0; background: var(--glow-periwinkle), var(--glow-orange); opacity:.8; }
+  .glow > * { position:relative; }
+  img { display:block; }
+  .lab { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .l-d { color: var(--ink-400); }
+  .l-w { color: var(--periwinkle-200); }
+  .markrow { display:flex; gap:18px; align-items:center; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell light glow">
+      <span class="lab l-d">Primary lockup</span>
+      <img src="../assets/logos/alfred-logo-primary.svg" style="height:46px; width:auto" alt="Alfred ai" />
+    </div>
+    <div class="cell dark">
+      <span class="lab l-w">On ink</span>
+      <img src="../assets/logos/alfred-logo-white.svg" style="height:46px; width:auto" alt="Alfred ai" />
+    </div>
+    <div class="cell light">
+      <span class="lab l-d">Mark &amp; wordmark</span>
+      <div class="markrow">
+        <img src="../assets/logos/alfred-icon.svg" style="height:48px" alt="mark" />
+        <img src="../assets/logos/alfred-logo-primary.svg" style="height:30px" alt="Alfred ai" />
+      </div>
+    </div>
+    <div class="cell dark">
+      <span class="lab l-w">Mark on ink</span>
+      <img src="../assets/logos/alfred-icon-white.svg" style="height:48px" alt="mark white" />
+    </div>
+  </div>
+</body>
+</html>

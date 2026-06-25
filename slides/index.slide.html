@@ -1,0 +1,43 @@
+<!-- @dsCard group="Slides" viewport="1280x720" name="Slide — Index" subtitle="Two-column numbered contents" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; background: #fff;
+    box-sizing: border-box; padding: 90px 110px; display: flex; flex-direction: column; }
+  .head { font-family: var(--font-display); font-weight: 700; font-size: 56px; letter-spacing: -0.02em;
+          color: var(--orange-500); margin: 0; }
+  .rule { width: 120px; height: 4px; background: var(--orange-500); border-radius: 2px; margin: 18px 0 56px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 100px; }
+  .item { display: flex; gap: 20px; align-items: flex-start; padding-bottom: 22px; border-bottom: 1px solid var(--gray-150); }
+  .num { font-family: var(--font-display); font-weight: 600; font-size: 22px; color: var(--periwinkle-500); width: 42px; flex: none; }
+  .txt { font-family: var(--font-sans); font-size: 20px; font-weight: 600; color: var(--ink-900); }
+  .desc { font-family: var(--font-sans); font-size: 14px; color: var(--ink-500); margin-top: 4px; font-weight: 400; }
+  .logo { position: absolute; right: 110px; bottom: 64px; height: 26px; opacity: .9; }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="head">Index</h1>
+    <div class="rule"></div>
+    <div class="grid" id="g"></div>
+    <img class="logo" src="../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+  </div>
+<script>
+  const items = [
+    ["01","The problem","Marketing data is scattered and slow"],
+    ["02","Meet Alfred","An AI chief of staff for CMOs"],
+    ["03","Daily briefing","One source of truth, every morning"],
+    ["04","Decision alerts","Act before budgets drift"],
+    ["05","Spend & ROI","Where every dollar is working"],
+    ["06","The roadmap","What ships next"],
+  ];
+  document.getElementById('g').innerHTML = items.map(([n,t,d])=>
+    `<div class="item"><span class="num">${n}</span><div><div class="txt">${t}</div><div class="desc">${d}</div></div></div>`
+  ).join('');
+</script>
+</body>
+</html>
