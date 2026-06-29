@@ -7,8 +7,8 @@
    A deck is a sequence of <section> slides inside <deck-stage>. Each slide
    is: <section data-label="…"><div class="frame BG"> … </div></section>
    where BG is one of: bg-cover · bg-white · bg-canvas · bg-ink · bg-grad.
-   Everything is driven by design-system CSS custom properties — no raw hex
-   except the gradient stops, which mirror --gradient-brand.
+   Everything is driven by design-system CSS custom properties — including the
+   brand gradient (--gradient-brand); only the soft radial glows use raw rgba.
 
    Light context only (no [data-theme="dark"]): headlines = Clash Display
    (--font-display), body = Satoshi (--font-sans).
@@ -28,7 +28,7 @@
 .bg-ink.glow::before, .frame.glow::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(60% 70% at 100% 100%, rgba(255,132,49,0.30) 0%, rgba(255,132,49,0) 60%); }
-.bg-grad { background: linear-gradient(108deg, #FF8431 0%, #FB7C4A 34%, #C99BD2 72%, #A7A7FC 100%); color: #fff; }
+.bg-grad { background: var(--gradient-brand); color: #fff; }
 
 /* ---------- padding shells ---------- */
 .pad   { padding: 88px 110px; box-sizing: border-box; width: 100%; height: 100%; }
