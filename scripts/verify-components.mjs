@@ -97,6 +97,22 @@ const PROPS = {
   DateRangePicker: { value: "30d" },
   CommandPalette: { suggestions: [{ label: "Why did CAC rise last week?", hint: "diagnose" }, { label: "Forecast Q3 pipeline", hint: "forecast" }] },
   StatTile: { label: "Blended ROAS", value: "4.8x", delta: "+12.4%", direction: "up", caption: "vs 30d", points: [3.1, 3.4, 3.8, 4.2, 4.8] },
+  // —— Conversation kit ——
+  SeekComposer: { placeholder: "Ask Alfred anything…", suggestions: ["Where should I move budget this week?", "Why did CAC rise?"], onSubmit: noop },
+  AlfredMessage: { role: "alfred", time: "8:02 AM", sources: [{ name: "Google Ads", detail: "spend", status: "live" }, { name: "GA4", status: "live" }], children: "I'd shift $18K from Search to Performance Max [1]. Cost-per-lead is holding [2]." },
+  ThinkingTrace: { elapsed: "4s", steps: [{ label: "Pulling spend & pacing", status: "done" }, { label: "Isolating the cause", status: "active" }, { label: "Drafting the move", status: "pending" }] },
+  PromptSuggestions: { onSelect: noop, suggestions: ["Where should I move budget this week?", { label: "Forecast Q3 pipeline", hint: "forecast" }] },
+  // —— Decision intelligence ——
+  ScenarioSimulator: { onApply: noop },
+  GoalPacing: { label: "Q3 pipeline", value: 1.84, target: 3.2, elapsed: 0.62, period: "Q3 · 62% elapsed" },
+  ApprovalGate: { steps: ["Move $18K of daily budget", "Cap Search at $12K/day"], approver: "Priya Menon", onApprove: noop, onModify: noop, onDecline: noop },
+  AnomalyFlag: { tone: "anomaly", label: "Lead quality down 14%", detail: "New paid-social audience", value: "−14%" },
+  // —— Practical gaps ——
+  Textarea: { label: "Notes for Alfred", value: "", onChange: noop, maxLength: 280, showCount: true },
+  SearchInput: { value: "", onChange: noop, onSelect: noop, open: true, results: [{ label: "Why did CAC rise last week?", hint: "diagnose" }, { label: "Forecast Q3 pipeline", hint: "forecast" }] },
+  FileDropzone: { onFiles: noop, files: [{ name: "q3-spend.csv", size: "2.4 MB", status: "done" }] },
+  ActivityTimeline: { items: [{ time: "Today, 8:02 AM", title: "Reallocated $18K to Performance Max", detail: "+6% non-brand coverage", kind: "action", actor: "Priya approved" }, { time: "Yesterday", title: "Flagged a lead-quality drop", kind: "alert" }] },
+  NotificationItem: { tone: "warning", unread: true, title: "I've flagged a budget risk", body: "Google Ads is pacing 6% over plan.", time: "2m ago", actions: [{ label: "Review", onClick: noop }, { label: "Dismiss", onClick: noop }] },
 };
 
 const names = Object.keys(ns).filter((k) => !k.startsWith("__") && typeof ns[k] === "function");

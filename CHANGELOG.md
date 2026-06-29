@@ -3,6 +3,27 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-06-26 — Conversation, decision-intelligence & input components — 64 → 77
+
+### Added
+- **AI conversation kit (4, new `conversation` group).** The flagship "Seek Alfred" surface as real
+  components: `SeekComposer` (the prompt box — gradient focus ring, send glow, starter chips),
+  `AlfredMessage` (a turn with inline `[n]` citations + an attached `SourceTrace`), `ThinkingTrace`
+  (agentic reasoning steps, made visible), and `PromptSuggestions` (the empty-state nudge).
+- **Decision-intelligence primitives (4, new `decision` group).** `ScenarioSimulator` (drag a lever,
+  re-project the outcome live with confidence), `GoalPacing` (attainment + on-pace marker + projected
+  landing), `ApprovalGate` (the human-in-the-loop pause: approve / modify / decline), and
+  `AnomalyFlag` (a pulsing "Alfred flagged this" marker for any metric).
+- **Input & feed primitives (5).** `Textarea`, `SearchInput` (with a results dropdown) and
+  `FileDropzone` in `core`; `ActivityTimeline` and `NotificationItem` in `data`.
+- 4 preview cards, 13 new `*.prompt.md` docs, and `.d.ts` contracts for all 13.
+
+### Notes
+- All 77 components render clean via `scripts/verify-components.mjs` (sample props added); the UI kits
+  still pass `scripts/verify-render.mjs`. New components reuse existing ones (Slider, ConfidenceMeter,
+  Button, Badge, Avatar, SourceTrace) and stay fully token-driven, so they theme on the light app and
+  the dark site unchanged.
+
 ## 2026-06-25 — Tier 1 component expansion (charts, trust, app) — 42 → 64
 
 ### Added

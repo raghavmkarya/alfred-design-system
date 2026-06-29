@@ -1,0 +1,49 @@
+<!-- @dsCard group="Components" viewport="760x720" name="Inputs — textarea, search & file drop" subtitle="The form primitives beyond Input: multi-line, search and uploads" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 704px; align-items: start; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .span2 { grid-column: span 2; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Textarea, SearchInput, FileDropzone } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="grid">
+      <div className="panel span2">
+        <div className="lbl">SearchInput — with a results dropdown</div>
+        <SearchInput open results={[
+          { label: "Why did CAC rise last week?", hint: "diagnose" },
+          { label: "Forecast Q3 pipeline at current pace", hint: "forecast" },
+          { label: "Compare LinkedIn vs Meta ROAS", hint: "compare" }]} />
+        <div style={{height:170}} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Textarea — multi-line, with counter</div>
+        <Textarea label="Notes for Alfred" placeholder="Add context for this decision…" maxLength={280} showCount />
+      </div>
+      <div className="panel">
+        <div className="lbl">FileDropzone — connect data</div>
+        <FileDropzone files={[{ name: "q3-spend.csv", size: "2.4 MB", status: "done" }, { name: "crm-export.xlsx", size: "5.1 MB", status: "uploading" }]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

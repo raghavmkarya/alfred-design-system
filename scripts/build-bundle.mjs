@@ -21,7 +21,7 @@ import vm from "node:vm";
 const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
 const NS = "AlfredAIDesignSystem_1ce241";
 const COMPONENTS_DIR = path.join(ROOT, "components");
-const GROUP_ORDER = ["brand", "core", "data", "charts", "overlay", "feedback", "marketing", "trust", "app"];
+const GROUP_ORDER = ["brand", "core", "data", "charts", "overlay", "feedback", "marketing", "trust", "app", "conversation", "decision"];
 
 // —— load Babel standalone (same build the previews use) ——
 const babelSrc = await (await fetch("https://unpkg.com/@babel/standalone@7.29.0/babel.min.js")).text();

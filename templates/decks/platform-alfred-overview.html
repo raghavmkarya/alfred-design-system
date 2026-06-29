@@ -1,0 +1,381 @@
+<!-- @dsCard group="Decks" viewport="1280x720" name="Platform — Alfred AI overview" subtitle="The whole-company narrative: the gap → Alfred → how it works → Alfred Core → the five modules → moat → vision" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Platform overview</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../deck/ds-base.js"></script>
+<link rel="stylesheet" href="../deck/deck.css" />
+<style>
+  html, body { margin: 0; background: #0b0b16; }
+  deck-stage:not(:defined) { visibility: hidden; }
+  /* local helpers for the causal-chain slide */
+  .chain { display: flex; flex-direction: column; gap: 0; }
+  .chain-node { display: flex; gap: 14px; align-items: flex-start; }
+  .chain-rail { width: 2px; background: var(--border-default); margin: 4px 0 4px 13px; height: 22px; }
+  .chain-dot { width: 28px; height: 28px; border-radius: 9px; flex: none; display: flex; align-items: center;
+    justify-content: center; font-family: var(--font-display); font-weight: 600; font-size: 13px; color: #fff;
+    background: var(--periwinkle-500); }
+  .chain-dot.last { background: var(--gradient-brand); box-shadow: var(--shadow-brand); }
+  .chain-t { font-size: 15.5px; color: var(--ink-700); line-height: 1.4; padding-top: 3px; }
+  .chain-t b { color: var(--ink-900); }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 01 — Cover -->
+  <section data-label="Cover">
+    <div class="frame bg-cover">
+      <div class="pad center">
+        <span class="eyebrow">Decision intelligence platform</span>
+        <h1 class="cover-title">The AI memory powering every decision across your organisation.</h1>
+        <div class="rule"></div>
+        <p class="cover-sub">Alfred connects your entire business stack, reasons across it continuously, and tells every leader what changed, why, and what to do next.</p>
+      </div>
+      <img class="logo-bl" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">01</span>
+    </div>
+  </section>
+
+  <!-- 02 — Agenda -->
+  <section data-label="Agenda">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">What we'll cover</span>
+        <h2 class="h2" style="margin-top:14px">A platform built for the people who decide</h2>
+        <div class="rule sm"></div>
+        <div class="ix-grid" style="margin-top:8px">
+          <div class="ix-item"><span class="ix-num">01</span><div><div class="ix-t">The gap</div><div class="ix-d">Data everywhere, decisions nowhere</div></div></div>
+          <div class="ix-item"><span class="ix-num">02</span><div><div class="ix-t">Meet Alfred</div><div class="ix-d">Decision intelligence, not dashboards</div></div></div>
+          <div class="ix-item"><span class="ix-num">03</span><div><div class="ix-t">How it works</div><div class="ix-d">Connect → Analyze → Recommend → Act</div></div></div>
+          <div class="ix-item"><span class="ix-num">04</span><div><div class="ix-t">Alfred Core</div><div class="ix-d">The organisational brain underneath</div></div></div>
+          <div class="ix-item"><span class="ix-num">05</span><div><div class="ix-t">The platform</div><div class="ix-d">Five modules, one intelligence layer</div></div></div>
+          <div class="ix-item"><span class="ix-num">06</span><div><div class="ix-t">Proof, moat &amp; vision</div><div class="ix-d">Why it compounds — and what's next</div></div></div>
+        </div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
+      <span class="page">02</span>
+    </div>
+  </section>
+
+  <!-- 03 — The problem -->
+  <section data-label="The gap">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">The gap</span>
+          <h2 class="h2" style="margin:14px 0 26px">You have the data. You don't have the decision.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Fragmented across the stack.</b> Every function runs 5–15 systems that don't talk to each other in plain language.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Dashboards show symptoms.</b> A number moved — but not whether the cause is fatigue, an algorithm, a tracking error, or a competitor.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>The answer lands too late.</b> By the time an analyst reconciles it, the budget — and the moment — has already drifted.</p></div>
+        </div>
+        <div class="card ink glow">
+          <div style="position:relative">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-0.03em;background:var(--gradient-brand-reverse);-webkit-background-clip:text;background-clip:text;color:transparent">54%</div>
+            <div class="c-b" style="margin:6px 0 22px">of leaders say connecting data sources is a major barrier to insight <span style="opacity:.7">— NIQ 2026</span></div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-0.03em;background:var(--gradient-brand-reverse);-webkit-background-clip:text;background-clip:text;color:transparent">63%</div>
+            <div class="c-b" style="margin:6px 0 22px">miss opportunities because decisions take too long <span style="opacity:.7">— PwC 2025</span></div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-0.03em;background:var(--gradient-brand-reverse);-webkit-background-clip:text;background-clip:text;color:transparent">1 in 3</div>
+            <div class="c-b" style="margin:6px 0 0">rely on 5–15 tools just to measure ROI <span style="opacity:.7">— NIQ 2026</span></div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">03</span>
+    </div>
+  </section>
+
+  <!-- 04 — Section divider -->
+  <section data-label="Section — The cost of slow">
+    <div class="frame bg-grad">
+      <svg class="s-motif" viewBox="0 0 1280 720" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+        <path d="M640 -40 Q640 360 1320 360" /><path d="M1320 360 Q640 360 640 760" />
+        <path d="M640 760 Q640 360 -40 360" /><path d="M-40 360 Q640 360 640 -40" />
+      </svg>
+      <div class="sec-copy">
+        <div class="eyebrow on-grad">The stakes</div>
+        <h1 class="sec-title">The cost of slow.</h1>
+        <p class="sec-sub">Every hour between issue and action, the cost compounds against you. Speed of correction now beats quality of launch — in every function.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+  <!-- 05 — Meet Alfred -->
+  <section data-label="Meet Alfred">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">Meet Alfred</span>
+        <p class="statement" style="color:#fff;margin-top:22px">Not another dashboard. A decision intelligence platform that tells every leader <span class="accent">what changed, why, and what to do</span> — continuously, across the whole business.</p>
+        <p class="statement-sub" style="color:var(--periwinkle-200)">Alfred sits between your business data and your leadership decisions. It connects the stack, reasons across it 24/7, and turns hundreds of signals into the handful of decisions that actually need you. It doesn't replace your tools — it makes sense of them.</p>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+      <span class="page on-dark">05</span>
+    </div>
+  </section>
+
+  <!-- 06 — Three properties -->
+  <section data-label="What makes Alfred different">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Three properties</span>
+        <h2 class="h2" style="margin-top:12px">Everyone else describes the problem. Alfred decides.</h2>
+        <div class="grid3" style="margin-top:32px">
+          <div class="card">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/alert-warning.svg)"></span></span>
+            <div class="c-h">Proactive, not reactive</div>
+            <p class="c-b">BI waits for you to ask. Alfred surfaces the issue, risk, or opening before you go looking — the first sign of trouble is an Alfred alert, not a board question.</p>
+          </div>
+          <div class="card">
+            <span class="card-ic peri"><span class="ic peri" style="--i:url(../../assets/icons/web-clarity.svg)"></span></span>
+            <div class="c-h">Explains, rather than reports</div>
+            <p class="c-b">"CPA up 34%" is a notification. "CPA up 34% from creative fatigue in 25–34 — refresh, or move 15% to LinkedIn" is intelligence. Alfred delivers the second.</p>
+          </div>
+          <div class="card">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/integration-success.svg)"></span></span>
+            <div class="c-h">Insight to execution, in one step</div>
+            <p class="c-b">Diagnosis has no value on its own. Approve a recommendation and Alfred acts inside your connected tools — every change logged and fully traceable.</p>
+          </div>
+        </div>
+        <p class="body muted" style="margin-top:26px">Underneath all three: <b style="color:var(--ink-900)">Alfred Core</b> — the organisational memory that makes every recommendation sharper than the last.</p>
+      </div>
+      <span class="page">06</span>
+    </div>
+  </section>
+
+  <!-- 07 — How it works -->
+  <section data-label="How it works">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">How it works</span>
+        <h2 class="h2" style="margin-top:14px">Four stages, fully automated</h2>
+        <div class="steps" style="grid-template-columns:repeat(4,1fr);margin-top:54px">
+          <div class="step"><span class="step-rail"></span><span class="step-n">1</span><div class="step-t">Connect</div><div class="step-b">Read-only API links to your existing stack. Up to a year of history synced at onboarding. Zero engineering, zero disruption.</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">2</span><div class="step-t">Analyze</div><div class="step-b">Continuous correlation across every channel, system, and funnel stage — 24 hours a day, not on a reporting cadence.</div></div>
+          <div class="step"><span class="step-rail"></span><span class="step-n">3</span><div class="step-t">Recommend</div><div class="step-b">Decision-ready intelligence in plain language, prioritised by business impact, with the reasoning attached.</div></div>
+          <div class="step"><span class="step-n">4</span><div class="step-t">Act</div><div class="step-b">Approve and Alfred executes inside your tools. Every change recorded in a full audit trail.</div></div>
+        </div>
+      </div>
+      <span class="page">07</span>
+    </div>
+  </section>
+
+  <!-- 08 — Three outputs -->
+  <section data-label="What a leader receives">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">What a leader receives</span>
+        <h2 class="h2" style="margin-top:14px">Three outputs. Every day. In plain language.</h2>
+        <div class="grid3" style="margin-top:32px">
+          <div class="card">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/audit-log.svg)"></span></span>
+            <div class="c-h">A prioritised daily brief</div>
+            <p class="c-b">What changed overnight, what caused it, and what to act on today — ranked by business impact, ready before your first meeting.</p>
+          </div>
+          <div class="card">
+            <span class="card-ic peri"><span class="ic peri" style="--i:url(../../assets/icons/demo-play.svg)"></span></span>
+            <div class="c-h">On-demand answers</div>
+            <p class="c-b">Ask any business question in plain language and get a data-grounded answer in seconds. Seek Alfred — no analyst, no waiting.</p>
+          </div>
+          <div class="card">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/alert-warning.svg)"></span></span>
+            <div class="c-h">Proactive alerts</div>
+            <p class="c-b">Risks and opportunities surfaced before you go looking — each one explained, prioritised, and paired with a recommended action.</p>
+          </div>
+        </div>
+        <p class="body muted" style="margin-top:26px">Delivered where you already work — email, Slack, or the Alfred workspace.</p>
+      </div>
+      <span class="page">08</span>
+    </div>
+  </section>
+
+  <!-- 09 — Alfred Core -->
+  <section data-label="Alfred Core">
+    <div class="frame bg-ink glow">
+      <div class="pad">
+        <span class="eyebrow on-dark">Alfred Core</span>
+        <h2 class="h2 on-dark" style="margin-top:12px">The organisational brain underneath every module</h2>
+        <p class="lead" style="color:var(--periwinkle-200);margin-top:14px;max-width:880px">Each module runs a network of specialised agents. Alfred Core is the layer that connects them — routing every signal, tracing root causes across functions, and keeping the whole leadership team aligned to one view of reality.</p>
+        <div class="grid4" style="margin-top:34px">
+          <div class="card ink" style="background:rgba(255,255,255,0.06)">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/web-stack-connected.svg)"></span></span>
+            <div class="c-h">Cross-function intelligence</div>
+            <p class="c-b">A marketing signal with a sales implication, a revenue risk with a finance one — connected, not siloed.</p>
+          </div>
+          <div class="card ink" style="background:rgba(255,255,255,0.06)">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/web-clarity.svg)"></span></span>
+            <div class="c-h">Root-cause intelligence</div>
+            <p class="c-b">Every tool today is diagnostic. Alfred is etiological — it traces the full causal chain to the one cause.</p>
+          </div>
+          <div class="card ink" style="background:rgba(255,255,255,0.06)">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/audit-log.svg)"></span></span>
+            <div class="c-h">Institutional knowledge</div>
+            <p class="c-b">The context that normally walks out the door when a key person leaves. Alfred keeps it, permanently.</p>
+          </div>
+          <div class="card ink" style="background:rgba(255,255,255,0.06)">
+            <span class="card-ic"><span class="ic white" style="--i:url(../../assets/icons/trend-up.svg)"></span></span>
+            <div class="c-h">Compounding intelligence</div>
+            <p class="c-b">Every outcome recorded makes every future recommendation more accurate — no retraining required.</p>
+          </div>
+        </div>
+      </div>
+      <span class="page on-dark">09</span>
+    </div>
+  </section>
+
+  <!-- 10 — One root cause, one fix -->
+  <section data-label="One root cause, one fix">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">The causal reasoning engine</span>
+          <h2 class="h2" style="margin:14px 0 22px">Four symptoms. One root cause. One fix.</h2>
+          <p class="body" style="margin-bottom:22px">Every other tool sees four separate problems and proposes four separate fixes. Alfred Core traces the chain across functions and surfaces the single cause underneath — with a confidence score on every link.</p>
+          <div class="pt"><span class="pt-dot"></span><p><b>Diagnostic tools stop at "what."</b> Alfred answers "why," across functions.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Alignment without meetings.</b> Every leader sees the same chain, in real time.</p></div>
+        </div>
+        <div class="card soft" style="padding:30px">
+          <div class="chain">
+            <div class="chain-node"><span class="chain-dot">1</span><div class="chain-t"><b>Operations cut resourcing</b> six weeks ago to protect margin.</div></div>
+            <div class="chain-rail"></div>
+            <div class="chain-node"><span class="chain-dot">2</span><div class="chain-t"><b>Two late-stage deals stall</b> as delivery timelines slip.</div></div>
+            <div class="chain-rail"></div>
+            <div class="chain-node"><span class="chain-dot">3</span><div class="chain-t"><b>A $380k forecast downgrade</b> lands in the sales pipeline.</div></div>
+            <div class="chain-rail"></div>
+            <div class="chain-node"><span class="chain-dot">4</span><div class="chain-t"><b>A Q3 marketing budget increase</b> is paused in response.</div></div>
+            <div class="chain-rail"></div>
+            <div class="chain-node"><span class="chain-dot last"><span class="ic white" style="--i:url(../../assets/icons/web-clarity.svg);width:15px;height:15px"></span></span><div class="chain-t"><b style="color:var(--orange-600)">One root cause.</b> One fix — surfaced before the impact fully lands.</div></div>
+          </div>
+        </div>
+      </div></div>
+      <span class="page">10</span>
+    </div>
+  </section>
+
+  <!-- 11 — The platform / five modules -->
+  <section data-label="The platform">
+    <div class="frame bg-white">
+      <div class="pad tight">
+        <span class="eyebrow">The platform</span>
+        <h2 class="h2" style="margin-top:12px">Five modules, one intelligence layer</h2>
+        <p class="lead" style="margin-top:12px;max-width:880px">One leadership function at a time. Every module is its own agent network — all running on Alfred Core, sharing one memory and one signal router.</p>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:32px">
+          <div class="card" style="padding:22px">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/channel-mix.svg)"></span></span>
+            <div class="c-h" style="font-size:19px">Marketing</div>
+            <p class="c-b" style="font-size:14px">Spend, creative &amp; brand-visibility intelligence.</p>
+            <span class="tag green" style="margin-top:14px">Live</span>
+          </div>
+          <div class="card" style="padding:22px">
+            <span class="card-ic peri"><span class="ic peri" style="--i:url(../../assets/icons/mql.svg)"></span></span>
+            <div class="c-h" style="font-size:19px">Sales</div>
+            <p class="c-b" style="font-size:14px">Pipeline health, deal patterns &amp; revenue foresight.</p>
+            <span class="tag peri" style="margin-top:14px">In development</span>
+          </div>
+          <div class="card" style="padding:22px">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/budget.svg)"></span></span>
+            <div class="c-h" style="font-size:19px">Finance</div>
+            <p class="c-b" style="font-size:14px">Spend efficiency, forecasting &amp; cost intelligence.</p>
+            <span class="tag neutral" style="margin-top:14px">Planned</span>
+          </div>
+          <div class="card" style="padding:22px">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/refresh.svg)"></span></span>
+            <div class="c-h" style="font-size:19px">Operations</div>
+            <p class="c-b" style="font-size:14px">Capacity, process health &amp; coordination.</p>
+            <span class="tag neutral" style="margin-top:14px">Planned</span>
+          </div>
+          <div class="card" style="padding:22px">
+            <span class="card-ic"><span class="ic" style="--i:url(../../assets/icons/web-clarity.svg)"></span></span>
+            <div class="c-h" style="font-size:19px">Founders</div>
+            <p class="c-b" style="font-size:14px">Whole-business view, strategy &amp; risk synthesis.</p>
+            <span class="tag neutral" style="margin-top:14px">Planned</span>
+          </div>
+        </div>
+        <p class="body muted" style="margin-top:24px"><b style="color:var(--ink-900)">Alfred for Marketing</b> is live and the wedge. As each module comes online, the intelligence between them compounds.</p>
+      </div>
+      <span class="page">11</span>
+    </div>
+  </section>
+
+  <!-- 12 — The live wedge -->
+  <section data-label="The wedge is live">
+    <div class="frame bg-canvas">
+      <div class="pad">
+        <span class="eyebrow">The wedge is live</span>
+        <h2 class="h2" style="margin-top:14px">What changes when Alfred runs a leader's mornings</h2>
+        <div class="grid4" style="margin-top:34px">
+          <div class="metric"><div class="m-lab">Faster decision cycles</div><div class="m-val grad">70%</div><div class="m-sub">time-to-decision</div></div>
+          <div class="metric"><div class="m-lab">Wasted spend reduced</div><div class="m-val grad">12%</div><div class="m-sub">reclaimed by Alfred</div></div>
+          <div class="metric"><div class="m-lab">Weekly hours reclaimed</div><div class="m-val grad">15+</div><div class="m-sub">per leader</div></div>
+          <div class="metric"><div class="m-lab">Answered without an analyst</div><div class="m-val grad">85%</div><div class="m-sub">of questions, on demand</div></div>
+        </div>
+        <p class="body muted" style="margin-top:26px">From Alfred for Marketing, the first live module. Market context: 63% of leaders miss opportunities because decisions take too long (PwC CMO Survey 2025). Time to first insight: under a week.</p>
+      </div>
+      <span class="page">12</span>
+    </div>
+  </section>
+
+  <!-- 13 — The moat -->
+  <section data-label="The moat">
+    <div class="frame bg-white">
+      <div class="pad"><div class="split">
+        <div>
+          <span class="eyebrow">The moat</span>
+          <h2 class="h2" style="margin:14px 0 26px">It gets sharper every month — and competitors can't backfill that.</h2>
+          <div class="pt"><span class="pt-dot"></span><p><b>Institutional memory.</b> Alfred Core learns <i>this</i> company's patterns, outcomes, and causes — not industry averages.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Two-way integrations.</b> It doesn't just read — it acts, and records what worked.</p></div>
+          <div class="pt"><span class="pt-dot"></span><p><b>Compounding accuracy.</b> Recommendations get more precise without retraining a single model.</p></div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">6 mo</div>
+          <div class="stat-cap">to a memory a competitor can't compress or copy</div>
+          <div class="stat-sub">The switching cost isn't the product — it's the institutional memory accumulated inside it. Every competitor builds smarter tools for one function. Alfred builds the layer that connects them all.</div>
+        </div>
+      </div></div>
+      <span class="page">13</span>
+    </div>
+  </section>
+
+  <!-- 14 — Why Alfred -->
+  <section data-label="Why Alfred">
+    <div class="frame bg-white">
+      <div class="pad">
+        <span class="eyebrow">Why Alfred</span>
+        <h2 class="h2" style="margin-top:12px">Built for the person at the top — not the data team</h2>
+        <table class="tbl" style="margin-top:22px">
+          <thead><tr><th>Category</th><th>What they do</th><th>What Alfred does</th></tr></thead>
+          <tbody>
+            <tr><td>BI tools</td><td>Built for the data team to explore and report</td><td>Built for the leader — decisions, not queries</td></tr>
+            <tr><td>Generic AI</td><td>Helps you work faster in your documents</td><td>Helps you decide faster, in your data</td></tr>
+            <tr><td>Point analytics</td><td>Tells you which channel or deal worked</td><td>Tells you what it means for next quarter</td></tr>
+            <tr><td>Doing nothing</td><td>Manual reconciliation; the cost compounds</td><td>Closes the issue-to-action gap to under 2 hours</td></tr>
+          </tbody>
+        </table>
+        <p class="body muted" style="margin-top:18px">Alfred doesn't compete with your CRM, ad platforms, or financial tools. It makes all of them more intelligent by connecting what each one knows.</p>
+      </div>
+      <span class="page">14</span>
+    </div>
+  </section>
+
+  <!-- 15 — Close -->
+  <section data-label="Close">
+    <div class="frame bg-ink glow">
+      <div class="pad center">
+        <span class="eyebrow on-dark">The vision</span>
+        <h2 class="cta-title" style="margin-top:18px">Build the enterprise brain. One function at a time.</h2>
+        <p class="cta-sub">Start with the live module, and be the most prepared leadership team in your market — every morning.</p>
+        <span class="cta-chip">Book a working session →</span>
+        <div style="margin-top:30px;color:rgba(255,255,255,0.6);font-size:15px">seekalfred.ai · hello@seekalfred.ai</div>
+      </div>
+      <img class="logo-tr" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred ai" />
+    </div>
+  </section>
+
+</deck-stage>
+<script src="../deck/deck-stage.js"></script>
+</body>
+</html>

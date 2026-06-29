@@ -98,7 +98,7 @@ const html = `<!doctype html>
       <img class="logo" src="assets/logos/alfred-logo-primary.svg" alt="Alfred ai" />
       <div class="hero">
         <h1>The design system for <span class="em">Alfred ai</span>.</h1>
-        <p>Foundations, brand assets, ${compCount} UI components and product kits for Alfred — your AI chief of staff for marketing.</p>
+        <p>Foundations, brand assets, ${compCount} UI components and product kits for Alfred — the decision intelligence platform for marketing leaders.</p>
         <div class="stats">
           <div class="stat"><b>${compCount}</b><span>components · ${compGroups.length} groups</span></div>
           <div class="stat"><b>${cardCount}</b><span>preview cards</span></div>

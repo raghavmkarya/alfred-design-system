@@ -12,6 +12,19 @@ const NS = "window.AlfredAIDesignSystem_1ce241";
 
 // Curated, idiomatic examples (JSX). Keyed by component name.
 const EXAMPLES = {
+  SeekComposer: `<SeekComposer placeholder="Ask Alfred anything…" onSubmit={q => seek(q)}\n  suggestions={["Where should I move budget this week?", "Why did CAC rise?"]} />`,
+  AlfredMessage: `<AlfredMessage role="alfred" time="8:02 AM"\n  sources={[{ name: "Google Ads", detail: "spend", status: "live" }, { name: "GA4", status: "live" }]}>\n  I'd shift $18K from Search to Performance Max [1]. Cost-per-lead is holding [2].\n</AlfredMessage>`,
+  ThinkingTrace: `<ThinkingTrace elapsed="4s" steps={[\n  { label: "Pulling spend & pacing", status: "done" },\n  { label: "Isolating the cause", status: "active" },\n  { label: "Drafting the move", status: "pending" }]} />`,
+  PromptSuggestions: `<PromptSuggestions onSelect={seek} suggestions={[\n  "Where should I move budget this week?", { label: "Forecast Q3 pipeline", hint: "forecast" }]} />`,
+  ScenarioSimulator: `<ScenarioSimulator onApply={vals => commit(vals)} />`,
+  GoalPacing: `<GoalPacing label="Q3 pipeline" value={1.84} target={3.2} elapsed={0.62} period="Q3 · 62% elapsed" />`,
+  ApprovalGate: `<ApprovalGate\n  title="Reallocate $18K from Search to Performance Max"\n  steps={["Move $18K of daily budget", "Cap Search at $12K/day"]}\n  approver="Priya Menon" onApprove={apply} onDecline={skip} />`,
+  AnomalyFlag: `<AnomalyFlag tone="anomaly" label="Lead quality down 14%" detail="New paid-social audience" value="−14%" />`,
+  Textarea: `<Textarea label="Notes for Alfred" value={notes} onChange={e => setNotes(e.target.value)} maxLength={280} showCount />`,
+  SearchInput: `<SearchInput value={q} onChange={e => setQ(e.target.value)} onSelect={go}\n  results={[{ label: "Why did CAC rise last week?", hint: "diagnose" }]} />`,
+  FileDropzone: `<FileDropzone onFiles={fs => upload(fs)}\n  files={[{ name: "q3-spend.csv", size: "2.4 MB", status: "done" }]} />`,
+  ActivityTimeline: `<ActivityTimeline items={[\n  { time: "Today, 8:02 AM", title: "Reallocated $18K to Performance Max", kind: "action", actor: "Priya approved" },\n  { time: "Yesterday", title: "Flagged a lead-quality drop", kind: "alert" }]} />`,
+  NotificationItem: `<NotificationItem tone="warning" unread title="I've flagged a budget risk"\n  body="Google Ads is pacing 6% over plan." time="2m ago"\n  actions={[{ label: "Review" }, { label: "Dismiss" }]} />`,
   Button: `<Button variant="primary" size="lg">Reallocate budget</Button>`,
   IconButton: `<IconButton name="refresh" variant="ghost" title="Refresh" iconRoot="../../assets/icons" />`,
   Input: `<Input label="Work email" value={email} onChange={e => setEmail(e.target.value)} fill="plain" />`,

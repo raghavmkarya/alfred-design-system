@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Organisation Brain · Post 01 (LinkedIn 1080×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    :root { --frame-w: 1080px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      background: #050505;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    /* the page IS the asset — frame sits at the origin, exact 1080×1350 */
+    .stage { width: var(--frame-w); }
+
+    /* ============ THE EXPORTABLE CANVAS — 1080×1350 (LinkedIn 4:5) ============ */
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);                 /* #0C0C0A warm near-black */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px 84px 76px;
+      box-sizing: border-box;
+      isolation: isolate;
+    }
+    /* ambient brand glows — soft, low opacity (dark-tuned tokens) */
+    .frame::before,
+    .frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .frame::before { background: var(--glow-periwinkle); }
+    .frame::after  { background: var(--glow-orange); opacity: 0.55; }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* faint corner vignette for depth */
+    .vignette {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(120% 90% at 50% 42%, transparent 55%, rgba(0,0,0,0.45) 100%);
+    }
+
+    /* ---------- header ---------- */
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .head img { height: 30px; width: auto; display: block; opacity: 0.96; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px 9px 18px;
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      font-family: var(--font-inter);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.02);
+    }
+    .pill .dot {
+      width: 7px; height: 7px; border-radius: 999px;
+      background: var(--gradient-brand);
+      box-shadow: 0 0 10px rgba(255,132,49,0.7);
+    }
+
+    /* ---------- message ---------- */
+    .message { margin-top: 96px; }
+    .eyebrow {
+      font-family: var(--font-inter);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-400);
+      margin: 0 0 22px;
+    }
+    .headline {
+      font-family: var(--font-display);            /* Satoshi on dark */
+      font-weight: 600;
+      font-size: 80px;
+      line-height: 1.03;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin: 0;
+      max-width: 14ch;
+    }
+
+    /* ---------- visual: fragmented functions → one brain ---------- */
+    .viz {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 4px 0;
+      min-height: 0;
+    }
+    .viz svg { width: 100%; height: 100%; max-height: 470px; overflow: visible; }
+    .node-label {
+      font-family: var(--font-inter);
+      font-weight: 600;
+      font-size: 14.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      fill: rgba(255,255,255,0.50);
+    }
+
+    /* ---------- definition + footer ---------- */
+    .definition {
+      font-family: var(--font-inter);
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 41ch;
+    }
+    .definition b { color: #ffffff; font-weight: 600; }
+
+    .footer {
+      margin-top: 34px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .read {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-family: var(--font-inter);
+      font-weight: 600;
+      font-size: 17px;
+      color: #ffffff;
+    }
+    .read svg { width: 20px; height: 20px; color: var(--orange-500); }
+    .site {
+      font-family: var(--font-inter);
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+    }
+
+    @media print {
+      .frame { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="frame">
+      <div class="vignette"></div>
+
+      <!-- header -->
+      <header class="head">
+        <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+      </header>
+
+      <!-- message -->
+      <div class="message">
+        <p class="eyebrow">Why companies struggle to think as one</p>
+        <h1 class="headline">What is an organisation brain?</h1>
+      </div>
+
+      <!-- visual -->
+      <div class="viz">
+        <svg viewBox="0 0 940 520" role="img" aria-label="Five business functions converging into one Alfred brain">
+          <defs>
+            <linearGradient id="brainGrad" x1="396.762" y1="35.1" x2="-21.01" y2="275.45" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#A7A7FC"/>
+              <stop offset="0.7098" stop-color="#FF8431"/>
+            </linearGradient>
+            <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"  stop-color="rgba(255,150,80,0.34)"/>
+              <stop offset="38%" stop-color="rgba(167,167,252,0.20)"/>
+              <stop offset="100%" stop-color="rgba(167,167,252,0)"/>
+            </radialGradient>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="rgba(167,167,252,0.10)"/>
+              <stop offset="100%" stop-color="rgba(255,132,49,0.62)"/>
+            </linearGradient>
+          </defs>
+
+          <!-- core aura (brain centre C = 520,250) -->
+          <circle cx="520" cy="250" r="212" fill="url(#coreGlow)"/>
+          <circle cx="520" cy="250" r="128" fill="none" stroke="rgba(255,255,255,0.07)"/>
+          <circle cx="520" cy="250" r="178" fill="none" stroke="rgba(255,255,255,0.045)"/>
+
+          <!-- converging connections (node -> ~74% toward brain C=520,250) -->
+          <g stroke="url(#lineGrad)" stroke-width="1.7" stroke-linecap="round" opacity="0.95">
+            <line x1="118" y1="84"  x2="415.5" y2="206.8"/>
+            <line x1="108" y1="250" x2="412.9" y2="250"/>
+            <line x1="155" y1="408" x2="425.1" y2="291.1"/>
+            <line x1="858" y1="158" x2="607.9" y2="226.1"/>
+            <line x1="822" y1="426" x2="598.5" y2="295.8"/>
+          </g>
+
+          <!-- signal dots arriving at the brain (alternate orange / periwinkle) -->
+          <g>
+            <circle cx="415.5" cy="206.8" r="3" fill="#FFB07B"/>
+            <circle cx="412.9" cy="250"   r="3" fill="#A7A7FC"/>
+            <circle cx="425.1" cy="291.1" r="3" fill="#FFB07B"/>
+            <circle cx="607.9" cy="226.1" r="3" fill="#A7A7FC"/>
+            <circle cx="598.5" cy="295.8" r="3" fill="#FFB07B"/>
+          </g>
+
+          <!-- the five functions (siloed today) -->
+          <g fill="none">
+            <circle cx="118" cy="84"  r="6.5" fill="#0C0C0A" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+            <circle cx="118" cy="84"  r="13"  stroke="rgba(255,255,255,0.12)"/>
+            <circle cx="108" cy="250" r="6.5" fill="#0C0C0A" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+            <circle cx="108" cy="250" r="13"  stroke="rgba(255,255,255,0.12)"/>
+            <circle cx="155" cy="408" r="6.5" fill="#0C0C0A" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+            <circle cx="155" cy="408" r="13"  stroke="rgba(255,255,255,0.12)"/>
+            <circle cx="858" cy="158" r="6.5" fill="#0C0C0A" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+            <circle cx="858" cy="158" r="13"  stroke="rgba(255,255,255,0.12)"/>
+            <circle cx="822" cy="426" r="6.5" fill="#0C0C0A" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+            <circle cx="822" cy="426" r="13"  stroke="rgba(255,255,255,0.12)"/>
+          </g>
+          <g class="node-label">
+            <text x="118" y="48"  text-anchor="middle">Marketing</text>
+            <text x="82"  y="255" text-anchor="end">Sales</text>
+            <text x="155" y="452" text-anchor="middle">Operations</text>
+            <text x="858" y="122" text-anchor="middle">Finance</text>
+            <text x="822" y="472" text-anchor="middle">Founders</text>
+          </g>
+
+          <!-- the brain: Alfred mark in the signature gradient (shifted right to C=520) -->
+          <g transform="translate(422.35,151.45) scale(0.45)">
+            <path d="M288.241 0H145.654C65.1568 0 0 65.2299 0 145.654V291.747C0 372.244 65.1568 437.475 145.654 437.475H155.151C232.142 437.475 294.523 375.093 294.523 298.103C294.523 375.093 356.904 437.475 433.895 437.475V145.654C433.895 65.2299 368.665 0 288.241 0ZM294.523 296.35H143.828V145.581H294.523V296.35Z" fill="url(#brainGrad)"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- definition -->
+      <p class="definition">
+        An <b>organisation brain</b> connects knowledge, context, decision logic and
+        outcomes into one system — so your business can remember, learn, and act as one.
+      </p>
+
+      <!-- footer -->
+      <footer class="footer">
+        <span class="read">
+          Read the full essay
+          <svg viewBox="0 0 10.49 10.491" aria-hidden="true">
+            <path d="M 1.536 8.955 C 2.269 9.688 3.204 10.188 4.221 10.39 C 5.239 10.593 6.294 10.489 7.252 10.092 C 8.211 9.695 9.03 9.022 9.606 8.16 C 10.183 7.297 10.49 6.283 10.49 5.246 C 10.49 4.208 10.183 3.194 9.606 2.331 C 9.03 1.469 8.211 0.796 7.252 0.399 C 6.294 0.002 5.239 -0.102 4.221 0.101 C 3.204 0.303 2.269 0.803 1.536 1.536 C 0.552 2.52 0 3.854 0 5.246 C 0 6.637 0.552 7.971 1.536 8.955 Z M 2.958 5.661 L 3.032 3.825 C 3.041 3.618 3.127 3.421 3.274 3.275 C 3.421 3.128 3.617 3.041 3.825 3.032 L 5.66 2.959 C 6.489 2.924 6.544 4.182 5.711 4.218 L 5.129 4.241 L 7.217 6.326 C 7.812 6.926 6.911 7.793 6.325 7.218 L 4.24 5.13 L 4.217 5.711 C 4.18 6.549 2.928 6.497 2.958 5.661 Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="site">seekalfred.ai</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

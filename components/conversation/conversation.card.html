@@ -1,0 +1,74 @@
+<!-- @dsCard group="Components" viewport="760x1180" name="Conversation — Seek Alfred, messages & reasoning" subtitle="The conversational surface: composer, suggestions, turns and agentic reasoning" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .col { display: flex; flex-direction: column; gap: 18px; max-width: 704px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { SeekComposer, PromptSuggestions, AlfredMessage, ThinkingTrace } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="col">
+      <div className="panel">
+        <div className="lbl">SeekComposer — the Seek Alfred prompt box</div>
+        <SeekComposer
+          placeholder="Ask Alfred anything about your marketing…"
+          suggestions={["Where should I move budget this week?", "Why did CAC rise?"]} />
+      </div>
+
+      <div className="panel">
+        <div className="lbl">PromptSuggestions — the empty-state nudge</div>
+        <PromptSuggestions
+          layout="list"
+          suggestions={[
+            { label: "Where should I move budget this week?", hint: "reallocation" },
+            { label: "Forecast Q3 pipeline at current pace", hint: "forecast" },
+            { label: "What's my biggest efficiency risk right now?", hint: "diagnose" }]} />
+      </div>
+
+      <div className="panel">
+        <div className="lbl">AlfredMessage — a conversation turn with citations</div>
+        <div style={{display:"flex",flexDirection:"column",gap:20}}>
+          <AlfredMessage role="user" time="8:01 AM" avatarName="Priya Menon">
+            Where should I move budget this week?
+          </AlfredMessage>
+          <AlfredMessage role="alfred" time="8:02 AM"
+            sources={[
+              {name:"Google Ads",detail:"spend",status:"live"},
+              {name:"GA4",detail:"conversions",status:"live"},
+              {name:"HubSpot",detail:"pipeline",status:"syncing"}]}>
+            I'd shift $18K from Search to Performance Max [1]. Search is pacing 22% under your
+            efficiency target while PMax has headroom and cost-per-lead is holding [2]. That
+            protects roughly $30K of pipeline this month [3].
+          </AlfredMessage>
+        </div>
+      </div>
+
+      <div className="panel">
+        <div className="lbl">ThinkingTrace — agentic reasoning, made visible</div>
+        <ThinkingTrace elapsed="4s" steps={[
+          { label: "Pulled spend & pacing across 6 channels", status: "done", detail: "Google Ads, Meta, LinkedIn, PMax…" },
+          { label: "Isolating the efficiency drag", status: "active" },
+          { label: "Drafting the reallocation", status: "pending" }]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

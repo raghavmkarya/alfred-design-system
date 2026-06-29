@@ -1,0 +1,59 @@
+<!-- @dsCard group="Components" viewport="760x680" name="Feed — activity timeline & notifications" subtitle="Chronological activity and Alfred's notification inbox rows" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 704px; align-items: start; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .inbox { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .inbox .lbl { padding: 18px 18px 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { ActivityTimeline, NotificationItem } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="grid">
+      <div className="panel">
+        <div className="lbl">ActivityTimeline</div>
+        <ActivityTimeline items={[
+          { time: "Today, 8:02 AM", title: "Reallocated $18K to Performance Max", detail: "+6% non-brand coverage", kind: "action", actor: "Priya approved" },
+          { time: "Today, 7:40 AM", title: "Flagged a lead-quality drop", detail: "−14% on the new paid-social audience", kind: "alert" },
+          { time: "Yesterday", title: "Q3 pipeline crossed 55% of target", kind: "success" },
+          { time: "Mon", title: "Connected HubSpot", kind: "info" }]} />
+      </div>
+      <div className="inbox">
+        <div className="lbl">NotificationItem — the inbox</div>
+        <div style={{marginTop:14}}>
+          <NotificationItem tone="warning" unread
+            title="I've flagged a budget risk"
+            body="Google Ads is pacing 6% over plan this week."
+            time="2m ago"
+            actions={[{ label: "Review" }, { label: "Dismiss" }]} />
+          <NotificationItem tone="success" unread
+            title="Your reallocation is live"
+            body="Performance Max picked up the $18K shift."
+            time="1h ago" />
+          <NotificationItem tone="info"
+            title="Weekly briefing is ready"
+            body="Three decisions need your eye." time="8h ago" />
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

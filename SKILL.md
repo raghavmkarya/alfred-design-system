@@ -1,10 +1,11 @@
 ---
 name: alfred-ai-design
-description: Use this skill to generate well-branded interfaces and assets for Alfred AI (an AI chief of staff for marketing leaders), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
+description: Use when designing or building any Alfred AI surface — marketing pages, slides or decks, product UI, mocks, prototypes, emails, or branded assets — or any time you need the brand's colors, type, components, or tokens. Covers both production code and throwaway HTML artifacts. Alfred is a decision intelligence platform for marketing leaders.
 user-invocable: true
 ---
 
-Read the `readme.md` file within this skill, and explore the other available files.
+Read `readme.md` within this skill — it is the canonical, full brand + system reference — then
+explore the other files (`tokens/`, `components/`, `ui_kits/`, `templates/`) as the task needs.
 
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and
 create static HTML files for the user to view. If working on production code, you can copy
@@ -18,12 +19,15 @@ production code, depending on the need.
 - `styles.css` — link this one file; everything is CSS custom properties.
 - `tokens/` — colors, typography, spacing/radius/shadow/motion, fonts (@font-face), base defaults.
 - `assets/` — `logos/` (color + white lockups), `icons/` (single-color brand glyphs), `fonts/`.
-- `components/` — 64 components: brand (Logo, Icon) · core (Button, Input, Select, Switch, Chip,
-  Card, Badge, Avatar, Tabs…) · data (KpiCard, DecisionAlert, Table, Stepper…) · charts (Area,
-  Stacked, Gauge, Waterfall, Bullet, Scatter, Sankey, Heatmap, Legend + spark/line/bar/donut/funnel)
+- `components/` — 77 components: brand (Logo, Icon) · core (Button, Input, Textarea, SearchInput,
+  FileDropzone, Select, Switch, Chip, Card, Badge, Avatar, Tabs…) · data (KpiCard, DecisionAlert,
+  Table, Stepper, ActivityTimeline, NotificationItem…) · charts (Area, Stacked, Gauge, Waterfall,
+  Bullet, Scatter, Sankey, Heatmap, Legend + spark/line/bar/donut/funnel)
   · trust (ConfidenceMeter, SourceTrace, RecommendationCard, DecisionLog, DataFreshness, CausalChain)
   · app (Sidebar, PageHeader, DataTable, FilterBar, DateRangePicker, CommandPalette, StatTile) ·
-  overlay (Modal, Drawer, Toast, Tooltip, Popover, Menu) · feedback (Banner) · marketing.
+  overlay (Modal, Drawer, Toast, Tooltip, Popover, Menu) · feedback (Banner) · marketing ·
+  conversation (SeekComposer, AlfredMessage, ThinkingTrace, PromptSuggestions) ·
+  decision (ScenarioSimulator, GoalPacing, ApprovalGate, AnomalyFlag).
 - `ui_kits/app/` — multi-screen Alfred workspace (light): auth → home, daily briefing, Seek Alfred,
   KPI cockpit, spend & ROI, decision alerts, creative lifecycle, AI visibility, integrations,
   settings. Routed from the sidebar; screens in `Screens.jsx` + `Screens2.jsx`.
@@ -44,7 +48,7 @@ production code, depending on the need.
 > component against the real bundle and fails on render errors or React warnings.
 
 ## Brand in one breath
-AI chief of staff for CMOs. Warm + premium. **Orange `#FF8431`** = action; **periwinkle
+Decision intelligence platform for marketing leaders. Warm + premium. **Orange `#FF8431`** = action; **periwinkle
 `#A7A7FC`** = cool accent; **ink `#02021E`** = text; white space is the canvas. Signature
 **periwinkle→orange gradient** used sparingly. **Clash Display** for headlines, **Satoshi**
 for UI/body. Soft corners (12/24/32px), soft diffuse shadows. First-person, chief-of-staff
