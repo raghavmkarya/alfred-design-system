@@ -5,22 +5,25 @@ import React from "react";
  * Multi-line text field — the Input's sibling for notes, prompts and longer answers.
  * Peach-tinted or plain fill, the warm orange focus ring, an optional character counter
  * and error text. Works controlled (`value`/`onChange`) or uncontrolled.
+ * Forwards its ref to the inner textarea element.
  */
-export function Textarea({
-  label,
-  placeholder,
-  value,
-  onChange,
-  rows = 4,
-  fill = "plain",          // "plain" (white, app) | "tint" (peach, auth)
-  maxLength,
-  showCount = false,
-  error,
-  disabled = false,
-  id,
-  style = {},
-  ...rest
-}) {
+export const Textarea = React.forwardRef(function Textarea(props, ref) {
+  const {
+    label,
+    placeholder,
+    value,
+    onChange,
+    rows = 4,
+    fill = "plain",          // "plain" (white, app) | "tint" (peach, auth)
+    maxLength,
+    showCount = false,
+    error,
+    disabled = false,
+    id,
+    style = {},
+    ...rest
+  } = props;
+
   const [internal, setInternal] = React.useState("");
   const isControlled = onChange != null && value !== undefined;
   const text = isControlled ? value : internal;
@@ -45,9 +48,10 @@ export function Textarea({
         border: `1.5px solid ${borderColor}`, borderRadius: "var(--radius-md)",
         padding: "10px 14px", boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
-        opacity: disabled ? 0.6 : 1,
+        opacity: disabled ? "var(--opacity-disabled)" : 1,
       }}>
         <textarea
+          ref={ref}
           id={fieldId}
           rows={rows}
           placeholder={placeholder}
@@ -78,4 +82,4 @@ export function Textarea({
       )}
     </div>
   );
-}
+});

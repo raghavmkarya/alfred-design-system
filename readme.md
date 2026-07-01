@@ -115,7 +115,7 @@ _ds_bundle.js         ← compiled React components → window.AlfredAIDesignSys
 _ds_manifest.json     ← component manifest for claude.ai/design
 tokens/               ← colors, typography, spacing/radius/shadow/motion, fonts, base defaults
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
-components/           ← 77 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
+components/           ← 86 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
 guidelines/           ← foundation specimen cards (color / type / spacing / brand)
 ui_kits/app/          ← multi-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility…
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
@@ -124,24 +124,33 @@ templates/sections/   ← copy-paste marketing section blocks (window.Sec* compo
 templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout library + starter deck
 templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
 slides/               ← presentation templates (cover, index, section, content)
-scripts/              ← tooling, incl. verify-render.mjs
+scripts/              ← tooling, incl. verify-render.mjs · verify-components.mjs · verify-a11y.mjs
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes
 ```
 
-**Components** (77, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`; **core**
+**Components** (86, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`; **core**
 `Button`, `IconButton`, `Input`, `Textarea`, `SearchInput`, `FileDropzone`, `Select`, `Checkbox`,
-`Switch`, `Slider`, `RadioGroup`, `SegmentedControl`, `Chip`, `Card`, `Badge`, `Avatar`, `Tabs`;
-**data** `KpiCard`, `DecisionAlert`, `ProgressBar`, `Table`, `Stepper`, `Skeleton`, `Breadcrumb`,
-`EmptyState`, `Pagination`, `ActivityTimeline`, `NotificationItem`; **charts**
+`Switch`, `Slider`, `RadioGroup`, `SegmentedControl`, `Chip`, `Card`, `Badge`, `Avatar`, `Tabs`,
+`Accordion`, `Combobox`, `TagInput`, `NumberInput`, `Kbd`, `Divider`, `Spinner`;
+**data** `KpiCard`, `DecisionAlert`, `ProgressBar`, `ProgressRing`, `Table`, `Stepper`, `Skeleton`,
+`Breadcrumb`, `EmptyState`, `Pagination`, `ActivityTimeline`, `NotificationItem`; **charts**
 `Sparkline`, `LineChart`, `AreaChart`, `BarChart`, `StackedBarChart`, `DonutChart`, `FunnelChart`,
 `GaugeChart`, `WaterfallChart`, `BulletChart`, `ScatterChart`, `Heatmap`, `SankeyChart`, `Legend`;
 **trust** `ConfidenceMeter`, `SourceTrace`, `RecommendationCard`, `DecisionLog`, `DataFreshness`,
 `CausalChain`; **app** `Sidebar`, `PageHeader`, `DataTable`, `FilterBar`, `DateRangePicker`,
 `CommandPalette`, `StatTile`; **overlay** `Menu`, `Modal`, `Toast`, `Drawer`, `Popover`, `Tooltip`;
-**feedback** `Banner`; **marketing** `SignalCard`, `StepFlow`, `StatBand`, `FaqItem`, `AgentStatus`;
-**conversation** `SeekComposer`, `AlfredMessage`, `ThinkingTrace`, `PromptSuggestions`; **decision**
-`ScenarioSimulator`, `GoalPacing`, `ApprovalGate`, `AnomalyFlag`.
+**feedback** `Banner`, `Callout`; **marketing** `SignalCard`, `StepFlow`, `StatBand`, `FaqItem`,
+`AgentStatus`; **conversation** `SeekComposer`, `AlfredMessage`, `ThinkingTrace`,
+`PromptSuggestions`; **decision** `ScenarioSimulator`, `GoalPacing`, `ApprovalGate`, `AnomalyFlag`.
+
+Interactive components ship with their accessibility contracts built in — focus traps and focus
+restore in `Modal`/`Drawer`, roving-tabindex keyboard navigation (arrows, Home/End, typeahead)
+across `Menu`/`Tabs`/`RadioGroup`/`SegmentedControl`, the ARIA combobox pattern on
+`SearchInput`/`Combobox`/`CommandPalette`, live regions on `Toast`/`Banner`, and a shared z-index
+ladder (`--z-*`) + theme-aware scrim (`--overlay-scrim`). `node scripts/verify-a11y.mjs` guards
+those contracts in CI fashion; charts draw from the tokenized categorical palette
+(`--chart-1…8`).
 
 ---
 

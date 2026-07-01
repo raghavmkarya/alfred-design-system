@@ -19,13 +19,15 @@ production code, depending on the need.
 - `styles.css` — link this one file; everything is CSS custom properties.
 - `tokens/` — colors, typography, spacing/radius/shadow/motion, fonts (@font-face), base defaults.
 - `assets/` — `logos/` (color + white lockups), `icons/` (single-color brand glyphs), `fonts/`.
-- `components/` — 77 components: brand (Logo, Icon) · core (Button, Input, Textarea, SearchInput,
-  FileDropzone, Select, Switch, Chip, Card, Badge, Avatar, Tabs…) · data (KpiCard, DecisionAlert,
-  Table, Stepper, ActivityTimeline, NotificationItem…) · charts (Area, Stacked, Gauge, Waterfall,
-  Bullet, Scatter, Sankey, Heatmap, Legend + spark/line/bar/donut/funnel)
+- `components/` — 86 components: brand (Logo, Icon) · core (Button, Input, Textarea, SearchInput,
+  FileDropzone, Select, Switch, Chip, Card, Badge, Avatar, Tabs, Accordion, Combobox, TagInput,
+  NumberInput, Kbd, Divider, Spinner…) · data (KpiCard, DecisionAlert, ProgressRing, Table,
+  Stepper, ActivityTimeline, NotificationItem…) · charts (Area, Stacked, Gauge, Waterfall,
+  Bullet, Scatter, Sankey, Heatmap, Legend + spark/line/bar/donut/funnel — all on the --chart-1…8 palette)
   · trust (ConfidenceMeter, SourceTrace, RecommendationCard, DecisionLog, DataFreshness, CausalChain)
   · app (Sidebar, PageHeader, DataTable, FilterBar, DateRangePicker, CommandPalette, StatTile) ·
-  overlay (Modal, Drawer, Toast, Tooltip, Popover, Menu) · feedback (Banner) · marketing ·
+  overlay (Modal, Drawer, Toast, Tooltip, Popover, Menu — focus-trapped, keyboard-complete) ·
+  feedback (Banner, Callout) · marketing ·
   conversation (SeekComposer, AlfredMessage, ThinkingTrace, PromptSuggestions) ·
   decision (ScenarioSimulator, GoalPacing, ApprovalGate, AnomalyFlag).
 - `ui_kits/app/` — multi-screen Alfred workspace (light): auth → home, daily briefing, Seek Alfred,
@@ -45,7 +47,9 @@ production code, depending on the need.
 - `guidelines/` — foundation specimen cards.
 
 > Verify any kit edits with `node scripts/verify-render.mjs` — it server-renders every kit
-> component against the real bundle and fails on render errors or React warnings.
+> component against the real bundle and fails on render errors or React warnings. Component
+> edits: `node scripts/verify-components.mjs` (render health, all 86) and
+> `node scripts/verify-a11y.mjs` (the ARIA/keyboard contracts).
 
 ## Brand in one breath
 Decision intelligence platform for marketing leaders. Warm + premium. **Orange `#FF8431`** = action; **periwinkle

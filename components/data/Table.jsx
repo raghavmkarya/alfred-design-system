@@ -14,7 +14,7 @@ export function Table({ columns = [], rows = [], dense = false, style = {} }) {
         <thead>
           <tr>
             {columns.map((c, i) => (
-              <th key={c.key || i} style={{
+              <th key={c.key || i} scope="col" style={{
                 padding: "12px 20px", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)",
                 textTransform: "uppercase", letterSpacing: "var(--ls-caps)", color: "var(--text-muted)",
                 textAlign: c.align || "left", background: "var(--surface-sunken)", borderBottom: "1px solid var(--border-subtle)",

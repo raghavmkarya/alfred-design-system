@@ -40,19 +40,19 @@ export function Button({
     borderRadius: s.radius,
     border: "1px solid transparent",
     cursor: disabled ? "not-allowed" : "pointer",
-    opacity: disabled ? 0.5 : 1,
+    opacity: disabled ? "var(--opacity-disabled)" : 1,
     transition: "background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-fast) var(--ease-standard), border-color var(--dur-base) var(--ease-standard)",
     whiteSpace: "nowrap",
     userSelect: "none",
   };
 
   const variants = {
-    primary: { background: "var(--orange-500)", color: "#fff" },
+    primary: { background: "var(--orange-500)", color: "var(--text-on-brand)" },
     secondary: { background: "var(--periwinkle-400)", color: "var(--ink-900)" },
     outline: { background: "transparent", color: "var(--ink-900)", borderColor: "var(--border-default)" },
     ghost: { background: "transparent", color: "var(--ink-700)" },
     subtle: { background: "var(--orange-50)", color: "var(--orange-600)" },
-    danger: { background: "var(--danger-500)", color: "#fff" },
+    danger: { background: "var(--danger-500)", color: "var(--text-on-brand)" },
   };
 
   const [hover, setHover] = React.useState(false);
@@ -64,7 +64,7 @@ export function Button({
     outline: { borderColor: "var(--ink-900)", background: "var(--gray-50)" },
     ghost: { background: "var(--gray-100)" },
     subtle: { background: "var(--orange-100)" },
-    danger: { background: "#cf3a3f" },
+    danger: { background: "var(--danger-600)" },
   }[variant] : {};
 
   return (

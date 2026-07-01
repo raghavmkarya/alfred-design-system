@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"6af8514bc4c8","components/core/Card.jsx":"46e2dbd3e4da","components/core/Chip.jsx":"3aa9f88a2fa5","components/core/Tabs.jsx":"1a6bf17d7b3d","components/core/Badge.jsx":"d9b434a84f8c","components/core/Input.jsx":"a708410a3a1a","components/core/Avatar.jsx":"85b9b49b2b31","components/core/Button.jsx":"9fbb86eb0636","components/core/Select.jsx":"1092bf39890d","components/core/Slider.jsx":"b71a424e374f","components/core/Switch.jsx":"b5c1e4456040","components/core/Checkbox.jsx":"4669a6c7d06e","components/core/Textarea.jsx":"ad581bc3b7ff","components/core/IconButton.jsx":"ce9d5fc90c74","components/core/RadioGroup.jsx":"945a11970cc2","components/core/SearchInput.jsx":"f4b4e0be61fa","components/core/FileDropzone.jsx":"d623ca9be792","components/core/SegmentedControl.jsx":"ac03fcc46c9c","components/data/Table.jsx":"b22cd982753e","components/data/KpiCard.jsx":"c0c0b20c2679","components/data/Stepper.jsx":"6aba5aee2fb8","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"1666a8058352","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"7a90dfb0d252","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/DecisionAlert.jsx":"4c7dd632925c","components/data/ActivityTimeline.jsx":"94a9c8e9d8c5","components/data/NotificationItem.jsx":"0df6dda97596","components/charts/Legend.jsx":"a5bf7d976544","components/charts/Heatmap.jsx":"39d4fc9e105e","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"f3fb06d1b10a","components/charts/LineChart.jsx":"5b3bf436b421","components/charts/Sparkline.jsx":"86a0ac509008","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"9202e27afaf6","components/charts/ScatterChart.jsx":"c55e7b153e0d","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"c92cb58abc12","components/overlay/Menu.jsx":"63b5ee1c6dee","components/overlay/Modal.jsx":"4c96a4f5278c","components/overlay/Toast.jsx":"949b417a36c5","components/overlay/Drawer.jsx":"717a9b4888d5","components/overlay/Popover.jsx":"1ad9ccc50560","components/overlay/Tooltip.jsx":"bd5c243bed5a","components/feedback/Banner.jsx":"c78ef4666920","components/marketing/FaqItem.jsx":"7f7a9fd9d203","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"62c48dce4f84","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/RecommendationCard.jsx":"d7d888885396","components/app/Sidebar.jsx":"85fcfcd79fd7","components/app/StatTile.jsx":"2c0c56e88b04","components/app/DataTable.jsx":"7ebaa02c6530","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/CommandPalette.jsx":"cf88b04bffa0","components/app/DateRangePicker.jsx":"cd89be7fa32f","components/conversation/SeekComposer.jsx":"3237cc18334a","components/conversation/AlfredMessage.jsx":"39e6d138f2b2","components/conversation/ThinkingTrace.jsx":"82f057b71eb8","components/conversation/PromptSuggestions.jsx":"9cbb891112bd","components/decision/GoalPacing.jsx":"c71750f838c3","components/decision/AnomalyFlag.jsx":"63d1a34fda9b","components/decision/ApprovalGate.jsx":"75a63cc2fae6","components/decision/ScenarioSimulator.jsx":"f5fed2a8e1dd"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"6af8514bc4c8","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"46e2dbd3e4da","components/core/Chip.jsx":"3aa9f88a2fa5","components/core/Tabs.jsx":"4b87bb6122a5","components/core/Badge.jsx":"d9b434a84f8c","components/core/Input.jsx":"c4ed87b28014","components/core/Avatar.jsx":"85b9b49b2b31","components/core/Button.jsx":"a9c5a54325ba","components/core/Select.jsx":"ae3962f1c8bf","components/core/Slider.jsx":"1c0ffe3ec386","components/core/Switch.jsx":"c9ded214d6f5","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"8d1e78924815","components/core/Checkbox.jsx":"8dd61757d822","components/core/Combobox.jsx":"4ac6f9b112c2","components/core/TagInput.jsx":"855deda4f429","components/core/Textarea.jsx":"b29d19a4715a","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"ce9d5fc90c74","components/core/RadioGroup.jsx":"9157e4d1110f","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"d629719b9286","components/core/FileDropzone.jsx":"d623ca9be792","components/core/SegmentedControl.jsx":"95c400b52758","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"c0c0b20c2679","components/data/Stepper.jsx":"6aba5aee2fb8","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"1666a8058352","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"fa053e671b69","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"4c7dd632925c","components/data/ActivityTimeline.jsx":"94a9c8e9d8c5","components/data/NotificationItem.jsx":"0df6dda97596","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"39d4fc9e105e","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"7781e34363c9","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"8f92a9063054","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"8679574637e5","components/overlay/Modal.jsx":"0ce7a73b8f82","components/overlay/Toast.jsx":"7cbdf6333875","components/overlay/Drawer.jsx":"bd2d3374fe86","components/overlay/Popover.jsx":"fcafda290a92","components/overlay/Tooltip.jsx":"335eecc67b50","components/feedback/Banner.jsx":"7d26ac00a172","components/feedback/Callout.jsx":"258818c7ce82","components/marketing/FaqItem.jsx":"7f7a9fd9d203","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"62c48dce4f84","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/RecommendationCard.jsx":"d7d888885396","components/app/Sidebar.jsx":"85fcfcd79fd7","components/app/StatTile.jsx":"2c0c56e88b04","components/app/DataTable.jsx":"b0df0437929c","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/CommandPalette.jsx":"582975b53696","components/app/DateRangePicker.jsx":"cd89be7fa32f","components/conversation/SeekComposer.jsx":"3237cc18334a","components/conversation/AlfredMessage.jsx":"39e6d138f2b2","components/conversation/ThinkingTrace.jsx":"82f057b71eb8","components/conversation/PromptSuggestions.jsx":"9cbb891112bd","components/decision/GoalPacing.jsx":"c71750f838c3","components/decision/AnomalyFlag.jsx":"63d1a34fda9b","components/decision/ApprovalGate.jsx":"75a63cc2fae6","components/decision/ScenarioSimulator.jsx":"f5fed2a8e1dd"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -82,6 +82,54 @@ function Logo({
 }
 __ds_scope.Logo = Logo;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/brand/Logo.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Kbd.jsx
+try { (() => {
+/**
+ * Alfred AI — Kbd
+ * Keyboard key cap for shortcut hints — a sunken chip with a 2px bottom edge
+ * for key depth. Pairs with CommandPalette footers and menu shortcuts.
+ * Theme-aware via the surface and border tokens.
+ */
+function Kbd({
+  children,
+  size = "sm",
+  style = {}
+}) {
+  const s = size === "md" ? {
+    font: "var(--text-xs)",
+    height: 24,
+    padding: "0 8px"
+  } : {
+    font: "var(--text-2xs)",
+    height: 20,
+    padding: "0 6px"
+  };
+  return /*#__PURE__*/React.createElement("kbd", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: s.height,
+      minWidth: s.height,
+      padding: s.padding,
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-default)",
+      borderBottomWidth: 2,
+      borderRadius: "var(--radius-xs)",
+      fontFamily: "var(--font-sans)",
+      fontSize: s.font,
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "0.02em",
+      lineHeight: 1,
+      color: "var(--text-secondary)",
+      whiteSpace: "nowrap",
+      ...style
+    }
+  }, children);
+}
+__ds_scope.Kbd = Kbd;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Kbd.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/Card.jsx
 try { (() => {
@@ -227,6 +275,8 @@ try { (() => {
 /**
  * Alfred AI — Tabs
  * Underline tab bar. The active tab is ink with a warm orange indicator.
+ * Follows the WAI-ARIA tabs pattern: roving tabindex, ArrowLeft/ArrowRight
+ * move focus and selection (wrapping), Home/End jump to the first/last tab.
  */
 function Tabs({
   tabs = [],
@@ -235,18 +285,53 @@ function Tabs({
   style = {}
 }) {
   const active = value ?? (tabs[0] && tabs[0].id);
+  const foundIndex = tabs.findIndex(t => t.id === active);
+  const activeIndex = foundIndex >= 0 ? foundIndex : 0;
+  const tabRefs = React.useRef([]);
+  const moveTo = i => {
+    const n = tabs.length;
+    if (!n) return;
+    const next = (i % n + n) % n;
+    onChange && onChange(tabs[next].id);
+    const el = tabRefs.current[next];
+    if (el && el.focus) el.focus();
+  };
+  const handleKeyDown = (e, i) => {
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      moveTo(i + 1);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      moveTo(i - 1);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      moveTo(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      moveTo(tabs.length - 1);
+    }
+  };
   return /*#__PURE__*/React.createElement("div", {
+    role: "tablist",
     style: {
       display: "flex",
       gap: 28,
       borderBottom: "1px solid var(--border-subtle)",
       ...style
     }
-  }, tabs.map(t => {
+  }, tabs.map((t, i) => {
     const on = t.id === active;
     return /*#__PURE__*/React.createElement("button", {
       key: t.id,
+      type: "button",
+      role: "tab",
+      "aria-selected": on,
+      tabIndex: i === activeIndex ? 0 : -1,
+      ref: el => {
+        tabRefs.current[i] = el;
+      },
       onClick: () => onChange && onChange(t.id),
+      onKeyDown: e => handleKeyDown(e, i),
       style: {
         position: "relative",
         border: "none",
@@ -260,6 +345,7 @@ function Tabs({
         transition: "color var(--dur-base) var(--ease-standard)"
       }
     }, t.label, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
       style: {
         position: "absolute",
         left: 0,
@@ -359,22 +445,24 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
  * Alfred AI — Input
  * Text field with an optional label, peach-tinted or plain fill, and a
  * trailing slot (e.g. password reveal). Focus shows the warm orange ring.
+ * Forwards its ref to the inner input element.
  */
-function Input({
-  label,
-  type = "text",
-  placeholder,
-  value,
-  onChange,
-  fill = "tint",
-  // "tint" (peach, auth) | "plain" (white, app)
-  trailing = null,
-  error,
-  disabled = false,
-  id,
-  style = {},
-  ...rest
-}) {
+const Input = React.forwardRef(function Input(props, ref) {
+  const {
+    label,
+    type = "text",
+    placeholder,
+    value,
+    onChange,
+    fill = "tint",
+    // "tint" (peach, auth) | "plain" (white, app)
+    trailing = null,
+    error,
+    disabled = false,
+    id,
+    style = {},
+    ...rest
+  } = props;
   const [focus, setFocus] = React.useState(false);
   const inputId = id || (label ? `in-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
   const wrapBg = fill === "plain" ? "var(--surface-input-plain)" : "var(--surface-input)";
@@ -407,9 +495,10 @@ function Input({
       height: 52,
       boxShadow: focus ? "var(--shadow-focus)" : "none",
       transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
-      opacity: disabled ? 0.6 : 1
+      opacity: disabled ? "var(--opacity-disabled)" : 1
     }
   }, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
     id: inputId,
     type: type,
     placeholder: placeholder,
@@ -436,7 +525,7 @@ function Input({
       color: "var(--danger-500)"
     }
   }, error));
-}
+});
 __ds_scope.Input = Input;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Input.jsx", error: String((e && e.message) || e) }); }
 
@@ -546,7 +635,7 @@ function Button({
     borderRadius: s.radius,
     border: "1px solid transparent",
     cursor: disabled ? "not-allowed" : "pointer",
-    opacity: disabled ? 0.5 : 1,
+    opacity: disabled ? "var(--opacity-disabled)" : 1,
     transition: "background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-fast) var(--ease-standard), border-color var(--dur-base) var(--ease-standard)",
     whiteSpace: "nowrap",
     userSelect: "none"
@@ -554,7 +643,7 @@ function Button({
   const variants = {
     primary: {
       background: "var(--orange-500)",
-      color: "#fff"
+      color: "var(--text-on-brand)"
     },
     secondary: {
       background: "var(--periwinkle-400)",
@@ -575,7 +664,7 @@ function Button({
     },
     danger: {
       background: "var(--danger-500)",
-      color: "#fff"
+      color: "var(--text-on-brand)"
     }
   };
   const [hover, setHover] = React.useState(false);
@@ -599,7 +688,7 @@ function Button({
       background: "var(--orange-100)"
     },
     danger: {
-      background: "#cf3a3f"
+      background: "var(--danger-600)"
     }
   }[variant] : {};
   return /*#__PURE__*/React.createElement("button", _extends({
@@ -633,20 +722,22 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
  * Labelled dropdown matching the Input treatments (peach "tint" on auth,
  * white "plain" in the app). Native <select> for accessibility, brand-styled
  * with a custom chevron and the warm orange focus ring.
+ * Forwards its ref to the inner select element.
  */
-function Select({
-  label,
-  value,
-  onChange,
-  options = [],
-  placeholder = "Select…",
-  fill = "plain",
-  disabled = false,
-  error,
-  id,
-  style = {},
-  ...rest
-}) {
+const Select = React.forwardRef(function Select(props, ref) {
+  const {
+    label,
+    value,
+    onChange,
+    options = [],
+    placeholder = "Select…",
+    fill = "plain",
+    disabled = false,
+    error,
+    id,
+    style = {},
+    ...rest
+  } = props;
   const [focus, setFocus] = React.useState(false);
   const selId = id || (label ? `sel-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
   const bg = fill === "plain" ? "var(--surface-input-plain)" : "var(--surface-input)";
@@ -676,11 +767,12 @@ function Select({
       border: `1.5px solid ${border}`,
       borderRadius: "var(--radius-md)",
       height: 52,
-      opacity: disabled ? 0.6 : 1,
+      opacity: disabled ? "var(--opacity-disabled)" : 1,
       boxShadow: focus ? "var(--shadow-focus)" : "none",
       transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("select", _extends({
+    ref: ref,
     id: selId,
     value: value,
     onChange: onChange,
@@ -716,6 +808,7 @@ function Select({
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
+    "aria-hidden": "true",
     style: {
       position: "absolute",
       right: 14,
@@ -730,17 +823,20 @@ function Select({
       color: "var(--danger-500)"
     }
   }, error));
-}
+});
 __ds_scope.Select = Select;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Select.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/Slider.jsx
 try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — Slider
  * Single-value range control with an orange fill and thumb (native input for
  * accessibility). Optional label and live value. Use for budgets, thresholds
- * and any bounded numeric input.
+ * and any bounded numeric input. The track shows the warm focus ring on
+ * keyboard focus; `aria-label` falls back to the label prop. Extra props are
+ * spread onto the native range input.
  */
 function Slider({
   value = 50,
@@ -750,9 +846,11 @@ function Slider({
   step = 1,
   label,
   showValue = true,
-  style = {}
+  style = {},
+  ...rest
 }) {
   const pct = (value - min) / (max - min || 1) * 100;
+  const [focusRing, setFocusRing] = React.useState(false);
   return /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
@@ -776,13 +874,22 @@ function Slider({
       color: "var(--text-primary)",
       fontVariantNumeric: "tabular-nums"
     }
-  }, value)), /*#__PURE__*/React.createElement("input", {
+  }, value)), /*#__PURE__*/React.createElement("input", _extends({
     type: "range",
     min: min,
     max: max,
     step: step,
     value: value,
+    "aria-label": typeof label === "string" ? label : undefined,
     onChange: e => onChange && onChange(Number(e.target.value)),
+    onFocus: e => {
+      let kb = true;
+      try {
+        kb = e.target.matches(":focus-visible");
+      } catch {/* older engines */}
+      setFocusRing(kb);
+    },
+    onBlur: () => setFocusRing(false),
     style: {
       width: "100%",
       height: 6,
@@ -791,16 +898,23 @@ function Slider({
       appearance: "none",
       WebkitAppearance: "none",
       borderRadius: "var(--radius-pill)",
-      background: `linear-gradient(to right, var(--orange-500) ${pct}%, var(--border-default) ${pct}%)`
+      background: `linear-gradient(to right, var(--orange-500) ${pct}%, var(--border-default) ${pct}%)`,
+      boxShadow: focusRing ? "var(--shadow-focus)" : "none",
+      transition: "box-shadow var(--dur-base) var(--ease-standard)"
     }
-  }));
+  }, rest)));
 }
 __ds_scope.Slider = Slider;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Slider.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/Switch.jsx
 try { (() => {
-/** Alfred AI — Switch. Pill toggle; track turns orange when on. */
+/**
+ * Alfred AI — Switch. Pill toggle; track turns orange when on.
+ * Keyboard-operable: a hidden native checkbox (role="switch") sits over the
+ * track, so Space toggles it and screen readers announce on/off state. The
+ * track shows the warm focus ring on keyboard focus.
+ */
 function Switch({
   checked = false,
   onChange,
@@ -808,13 +922,14 @@ function Switch({
   label,
   style = {}
 }) {
+  const [focusRing, setFocusRing] = React.useState(false);
   return /*#__PURE__*/React.createElement("label", {
     style: {
       display: "inline-flex",
       alignItems: "center",
       gap: 10,
       cursor: disabled ? "not-allowed" : "pointer",
-      opacity: disabled ? 0.5 : 1,
+      opacity: disabled ? "var(--opacity-disabled)" : 1,
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-base)",
       color: "var(--text-secondary)",
@@ -822,8 +937,8 @@ function Switch({
       ...style
     }
   }, /*#__PURE__*/React.createElement("span", {
-    onClick: () => !disabled && onChange && onChange(!checked),
     style: {
+      position: "relative",
       width: 44,
       height: 26,
       borderRadius: "var(--radius-pill)",
@@ -831,16 +946,42 @@ function Switch({
       background: checked ? "var(--orange-500)" : "var(--gray-200)",
       display: "inline-flex",
       alignItems: "center",
-      transition: "background var(--dur-base) var(--ease-standard)",
+      boxShadow: focusRing ? "var(--shadow-focus)" : "none",
+      transition: "background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
       flex: "none"
     }
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    role: "switch",
+    checked: checked,
+    disabled: disabled,
+    onChange: e => onChange && onChange(e.target.checked),
+    onFocus: e => {
+      let kb = true;
+      try {
+        kb = e.target.matches(":focus-visible");
+      } catch {/* older engines */}
+      setFocusRing(kb);
+    },
+    onBlur: () => setFocusRing(false),
+    style: {
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      opacity: 0,
+      cursor: "inherit"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
     style: {
       width: 20,
       height: 20,
       borderRadius: "50%",
-      background: "#fff",
+      background: "var(--white)",
       boxShadow: "var(--shadow-sm)",
+      pointerEvents: "none",
       transform: checked ? "translateX(18px)" : "translateX(0)",
       transition: "transform var(--dur-base) var(--ease-emphasized)"
     }
@@ -849,9 +990,181 @@ function Switch({
 __ds_scope.Switch = Switch;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Switch.jsx", error: String((e && e.message) || e) }); }
 
+// components/core/Divider.jsx
+try { (() => {
+/**
+ * Alfred AI — Divider
+ * Quiet 1px separator. Horizontal by default with an optional centred eyebrow
+ * label (line — label — line); vertical stretches inside flex rows. `spacing`
+ * controls the margin either side.
+ */
+function Divider({
+  orientation = "horizontal",
+  label,
+  spacing = 16,
+  style = {}
+}) {
+  const line = {
+    flex: 1,
+    height: 1,
+    background: "var(--border-subtle)"
+  };
+  if (orientation === "vertical") {
+    return /*#__PURE__*/React.createElement("span", {
+      role: "separator",
+      "aria-orientation": "vertical",
+      style: {
+        display: "inline-block",
+        alignSelf: "stretch",
+        width: 1,
+        minHeight: 16,
+        background: "var(--border-subtle)",
+        margin: `0 ${spacing}px`,
+        ...style
+      }
+    });
+  }
+  if (label) {
+    return /*#__PURE__*/React.createElement("div", {
+      role: "separator",
+      "aria-orientation": "horizontal",
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        width: "100%",
+        margin: `${spacing}px 0`,
+        ...style
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: line
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: "none",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        textTransform: "uppercase",
+        letterSpacing: "var(--ls-caps)",
+        color: "var(--text-muted)",
+        whiteSpace: "nowrap"
+      }
+    }, label), /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: line
+    }));
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    role: "separator",
+    "aria-orientation": "horizontal",
+    style: {
+      height: 1,
+      width: "100%",
+      background: "var(--border-subtle)",
+      margin: `${spacing}px 0`,
+      ...style
+    }
+  });
+}
+__ds_scope.Divider = Divider;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Divider.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Spinner.jsx
+try { (() => {
+/**
+ * Alfred AI — Spinner
+ * Loading indicator — a warm orange arc sweeping over a quiet track, rotated
+ * with SMIL so it keeps spinning in inline-style-only surfaces. Respects
+ * prefers-reduced-motion by rendering the arc static. Optional label sits
+ * beside it; the accessible name is always set.
+ */
+function Spinner({
+  size = "md",
+  label,
+  tone = "brand",
+  style = {}
+}) {
+  const px = {
+    sm: 16,
+    md: 24,
+    lg: 36
+  }[size] || 24;
+  const [reduced, setReduced] = React.useState(false);
+  React.useEffect(() => {
+    try {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const update = () => setReduced(mq.matches);
+      update();
+      if (mq.addEventListener) mq.addEventListener("change", update);else if (mq.addListener) mq.addListener(update);
+      return () => {
+        if (mq.removeEventListener) mq.removeEventListener("change", update);else if (mq.removeListener) mq.removeListener(update);
+      };
+    } catch (e) {/* no matchMedia — leave animated */}
+  }, []);
+  const stroke = tone === "muted" ? "var(--text-muted)" : "var(--orange-500)";
+  const c = 2 * Math.PI * 9; // r = 9 in a 24-unit viewBox
+  const arc = (c * (80 / 360)).toFixed(2); // ~80deg sweep
+  const gap = (c - c * (80 / 360)).toFixed(2);
+  return /*#__PURE__*/React.createElement("span", {
+    role: "status",
+    "aria-label": label || "Loading",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 10,
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: px,
+    height: px,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "9",
+    stroke: "var(--border-subtle)",
+    strokeWidth: "2.5"
+  }), /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "9",
+    stroke: stroke,
+    strokeWidth: "2.5",
+    strokeLinecap: "round",
+    strokeDasharray: `${arc} ${gap}`,
+    transform: "rotate(-90 12 12)"
+  }), !reduced && /*#__PURE__*/React.createElement("animateTransform", {
+    attributeName: "transform",
+    attributeType: "XML",
+    type: "rotate",
+    from: "0 12 12",
+    to: "360 12 12",
+    dur: "0.9s",
+    repeatCount: "indefinite"
+  }))), label && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-muted)"
+    }
+  }, label));
+}
+__ds_scope.Spinner = Spinner;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Spinner.jsx", error: String((e && e.message) || e) }); }
+
 // components/core/Checkbox.jsx
 try { (() => {
-/** Alfred AI — Checkbox. Square check with the brand orange when selected. */
+/**
+ * Alfred AI — Checkbox. Square check with the brand orange when selected.
+ * A hidden native checkbox sits over the box, so it stays keyboard-operable
+ * (Space toggles) and the visible box shows the warm focus ring on keyboard focus.
+ */
 function Checkbox({
   checked = false,
   onChange,
@@ -860,6 +1173,7 @@ function Checkbox({
   id,
   style = {}
 }) {
+  const [focusRing, setFocusRing] = React.useState(false);
   const inputId = id || (label ? `cb-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
   return /*#__PURE__*/React.createElement("label", {
     htmlFor: inputId,
@@ -868,7 +1182,7 @@ function Checkbox({
       alignItems: "center",
       gap: 10,
       cursor: disabled ? "not-allowed" : "pointer",
-      opacity: disabled ? 0.5 : 1,
+      opacity: disabled ? "var(--opacity-disabled)" : 1,
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-base)",
       color: "var(--text-secondary)",
@@ -876,8 +1190,8 @@ function Checkbox({
       ...style
     }
   }, /*#__PURE__*/React.createElement("span", {
-    onClick: () => !disabled && onChange && onChange(!checked),
     style: {
+      position: "relative",
       width: 20,
       height: 20,
       borderRadius: "var(--radius-xs)",
@@ -886,36 +1200,496 @@ function Checkbox({
       justifyContent: "center",
       background: checked ? "var(--orange-500)" : "var(--periwinkle-100)",
       border: checked ? "1.5px solid var(--orange-500)" : "1.5px solid var(--periwinkle-200)",
+      boxShadow: focusRing ? "var(--shadow-focus)" : "none",
       transition: "all var(--dur-base) var(--ease-standard)",
       flex: "none"
     }
-  }, checked && /*#__PURE__*/React.createElement("svg", {
-    width: "12",
-    height: "12",
-    viewBox: "0 0 12 12",
-    fill: "none"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M2.5 6.2L4.8 8.5L9.5 3.5",
-    stroke: "#fff",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }))), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     id: inputId,
     type: "checkbox",
     checked: checked,
     disabled: disabled,
     onChange: e => onChange && onChange(e.target.checked),
+    onFocus: e => {
+      let kb = true;
+      try {
+        kb = e.target.matches(":focus-visible");
+      } catch {/* older engines */}
+      setFocusRing(kb);
+    },
+    onBlur: () => setFocusRing(false),
     style: {
       position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      margin: 0,
       opacity: 0,
-      width: 0,
-      height: 0
+      cursor: "inherit"
     }
-  }), label && /*#__PURE__*/React.createElement("span", null, label));
+  }), checked && /*#__PURE__*/React.createElement("svg", {
+    width: "12",
+    height: "12",
+    viewBox: "0 0 12 12",
+    fill: "none",
+    "aria-hidden": "true",
+    style: {
+      pointerEvents: "none"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2.5 6.2L4.8 8.5L9.5 3.5",
+    stroke: "var(--white)",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }))), label && /*#__PURE__*/React.createElement("span", null, label));
 }
 __ds_scope.Checkbox = Checkbox;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Checkbox.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Combobox.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — Combobox
+ * Type-ahead input with a filtered listbox (ARIA 1.2 combobox). Typing filters
+ * options by label; arrows move the active option, Enter picks it, Escape
+ * closes. Each option is `{ value, label, hint }` — the hint sits right-aligned
+ * and muted. Forwards its ref to the input.
+ */
+const Combobox = React.forwardRef(function Combobox({
+  label,
+  placeholder = "Search…",
+  options = [],
+  value,
+  onChange,
+  onInputChange,
+  disabled = false,
+  emptyText = "No matches",
+  maxVisible = 7,
+  id,
+  style = {},
+  ...rest
+}, ref) {
+  const uid = React.useId().replace(/:/g, "");
+  const inputId = id || `cbx-in-${uid}`;
+  const listId = `cbx-list-${uid}`;
+  const selected = options.find(o => o.value === value);
+  const [text, setText] = React.useState(selected ? selected.label : "");
+  const [open, setOpen] = React.useState(false);
+  const [active, setActive] = React.useState(0);
+  const [focus, setFocus] = React.useState(false);
+
+  // Keep the input text in sync when the selected value changes from outside.
+  React.useEffect(() => {
+    const match = options.find(o => o.value === value);
+    if (match) setText(match.label);
+  }, [value]);
+  const q = text.trim().toLowerCase();
+  const filtered = q ? options.filter(o => o.label.toLowerCase().includes(q)) : options;
+  const activeIdx = Math.min(active, Math.max(0, filtered.length - 1));
+  const showList = open && !disabled;
+  const pick = opt => {
+    setText(opt.label);
+    setOpen(false);
+    onChange && onChange(opt.value);
+  };
+  const handleInput = e => {
+    setText(e.target.value);
+    setOpen(true);
+    setActive(0);
+    onInputChange && onInputChange(e.target.value);
+  };
+  const handleKeyDown = e => {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      if (!open) {
+        setOpen(true);
+        return;
+      }
+      if (!filtered.length) return;
+      const delta = e.key === "ArrowDown" ? 1 : -1;
+      setActive((activeIdx + delta + filtered.length) % filtered.length);
+    } else if (e.key === "Home" && open && filtered.length) {
+      e.preventDefault();
+      setActive(0);
+    } else if (e.key === "End" && open && filtered.length) {
+      e.preventDefault();
+      setActive(filtered.length - 1);
+    } else if (e.key === "Enter") {
+      if (open && filtered[activeIdx]) {
+        e.preventDefault();
+        pick(filtered[activeIdx]);
+      }
+    } else if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+      width: "100%",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, label && /*#__PURE__*/React.createElement("label", {
+    htmlFor: inputId,
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-primary)"
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      height: 52,
+      padding: "0 14px 0 16px",
+      background: disabled ? "var(--gray-100)" : "var(--surface-input-plain)",
+      border: `1px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
+      borderRadius: "var(--radius-md)",
+      boxShadow: focus ? "var(--shadow-focus)" : "none",
+      opacity: disabled ? "var(--opacity-disabled)" : 1,
+      transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
+    id: inputId,
+    type: "text",
+    role: "combobox",
+    "aria-expanded": showList,
+    "aria-controls": listId,
+    "aria-activedescendant": showList && filtered[activeIdx] ? `cbx-opt-${uid}-${activeIdx}` : undefined,
+    "aria-autocomplete": "list",
+    placeholder: placeholder,
+    value: text,
+    disabled: disabled,
+    onChange: handleInput,
+    onKeyDown: handleKeyDown,
+    onFocus: () => {
+      setFocus(true);
+      setOpen(true);
+    },
+    onBlur: () => {
+      setFocus(false);
+      setOpen(false);
+    },
+    style: {
+      flex: 1,
+      minWidth: 0,
+      border: "none",
+      outline: "none",
+      background: "transparent",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-base)",
+      color: "var(--text-primary)",
+      height: "100%",
+      cursor: disabled ? "not-allowed" : "text"
+    }
+  }, rest)), /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--text-muted)",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      pointerEvents: "none",
+      transform: showList ? "rotate(180deg)" : "rotate(0deg)",
+      transition: "transform var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 9l6 6 6-6"
+  }))), showList && /*#__PURE__*/React.createElement("div", {
+    role: "listbox",
+    id: listId,
+    "aria-label": typeof label === "string" ? label : "Options",
+    style: {
+      position: "absolute",
+      top: "calc(100% + 6px)",
+      left: 0,
+      right: 0,
+      zIndex: "var(--z-dropdown)",
+      background: "var(--surface-raised)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-lg)",
+      boxShadow: "var(--shadow-md)",
+      padding: 6,
+      maxHeight: maxVisible * 38 + 12,
+      overflowY: "auto"
+    }
+  }, filtered.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "9px 12px",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-muted)"
+    }
+  }, emptyText) : filtered.map((o, i) => /*#__PURE__*/React.createElement("div", {
+    key: o.value,
+    id: `cbx-opt-${uid}-${i}`,
+    role: "option",
+    "aria-selected": o.value === value,
+    onMouseDown: e => e.preventDefault(),
+    onMouseEnter: () => setActive(i),
+    onClick: () => pick(o),
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      padding: "9px 12px",
+      borderRadius: "var(--radius-sm)",
+      cursor: "pointer",
+      background: i === activeIdx ? "var(--accent-soft)" : "transparent",
+      transition: "background var(--dur-fast) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-primary)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, o.label), o.hint && /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "none",
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)"
+    }
+  }, o.hint))))));
+});
+__ds_scope.Combobox = Combobox;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Combobox.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/TagInput.jsx
+try { (() => {
+const { Chip } = __ds_scope;
+/**
+ * Alfred AI — TagInput
+ * Multi-value tag field — type, press enter (or comma) and each entry becomes
+ * a removable Chip. For audiences, channels and keyword lists; optional
+ * suggestion dropdown filtered by the current text, max count and duplicate
+ * guard. Backspace on an empty field removes the last tag.
+ */
+const TagInput = React.forwardRef(function TagInput({
+  label,
+  value = [],
+  onChange,
+  placeholder = "Add and press enter",
+  suggestions,
+  maxTags,
+  disabled = false,
+  allowDuplicates = false,
+  id,
+  style = {}
+}, ref) {
+  const [text, setText] = React.useState("");
+  const [focus, setFocus] = React.useState(false);
+  const [ring, setRing] = React.useState(false);
+  const [announce, setAnnounce] = React.useState("");
+  const innerRef = React.useRef(null);
+  const uid = React.useId().replace(/:/g, "");
+  const inputId = id || `tag-in-${uid}`;
+  const labelId = label ? `tag-lb-${uid}` : undefined;
+  const setRefs = node => {
+    innerRef.current = node;
+    if (typeof ref === "function") ref(node);else if (ref) ref.current = node;
+  };
+  const tags = Array.isArray(value) ? value : [];
+  const atMax = typeof maxTags === "number" && tags.length >= maxTags;
+  const commit = raw => {
+    const next = String(raw != null ? raw : text).trim();
+    if (!next || atMax || disabled) return;
+    if (!allowDuplicates && tags.some(t => t.toLowerCase() === next.toLowerCase())) {
+      setText("");
+      return;
+    }
+    onChange && onChange([...tags, next]);
+    setText("");
+  };
+  const removeAt = i => {
+    const removed = tags[i];
+    onChange && onChange(tags.filter((_, j) => j !== i));
+    setAnnounce(`Removed ${removed}`);
+  };
+  const handleKeyDown = e => {
+    if (e.key === "Enter" || e.key === ",") {
+      e.preventDefault();
+      commit();
+    } else if (e.key === "Backspace" && !text && tags.length) removeAt(tags.length - 1);
+  };
+  const handleFocus = e => {
+    let visible = true;
+    try {
+      visible = e.target.matches(":focus-visible");
+    } catch (err) {
+      visible = true;
+    }
+    setFocus(true);
+    setRing(visible);
+  };
+  const query = text.trim().toLowerCase();
+  const matches = Array.isArray(suggestions) && !disabled && !atMax ? suggestions.filter(s => {
+    if (!allowDuplicates && tags.some(t => t.toLowerCase() === s.toLowerCase())) return false;
+    return !query || s.toLowerCase().includes(query);
+  }) : [];
+  const showSuggestions = focus && matches.length > 0;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+      width: "100%",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, label && /*#__PURE__*/React.createElement("label", {
+    id: labelId,
+    htmlFor: inputId,
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-primary)"
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-labelledby": labelId,
+    onClick: () => {
+      if (!disabled && innerRef.current) innerRef.current.focus();
+    },
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      gap: 6,
+      minHeight: 52,
+      padding: "10px 14px",
+      boxSizing: "border-box",
+      background: "var(--surface-input-plain)",
+      border: `1px solid ${ring ? "var(--border-focus)" : "var(--border-default)"}`,
+      borderRadius: "var(--radius-md)",
+      boxShadow: ring ? "var(--shadow-focus)" : "none",
+      transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
+      cursor: disabled ? "not-allowed" : "text",
+      opacity: disabled ? "var(--opacity-disabled)" : 1
+    }
+  }, tags.map((tag, i) => /*#__PURE__*/React.createElement(Chip, {
+    key: `${tag}-${i}`,
+    onRemove: disabled ? undefined : () => removeAt(i)
+  }, tag)), /*#__PURE__*/React.createElement("input", {
+    ref: setRefs,
+    id: inputId,
+    type: "text",
+    value: text,
+    disabled: disabled,
+    placeholder: tags.length ? "" : placeholder,
+    "aria-label": label || "Add tag",
+    onChange: e => setText(e.target.value),
+    onKeyDown: handleKeyDown,
+    onFocus: handleFocus,
+    onBlur: () => {
+      setFocus(false);
+      setRing(false);
+    },
+    style: {
+      flex: 1,
+      minWidth: 80,
+      height: 28,
+      padding: 0,
+      border: "none",
+      outline: "none",
+      background: "transparent",
+      boxShadow: "none",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-base)",
+      color: "var(--text-primary)",
+      cursor: disabled ? "not-allowed" : "text"
+    }
+  })), showSuggestions && /*#__PURE__*/React.createElement("div", {
+    role: "listbox",
+    "aria-label": "Suggestions",
+    style: {
+      position: "absolute",
+      top: "calc(100% + 8px)",
+      left: 0,
+      right: 0,
+      zIndex: "var(--z-dropdown)",
+      background: "var(--surface-raised)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-lg)",
+      boxShadow: "var(--shadow-lg)",
+      overflow: "hidden",
+      padding: 6
+    }
+  }, matches.map((s, i) => /*#__PURE__*/React.createElement("button", {
+    key: `${s}-${i}`,
+    type: "button",
+    role: "option",
+    "aria-selected": false,
+    onMouseDown: e => {
+      e.preventDefault();
+      commit(s);
+    },
+    style: {
+      display: "flex",
+      alignItems: "center",
+      width: "100%",
+      textAlign: "left",
+      padding: "9px 12px",
+      border: "none",
+      borderRadius: "var(--radius-sm)",
+      cursor: "pointer",
+      background: "transparent",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-primary)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, s)))), /*#__PURE__*/React.createElement("span", {
+    "aria-live": "polite",
+    style: {
+      position: "absolute",
+      width: 1,
+      height: 1,
+      padding: 0,
+      margin: -1,
+      overflow: "hidden",
+      clip: "rect(0 0 0 0)",
+      whiteSpace: "nowrap",
+      border: 0
+    }
+  }, announce)));
+});
+__ds_scope.TagInput = TagInput;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/TagInput.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/Textarea.jsx
 try { (() => {
@@ -925,23 +1699,25 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
  * Multi-line text field — the Input's sibling for notes, prompts and longer answers.
  * Peach-tinted or plain fill, the warm orange focus ring, an optional character counter
  * and error text. Works controlled (`value`/`onChange`) or uncontrolled.
+ * Forwards its ref to the inner textarea element.
  */
-function Textarea({
-  label,
-  placeholder,
-  value,
-  onChange,
-  rows = 4,
-  fill = "plain",
-  // "plain" (white, app) | "tint" (peach, auth)
-  maxLength,
-  showCount = false,
-  error,
-  disabled = false,
-  id,
-  style = {},
-  ...rest
-}) {
+const Textarea = React.forwardRef(function Textarea(props, ref) {
+  const {
+    label,
+    placeholder,
+    value,
+    onChange,
+    rows = 4,
+    fill = "plain",
+    // "plain" (white, app) | "tint" (peach, auth)
+    maxLength,
+    showCount = false,
+    error,
+    disabled = false,
+    id,
+    style = {},
+    ...rest
+  } = props;
   const [internal, setInternal] = React.useState("");
   const isControlled = onChange != null && value !== undefined;
   const text = isControlled ? value : internal;
@@ -978,9 +1754,10 @@ function Textarea({
       padding: "10px 14px",
       boxShadow: focus ? "var(--shadow-focus)" : "none",
       transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
-      opacity: disabled ? 0.6 : 1
+      opacity: disabled ? "var(--opacity-disabled)" : 1
     }
   }, /*#__PURE__*/React.createElement("textarea", _extends({
+    ref: ref,
     id: fieldId,
     rows: rows,
     placeholder: placeholder,
@@ -1024,9 +1801,137 @@ function Textarea({
       fontVariantNumeric: "tabular-nums"
     }
   }, count, " / ", maxLength)));
-}
+});
 __ds_scope.Textarea = Textarea;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Textarea.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Accordion.jsx
+try { (() => {
+/**
+ * Alfred AI — Accordion
+ * Disclosure list of expandable rows — each header is a real button with a
+ * rotating chevron, and panels ease open via the grid-rows trick. Single-open
+ * by default; `multiple` allows several. Works controlled (`open`/`onChange`)
+ * or uncontrolled (`defaultOpen`).
+ */
+function Accordion({
+  items = [],
+  multiple = false,
+  defaultOpen = [],
+  open,
+  onChange,
+  bordered = true,
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const isControlled = open !== undefined;
+  const [internal, setInternal] = React.useState(() => Array.isArray(defaultOpen) ? defaultOpen : []);
+  const openIds = isControlled ? Array.isArray(open) ? open : [] : internal;
+  const [hoverId, setHoverId] = React.useState(null);
+  const toggle = id => {
+    const isOpen = openIds.includes(id);
+    const next = multiple ? isOpen ? openIds.filter(x => x !== id) : [...openIds, id] : isOpen ? [] : [id];
+    if (!isControlled) setInternal(next);
+    onChange && onChange(next);
+  };
+  const padX = bordered ? 20 : 2;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      width: "100%",
+      border: bordered ? "1px solid var(--border-subtle)" : "none",
+      borderRadius: bordered ? "var(--radius-2xl)" : 0,
+      overflow: bordered ? "hidden" : "visible",
+      background: bordered ? "var(--surface-raised)" : "transparent",
+      ...style
+    }
+  }, items.map((item, i) => {
+    const isOpen = openIds.includes(item.id);
+    const headId = `acc-${uid}-head-${item.id}`;
+    const panelId = `acc-${uid}-panel-${item.id}`;
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      style: {
+        borderTop: i > 0 ? "1px solid var(--border-subtle)" : "none"
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      id: headId,
+      "aria-expanded": isOpen,
+      "aria-controls": panelId,
+      disabled: item.disabled,
+      onClick: () => toggle(item.id),
+      onMouseEnter: () => setHoverId(item.id),
+      onMouseLeave: () => setHoverId(null),
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 12,
+        width: "100%",
+        padding: `16px ${padX}px`,
+        border: "none",
+        textAlign: "left",
+        background: !item.disabled && hoverId === item.id ? "var(--surface-sunken)" : "transparent",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-base)",
+        fontWeight: "var(--fw-semibold)",
+        color: "var(--text-primary)",
+        cursor: item.disabled ? "not-allowed" : "pointer",
+        opacity: item.disabled ? "var(--opacity-disabled)" : 1,
+        transition: "background var(--dur-fast) var(--ease-standard)"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: 1,
+        minWidth: 0
+      }
+    }, item.title), /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true",
+      style: {
+        flex: "none",
+        color: "var(--text-muted)",
+        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform var(--dur-base) var(--ease-standard)"
+      }
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M6 9l6 6 6-6"
+    }))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "grid",
+        gridTemplateRows: isOpen ? "1fr" : "0fr",
+        transition: "grid-template-rows var(--dur-base) var(--ease-standard)"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      role: "region",
+      id: panelId,
+      "aria-labelledby": headId,
+      style: {
+        overflow: "hidden",
+        minHeight: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        padding: `0 ${padX}px 18px`,
+        fontSize: "var(--text-sm)",
+        color: "var(--text-secondary)",
+        lineHeight: 1.6,
+        opacity: isOpen ? 1 : 0,
+        transition: "opacity var(--dur-base) var(--ease-standard)"
+      }
+    }, item.content))));
+  }));
+}
+__ds_scope.Accordion = Accordion;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/Accordion.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/IconButton.jsx
 try { (() => {
@@ -1112,7 +2017,9 @@ try { (() => {
 /**
  * Alfred AI — RadioGroup
  * Vertical set of single-choice options; the selected dot fills brand orange.
- * Controlled via `value` / `onChange`.
+ * Controlled via `value` / `onChange`. Roving tabindex: ArrowDown/ArrowRight
+ * select the next option, ArrowUp/ArrowLeft the previous (wrapping); Space
+ * selects the focused option. The dot shows the warm focus ring on keyboard focus.
  */
 function RadioGroup({
   options = [],
@@ -1122,6 +2029,30 @@ function RadioGroup({
   label,
   style = {}
 }) {
+  const [focusIdx, setFocusIdx] = React.useState(-1);
+  const itemRefs = React.useRef([]);
+  const checkedIndex = options.findIndex(o => o.value === value);
+  const tabbableIndex = checkedIndex >= 0 ? checkedIndex : 0;
+  const selectAt = i => {
+    const n = options.length;
+    if (!n) return;
+    const next = (i % n + n) % n;
+    onChange && onChange(options[next].value);
+    const el = itemRefs.current[next];
+    if (el && el.focus) el.focus();
+  };
+  const handleKeyDown = (e, i) => {
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      selectAt(i + 1);
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      selectAt(i - 1);
+    } else if (e.key === " " || e.key === "Spacebar") {
+      e.preventDefault();
+      onChange && onChange(options[i].value);
+    }
+  };
   return /*#__PURE__*/React.createElement("div", {
     role: "radiogroup",
     "aria-label": label,
@@ -1132,17 +2063,33 @@ function RadioGroup({
       ...style
     }
   }, label && /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
     style: {
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-base)",
       fontWeight: "var(--fw-medium)",
       color: "var(--text-primary)"
     }
-  }, label), options.map(o => {
+  }, label), options.map((o, i) => {
     const checked = value === o.value;
     return /*#__PURE__*/React.createElement("label", {
       key: o.value,
+      role: "radio",
+      "aria-checked": checked,
+      tabIndex: i === tabbableIndex ? 0 : -1,
+      ref: el => {
+        itemRefs.current[i] = el;
+      },
       onClick: () => onChange && onChange(o.value),
+      onKeyDown: e => handleKeyDown(e, i),
+      onFocus: e => {
+        let kb = true;
+        try {
+          kb = e.target.matches(":focus-visible");
+        } catch {/* older engines */}
+        setFocusIdx(kb ? i : -1);
+      },
+      onBlur: () => setFocusIdx(-1),
       style: {
         display: "flex",
         alignItems: "center",
@@ -1150,11 +2097,12 @@ function RadioGroup({
         cursor: "pointer",
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-base)",
-        color: "var(--text-primary)"
+        color: "var(--text-primary)",
+        outline: "none",
+        boxShadow: "none"
       }
     }, /*#__PURE__*/React.createElement("span", {
-      "aria-checked": checked,
-      role: "radio",
+      "aria-hidden": "true",
       style: {
         width: 20,
         height: 20,
@@ -1164,7 +2112,8 @@ function RadioGroup({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        transition: "border-color var(--dur-base) var(--ease-standard)"
+        boxShadow: focusIdx === i ? "var(--shadow-focus)" : "none",
+        transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
       }
     }, checked && /*#__PURE__*/React.createElement("span", {
       style: {
@@ -1179,6 +2128,232 @@ function RadioGroup({
 __ds_scope.RadioGroup = RadioGroup;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/RadioGroup.jsx", error: String((e && e.message) || e) }); }
 
+// components/core/NumberInput.jsx
+try { (() => {
+/**
+ * Alfred AI — NumberInput
+ * Stepper numeric field for budget caps, thresholds and targets. − / + buttons
+ * step the value within [min, max]; the centred value accepts typing and
+ * commits on blur or enter, with an optional prefix ("$") and unit ("%", "K").
+ */
+const NumberInput = React.forwardRef(function NumberInput({
+  label,
+  value = 0,
+  onChange,
+  min,
+  max,
+  step = 1,
+  unit,
+  prefix,
+  size = "md",
+  disabled = false,
+  id,
+  style = {}
+}, ref) {
+  const sizes = {
+    sm: {
+      h: 40,
+      btn: 28,
+      font: "var(--text-sm)",
+      icon: 12
+    },
+    md: {
+      h: 52,
+      btn: 36,
+      font: "var(--text-base)",
+      icon: 14
+    }
+  };
+  const s = sizes[size] || sizes.md;
+  const uid = React.useId().replace(/:/g, "");
+  const inputId = id || `num-in-${uid}`;
+  const clamp = n => {
+    let x = n;
+    if (typeof min === "number") x = Math.max(min, x);
+    if (typeof max === "number") x = Math.min(max, x);
+    return x;
+  };
+  const decimals = Math.min((String(step).split(".")[1] || "").length, 6);
+  const round = n => Number(n.toFixed(decimals));
+  const [text, setText] = React.useState(String(value));
+  const [focus, setFocus] = React.useState(false);
+  const [hoverBtn, setHoverBtn] = React.useState(null);
+  React.useEffect(() => {
+    setText(String(value));
+  }, [value]);
+  const apply = next => {
+    setText(String(next));
+    if (next !== value && onChange) onChange(next);
+  };
+  const stepBy = dir => {
+    const base = typeof value === "number" && !Number.isNaN(value) ? value : 0;
+    apply(clamp(round(base + dir * step)));
+  };
+  const commitText = () => {
+    const parsed = parseFloat(String(text).replace(/,/g, ""));
+    if (Number.isNaN(parsed)) {
+      setText(String(value));
+      return;
+    }
+    apply(clamp(parsed));
+  };
+  const atMin = typeof min === "number" && value <= min;
+  const atMax = typeof max === "number" && value >= max;
+  const btnStyle = (key, off) => ({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flex: "none",
+    width: s.btn,
+    height: s.btn,
+    padding: 0,
+    border: "none",
+    borderRadius: "var(--radius-sm)",
+    background: hoverBtn === key && !off ? "var(--surface-sunken)" : "transparent",
+    color: "var(--text-secondary)",
+    cursor: off ? "not-allowed" : "pointer",
+    opacity: off ? "var(--opacity-disabled)" : 1,
+    transition: "background var(--dur-fast) var(--ease-standard)"
+  });
+  const affixStyle = {
+    flex: "none",
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-sm)",
+    fontWeight: "var(--fw-medium)",
+    color: "var(--text-muted)"
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+      width: "100%",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, label && /*#__PURE__*/React.createElement("label", {
+    htmlFor: inputId,
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-primary)"
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 4,
+      height: s.h,
+      padding: "0 8px",
+      boxSizing: "border-box",
+      background: "var(--surface-input-plain)",
+      border: `1px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
+      borderRadius: "var(--radius-md)",
+      boxShadow: focus ? "var(--shadow-focus)" : "none",
+      transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
+      opacity: disabled ? "var(--opacity-disabled)" : 1,
+      cursor: disabled ? "not-allowed" : "default"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": "Decrease",
+    disabled: disabled || atMin,
+    onClick: () => stepBy(-1),
+    onMouseEnter: () => setHoverBtn("dec"),
+    onMouseLeave: () => setHoverBtn(null),
+    style: btnStyle("dec", disabled || atMin)
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: s.icon,
+    height: s.icon,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14"
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 5,
+      flex: 1,
+      minWidth: 0,
+      height: "100%"
+    }
+  }, prefix && /*#__PURE__*/React.createElement("span", {
+    style: affixStyle
+  }, prefix), /*#__PURE__*/React.createElement("input", {
+    ref: ref,
+    id: inputId,
+    type: "text",
+    role: "spinbutton",
+    inputMode: "decimal",
+    "aria-valuenow": value,
+    "aria-valuemin": min,
+    "aria-valuemax": max,
+    value: text,
+    disabled: disabled,
+    onChange: e => setText(e.target.value),
+    onBlur: () => {
+      setFocus(false);
+      commitText();
+    },
+    onFocus: () => setFocus(true),
+    onKeyDown: e => {
+      if (e.key === "Enter") commitText();else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        stepBy(1);
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        stepBy(-1);
+      }
+    },
+    style: {
+      flex: 1,
+      minWidth: 0,
+      height: "100%",
+      padding: 0,
+      border: "none",
+      outline: "none",
+      background: "transparent",
+      textAlign: "center",
+      fontFamily: "var(--font-sans)",
+      fontSize: s.font,
+      fontWeight: "var(--fw-semibold)",
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums",
+      cursor: disabled ? "not-allowed" : "text"
+    }
+  }), unit && /*#__PURE__*/React.createElement("span", {
+    style: affixStyle
+  }, unit)), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": "Increase",
+    disabled: disabled || atMax,
+    onClick: () => stepBy(1),
+    onMouseEnter: () => setHoverBtn("inc"),
+    onMouseLeave: () => setHoverBtn(null),
+    style: btnStyle("inc", disabled || atMax)
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: s.icon,
+    height: s.icon,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 5v14M5 12h14"
+  })))));
+});
+__ds_scope.NumberInput = NumberInput;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/NumberInput.jsx", error: String((e && e.message) || e) }); }
+
 // components/core/SearchInput.jsx
 try { (() => {
 /**
@@ -1186,38 +2361,84 @@ try { (() => {
  * A search field with a leading magnifier, a clear button, an optional loading spinner,
  * and a results dropdown that opens on focus. Each result is `{ label, hint }` and calls
  * `onSelect`. Works controlled (`value`/`onChange`) or uncontrolled; `onSubmit` fires on Enter.
+ * Follows the ARIA combobox pattern: ArrowDown/ArrowUp move the active option,
+ * Enter selects it, Escape closes the dropdown. Forwards its ref to the inner input.
  */
-function SearchInput({
-  value,
-  onChange,
-  onSubmit,
-  onSelect,
-  placeholder = "Search campaigns, metrics, decisions…",
-  results = [],
-  loading = false,
-  open,
-  // force the dropdown open (else opens on focus)
-  fill = "plain",
-  // "plain" | "tint"
-  style = {}
-}) {
+const SearchInput = React.forwardRef(function SearchInput(props, ref) {
+  const {
+    value,
+    onChange,
+    onSubmit,
+    onSelect,
+    placeholder = "Search campaigns, metrics, decisions…",
+    results = [],
+    loading = false,
+    open,
+    // force the dropdown open (else opens on focus)
+    fill = "plain",
+    // "plain" | "tint"
+    style = {}
+  } = props;
   const [internal, setInternal] = React.useState("");
   const isControlled = onChange != null && value !== undefined;
   const text = isControlled ? value : internal;
   const [focus, setFocus] = React.useState(false);
+  const [dismissed, setDismissed] = React.useState(false);
+  const [activeIndex, setActiveIndex] = React.useState(-1);
+  const baseId = React.useId();
+  const listboxId = `${baseId}-listbox`;
+  const optionId = i => `${baseId}-option-${i}`;
+  const items = Array.isArray(results) ? results.map(r => typeof r === "string" ? {
+    label: r
+  } : r) : [];
+  const showResults = (open != null ? open : focus && !dismissed) && items.length > 0;
   const handleChange = e => {
     if (!isControlled) setInternal(e.target.value);
+    setDismissed(false);
+    setActiveIndex(-1);
     onChange && onChange(e);
   };
   const clear = () => {
     if (!isControlled) setInternal("");
+    setActiveIndex(-1);
     onChange && onChange({
       target: {
         value: ""
       }
     });
   };
-  const showResults = (open != null ? open : focus) && Array.isArray(results) && results.length > 0;
+  const pick = label => {
+    setDismissed(true);
+    setActiveIndex(-1);
+    onSelect && onSelect(label);
+  };
+  const handleKeyDown = e => {
+    if (e.key === "ArrowDown") {
+      if (!items.length) return;
+      e.preventDefault();
+      if (!showResults) {
+        setDismissed(false);
+        setActiveIndex(0);
+      } else setActiveIndex(i => (i + 1) % items.length);
+    } else if (e.key === "ArrowUp") {
+      if (!showResults) return;
+      e.preventDefault();
+      setActiveIndex(i => i <= 0 ? items.length - 1 : i - 1);
+    } else if (e.key === "Enter") {
+      if (showResults && activeIndex >= 0 && activeIndex < items.length) {
+        e.preventDefault();
+        pick(items[activeIndex].label);
+      } else if (onSubmit) {
+        onSubmit(String(text || ""));
+      }
+    } else if (e.key === "Escape") {
+      if (showResults) {
+        e.preventDefault();
+        setDismissed(true);
+        setActiveIndex(-1);
+      }
+    }
+  };
   const wrapBg = fill === "tint" ? "var(--surface-input)" : "var(--surface-input-plain)";
   const borderColor = focus ? "var(--orange-500)" : fill === "tint" ? "transparent" : "var(--border-default)";
   return /*#__PURE__*/React.createElement("div", {
@@ -1260,17 +2481,24 @@ function SearchInput({
   }), /*#__PURE__*/React.createElement("path", {
     d: "M21 21l-4.3-4.3"
   })), /*#__PURE__*/React.createElement("input", {
+    ref: ref,
     type: "text",
-    role: "searchbox",
+    role: "combobox",
     "aria-label": "Search",
+    "aria-expanded": showResults,
+    "aria-controls": showResults ? listboxId : undefined,
+    "aria-activedescendant": showResults && activeIndex >= 0 ? optionId(activeIndex) : undefined,
+    "aria-autocomplete": "list",
     placeholder: placeholder,
     value: text,
     onChange: handleChange,
     onFocus: () => setFocus(true),
-    onBlur: () => setFocus(false),
-    onKeyDown: e => {
-      if (e.key === "Enter" && onSubmit) onSubmit(String(text || ""));
+    onBlur: () => {
+      setFocus(false);
+      setDismissed(false);
+      setActiveIndex(-1);
     },
+    onKeyDown: handleKeyDown,
     style: {
       flex: 1,
       minWidth: 0,
@@ -1327,13 +2555,15 @@ function SearchInput({
   }, /*#__PURE__*/React.createElement("path", {
     d: "M6 6 L18 18 M18 6 L6 18"
   }))) : null), showResults && /*#__PURE__*/React.createElement("div", {
+    id: listboxId,
     role: "listbox",
+    "aria-label": "Search results",
     style: {
       position: "absolute",
       top: "calc(100% + 8px)",
       left: 0,
       right: 0,
-      zIndex: 20,
+      zIndex: "var(--z-dropdown)",
       background: "var(--surface-raised)",
       border: "1px solid var(--border-subtle)",
       borderRadius: "var(--radius-lg)",
@@ -1341,16 +2571,19 @@ function SearchInput({
       overflow: "hidden",
       padding: 6
     }
-  }, results.map((r, i) => {
-    const item = typeof r === "string" ? {
-      label: r
-    } : r;
+  }, items.map((item, i) => {
+    const isActive = i === activeIndex;
     return /*#__PURE__*/React.createElement("button", {
       key: i,
       type: "button",
       role: "option",
+      id: optionId(i),
+      "aria-selected": isActive,
+      tabIndex: -1,
       onMouseDown: e => e.preventDefault(),
-      onClick: () => onSelect && onSelect(item.label),
+      onMouseEnter: () => setActiveIndex(i),
+      onMouseLeave: () => setActiveIndex(cur => cur === i ? -1 : cur),
+      onClick: () => pick(item.label),
       style: {
         display: "flex",
         alignItems: "center",
@@ -1361,7 +2594,7 @@ function SearchInput({
         border: "none",
         borderRadius: "var(--radius-sm)",
         cursor: "pointer",
-        background: "transparent",
+        background: isActive ? "var(--surface-sunken)" : "transparent",
         fontFamily: "var(--font-sans)"
       }
     }, /*#__PURE__*/React.createElement("svg", {
@@ -1405,7 +2638,7 @@ function SearchInput({
       }
     }, item.hint));
   })));
-}
+});
 __ds_scope.SearchInput = SearchInput;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/core/SearchInput.jsx", error: String((e && e.message) || e) }); }
 
@@ -1632,6 +2865,9 @@ try { (() => {
  * Alfred AI — SegmentedControl
  * Pill-track segmented switch; the active segment fills orange. Use for small,
  * mutually-exclusive view toggles (e.g. Day / Week / Month). Controlled.
+ * Radiogroup semantics with a roving tabindex: ArrowRight/ArrowDown select the
+ * next segment, ArrowLeft/ArrowUp the previous (wrapping); Space or Enter
+ * selects the focused segment.
  */
 function SegmentedControl({
   options = [],
@@ -1642,8 +2878,29 @@ function SegmentedControl({
 }) {
   const pad = size === "sm" ? "6px 12px" : "9px 16px";
   const fs = size === "sm" ? "var(--text-sm)" : "var(--text-base)";
+  const [focusIdx, setFocusIdx] = React.useState(-1);
+  const segRefs = React.useRef([]);
+  const activeIndex = options.findIndex(o => o.value === value);
+  const tabbableIndex = activeIndex >= 0 ? activeIndex : 0;
+  const selectAt = i => {
+    const n = options.length;
+    if (!n) return;
+    const next = (i % n + n) % n;
+    onChange && onChange(options[next].value);
+    const el = segRefs.current[next];
+    if (el && el.focus) el.focus();
+  };
+  const handleKeyDown = (e, i) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      selectAt(i + 1);
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      selectAt(i - 1);
+    }
+  };
   return /*#__PURE__*/React.createElement("div", {
-    role: "tablist",
+    role: "radiogroup",
     style: {
       display: "inline-flex",
       background: "var(--surface-sunken)",
@@ -1653,13 +2910,28 @@ function SegmentedControl({
       gap: 2,
       ...style
     }
-  }, options.map(o => {
+  }, options.map((o, i) => {
     const active = value === o.value;
+    const ring = focusIdx === i;
     return /*#__PURE__*/React.createElement("button", {
       key: o.value,
-      role: "tab",
-      "aria-selected": active,
+      type: "button",
+      role: "radio",
+      "aria-checked": active,
+      tabIndex: i === tabbableIndex ? 0 : -1,
+      ref: el => {
+        segRefs.current[i] = el;
+      },
       onClick: () => onChange && onChange(o.value),
+      onKeyDown: e => handleKeyDown(e, i),
+      onFocus: e => {
+        let kb = true;
+        try {
+          kb = e.target.matches(":focus-visible");
+        } catch {/* older engines */}
+        setFocusIdx(kb ? i : -1);
+      },
+      onBlur: () => setFocusIdx(-1),
       style: {
         border: "none",
         cursor: "pointer",
@@ -1668,10 +2940,10 @@ function SegmentedControl({
         fontFamily: "var(--font-sans)",
         fontSize: fs,
         fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
-        color: active ? "#fff" : "var(--text-secondary)",
+        color: active ? "var(--text-on-brand)" : "var(--text-secondary)",
         background: active ? "var(--orange-500)" : "transparent",
-        boxShadow: active ? "var(--shadow-sm)" : "none",
-        transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)"
+        boxShadow: ring ? active ? "var(--shadow-sm), var(--shadow-focus)" : "var(--shadow-focus)" : active ? "var(--shadow-sm)" : "none",
+        transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
       }
     }, o.label);
   }));
@@ -1710,6 +2982,7 @@ function Table({
     }
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, columns.map((c, i) => /*#__PURE__*/React.createElement("th", {
     key: c.key || i,
+    scope: "col",
     style: {
       padding: "12px 20px",
       fontSize: "var(--text-xs)",
@@ -2141,7 +3414,8 @@ function Pagination({
     stroke: "currentColor",
     strokeWidth: "2",
     strokeLinecap: "round",
-    strokeLinejoin: "round"
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: d
   }));
@@ -2149,12 +3423,15 @@ function Pagination({
     key,
     active,
     disabled,
-    onClick
+    onClick,
+    label
   } = {}) => /*#__PURE__*/React.createElement("button", {
     key: key,
+    type: "button",
     disabled: disabled,
     onClick: onClick,
     "aria-current": active ? "page" : undefined,
+    "aria-label": label,
     style: {
       minWidth: 34,
       height: 34,
@@ -2174,7 +3451,8 @@ function Pagination({
       justifyContent: "center"
     }
   }, content);
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Pagination",
     style: {
       display: "flex",
       alignItems: "center",
@@ -2184,9 +3462,11 @@ function Pagination({
   }, cell(chev("M15 6l-6 6 6 6"), {
     key: "prev",
     disabled: page <= 1,
-    onClick: () => go(page - 1)
+    onClick: () => go(page - 1),
+    label: "Previous page"
   }), nums.map((n, i) => n === "…" ? /*#__PURE__*/React.createElement("span", {
     key: "e" + i,
+    "aria-hidden": "true",
     style: {
       padding: "0 4px",
       color: "var(--text-muted)"
@@ -2198,7 +3478,8 @@ function Pagination({
   })), cell(chev("M9 6l6 6-6 6"), {
     key: "next",
     disabled: page >= pageCount,
-    onClick: () => go(page + 1)
+    onClick: () => go(page + 1),
+    label: "Next page"
   }));
 }
 __ds_scope.Pagination = Pagination;
@@ -2240,6 +3521,173 @@ function ProgressBar({
 }
 __ds_scope.ProgressBar = ProgressBar;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/data/ProgressBar.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/ProgressRing.jsx
+try { (() => {
+/**
+ * Alfred AI — ProgressRing
+ * Circular progress for confidence, goal attainment and visibility scores.
+ * The brand tone draws the arc with the signature periwinkle→orange gradient;
+ * the value sits at the centre in Clash Display with an optional caps label
+ * (inside for md/lg, below the ring for sm).
+ */
+function ProgressRing({
+  value = 0,
+  size = "md",
+  label,
+  sublabel,
+  showValue = true,
+  tone = "brand",
+  style = {}
+}) {
+  const sizes = {
+    sm: {
+      d: 56,
+      sw: 5,
+      valueFont: 16
+    },
+    md: {
+      d: 84,
+      sw: 7,
+      valueFont: 22
+    },
+    lg: {
+      d: 120,
+      sw: 9,
+      valueFont: 30
+    }
+  };
+  const s = sizes[size] || sizes.md;
+  const raw = typeof value === "number" ? value : Number(value) || 0;
+  const pct = Math.max(0, Math.min(100, raw));
+  const shown = Math.round(pct);
+  const uid = React.useId().replace(/:/g, "");
+  const gradId = `prg-${uid}`;
+  const strokes = {
+    brand: `url(#${gradId})`,
+    positive: "var(--success-500)",
+    warning: "var(--warning-500)",
+    danger: "var(--danger-500)"
+  };
+  const stroke = strokes[tone] || strokes.brand;
+  const c = s.d / 2;
+  const r = (s.d - s.sw) / 2;
+  const circ = 2 * Math.PI * r;
+  const offset = circ * (1 - pct / 100);
+  const labelInside = size !== "sm";
+  const caps = {
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-2xs)",
+    fontWeight: "var(--fw-semibold)",
+    letterSpacing: "var(--ls-caps)",
+    textTransform: "uppercase",
+    color: "var(--text-muted)",
+    textAlign: "center",
+    lineHeight: 1.3
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    role: "progressbar",
+    "aria-valuenow": shown,
+    "aria-valuemin": 0,
+    "aria-valuemax": 100,
+    "aria-label": `${label || "Progress"}: ${shown} of 100`,
+    style: {
+      display: "inline-flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 6,
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      width: s.d,
+      height: s.d,
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: s.d,
+    height: s.d,
+    viewBox: `0 0 ${s.d} ${s.d}`,
+    "aria-hidden": "true",
+    style: {
+      display: "block"
+    }
+  }, tone === "brand" && /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+    id: gradId,
+    x1: "0%",
+    y1: "0%",
+    x2: "100%",
+    y2: "100%"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    stopColor: "var(--periwinkle-400)"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "72%",
+    stopColor: "var(--orange-500)"
+  }))), /*#__PURE__*/React.createElement("circle", {
+    cx: c,
+    cy: c,
+    r: r,
+    fill: "none",
+    stroke: "var(--border-subtle)",
+    strokeWidth: s.sw
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: c,
+    cy: c,
+    r: r,
+    fill: "none",
+    stroke: stroke,
+    strokeWidth: s.sw,
+    strokeLinecap: "round",
+    strokeDasharray: circ,
+    strokeDashoffset: offset,
+    transform: `rotate(-90 ${c} ${c})`,
+    style: {
+      transition: "stroke-dashoffset var(--dur-slow) var(--ease-standard)"
+    }
+  })), (showValue || labelInside && label) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: s.sw + 4
+    }
+  }, showValue && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: s.valueFont,
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: 1,
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, shown, "%"), labelInside && label && /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...caps,
+      marginTop: showValue ? 3 : 0,
+      maxWidth: s.d - s.sw * 2 - 10,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, label))), !labelInside && label && /*#__PURE__*/React.createElement("span", {
+    style: caps
+  }, label), sublabel && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      textAlign: "center"
+    }
+  }, sublabel));
+}
+__ds_scope.ProgressRing = ProgressRing;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/data/ProgressRing.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/DecisionAlert.jsx
 try { (() => {
@@ -2691,7 +4139,10 @@ try { (() => {
  * may carry an optional right-aligned value. Colors default through the brand
  * categorical palette so a legend always matches the chart beside it.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#FFB07B", "#7B7BF5", "#2FB67C", "#F26A1B", "#C9C9FF", "#E5484D"];
+// Shared categorical palette — same 6 tokens, same order, same cycle length as
+// the charts, so an auto-colored legend always matches the chart beside it
+// (both wrap to --chart-1 on a 7th series). --chart-7/8 stay explicit-use only.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 function Legend({
   items = [],
   direction = "row",
@@ -2998,7 +4449,8 @@ try { (() => {
  * points: number[] }]; `labels` align to the point index. Colors default through
  * the brand categorical palette. Pass `valueFormat` to format the y-axis ticks.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so series cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 const niceRound = v => {
   const a = Math.abs(v);
   if (a >= 100) return Math.round(v);
@@ -3187,10 +4639,10 @@ function LineChart({
     y2: "0"
   }, /*#__PURE__*/React.createElement("stop", {
     offset: "0%",
-    stopColor: "#A7A7FC"
+    stopColor: "var(--chart-2)"
   }), /*#__PURE__*/React.createElement("stop", {
     offset: "100%",
-    stopColor: "#FF8431"
+    stopColor: "var(--chart-1)"
   })), /*#__PURE__*/React.createElement("linearGradient", {
     id: `${uid}f`,
     x1: "0",
@@ -3271,10 +4723,10 @@ function Sparkline({
     y2: "0"
   }, /*#__PURE__*/React.createElement("stop", {
     offset: "0%",
-    stopColor: "#A7A7FC"
+    stopColor: "var(--chart-2)"
   }), /*#__PURE__*/React.createElement("stop", {
     offset: "100%",
-    stopColor: "#FF8431"
+    stopColor: "var(--chart-1)"
   })), /*#__PURE__*/React.createElement("linearGradient", {
     id: `${uid}f`,
     x1: "0",
@@ -3789,7 +5241,8 @@ try { (() => {
  * 2–3 columns (e.g. "Paid social → MQL → Won"). Pass `valueFormat` to format the
  * throughput printed next to each node.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so node cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 function SankeyChart({
   nodes = [],
   links = [],
@@ -4026,7 +5479,8 @@ try { (() => {
  * with its label beside it. Axes auto-scale to nice rounded maxima; override
  * with `xMax`/`yMax`, and format ticks with `valueFormatX` / `valueFormatY`.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so point cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 const X_TICKS = 4,
   Y_TICKS = 4;
 const niceRound = v => {
@@ -4478,7 +5932,8 @@ const { Legend } = __ds_scope;
  * `valueFormat` formats the y-axis ticks. Built for channel-mix views — e.g.
  * "I've split each quarter's pipeline across social, search and email for you."
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so series cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 const BAR_RADIUS = 8; // top-corner rounding — mirrors var(--radius-sm)
 
 const num = v => Number.isFinite(+v) ? +v : 0;
@@ -4664,15 +6119,62 @@ try { (() => {
 /**
  * Alfred AI — Menu
  * Vertical action list, typically rendered inside a Popover. `items`:
- * [{label, onClick, icon?, danger?}] or {divider:true}. Rows tint on hover and
- * danger items read in red.
+ * [{label, onClick, icon?, danger?, disabled?}] or {divider:true}. Rows tint
+ * on hover and danger items read in red. Keyboard operable: ArrowUp/ArrowDown
+ * move through enabled items (roving tabindex), Home/End jump, typing a label
+ * prefix focuses the next match, Enter/Space activate.
  */
 function Menu({
   items = [],
   style = {}
 }) {
+  const itemRefs = React.useRef([]);
+  const typeRef = React.useRef({
+    text: "",
+    at: 0
+  });
+  const [activeIndex, setActiveIndex] = React.useState(() => items.findIndex(it => !it.divider && !it.disabled));
+  const enabledIndexes = items.map((it, i) => !it.divider && !it.disabled ? i : -1).filter(i => i !== -1);
+  const focusAt = idx => {
+    setActiveIndex(idx);
+    const node = itemRefs.current[idx];
+    if (node) node.focus();
+  };
+  const onKeyDown = e => {
+    const count = enabledIndexes.length;
+    if (!count) return;
+    const pos = enabledIndexes.indexOf(activeIndex);
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      focusAt(enabledIndexes[pos < 0 ? 0 : (pos + 1) % count]);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      focusAt(enabledIndexes[pos < 0 ? count - 1 : (pos - 1 + count) % count]);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      focusAt(enabledIndexes[0]);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      focusAt(enabledIndexes[count - 1]);
+    } else if (e.key.length === 1 && /[a-z0-9]/i.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      const now = Date.now();
+      const t = typeRef.current;
+      t.text = now - t.at < 500 ? t.text + e.key.toLowerCase() : e.key.toLowerCase();
+      t.at = now;
+      const from = t.text.length > 1 ? Math.max(pos, 0) : pos + 1;
+      for (let k = 0; k < count; k++) {
+        const idx = enabledIndexes[(from + k) % count];
+        const label = typeof items[idx].label === "string" ? items[idx].label.toLowerCase() : "";
+        if (label.startsWith(t.text)) {
+          focusAt(idx);
+          break;
+        }
+      }
+    }
+  };
   return /*#__PURE__*/React.createElement("div", {
     role: "menu",
+    onKeyDown: onKeyDown,
     style: {
       display: "flex",
       flexDirection: "column",
@@ -4682,6 +6184,7 @@ function Menu({
     }
   }, items.map((it, i) => it.divider ? /*#__PURE__*/React.createElement("div", {
     key: i,
+    role: "separator",
     style: {
       height: 1,
       background: "var(--border-subtle)",
@@ -4691,8 +6194,14 @@ function Menu({
     key: i,
     role: "menuitem",
     onClick: it.onClick,
+    disabled: !!it.disabled,
+    ref: el => {
+      itemRefs.current[i] = el;
+    },
+    tabIndex: i === activeIndex ? 0 : -1,
+    onFocus: () => setActiveIndex(i),
     onMouseEnter: e => {
-      e.currentTarget.style.background = "var(--surface-sunken)";
+      if (!it.disabled) e.currentTarget.style.background = "var(--surface-sunken)";
     },
     onMouseLeave: e => {
       e.currentTarget.style.background = "transparent";
@@ -4705,7 +6214,8 @@ function Menu({
       textAlign: "left",
       border: "none",
       background: "transparent",
-      cursor: "pointer",
+      cursor: it.disabled ? "not-allowed" : "pointer",
+      opacity: it.disabled ? "var(--opacity-disabled)" : 1,
       padding: "9px 12px",
       borderRadius: "var(--radius-sm)",
       fontFamily: "var(--font-sans)",
@@ -4728,7 +6238,9 @@ try { (() => {
 /**
  * Alfred AI — Modal
  * Centered dialog over a dimmed, blurred backdrop. Controlled via `open`;
- * renders nothing when closed. Clicking the backdrop or the × calls `onClose`.
+ * renders nothing when closed. Clicking the backdrop, pressing Escape or the ×
+ * calls `onClose`. While open, focus is trapped inside the panel (Tab and
+ * Shift+Tab cycle) and restored to the previously focused element on close.
  * Pass a `footer` (usually a Button row) for actions.
  */
 function Modal({
@@ -4740,6 +6252,52 @@ function Modal({
   size = "md",
   style = {}
 }) {
+  const titleId = React.useId();
+  const panelRef = React.useRef(null);
+  const onCloseRef = React.useRef(onClose);
+  onCloseRef.current = onClose;
+  React.useEffect(() => {
+    if (!open) return undefined;
+    const panel = panelRef.current;
+    if (!panel) return undefined;
+    const previous = document.activeElement;
+    const focusables = () => Array.from(panel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+    const first = focusables()[0];
+    if (first) first.focus();else panel.focus();
+    const onKeyDown = e => {
+      if (e.key === "Escape") {
+        if (onCloseRef.current) onCloseRef.current();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const els = focusables();
+      if (!els.length) {
+        e.preventDefault();
+        panel.focus();
+        return;
+      }
+      const firstEl = els[0];
+      const lastEl = els[els.length - 1];
+      const active = document.activeElement;
+      if (!panel.contains(active)) {
+        e.preventDefault();
+        (e.shiftKey ? lastEl : firstEl).focus();
+        return;
+      }
+      if (e.shiftKey && (active === firstEl || active === panel)) {
+        e.preventDefault();
+        lastEl.focus();
+      } else if (!e.shiftKey && active === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      if (previous && typeof previous.focus === "function") previous.focus();
+    };
+  }, [open]);
   if (!open) return null;
   const widths = {
     sm: 400,
@@ -4749,10 +6307,11 @@ function Modal({
   return /*#__PURE__*/React.createElement("div", {
     role: "dialog",
     "aria-modal": "true",
+    "aria-labelledby": title ? titleId : undefined,
     style: {
       position: "fixed",
       inset: 0,
-      zIndex: 50,
+      zIndex: "var(--z-overlay)",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -4763,10 +6322,12 @@ function Modal({
     style: {
       position: "absolute",
       inset: 0,
-      background: "rgba(2,2,30,0.42)",
+      background: "var(--overlay-scrim)",
       backdropFilter: "blur(2px)"
     }
   }), /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    tabIndex: -1,
     style: {
       position: "relative",
       width: "100%",
@@ -4786,6 +6347,7 @@ function Modal({
       padding: "24px 24px 0"
     }
   }, title && /*#__PURE__*/React.createElement("h3", {
+    id: titleId,
     style: {
       flex: 1,
       fontFamily: "var(--font-display)",
@@ -4860,8 +6422,11 @@ function Toast({
     danger: "var(--danger-500)"
   };
   const fg = tones[tone] || tones.info;
+  const assertive = tone === "danger";
   return /*#__PURE__*/React.createElement("div", {
-    role: "status",
+    role: assertive ? "alert" : "status",
+    "aria-live": assertive ? "assertive" : "polite",
+    "aria-atomic": "true",
     style: {
       display: "flex",
       alignItems: "flex-start",
@@ -4934,8 +6499,11 @@ try { (() => {
 /**
  * Alfred AI — Drawer
  * Side panel that slides in from the right (default) or left over a dimmed
- * backdrop. Controlled via `open`. Use for filters, detail views and settings
- * that shouldn't take the user off the page.
+ * backdrop. Controlled via `open`. Clicking the backdrop, pressing Escape or
+ * the × calls `onClose`. While open, focus is trapped inside the panel (Tab
+ * and Shift+Tab cycle) and restored to the previously focused element on
+ * close. Use for filters, detail views and settings that shouldn't take the
+ * user off the page.
  */
 function Drawer({
   open,
@@ -4946,23 +6514,72 @@ function Drawer({
   width = 380,
   style = {}
 }) {
+  const titleId = React.useId();
+  const panelRef = React.useRef(null);
+  const onCloseRef = React.useRef(onClose);
+  onCloseRef.current = onClose;
+  React.useEffect(() => {
+    if (!open) return undefined;
+    const panel = panelRef.current;
+    if (!panel) return undefined;
+    const previous = document.activeElement;
+    const focusables = () => Array.from(panel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+    const first = focusables()[0];
+    if (first) first.focus();else panel.focus();
+    const onKeyDown = e => {
+      if (e.key === "Escape") {
+        if (onCloseRef.current) onCloseRef.current();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const els = focusables();
+      if (!els.length) {
+        e.preventDefault();
+        panel.focus();
+        return;
+      }
+      const firstEl = els[0];
+      const lastEl = els[els.length - 1];
+      const active = document.activeElement;
+      if (!panel.contains(active)) {
+        e.preventDefault();
+        (e.shiftKey ? lastEl : firstEl).focus();
+        return;
+      }
+      if (e.shiftKey && (active === firstEl || active === panel)) {
+        e.preventDefault();
+        lastEl.focus();
+      } else if (!e.shiftKey && active === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      if (previous && typeof previous.focus === "function") previous.focus();
+    };
+  }, [open]);
   if (!open) return null;
   return /*#__PURE__*/React.createElement("div", {
     role: "dialog",
     "aria-modal": "true",
+    "aria-labelledby": title ? titleId : undefined,
     style: {
       position: "fixed",
       inset: 0,
-      zIndex: 50
+      zIndex: "var(--z-overlay)"
     }
   }, /*#__PURE__*/React.createElement("div", {
     onClick: onClose,
     style: {
       position: "absolute",
       inset: 0,
-      background: "rgba(2,2,30,0.42)"
+      background: "var(--overlay-scrim)"
     }
   }), /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    tabIndex: -1,
     style: {
       position: "absolute",
       top: 0,
@@ -4987,6 +6604,7 @@ function Drawer({
       borderBottom: "1px solid var(--border-subtle)"
     }
   }, title && /*#__PURE__*/React.createElement("h3", {
+    id: titleId,
     style: {
       flex: 1,
       fontFamily: "var(--font-display)",
@@ -5031,11 +6649,13 @@ __ds_scope.Drawer = Drawer;
 
 // components/overlay/Popover.jsx
 try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — Popover
  * Floating panel anchored to a trigger. Controlled via `open` / `onOpenChange`.
- * Use it to host a Menu, a small form, or contextual detail. For plain text
- * hints use Tooltip instead.
+ * Non-modal: pressing Escape or clicking outside closes it. Use it to host a
+ * Menu, a small form, or contextual detail. For plain text hints use Tooltip
+ * instead.
  */
 function Popover({
   open,
@@ -5045,6 +6665,29 @@ function Popover({
   placement = "bottom",
   style = {}
 }) {
+  const panelId = React.useId();
+  const rootRef = React.useRef(null);
+  const onOpenChangeRef = React.useRef(onOpenChange);
+  onOpenChangeRef.current = onOpenChange;
+  React.useEffect(() => {
+    if (!open) return undefined;
+    const close = () => {
+      if (onOpenChangeRef.current) onOpenChangeRef.current(false);
+    };
+    const onKeyDown = e => {
+      if (e.key === "Escape") close();
+    };
+    const onPointerDown = e => {
+      const root = rootRef.current;
+      if (root && !root.contains(e.target)) close();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("mousedown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("mousedown", onPointerDown);
+    };
+  }, [open]);
   const pos = {
     bottom: {
       top: "100%",
@@ -5062,18 +6705,26 @@ function Popover({
       marginBottom: 8
     }
   };
+  const a11y = {
+    "aria-haspopup": "dialog",
+    "aria-expanded": !!open,
+    "aria-controls": open ? panelId : undefined
+  };
+  const canClone = React.isValidElement(trigger);
   return /*#__PURE__*/React.createElement("span", {
+    ref: rootRef,
     style: {
       position: "relative",
       display: "inline-flex"
     }
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", _extends({
     onClick: () => onOpenChange && onOpenChange(!open)
-  }, trigger), open && /*#__PURE__*/React.createElement("div", {
+  }, canClone ? null : a11y), canClone ? React.cloneElement(trigger, a11y) : trigger), open && /*#__PURE__*/React.createElement("div", {
     role: "dialog",
+    id: panelId,
     style: {
       position: "absolute",
-      zIndex: 60,
+      zIndex: "var(--z-popover)",
       minWidth: 200,
       background: "var(--surface-card)",
       border: "1px solid var(--border-subtle)",
@@ -5092,9 +6743,10 @@ __ds_scope.Popover = Popover;
 try { (() => {
 /**
  * Alfred AI — Tooltip
- * Wraps a trigger and reveals a small ink label on hover/focus. Use for terse
- * clarifications (what a KPI means, an icon-button's action). Keep labels to a
- * few words — anything longer belongs in a Popover.
+ * Wraps a trigger and reveals a small ink label on hover/focus. The label is
+ * announced via aria-describedby while visible. Use for terse clarifications
+ * (what a KPI means, an icon-button's action). Keep labels to a few words —
+ * anything longer belongs in a Popover.
  */
 function Tooltip({
   label,
@@ -5103,6 +6755,7 @@ function Tooltip({
   style = {}
 }) {
   const [show, setShow] = React.useState(false);
+  const tipId = React.useId();
   const pos = {
     top: {
       bottom: "100%",
@@ -5130,6 +6783,7 @@ function Tooltip({
     }
   };
   return /*#__PURE__*/React.createElement("span", {
+    "aria-describedby": show ? tipId : undefined,
     style: {
       position: "relative",
       display: "inline-flex",
@@ -5141,12 +6795,13 @@ function Tooltip({
     onBlur: () => setShow(false)
   }, children, show && /*#__PURE__*/React.createElement("span", {
     role: "tooltip",
+    id: tipId,
     style: {
       position: "absolute",
-      zIndex: 60,
+      zIndex: "var(--z-tooltip)",
       whiteSpace: "nowrap",
-      background: "var(--ink-900)",
-      color: "#fff",
+      background: "var(--surface-tooltip)",
+      color: "var(--text-on-tooltip)",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-xs)",
       fontWeight: "var(--fw-medium)",
@@ -5185,7 +6840,8 @@ function Banner({
   };
   const [bg, fg] = tones[tone] || tones.info;
   return /*#__PURE__*/React.createElement("div", {
-    role: "status",
+    role: tone === "danger" ? "alert" : "status",
+    "aria-live": tone === "danger" ? "assertive" : "polite",
     style: {
       display: "flex",
       alignItems: "flex-start",
@@ -5201,7 +6857,8 @@ function Banner({
       marginTop: 1,
       color: fg,
       flex: "none"
-    }
+    },
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("svg", {
     width: "18",
     height: "18",
@@ -5242,6 +6899,7 @@ function Banner({
       marginTop: 10
     }
   }, action)), onDismiss && /*#__PURE__*/React.createElement("button", {
+    type: "button",
     onClick: onDismiss,
     "aria-label": "Dismiss",
     style: {
@@ -5260,13 +6918,167 @@ function Banner({
     fill: "none",
     stroke: "currentColor",
     strokeWidth: "2.2",
-    strokeLinecap: "round"
+    strokeLinecap: "round",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M6 6l12 12M18 6L6 18"
   }))));
 }
 __ds_scope.Banner = Banner;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/feedback/Banner.jsx", error: String((e && e.message) || e) }); }
+
+// components/feedback/Callout.jsx
+try { (() => {
+/**
+ * Alfred AI — Callout
+ * Inline structured aside for Alfred's observations and contextual notes — a
+ * quieter, non-dismissible cousin of the Banner. A 3px accent bar, a tonal
+ * translucent fill that reads on both themes, an optional icon and a single
+ * text action. `insight` (periwinkle) is Alfred's own voice.
+ */
+function Callout({
+  tone = "insight",
+  title,
+  children,
+  icon,
+  action,
+  compact = false,
+  style = {}
+}) {
+  const tones = {
+    insight: {
+      accent: "var(--periwinkle-600)",
+      bg: "rgba(167,167,252,0.14)",
+      actionColor: "var(--periwinkle-600)"
+    },
+    success: {
+      accent: "var(--success-500)",
+      bg: "rgba(47,182,124,0.14)",
+      actionColor: "var(--success-500)"
+    },
+    warning: {
+      accent: "var(--orange-600)",
+      bg: "rgba(255,132,49,0.14)",
+      actionColor: "var(--orange-600)"
+    },
+    danger: {
+      accent: "var(--danger-500)",
+      bg: "rgba(229,72,77,0.12)",
+      actionColor: "var(--danger-500)"
+    },
+    neutral: {
+      accent: "var(--text-muted)",
+      bg: "var(--surface-sunken)",
+      actionColor: "var(--text-primary)"
+    }
+  };
+  const t = tones[tone] || tones.insight;
+  const [hoverAction, setHoverAction] = React.useState(false);
+  const glyphs = {
+    insight: /*#__PURE__*/React.createElement("path", {
+      d: "M12 3l1.9 5.6 5.6 1.9-5.6 1.9L12 18l-1.9-5.6-5.6-1.9 5.6-1.9L12 3z"
+    }),
+    success: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M8.5 12.2l2.4 2.4 4.6-5"
+    })),
+    warning: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+      d: "M12 4l9 15H3l9-15z"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M12 10v4M12 17h.01"
+    })),
+    danger: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M12 8v5M12 16.5h.01"
+    })),
+    neutral: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M12 11v5M12 8h.01"
+    }))
+  };
+  const glyphSize = compact ? 14 : 16;
+  const defaultIcon = /*#__PURE__*/React.createElement("svg", {
+    width: glyphSize,
+    height: glyphSize,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.75",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, glyphs[tone] || glyphs.insight);
+  return /*#__PURE__*/React.createElement("div", {
+    role: "note",
+    "aria-label": title || undefined,
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: compact ? 8 : 12,
+      padding: compact ? "10px 12px" : "14px 16px",
+      background: t.bg,
+      borderRadius: "var(--radius-lg)",
+      borderLeft: `3px solid ${t.accent}`,
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginTop: 1,
+      color: t.accent,
+      flex: "none",
+      display: "inline-flex"
+    }
+  }, icon || defaultIcon), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, title && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-semibold)",
+      color: "var(--text-primary)"
+    }
+  }, title), children && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)",
+      marginTop: title ? 2 : 0,
+      lineHeight: "var(--lh-normal)"
+    }
+  }, children), action && action.label && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: action.onClick,
+    onMouseEnter: () => setHoverAction(true),
+    onMouseLeave: () => setHoverAction(false),
+    style: {
+      marginTop: compact ? 6 : 10,
+      padding: 0,
+      border: "none",
+      background: "transparent",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-semibold)",
+      color: t.actionColor,
+      cursor: "pointer",
+      textDecoration: hoverAction ? "underline" : "none",
+      textUnderlineOffset: 3,
+      transition: "color var(--dur-fast) var(--ease-standard)"
+    }
+  }, action.label)));
+}
+__ds_scope.Callout = Callout;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/feedback/Callout.jsx", error: String((e && e.message) || e) }); }
 
 // components/marketing/FaqItem.jsx
 try { (() => {
@@ -7563,12 +9375,24 @@ function CheckBox({
   label = "Select"
 }) {
   const on = checked || mixed;
+  const [focusVisible, setFocusVisible] = React.useState(false);
+  const handleFocus = e => {
+    let visible = true;
+    try {
+      visible = e.target.matches(":focus-visible");
+    } catch (err) {
+      visible = true;
+    }
+    setFocusVisible(visible);
+  };
   return /*#__PURE__*/React.createElement("button", {
     type: "button",
     role: "checkbox",
     "aria-checked": mixed ? "mixed" : checked,
     "aria-label": label,
     onClick: onChange,
+    onFocus: handleFocus,
+    onBlur: () => setFocusVisible(false),
     style: {
       width: 18,
       height: 18,
@@ -7582,6 +9406,7 @@ function CheckBox({
       background: on ? "var(--orange-500)" : "var(--surface-card)",
       color: "var(--text-on-brand)",
       cursor: "pointer",
+      boxShadow: focusVisible ? "var(--shadow-focus)" : "none",
       transition: "background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard)"
     }
   }, mixed ? /*#__PURE__*/React.createElement("svg", {
@@ -7669,6 +9494,13 @@ function DataTable({
   });
   const align = col => col && (col.align === "right" || col.align === "center") ? col.align : "left";
   const cellPad = "13px 18px";
+
+  // Label-ish value from the first column, so each row checkbox announces what it selects.
+  const firstKey = columns.length && columns[0] ? columns[0].key : null;
+  const rowLabel = row => {
+    const v = firstKey != null && row ? row[firstKey] : null;
+    return v == null || v === "" ? "Select row" : `Select row ${v}`;
+  };
   const start = total === 0 ? 0 : (safePage - 1) * pageSize + 1;
   const end = paginated ? Math.min(safePage * pageSize, total) : total;
   const showFooter = paginated || selectable && selected.size > 0;
@@ -7729,7 +9561,7 @@ function DataTable({
     return /*#__PURE__*/React.createElement("th", {
       key: col.key != null ? col.key : ci,
       scope: "col",
-      "aria-sort": dir ? dir === "asc" ? "ascending" : "descending" : "none",
+      "aria-sort": dir ? dir === "asc" ? "ascending" : "descending" : undefined,
       style: {
         padding: cellPad,
         textAlign: a,
@@ -7786,7 +9618,7 @@ function DataTable({
     }, /*#__PURE__*/React.createElement(CheckBox, {
       checked: isSel,
       onChange: () => toggleRow(item.k),
-      label: "Select row"
+      label: rowLabel(item.row)
     })), columns.map((col, ci) => {
       const a = align(col);
       const value = item.row[col.key];
@@ -8215,6 +10047,10 @@ function CommandPalette({
   const items = [...askRow, ...sugList, ...recentList];
   const sugStart = askRow.length;
   const recentStart = askRow.length + sugList.length;
+
+  // Combobox wiring: the input controls the listbox and points at the active option.
+  const listboxId = `cp-list-${uid}`;
+  const optionId = i => `cp-opt-${uid}-${i}`;
   const submit = text => {
     const q = (text == null ? "" : String(text)).trim();
     if (!q) return;
@@ -8233,6 +10069,12 @@ function CommandPalette({
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveIdx(i => Math.max(i - 1, -1));
+    } else if (e.key === "Home" && items.length) {
+      e.preventDefault();
+      setActiveIdx(0);
+    } else if (e.key === "End" && items.length) {
+      e.preventDefault();
+      setActiveIdx(items.length - 1);
     } else if (e.key === "Enter") {
       e.preventDefault();
       const sel = activeIdx >= 0 ? items[activeIdx] : null;
@@ -8291,6 +10133,7 @@ function CommandPalette({
     color: "var(--text-muted)"
   };
   const eyebrow = text => /*#__PURE__*/React.createElement("div", {
+    role: "presentation",
     style: {
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-2xs)",
@@ -8307,6 +10150,9 @@ function CommandPalette({
     return /*#__PURE__*/React.createElement("button", {
       key: `${variant}-${flatIdx}-${item.label}`,
       type: "button",
+      role: "option",
+      id: optionId(flatIdx),
+      "aria-selected": active,
       onClick: () => submit(item.label),
       onMouseEnter: () => setActiveIdx(flatIdx),
       onMouseLeave: () => setActiveIdx(i => i === flatIdx ? -1 : i),
@@ -8445,6 +10291,11 @@ function CommandPalette({
   })), /*#__PURE__*/React.createElement("input", {
     className: `cp-input-${uid}`,
     type: "text",
+    role: "combobox",
+    "aria-expanded": items.length > 0,
+    "aria-controls": listboxId,
+    "aria-activedescendant": activeIdx >= 0 ? optionId(activeIdx) : undefined,
+    "aria-autocomplete": "list",
     "aria-label": placeholder,
     placeholder: placeholder,
     value: currentStr,
@@ -8477,6 +10328,9 @@ function CommandPalette({
       flex: "none"
     }
   }, "Ask"))), /*#__PURE__*/React.createElement("div", {
+    id: listboxId,
+    role: "listbox",
+    "aria-label": "Suggestions",
     style: {
       padding: "8px 8px",
       maxHeight: 340,
@@ -10303,6 +12157,8 @@ __ds_ns.Icon = __ds_scope.Icon;
 
 __ds_ns.Logo = __ds_scope.Logo;
 
+__ds_ns.Kbd = __ds_scope.Kbd;
+
 __ds_ns.Card = __ds_scope.Card;
 
 __ds_ns.Chip = __ds_scope.Chip;
@@ -10323,13 +12179,25 @@ __ds_ns.Slider = __ds_scope.Slider;
 
 __ds_ns.Switch = __ds_scope.Switch;
 
+__ds_ns.Divider = __ds_scope.Divider;
+
+__ds_ns.Spinner = __ds_scope.Spinner;
+
 __ds_ns.Checkbox = __ds_scope.Checkbox;
 
+__ds_ns.Combobox = __ds_scope.Combobox;
+
+__ds_ns.TagInput = __ds_scope.TagInput;
+
 __ds_ns.Textarea = __ds_scope.Textarea;
+
+__ds_ns.Accordion = __ds_scope.Accordion;
 
 __ds_ns.IconButton = __ds_scope.IconButton;
 
 __ds_ns.RadioGroup = __ds_scope.RadioGroup;
+
+__ds_ns.NumberInput = __ds_scope.NumberInput;
 
 __ds_ns.SearchInput = __ds_scope.SearchInput;
 
@@ -10352,6 +12220,8 @@ __ds_ns.EmptyState = __ds_scope.EmptyState;
 __ds_ns.Pagination = __ds_scope.Pagination;
 
 __ds_ns.ProgressBar = __ds_scope.ProgressBar;
+
+__ds_ns.ProgressRing = __ds_scope.ProgressRing;
 
 __ds_ns.DecisionAlert = __ds_scope.DecisionAlert;
 
@@ -10400,6 +12270,8 @@ __ds_ns.Popover = __ds_scope.Popover;
 __ds_ns.Tooltip = __ds_scope.Tooltip;
 
 __ds_ns.Banner = __ds_scope.Banner;
+
+__ds_ns.Callout = __ds_scope.Callout;
 
 __ds_ns.FaqItem = __ds_scope.FaqItem;
 

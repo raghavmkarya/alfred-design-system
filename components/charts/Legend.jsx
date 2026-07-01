@@ -6,7 +6,10 @@ import React from "react";
  * may carry an optional right-aligned value. Colors default through the brand
  * categorical palette so a legend always matches the chart beside it.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#FFB07B", "#7B7BF5", "#2FB67C", "#F26A1B", "#C9C9FF", "#E5484D"];
+// Shared categorical palette — same 6 tokens, same order, same cycle length as
+// the charts, so an auto-colored legend always matches the chart beside it
+// (both wrap to --chart-1 on a 7th series). --chart-7/8 stay explicit-use only.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 
 export function Legend({ items = [], direction = "row", style = {} }) {
   return (

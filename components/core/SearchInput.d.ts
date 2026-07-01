@@ -30,5 +30,8 @@ export interface SearchInputProps {
 }
 /**
  * A search field with a clear affordance and a focus-triggered results dropdown.
+ * ARIA combobox pattern: ArrowDown/ArrowUp move the active option, Enter selects
+ * it (fires `onSelect`), Escape closes the dropdown.
+ * Forwards its ref to the inner `<input>` element.
  */
-export function SearchInput(props: SearchInputProps): JSX.Element;
+export const SearchInput: React.ForwardRefExoticComponent<SearchInputProps & React.RefAttributes<HTMLInputElement>>;

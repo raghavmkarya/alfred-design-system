@@ -10,7 +10,8 @@ import React from "react";
  * with its label beside it. Axes auto-scale to nice rounded maxima; override
  * with `xMax`/`yMax`, and format ticks with `valueFormatX` / `valueFormatY`.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so point cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 const X_TICKS = 4, Y_TICKS = 4;
 
 const niceRound = (v) => {

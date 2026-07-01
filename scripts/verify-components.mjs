@@ -113,9 +113,23 @@ const PROPS = {
   FileDropzone: { onFiles: noop, files: [{ name: "q3-spend.csv", size: "2.4 MB", status: "done" }] },
   ActivityTimeline: { items: [{ time: "Today, 8:02 AM", title: "Reallocated $18K to Performance Max", detail: "+6% non-brand coverage", kind: "action", actor: "Priya approved" }, { time: "Yesterday", title: "Flagged a lead-quality drop", kind: "alert" }] },
   NotificationItem: { tone: "warning", unread: true, title: "I've flagged a budget risk", body: "Google Ads is pacing 6% over plan.", time: "2m ago", actions: [{ label: "Review", onClick: noop }, { label: "Dismiss", onClick: noop }] },
+  // —— 2026-07 primitives ——
+  Accordion: { defaultOpen: ["why"], items: [{ id: "why", title: "Why did CAC rise last week?", content: "I traced it to a new paid-social audience — lead quality fell 14% while spend held." }, { id: "fix", title: "What should we do about it?", content: "I'd shift $18K from Search to Performance Max and cap the new audience at $4K/day." }] },
+  Combobox: { label: "Campaign", options: [{ value: "pmax", label: "Performance Max", hint: "google" }, { value: "meta", label: "Meta prospecting", hint: "paid social" }, { value: "abm", label: "LinkedIn ABM", hint: "paid social" }], value: "pmax", onChange: noop },
+  Kbd: { children: "⌘K" },
+  Divider: { label: "Earlier today" },
+  Spinner: { label: "Pulling spend data…", size: "md" },
+  TagInput: { label: "Audiences", value: ["CMOs", "VP Marketing"], onChange: noop, suggestions: ["CMOs", "Growth leads", "RevOps leaders"], maxTags: 6 },
+  NumberInput: { label: "Monthly budget cap", value: 45, onChange: noop, min: 0, max: 100, step: 5, prefix: "$", unit: "K" },
+  Callout: { title: "I'd watch Search pacing", children: "Google Ads is pacing 6% over plan — I'd cap daily spend at $12K until Thursday.", action: { label: "Review pacing", onClick: noop } },
+  ProgressRing: { value: 72, label: "Attained", sublabel: "of Q3 target" },
 };
 
-const names = Object.keys(ns).filter((k) => !k.startsWith("__") && typeof ns[k] === "function");
+// Renderable = plain function component OR a forwardRef/memo exotic component
+// (forwardRef exports are objects, not functions — don't silently skip them).
+const isRenderable = (v) => typeof v === "function" ||
+  (v && typeof v === "object" && (v.$$typeof === Symbol.for("react.forward_ref") || v.$$typeof === Symbol.for("react.memo")));
+const names = Object.keys(ns).filter((k) => !k.startsWith("__") && isRenderable(ns[k]));
 let fail = 0, tested = 0;
 for (const name of names) {
   warnings.length = 0;

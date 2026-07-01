@@ -12,7 +12,8 @@ import { Legend } from "../charts/Legend.jsx";
  * `valueFormat` formats the y-axis ticks. Built for channel-mix views — e.g.
  * "I've split each quarter's pipeline across social, search and email for you."
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so series cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 const BAR_RADIUS = 8; // top-corner rounding — mirrors var(--radius-sm)
 
 const num = (v) => (Number.isFinite(+v) ? +v : 0);

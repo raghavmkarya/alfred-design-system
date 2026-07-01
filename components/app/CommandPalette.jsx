@@ -71,6 +71,10 @@ export function CommandPalette({
   const sugStart = askRow.length;
   const recentStart = askRow.length + sugList.length;
 
+  // Combobox wiring: the input controls the listbox and points at the active option.
+  const listboxId = `cp-list-${uid}`;
+  const optionId = (i) => `cp-opt-${uid}-${i}`;
+
   const submit = (text) => {
     const q = (text == null ? "" : String(text)).trim();
     if (!q) return;
@@ -91,6 +95,12 @@ export function CommandPalette({
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveIdx((i) => Math.max(i - 1, -1));
+    } else if (e.key === "Home" && items.length) {
+      e.preventDefault();
+      setActiveIdx(0);
+    } else if (e.key === "End" && items.length) {
+      e.preventDefault();
+      setActiveIdx(items.length - 1);
     } else if (e.key === "Enter") {
       e.preventDefault();
       const sel = activeIdx >= 0 ? items[activeIdx] : null;
@@ -124,7 +134,7 @@ export function CommandPalette({
   };
 
   const eyebrow = (text) => (
-    <div style={{
+    <div role="presentation" style={{
       fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)",
       letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--text-muted)",
       padding: "12px 10px 5px",
@@ -138,6 +148,9 @@ export function CommandPalette({
       <button
         key={`${variant}-${flatIdx}-${item.label}`}
         type="button"
+        role="option"
+        id={optionId(flatIdx)}
+        aria-selected={active}
         onClick={() => submit(item.label)}
         onMouseEnter={() => setActiveIdx(flatIdx)}
         onMouseLeave={() => setActiveIdx((i) => (i === flatIdx ? -1 : i))}
@@ -223,6 +236,11 @@ export function CommandPalette({
           <input
             className={`cp-input-${uid}`}
             type="text"
+            role="combobox"
+            aria-expanded={items.length > 0}
+            aria-controls={listboxId}
+            aria-activedescendant={activeIdx >= 0 ? optionId(activeIdx) : undefined}
+            aria-autocomplete="list"
             aria-label={placeholder}
             placeholder={placeholder}
             value={currentStr}
@@ -250,7 +268,7 @@ export function CommandPalette({
       </div>
 
       {/* Results */}
-      <div style={{ padding: "8px 8px", maxHeight: 340, overflowY: "auto" }}>
+      <div id={listboxId} role="listbox" aria-label="Suggestions" style={{ padding: "8px 8px", maxHeight: 340, overflowY: "auto" }}>
         {askRow.map((it, i) => renderRow(it, i, "ask"))}
         {sugList.length > 0 && eyebrow("Suggested")}
         {sugList.map((it, i) => renderRow(it, sugStart + i, "sug"))}

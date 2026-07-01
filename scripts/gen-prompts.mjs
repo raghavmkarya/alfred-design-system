@@ -67,6 +67,15 @@ const EXAMPLES = {
   StepFlow: `<StepFlow steps={[{ title: "Learn", body: "…" }, { title: "Acts", body: "…" }]} />`,
   FaqItem: `<FaqItem question="What is decision intelligence?">Turning data into decision-ready answers.</FaqItem>`,
   AgentStatus: `<AgentStatus query="What's the biggest risk right now?" steps={["Analysing campaign spends", "Synthesising root cause"]} />`,
+  Accordion: `<Accordion defaultOpen={["why"]} items={[\n  { id: "why", title: "Why did CAC rise last week?", content: "I traced it to a new paid-social audience — lead quality fell 14%." },\n  { id: "fix", title: "What should we do about it?", content: "I'd shift $18K from Search to Performance Max." }]} />`,
+  Combobox: `<Combobox label="Campaign" value={campaign} onChange={setCampaign} placeholder="Search campaigns…"\n  options={[{ value: "pmax", label: "Performance Max", hint: "google" }, { value: "abm", label: "LinkedIn ABM", hint: "paid social" }]} />`,
+  Kbd: `<span>Press <Kbd>⌘K</Kbd> to ask Alfred</span>`,
+  Divider: `<Divider label="Earlier today" />`,
+  Spinner: `<Spinner size="md" label="Pulling spend data…" />`,
+  TagInput: `<TagInput label="Audiences" value={audiences} onChange={setAudiences}\n  suggestions={["CMOs", "Growth leads", "RevOps leaders"]} maxTags={6} />`,
+  NumberInput: `<NumberInput label="Monthly budget cap" value={cap} onChange={setCap} min={0} max={100} step={5} prefix="$" unit="K" />`,
+  Callout: `<Callout title="I'd watch Search pacing" action={{ label: "Review pacing", onClick: openPacing }}>\n  Google Ads is pacing 6% over plan — I'd cap daily spend at $12K until Thursday.\n</Callout>`,
+  ProgressRing: `<ProgressRing value={72} label="Attained" sublabel="of Q3 target" />`,
 };
 
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {

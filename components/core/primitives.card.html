@@ -1,0 +1,65 @@
+<!-- @dsCard group="Components" viewport="760x780" name="Primitives — accordion, combobox, tags & steppers" subtitle="Disclosure, autocomplete, multi-value and numeric input" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: flex; flex-direction: column; gap: 22px; max-width: 704px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .hint { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Accordion, Combobox, TagInput, NumberInput, Kbd, Divider } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  const [campaign, setCampaign] = React.useState("pmax");
+  const [audiences, setAudiences] = React.useState(["CMOs", "VP Marketing"]);
+  const [cap, setCap] = React.useState(45);
+  return (
+    <div className="grid">
+      <div className="panel">
+        <div className="lbl">Accordion</div>
+        <Accordion defaultOpen={["why"]} items={[
+          { id: "why", title: "Why did CAC rise last week?", content: "I traced it to a new paid-social audience — lead quality fell 14% while spend held." },
+          { id: "fix", title: "What should we do about it?", content: "I'd shift $18K from Search to Performance Max and cap the new audience at $4K/day." }]} />
+      </div>
+      <div className="panel" style={{display:'flex', gap:18, flexWrap:'wrap'}}>
+        <div style={{flex:'1 1 280px'}}>
+          <div className="lbl">Combobox</div>
+          <Combobox label="Campaign" value={campaign} onChange={setCampaign} placeholder="Search campaigns…"
+            options={[{ value: "pmax", label: "Performance Max", hint: "google" }, { value: "meta", label: "Meta prospecting", hint: "paid social" }, { value: "abm", label: "LinkedIn ABM", hint: "paid social" }]} />
+        </div>
+        <div style={{flex:'1 1 240px'}}>
+          <div className="lbl">Number input</div>
+          <NumberInput label="Monthly budget cap" value={cap} onChange={setCap} min={0} max={100} step={5} prefix="$" unit="K" />
+        </div>
+      </div>
+      <div className="panel">
+        <div className="lbl">Tag input</div>
+        <TagInput label="Audiences" value={audiences} onChange={setAudiences}
+          suggestions={["CMOs", "Growth leads", "RevOps leaders"]} maxTags={6} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Kbd &amp; divider</div>
+        <p className="hint" style={{margin:0}}>Press <Kbd>⌘K</Kbd> to ask Alfred, or <Kbd size="md">Esc</Kbd> to dismiss.</p>
+        <Divider label="Earlier today" spacing={18} />
+        <p className="hint" style={{margin:0}}>I reallocated $18K to Performance Max — Priya approved at 8:02 AM.</p>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

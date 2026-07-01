@@ -1,0 +1,30 @@
+<!-- @dsCard group="Colors" viewport="700x190" name="Data-viz palette" subtitle="--chart-1 … --chart-8 — categorical series order" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: #fff; padding: 20px; font-family: var(--font-sans); }
+  .scale { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
+  .chip { height: 56px; border-radius: var(--radius-md); border: 1px solid rgba(2,2,30,0.06); }
+  .name { font-size: 11px; font-weight: 700; color: var(--ink-800); margin-top: 8px; }
+  .hex { font-size: 10px; color: var(--ink-500); }
+  .rule { font-size: 12px; color: var(--ink-500); margin-top: 14px; line-height: 1.5; }
+  .rule b { color: var(--ink-800); }
+</style>
+</head>
+<body>
+  <div class="scale" id="s"></div>
+  <p class="rule"><b>Series order is fixed.</b> Every chart and the Legend assign colors in this order, so series 1 is orange on every surface. Identical in light and dark themes.</p>
+<script>
+  const steps = [
+    ["chart-1","#FF8431"],["chart-2","#A7A7FC"],["chart-3","#2FB67C"],["chart-4","#7B7BF5"],
+    ["chart-5","#F26A1B"],["chart-6","#E5484D"],["chart-7","#FFB07B"],["chart-8","#C9C9FF"]
+  ];
+  document.getElementById('s').innerHTML = steps.map(([n,c])=>
+    `<div><div class="chip" style="background:${c}"></div><div class="name">${n}</div><div class="hex">${c}</div></div>`
+  ).join('');
+</script>
+</body>
+</html>
