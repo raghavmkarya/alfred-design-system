@@ -25,5 +25,6 @@ export interface TextareaProps {
 }
 /**
  * Multi-line text field for notes, prompts and longer answers.
+ * Forwards its ref to the inner `<textarea>` element.
  */
-export function Textarea(props: TextareaProps): JSX.Element;
+export const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;

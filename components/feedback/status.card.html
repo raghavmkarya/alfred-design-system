@@ -1,0 +1,58 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Status — callout, spinner & progress ring" subtitle="Inline insight, loading and circular progress" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .grid { display: flex; flex-direction: column; gap: 22px; max-width: 644px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .row { display: flex; flex-wrap: wrap; gap: 26px; align-items: center; }
+  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Callout, Spinner, ProgressRing } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="grid">
+      <div className="panel" style={{display:'flex', flexDirection:'column', gap:14}}>
+        <div className="lbl">Callout</div>
+        <Callout tone="insight" title="I'd watch Search pacing" action={{ label: "Review pacing", onClick: () => {} }}>
+          Google Ads is pacing 6% over plan — at this rate you'll exhaust the budget by the 24th.
+        </Callout>
+        <Callout tone="success" title="Reallocation is working" compact>
+          Performance Max ROAS is up 12.4% since the $18K move.
+        </Callout>
+      </div>
+      <div className="panel">
+        <div className="lbl">Spinner</div>
+        <div className="row">
+          <Spinner size="sm" />
+          <Spinner size="md" label="Pulling spend data…" />
+          <Spinner size="lg" tone="muted" />
+        </div>
+      </div>
+      <div className="panel">
+        <div className="lbl">Progress ring</div>
+        <div className="row">
+          <ProgressRing value={72} size="sm" label="Attained" />
+          <ProgressRing value={82} size="md" label="Confidence" sublabel="causal model" />
+          <ProgressRing value={38} size="md" tone="warning" label="Pacing" sublabel="of Q3 elapsed" />
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

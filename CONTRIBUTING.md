@@ -8,7 +8,8 @@ syncs to claude.ai/design. Keep it token-driven, verified, and on-brand.
 1. **Source** — `components/<group>/<Name>.jsx`. Rules:
    - `import React from "react"` (React is a runtime global); optional sibling imports like
      `import { Icon } from "../brand/Icon.jsx"` (resolved in dependency order by the builder).
-   - A single `export function <Name>(props)`.
+   - A single `export function <Name>(props)` (or `export const <Name> = React.forwardRef(…)`
+     for form controls that should expose their inner element).
    - Style **only** with design-system tokens (`var(--…)`) — no raw hex. It then inherits the
      active theme and works on the light app and the dark website unchanged.
    - Lead with a JSDoc block: what it is + when to use it (this becomes the `prompt.md` description).
@@ -19,12 +20,15 @@ syncs to claude.ai/design. Keep it token-driven, verified, and on-brand.
 4. **Verify** — add the component to the `PROPS` map in `scripts/verify-components.mjs`, then run
    `node scripts/verify-components.mjs`. It must be **clean** (no errors, no React warnings).
    Run `node scripts/verify-render.mjs` too if you touched anything the UI kits use.
+   Interactive components carry an accessibility contract (roles, aria-* wiring, keyboard
+   support) — add a case to `scripts/verify-a11y.mjs` and keep `node scripts/verify-a11y.mjs` green.
 5. **Docs** — add a curated example to `EXAMPLES` in `scripts/gen-prompts.mjs`, then
    `node scripts/gen-prompts.mjs` (it leaves existing `prompt.md` files untouched).
 6. **Preview** — show it in a card: `components/<group>/<something>.card.html` whose first line is
    `<!-- @dsCard group="Components" name="…" subtitle="…" -->`. Register it in `_ds_manifest.json` `cards`.
 
-Groups: `brand · core · data · charts · overlay · feedback · marketing`.
+Groups: `brand · core · data · charts · trust · app · overlay · feedback · marketing ·
+conversation · decision`.
 
 ## Tokens
 
@@ -38,5 +42,6 @@ SVG icon set. Soft corners (12/24/32), soft diffuse shadows, orange = action, pe
 
 ## Before syncing
 
-Run both verifiers, rebuild the bundle, then re-run `/design-sync` — it reads the pin in
-`.design-sync/config.json` and updates the same Claude Design project.
+Run all three verifiers (`verify-components`, `verify-render`, `verify-a11y`), rebuild the
+bundle, then re-run `/design-sync` — it reads the pin in `.design-sync/config.json` and
+updates the same Claude Design project.

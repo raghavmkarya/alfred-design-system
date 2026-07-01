@@ -19,6 +19,6 @@ export interface InputProps {
 /**
  * Labelled text field. Peach-tinted fill is the signature auth treatment;
  * use the plain (white, bordered) fill inside the app shell. Focus draws the
- * warm orange ring.
+ * warm orange ring. Forwards its ref to the inner `<input>` element.
  */
-export function Input(props: InputProps): JSX.Element;
+export const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;

@@ -8,7 +8,8 @@ import React from "react";
  * points: number[] }]; `labels` align to the point index. Colors default through
  * the brand categorical palette. Pass `valueFormat` to format the y-axis ticks.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so series cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 const niceRound = (v) => {
   const a = Math.abs(v);
   if (a >= 100) return Math.round(v);

@@ -3,6 +3,43 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-02 — Accessibility hardening, token scales & 9 new primitives — 77 → 86
+
+### Added
+- **9 primitives.** `Accordion`, `Combobox` (full ARIA 1.2 combobox, forwarded input ref),
+  `TagInput`, `NumberInput` (spinbutton), `Kbd`, `Divider`, `Spinner` in `core`; `Callout`
+  (Alfred's inline insight aside, distinct from Banner) in `feedback`; `ProgressRing` (gradient
+  arc, Clash center value) in `data`. All token-driven, both themes, keyboard-complete.
+- **Token scales.** Z-index ladder `--z-base…--z-tooltip` (the stacking contract — no more magic
+  numbers), categorical data-viz palette `--chart-1…8` (+ a Colors specimen card), theme-aware
+  `--overlay-scrim`, `--surface-tooltip`/`--text-on-tooltip`, and `--opacity-disabled`. Exported
+  to tokens.json (new `zIndex`/`opacity` groups), the Tailwind preset (`z-*`, `chart-*`) and
+  Framer styles.
+- **Accessibility verifier.** `scripts/verify-a11y.mjs` server-renders the interactive set and
+  asserts 26 ARIA/semantics contracts (focus-trap wiring, live regions, combobox pattern,
+  aria-sort, roving roles) so refactors can't silently drop them.
+- 2 preview cards (core primitives, feedback status) + the data-viz palette specimen.
+
+### Changed
+- **Focus management.** `Modal`/`Drawer` now trap focus, close on Escape, restore focus on close,
+  and wire `aria-labelledby`; backdrops use `--overlay-scrim`.
+- **Keyboard navigation.** `Menu` (arrows, Home/End, 500ms typeahead, additive `disabled` item
+  prop), `Tabs` (real tablist + roving tabindex), `RadioGroup`/`SegmentedControl` (radiogroup
+  semantics + arrow movement), `SearchInput`/`CommandPalette` (ARIA combobox with
+  `aria-activedescendant`, Home/End), `DataTable` (correct `aria-sort`, labelled row selection),
+  `Pagination` (nav landmark, `aria-current`).
+- **State semantics.** `Switch`/`Checkbox` ride hidden native inputs (Space toggles, state
+  announced); `Toast`/`Banner` are real live regions (danger → `role="alert"`); `Tooltip` wires
+  `aria-describedby` and uses the tooltip surface tokens.
+- **API.** `Input`, `Textarea`, `Select`, `SearchInput` (+ new `Combobox`, `NumberInput`,
+  `TagInput`) forward refs to their inner elements. Disabled opacity unified on
+  `--opacity-disabled`. All changes additive — no breaking API changes.
+- **Charts.** All categorical palettes consume `--chart-*`; fixed the `Legend` order bug so
+  auto-colored legends match their charts (both cycle the same 6 tokens).
+- **Tooling.** `gen-tokens.mjs` now parses `tokens/*.css` as the source of truth and syncs the
+  manifest token list (183 tokens); `verify-components.mjs` no longer skips forwardRef
+  components — all 86 render clean, plus the kits via `verify-render.mjs`.
+
 ## 2026-06-26 — Conversation, decision-intelligence & input components — 64 → 77
 
 ### Added

@@ -11,7 +11,8 @@ import React from "react";
  * 2–3 columns (e.g. "Paid social → MQL → Won"). Pass `valueFormat` to format the
  * throughput printed next to each node.
  */
-const PALETTE = ["#FF8431", "#A7A7FC", "#2FB67C", "#7B7BF5", "#F26A1B", "#E5484D"];
+// Shared categorical palette (--chart-1..8); kept at 6 entries so node cycling is unchanged.
+const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 
 export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 14, valueFormat = (v) => Math.round(v), style = {} }) {
   const uid = React.useId().replace(/:/g, "");

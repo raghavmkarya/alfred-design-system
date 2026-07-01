@@ -70,6 +70,12 @@ function SortGlyph({ dir }) {
 
 function CheckBox({ checked = false, mixed = false, onChange = () => {}, label = "Select" }) {
   const on = checked || mixed;
+  const [focusVisible, setFocusVisible] = React.useState(false);
+  const handleFocus = (e) => {
+    let visible = true;
+    try { visible = e.target.matches(":focus-visible"); } catch (err) { visible = true; }
+    setFocusVisible(visible);
+  };
   return (
     <button
       type="button"
@@ -77,6 +83,8 @@ function CheckBox({ checked = false, mixed = false, onChange = () => {}, label =
       aria-checked={mixed ? "mixed" : checked}
       aria-label={label}
       onClick={onChange}
+      onFocus={handleFocus}
+      onBlur={() => setFocusVisible(false)}
       style={{
         width: 18,
         height: 18,
@@ -90,6 +98,7 @@ function CheckBox({ checked = false, mixed = false, onChange = () => {}, label =
         background: on ? "var(--orange-500)" : "var(--surface-card)",
         color: "var(--text-on-brand)",
         cursor: "pointer",
+        boxShadow: focusVisible ? "var(--shadow-focus)" : "none",
         transition: "background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard)",
       }}
     >
@@ -178,6 +187,13 @@ export function DataTable({
   const align = (col) => (col && (col.align === "right" || col.align === "center") ? col.align : "left");
   const cellPad = "13px 18px";
 
+  // Label-ish value from the first column, so each row checkbox announces what it selects.
+  const firstKey = columns.length && columns[0] ? columns[0].key : null;
+  const rowLabel = (row) => {
+    const v = firstKey != null && row ? row[firstKey] : null;
+    return v == null || v === "" ? "Select row" : `Select row ${v}`;
+  };
+
   const start = total === 0 ? 0 : (safePage - 1) * pageSize + 1;
   const end = paginated ? Math.min(safePage * pageSize, total) : total;
   const showFooter = paginated || (selectable && selected.size > 0);
@@ -236,7 +252,7 @@ export function DataTable({
                   <th
                     key={col.key != null ? col.key : ci}
                     scope="col"
-                    aria-sort={dir ? (dir === "asc" ? "ascending" : "descending") : "none"}
+                    aria-sort={dir ? (dir === "asc" ? "ascending" : "descending") : undefined}
                     style={{
                       padding: cellPad,
                       textAlign: a,
@@ -314,7 +330,7 @@ export function DataTable({
                         <CheckBox
                           checked={isSel}
                           onChange={() => toggleRow(item.k)}
-                          label="Select row"
+                          label={rowLabel(item.row)}
                         />
                       </td>
                     )}

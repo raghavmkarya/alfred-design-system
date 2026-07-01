@@ -8,5 +8,9 @@ export interface SegmentedControlProps {
   size?: "sm" | "md";
   style?: React.CSSProperties;
 }
-/** Pill-track segmented switch; active segment fills orange. Controlled. */
+/**
+ * Pill-track segmented switch; active segment fills orange. Controlled.
+ * Radiogroup semantics with a roving tabindex: ArrowRight/ArrowDown select the
+ * next segment, ArrowLeft/ArrowUp the previous (wrapping).
+ */
 export function SegmentedControl(props: SegmentedControlProps): JSX.Element;

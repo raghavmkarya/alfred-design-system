@@ -13,5 +13,8 @@ export interface SelectProps {
   id?: string;
   style?: React.CSSProperties;
 }
-/** Native dropdown styled to match Input — custom chevron, warm orange focus ring. */
-export function Select(props: SelectProps): JSX.Element;
+/**
+ * Native dropdown styled to match Input — custom chevron, warm orange focus ring.
+ * Forwards its ref to the inner `<select>` element.
+ */
+export const Select: React.ForwardRefExoticComponent<SelectProps & React.RefAttributes<HTMLSelectElement>>;

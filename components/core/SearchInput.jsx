@@ -5,28 +5,76 @@ import React from "react";
  * A search field with a leading magnifier, a clear button, an optional loading spinner,
  * and a results dropdown that opens on focus. Each result is `{ label, hint }` and calls
  * `onSelect`. Works controlled (`value`/`onChange`) or uncontrolled; `onSubmit` fires on Enter.
+ * Follows the ARIA combobox pattern: ArrowDown/ArrowUp move the active option,
+ * Enter selects it, Escape closes the dropdown. Forwards its ref to the inner input.
  */
-export function SearchInput({
-  value,
-  onChange,
-  onSubmit,
-  onSelect,
-  placeholder = "Search campaigns, metrics, decisions…",
-  results = [],
-  loading = false,
-  open,                     // force the dropdown open (else opens on focus)
-  fill = "plain",          // "plain" | "tint"
-  style = {},
-}) {
+export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
+  const {
+    value,
+    onChange,
+    onSubmit,
+    onSelect,
+    placeholder = "Search campaigns, metrics, decisions…",
+    results = [],
+    loading = false,
+    open,                     // force the dropdown open (else opens on focus)
+    fill = "plain",          // "plain" | "tint"
+    style = {},
+  } = props;
+
   const [internal, setInternal] = React.useState("");
   const isControlled = onChange != null && value !== undefined;
   const text = isControlled ? value : internal;
   const [focus, setFocus] = React.useState(false);
+  const [dismissed, setDismissed] = React.useState(false);
+  const [activeIndex, setActiveIndex] = React.useState(-1);
 
-  const handleChange = (e) => { if (!isControlled) setInternal(e.target.value); onChange && onChange(e); };
-  const clear = () => { if (!isControlled) setInternal(""); onChange && onChange({ target: { value: "" } }); };
+  const baseId = React.useId();
+  const listboxId = `${baseId}-listbox`;
+  const optionId = (i) => `${baseId}-option-${i}`;
 
-  const showResults = (open != null ? open : focus) && Array.isArray(results) && results.length > 0;
+  const items = Array.isArray(results) ? results.map((r) => (typeof r === "string" ? { label: r } : r)) : [];
+  const showResults = (open != null ? open : (focus && !dismissed)) && items.length > 0;
+
+  const handleChange = (e) => {
+    if (!isControlled) setInternal(e.target.value);
+    setDismissed(false);
+    setActiveIndex(-1);
+    onChange && onChange(e);
+  };
+  const clear = () => {
+    if (!isControlled) setInternal("");
+    setActiveIndex(-1);
+    onChange && onChange({ target: { value: "" } });
+  };
+  const pick = (label) => {
+    setDismissed(true);
+    setActiveIndex(-1);
+    onSelect && onSelect(label);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowDown") {
+      if (!items.length) return;
+      e.preventDefault();
+      if (!showResults) { setDismissed(false); setActiveIndex(0); }
+      else setActiveIndex((i) => (i + 1) % items.length);
+    } else if (e.key === "ArrowUp") {
+      if (!showResults) return;
+      e.preventDefault();
+      setActiveIndex((i) => (i <= 0 ? items.length - 1 : i - 1));
+    } else if (e.key === "Enter") {
+      if (showResults && activeIndex >= 0 && activeIndex < items.length) {
+        e.preventDefault();
+        pick(items[activeIndex].label);
+      } else if (onSubmit) {
+        onSubmit(String(text || ""));
+      }
+    } else if (e.key === "Escape") {
+      if (showResults) { e.preventDefault(); setDismissed(true); setActiveIndex(-1); }
+    }
+  };
+
   const wrapBg = fill === "tint" ? "var(--surface-input)" : "var(--surface-input-plain)";
   const borderColor = focus ? "var(--orange-500)" : (fill === "tint" ? "transparent" : "var(--border-default)");
 
@@ -43,15 +91,20 @@ export function SearchInput({
           <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" />
         </svg>
         <input
+          ref={ref}
           type="text"
-          role="searchbox"
+          role="combobox"
           aria-label="Search"
+          aria-expanded={showResults}
+          aria-controls={showResults ? listboxId : undefined}
+          aria-activedescendant={showResults && activeIndex >= 0 ? optionId(activeIndex) : undefined}
+          aria-autocomplete="list"
           placeholder={placeholder}
           value={text}
           onChange={handleChange}
           onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
-          onKeyDown={(e) => { if (e.key === "Enter" && onSubmit) onSubmit(String(text || "")); }}
+          onBlur={() => { setFocus(false); setDismissed(false); setActiveIndex(-1); }}
+          onKeyDown={handleKeyDown}
           style={{
             flex: 1, minWidth: 0, border: "none", outline: "none", background: "transparent",
             fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-primary)",
@@ -76,24 +129,29 @@ export function SearchInput({
       </div>
 
       {showResults && (
-        <div role="listbox" style={{
-          position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0, zIndex: 20,
+        <div id={listboxId} role="listbox" aria-label="Search results" style={{
+          position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0, zIndex: "var(--z-dropdown)",
           background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
           borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", overflow: "hidden", padding: 6,
         }}>
-          {results.map((r, i) => {
-            const item = typeof r === "string" ? { label: r } : r;
+          {items.map((item, i) => {
+            const isActive = i === activeIndex;
             return (
               <button
                 key={i}
                 type="button"
                 role="option"
+                id={optionId(i)}
+                aria-selected={isActive}
+                tabIndex={-1}
                 onMouseDown={(e) => e.preventDefault()}
-                onClick={() => onSelect && onSelect(item.label)}
+                onMouseEnter={() => setActiveIndex(i)}
+                onMouseLeave={() => setActiveIndex((cur) => (cur === i ? -1 : cur))}
+                onClick={() => pick(item.label)}
                 style={{
                   display: "flex", alignItems: "center", gap: 10, width: "100%", textAlign: "left",
                   padding: "10px 12px", border: "none", borderRadius: "var(--radius-sm)", cursor: "pointer",
-                  background: "transparent", fontFamily: "var(--font-sans)",
+                  background: isActive ? "var(--surface-sunken)" : "transparent", fontFamily: "var(--font-sans)",
                 }}
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)"
@@ -114,4 +172,4 @@ export function SearchInput({
       )}
     </div>
   );
-}
+});

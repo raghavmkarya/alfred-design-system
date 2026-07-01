@@ -44,6 +44,7 @@
   --warning-500: #FF8431;  /* warm — reuses brand orange */
   --warning-100: #FFF0E3;
   --danger-500:  #E5484D;
+  --danger-600:  #CF3A3F;
   --danger-100:  #FCE8E9;
   --info-500:    #A7A7FC;  /* periwinkle */
   --info-100:    #EDEDFF;
@@ -83,6 +84,23 @@
   --accent-press: var(--orange-700);
   --accent-soft: var(--orange-50);
 
+  /* —— Data-viz categorical palette ———————————————————— */
+  /* Series colors in assignment order. Every chart and the Legend default
+     to this same order, so series N is the same hue on every surface. */
+  --chart-1: #FF8431;   /* orange-500 */
+  --chart-2: #A7A7FC;   /* periwinkle-400 */
+  --chart-3: #2FB67C;   /* success-500 */
+  --chart-4: #7B7BF5;   /* periwinkle-600 */
+  --chart-5: #F26A1B;   /* orange-600 */
+  --chart-6: #E5484D;   /* danger-500 */
+  --chart-7: #FFB07B;   /* orange-300 */
+  --chart-8: #C9C9FF;   /* periwinkle-200 */
+
+  /* —— Overlay & tooltip surfaces ——————————————————————— */
+  --overlay-scrim: rgba(2,2,30,0.42);   /* modal / drawer backdrop */
+  --surface-tooltip: var(--ink-900);
+  --text-on-tooltip: #FFFFFF;
+
   /* —— Dark marketing surfaces (raw) — warm near-blacks, matching the live site —— */
   --ink-950: #0C0C0A;   /* darkest page bg (marketing hero) */
   --ink-925: #111110;   /* dark section band */
@@ -117,6 +135,8 @@
   --border-focus: var(--orange-400);
 
   --accent-soft: rgba(255,132,49,0.14);
+  --overlay-scrim: rgba(12,12,10,0.62); /* deeper warm scrim so raised dark panels still separate */
+  --surface-tooltip: #262623;           /* warm raised — floats above the near-black page */
   /* Dark-tuned ambient glow — richer, used behind the hero */
   --glow-periwinkle: radial-gradient(58% 52% at 18% 12%, rgba(167,167,252,0.30) 0%, rgba(167,167,252,0) 70%); /* @kind color */
   --glow-orange:     radial-gradient(60% 58% at 90% 96%, rgba(255,132,49,0.26) 0%, rgba(255,132,49,0) 70%); /* @kind color */

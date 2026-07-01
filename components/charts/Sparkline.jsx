@@ -16,7 +16,8 @@ export function Sparkline({ points = [], width = 640, height = 160, stroke = 3, 
   return (
     <svg viewBox={`0 0 ${width} ${height}`} width="100%" height={height} preserveAspectRatio="none" style={{ display: "block", ...style }}>
       <defs>
-        <linearGradient id={`${uid}l`} x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#A7A7FC" /><stop offset="100%" stopColor="#FF8431" /></linearGradient>
+        <linearGradient id={`${uid}l`} x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="var(--chart-2)" /><stop offset="100%" stopColor="var(--chart-1)" /></linearGradient>
+        {/* rgba(255,132,49,…) mirrors --orange-500 — alpha ramps can't be composed from a CSS var. */}
         <linearGradient id={`${uid}f`} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="rgba(255,132,49,0.20)" /><stop offset="100%" stopColor="rgba(255,132,49,0)" /></linearGradient>
       </defs>
       {fill && <path d={area} fill={`url(#${uid}f)`} />}

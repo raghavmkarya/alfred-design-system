@@ -9,8 +9,9 @@ import React from "react";
 export function Toast({ tone = "info", title, children, onClose, style = {} }) {
   const tones = { info: "var(--periwinkle-500)", success: "var(--success-500)", warning: "var(--orange-500)", danger: "var(--danger-500)" };
   const fg = tones[tone] || tones.info;
+  const assertive = tone === "danger";
   return (
-    <div role="status" style={{ display: "flex", alignItems: "flex-start", gap: 12, width: 360, maxWidth: "90vw", background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: "14px 16px", ...style }}>
+    <div role={assertive ? "alert" : "status"} aria-live={assertive ? "assertive" : "polite"} aria-atomic="true" style={{ display: "flex", alignItems: "flex-start", gap: 12, width: 360, maxWidth: "90vw", background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: "14px 16px", ...style }}>
       <span style={{ width: 8, height: 8, borderRadius: "50%", background: fg, marginTop: 6, flex: "none" }} />
       <div style={{ flex: 1, minWidth: 0 }}>
         {title && <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{title}</div>}

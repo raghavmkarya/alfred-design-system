@@ -7,5 +7,9 @@ export interface ToastProps {
   onClose?: () => void;
   style?: React.CSSProperties;
 }
-/** Single transient notification card with a tonal status dot. */
+/**
+ * Single transient notification card with a tonal status dot. Announced as a
+ * polite live region (`role="status"`); the danger tone announces assertively
+ * (`role="alert"`).
+ */
 export function Toast(props: ToastProps): JSX.Element;

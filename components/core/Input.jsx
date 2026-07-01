@@ -4,21 +4,24 @@ import React from "react";
  * Alfred AI — Input
  * Text field with an optional label, peach-tinted or plain fill, and a
  * trailing slot (e.g. password reveal). Focus shows the warm orange ring.
+ * Forwards its ref to the inner input element.
  */
-export function Input({
-  label,
-  type = "text",
-  placeholder,
-  value,
-  onChange,
-  fill = "tint",          // "tint" (peach, auth) | "plain" (white, app)
-  trailing = null,
-  error,
-  disabled = false,
-  id,
-  style = {},
-  ...rest
-}) {
+export const Input = React.forwardRef(function Input(props, ref) {
+  const {
+    label,
+    type = "text",
+    placeholder,
+    value,
+    onChange,
+    fill = "tint",          // "tint" (peach, auth) | "plain" (white, app)
+    trailing = null,
+    error,
+    disabled = false,
+    id,
+    style = {},
+    ...rest
+  } = props;
+
   const [focus, setFocus] = React.useState(false);
   const inputId = id || (label ? `in-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
 
@@ -45,9 +48,10 @@ export function Input({
         padding: "0 16px", height: 52,
         boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
-        opacity: disabled ? 0.6 : 1,
+        opacity: disabled ? "var(--opacity-disabled)" : 1,
       }}>
         <input
+          ref={ref}
           id={inputId}
           type={type}
           placeholder={placeholder}
@@ -70,4 +74,4 @@ export function Input({
       )}
     </div>
   );
-}
+});

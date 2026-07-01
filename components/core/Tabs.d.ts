@@ -6,5 +6,9 @@ export interface TabsProps {
   onChange?: (id: string) => void;
   style?: React.CSSProperties;
 }
-/** Underline tab bar; active tab is ink with an orange indicator. Controlled via `value`/`onChange`. */
+/**
+ * Underline tab bar; active tab is ink with an orange indicator. Controlled via `value`/`onChange`.
+ * WAI-ARIA tabs pattern: roving tabindex; ArrowLeft/ArrowRight move focus and selection
+ * (wrapping), Home/End jump to the first/last tab.
+ */
 export function Tabs(props: TabsProps): JSX.Element;

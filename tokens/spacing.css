@@ -47,6 +47,22 @@
   --dur-base: 200ms;  /* @kind other */
   --dur-slow: 360ms;  /* @kind other */
 
+  /* —— Z-index layers ———————————————————————————————— */
+  /* The stacking contract for every surface — reference these, never
+     hand-pick a z-index. Order: sticky < nav < dropdown < overlay
+     (modal/drawer) < popover < toast < tooltip. */
+  --z-base: 0;        /* @kind other */
+  --z-sticky: 10;     /* @kind other */ /* sticky table headers, in-page bars */
+  --z-nav: 20;        /* @kind other */ /* app sidebar / site top bar */
+  --z-dropdown: 40;   /* @kind other */ /* select menus, search & combobox results */
+  --z-overlay: 50;    /* @kind other */ /* modal & drawer scrim + panel */
+  --z-popover: 60;    /* @kind other */ /* popovers & menus, above overlays */
+  --z-toast: 70;      /* @kind other */ /* toasts float above all interaction */
+  --z-tooltip: 80;    /* @kind other */ /* tooltips always win */
+
+  /* —— State ———————————————————————————————————————— */
+  --opacity-disabled: 0.5;  /* @kind other */ /* the one disabled look, everywhere */
+
   /* —— Layout ——————————————————————————————————————— */
   --container-max: 1200px;   /* @kind other */
   --container-wide: 1440px;  /* @kind other */
