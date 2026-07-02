@@ -1,0 +1,133 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Blog index" subtitle="Decisions, not dashboards — filterable post grid with newsletter capture" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Blog</title>
+<meta name="description" content="Decisions, not dashboards — the Alfred blog. Field notes on decision intelligence, AI visibility and the playbooks leaders use to decide faster." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel">
+const { Chip, Button, Input } = window.AlfredAIDesignSystem_1ce241;
+
+const Container = ({ children, style }) => (
+  <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px", ...style }}>{children}</div>
+);
+const GradientText = ({ children }) => (
+  <span style={{ background: "var(--gradient-brand)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>{children}</span>
+);
+const capsLabel = { fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)",
+  letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--text-muted)" };
+
+/* Post data — pillars mirror the filter chips; titles from the canon; the
+   $4.8K figure is the Northwind demo number (data/demo-data.json). */
+const PILLARS = ["All", "Decision intelligence", "AI visibility", "Playbooks"];
+const POSTS = [
+  { cat: "Decision intelligence", title: "Why dashboards stalled — and what replaced them", date: "Jun 24, 2026", read: "6 min", grad: "var(--periwinkle-600)" },
+  { cat: "Decision intelligence", title: "What changed, why, and what next: the anatomy of a decision-ready answer", date: "Jun 17, 2026", read: "7 min", grad: "linear-gradient(135deg, var(--periwinkle-400) 0%, var(--ink-800) 100%)" },
+  { cat: "AI visibility", title: "Your AI Visibility Score, explained", date: "Jun 10, 2026", read: "5 min", grad: "linear-gradient(135deg, var(--orange-500) 0%, var(--ink-900) 100%)" },
+  { cat: "AI visibility", title: "When buyers ask AI before they ask you", date: "Jun 3, 2026", read: "4 min", grad: "linear-gradient(135deg, var(--periwinkle-600) 0%, var(--ink-900) 100%)" },
+  { cat: "Playbooks", title: "Catching budget drift four days early", date: "May 27, 2026", read: "5 min", grad: "linear-gradient(135deg, var(--orange-400) 0%, var(--ink-800) 100%)" },
+  { cat: "Playbooks", title: "The kill call: retiring a campaign burning $4.8K with zero conversions", date: "May 20, 2026", read: "4 min", grad: "var(--gradient-brand)" },
+];
+
+/* Post card — mirrors the SecBlogGrid card idiom from SectionsC. */
+function PostCard({ post }) {
+  return (
+    <a href="blog-article.html" style={{ textDecoration: "none", display: "block", background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-2xl)", overflow: "hidden" }}>
+      <div style={{ height: 160, background: post.grad }} />
+      <div style={{ padding: 22 }}>
+        <Chip tone="info">{post.cat}</Chip>
+        <h3 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, color: "#fff", letterSpacing: "-0.01em", margin: "14px 0 10px", lineHeight: 1.2 }}>{post.title}</h3>
+        <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{post.date} · {post.read} read</div>
+      </div>
+    </a>
+  );
+}
+
+/* Filterable index — chip row (useState) + 6-post grid. */
+function BlogIndex() {
+  const [active, setActive] = React.useState("All");
+  const shown = POSTS.filter((p) => active === "All" || p.cat === active);
+  return (
+    <section style={{ background: "var(--surface-sunken)", borderTop: "1px solid var(--border-subtle)" }}>
+      <Container style={{ padding: "56px 40px 84px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginBottom: 28 }}>
+          <span style={capsLabel}>Browse by pillar</span>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            {PILLARS.map((p) => (
+              <Chip key={p} selected={active === p} onClick={() => setActive(p)}>{p}</Chip>
+            ))}
+          </div>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          {shown.map((post) => <PostCard key={post.title} post={post} />)}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* Newsletter capture band. */
+function NewsletterBand() {
+  const [email, setEmail] = React.useState("");
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <Container style={{ padding: "84px 40px", maxWidth: 760, textAlign: "center" }}>
+        <span style={{ ...capsLabel, color: "var(--orange-400)" }}>The weekly digest</span>
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: 36, lineHeight: 1.12, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 0" }}>
+          Decision intelligence, in your inbox
+        </h2>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", margin: "14px auto 0", maxWidth: 480 }}>
+          One synthesised note each week — what changed, why it matters, and what to do about it.
+        </p>
+        <form onSubmit={(e) => e.preventDefault()} style={{ display: "flex", gap: 10, maxWidth: 460, margin: "28px auto 0" }}>
+          <Input type="email" placeholder="you@company.com" aria-label="Work email" fill="plain"
+            value={email} onChange={(e) => setEmail(e.target.value)} style={{ flex: 1 }} />
+          <Button variant="primary" size="lg" type="submit" style={{ height: 52 }}>Subscribe</Button>
+        </form>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", margin: "12px 0 0" }}>
+          One email a week. Your address is never sold, shared or used to train anything.
+        </p>
+      </Container>
+    </section>
+  );
+}
+
+function Page() {
+  return (
+    <>
+      <window.SiteNav />
+      <window.SecHero
+        eyebrow="The Alfred blog"
+        title={<span style={{ fontSize: 46 }}>Decisions, not dashboards — <GradientText>the Alfred blog</GradientText></span>}
+        sub="Field notes on decision intelligence, AI visibility and the playbooks leaders use to decide faster — from the team building Alfred."
+        primaryCta="get started"
+        secondaryCta="Talk to us"
+      />
+      <BlogIndex />
+      <NewsletterBand />
+      <window.SecClosingCTA />
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

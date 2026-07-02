@@ -7,3 +7,4 @@
 
 # Node / build artifacts (none committed today; guard against future tooling)
 node_modules/
+.playwright-mcp/

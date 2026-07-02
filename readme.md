@@ -101,8 +101,10 @@ If you're not going through a Claude surface, consume it like any static design 
    ```
    Point `Icon`/`Logo` `root` props and asset `<img src>`s at the correct relative path to
    `assets/` for the page you're building.
-3. **Light vs dark** — set `<html data-theme="dark">` to switch surfaces/text to the dark theme;
-   accent colors and the gradient are identical in both.
+3. **Light vs dark** — set `<html data-theme="dark">` to switch surfaces/text to the dark theme
+   (pure-black pages, 3%-white cards, Satoshi for headlines and body — matching the live site);
+   accent colors and the gradient are identical in both. `ui_kits/website/LIVE-DRIFT.md` records
+   what was adopted from the live site vs the live defects deliberately not adopted.
 
 ---
 
@@ -115,34 +117,44 @@ _ds_bundle.js         ← compiled React components → window.AlfredAIDesignSys
 _ds_manifest.json     ← component manifest for claude.ai/design
 tokens/               ← colors, typography, spacing/radius/shadow/motion, fonts, base defaults
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
-components/           ← 86 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
+components/           ← 113 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
+data/                 ← demo-data.json — the canonical Northwind Labs demo dataset (no fabricated proof)
 guidelines/           ← foundation specimen cards (color / type / spacing / brand)
-ui_kits/app/          ← multi-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility…
+ui_kits/app/          ← 22-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility, connections, notifications, Alfred Core memory, team, billing, audit log…
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
-ui_kits/website/      ← marketing site recreation (dark)
-templates/sections/   ← copy-paste marketing section blocks (window.Sec* components)
+ui_kits/website/      ← marketing site recreation (dark) + LIVE-DRIFT.md register
+templates/sections/   ← 27 copy-paste marketing section blocks (window.Sec* — hero, statement, FAQ, agent showcase, stack diagram, careers, contact…)
+templates/pages/      ← 13 full-page templates (pricing, alfred_core, product module, waitlist, contact, about, blog ×2, docs, integrations, in-development, 404, legal)
+templates/email/      ← 600px email system: shell + block library + 19 lifecycle/transactional templates
+templates/collateral/ ← A4 print theme + 12 sales/CS docs (one-pagers, battle cards, security pack, pilot plan, ROI calculator)
 templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout library + starter deck
 templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
+social/               ← OG image system, LinkedIn/X card + profile kits, carousel & blog-hero frames
 slides/               ← presentation templates (cover, index, section, content)
 scripts/              ← tooling, incl. verify-render.mjs · verify-components.mjs · verify-a11y.mjs
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes
 ```
 
-**Components** (86, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`; **core**
+**Components** (113, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`; **core**
 `Button`, `IconButton`, `Input`, `Textarea`, `SearchInput`, `FileDropzone`, `Select`, `Checkbox`,
 `Switch`, `Slider`, `RadioGroup`, `SegmentedControl`, `Chip`, `Card`, `Badge`, `Avatar`, `Tabs`,
 `Accordion`, `Combobox`, `TagInput`, `NumberInput`, `Kbd`, `Divider`, `Spinner`;
 **data** `KpiCard`, `DecisionAlert`, `ProgressBar`, `ProgressRing`, `Table`, `Stepper`, `Skeleton`,
-`Breadcrumb`, `EmptyState`, `Pagination`, `ActivityTimeline`, `NotificationItem`; **charts**
-`Sparkline`, `LineChart`, `AreaChart`, `BarChart`, `StackedBarChart`, `DonutChart`, `FunnelChart`,
-`GaugeChart`, `WaterfallChart`, `BulletChart`, `ScatterChart`, `Heatmap`, `SankeyChart`, `Legend`;
-**trust** `ConfidenceMeter`, `SourceTrace`, `RecommendationCard`, `DecisionLog`, `DataFreshness`,
-`CausalChain`; **app** `Sidebar`, `PageHeader`, `DataTable`, `FilterBar`, `DateRangePicker`,
-`CommandPalette`, `StatTile`; **overlay** `Menu`, `Modal`, `Toast`, `Drawer`, `Popover`, `Tooltip`;
-**feedback** `Banner`, `Callout`; **marketing** `SignalCard`, `StepFlow`, `StatBand`, `FaqItem`,
-`AgentStatus`; **conversation** `SeekComposer`, `AlfredMessage`, `ThinkingTrace`,
-`PromptSuggestions`; **decision** `ScenarioSimulator`, `GoalPacing`, `ApprovalGate`, `AnomalyFlag`.
+`Breadcrumb`, `EmptyState`, `StateBlock`, `Pagination`, `ActivityTimeline`, `NotificationItem`;
+**charts** `Sparkline`, `LineChart`, `AreaChart`, `BarChart`, `StackedBarChart`, `DonutChart`,
+`FunnelChart`, `GaugeChart`, `WaterfallChart`, `BulletChart`, `ScatterChart`, `Heatmap`,
+`SankeyChart`, `Legend`; **trust** `ConfidenceMeter`, `SourceTrace`, `RecommendationCard`,
+`DecisionLog`, `DataFreshness`, `CausalChain`, `ProvenancePanel`, `InsightFeedback`, `MemoryCard`;
+**app** `Sidebar`, `PageHeader`, `DataTable`, `FilterBar`, `DateRangePicker`, `CommandPalette`,
+`StatTile`, `ConnectionHealthCard`, `SyncStatusBadge`, `UsageMeter`, `UpgradeModal`, `AuditLogRow`,
+`ModuleSwitcher`, `TeamMemberRow`, `BillingPlanCard`, `NotificationPref`; **overlay** `Menu`,
+`Modal`, `Toast`, `Drawer`, `Popover`, `Tooltip`; **feedback** `Banner`, `Callout`; **marketing**
+`SignalCard`, `StepFlow`, `StatBand`, `FaqItem`, `AgentStatus`, `EyebrowBadge`, `DotMatrix`,
+`OfferSwitch`, `PriceCard`, `IntegrationCard`, `CategoryCountBadge`, `Countdown`, `AvatarStack`,
+`CapabilityTicker`, `AnimatedCounter`, `JobListingRow`, `ModuleStatusCard`, `DashboardMock`;
+**conversation** `SeekComposer`, `AlfredMessage`, `ThinkingTrace`, `PromptSuggestions`,
+`ReasoningState`; **decision** `ScenarioSimulator`, `GoalPacing`, `ApprovalGate`, `AnomalyFlag`.
 
 Interactive components ship with their accessibility contracts built in — focus traps and focus
 restore in `Modal`/`Drawer`, roving-tabindex keyboard navigation (arrows, Home/End, typeahead)

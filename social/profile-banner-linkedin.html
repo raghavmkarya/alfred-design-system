@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn company banner · 1584×396</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       LinkedIn company-page banner — export .frame at exactly 1584×396.
+
+       Safe zones: LinkedIn overlays the circular company avatar over
+       the banner's BOTTOM-LEFT on page load, and mobile crops the
+       outer edges. All content is therefore centered with generous
+       clearance; keep the bottom-left ~320×160 region free.
+
+       One gradient element per view = the gradient mark inside the
+       lockup (alfred-logo-color-white.svg). Everything else is
+       white / white-alpha on pure black.
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #17171a;               /* bench chrome — not part of the asset */
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============ THE EXPORTABLE CANVAS — 1584×396 ============ */
+    .frame {
+      position: relative;
+      width: 1584px;
+      height: 396px;
+      overflow: hidden;
+      background: var(--bg-page);        /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* —— subtle dot pattern, fading out toward the edges —— */
+    .dots {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.13) 1.25px, transparent 1.25px);
+      background-size: 26px 26px;
+      background-position: 13px 13px;
+      -webkit-mask-image: radial-gradient(58% 130% at 50% 46%, #000 18%, transparent 100%);
+      mask-image: radial-gradient(58% 130% at 50% 46%, #000 18%, transparent 100%);
+    }
+
+    /* —— lockup: gradient mark + white wordmark —— */
+    .lockup img { height: 44px; width: auto; display: block; }
+
+    /* —— tagline: category + the closing-band line, sentence case —— */
+    .tagline {
+      font-family: var(--font-display);            /* Satoshi on dark */
+      font-weight: 500;
+      font-size: 46px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 30px 0 0;
+      text-align: center;
+    }
+    .tagline .quiet { color: var(--text-secondary); }
+
+    .site {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 19px;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+      margin: 18px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="dots"></div>
+
+    <div class="lockup">
+      <img src="../assets/logos/alfred-logo-color-white.svg" alt="Alfred" />
+    </div>
+
+    <p class="tagline">Decision intelligence <span class="quiet">for the leaders who decide things</span></p>
+
+    <p class="site">seekalfred.ai</p>
+  </div>
+</body>
+</html>

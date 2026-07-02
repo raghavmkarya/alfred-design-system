@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Blog hero · 1600×900</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       Blog hero image system — export .frame at exactly 1600×900
+       (16:9; also crops cleanly to 1200×630 OG).
+
+       PILLAR COLOR MAPPING — set ONE pillar class on .frame:
+         · .pillar-decision    → orange      (--orange-500  #FF8431)
+             pillar: Decision intelligence
+         · .pillar-visibility  → periwinkle  (--periwinkle-400  #A7A7FC)
+             pillar: AI visibility
+         · .pillar-playbooks   → success     (--success-500  #2FB67C)
+             pillar: Playbooks
+       The pillar color drives ONLY the eyebrow + tick bar — accent,
+       never wallpaper. Everything else stays white / white-alpha on
+       pure black, Satoshi throughout.
+
+       Slots (marked in the markup):
+         · EYEBROW — pillar name, UPPERCASE tracked, pillar-colored
+         · TITLE   — post title, sentence case, ≤ 3 lines at 76px
+         · FOOTER  — logo + seekalfred.ai/blog (usually fixed)
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #17171a;               /* bench chrome — not part of the asset */
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============ THE EXPORTABLE CANVAS — 1600×900 ============ */
+    .frame {
+      position: relative;
+      width: 1600px;
+      height: 900px;
+      overflow: hidden;
+      background: var(--bg-page);        /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 104px 72px;
+      box-sizing: border-box;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* —— pillar accent variable (see mapping above) —— */
+    .frame.pillar-decision   { --pillar: var(--orange-500); }
+    .frame.pillar-visibility { --pillar: var(--periwinkle-400); }
+    .frame.pillar-playbooks  { --pillar: var(--success-500); }
+
+    /* —— subtle grid pattern, fading toward the right/bottom —— */
+    .grid {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 80px 80px;
+      background-position: -1px -1px;
+      -webkit-mask-image: radial-gradient(95% 130% at 18% 22%, #000 20%, transparent 100%);
+      mask-image: radial-gradient(95% 130% at 18% 22%, #000 20%, transparent 100%);
+    }
+
+    /* ---------- content ---------- */
+    .content { margin-top: auto; margin-bottom: auto; }
+    .eyebrow-row { display: flex; align-items: center; gap: 16px; margin: 0 0 30px; }
+    .tick { width: 34px; height: 3px; border-radius: 999px; background: var(--pillar); }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pillar);
+      margin: 0;
+    }
+    .title {
+      font-family: var(--font-display);            /* Satoshi on dark */
+      font-weight: 600;
+      font-size: 76px;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin: 0;
+      max-width: 18ch;
+    }
+    .title .quiet { color: var(--text-secondary); }
+
+    /* ---------- footer ---------- */
+    .footer {
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer img { height: 26px; width: auto; display: block; opacity: 0.96; }
+    .site {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- Set the pillar class here: pillar-decision | pillar-visibility | pillar-playbooks -->
+  <div class="frame pillar-decision">
+    <div class="grid"></div>
+
+    <div class="content">
+      <!-- SLOT: EYEBROW — the pillar name; keep it matching the pillar class -->
+      <div class="eyebrow-row">
+        <span class="tick"></span>
+        <p class="eyebrow">Decision intelligence</p>
+      </div>
+
+      <!-- SLOT: TITLE — post title, sentence case, ≤ 3 lines -->
+      <h1 class="title">The morning brief, <span class="quiet">and why leaders stopped reading dashboards</span></h1>
+    </div>
+
+    <!-- SLOT: FOOTER — usually fixed -->
+    <footer class="footer">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+      <span class="site">seekalfred.ai/blog</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Brief of the day · 1200×1350 (show-don't-tell frame)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       "Brief of the day" — the show-don't-tell social frame.
+       Export .frame at exactly 1200×1350.
+
+       A recreated mini Daily Brief (Northwind Labs demo data —
+       data/demo-data.json → dailyBrief item 1) sits inside a
+       browser-chrome window. Call #1 is shown in the clear; calls
+       #2–3 are fake rows under a REDACTED-style CSS blur band.
+
+       Voice: INSIDE the window the product speaks as Alfred, first
+       person. The caption below is marketing — third person about
+       Alfred. Demo framing is visible ("Northwind Labs — demo data"),
+       so no number here reads as real customer proof.
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #17171a;               /* bench chrome — not part of the asset */
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============ THE EXPORTABLE CANVAS — 1200×1350 ============ */
+    .frame {
+      position: relative;
+      width: 1200px;
+      height: 1350px;
+      overflow: hidden;
+      background: var(--bg-page);        /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 72px 72px 64px;
+      box-sizing: border-box;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* ---------- header ---------- */
+    .head { display: flex; align-items: center; justify-content: space-between; }
+    .head img { height: 28px; width: auto; display: block; }
+    .head .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--periwinkle-400);
+      margin: 0;
+    }
+
+    /* ================================================================
+       Browser-chrome window — a LIGHT product surface inside the dark
+       frame. Semantic tokens invert under [data-theme="dark"], so the
+       window styles use RAW tokens (--white, --ink-*, --gray-*,
+       --orange-*) which are theme-independent.
+       ================================================================ */
+    .window {
+      margin-top: 44px;
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border-default);   /* white-alpha hairline against black */
+      box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+      overflow: hidden;
+    }
+    .chrome {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 22px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-150);
+    }
+    .chrome .lights { display: flex; gap: 8px; }
+    .chrome .lights span { width: 12px; height: 12px; border-radius: 50%; background: var(--gray-200); display: block; }
+    .chrome .url {
+      flex: 1 1 auto;
+      max-width: 420px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--ink-500);
+      background: var(--gray-100);
+      border-radius: 999px;
+      padding: 8px 18px;
+      text-align: center;
+    }
+
+    .brief { padding: 40px 44px 44px; }
+    .brief-date {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-400);
+      margin: 0 0 14px;
+    }
+    /* Alfred speaks first person inside the product surface */
+    .greeting {
+      font-family: "Clash Display", "Satoshi", ui-sans-serif, sans-serif;  /* product app keeps Clash */
+      font-weight: 600;
+      font-size: 34px;
+      line-height: 1.14;
+      letter-spacing: -0.015em;
+      color: var(--ink-900);
+      margin: 0 0 30px;
+    }
+
+    /* ---------- call #1 — in the clear ---------- */
+    .call {
+      border: 1px solid var(--gray-150);
+      border-radius: 16px;
+      padding: 28px 30px 26px;
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+    }
+    .rank {
+      flex: none;
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Clash Display", "Satoshi", ui-sans-serif, sans-serif;
+      font-weight: 600;
+      font-size: 19px;
+    }
+    .call .rank { background: var(--orange-50); color: var(--orange-700); }
+    .call-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--ink-900);
+      margin: 4px 0 10px;
+    }
+    .call-why {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 17.5px;
+      line-height: 1.5;
+      color: var(--ink-600);
+      margin: 0 0 20px;
+      max-width: 52ch;
+    }
+    .call-meta { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .sources { display: flex; align-items: center; gap: 8px; }
+    .sources .label {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-400);
+      margin-right: 4px;
+    }
+    .chip {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--ink-600);
+      background: var(--gray-100);
+      border-radius: 999px;
+      padding: 5px 14px;
+    }
+    .actions { display: flex; gap: 10px; }
+    .btn {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 15.5px;
+      border-radius: 12px;
+      padding: 11px 22px;
+      line-height: 1;
+    }
+    .btn--primary { background: var(--orange-500); color: var(--white); }
+    .btn--ghost { background: var(--white); color: var(--ink-700); border: 1px solid var(--gray-200); }
+
+    /* ---------- calls #2–3 — the redacted band ---------- */
+    .redacted-band { position: relative; margin-top: 16px; }
+    .row-redacted {
+      border: 1px solid var(--gray-150);
+      border-radius: 16px;
+      padding: 24px 30px;
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+    }
+    .row-redacted + .row-redacted { margin-top: 14px; }
+    .row-redacted .rank { background: var(--gray-100); color: var(--ink-500); }
+    /* the blur IS the redaction — fake rows, unreadable at 9px */
+    .row-blur { filter: blur(9px); user-select: none; }
+    .row-blur .call-title { margin-bottom: 8px; font-size: 23px; }
+    .row-blur .call-why { margin-bottom: 0; font-size: 17px; }
+
+    .redacted-tag {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--ink-900);
+      color: var(--white);
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 15.5px;
+      box-shadow: 0 12px 32px rgba(2,2,30,0.28);
+      white-space: nowrap;
+    }
+    .redacted-tag svg { width: 17px; height: 17px; color: var(--orange-300); }
+
+    /* ---------- caption + footer (marketing voice — third person) ---------- */
+    .caption {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin: auto 0 0;                 /* splits the leftover space with the footer */
+      padding-top: 40px;
+      max-width: 38ch;
+    }
+    .caption .quiet { color: var(--text-secondary); font-weight: 400; }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .demo-note {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+    .site {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <!-- header -->
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+      <p class="eyebrow">Brief of the day</p>
+    </header>
+
+    <!-- browser-chrome window: the recreated Daily Brief -->
+    <div class="window">
+      <div class="chrome">
+        <div class="lights"><span></span><span></span><span></span></div>
+        <div class="url">app.seekalfred.ai/daily-brief</div>
+      </div>
+
+      <div class="brief">
+        <p class="brief-date">Tuesday · 07:00 · Northwind Labs</p>
+        <!-- first-person Alfred voice, verbatim from demo-data.json dailyBrief.greeting -->
+        <h2 class="greeting">Good morning, Priya. Three things need you today.</h2>
+
+        <!-- call #1 — demo-data.json dailyBrief.items[0], shown in the clear -->
+        <div class="call">
+          <div class="rank">1</div>
+          <div>
+            <h3 class="call-title">Kill the Meta broad campaign</h3>
+            <p class="call-why">It burned $4.8K this week with zero conversions — lead quality fell 14% when the new audience launched.</p>
+            <div class="call-meta">
+              <div class="sources">
+                <span class="label">Sources</span>
+                <span class="chip">Meta</span>
+                <span class="chip">GA4</span>
+                <span class="chip">HubSpot</span>
+              </div>
+              <div class="actions">
+                <span class="btn btn--primary">Approve</span>
+                <span class="btn btn--ghost">Snooze</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- calls #2–3 — fake rows under the redaction blur -->
+        <div class="redacted-band">
+          <div class="row-redacted">
+            <div class="rank">2</div>
+            <div class="row-blur" aria-hidden="true">
+              <h3 class="call-title">Approve the reallocation before Thursday</h3>
+              <p class="call-why">One channel is converting well ahead of the other — the shift protects this month's pipeline.</p>
+            </div>
+          </div>
+          <div class="row-redacted">
+            <div class="rank">3</div>
+            <div class="row-blur" aria-hidden="true">
+              <h3 class="call-title">Rotate the hero creative this week</h3>
+              <p class="call-why">Fatigue, not audience — a fresh variant protects the monthly number before it slips.</p>
+            </div>
+          </div>
+          <span class="redacted-tag">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="7" width="10" height="7" rx="1.8"/>
+              <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/>
+            </svg>
+            Redacted — your brief will differ
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLOT: caption — swap per post; keep marketing third-person voice,
+         lead with the decision, no fabricated proof -->
+    <p class="caption">Alfred leads with the call, not the chart.
+      <span class="quiet">Three decisions, reasoned and sourced, before your first meeting.</span></p>
+
+    <!-- footer -->
+    <footer class="footer">
+      <span class="demo-note">Shown: Northwind Labs — demo data</span>
+      <span class="site">seekalfred.ai</span>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Pricing" subtitle="Full pricing page — module & currency toggles, launch offer, three tiers, Enterprise band and pricing FAQ" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred — Pricing</title>
+<meta name="description" content="Pricing that scales with your decisions. Starter ₹19,900, Growth ₹49,900 and Max ₹99,900 per month — INR-first with a USD toggle, 50% off your first two months at launch. Alfred for Enterprise for custom limits." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel" src="../sections/SectionsF.jsx"></script>
+<script type="text/babel">
+const { PriceCard, SegmentedControl, OfferSwitch } = window.AlfredAIDesignSystem_1ce241;
+
+/* Canon prices — voice-and-naming.md tiers, INR-first with USD toggle.
+   Launch offer halves the first 2 months on every tier. */
+const PRICING = {
+  INR: { symbol: "₹", list: ["19,900", "49,900", "99,900"], offer: ["9,950", "24,950", "49,950"] },
+  USD: { symbol: "$", list: ["239", "599", "1,199"], offer: ["119.50", "299.50", "599.50"] },
+};
+
+/* Canon quotas per tier (pricing one-pager). */
+const TIERS = [
+  {
+    name: "Starter",
+    features: [
+      "3 users",
+      "150 AI queries a month",
+      "Daily Brief and anomaly detection",
+      "Campaign health calls",
+      "Trending-now and macro analysis",
+      "20 image and 2 video analyses a month",
+      "1 AI Visibility Score run a month",
+      "Email support",
+    ],
+  },
+  {
+    name: "Growth",
+    highlighted: true,
+    features: [
+      "Everything in Starter",
+      "8 users",
+      "500 AI queries a month",
+      "AI Chat with write-back",
+      "Full spend mix simulation",
+      "50 image and 5 video analyses a month",
+      "10 image and 5 video generations a month",
+      "2 AI Visibility Score runs a month",
+    ],
+  },
+  {
+    name: "Max",
+    features: [
+      "Everything in Growth",
+      "25 users",
+      "800 AI queries a month",
+      "Custom KPI tracking",
+      "Audit logs, RBAC and scheduled reports",
+      "100 image and 10 video analyses a month",
+      "100 image and 20 video generations a month",
+      "4 AI Visibility Score runs a month",
+      "Dedicated support and onboarding",
+    ],
+  },
+];
+
+function PlanGrid() {
+  const [moduleTab, setModuleTab] = React.useState("marketing");
+  const [currency, setCurrency] = React.useState("INR");
+  const [offer, setOffer] = React.useState(true);
+  const P = PRICING[currency];
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px 72px" }}>
+        {/* Plan controls */}
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 14 }}>
+          <SegmentedControl
+            size="sm"
+            options={[{ value: "marketing", label: "Marketing" }, { value: "sales", label: "Sales" }]}
+            value={moduleTab}
+            onChange={setModuleTab}
+          />
+          <SegmentedControl
+            size="sm"
+            options={[{ value: "INR", label: "INR" }, { value: "USD", label: "USD" }]}
+            value={currency}
+            onChange={setCurrency}
+          />
+          <OfferSwitch
+            checked={offer}
+            onChange={setOffer}
+            label={offer ? "50% launch offer applied" : "Apply the 50% launch offer"}
+            detail="Half price for your first 2 months, any tier"
+          />
+        </div>
+        {moduleTab === "sales" && (
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)", textAlign: "center", margin: "16px auto 0", maxWidth: 560 }}>
+            Alfred for Sales is in development — the same tiers will apply. Join the waitlist to be first in line.
+          </p>
+        )}
+
+        {/* Tier cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, alignItems: "stretch", marginTop: 44 }}>
+          {TIERS.map((t, i) => (
+            <PriceCard
+              key={t.name}
+              name={t.name}
+              currency={P.symbol}
+              price={offer ? P.offer[i] : P.list[i]}
+              anchorPrice={offer ? P.list[i] : undefined}
+              period="/month"
+              badge={t.highlighted ? "Most popular" : undefined}
+              highlighted={!!t.highlighted}
+              features={t.features}
+              cta={{ label: moduleTab === "marketing" ? "talk to sales" : "Join the waitlist" }}
+              footnote={offer ? `Then ${P.symbol}${P.list[i]}/month from month 3` : "Per module, billed monthly"}
+            />
+          ))}
+        </div>
+
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", lineHeight: "var(--lh-normal)", textAlign: "center", margin: "28px auto 0", maxWidth: 640 }}>
+          Pricing shown is per module, per month. Every plan starts with a conversation — no self-serve checkout. Your data is logically isolated and never trains shared models.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+const FAQ_ITEMS = [
+  {
+    q: "How does billing work?",
+    a: "Plans are per module, per month — INR-first with a USD toggle. The launch offer halves your first two months on any tier, then list price applies. There's no self-serve checkout: every plan starts with a conversation, and we invoice monthly.",
+  },
+  {
+    q: "How do seats work?",
+    a: "Each tier includes a fixed number of users — 3 on Starter, 8 on Growth and 25 on Max. Admin, member and viewer roles all count as seats. If you outgrow your tier, upgrade — or talk to us about Alfred for Enterprise for custom seat limits.",
+  },
+  {
+    q: "What counts as an AI query?",
+    a: "Any question you ask Alfred — in AI Chat or through Seek Alfred — counts as one query. Scheduled work like the Daily Brief, anomaly detection and campaign health calls runs on every plan and doesn't draw from your quota. Starter includes 150 queries a month, Growth 500 and Max 800.",
+  },
+  {
+    q: "Does the launch offer apply to every tier?",
+    a: "Yes — 50% off your first two months on Starter, Growth and Max, in both INR and USD. From month three you pay list price. The offer applies once per workspace.",
+  },
+  {
+    q: "Can I cancel anytime?",
+    a: "Yes. Plans are monthly with no lock-in — cancel and you keep access until the end of your billing period. Your data stays yours: it's logically isolated, never trains shared models, and is deleted on request.",
+  },
+];
+
+function Page() {
+  return (
+    <>
+      <window.SiteNav />
+      <window.SecHero
+        eyebrow="Pricing"
+        title="Pricing that scales with your decisions"
+        sub="Three tiers per module, INR-first with a USD toggle — and 50% off your first two months at launch. Every plan starts with a conversation."
+        primaryCta="talk to sales"
+        secondaryCta="How pricing works"
+      />
+      <PlanGrid />
+      <window.SecEnterpriseBand />
+      <window.SecFaq title="Pricing questions, answered" items={FAQ_ITEMS} />
+      <window.SecClosingCTA />
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

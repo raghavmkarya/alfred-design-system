@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — OG page template (1200×630)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       og-page — the parameterized per-page Open Graph image.
+       Fixed 1200×630 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       ┌───────────────┬───────────────────────────────────────────────┐
+       │ data-slot     │ what goes in it                               │
+       ├───────────────┼───────────────────────────────────────────────┤
+       │ eyebrow       │ page type, UPPERCASE tracked — e.g. PRODUCT,  │
+       │               │ PRICING, INTEGRATIONS, DOCS, ABOUT            │
+       │ title         │ the page headline, sentence case. Sized to    │
+       │               │ fit TWO lines; keep ≤ ~60 characters. The box │
+       │               │ clips anything past line 2 (-webkit-line-     │
+       │               │ clamp), so overflow can never bleed.          │
+       │ path          │ optional URL path shown after the domain in   │
+       │               │ the footer — e.g. /products, /pricing. Leave  │
+       │               │ the span empty for the homepage.              │
+       └───────────────┴───────────────────────────────────────────────┘
+       Everything else (logo, footer, rule) is fixed chrome.
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 630px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 64px 80px 56px;
+      isolation: isolate;
+    }
+
+    /* the one gradient element on this view — signature hairline, top edge */
+    .brand-rule {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-brand);
+    }
+
+    .head img { height: 34px; width: auto; display: block; opacity: 0.96; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--periwinkle-400);
+      margin: 0 0 24px;
+    }
+    .title {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-medium);
+      font-size: 68px;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin: 0;
+      max-width: 18ch;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;                  /* hard two-line fit */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .url b { color: var(--text-secondary); font-weight: var(--fw-medium); }
+    .footer .tag { letter-spacing: 0.01em; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="brand-rule"></div>
+
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow — page type, UPPERCASE -->
+      <p class="eyebrow" data-slot="eyebrow">Product</p>
+      <!-- SLOT: title — sentence case, ≤ ~60 chars, clips at 2 lines -->
+      <h1 class="title" data-slot="title">Six agents that read your stack so you don&rsquo;t have to</h1>
+    </div>
+
+    <footer class="footer">
+      <!-- SLOT: path — optional, e.g. /products; empty span for the homepage -->
+      <span class="url"><b>seekalfred.ai</b><span data-slot="path">/products/alfred-for-marketing</span></span>
+      <span class="tag">Decision intelligence</span>
+    </footer>
+  </div>
+</body>
+</html>

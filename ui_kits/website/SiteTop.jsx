@@ -10,17 +10,31 @@ const Eyebrow = ({ children, style }) => (
 );
 
 /* ——— Top nav ——— */
+const NavCaret = () => (
+  <svg width="9" height="9" viewBox="0 0 12 12" fill="none" aria-hidden="true" style={{ flex: "none" }}>
+    <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+const NAV_ITEMS = [
+  { label: "Products", dropdown: true },
+  { label: "Resources", dropdown: true },
+  { label: "Alfred Core" },
+  { label: "Pricing" },
+  { label: "Integrations" },
+  { label: "Company", dropdown: true },
+];
 function SiteNav() {
-  const link = { fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: "var(--text-secondary)", cursor: "pointer" };
+  const link = { fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: "var(--text-secondary)", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 5 };
   return (
-    <div style={{ position: "sticky", top: 0, zIndex: 20, background: "rgba(8,8,26,0.72)", backdropFilter: "blur(14px)", borderBottom: "1px solid var(--border-subtle)" }}>
+    <div style={{ position: "sticky", top: 0, zIndex: 20, background: "rgba(0,0,0,0.72)", backdropFilter: "blur(14px)", borderBottom: "1px solid var(--border-subtle)" }}>
       <Container style={{ height: 72, display: "flex", alignItems: "center", gap: 28 }}>
         <Logo height={26} tone="white" root={LOGOROOT} />
         <div style={{ display: "flex", gap: 24, marginLeft: 18 }}>
-          <span style={link}>Products</span><span style={link}>Resources</span>
-          <span style={link}>Alfred Core</span><span style={link}>Pricing</span><span style={link}>Company</span>
+          {NAV_ITEMS.map((it) => (
+            <span key={it.label} style={link}>{it.label}{it.dropdown ? <NavCaret /> : null}</span>
+          ))}
         </div>
-        <div style={{ marginLeft: "auto" }}><Button variant="primary" size="sm">Get started</Button></div>
+        <div style={{ marginLeft: "auto" }}><Button variant="primary" size="sm">get started</Button></div>
       </Container>
     </div>
   );
@@ -33,7 +47,7 @@ function Hero() {
       <Container style={{ padding: "92px 40px 88px", display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 56, alignItems: "center" }}>
         <div>
           <Eyebrow>Decision intelligence platform</Eyebrow>
-          <h1 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 60, lineHeight: 1.02, letterSpacing: "-0.03em", color: "#fff", margin: "18px 0 0" }}>
+          <h1 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 60, lineHeight: 1.02, letterSpacing: "-0.03em", color: "var(--text-primary)", margin: "18px 0 0" }}>
             The AI memory powering <span style={{ background: "var(--gradient-brand)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>every decision</span> across your organisation
           </h1>
           <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-lg)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", margin: "22px 0 0", maxWidth: 520 }}>
@@ -41,7 +55,7 @@ function Hero() {
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 30 }}>
             <Button variant="primary" size="lg">Talk to sales</Button>
-            <Button variant="outline" size="lg" style={{ color: "#fff", borderColor: "var(--border-default)" }}>How it works</Button>
+            <Button variant="outline" size="lg" style={{ color: "var(--text-primary)", borderColor: "var(--border-default)" }}>How it works</Button>
           </div>
         </div>
         <AgentStatus query="What is the biggest risk in the business right now?"
@@ -59,7 +73,7 @@ function AlfredCore() {
       <Container style={{ padding: "84px 40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
         <div>
           <Eyebrow>Alfred Core</Eyebrow>
-          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "#fff", margin: "14px 0 16px" }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 16px" }}>
             Alfred Core, the memory behind it all
           </h2>
           <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", maxWidth: 480 }}>
@@ -84,7 +98,7 @@ function Products() {
   const [tab, setTab] = React.useState("mkt");
   const data = {
     mkt: { name: "Alfred for Marketing", blurb: "Six intelligence agents work across your marketing stack, turning signals from campaigns, channels and performance systems into a clear view of business impact.", agents: ["Daily Brief", "Spend Mix", "AI Visibility", "Unified KPI Cockpit", "Creative Fatigue", "Anomaly Detection"], cta: "Read less, know more" },
-    sales: { name: "Alfred for Sales", blurb: "Converts fragmented deal signals into a clear view of performance and next steps with six sales-intelligence agents.", agents: ["Sales Play", "Deal Deviation", "Revenue Signal", "Coaching Intelligence", "Forecast Intelligence", "Daily Brief"], cta: "Catch it at risk, not at lost" },
+    sales: { name: "Alfred for Sales", blurb: "Converts fragmented deal signals into a clear view of performance and next steps with six sales-intelligence agents.", agents: ["Sales Play", "Deal Deviation", "Revenue Signal", "Coaching Intelligence", "Forecast Intelligence", "Daily Brief"], cta: "Catch it at risk, not at loss" },
     next: { name: "Upcoming products", blurb: "The memory compounds as each module activates. Finance, Operations and Founders are next in line.", agents: ["Alfred for Finance", "Alfred for Operations", "Alfred for Founders"], cta: "Be first in line" },
   };
   const d = data[tab];
@@ -92,13 +106,13 @@ function Products() {
     <section style={{ background: "var(--bg-page)" }}>
       <Container style={{ padding: "84px 40px" }}>
         <Eyebrow>Products</Eyebrow>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "#fff", margin: "14px 0 32px" }}>
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 32px" }}>
           Purpose-built intelligence for every leader
         </h2>
         <Tabs value={tab} onChange={setTab} tabs={[{ id: "mkt", label: "Marketing" }, { id: "sales", label: "Sales" }, { id: "next", label: "Upcoming" }]} style={{ borderColor: "var(--border-subtle)" }} />
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", marginTop: 36 }}>
           <div>
-            <h3 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 28, color: "#fff", margin: "0 0 14px", letterSpacing: "-0.02em" }}>{d.name}</h3>
+            <h3 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 28, color: "var(--text-primary)", margin: "0 0 14px", letterSpacing: "-0.02em" }}>{d.name}</h3>
             <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", maxWidth: 460 }}>{d.blurb}</p>
             <div style={{ marginTop: 24 }}><Button variant="primary">{d.cta}</Button></div>
           </div>

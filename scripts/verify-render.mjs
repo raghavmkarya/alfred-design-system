@@ -15,9 +15,16 @@ const KITS = [
   ["ui_kits/app/Screens.jsx", ["KpiCockpit", "SpendRoi", "AlertsInbox", "Integrations", "SettingsScreen"]],
   ["ui_kits/app/Screens2.jsx", ["DailyBrief", "SeekAlfred", "CreativeLifecycle", "AiVisibility"]],
   ["ui_kits/onboarding/Onboarding.jsx", ["OnboardingFlow"]],
+  ["ui_kits/website/SiteTop.jsx", ["SiteNav", "Hero", "AlfredCore", "Products"]],
+  ["ui_kits/website/SiteBottom.jsx", ["HowItWorks", "Outcomes", "Security", "Faq", "CTA", "SiteFooter"]],
   ["templates/sections/SectionsA.jsx", ["SecLogoCloud", "SecBentoGrid", "SecFeatureSplit", "SecComparison"]],
   ["templates/sections/SectionsB.jsx", ["SecPricingTiers", "SecTestimonial", "SecIntegrationsGrid", "SecWaitlistCTA"]],
   ["templates/sections/SectionsC.jsx", ["SecPricingComparison", "SecBlogGrid", "SecChangelog"]],
+  ["templates/sections/SectionsD.jsx", ["SecHero", "SecStatement", "SecClosingCTA", "SecFaq"]],
+  ["templates/sections/SectionsE.jsx", ["SecSecurityGrid", "SecTeamGrid", "SecValuesGrid", "SecCareers", "SecStoryEditorial"]],
+  ["templates/sections/SectionsF.jsx", ["SecContactSplit", "SecIndustryCards", "SecAgentShowcase", "SecEnterpriseBand", "SecStackDiagram", "SecTimeline", "SecSourcedStats"]],
+  ["ui_kits/app/Screens3.jsx", ["ConnectionFlow", "ConnectionHealth", "FirstRunWaiting", "NotificationsCenter", "AlertDetail"]],
+  ["ui_kits/app/Screens4.jsx", ["SettingsProfile", "TeamPermissions", "BillingPlans", "MemoryCore", "AuditLog"]],
 ];
 
 const [reactSrc, serverSrc, babelSrc] = await Promise.all([

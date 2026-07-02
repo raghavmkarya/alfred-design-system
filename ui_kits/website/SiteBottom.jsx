@@ -9,7 +9,7 @@ function HowItWorks() {
     <section style={{ background: "var(--surface-sunken)", borderTop: "1px solid var(--border-subtle)" }}>
       <Container2 style={{ padding: "84px 40px" }}>
         <Eyebrow2>How it works</Eyebrow2>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "#fff", margin: "14px 0 40px" }}>
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 40px" }}>
           Alfred works for you, works with you
         </h2>
         <StepFlow steps={[
@@ -29,7 +29,7 @@ function Outcomes() {
     <section style={{ background: "var(--bg-page)" }}>
       <Container2 style={{ padding: "84px 40px", textAlign: "center" }}>
         <Eyebrow2>Outcomes</Eyebrow2>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "#fff", margin: "14px 0 48px" }}>
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 48px" }}>
           Leaders trust Alfred AI
         </h2>
         <StatBand stats={[
@@ -55,9 +55,9 @@ function Security() {
   return (
     <section style={{ background: "var(--surface-sunken)", borderTop: "1px solid var(--border-subtle)" }}>
       <Container2 style={{ padding: "84px 40px" }}>
-        <Eyebrow2>Enterprise-grade security</Eyebrow2>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "#fff", margin: "14px 0 40px" }}>
-          Your data is yours, full stop
+        <Eyebrow2>Security</Eyebrow2>
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 40px" }}>
+          Enterprise-Grade Security
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
           {items.map(([t, d]) => (
@@ -79,18 +79,21 @@ function Security() {
 function Faq() {
   const [open, setOpen] = React.useState(0);
   const qs = [
+    ["What is Alfred AI?", "Alfred is a decision intelligence platform for business leaders. It connects your stack, learns how your organisation actually works, and delivers decision-ready answers — what changed, why, and what to do next."],
     ["What is decision intelligence?", "Turning raw business data into clear, explained, decision-ready answers. It sits between your data and your decisions — detecting what changed, explaining why, and recommending what to do next."],
     ["How is it different from a dashboard or BI tool?", "Dashboards show you numbers; Alfred does the synthesis and reasoning a leader would otherwise do by hand, and tells you what to act on."],
     ["What does Alfred connect to?", "Your marketing, sales and finance stack — campaigns, channels, CRM, analytics and performance systems."],
     ["Who is Alfred built for?", "The leaders who decide things — marketing, sales, finance and operations, and the people running it all."],
+    ["What is live today, and what is coming?", "Alfred for Marketing is live today. Alfred for Sales is in development, and Finance, Operations and Founders modules are planned next — each one built on the same shared memory."],
     ["Is my data used to train models?", "No. Your data is logically isolated, never trains shared models, and is never sold or shared with third parties."],
   ];
   return (
     <section style={{ background: "var(--bg-page)" }}>
       <Container2 style={{ padding: "84px 40px", maxWidth: 880 }}>
         <Eyebrow2>FAQ</Eyebrow2>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "#fff", margin: "14px 0 24px" }}>
-          Got questions? We've got answers
+        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 24px" }}>
+          {/* Live site renders this heading in Title Case — a documented defect; the DS keeps sentence case. */}
+          Got any questions? We've got answers
         </h2>
         {qs.map(([q, a], i) => (
           <FaqItem key={i} question={q} open={open === i} onToggle={(v) => setOpen(v ? i : -1)}>{a}</FaqItem>
@@ -107,7 +110,7 @@ function CTA() {
       <Container2>
         <div style={{ position: "relative", overflow: "hidden", borderRadius: "var(--radius-3xl)", background: "var(--gradient-brand-reverse)", padding: "72px 56px", textAlign: "center" }}>
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(60% 120% at 50% 0%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 60%)" }} />
-          <h2 style={{ position: "relative", fontFamily: "var(--font-display)", fontWeight: "var(--fw-bold)", fontSize: 48, letterSpacing: "-0.025em", color: "#fff", margin: "0 0 14px" }}>
+          <h2 style={{ position: "relative", fontFamily: "var(--font-display)", fontWeight: "var(--fw-bold)", fontSize: 48, letterSpacing: "-0.025em", color: "var(--text-on-brand)", margin: "0 0 14px" }}>
             Built for the leaders who decide things.
           </h2>
           <p style={{ position: "relative", fontFamily: "var(--font-sans)", fontSize: "var(--text-lg)", color: "rgba(255,255,255,0.92)", margin: "0 auto 28px", maxWidth: 560 }}>
@@ -136,15 +139,15 @@ function SiteFooter() {
         <div>
           <Logo height={26} tone="white" root={LR} />
           <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", maxWidth: 320, marginTop: 16 }}>
-            The decision intelligence platform for marketing, sales and the leaders running them. We connect your stack, synthesise what matters, and deliver decision-ready intelligence every day.
+            Alfred is the decision intelligence platform for marketing, sales, and the leaders running them. We connect your stack, synthesise what matters, and deliver decision-ready intelligence every day.
           </p>
         </div>
-        {col("Product", ["Alfred for Marketing", "Pricing", "Docs", "Waitlist"])}
-        {col("Company", ["About", "Team", "Career", "Blog"])}
-        {col("Legal", ["Privacy", "Terms", "Cookies", "Contact"])}
+        {col("Product", ["Home", "Alfred for Marketing", "Alfred Core", "Integrations", "Pricing", "Blog", "Contact"])}
+        {col("Company", ["Team", "Career", "Docs", "Waitlist"])}
+        {col("Legal", ["Privacy Policy", "Terms & Conditions", "Cookies"])}
       </Container2>
       <Container2 style={{ padding: "0 40px 36px" }}>
-        <div style={{ borderTop: "1px solid var(--border-subtle)", paddingTop: 20, fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>© 2026 Alfred AI. All rights reserved.</div>
+        <div style={{ borderTop: "1px solid var(--border-subtle)", paddingTop: 20, fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>© 2026 E902 AI Labs Private Limited. All rights reserved.</div>
       </Container2>
     </footer>
   );

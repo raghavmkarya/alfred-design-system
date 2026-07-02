@@ -1,0 +1,173 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Blog article" subtitle="Editorial template — prose measure, pull-quote, cited stat, callout and author box" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Why dashboards stalled, and what replaced them</title>
+<meta name="description" content="Decision intelligence detects what changed, explains why, and recommends what to do next. Why dashboards stopped moving decisions — and what replaced them." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+  /* Article prose — 20px Satoshi, lh 1.7, ~680px measure. Token-driven. */
+  .prose { font-family: var(--font-sans); font-size: 20px; line-height: 1.7; color: var(--text-secondary); max-width: 680px; margin: 0 auto; }
+  .prose p { margin: 0 0 26px; }
+  .prose h2 { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--text-h2); line-height: var(--lh-snug); letter-spacing: var(--ls-tight); color: var(--text-primary); margin: 48px 0 18px; }
+  .prose h3 { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--text-h3); line-height: var(--lh-snug); letter-spacing: var(--ls-tight); color: var(--text-primary); margin: 38px 0 14px; }
+  .prose strong { color: var(--text-primary); font-weight: var(--fw-semibold); }
+  .prose a { color: var(--text-link); text-decoration: underline; text-underline-offset: 3px; }
+  /* Pull-quote — Bricolage Grotesque, the marketing-only editorial accent. */
+  .prose blockquote { font-family: var(--font-accent); font-weight: var(--fw-medium); font-size: 28px; line-height: 1.35; letter-spacing: var(--ls-tight); color: var(--text-primary); border-left: 3px solid var(--orange-400); margin: 40px 0; padding: 4px 0 4px 26px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel">
+const { EyebrowBadge, Avatar, Chip, Callout, AnimatedCounter } = window.AlfredAIDesignSystem_1ce241;
+
+const Container = ({ children, style }) => (
+  <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px", ...style }}>{children}</div>
+);
+const metaLine = { fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)" };
+
+/* ——— Article header ——— */
+function ArticleHeader() {
+  return (
+    <section style={{ position: "relative", overflow: "hidden", background: "var(--glow-periwinkle), var(--bg-page)" }}>
+      <Container style={{ maxWidth: 800, padding: "72px 40px 44px" }}>
+        <EyebrowBadge tone="periwinkle">Decision intelligence</EyebrowBadge>
+        <h1 style={{ fontFamily: "var(--font-sans)", fontWeight: 400, fontSize: 50, lineHeight: 1.08, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "22px 0 0" }}>
+          Why dashboards stalled — and what replaced them
+        </h1>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 26 }}>
+          <Avatar name="Alfred Team" size={36} />
+          <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>The Alfred team</span>
+          <span style={metaLine}>· Jun 24, 2026 · 6 min read</span>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ——— Inline cited stat — SecSourcedStats idiom, single stat, in-measure. ——— */
+function InlineStat() {
+  return (
+    <figure style={{ margin: "40px 0", padding: "32px 28px", textAlign: "center", borderTop: "1px solid var(--border-subtle)", borderBottom: "1px solid var(--border-subtle)", background: "var(--surface-sunken)", borderRadius: "var(--radius-lg)" }}>
+      <AnimatedCounter value={73} suffix="%" />
+      <figcaption style={{ marginTop: 10 }}>
+        <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", display: "block" }}>of marketing data goes unused</span>
+        <cite style={{ fontFamily: "var(--font-sans)", fontStyle: "normal", fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>Source: NIQ</cite>
+      </figcaption>
+    </figure>
+  );
+}
+
+/* ——— Article body ——— */
+function ArticleBody() {
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <Container style={{ padding: "20px 40px 64px" }}>
+        <div className="prose">
+          <p>Every leadership team has lived the same Monday. The dashboards are green, the weekly deck is late, and somewhere between the two a campaign has been losing money for four days. The numbers were all there. The decision never happened.</p>
+
+          <h2>The dashboard promise, and where it broke</h2>
+          <p>Business intelligence made a simple promise: put every metric in one place and better decisions will follow. Twenty years on, most teams have more dashboards than people who read them. The data arrived. The deciding didn't.</p>
+          <p>The gap isn't measurement — it's synthesis. A dashboard can show that lead quality fell 14% this week. It cannot tell you that the drop traces to one new paid-social campaign, that it started the day the audience launched, or that pausing it recovers the loss by Friday. Someone still has to read every chart, connect the systems and write the story. That someone is usually the most expensive person in the room.</p>
+          <InlineStat />
+          <p>That is not a tooling failure so much as a category failure. Dashboards answer <strong>what happened</strong>. Leaders are paid to answer <strong>so what, and what now</strong>.</p>
+
+          <blockquote>Not another dashboard, not another chatbot, not another analytics tool.</blockquote>
+
+          <h2>What decision intelligence does differently</h2>
+          <p>Decision intelligence sits between your data and your decisions. It detects what changed, explains why, and recommends what to do next — the synthesis a chief of staff would do by hand, running continuously.</p>
+          <p>In practice it is a loop with four verbs: <strong>Learn → Nudge → Recommend → Act</strong>. Learn how the organisation actually works — the relationships between signals, decisions and outcomes. Nudge the right owner when a signal starts to move, with reasons, before it becomes a measurable issue. Recommend a structured next step grounded in the organisation's own history. And act on command — fully traceable, aligned and immediate.</p>
+
+          <h3>From what changed to why it changed</h3>
+          <p>The difference shows up in the shape of the answer. A dashboard reports that a prospecting campaign spent $4.8K this week with zero conversions. A decision intelligence platform flags it as a P1, traces the failure to the audience that launched alongside it, names the owner who can fix it, and recommends the kill — with the recovered spend quantified.</p>
+          <p>One is a chart. The other is a decision, ready to approve.</p>
+
+          <Callout tone="insight" title="How Alfred applies this">
+            Alfred's Daily Brief opens each morning with what changed overnight, why it matters, and the one thing to act on first — before anyone opens a dashboard. Alfred for Marketing is live today; Alfred for Sales is in development.
+          </Callout>
+
+          <h2 style={{ marginTop: 44 }}>Where to start</h2>
+          <p>Not with a migration. Start with one decision your team makes every week — a budget reallocation, a creative rotation, a kill call — and ask whether the answer arrives explained and on time. If it doesn't, the problem was never the dashboard. It was everything the dashboard left for you to do.</p>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ——— Author box ——— */
+function AuthorBox() {
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <Container style={{ maxWidth: 760, padding: "0 40px 64px" }}>
+        <div style={{ display: "flex", gap: 16, alignItems: "flex-start", background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-2xl)", padding: 24 }}>
+          <Avatar name="Alfred Team" size={48} />
+          <div>
+            <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>Written by the Alfred team</div>
+            <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", margin: "6px 0 0", maxWidth: 520 }}>
+              We build the decision intelligence platform for the leaders who decide things. Questions about anything here? Write to <a href="mailto:hello@seekalfred.ai" style={{ color: "var(--text-link)", textDecoration: "none", fontWeight: "var(--fw-bold)" }}>hello@seekalfred.ai</a>.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ——— Keep reading — 3-post row in the SecBlogGrid card idiom. ——— */
+function KeepReading() {
+  const posts = [
+    { cat: "AI visibility", title: "Your AI Visibility Score, explained", read: "5 min", grad: "linear-gradient(135deg, var(--orange-500) 0%, var(--ink-900) 100%)" },
+    { cat: "Playbooks", title: "Catching budget drift four days early", read: "5 min", grad: "linear-gradient(135deg, var(--orange-400) 0%, var(--ink-800) 100%)" },
+    { cat: "Decision intelligence", title: "What changed, why, and what next: the anatomy of a decision-ready answer", read: "7 min", grad: "linear-gradient(135deg, var(--periwinkle-400) 0%, var(--ink-800) 100%)" },
+  ];
+  return (
+    <section style={{ background: "var(--surface-sunken)", borderTop: "1px solid var(--border-subtle)" }}>
+      <Container style={{ padding: "64px 40px 84px" }}>
+        <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--orange-400)" }}>Keep reading</span>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginTop: 24 }}>
+          {posts.map((post) => (
+            <a key={post.title} href="blog.html" style={{ textDecoration: "none", display: "block", background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-2xl)", overflow: "hidden" }}>
+              <div style={{ height: 140, background: post.grad }} />
+              <div style={{ padding: 22 }}>
+                <Chip tone="info">{post.cat}</Chip>
+                <h3 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 20, color: "#fff", letterSpacing: "-0.01em", margin: "14px 0 10px", lineHeight: 1.25 }}>{post.title}</h3>
+                <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{post.read} read</div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Page() {
+  return (
+    <>
+      <window.SiteNav />
+      <ArticleHeader />
+      <ArticleBody />
+      <AuthorBox />
+      <KeepReading />
+      <window.SecClosingCTA />
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

@@ -25,6 +25,7 @@ const GROUP_META = {
   Spacing: { icon: "fullscreen", order: 6 },
   Brand: { icon: "bookmark", order: 7 },
   Templates: { icon: "export", order: 8 },
+  Pages: { icon: "web-clarity", order: 8.5 },
   Decks: { icon: "demo-play", order: 9 },
   Slides: { icon: "fullscreen", order: 10 },
 };

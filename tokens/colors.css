@@ -48,6 +48,8 @@
   --danger-100:  #FCE8E9;
   --info-500:    #A7A7FC;  /* periwinkle */
   --info-100:    #EDEDFF;
+  --urgent-500:  #FF3D00;  /* live-site urgent red-orange — KILL / anomaly / P1 states */
+  --urgent-100:  #FFE4DB;
 
   /* —— Brand gradient ————————————————————————————— */
   /* The signature periwinkle → orange diagonal (logo + progress bars) */
@@ -112,26 +114,31 @@
    Apply with <html data-theme="dark"> or any [data-theme="dark"] scope.
    Brand orange / periwinkle / gradient stay identical; only
    surfaces & text invert. Pair with --glow-* for the ambient hero.
+   Verified against the live site 2026-07-01: pure black pages, cards are
+   low-alpha white fills with white-alpha hairlines (the warm ink ramp
+   below stays available as raw tokens for decks/print but no longer
+   drives the site surfaces). See ui_kits/website/LIVE-DRIFT.md for the
+   live defects we deliberately do NOT adopt.
    ============================================================ */
 [data-theme="dark"] {
-  --bg-page: var(--ink-950);          /* #0C0C0A warm near-black */
-  --bg-canvas: var(--ink-950);        /* page & canvas share the warm near-black */
-  --surface-card: var(--ink-875);     /* #171715 */
-  --surface-raised: #1E1E1C;          /* warm raised card */
-  --surface-sunken: var(--ink-925);   /* #111110 — alternating section band */
+  --bg-page: #000000;                       /* live pages are pure black */
+  --bg-canvas: #000000;
+  --surface-card: rgba(255,255,255,0.03);   /* live card pattern: 3% white + hairline */
+  --surface-raised: rgba(255,255,255,0.06);
+  --surface-sunken: rgba(255,255,255,0.02); /* barely-lifted alternating band */
   --surface-input: rgba(255,255,255,0.05);
   --surface-input-plain: rgba(255,255,255,0.04);
 
   --text-primary: #FFFFFF;
-  --text-secondary: rgb(204, 204, 204);  /* live "secondary text" */
+  --text-secondary: rgba(255,255,255,0.78); /* live tiers: 0.70 / 0.82 / #B8B8B8 */
   --text-muted: rgba(255,255,255,0.55);
   --text-placeholder: rgba(255,255,255,0.40);
   --text-on-brand: #FFFFFF;
-  --text-link: var(--orange-400);
+  --text-link: var(--orange-400);           /* brand-correct; live ships Framer-default #0099FF (defect) */
 
-  --border-subtle: #1A1A18;           /* warm hairline */
-  --border-default: #222220;          /* live "Border" #222222, warmed */
-  --border-strong: #33332F;
+  --border-subtle: rgba(255,255,255,0.08);  /* live hairlines are white-alpha, not opaque grays */
+  --border-default: rgba(255,255,255,0.12);
+  --border-strong: rgba(255,255,255,0.24);
   --border-focus: var(--orange-400);
 
   --accent-soft: rgba(255,132,49,0.14);

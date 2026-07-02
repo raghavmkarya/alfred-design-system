@@ -1,0 +1,244 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Docs" subtitle="Documentation shell — sidebar nav, four-stage model, getting started, TOC rail" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Docs — Alfred decision intelligence</title>
+<meta name="description" content="Alfred documentation — connect your stack, meet the Daily Brief, and learn how Alfred detects what changed, explains why, and recommends what to do next." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+  .docs-toc-link { color: var(--text-muted); text-decoration: none; }
+  .docs-toc-link:hover { color: var(--text-primary); }
+  .docs-mail-link { color: var(--text-link); text-decoration: none; font-weight: var(--fw-bold); }
+  .docs-mail-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel">
+const { Kbd, Callout, EyebrowBadge } = window.AlfredAIDesignSystem_1ce241;
+
+/* ——— Docs canon ——— */
+const SIDEBAR = [
+  { label: "Introduction", active: true },
+  { label: "Connect your stack" },
+  { label: "The Daily Brief" },
+  { label: "Seek Alfred" },
+  { label: "Approvals & write-back" },
+  { label: "Security" },
+  { label: "API", planned: true },
+  { label: "FAQ" },
+];
+
+const TOC = [
+  { label: "What Alfred is", href: "#what-alfred-is" },
+  { label: "The four-stage model", href: "#four-stage-model" },
+  { label: "Get started in three steps", href: "#get-started" },
+  { label: "Support", href: "#support" },
+];
+
+/* Singular four-verb loop — the /alfred_core and docs form. */
+const STAGES = [
+  { verb: "Learn", body: "Alfred connects to your stack and builds a memory of how your organisation actually works — every signal, decision and outcome, remembered by Alfred Core so nothing starts from zero." },
+  { verb: "Nudge", body: "When something changes that deserves your attention, Alfred surfaces it — ranked by impact, not by noise, with the sources behind every flag." },
+  { verb: "Recommend", body: "Every nudge arrives with what to do next: the action, the expected impact and the confidence behind it, traced back to the data." },
+  { verb: "Act", body: "Approve a recommendation and Alfred writes it back to the source platform — gated by your approval, covered by RBAC and a full audit trail." },
+];
+
+const STEPS = [
+  {
+    title: "Connect your stack",
+    body: "Pick from thirteen integrations — ad platforms, analytics, CRM, commerce, lifecycle and delivery. Authorise each connection in a couple of clicks; no code required.",
+    hint: <>Press <Kbd size="md">G</Kbd> then <Kbd size="md">I</Kbd> to open Integrations from anywhere.</>,
+  },
+  {
+    title: "Read your first Daily Brief",
+    body: "The next morning Alfred delivers the few things that need you — each with the decision, the why, and the sources it drew on.",
+    hint: <>Press <Kbd size="md">G</Kbd> then <Kbd size="md">B</Kbd> to jump to the Daily Brief.</>,
+  },
+  {
+    title: "Seek Alfred",
+    body: "Ask anything — “why did CAC rise last week?” — and get a decision-ready answer with the reasoning trace behind it.",
+    hint: <>Press <Kbd size="md">⌘</Kbd> <Kbd size="md">K</Kbd> to open Seek Alfred from any screen.</>,
+  },
+];
+
+/* ——— Shared type styles (Satoshi carries display on dark) ——— */
+const h1Style = { fontFamily: "var(--font-sans)", fontWeight: 400, fontSize: 44, lineHeight: 1.08, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "18px 0 0" };
+const h2Style = { fontFamily: "var(--font-sans)", fontWeight: "var(--fw-semibold)", fontSize: 24, lineHeight: 1.2, letterSpacing: "-0.015em", color: "var(--text-primary)", margin: 0 };
+const bodyStyle = { fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", margin: 0 };
+const railCapsStyle = { fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--text-muted)" };
+
+function DocsSidebar() {
+  return (
+    <nav aria-label="Docs navigation" style={{ position: "sticky", top: 104, display: "flex", flexDirection: "column", gap: 2 }}>
+      <span style={{ ...railCapsStyle, padding: "0 12px", marginBottom: 10 }}>Documentation</span>
+      {SIDEBAR.map((item) => (
+        <span
+          key={item.label}
+          aria-current={item.active ? "page" : undefined}
+          style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8,
+            padding: "8px 12px", borderRadius: "var(--radius-md)", cursor: "pointer",
+            fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+            fontWeight: item.active ? "var(--fw-bold)" : "var(--fw-medium)",
+            background: item.active ? "var(--accent-soft)" : "transparent",
+            color: item.active ? "var(--orange-400)" : item.planned ? "var(--text-muted)" : "var(--text-secondary)",
+          }}
+        >
+          {item.label}
+          {item.planned && (
+            <span style={{
+              padding: "2px 8px", borderRadius: "var(--radius-pill)", border: "1px solid var(--border-subtle)",
+              fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)",
+              textTransform: "uppercase", color: "var(--periwinkle-400)", whiteSpace: "nowrap",
+            }}>
+              Planned
+            </span>
+          )}
+        </span>
+      ))}
+    </nav>
+  );
+}
+
+function DocsToc() {
+  return (
+    <nav aria-label="On this page" style={{ position: "sticky", top: 104, display: "flex", flexDirection: "column", gap: 10, borderLeft: "1px solid var(--border-subtle)", paddingLeft: 18 }}>
+      <span style={railCapsStyle}>On this page</span>
+      {TOC.map((t) => (
+        <a key={t.href} href={t.href} className="docs-toc-link" style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)" }}>
+          {t.label}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
+function DocsArticle() {
+  return (
+    <article style={{ minWidth: 0, display: "flex", flexDirection: "column", gap: 48 }}>
+      {/* ——— Introduction ——— */}
+      <header id="what-alfred-is">
+        <EyebrowBadge tone="brand">Docs · Introduction</EyebrowBadge>
+        <h1 style={h1Style}>Getting started with Alfred</h1>
+        <p style={{ ...bodyStyle, fontSize: "var(--text-lg)", maxWidth: 620, marginTop: 16 }}>
+          Alfred is a decision intelligence platform: it detects what changed, explains why, and
+          recommends what to do next. Not another dashboard, not another chatbot, not another
+          analytics tool — Alfred sits between your data and your decisions and delivers
+          decision-ready intelligence every day.
+        </p>
+      </header>
+
+      {/* ——— Four-stage model ——— */}
+      <section id="four-stage-model" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        <h2 style={h2Style}>The four-stage model</h2>
+        <p style={{ ...bodyStyle, maxWidth: 620 }}>
+          Everything Alfred does moves through one loop — Learn, Nudge, Recommend, Act. Each stage
+          feeds the next, and Alfred Core compounds what it learns along the way.
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          {STAGES.map((s, i) => (
+            <div key={s.verb} style={{
+              display: "flex", alignItems: "flex-start", gap: 18, padding: "20px 22px",
+              background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+              borderRadius: "var(--radius-2xl)",
+            }}>
+              <span aria-hidden="true" style={{
+                width: 38, height: 38, flex: "none", borderRadius: "var(--radius-md)",
+                background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                fontFamily: "var(--font-mono)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-medium)",
+                letterSpacing: "0.1em", color: "var(--orange-400)",
+              }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", marginBottom: 4 }}>
+                  {s.verb}
+                </div>
+                <p style={{ ...bodyStyle, fontSize: "var(--text-sm)" }}>{s.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ——— Getting started ——— */}
+      <section id="get-started" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        <h2 style={h2Style}>Get started in three steps</h2>
+        <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 0 }}>
+          {STEPS.map((step, i) => (
+            <li key={step.title} style={{
+              display: "flex", alignItems: "flex-start", gap: 18,
+              padding: "22px 4px", borderTop: i > 0 ? "1px solid var(--border-subtle)" : "none",
+            }}>
+              <span aria-hidden="true" style={{
+                width: 30, height: 30, flex: "none", borderRadius: "var(--radius-circle)",
+                border: "1px solid var(--border-default)", display: "inline-flex",
+                alignItems: "center", justifyContent: "center",
+                fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
+                color: "var(--text-primary)",
+              }}>
+                {i + 1}
+              </span>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", marginBottom: 4 }}>
+                  {step.title}
+                </div>
+                <p style={{ ...bodyStyle, fontSize: "var(--text-sm)", maxWidth: 560 }}>{step.body}</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 10, fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>
+                  {step.hint}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* ——— Support ——— */}
+      <section id="support" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <h2 style={h2Style}>Support</h2>
+        <Callout tone="neutral" title="Still curious?">
+          These docs cover the essentials — for anything else, write to{" "}
+          <a href="mailto:hello@seekalfred.ai" className="docs-mail-link">hello@seekalfred.ai</a>{" "}
+          and a human will get back to you.
+        </Callout>
+      </section>
+    </article>
+  );
+}
+
+function Page() {
+  return (
+    <>
+      <window.SiteNav />
+      <main style={{ background: "var(--bg-page)" }}>
+        <div style={{
+          maxWidth: 1200, margin: "0 auto", padding: "56px 40px 96px",
+          display: "grid", gridTemplateColumns: "224px minmax(0, 1fr) 190px", gap: 48,
+          alignItems: "start",
+        }}>
+          <DocsSidebar />
+          <DocsArticle />
+          <DocsToc />
+        </div>
+      </main>
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

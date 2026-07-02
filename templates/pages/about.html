@@ -1,0 +1,60 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="About" subtitle="Mission, founding story, team, values and careers" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Alfred — Decision intelligence</title>
+<meta name="description" content="Alfred is the decision intelligence platform for marketing, sales, and the leaders running them. Meet the team at E902 AI Labs building the AI memory powering every decision." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsA.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel" src="../sections/SectionsE.jsx"></script>
+<script type="text/babel">
+/* The hero headline carries the page's single gradient element. */
+const gradText = { background: "var(--gradient-brand)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" };
+
+const STORY = [
+  "Alfred began with a pattern we couldn't unsee: every leadership team we met was drowning in dashboards. More tools, more charts, more Monday mornings spent reconstructing what happened — and still no clear answer to the only question that matters: what should we do next?",
+  "We believe the answer isn't another dashboard, another chatbot, or another analytics tool. It's decision intelligence — a layer that sits between your data and your decisions, detects what changed, explains why, and recommends what to do next. That is what Alfred delivers every day, across your connected stack, with every recommendation traced back to its source.",
+  "And because Alfred Core remembers every signal, decision and outcome, nothing starts from zero — the longer Alfred runs, the sharper it gets. That's the company we're building at E902 AI Labs: not a reporting tool, but the intelligence layer underneath the leaders who decide things.",
+];
+
+function Page() {
+  return (
+    <>
+      <window.SiteNav />
+      <window.SecHero
+        eyebrow="About Alfred"
+        title={<>Building the AI memory behind <span style={gradText}>every decision</span></>}
+        sub="Alfred is the decision intelligence platform for marketing, sales, and the leaders running them — built by E902 AI Labs."
+        primaryCta="get started"
+        secondaryCta="See open roles"
+      />
+      <window.SecStoryEditorial eyebrow="Our story" paragraphs={STORY} />
+      <window.SecTeamGrid />
+      <window.SecValuesGrid />
+      <window.SecCareers />
+      <window.SecClosingCTA />
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

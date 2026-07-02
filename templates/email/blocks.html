@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<meta name="supported-color-schemes" content="light dark" />
+<title>Alfred — email block library</title>
+<!--
+  ALFRED EMAIL BLOCKS — copy-paste library.
+  Each block below is a SELF-CONTAINED <table> snippet with all styles inline.
+  Copy everything between "BLOCK START" and "BLOCK END" into the
+  <!~~ @slot body ~~> region of shell.html (footer variants replace the shell
+  footer row instead). Rules + full hex→token map: templates/email/README.md.
+
+  Class names (em-h / em-t / em-mut / em-hair / em-link / em-sunken) are inert
+  on their own — they hook into shell.html's dark-mode <style> when pasted in.
+-->
+<style>
+  /* Library-page chrome only — never copy this block into an email. */
+  body { margin:0; padding:40px 16px; background:#F9F9F9; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; }
+  .lib-label { width:600px; margin:40px auto 10px; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#6B6B78; }
+  .lib-label:first-child { margin-top:0; }
+  .lib-wrap { width:600px; margin:0 auto; background:#FFFFFF; border:1px solid #E6E6E6; border-radius:16px; padding:24px 28px; }
+</style>
+</head>
+<body>
+
+<div class="lib-label">Hero — headline + sub + CTA</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: hero
+     Headline + supporting line + bulletproof CTA. One hero per email.
+     Tokens: #02021E --ink-900 · #505050 --ink-600 · #FF8431 --orange-500
+             #FFFFFF --white/--text-on-brand · 12px radius = button radius
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="padding:0 0 8px;">
+      <!-- Eyebrow: #6B6B78 mirrors --ink-500 / --text-muted -->
+      <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#6B6B78;">This week in your spend</div>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:0 0 10px;">
+      <!-- Headline: #02021E mirrors --ink-900; Clash-stack, tight tracking -->
+      <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:28px; font-weight:600; letter-spacing:-0.02em; line-height:1.16; color:#02021E;">I found $55.1K/mo in recoverable waste</div>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:0 0 20px;">
+      <!-- Sub: #505050 mirrors --ink-600 / --text-secondary -->
+      <div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:15px; line-height:1.55; color:#505050;">One campaign is burning $4.8K a month with zero conversions. I've drafted the reallocations — you approve, I execute.</div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <!-- Bulletproof CTA: padded cell, bgcolor #FF8431 mirrors --orange-500, 12px radius -->
+      <table role="presentation" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" bgcolor="#FF8431" style="background:#FF8431; border-radius:12px;">
+            <a href="{{cta_url}}" style="display:inline-block; padding:14px 32px; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:15px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:12px;">Review the reallocations</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- BLOCK END: hero -->
+</div>
+
+<div class="lib-label">Stat row — three stats + source citation</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: stat-row
+     Three KPI tiles + a VISIBLE source line. Never ship stats without
+     the source line (see voice-and-naming.md — no fabricated proof).
+     Tokens: #F9F9F9 --gray-50 · #F1F1F1 --gray-100 · #6B6B78 --ink-500
+             #02021E --ink-900 · #2FB67C --success-500 · #FF8431 --orange-500
+             16px radius = small-card radius
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="33%" style="padding:0 6px 0 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;">
+        <tr><td style="padding:16px;">
+          <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; color:#6B6B78;">Blended ROAS</div>
+          <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:24px; font-weight:600; letter-spacing:-0.02em; color:#02021E; padding-top:2px;">4.8x</div>
+          <div style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; color:#2FB67C;">+12.4% WoW</div>
+        </td></tr>
+      </table>
+    </td>
+    <td width="34%" style="padding:0 3px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;">
+        <tr><td style="padding:16px;">
+          <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; color:#6B6B78;">Spend</div>
+          <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:24px; font-weight:600; letter-spacing:-0.02em; color:#02021E; padding-top:2px;">$310K</div>
+          <div style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; color:#FF8431;">+6.1% hot</div>
+        </td></tr>
+      </table>
+    </td>
+    <td width="33%" style="padding:0 0 0 6px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;">
+        <tr><td style="padding:16px;">
+          <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; color:#6B6B78;">Blended CAC</div>
+          <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:24px; font-weight:600; letter-spacing:-0.02em; color:#02021E; padding-top:2px;">$142</div>
+          <!-- #FF8431 mirrors --orange-500 (rising / running warm) -->
+          <div style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; color:#FF8431;">+$18 WoW</div>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" style="padding:10px 2px 0;">
+      <!-- Source citation — REQUIRED whenever stats appear. #9CA3AF mirrors --ink-400 -->
+      <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:1.5; color:#9CA3AF;">Source: Alfred KPI Cockpit &middot; Meta Ads + Google Ads + HubSpot &middot; last 7 days, pulled {{data_pulled_date}}</div>
+    </td>
+  </tr>
+</table>
+<!-- BLOCK END: stat-row -->
+</div>
+
+<div class="lib-label">Brief-item card — what changed / why / do this</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: brief-item
+     One item of a daily/weekly brief: what changed, why, what to do,
+     plus a per-item source citation and a deep link into the product.
+     Stack up to three per email. Sample numbers: data/demo-data.json.
+     Tokens: #F1F1F1 --gray-100 · #FF8431 --orange-500 (accent bar + link)
+             #02021E --ink-900 · #505050 --ink-600 · #6B6B78 --ink-500
+             #9CA3AF --ink-400 (source line) · 16px radius = small-card radius
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-hair" style="border:1px solid #F1F1F1; border-left:3px solid #FF8431; border-radius:16px;">
+  <tr>
+    <td style="padding:18px 20px;">
+      <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#6B6B78;">Daily brief &middot; item 1 of 3</div>
+      <div class="em-h" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:16px; font-weight:700; color:#02021E; padding:8px 0 10px;">TikTok hero creative is fatiguing — CTR down 12% this week</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="92" valign="top" style="padding:0 0 6px;"><div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#6B6B78;">What changed</div></td>
+          <td valign="top" style="padding:0 0 6px;"><div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">CTR on the TikTok hero creative fell 12% this week; the campaign is holding 2.9x ROAS.</div></td>
+        </tr>
+        <tr>
+          <td width="92" valign="top" style="padding:0 0 6px;"><div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#6B6B78;">Why</div></td>
+          <td valign="top" style="padding:0 0 6px;"><div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">Creative fatigue, not audience — the spark ads audience is unchanged while the hero asset decays.</div></td>
+        </tr>
+        <tr>
+          <td width="92" valign="top"><div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#6B6B78;">Do this</div></td>
+          <td valign="top"><div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">Rotate the hero creative before Friday. A fresh variant protects ~$26K/mo of spend — 74% confidence.</div></td>
+        </tr>
+      </table>
+      <!-- Per-item source citation — REQUIRED on every brief item. #9CA3AF mirrors --ink-400 -->
+      <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:1.5; color:#9CA3AF; padding-top:8px;">Sources: TikTok &middot; GA4 &middot; pulled {{data_pulled_date}}</div>
+      <!-- Deep link: #FF8431 mirrors --orange-500 / --text-link -->
+      <div style="padding-top:10px;">
+        <a class="em-link" href="{{deep_link_url}}" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#FF8431; text-decoration:underline;">Open this brief in Alfred</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<!-- BLOCK END: brief-item -->
+</div>
+
+<div class="lib-label">Single CTA button</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: cta
+     Bulletproof button: padded table cell + bgcolor, no images, no VML
+     needed for fill (Outlook drops the 12px radius — acceptable degrade).
+     One primary CTA per email.
+     Tokens: #FF8431 --orange-500 / --accent · #FFFFFF --text-on-brand
+             12px radius = button radius · bold Satoshi stack
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" style="padding:8px 0;">
+      <table role="presentation" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" bgcolor="#FF8431" style="background:#FF8431; border-radius:12px;">
+            <a href="{{cta_url}}" style="display:inline-block; padding:14px 32px; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:15px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:12px;">Open in Alfred</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- BLOCK END: cta -->
+</div>
+
+<div class="lib-label">Quote block</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: quote
+     Customer/leader quote with attribution. Periwinkle is the cool
+     accent — the only place it leads in email.
+     Tokens: #A7A7FC --periwinkle-400 (accent bar) · #F3F3FF --periwinkle-50
+             #02021E --ink-900 · #6B6B78 --ink-500 · 16px radius
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F3FF; border-left:3px solid #A7A7FC; border-radius:16px;">
+  <tr>
+    <td style="padding:20px 22px;">
+      <div class="em-h" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:17px; font-weight:500; font-style:italic; line-height:1.5; color:#02021E;">&ldquo;Alfred pays for itself in the first week of every quarter. The Monday brief is the only email my team reads end to end.&rdquo;</div>
+      <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#6B6B78; padding-top:10px;">{{attribution_name}}, {{attribution_role_company}}</div>
+    </td>
+  </tr>
+</table>
+<!-- BLOCK END: quote -->
+</div>
+
+<div class="lib-label">Divider</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: divider
+     Hairline separator between body sections.
+     Tokens: #F1F1F1 --gray-100 (hairline)
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="em-hair" style="padding:20px 0 0; border-bottom:1px solid #F1F1F1; font-size:0; line-height:0;">&nbsp;</td>
+  </tr>
+  <tr><td style="padding-top:20px; font-size:0; line-height:0;">&nbsp;</td></tr>
+</table>
+<!-- BLOCK END: divider -->
+</div>
+
+<div class="lib-label">Footer variant A — product / lifecycle (replaces the shell footer row)</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: footer-product
+     For briefs, alerts, digests — first-person context line explaining
+     why the recipient got this. Paste as the shell's footer <td> content.
+     Tokens: #F9F9F9 --gray-50 · #F1F1F1 --gray-100 · #6B6B78 --ink-500
+             #FF8431 --orange-500 / --text-link
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border-top:1px solid #F1F1F1;">
+  <tr>
+    <td style="padding:24px 28px;">
+      <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:1.7; color:#6B6B78;">
+        I send this brief because you subscribed to the Daily Brief for {{workspace_name}}. Change the cadence any time.<br />
+        &copy; 2026 E902 AI Labs Private Limited<br />
+        {{registered_address — replace before sending}}<br />
+        <a class="em-link" href="{{unsubscribe_url}}" style="color:#FF8431; text-decoration:underline;">Unsubscribe</a>
+        &nbsp;&middot;&nbsp;
+        <a class="em-link" href="{{preferences_url}}" style="color:#FF8431; text-decoration:underline;">Manage preferences</a>
+        &nbsp;&middot;&nbsp;
+        <a class="em-link" href="mailto:hello@seekalfred.ai" style="color:#FF8431; text-decoration:underline;">hello@seekalfred.ai</a><br />
+        @seekalfred on
+        <a class="em-link" href="https://x.com/seekalfred" style="color:#FF8431; text-decoration:underline;">X</a>,
+        <a class="em-link" href="https://www.linkedin.com/company/seekalfred" style="color:#FF8431; text-decoration:underline;">LinkedIn</a>
+        and
+        <a class="em-link" href="https://www.instagram.com/seekalfred" style="color:#FF8431; text-decoration:underline;">Instagram</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<!-- BLOCK END: footer-product -->
+</div>
+
+<div class="lib-label">Footer variant B — marketing (replaces the shell footer row)</div>
+<div class="lib-wrap">
+<!-- ============================================================
+     BLOCK START: footer-marketing
+     For newsletters, announcements, nurture — third-person boilerplate
+     (verbatim from guidelines/voice-and-naming.md), entity, address,
+     unsubscribe, socials. Paste as the shell's footer <td> content.
+     Tokens: #F9F9F9 --gray-50 · #F1F1F1 --gray-100 · #6B6B78 --ink-500
+             #FF8431 --orange-500 / --text-link
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border-top:1px solid #F1F1F1;">
+  <tr>
+    <td style="padding:24px 28px;">
+      <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:1.7; color:#6B6B78;">
+        Alfred is the decision intelligence platform for marketing, sales, and the leaders running them. We connect your stack, synthesise what matters, and deliver decision-ready intelligence every day.<br />
+        &copy; 2026 E902 AI Labs Private Limited<br />
+        {{registered_address — replace before sending}}<br />
+        <a class="em-link" href="{{unsubscribe_url}}" style="color:#FF8431; text-decoration:underline;">Unsubscribe</a>
+        &nbsp;&middot;&nbsp;
+        <a class="em-link" href="https://seekalfred.ai" style="color:#FF8431; text-decoration:underline;">seekalfred.ai</a>
+        &nbsp;&middot;&nbsp;
+        <a class="em-link" href="mailto:hello@seekalfred.ai" style="color:#FF8431; text-decoration:underline;">hello@seekalfred.ai</a><br />
+        @seekalfred on
+        <a class="em-link" href="https://x.com/seekalfred" style="color:#FF8431; text-decoration:underline;">X</a>,
+        <a class="em-link" href="https://www.linkedin.com/company/seekalfred" style="color:#FF8431; text-decoration:underline;">LinkedIn</a>
+        and
+        <a class="em-link" href="https://www.instagram.com/seekalfred" style="color:#FF8431; text-decoration:underline;">Instagram</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<!-- BLOCK END: footer-marketing -->
+</div>
+
+</body>
+</html>

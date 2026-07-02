@@ -76,6 +76,52 @@ const EXAMPLES = {
   NumberInput: `<NumberInput label="Monthly budget cap" value={cap} onChange={setCap} min={0} max={100} step={5} prefix="$" unit="K" />`,
   Callout: `<Callout title="I'd watch Search pacing" action={{ label: "Review pacing", onClick: openPacing }}>\n  Google Ads is pacing 6% over plan — I'd cap daily spend at $12K until Thursday.\n</Callout>`,
   ProgressRing: `<ProgressRing value={72} label="Attained" sublabel="of Q3 target" />`,
+  EyebrowBadge: `<EyebrowBadge tone="brand">Decision intelligence</EyebrowBadge>
+<EyebrowBadge tone="periwinkle" mono>One source of truth</EyebrowBadge>`,
+  DotMatrix: `<DotMatrix height={220} density={0.14} tone="brand" />`,
+  OfferSwitch: `<OfferSwitch checked={offerApplied} onChange={setOfferApplied} detail="for your first 2 months" />`,
+  PriceCard: `<PriceCard name="Growth" price="249" anchorPrice="499" badge="MOST POPULAR" highlighted
+  features={["8 team seats", "500 AI chat queries a month", "Priority support, 1-day SLA"]}
+  cta={{ label: "Start with Growth", onClick: () => {} }} footnote="Launch offer — 50% off your first two months." />`,
+  IntegrationCard: `<IntegrationCard name="Google Ads" body="I pull spend, conversions and quality scores every hour to catch budget drift early." status="live" href="/integrations/google-ads" />`,
+  CategoryCountBadge: `<CategoryCountBadge count={5} label="Ad platforms" />`,
+  Countdown: `<Countdown target="2026-09-15T09:00:00Z" size="lg" />`,
+  AvatarStack: `<AvatarStack names={["Priya Menon", "Daniel Okafor", "Mei Lin", "Sofia Alvarez", "James Carter"]} max={4} label="2,300+ people already joined" />`,
+  CapabilityTicker: `<CapabilityTicker
+  items={["Budget reallocation", "CAC diagnosis", "Pipeline forecasting", "Creative fatigue alerts"]}
+  speed={36}
+/>`,
+  AnimatedCounter: `<AnimatedCounter value={4.8} suffix="x" label="Average ROAS" sublabel="Across $128M of managed spend" />`,
+  JobListingRow: `<JobListingRow title="Senior product designer" team="Design" location="London or remote" type="Full-time" href="/careers/senior-product-designer" />`,
+  ModuleStatusCard: `<ModuleStatusCard module="Alfred for Sales" slogan="Know which deals will actually close" status="in-development"
+  agents={["Pipeline risk agent", "Forecast agent"]} cta="Join the waitlist" href="/products/sales" />`,
+  ProvenancePanel: `<ProvenancePanel sources={[{ name: "GA4", detail: "sessions", status: "live" }, { name: "HubSpot", detail: "pipeline", status: "live" }]}
+  confidence={82} method="I compared 90 days of spend pacing against lead quality and isolated the paid-social audience change." updated="6m ago" defaultOpen />`,
+  InsightFeedback: `<InsightFeedback onFeedback={(verdict, reason) => save(verdict, reason)} />`,
+  ReasoningState: `<ReasoningState lines={["Reading your spend data…", "Isolating what changed…", "Drafting the move…"]} elapsed="8s" />`,
+  ConnectionHealthCard: `<ConnectionHealthCard name="Google Ads" status="error" lastSync="42m ago" scopes={["Ads read", "Reporting"]}
+  detail="I can't refresh spend — the OAuth token expired, so today's pacing may be off." onReconnect={() => {}} />`,
+  SyncStatusBadge: `<SyncStatusBadge status="fresh" />
+<SyncStatusBadge status="syncing" />
+<SyncStatusBadge status="error" label="Reconnect Google Ads" />`,
+  UsageMeter: `<UsageMeter label="Decision runs" used={8400} limit={10000} unit="runs" footnote="Resets 1 Aug — I'll flag you before you hit the cap." />`,
+  UpgradeModal: `<UpgradeModal open={open} onClose={() => setOpen(false)}
+  cta={{ label: "Upgrade to Growth", onClick: startCheckout }} />`,
+  AuditLogRow: `<AuditLogRow actor="Alfred" isAlfred action="reallocated budget to" target="Performance Max — Q3" time="Today, 09:42"
+  detail="I moved $18K from brand search into Performance Max after CAC rose 22% week over week." />`,
+  MemoryCard: `<MemoryCard fact="Paid social CAC runs 18% higher in weeks when promo emails and prospecting flights overlap." source="Learned from HubSpot · Mar 12" category="Root cause" onConfirm={() => {}} onEdit={() => {}} onRemove={() => {}} />`,
+  ModuleSwitcher: `<ModuleSwitcher active="marketing" onChange={(id) => setModule(id)}
+  modules={[{ id: "marketing", label: "Marketing", status: "live" }, { id: "sales", label: "Sales", status: "in-development" }]} />`,
+  TeamMemberRow: `<TeamMemberRow name="Priya Menon" email="priya@acmecorp.com" role="Admin" status="active"
+  onRoleChange={(role) => updateRole("priya@acmecorp.com", role)} onRemove={() => removeMember("priya@acmecorp.com")} />`,
+  BillingPlanCard: `<BillingPlanCard plan="Growth" price="$299" period="per month" renewal="Renews Aug 2 · Visa ·· 4242"
+  usage={[{ label: "Decision runs", used: 1840, limit: 2500 }, { label: "Seats", used: 8, limit: 10 }]}
+  onManage={() => openPortal()} onUpgrade={() => openUpgrade()} />`,
+  NotificationPref: `<NotificationPref agent="Budget pacing agent" description="I flag campaigns pacing more than 8% over or under plan."
+  channels={{ email: true, slack: true, inApp: false }} onChange={(channel, value) => savePref(channel, value)} />`,
+  DashboardMock: `<DashboardMock />  {/* canonical demo data built in; override url/kpis/score/actions per page */}`,
+  StateBlock: `<StateBlock kind="empty" title="All clear" body="I haven't found any alerts today — you're all caught up."
+  action={{ label: "Review yesterday's decisions", onClick: () => {} }} />`,
 };
 
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
