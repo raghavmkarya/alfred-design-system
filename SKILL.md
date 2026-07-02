@@ -58,10 +58,12 @@ Decision intelligence platform for marketing leaders. Warm + premium. **Orange `
 for UI/body. Soft corners (12/24/32px), soft diffuse shadows. First-person, chief-of-staff
 voice ("I've flagged…", speak to "you"). Sentence case. No emoji.
 
-**Website / marketing materials** mirror the live seekalfred.ai site instead: **Satoshi
-headlines + Inter body** on **warm near-black** surfaces (`#0C0C0A`/`#171715`). This is auto-applied
-to anything under `[data-theme="dark"]` (marketing site, section templates, dark cards) — the
-light app, slides and deck are unaffected and keep Clash + Satoshi.
+**Website / marketing materials** mirror the live seekalfred.ai site instead: **Satoshi for
+headlines AND body** (Inter fallback) on **pure-black** pages with 3%-white cards and
+white-alpha hairlines. This is auto-applied to anything under `[data-theme="dark"]`
+(marketing site, section templates, dark cards) — the light app, slides and deck are
+unaffected and keep Clash + Satoshi. See `ui_kits/website/LIVE-DRIFT.md` for live defects
+we deliberately do not adopt, and `guidelines/voice-and-naming.md` for the naming canon.
 
 ## Components at runtime
 Load the compiled bundle and destructure from the namespace:

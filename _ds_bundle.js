@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"6af8514bc4c8","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"46e2dbd3e4da","components/core/Chip.jsx":"3aa9f88a2fa5","components/core/Tabs.jsx":"4b87bb6122a5","components/core/Badge.jsx":"d9b434a84f8c","components/core/Input.jsx":"c4ed87b28014","components/core/Avatar.jsx":"85b9b49b2b31","components/core/Button.jsx":"a9c5a54325ba","components/core/Select.jsx":"ae3962f1c8bf","components/core/Slider.jsx":"1c0ffe3ec386","components/core/Switch.jsx":"c9ded214d6f5","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"8d1e78924815","components/core/Checkbox.jsx":"8dd61757d822","components/core/Combobox.jsx":"4ac6f9b112c2","components/core/TagInput.jsx":"855deda4f429","components/core/Textarea.jsx":"b29d19a4715a","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"ce9d5fc90c74","components/core/RadioGroup.jsx":"9157e4d1110f","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"d629719b9286","components/core/FileDropzone.jsx":"d623ca9be792","components/core/SegmentedControl.jsx":"95c400b52758","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"c0c0b20c2679","components/data/Stepper.jsx":"6aba5aee2fb8","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"1666a8058352","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"fa053e671b69","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"4c7dd632925c","components/data/ActivityTimeline.jsx":"94a9c8e9d8c5","components/data/NotificationItem.jsx":"0df6dda97596","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"39d4fc9e105e","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"7781e34363c9","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"8f92a9063054","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"8679574637e5","components/overlay/Modal.jsx":"0ce7a73b8f82","components/overlay/Toast.jsx":"7cbdf6333875","components/overlay/Drawer.jsx":"bd2d3374fe86","components/overlay/Popover.jsx":"fcafda290a92","components/overlay/Tooltip.jsx":"335eecc67b50","components/feedback/Banner.jsx":"7d26ac00a172","components/feedback/Callout.jsx":"258818c7ce82","components/marketing/FaqItem.jsx":"7f7a9fd9d203","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"62c48dce4f84","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/RecommendationCard.jsx":"d7d888885396","components/app/Sidebar.jsx":"85fcfcd79fd7","components/app/StatTile.jsx":"2c0c56e88b04","components/app/DataTable.jsx":"b0df0437929c","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/CommandPalette.jsx":"582975b53696","components/app/DateRangePicker.jsx":"cd89be7fa32f","components/conversation/SeekComposer.jsx":"3237cc18334a","components/conversation/AlfredMessage.jsx":"39e6d138f2b2","components/conversation/ThinkingTrace.jsx":"82f057b71eb8","components/conversation/PromptSuggestions.jsx":"9cbb891112bd","components/decision/GoalPacing.jsx":"c71750f838c3","components/decision/AnomalyFlag.jsx":"63d1a34fda9b","components/decision/ApprovalGate.jsx":"75a63cc2fae6","components/decision/ScenarioSimulator.jsx":"f5fed2a8e1dd"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"6af8514bc4c8","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"46e2dbd3e4da","components/core/Chip.jsx":"3aa9f88a2fa5","components/core/Tabs.jsx":"4b87bb6122a5","components/core/Badge.jsx":"d9b434a84f8c","components/core/Input.jsx":"c4ed87b28014","components/core/Avatar.jsx":"85b9b49b2b31","components/core/Button.jsx":"a9c5a54325ba","components/core/Select.jsx":"ae3962f1c8bf","components/core/Slider.jsx":"1c0ffe3ec386","components/core/Switch.jsx":"c9ded214d6f5","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"8d1e78924815","components/core/Checkbox.jsx":"8dd61757d822","components/core/Combobox.jsx":"4ac6f9b112c2","components/core/TagInput.jsx":"855deda4f429","components/core/Textarea.jsx":"b29d19a4715a","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"ce9d5fc90c74","components/core/RadioGroup.jsx":"9157e4d1110f","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"d629719b9286","components/core/FileDropzone.jsx":"d623ca9be792","components/core/SegmentedControl.jsx":"95c400b52758","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"c0c0b20c2679","components/data/Stepper.jsx":"6aba5aee2fb8","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"1666a8058352","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"fa053e671b69","components/data/StateBlock.jsx":"d75c3387cc65","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"4c7dd632925c","components/data/ActivityTimeline.jsx":"94a9c8e9d8c5","components/data/NotificationItem.jsx":"0df6dda97596","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"39d4fc9e105e","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"7781e34363c9","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"8f92a9063054","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"8679574637e5","components/overlay/Modal.jsx":"0ce7a73b8f82","components/overlay/Toast.jsx":"7cbdf6333875","components/overlay/Drawer.jsx":"bd2d3374fe86","components/overlay/Popover.jsx":"fcafda290a92","components/overlay/Tooltip.jsx":"335eecc67b50","components/feedback/Banner.jsx":"7d26ac00a172","components/feedback/Callout.jsx":"258818c7ce82","components/marketing/FaqItem.jsx":"7f7a9fd9d203","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"879a15d9482f","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"62c48dce4f84","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"dd326ef03ea3","components/marketing/EyebrowBadge.jsx":"ad0f7b221957","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"d56bd477fd2e","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"4c64be3b99eb","components/marketing/CapabilityTicker.jsx":"453412e5e698","components/marketing/ModuleStatusCard.jsx":"f930230faac4","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"2d48d63dd95b","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"864b61ba199e","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"d7d888885396","components/app/Sidebar.jsx":"85fcfcd79fd7","components/app/StatTile.jsx":"2c0c56e88b04","components/app/DataTable.jsx":"b0df0437929c","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/UsageMeter.jsx":"c4b56e2cba7b","components/app/AuditLogRow.jsx":"f51db275f81f","components/app/UpgradeModal.jsx":"72734a5808d3","components/app/TeamMemberRow.jsx":"02a341a65ca8","components/app/CommandPalette.jsx":"582975b53696","components/app/ModuleSwitcher.jsx":"6f0adda0803a","components/app/BillingPlanCard.jsx":"1715b6b56c34","components/app/DateRangePicker.jsx":"cd89be7fa32f","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"c2ca73e806b3","components/conversation/SeekComposer.jsx":"3237cc18334a","components/conversation/AlfredMessage.jsx":"39e6d138f2b2","components/conversation/ThinkingTrace.jsx":"82f057b71eb8","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"9cbb891112bd","components/decision/GoalPacing.jsx":"c71750f838c3","components/decision/AnomalyFlag.jsx":"63d1a34fda9b","components/decision/ApprovalGate.jsx":"75a63cc2fae6","components/decision/ScenarioSimulator.jsx":"f5fed2a8e1dd"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -3484,6 +3484,152 @@ function Pagination({
 }
 __ds_scope.Pagination = Pagination;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/data/Pagination.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/StateBlock.jsx
+try { (() => {
+const { Button, Spinner } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — StateBlock
+ * Unified empty / error / loading block for any surface — panels, tables,
+ * cards, full views. `loading` composes the Spinner inside a polite status
+ * region, `error` is an assertive alert with danger accents and a retry
+ * action, `empty` stays neutral with a next-step action. Copy defaults speak
+ * in Alfred's first person; pass `icon` to override the per-kind glyph.
+ */
+function StateBlock({
+  kind = "empty",
+  title,
+  body,
+  action,
+  icon,
+  compact = false,
+  style = {}
+}) {
+  const defaults = {
+    empty: {
+      title: "All clear",
+      body: "I haven't found any alerts today — you're all caught up."
+    },
+    error: {
+      title: "I hit a snag",
+      body: "I couldn't load this view — retry and I'll pull the data again."
+    },
+    loading: {
+      title: "One moment",
+      body: "I'm pulling your latest numbers together."
+    }
+  };
+  const k = defaults[kind] ? kind : "empty";
+  const heading = title || defaults[k].title;
+  const copy = body === undefined ? defaults[k].body : body;
+  const glyphSize = compact ? 18 : 24;
+  const glyphs = {
+    empty: /*#__PURE__*/React.createElement("svg", {
+      width: glyphSize,
+      height: glyphSize,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("polyline", {
+      points: "22 12 16 12 14 15 10 15 8 12 2 12"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+    })),
+    error: /*#__PURE__*/React.createElement("svg", {
+      width: glyphSize,
+      height: glyphSize,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M12 9v4"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M12 17h.01"
+    }))
+  };
+
+  // danger-500 at 12% — same soft danger fill Callout uses; reads in both themes
+  const chipBg = k === "error" ? "rgba(229,72,77,0.12)" : "var(--accent-soft)";
+  const chipColor = k === "error" ? "var(--danger-500)" : "var(--orange-500)";
+  const live = k === "error" ? {
+    role: "alert"
+  } : k === "loading" ? {
+    role: "status",
+    "aria-live": "polite",
+    "aria-busy": true
+  } : {};
+  return /*#__PURE__*/React.createElement("div", _extends({}, live, {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      gap: 6,
+      padding: compact ? "24px 16px" : "48px 24px",
+      ...style
+    }
+  }), k === "loading" && !icon ? /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      marginBottom: compact ? 4 : 8
+    }
+  }, /*#__PURE__*/React.createElement(Spinner, {
+    size: compact ? "md" : "lg"
+  })) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: compact ? 40 : 56,
+      height: compact ? 40 : 56,
+      borderRadius: "var(--radius-xl)",
+      background: chipBg,
+      color: chipColor,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      marginBottom: compact ? 4 : 8,
+      flex: "none"
+    }
+  }, icon || glyphs[k] || glyphs.empty), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontWeight: "var(--fw-semibold)",
+      fontSize: compact ? "var(--text-lg)" : "var(--text-h4)",
+      color: "var(--text-primary)",
+      letterSpacing: "var(--ls-tight)"
+    }
+  }, heading), copy && /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: compact ? "var(--text-sm)" : "var(--text-base)",
+      color: "var(--text-muted)",
+      maxWidth: 360,
+      margin: "2px 0 0",
+      lineHeight: "var(--lh-normal)"
+    }
+  }, copy), action && action.label && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: compact ? 10 : 14
+    }
+  }, /*#__PURE__*/React.createElement(Button, {
+    variant: "primary",
+    size: compact ? "sm" : "md",
+    onClick: action.onClick
+  }, action.label)));
+}
+__ds_scope.StateBlock = StateBlock;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/data/StateBlock.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/ProgressBar.jsx
 try { (() => {
@@ -7297,6 +7443,624 @@ function StepFlow({
 __ds_scope.StepFlow = StepFlow;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/StepFlow.jsx", error: String((e && e.message) || e) }); }
 
+// components/marketing/Countdown.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — Countdown
+ * Launch countdown for the live waitlist: DD:HH:MM:SS blocks in Clash Display
+ * tabular numerals with small tracked labels. Server-renders a deterministic
+ * "00" state, then hydrates to a live once-per-second tick.
+ */
+function Countdown({
+  target,
+  labels = true,
+  size = "md",
+  style = {},
+  ...rest
+}) {
+  const targetMs = React.useMemo(() => {
+    if (target == null) return null;
+    const t = typeof target === "number" ? target : Date.parse(target);
+    return Number.isFinite(t) ? t : null;
+  }, [target]);
+
+  // null = not yet hydrated → deterministic "00" fallback on the server.
+  const [now, setNow] = React.useState(null);
+  React.useEffect(() => {
+    if (targetMs == null) return undefined;
+    setNow(Date.now());
+    if (targetMs - Date.now() <= 0) return undefined;
+    const id = setInterval(() => {
+      const t = Date.now();
+      setNow(t);
+      if (t >= targetMs) clearInterval(id);
+    }, 1000);
+    return () => clearInterval(id);
+  }, [targetMs]);
+  const live = targetMs != null && now != null;
+  const totalSeconds = live ? Math.max(0, Math.floor((targetMs - now) / 1000)) : 0;
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor(totalSeconds % 86400 / 3600);
+  const minutes = Math.floor(totalSeconds % 3600 / 60);
+  const seconds = totalSeconds % 60;
+  const pad = n => String(n).padStart(2, "0");
+  const blocks = [{
+    unit: "Days",
+    value: pad(days)
+  }, {
+    unit: "Hours",
+    value: pad(hours)
+  }, {
+    unit: "Minutes",
+    value: pad(minutes)
+  }, {
+    unit: "Seconds",
+    value: pad(seconds)
+  }];
+  const sizes = {
+    sm: {
+      digit: 24,
+      pad: "8px 10px",
+      minWidth: 46,
+      label: 10,
+      gap: 6,
+      colGap: 8
+    },
+    md: {
+      digit: 40,
+      pad: "12px 14px",
+      minWidth: 74,
+      label: 11,
+      gap: 8,
+      colGap: 10
+    },
+    lg: {
+      digit: 56,
+      pad: "16px 18px",
+      minWidth: 100,
+      label: 12,
+      gap: 10,
+      colGap: 12
+    }
+  };
+  const s = sizes[size] || sizes.md;
+  const ariaLabel = live ? `Launch countdown: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds remaining` : "Launch countdown";
+  const digitStyle = {
+    fontFamily: "var(--font-display)",
+    fontWeight: "var(--fw-semibold)",
+    fontSize: s.digit,
+    lineHeight: 1,
+    letterSpacing: "var(--ls-tight)",
+    fontVariantNumeric: "tabular-nums",
+    color: "var(--text-primary)"
+  };
+  return /*#__PURE__*/React.createElement("div", _extends({
+    role: "timer",
+    "aria-label": ariaLabel,
+    style: {
+      display: "inline-flex",
+      flexDirection: "column",
+      gap: s.gap,
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "flex-start",
+      gap: s.colGap
+    }
+  }, blocks.map((b, i) => /*#__PURE__*/React.createElement(React.Fragment, {
+    key: b.unit
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: s.gap
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...digitStyle,
+      display: "inline-flex",
+      justifyContent: "center",
+      minWidth: s.minWidth,
+      padding: s.pad,
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-md)",
+      transition: "color var(--dur-fast) var(--ease-standard)"
+    }
+  }, b.value), labels && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: s.label,
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, b.unit)), i < blocks.length - 1 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...digitStyle,
+      color: "var(--text-muted)",
+      padding: `${s.pad.split(" ")[0]} 0`
+    }
+  }, ":")))));
+}
+__ds_scope.Countdown = Countdown;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/Countdown.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/DotMatrix.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — DotMatrix
+ * The signature dot-matrix band: a grid of ~6px squares on the page
+ * background with a shifting subset pulsing in brand orange (About hero and
+ * CTA bands on the live site). Server-side and under prefers-reduced-motion
+ * it renders a static SVG grid with a pre-baked clustered pattern; on the
+ * client (motion allowed) it upgrades to a canvas + requestAnimationFrame
+ * shimmer. Purely decorative — hidden from assistive tech.
+ */
+function DotMatrix({
+  height = 220,
+  density = 0.14,
+  speed = 90,
+  tone = "brand",
+  style = {},
+  ...rest
+}) {
+  const CELL = 6; // square size, px
+  const GAP = 3; // gap between squares, px
+  const PITCH = CELL + GAP;
+  const VW = 900; // static SVG viewBox width
+
+  // Fallback hex values are used only for canvas fillStyle (canvas cannot
+  // resolve var(--…)); they mirror the token values and are read from the
+  // cascade first via getComputedStyle.
+  const TONES = {
+    brand: {
+      cssVar: "--orange-500",
+      fallback: "#FF8431"
+    },
+    periwinkle: {
+      cssVar: "--periwinkle-400",
+      fallback: "#A7A7FC"
+    },
+    urgent: {
+      cssVar: "--urgent-500",
+      fallback: "#FF3D00"
+    }
+  };
+  const t = TONES[tone] || TONES.brand;
+  const den = Math.max(0, Math.min(1, density));
+  const hNum = typeof height === "number" && isFinite(height) ? height : 220;
+
+  // Deterministic pseudo-random — identical on server and client.
+  const hash = (x, y) => {
+    const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+    return s - Math.floor(s);
+  };
+  // Gentle clustering so lit dots gather in drifts instead of pure noise.
+  // Averages ~1.0 so the overall lit fraction stays ≈ density.
+  const weight = (c, r) => 0.3 + 1.4 * (0.5 + 0.5 * Math.sin(c * 0.42 + Math.sin(r * 0.73) * 1.9 + r * 0.21));
+  const uid = React.useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const pid = "dm-grid-" + uid;
+  const wrapRef = React.useRef(null);
+  const canvasRef = React.useRef(null);
+  const [animated, setAnimated] = React.useState(false);
+
+  // Motion gate — canvas only when the user allows motion.
+  React.useEffect(() => {
+    try {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const update = () => setAnimated(!mq.matches);
+      update();
+      if (mq.addEventListener) mq.addEventListener("change", update);else if (mq.addListener) mq.addListener(update);
+      return () => {
+        if (mq.removeEventListener) mq.removeEventListener("change", update);else if (mq.removeListener) mq.removeListener(update);
+      };
+    } catch (e) {
+      setAnimated(true); // no matchMedia — assume motion is fine
+    }
+  }, []);
+
+  // Canvas shimmer — rAF loop lives entirely inside the effect.
+  React.useEffect(() => {
+    if (!animated) return;
+    const wrap = wrapRef.current;
+    const canvas = canvasRef.current;
+    if (!wrap || !canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const cs = getComputedStyle(canvas);
+    const readVar = (name, fallback) => (cs.getPropertyValue(name) || "").trim() || fallback;
+    const litColor = readVar(t.cssVar, t.fallback);
+    const dimColor = readVar("--text-primary", "#02021E");
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let raf = 0;
+    let running = true;
+    let start = null;
+    let cols = 1,
+      rows = 1,
+      ox = 0,
+      oy = 0,
+      period = 30;
+    let phase = null,
+      win = null,
+      peak = null,
+      dimLayer = null;
+    const build = () => {
+      const w = wrap.clientWidth || 1;
+      const hpx = wrap.clientHeight || 1;
+      canvas.width = Math.max(1, Math.round(w * dpr));
+      canvas.height = Math.max(1, Math.round(hpx * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.max(1, Math.floor((w + GAP) / PITCH));
+      rows = Math.max(1, Math.floor((hpx + GAP) / PITCH));
+      ox = (w - (cols * PITCH - GAP)) / 2;
+      oy = (hpx - (rows * PITCH - GAP)) / 2;
+      const count = cols * rows;
+      // speed ≈ dot pulses per second across the whole band
+      period = Math.min(80, Math.max(8, count / Math.max(1, speed)));
+      phase = new Float32Array(count);
+      win = new Float32Array(count);
+      peak = new Float32Array(count);
+      let i = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++, i++) {
+          phase[i] = hash(c * 1.7 + 13.31, r * 2.3 + 7.17);
+          win[i] = Math.min(0.9, den * weight(c, r));
+          peak[i] = 0.4 + 0.6 * hash(c + 91.7, r + 45.2);
+        }
+      }
+      // Pre-render the faint resting grid once per resize.
+      dimLayer = document.createElement("canvas");
+      dimLayer.width = canvas.width;
+      dimLayer.height = canvas.height;
+      const dctx = dimLayer.getContext("2d");
+      if (dctx) {
+        dctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        dctx.fillStyle = dimColor;
+        dctx.globalAlpha = 0.09;
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            dctx.fillRect(ox + c * PITCH, oy + r * PITCH, CELL, CELL);
+          }
+        }
+      }
+    };
+    const frame = ts => {
+      if (!running) return;
+      if (start === null) start = ts;
+      const time = (ts - start) / 1000;
+      const w = canvas.width / dpr;
+      const hpx = canvas.height / dpr;
+      ctx.clearRect(0, 0, w, hpx);
+      if (dimLayer) ctx.drawImage(dimLayer, 0, 0, w, hpx);
+      ctx.fillStyle = litColor;
+      let i = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++, i++) {
+          const x = (time / period + phase[i]) % 1;
+          if (x < win[i]) {
+            ctx.globalAlpha = Math.sin(Math.PI * (x / win[i])) * peak[i];
+            ctx.fillRect(ox + c * PITCH, oy + r * PITCH, CELL, CELL);
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+      raf = window.requestAnimationFrame(frame);
+    };
+    build();
+    raf = window.requestAnimationFrame(frame);
+    let ro = null;
+    const onResize = () => build();
+    try {
+      ro = new ResizeObserver(onResize);
+      ro.observe(wrap);
+    } catch (e) {
+      window.addEventListener("resize", onResize);
+    }
+    return () => {
+      running = false;
+      window.cancelAnimationFrame(raf);
+      if (ro) ro.disconnect();else window.removeEventListener("resize", onResize);
+    };
+  }, [animated, den, speed, tone, hNum]);
+
+  // Pre-baked static pattern for SSR and reduced motion.
+  const staticDots = React.useMemo(() => {
+    const cols = Math.floor((VW + GAP) / PITCH);
+    const rows = Math.max(1, Math.floor((hNum + GAP) / PITCH));
+    const oy = (hNum - (rows * PITCH - GAP)) / 2;
+    const dots = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (hash(c, r) < den * weight(c, r)) {
+          dots.push({
+            x: c * PITCH,
+            y: oy + r * PITCH,
+            o: (0.4 + 0.6 * hash(c + 91.7, r + 45.2)).toFixed(2)
+          });
+        }
+      }
+    }
+    return dots;
+  }, [den, hNum]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: wrapRef,
+    "aria-hidden": "true",
+    style: {
+      position: "relative",
+      width: "100%",
+      height,
+      overflow: "hidden",
+      pointerEvents: "none",
+      userSelect: "none",
+      ...style
+    }
+  }, rest), animated ? /*#__PURE__*/React.createElement("canvas", {
+    ref: canvasRef,
+    style: {
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      display: "block"
+    }
+  }) : /*#__PURE__*/React.createElement("svg", {
+    width: "100%",
+    height: "100%",
+    viewBox: `0 0 ${VW} ${hNum}`,
+    preserveAspectRatio: "xMidYMid slice",
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      inset: 0,
+      display: "block"
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("pattern", {
+    id: pid,
+    width: PITCH,
+    height: PITCH,
+    patternUnits: "userSpaceOnUse"
+  }, /*#__PURE__*/React.createElement("rect", {
+    width: CELL,
+    height: CELL,
+    fill: "var(--text-primary)",
+    fillOpacity: "0.08"
+  }))), /*#__PURE__*/React.createElement("rect", {
+    width: VW,
+    height: hNum,
+    fill: `url(#${pid})`
+  }), staticDots.map((d, i) => /*#__PURE__*/React.createElement("rect", {
+    key: i,
+    x: d.x,
+    y: d.y,
+    width: CELL,
+    height: CELL,
+    fill: `var(${t.cssVar})`,
+    fillOpacity: d.o
+  }))));
+}
+__ds_scope.DotMatrix = DotMatrix;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/DotMatrix.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/PriceCard.jsx
+try { (() => {
+/**
+ * Alfred AI — PriceCard
+ * Pricing tier card from the live site: tier name in Clash Display, a big
+ * price with an optional struck-through anchor price, a badge pill over the
+ * top edge, a checklist of features with line-style SVG checks, and a
+ * full-width CTA. `highlighted` adds the featured-tier orange treatment
+ * (1px orange border + soft orange glow + solid orange CTA).
+ */
+function PriceCard({
+  name,
+  price,
+  anchorPrice,
+  currency = "$",
+  period = "/month",
+  badge,
+  features = [],
+  cta,
+  highlighted = false,
+  footnote,
+  style = {}
+}) {
+  const [hover, setHover] = React.useState(false);
+  const [press, setPress] = React.useState(false);
+  const [focusRing, setFocusRing] = React.useState(false);
+  const onCtaFocus = e => {
+    try {
+      setFocusRing(e.target.matches(":focus-visible"));
+    } catch (err) {
+      setFocusRing(true);
+    }
+  };
+  const check = /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 16 16",
+    fill: "none",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2.8 8.6l3.2 3.2 7.2-7.6",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }));
+  const ctaStyle = {
+    width: "100%",
+    height: 46,
+    marginTop: 24,
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-base)",
+    fontWeight: "var(--fw-bold)",
+    letterSpacing: "0.01em",
+    lineHeight: 1,
+    borderRadius: "var(--radius-md)",
+    cursor: "pointer",
+    userSelect: "none",
+    whiteSpace: "nowrap",
+    transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)",
+    transform: press ? "scale(0.98)" : "scale(1)",
+    ...(highlighted ? {
+      background: hover ? "var(--orange-600)" : "var(--orange-500)",
+      color: "var(--text-on-brand)",
+      border: "1px solid transparent",
+      boxShadow: focusRing ? "var(--shadow-focus)" : hover ? "var(--shadow-brand)" : "none"
+    } : {
+      background: "transparent",
+      color: hover ? "var(--orange-500)" : "var(--text-primary)",
+      border: hover ? "1px solid var(--orange-500)" : "1px solid var(--border-default)",
+      boxShadow: focusRing ? "var(--shadow-focus)" : "none"
+    })
+  };
+  return /*#__PURE__*/React.createElement("section", {
+    "aria-label": name ? name + " plan" : "Pricing plan",
+    style: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "column",
+      background: "var(--surface-card)",
+      border: highlighted ? "1px solid var(--orange-500)" : "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: highlighted ? "var(--shadow-brand)" : "var(--shadow-sm)",
+      padding: "32px 28px 28px",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, badge && /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      top: -13,
+      left: "50%",
+      transform: "translateX(-50%)",
+      display: "inline-flex",
+      alignItems: "center",
+      height: 26,
+      padding: "0 14px",
+      borderRadius: "var(--radius-pill)",
+      background: "var(--orange-500)",
+      color: "var(--text-on-brand)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      whiteSpace: "nowrap"
+    }
+  }, badge), /*#__PURE__*/React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--text-primary)"
+    }
+  }, name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "baseline",
+      gap: 10,
+      marginTop: 14,
+      flexWrap: "wrap"
+    }
+  }, anchorPrice != null && /*#__PURE__*/React.createElement("s", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      fontWeight: "var(--fw-medium)",
+      letterSpacing: "var(--ls-tight)",
+      color: "var(--text-muted)",
+      textDecoration: "line-through"
+    }
+  }, currency, anchorPrice), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tighter)",
+      lineHeight: "var(--lh-tight)",
+      color: "var(--text-primary)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-h3)"
+    }
+  }, currency), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-display-md)"
+    }
+  }, price)), period && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-sm)",
+      color: "var(--text-muted)"
+    }
+  }, period)), /*#__PURE__*/React.createElement("ul", {
+    style: {
+      listStyle: "none",
+      margin: "22px 0 0",
+      padding: "22px 0 0",
+      borderTop: "1px solid var(--border-subtle)",
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
+      flex: 1
+    }
+  }, features.map((feature, i) => /*#__PURE__*/React.createElement("li", {
+    key: i,
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 10,
+      fontSize: "var(--text-sm)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-secondary)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--orange-500)",
+      flex: "none",
+      display: "inline-flex",
+      marginTop: 2
+    }
+  }, check), /*#__PURE__*/React.createElement("span", null, feature)))), cta && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: cta.onClick,
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => {
+      setHover(false);
+      setPress(false);
+    },
+    onMouseDown: () => setPress(true),
+    onMouseUp: () => setPress(false),
+    onFocus: onCtaFocus,
+    onBlur: () => setFocusRing(false),
+    style: ctaStyle
+  }, cta.label), footnote && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "12px 0 0",
+      fontSize: "var(--text-xs)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-muted)",
+      textAlign: "center"
+    }
+  }, footnote));
+}
+__ds_scope.PriceCard = PriceCard;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/PriceCard.jsx", error: String((e && e.message) || e) }); }
+
 // components/marketing/SignalCard.jsx
 try { (() => {
 /**
@@ -7496,6 +8260,1859 @@ function AgentStatus({
 }
 __ds_scope.AgentStatus = AgentStatus;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/AgentStatus.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/AvatarStack.jsx
+try { (() => {
+const { Avatar } = __ds_scope;
+/**
+ * Alfred AI — AvatarStack
+ * Overlapping avatar cluster with a "+N" overflow bubble and a count label.
+ * Social proof for waitlists and launch pages ("2,300+ people already joined").
+ */
+function AvatarStack({
+  names = [],
+  max = 4,
+  label,
+  size = 36,
+  style = {}
+}) {
+  const shown = names.slice(0, Math.max(0, max));
+  const extra = Math.max(0, names.length - shown.length);
+  const overlap = -Math.round(size * 0.3);
+  const toneFor = i => i === 0 ? "gradient" : i % 2 ? "periwinkle" : "ink";
+  const ring = "0 0 0 2px var(--surface-card)";
+  return /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": label || `${names.length} people`,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 12,
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      flex: "none"
+    }
+  }, shown.map((name, i) => /*#__PURE__*/React.createElement(Avatar, {
+    key: i,
+    name: name,
+    size: size,
+    tone: toneFor(i),
+    style: {
+      marginLeft: i === 0 ? 0 : overlap,
+      position: "relative",
+      zIndex: shown.length - i + 1,
+      boxShadow: ring
+    }
+  })), extra > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: size,
+      height: size,
+      borderRadius: "50%",
+      marginLeft: shown.length > 0 ? overlap : 0,
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flex: "none",
+      position: "relative",
+      zIndex: 1,
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      boxShadow: ring,
+      color: "var(--text-secondary)",
+      fontFamily: "var(--font-sans)",
+      fontWeight: "var(--fw-bold)",
+      fontSize: Math.max(10, Math.round(size * 0.34)),
+      letterSpacing: "0.01em",
+      lineHeight: 1
+    }
+  }, "+", extra)), label && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-secondary)",
+      lineHeight: "var(--lh-normal)"
+    }
+  }, label));
+}
+__ds_scope.AvatarStack = AvatarStack;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/AvatarStack.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/OfferSwitch.jsx
+try { (() => {
+/**
+ * Alfred AI — OfferSwitch
+ * Launch-offer toggle for live pricing. The whole pill is one real switch
+ * (role="switch" aria-checked): click or Space toggles it, the border and
+ * tag warm to orange while the offer is applied, and keyboard focus shows
+ * the warm focus ring on the pill.
+ */
+function OfferSwitch({
+  checked = false,
+  onChange,
+  label = "50% launch offer applied",
+  detail,
+  disabled = false,
+  style = {}
+}) {
+  const id = React.useId();
+  const labelId = id + "-label";
+  const detailId = id + "-detail";
+  const [focusRing, setFocusRing] = React.useState(false);
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "switch",
+    "aria-checked": checked,
+    "aria-labelledby": labelId,
+    "aria-describedby": detail ? detailId : undefined,
+    disabled: disabled,
+    onClick: () => onChange && onChange(!checked),
+    onFocus: e => {
+      let kb = true;
+      try {
+        kb = e.target.matches(":focus-visible");
+      } catch {/* older engines */}
+      setFocusRing(kb);
+    },
+    onBlur: () => setFocusRing(false),
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 14,
+      margin: 0,
+      padding: "10px 12px 10px 16px",
+      background: "var(--surface-card)",
+      border: "1px solid " + (checked ? "var(--orange-500)" : "var(--border-default)"),
+      borderRadius: "var(--radius-pill)",
+      cursor: disabled ? "not-allowed" : "pointer",
+      opacity: disabled ? "var(--opacity-disabled)" : 1,
+      boxShadow: focusRing ? "var(--shadow-focus)" : "none",
+      transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
+      fontFamily: "var(--font-sans)",
+      textAlign: "left",
+      userSelect: "none",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      flex: "none",
+      color: checked ? "var(--orange-500)" : "var(--text-muted)",
+      transition: "color var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M20.6 13.4 13.4 20.6a2 2 0 0 1-2.83 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "7.5",
+    cy: "7.5",
+    r: "1.3"
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 2,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    id: labelId,
+    style: {
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)",
+      lineHeight: 1.25
+    }
+  }, label), detail && /*#__PURE__*/React.createElement("span", {
+    id: detailId,
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      lineHeight: 1.25
+    }
+  }, detail)), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 40,
+      height: 24,
+      flex: "none",
+      padding: 3,
+      borderRadius: "var(--radius-pill)",
+      background: checked ? "var(--orange-500)" : "var(--border-default)",
+      display: "inline-flex",
+      alignItems: "center",
+      transition: "background var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 18,
+      height: 18,
+      borderRadius: "50%",
+      background: "var(--white)",
+      boxShadow: "var(--shadow-sm)",
+      pointerEvents: "none",
+      transform: checked ? "translateX(16px)" : "translateX(0)",
+      transition: "transform var(--dur-base) var(--ease-emphasized)"
+    }
+  })));
+}
+__ds_scope.OfferSwitch = OfferSwitch;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/OfferSwitch.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/EyebrowBadge.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — EyebrowBadge
+ * Pill eyebrow chip — the live-site signature section opener. A tracked
+ * uppercase label inside a pill with a soft tone hairline (~35% alpha via a
+ * faded currentColor overlay, no color-mix) and a small tone dot. The `mono`
+ * variant renders the ONE SOURCE OF TRUTH style.
+ */
+function EyebrowBadge({
+  children,
+  tone = "brand",
+  dot = true,
+  mono = false,
+  size = "md",
+  style = {},
+  ...rest
+}) {
+  const tones = {
+    brand: "var(--text-link)",
+    /* brand orange, theme-adapted */
+    periwinkle: "var(--periwinkle-600)",
+    /* legible cool accent on both themes */
+    neutral: "var(--text-secondary)",
+    urgent: "var(--urgent-500)"
+  };
+  const sizes = {
+    sm: {
+      font: "var(--text-2xs)",
+      padding: "5px 12px",
+      dot: 5,
+      gap: 7
+    },
+    md: {
+      font: "var(--text-xs)",
+      padding: "7px 14px",
+      dot: 6,
+      gap: 8
+    },
+    lg: {
+      font: "13px",
+      padding: "9px 18px",
+      dot: 6,
+      gap: 9
+    }
+  };
+  const s = sizes[size] || sizes.md;
+  const color = tones[tone] || tones.brand;
+  return /*#__PURE__*/React.createElement("span", _extends({
+    style: {
+      position: "relative",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: s.gap,
+      padding: s.padding,
+      borderRadius: "var(--radius-pill)",
+      color,
+      fontFamily: mono ? "var(--font-mono)" : "var(--font-sans)",
+      fontSize: s.font,
+      fontWeight: mono ? "var(--fw-medium)" : "var(--fw-semibold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      lineHeight: 1,
+      whiteSpace: "nowrap",
+      verticalAlign: "middle",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      inset: 0,
+      borderRadius: "inherit",
+      border: "1px solid currentColor",
+      opacity: 0.35,
+      pointerEvents: "none"
+    }
+  }), dot && /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: s.dot,
+      height: s.dot,
+      flex: "none",
+      borderRadius: "var(--radius-circle)",
+      background: "currentColor"
+    }
+  }), children);
+}
+__ds_scope.EyebrowBadge = EyebrowBadge;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/EyebrowBadge.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/DashboardMock.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — DashboardMock
+ * Marketing-site product mock: the embedded Daily Brief triage card from the
+ * live module page, framed in dark browser chrome (three dots + url pill).
+ * KPI row, gradient portfolio-health ring, and a P1/P2/P3 action queue with
+ * KILL / SCALE / Continue chips. Purely presentational (role="img") — every
+ * value is prop-driven with canonical demo defaults. The panel is
+ * intentionally dark in both themes, like the live embed.
+ */
+function DashboardMock({
+  url = "app.seekalfred.ai",
+  kpis,
+  score = 72,
+  actions,
+  style = {},
+  ...rest
+}) {
+  const gradId = "dm-grad-" + React.useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const kpiData = kpis || [{
+    label: "Spend today",
+    value: "$48.2K",
+    delta: "+6.4% vs plan",
+    tone: "neutral"
+  }, {
+    label: "Blended ROAS",
+    value: "3.4x",
+    delta: "-0.2 WoW",
+    tone: "bad"
+  }, {
+    label: "CAC",
+    value: "$142",
+    delta: "+$18 WoW",
+    tone: "bad"
+  }];
+  const queue = actions || [{
+    severity: "P1",
+    insight: "Campaign burning $4.8K with zero conversions",
+    detail: "Meta — prospecting, US broad",
+    action: "KILL"
+  }, {
+    severity: "P2",
+    insight: "Brand search ROAS at 6.1x — headroom to scale +20%",
+    detail: "Google Ads — brand exact",
+    action: "SCALE"
+  }, {
+    severity: "P3",
+    insight: "Hero creative fatiguing — CTR down 12% this week",
+    detail: "TikTok — spark ads",
+    action: "Continue"
+  }];
+  const urgentCount = queue.filter(a => a.severity === "P1").length;
+
+  // White-alpha helper — keeps every tint token-driven.
+  const whiteA = pct => `color-mix(in srgb, var(--white) ${pct}%, transparent)`;
+  const hairline = `1px solid ${whiteA(9)}`;
+  const SEVERITY = {
+    P1: "var(--urgent-500)",
+    P2: "var(--orange-500)",
+    P3: "var(--periwinkle-400)"
+  };
+  const deltaColor = {
+    good: "var(--success-500)",
+    bad: "var(--urgent-500)",
+    neutral: whiteA(55)
+  };
+  const actionTone = label => {
+    const s = String(label || "");
+    if (/kill|pause|stop/i.test(s)) return "var(--urgent-500)";
+    if (/scale|approve/i.test(s)) return "var(--success-500)";
+    return null; // neutral
+  };
+
+  // —— Score ring geometry ——
+  const pct = Math.max(0, Math.min(100, Number(score) || 0));
+  const RING = 58,
+    STROKE = 5;
+  const r = (RING - STROKE) / 2;
+  const c = 2 * Math.PI * r;
+  const capsLabel = {
+    fontSize: "var(--text-2xs)",
+    fontWeight: "var(--fw-semibold)",
+    letterSpacing: "var(--ls-caps)",
+    textTransform: "uppercase",
+    color: whiteA(48),
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis"
+  };
+  const tile = {
+    background: "var(--ink-875)",
+    border: `1px solid ${whiteA(7)}`,
+    borderRadius: "var(--radius-md)",
+    minWidth: 0
+  };
+  const lockIcon = /*#__PURE__*/React.createElement("svg", {
+    width: "10",
+    height: "10",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "5",
+    y: "11",
+    width: "14",
+    height: "9",
+    rx: "2"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M8 11V8a4 4 0 0 1 8 0v3"
+  }));
+  return /*#__PURE__*/React.createElement("div", _extends({
+    role: "img",
+    "aria-label": "Product preview",
+    style: {
+      fontFamily: "var(--font-sans)",
+      background: "var(--ink-950)",
+      border: `1px solid ${whiteA(11)}`,
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-xl)",
+      overflow: "hidden",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      padding: "10px 14px",
+      background: "var(--ink-925)",
+      borderBottom: hairline
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      gap: 6,
+      flex: "none"
+    }
+  }, [0, 1, 2].map(i => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    style: {
+      width: 8,
+      height: 8,
+      borderRadius: "var(--radius-circle)",
+      background: whiteA(18)
+    }
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      display: "flex",
+      justifyContent: "center",
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      padding: "4px 12px",
+      borderRadius: "var(--radius-pill)",
+      background: whiteA(6),
+      border: `1px solid ${whiteA(8)}`,
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-medium)",
+      letterSpacing: "var(--ls-wide)",
+      color: whiteA(62),
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis"
+    }
+  }, lockIcon, url)), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 36,
+      flex: "none"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
+      padding: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 7
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "var(--radius-circle)",
+      background: "var(--orange-500)",
+      flex: "none"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...capsLabel,
+      fontWeight: "var(--fw-bold)",
+      color: whiteA(75)
+    }
+  }, "Daily brief")), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      color: whiteA(45),
+      whiteSpace: "nowrap"
+    }
+  }, "Updated 7:02 today")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: `repeat(${kpiData.length}, 1fr) auto`,
+      gap: 10
+    }
+  }, kpiData.map((k, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      ...tile,
+      display: "flex",
+      flexDirection: "column",
+      gap: 5,
+      padding: "12px 14px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: capsLabel
+  }, k.label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--white)",
+      whiteSpace: "nowrap"
+    }
+  }, k.value), k.delta && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-medium)",
+      color: deltaColor[k.tone] || deltaColor.neutral,
+      whiteSpace: "nowrap"
+    }
+  }, k.delta))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...tile,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 5,
+      padding: "10px 16px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      width: RING,
+      height: RING,
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: RING,
+    height: RING,
+    viewBox: `0 0 ${RING} ${RING}`,
+    "aria-hidden": "true",
+    style: {
+      display: "block"
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+    id: gradId,
+    x1: "0%",
+    y1: "0%",
+    x2: "100%",
+    y2: "100%"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    style: {
+      stopColor: "var(--periwinkle-400)"
+    }
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "100%",
+    style: {
+      stopColor: "var(--orange-500)"
+    }
+  }))), /*#__PURE__*/React.createElement("circle", {
+    cx: RING / 2,
+    cy: RING / 2,
+    r: r,
+    fill: "none",
+    stroke: whiteA(12),
+    strokeWidth: STROKE
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: RING / 2,
+    cy: RING / 2,
+    r: r,
+    fill: "none",
+    stroke: `url(#${gradId})`,
+    strokeWidth: STROKE,
+    strokeLinecap: "round",
+    strokeDasharray: `${(c * pct / 100).toFixed(2)} ${c.toFixed(2)}`,
+    transform: `rotate(-90 ${RING / 2} ${RING / 2})`
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      inset: 0,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-lg)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      color: "var(--white)"
+    }
+  }, pct)), /*#__PURE__*/React.createElement("span", {
+    style: capsLabel
+  }, "Portfolio health"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...tile,
+      borderRadius: "var(--radius-lg)",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 12,
+      padding: "10px 14px",
+      borderBottom: hairline
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...capsLabel,
+      fontWeight: "var(--fw-bold)",
+      color: whiteA(75)
+    }
+  }, "Action queue"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      color: whiteA(45),
+      whiteSpace: "nowrap"
+    }
+  }, queue.length, " queued \xB7 ", urgentCount, " urgent")), /*#__PURE__*/React.createElement("ul", {
+    role: "list",
+    style: {
+      listStyle: "none",
+      margin: 0,
+      padding: 0
+    }
+  }, queue.map((row, i) => {
+    const sev = SEVERITY[row.severity] || SEVERITY.P3;
+    const act = actionTone(row.action);
+    return /*#__PURE__*/React.createElement("li", {
+      key: i,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        padding: "11px 14px",
+        borderTop: i > 0 ? `1px solid ${whiteA(6)}` : "none"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: "none",
+        padding: "3px 8px",
+        borderRadius: "var(--radius-pill)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        letterSpacing: "0.04em",
+        lineHeight: 1,
+        color: sev,
+        background: `color-mix(in srgb, ${sev} 14%, transparent)`,
+        border: `1px solid color-mix(in srgb, ${sev} 36%, transparent)`
+      }
+    }, row.severity), /*#__PURE__*/React.createElement("span", {
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        flex: 1,
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-medium)",
+        lineHeight: "var(--lh-snug)",
+        color: whiteA(92)
+      }
+    }, row.insight), row.detail && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: "var(--text-2xs)",
+        color: whiteA(45)
+      }
+    }, row.detail)), row.action && /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: "none",
+        padding: "5px 11px",
+        borderRadius: "var(--radius-pill)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        letterSpacing: "0.05em",
+        lineHeight: 1,
+        whiteSpace: "nowrap",
+        color: act || whiteA(70),
+        background: act ? `color-mix(in srgb, ${act} 13%, transparent)` : whiteA(7),
+        border: `1px solid ${act ? `color-mix(in srgb, ${act} 34%, transparent)` : whiteA(14)}`
+      }
+    }, row.action));
+  })))));
+}
+__ds_scope.DashboardMock = DashboardMock;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/DashboardMock.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/JobListingRow.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — JobListingRow
+ * Careers job row for the About careers band: role title, a meta line
+ * (team · location · type) and a circular arrow affordance. The whole row is
+ * the target — it lifts on hover while the arrow fills orange. Renders as an
+ * anchor when `href` is given, otherwise as a button row.
+ */
+function JobListingRow({
+  title,
+  team,
+  location,
+  type = null,
+  href,
+  onClick,
+  style = {},
+  ...rest
+}) {
+  const [hover, setHover] = React.useState(false);
+  const [focusRing, setFocusRing] = React.useState(false);
+  const active = hover || focusRing;
+  const rowStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 20,
+    width: "100%",
+    boxSizing: "border-box",
+    margin: 0,
+    padding: "20px 24px",
+    background: "var(--surface-card)",
+    border: "1px solid " + (active ? "var(--border-default)" : "var(--border-subtle)"),
+    borderRadius: "var(--radius-2xl)",
+    boxShadow: focusRing ? "var(--shadow-focus), var(--shadow-sm)" : hover ? "var(--shadow-md)" : "var(--shadow-sm)",
+    transform: hover ? "translateY(-2px)" : "translateY(0)",
+    fontFamily: "var(--font-sans)",
+    textAlign: "left",
+    textDecoration: "none",
+    cursor: "pointer",
+    outline: "none",
+    transition: "transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard)",
+    ...style
+  };
+  const sep = /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      color: "var(--text-secondary)",
+      opacity: 0.55
+    }
+  }, "\xB7");
+  const arrowTile = /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 38,
+      height: 38,
+      flex: "none",
+      borderRadius: "var(--radius-circle)",
+      border: "1px solid " + (active ? "var(--orange-500)" : "var(--border-subtle)"),
+      background: active ? "var(--orange-500)" : "var(--surface-sunken)",
+      color: active ? "var(--text-on-brand)" : "var(--text-secondary)",
+      transition: "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      transform: active ? "translateX(2px)" : "translateX(0)",
+      transition: "transform var(--dur-fast) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M13 6l6 6-6 6"
+  })));
+  const content = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-lg)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "-0.01em",
+      lineHeight: 1.3,
+      color: "var(--text-primary)"
+    }
+  }, title), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      flexWrap: "wrap",
+      gap: 8,
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      lineHeight: 1.4,
+      color: "var(--text-secondary)"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, team), sep, /*#__PURE__*/React.createElement("span", null, location), type != null && type !== "" && /*#__PURE__*/React.createElement(React.Fragment, null, sep, /*#__PURE__*/React.createElement("span", null, type)))), arrowTile);
+  const shared = {
+    onClick,
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    onFocus: e => {
+      let kb = true;
+      try {
+        kb = e.target.matches(":focus-visible");
+      } catch {/* older engines */}
+      setFocusRing(kb);
+    },
+    onBlur: () => setFocusRing(false),
+    style: rowStyle,
+    ...rest
+  };
+  return href ? /*#__PURE__*/React.createElement("a", _extends({
+    href: href
+  }, shared), content) : /*#__PURE__*/React.createElement("button", _extends({
+    type: "button"
+  }, shared), content);
+}
+__ds_scope.JobListingRow = JobListingRow;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/JobListingRow.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/AnimatedCounter.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — AnimatedCounter
+ * Count-up outcome stat for marketing bands. Server-renders the FINAL value
+ * (never 0 — fixes the classic SSR-at-zero counter defect), then counts up
+ * from zero on mount once the element scrolls into view. Respects
+ * prefers-reduced-motion by keeping the static final value.
+ */
+function AnimatedCounter({
+  value,
+  prefix = "",
+  suffix = "",
+  duration = 1200,
+  label,
+  sublabel,
+  style = {},
+  ...rest
+}) {
+  const target = Number.isFinite(value) ? value : 0;
+  const decimals = React.useMemo(() => {
+    const s = String(target);
+    const i = s.indexOf(".");
+    return i === -1 ? 0 : Math.min(2, s.length - i - 1);
+  }, [target]);
+  const format = React.useCallback(n => {
+    try {
+      return n.toLocaleString("en-US", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+    } catch (e) {
+      return String(Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals));
+    }
+  }, [decimals]);
+
+  // SSR and first paint show the final value; the count-up only ever
+  // replaces it after mount, so a non-hydrated page still reads correctly.
+  const [display, setDisplay] = React.useState(target);
+  const rootRef = React.useRef(null);
+  React.useEffect(() => {
+    let raf = 0;
+    let observer = null;
+    let cancelled = false;
+    let started = false;
+    let reduced = false;
+    try {
+      reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (e) {
+      reduced = false;
+    }
+    if (reduced || !(duration > 0) || target === 0 || typeof requestAnimationFrame !== "function") {
+      setDisplay(target);
+      return undefined;
+    }
+    const start = () => {
+      if (started || cancelled) return;
+      started = true;
+      const t0 = typeof performance !== "undefined" && performance.now ? performance.now() : Date.now();
+      const tick = ts => {
+        if (cancelled) return;
+        const t = Math.min(1, (ts - t0) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        setDisplay(t < 1 ? target * eased : target);
+        if (t < 1) raf = requestAnimationFrame(tick);
+      };
+      setDisplay(0);
+      raf = requestAnimationFrame(tick);
+    };
+    try {
+      if (typeof IntersectionObserver !== "undefined" && rootRef.current) {
+        observer = new IntersectionObserver(entries => {
+          if (entries.some(en => en.isIntersecting)) {
+            if (observer) observer.disconnect();
+            observer = null;
+            start();
+          }
+        }, {
+          threshold: 0.2
+        });
+        observer.observe(rootRef.current);
+      } else {
+        start();
+      }
+    } catch (e) {
+      start();
+    }
+    return () => {
+      cancelled = true;
+      if (raf) cancelAnimationFrame(raf);
+      if (observer) observer.disconnect();
+    };
+  }, [target, duration]);
+  const finalText = `${prefix}${format(target)}${suffix}`;
+  const ariaLabel = [finalText, label, sublabel].filter(Boolean).join(" — ");
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: rootRef,
+    role: "figure",
+    "aria-label": ariaLabel,
+    style: {
+      display: "inline-flex",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
+      gap: 6,
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      fontFamily: "var(--font-display)",
+      fontWeight: "var(--fw-semibold)",
+      fontSize: 40,
+      lineHeight: 1.05,
+      letterSpacing: "var(--ls-tight)",
+      fontVariantNumeric: "tabular-nums",
+      color: "var(--text-primary)"
+    }
+  }, `${prefix}${format(display)}${suffix}`), label && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: 11,
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, label), sublabel && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)",
+      lineHeight: "var(--lh-normal)",
+      maxWidth: 260
+    }
+  }, sublabel));
+}
+__ds_scope.AnimatedCounter = AnimatedCounter;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/AnimatedCounter.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/IntegrationCard.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — IntegrationCard
+ * Integration directory tile: an icon in a soft 12px tile, the integration
+ * name, a one-line description in Alfred's voice, a self-contained live /
+ * planned status pill, and a "Learn more" arrow link.
+ */
+function IntegrationCard({
+  icon = null,
+  name,
+  body,
+  status = "live",
+  href,
+  onClick,
+  style = {},
+  ...rest
+}) {
+  const [linkHover, setLinkHover] = React.useState(false);
+  const statuses = {
+    live: {
+      dot: "var(--success-500)",
+      label: "Live"
+    },
+    planned: {
+      dot: "var(--periwinkle-400)",
+      label: "Planned"
+    }
+  };
+  const st = statuses[status] || statuses.live;
+  const defaultIcon = /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M9 3v5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M15 3v5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 17v4"
+  }));
+  const arrow = /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      transform: linkHover ? "translateX(3px)" : "translateX(0)",
+      transition: "transform var(--dur-fast) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M13 6l6 6-6 6"
+  }));
+  const linkStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    width: "fit-content",
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-sm)",
+    fontWeight: "var(--fw-bold)",
+    lineHeight: 1,
+    color: linkHover ? "var(--orange-600)" : "var(--text-link)",
+    textDecoration: linkHover ? "underline" : "none",
+    textUnderlineOffset: 3,
+    background: "none",
+    border: "none",
+    padding: 0,
+    cursor: "pointer",
+    borderRadius: "var(--radius-xs)",
+    transition: "color var(--dur-fast) var(--ease-standard)"
+  };
+  const linkShared = {
+    "aria-label": `Learn more about ${name}`,
+    onMouseEnter: () => setLinkHover(true),
+    onMouseLeave: () => setLinkHover(false),
+    style: linkStyle
+  };
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      gap: 12,
+      padding: "22px 24px",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-sm)",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "space-between",
+      gap: 12,
+      width: "100%"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 44,
+      height: 44,
+      flex: "none",
+      borderRadius: "var(--radius-md)",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      color: "var(--text-primary)"
+    }
+  }, icon || defaultIcon), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      padding: "4px 10px",
+      borderRadius: "var(--radius-pill)",
+      border: "1px solid var(--border-subtle)",
+      background: "var(--surface-sunken)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-secondary)",
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "var(--radius-circle)",
+      background: st.dot,
+      flex: "none"
+    }
+  }), st.label)), /*#__PURE__*/React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-lg)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "-0.01em",
+      lineHeight: 1.3,
+      color: "var(--text-primary)"
+    }
+  }, name), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: "var(--text-sm)",
+      lineHeight: 1.55,
+      color: "var(--text-secondary)"
+    }
+  }, body), href ? /*#__PURE__*/React.createElement("a", _extends({
+    href: href,
+    onClick: onClick
+  }, linkShared), "Learn more", arrow) : /*#__PURE__*/React.createElement("button", _extends({
+    type: "button",
+    onClick: onClick
+  }, linkShared), "Learn more", arrow));
+}
+__ds_scope.IntegrationCard = IntegrationCard;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/IntegrationCard.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/CapabilityTicker.jsx
+try { (() => {
+/**
+ * Alfred AI — CapabilityTicker
+ * Horizontal marquee of capability chips for the live product hero: pill chips
+ * separated by small orange dots, drifting left in a seamless loop behind edge
+ * fade masks. The loop is a rAF-driven transform (no keyframes stylesheets).
+ * Under SSR or prefers-reduced-motion it renders a static single row, clipped
+ * with the same fade masks; the duplicated run only mounts while animating and
+ * is aria-hidden.
+ */
+function CapabilityTicker({
+  items = ["Budget reallocation", "CAC diagnosis", "Pipeline forecasting", "Creative fatigue alerts", "Spend pacing guardrails", "Channel mix planning"],
+  speed = 40,
+  label = "Alfred capabilities",
+  style = {}
+}) {
+  const GAP = 14; // px between chips AND between the two runs — keeps the loop seamless
+  const trackRef = React.useRef(null);
+  const runRef = React.useRef(null);
+  // null = unknown (SSR / first paint) → static single row until proven safe to move.
+  const [reduced, setReduced] = React.useState(null);
+  React.useEffect(() => {
+    try {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const update = () => setReduced(mq.matches);
+      update();
+      if (mq.addEventListener) mq.addEventListener("change", update);else if (mq.addListener) mq.addListener(update);
+      return () => {
+        if (mq.removeEventListener) mq.removeEventListener("change", update);else if (mq.removeListener) mq.removeListener(update);
+      };
+    } catch (e) {
+      setReduced(true); /* no matchMedia — stay static */
+    }
+  }, []);
+  const animate = reduced === false && items.length > 0 && speed > 0;
+  React.useEffect(() => {
+    if (!animate) return;
+    let raf = 0;
+    let offset = 0;
+    let last = null;
+    const step = now => {
+      if (last == null) last = now;
+      const dt = Math.min(now - last, 64) / 1000; // clamp tab-switch jumps
+      last = now;
+      const run = runRef.current;
+      const cycle = run ? run.offsetWidth + GAP : 0;
+      if (cycle > 0) {
+        offset = (offset + speed * dt) % cycle;
+        if (trackRef.current) {
+          trackRef.current.style.transform = "translate3d(" + -offset + "px, 0, 0)";
+        }
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => {
+      cancelAnimationFrame(raf);
+      if (trackRef.current) trackRef.current.style.transform = "translate3d(0, 0, 0)";
+    };
+  }, [animate, speed]);
+  const runStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: GAP,
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    flex: "none"
+  };
+
+  // Each item is chip + separator dot; a trailing dot only renders while the
+  // marquee tiles (seamless loop) — the static row ends cleanly on a chip.
+  const renderRun = () => items.map((text, i) => /*#__PURE__*/React.createElement("li", {
+    key: i,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: GAP,
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      height: 34,
+      padding: "0 14px",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-pill)",
+      color: "var(--text-secondary)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      lineHeight: 1
+    }
+  }, text), (animate || i < items.length - 1) && /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 5,
+      height: 5,
+      flex: "none",
+      borderRadius: "var(--radius-circle)",
+      background: "var(--orange-400)"
+    }
+  })));
+  const fadeMask = "linear-gradient(90deg, transparent 0, black 40px, black calc(100% - 40px), transparent 100%)";
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflow: "hidden",
+      maxWidth: "100%",
+      padding: "6px 0",
+      WebkitMaskImage: fadeMask,
+      maskImage: fadeMask,
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: trackRef,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: GAP,
+      width: "max-content",
+      willChange: animate ? "transform" : "auto"
+    }
+  }, /*#__PURE__*/React.createElement("ul", {
+    ref: runRef,
+    role: "list",
+    "aria-label": label,
+    style: runStyle
+  }, renderRun()), animate && /*#__PURE__*/React.createElement("ul", {
+    role: "list",
+    "aria-hidden": "true",
+    style: runStyle
+  }, renderRun())));
+}
+__ds_scope.CapabilityTicker = CapabilityTicker;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/CapabilityTicker.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/ModuleStatusCard.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — ModuleStatusCard
+ * Roadmap tile for an Alfred module: a status pill (live = success,
+ * in development = orange, planned = neutral), the module name in the
+ * display face, an optional slogan, agent chips, and an arrow CTA.
+ */
+function ModuleStatusCard({
+  module = "Alfred for Marketing",
+  slogan,
+  status = "live",
+  agents = [],
+  cta,
+  href,
+  onClick,
+  style = {},
+  ...rest
+}) {
+  const [linkHover, setLinkHover] = React.useState(false);
+  const STATUSES = {
+    live: {
+      label: "Live",
+      dot: "var(--success-500)",
+      color: "var(--success-500)",
+      bg: "color-mix(in srgb, var(--success-500) 10%, transparent)",
+      border: "color-mix(in srgb, var(--success-500) 30%, transparent)"
+    },
+    "in-development": {
+      label: "In development",
+      dot: "var(--orange-500)",
+      color: "var(--orange-600)",
+      bg: "var(--accent-soft)",
+      border: "color-mix(in srgb, var(--orange-500) 30%, transparent)"
+    },
+    planned: {
+      label: "Planned",
+      dot: "var(--text-muted)",
+      color: "var(--text-secondary)",
+      bg: "var(--surface-sunken)",
+      border: "var(--border-subtle)"
+    }
+  };
+  const st = STATUSES[status] || STATUSES.live;
+  const arrow = /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      transform: linkHover ? "translateX(3px)" : "translateX(0)",
+      transition: "transform var(--dur-fast) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M13 6l6 6-6 6"
+  }));
+  const linkStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    width: "fit-content",
+    marginTop: 4,
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-sm)",
+    fontWeight: "var(--fw-bold)",
+    lineHeight: 1,
+    color: linkHover ? "var(--orange-600)" : "var(--text-link)",
+    textDecoration: linkHover ? "underline" : "none",
+    textUnderlineOffset: 3,
+    background: "none",
+    border: "none",
+    padding: 0,
+    cursor: "pointer",
+    borderRadius: "var(--radius-xs)",
+    transition: "color var(--dur-fast) var(--ease-standard)"
+  };
+  const linkShared = {
+    "aria-label": `${cta} — ${module}`,
+    onMouseEnter: () => setLinkHover(true),
+    onMouseLeave: () => setLinkHover(false),
+    style: linkStyle
+  };
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      gap: 12,
+      padding: "22px 24px",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-sm)",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      padding: "4px 10px",
+      borderRadius: "var(--radius-pill)",
+      border: `1px solid ${st.border}`,
+      background: st.bg,
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: st.color,
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "var(--radius-circle)",
+      background: st.dot,
+      flex: "none"
+    }
+  }), st.label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4
+    }
+  }, /*#__PURE__*/React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--text-primary)"
+    }
+  }, module), slogan && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: "var(--text-sm)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-secondary)"
+    }
+  }, slogan)), agents.length > 0 && /*#__PURE__*/React.createElement("ul", {
+    role: "list",
+    "aria-label": `${module} agents`,
+    style: {
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 8
+    }
+  }, agents.map((a, i) => /*#__PURE__*/React.createElement("li", {
+    key: i,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      padding: "5px 11px",
+      borderRadius: "var(--radius-pill)",
+      border: "1px solid var(--border-subtle)",
+      background: "var(--surface-sunken)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      lineHeight: 1,
+      color: "var(--text-secondary)",
+      whiteSpace: "nowrap"
+    }
+  }, a))), cta && (href ? /*#__PURE__*/React.createElement("a", _extends({
+    href: href,
+    onClick: onClick
+  }, linkShared), cta, arrow) : /*#__PURE__*/React.createElement("button", _extends({
+    type: "button",
+    onClick: onClick
+  }, linkShared), cta, arrow)));
+}
+__ds_scope.ModuleStatusCard = ModuleStatusCard;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/ModuleStatusCard.jsx", error: String((e && e.message) || e) }); }
+
+// components/marketing/CategoryCountBadge.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — CategoryCountBadge
+ * Zero-padded category count chip from the integrations index ("05", "02").
+ * Mono tracked digits inside a 1px-border pill; optionally pairs the count
+ * with its category label ("05 · Ad platforms").
+ */
+function CategoryCountBadge({
+  count = 0,
+  label,
+  style = {},
+  ...rest
+}) {
+  const digits = String(count).padStart(2, "0");
+  return /*#__PURE__*/React.createElement("span", _extends({
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      padding: label ? "5px 14px" : "5px 12px",
+      border: "1px solid var(--border-default)",
+      borderRadius: "var(--radius-pill)",
+      background: "transparent",
+      color: "var(--text-muted)",
+      lineHeight: 1.4,
+      whiteSpace: "nowrap",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-mono)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      letterSpacing: "0.14em",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, digits), label && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      opacity: 0.6
+    }
+  }, "\xB7"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      letterSpacing: "0.02em"
+    }
+  }, label)));
+}
+__ds_scope.CategoryCountBadge = CategoryCountBadge;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/marketing/CategoryCountBadge.jsx", error: String((e && e.message) || e) }); }
+
+// components/trust/MemoryCard.jsx
+try { (() => {
+/* Category → chip dot color. "Compounding" earns the brand gradient —
+   memories whose value compounds are the signature accent of the view. */
+const CATEGORY_DOT = {
+  "Root cause": "var(--orange-500)",
+  Institutional: "var(--periwinkle-500)",
+  "Cross-function": "var(--success-500)",
+  Compounding: "var(--gradient-brand)"
+};
+function MemoryIcon({
+  size = 14
+}) {
+  return /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    focusable: "false",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("ellipse", {
+    cx: "12",
+    cy: "5",
+    rx: "8",
+    ry: "3"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"
+  }));
+}
+function CheckIcon({
+  size = 13,
+  color = "currentColor"
+}) {
+  return /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: color,
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    focusable: "false",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M20 6 9 17l-5-5"
+  }));
+}
+
+/**
+ * Alfred AI — MemoryCard
+ * One item of Alfred Core memory — what Alfred knows about your org. Shows the
+ * learned fact, where it came from ("Learned from HubSpot · Mar 12") and a
+ * category chip, with small text actions to confirm, edit or remove the memory.
+ * Confirming swaps the button for a green check and announces it politely.
+ */
+function MemoryCard({
+  fact,
+  source,
+  category,
+  onConfirm,
+  onEdit,
+  onRemove,
+  style = {}
+}) {
+  const [hovered, setHovered] = React.useState(null);
+  const [confirmed, setConfirmed] = React.useState(false);
+  const confirmedNote = "Confirmed — I'll keep relying on this.";
+  const handleConfirm = () => {
+    if (confirmed) return;
+    setConfirmed(true);
+    if (typeof onConfirm === "function") onConfirm();
+  };
+  const showConfirm = confirmed || typeof onConfirm === "function";
+  const showEdit = typeof onEdit === "function";
+  const showRemove = typeof onRemove === "function";
+  const hasFooter = showConfirm || showEdit || showRemove;
+  const actionBtn = (key, {
+    color,
+    hoverColor,
+    weight
+  }) => ({
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    height: 28,
+    padding: "0 10px",
+    border: "1px solid transparent",
+    borderRadius: "var(--radius-md)",
+    background: hovered === key ? "var(--surface-sunken)" : "transparent",
+    color: hovered === key ? hoverColor : color,
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-xs)",
+    fontWeight: weight,
+    lineHeight: 1,
+    cursor: "pointer",
+    transition: "background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard)",
+    whiteSpace: "nowrap",
+    userSelect: "none"
+  });
+  const visuallyHidden = {
+    position: "absolute",
+    width: 1,
+    height: 1,
+    margin: -1,
+    padding: 0,
+    border: 0,
+    overflow: "hidden",
+    clip: "rect(0 0 0 0)",
+    whiteSpace: "nowrap"
+  };
+  return /*#__PURE__*/React.createElement("article", {
+    "aria-label": "Alfred memory",
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 10,
+      width: "100%",
+      boxSizing: "border-box",
+      padding: 18,
+      fontFamily: "var(--font-sans)",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-xs)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 26,
+      height: 26,
+      flex: "none",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-sm)",
+      color: "var(--text-secondary)"
+    }
+  }, /*#__PURE__*/React.createElement(MemoryIcon, null)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, "Memory"), category ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      flex: "none",
+      marginLeft: "auto",
+      padding: "3px 10px",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-pill)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-semibold)",
+      lineHeight: 1.4,
+      color: "var(--text-secondary)",
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 6,
+      height: 6,
+      flex: "none",
+      borderRadius: "var(--radius-circle)",
+      background: CATEGORY_DOT[category] || "var(--border-strong)"
+    }
+  }), category) : null), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      lineHeight: 1.55,
+      color: "var(--text-primary)"
+    }
+  }, fact), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-muted)"
+    }
+  }, source), hasFooter ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 4,
+      paddingTop: 10,
+      borderTop: "1px solid var(--border-subtle)"
+    }
+  }, confirmed ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      height: 28,
+      padding: "0 10px",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-semibold)",
+      lineHeight: 1,
+      color: "var(--text-secondary)",
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement(CheckIcon, {
+    color: "var(--success-500)"
+  }), "Confirmed") : showConfirm ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: handleConfirm,
+    onMouseEnter: () => setHovered("confirm"),
+    onMouseLeave: () => setHovered(null),
+    style: actionBtn("confirm", {
+      color: "var(--text-primary)",
+      hoverColor: "var(--text-primary)",
+      weight: "var(--fw-semibold)"
+    })
+  }, /*#__PURE__*/React.createElement(CheckIcon, {
+    color: "var(--success-500)"
+  }), "Confirm") : null, showEdit ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: onEdit,
+    onMouseEnter: () => setHovered("edit"),
+    onMouseLeave: () => setHovered(null),
+    style: actionBtn("edit", {
+      color: "var(--text-secondary)",
+      hoverColor: "var(--text-primary)",
+      weight: "var(--fw-medium)"
+    })
+  }, "Edit") : null, showRemove ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: onRemove,
+    onMouseEnter: () => setHovered("remove"),
+    onMouseLeave: () => setHovered(null),
+    style: {
+      ...actionBtn("remove", {
+        color: "var(--text-secondary)",
+        hoverColor: "var(--danger-500)",
+        weight: "var(--fw-medium)"
+      }),
+      marginLeft: "auto"
+    }
+  }, "Remove") : null) : null, /*#__PURE__*/React.createElement("span", {
+    "aria-live": "polite",
+    style: visuallyHidden
+  }, confirmed ? confirmedNote : ""));
+}
+__ds_scope.MemoryCard = MemoryCard;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/MemoryCard.jsx", error: String((e && e.message) || e) }); }
 
 // components/trust/CausalChain.jsx
 try { (() => {
@@ -8744,6 +11361,465 @@ function ConfidenceMeter({
 __ds_scope.ConfidenceMeter = ConfidenceMeter;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/ConfidenceMeter.jsx", error: String((e && e.message) || e) }); }
 
+// components/trust/InsightFeedback.jsx
+try { (() => {
+function ThumbIcon({
+  down = false,
+  size = 15
+}) {
+  return /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    focusable: "false",
+    style: {
+      flex: "none"
+    }
+  }, down ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: "M17 14V2"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"
+  })) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: "M7 10v12"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"
+  })));
+}
+
+/**
+ * Alfred AI — InsightFeedback
+ * Rate-an-insight control: "Was this useful?" with thumbs up / down. A negative
+ * verdict offers optional reason chips ("Wrong data", "Not relevant", "Already
+ * knew") or skip. Once chosen, Alfred thanks you in first person and the
+ * message is announced politely to assistive tech.
+ */
+function InsightFeedback({
+  onFeedback,
+  question = "Was this useful?",
+  reasons = ["Wrong data", "Not relevant", "Already knew"],
+  compact = false,
+  style = {}
+}) {
+  const [stage, setStage] = React.useState("idle"); // idle → reason → done
+  const [hovered, setHovered] = React.useState(null);
+  const firstReasonRef = React.useRef(null);
+  const thanks = "Thanks — I'll learn from this.";
+  const reasonPrompt = "Got it — what did I get wrong?";
+  const fire = (verdict, reason) => {
+    if (typeof onFeedback === "function") onFeedback(verdict, reason);
+  };
+  const choose = verdict => {
+    if (stage !== "idle") return;
+    if (verdict === "useful") {
+      fire("useful");
+      setStage("done");
+    } else if (Array.isArray(reasons) && reasons.length > 0) {
+      setStage("reason");
+    } else {
+      fire("not-useful");
+      setStage("done");
+    }
+  };
+
+  // Keep keyboard focus alive when the thumb buttons are swapped for chips.
+  React.useEffect(() => {
+    if (stage === "reason" && firstReasonRef.current) firstReasonRef.current.focus();
+  }, [stage]);
+  const font = {
+    fontFamily: "var(--font-sans)",
+    fontSize: compact ? "var(--text-xs)" : "var(--text-sm)",
+    fontWeight: "var(--fw-medium)"
+  };
+  const thumbBtn = key => ({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: compact ? 0 : 7,
+    height: compact ? 28 : 32,
+    padding: compact ? "0 8px" : "0 12px",
+    borderRadius: "var(--radius-pill)",
+    border: `1px solid ${hovered === key ? "var(--border-default)" : "var(--border-subtle)"}`,
+    background: hovered === key ? "var(--gray-100)" : "transparent",
+    color: hovered === key ? "var(--text-primary)" : "var(--text-secondary)",
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-xs)",
+    fontWeight: "var(--fw-medium)",
+    lineHeight: 1,
+    cursor: "pointer",
+    transition: "background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard)",
+    whiteSpace: "nowrap",
+    userSelect: "none"
+  });
+  const reasonChip = key => ({
+    display: "inline-flex",
+    alignItems: "center",
+    height: compact ? 26 : 28,
+    padding: "0 12px",
+    borderRadius: "var(--radius-pill)",
+    border: "1px solid transparent",
+    background: hovered === key ? "var(--orange-50)" : "var(--gray-100)",
+    color: hovered === key ? "var(--orange-600)" : "var(--text-secondary)",
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-xs)",
+    fontWeight: "var(--fw-medium)",
+    lineHeight: 1,
+    cursor: "pointer",
+    transition: "background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard)",
+    whiteSpace: "nowrap",
+    userSelect: "none"
+  });
+  const visuallyHidden = {
+    position: "absolute",
+    width: 1,
+    height: 1,
+    margin: -1,
+    padding: 0,
+    border: 0,
+    overflow: "hidden",
+    clip: "rect(0 0 0 0)",
+    whiteSpace: "nowrap"
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": question,
+    style: {
+      display: "inline-flex",
+      flexDirection: "column",
+      gap: compact ? 6 : 8,
+      maxWidth: "100%",
+      ...style
+    }
+  }, stage === "idle" ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: compact ? 8 : 10,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...font,
+      color: "var(--text-secondary)"
+    }
+  }, question), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": "Useful",
+    onClick: () => choose("useful"),
+    onMouseEnter: () => setHovered("up"),
+    onMouseLeave: () => setHovered(null),
+    style: thumbBtn("up")
+  }, /*#__PURE__*/React.createElement(ThumbIcon, {
+    size: compact ? 14 : 15
+  }), compact ? null : "Useful"), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": "Not useful",
+    onClick: () => choose("not-useful"),
+    onMouseEnter: () => setHovered("down"),
+    onMouseLeave: () => setHovered(null),
+    style: thumbBtn("down")
+  }, /*#__PURE__*/React.createElement(ThumbIcon, {
+    down: true,
+    size: compact ? 14 : 15
+  }), compact ? null : "Not useful"))) : null, stage === "reason" ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: compact ? 6 : 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...font,
+      color: "var(--text-secondary)"
+    }
+  }, reasonPrompt), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      flexWrap: "wrap"
+    }
+  }, reasons.map((reason, i) => /*#__PURE__*/React.createElement("button", {
+    key: reason,
+    type: "button",
+    ref: i === 0 ? firstReasonRef : null,
+    onClick: () => {
+      fire("not-useful", reason);
+      setStage("done");
+    },
+    onMouseEnter: () => setHovered(`r-${i}`),
+    onMouseLeave: () => setHovered(null),
+    style: reasonChip(`r-${i}`)
+  }, reason)), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => {
+      fire("not-useful");
+      setStage("done");
+    },
+    onMouseEnter: () => setHovered("skip"),
+    onMouseLeave: () => setHovered(null),
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      height: compact ? 26 : 28,
+      padding: "0 8px",
+      border: "1px solid transparent",
+      borderRadius: "var(--radius-pill)",
+      background: "transparent",
+      color: hovered === "skip" ? "var(--text-secondary)" : "var(--text-muted)",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      lineHeight: 1,
+      cursor: "pointer",
+      transition: "color var(--dur-fast) var(--ease-standard)",
+      whiteSpace: "nowrap",
+      userSelect: "none"
+    }
+  }, "Skip"))) : null, stage === "done" ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: compact ? 14 : 16,
+    height: compact ? 14 : 16,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--success-500)",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    focusable: "false",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M20 6 9 17l-5-5"
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...font,
+      color: "var(--text-secondary)"
+    }
+  }, thanks)) : null, /*#__PURE__*/React.createElement("span", {
+    "aria-live": "polite",
+    style: visuallyHidden
+  }, stage === "done" ? thanks : ""));
+}
+__ds_scope.InsightFeedback = InsightFeedback;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/InsightFeedback.jsx", error: String((e && e.message) || e) }); }
+
+// components/trust/ProvenancePanel.jsx
+try { (() => {
+const { ConfidenceMeter, SourceTrace } = __ds_scope;
+/**
+ * Alfred AI — ProvenancePanel
+ * The glass-box primitive: a "How I know this" disclosure that ships with any
+ * insight. The header is a real button carrying an eye icon, the confidence %
+ * chip and freshness; the panel eases open (grid-rows trick) to reveal the
+ * one-line method, a ConfidenceMeter and a SourceTrace of connected sources.
+ */
+function ProvenancePanel({
+  sources = [],
+  confidence = 0,
+  method,
+  updated,
+  defaultOpen = false,
+  style = {}
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const headId = `prov-${uid}-head`;
+  const panelId = `prov-${uid}-panel`;
+  const [open, setOpen] = React.useState(defaultOpen);
+  const [hover, setHover] = React.useState(false);
+  const raw = typeof confidence === "number" ? confidence : Number(confidence) || 0;
+  const pct = Math.max(0, Math.min(100, Math.round(raw)));
+  const tone = pct >= 70 ? "var(--success-500)" : pct >= 40 ? "var(--warning-500)" : "var(--danger-500)";
+  const eyebrow = {
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-2xs)",
+    fontWeight: "var(--fw-bold)",
+    letterSpacing: "var(--ls-caps)",
+    textTransform: "uppercase",
+    color: "var(--text-muted)"
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "var(--font-sans)",
+      width: "100%",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      overflow: "hidden",
+      boxShadow: "var(--shadow-xs)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    id: headId,
+    "aria-expanded": open,
+    "aria-controls": panelId,
+    onClick: () => setOpen(o => !o),
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      width: "100%",
+      padding: "14px 18px",
+      border: "none",
+      textAlign: "left",
+      background: hover ? "var(--surface-sunken)" : "transparent",
+      cursor: "pointer",
+      fontFamily: "var(--font-sans)",
+      transition: "background var(--dur-fast) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      color: "var(--text-secondary)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "3"
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-semibold)",
+      color: "var(--text-primary)",
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis"
+    }
+  }, "How I know this"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      flex: "none",
+      padding: "3px 10px",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-pill)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: "var(--radius-circle)",
+      background: tone
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-bold)",
+      color: tone,
+      lineHeight: 1.4,
+      fontVariantNumeric: "tabular-nums",
+      fontFeatureSettings: '"tnum" 1'
+    }
+  }, pct, "%")), updated && /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "none",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-muted)",
+      whiteSpace: "nowrap"
+    }
+  }, "Updated ", updated), /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      color: "var(--text-muted)",
+      transform: open ? "rotate(180deg)" : "rotate(0deg)",
+      transition: "transform var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 9l6 6 6-6"
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateRows: open ? "1fr" : "0fr",
+      transition: "grid-template-rows var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    role: "region",
+    id: panelId,
+    "aria-labelledby": headId,
+    style: {
+      overflow: "hidden",
+      minHeight: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 16,
+      padding: "4px 18px 18px",
+      borderTop: "1px solid var(--border-subtle)",
+      paddingTop: 14,
+      opacity: open ? 1 : 0,
+      transition: "opacity var(--dur-base) var(--ease-standard)"
+    }
+  }, method && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...eyebrow,
+      marginBottom: 6
+    }
+  }, "Method"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)",
+      lineHeight: 1.6
+    }
+  }, method)), /*#__PURE__*/React.createElement(ConfidenceMeter, {
+    value: pct,
+    label: "Causal confidence",
+    size: "sm"
+  }), /*#__PURE__*/React.createElement(SourceTrace, {
+    sources: sources,
+    layout: "row"
+  })))));
+}
+__ds_scope.ProvenancePanel = ProvenancePanel;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/ProvenancePanel.jsx", error: String((e && e.message) || e) }); }
+
 // components/trust/RecommendationCard.jsx
 try { (() => {
 const { Button, Badge, ConfidenceMeter } = __ds_scope;
@@ -9949,6 +13025,696 @@ function PageHeader({
 __ds_scope.PageHeader = PageHeader;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/PageHeader.jsx", error: String((e && e.message) || e) }); }
 
+// components/app/UsageMeter.jsx
+try { (() => {
+const { ProgressBar } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — UsageMeter
+ * Plan-limit meter for billing and settings surfaces. Label on the left, a
+ * "used / limit unit" readout on the right, and the brand ProgressBar below.
+ * The fill communicates headroom: brand gradient while healthy, solid orange
+ * from 80% of the allowance, and danger red once the limit is reached.
+ * An optional muted footnote (reset date, upgrade hint) sits under the bar.
+ */
+function UsageMeter({
+  label,
+  used = 0,
+  limit = 0,
+  unit = "",
+  footnote = "",
+  style = {}
+}) {
+  const labelId = React.useId();
+  const fmt = n => typeof n === "number" && isFinite(n) ? n.toLocaleString("en-US") : String(n);
+  const max = typeof limit === "number" && isFinite(limit) && limit > 0 ? limit : 0;
+  const now = typeof used === "number" && isFinite(used) && used > 0 ? used : 0;
+  const pct = max > 0 ? Math.min(100, now / max * 100) : 0;
+  const atLimit = max > 0 && now >= max;
+  const status = atLimit ? "danger" : pct >= 80 ? "warn" : "ok";
+  const usedColor = {
+    ok: "var(--text-primary)",
+    warn: "var(--orange-600)",
+    danger: "var(--danger-500)"
+  }[status];
+
+  // ProgressBar's fill is var(--gradient-brand-reverse) (gradient) or
+  // var(--orange-500) (plain); re-scoping --orange-500 on the track turns the
+  // plain fill danger red without leaving the token system.
+  const barProps = {
+    ok: {
+      tone: "gradient"
+    },
+    warn: {
+      tone: "plain"
+    },
+    danger: {
+      tone: "plain",
+      style: {
+        "--orange-500": "var(--danger-500)"
+      }
+    }
+  }[status];
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+      minWidth: 220,
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "baseline",
+      justifyContent: "space-between",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    id: labelId,
+    style: {
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-secondary)",
+      minWidth: 0,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-sm)",
+      fontVariantNumeric: "tabular-nums",
+      whiteSpace: "nowrap",
+      flex: "none",
+      lineHeight: 1.4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: "var(--fw-bold)",
+      color: usedColor,
+      transition: "color var(--dur-base) var(--ease-standard)"
+    }
+  }, fmt(used)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--text-muted)"
+    }
+  }, " / ", fmt(limit), unit ? ` ${unit}` : ""))), /*#__PURE__*/React.createElement("div", {
+    role: "progressbar",
+    "aria-labelledby": labelId,
+    "aria-valuemin": 0,
+    "aria-valuemax": max,
+    "aria-valuenow": Math.min(now, max),
+    "aria-valuetext": `${fmt(now)} of ${fmt(max)}${unit ? ` ${unit}` : ""} used`
+  }, /*#__PURE__*/React.createElement(ProgressBar, _extends({
+    value: pct,
+    height: 8
+  }, barProps))), footnote != null && footnote !== "" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      lineHeight: 1.5
+    }
+  }, footnote));
+}
+__ds_scope.UsageMeter = UsageMeter;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/UsageMeter.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/AuditLogRow.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — AuditLogRow
+ * One entry in the audit trail: who did what to which target, and when.
+ * Human actors get an initials disc; Alfred gets the logo-dot treatment —
+ * a small orange dot inside a soft halo, no robot iconography. An optional
+ * detail expands below via an aria-expanded chevron button (grid-rows trick
+ * keeps the detail in the DOM for SSR).
+ */
+function AuditLogRow({
+  actor,
+  isAlfred = false,
+  action,
+  target,
+  time,
+  detail,
+  defaultOpen = false,
+  style = {},
+  ...rest
+}) {
+  const uid = React.useId().replace(/:/g, "");
+  const btnId = `alr-${uid}-btn`;
+  const panelId = `alr-${uid}-panel`;
+  const [open, setOpen] = React.useState(defaultOpen);
+  const [hover, setHover] = React.useState(false);
+  const initials = String(actor || "").trim().split(/\s+/).slice(0, 2).map(w => w.charAt(0).toUpperCase()).join("");
+
+  // Detail indent lines the text up under the sentence: row pad 16 + mark 26 + gap 12.
+  const INDENT = 54;
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      fontFamily: "var(--font-sans)",
+      width: "100%",
+      background: "var(--surface-card)",
+      borderBottom: "1px solid var(--border-subtle)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      padding: "12px 16px"
+    }
+  }, isAlfred ? /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 26,
+      height: 26,
+      flex: "none",
+      borderRadius: "var(--radius-circle)",
+      background: "var(--accent-soft)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 9,
+      height: 9,
+      borderRadius: "var(--radius-circle)",
+      background: "var(--orange-500)"
+    }
+  })) : /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 26,
+      height: 26,
+      flex: "none",
+      borderRadius: "var(--radius-circle)",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      color: "var(--text-secondary)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "0.02em",
+      lineHeight: 1
+    }
+  }, initials), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)",
+      lineHeight: "var(--lh-normal)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)"
+    }
+  }, actor), action && /*#__PURE__*/React.createElement(React.Fragment, null, " ", action), target && /*#__PURE__*/React.createElement(React.Fragment, null, " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-block",
+      padding: "1px 8px",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-pill)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-semibold)",
+      color: "var(--text-primary)",
+      whiteSpace: "nowrap",
+      verticalAlign: "baseline"
+    }
+  }, target))), time && /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "none",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-muted)",
+      whiteSpace: "nowrap",
+      fontVariantNumeric: "tabular-nums",
+      fontFeatureSettings: '"tnum" 1'
+    }
+  }, time), detail && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    id: btnId,
+    "aria-expanded": open,
+    "aria-controls": panelId,
+    "aria-label": open ? "Hide detail" : "Show detail",
+    onClick: () => setOpen(o => !o),
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    style: {
+      flex: "none",
+      width: 28,
+      height: 28,
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 0,
+      border: "none",
+      borderRadius: "var(--radius-sm)",
+      background: hover ? "var(--surface-sunken)" : "transparent",
+      color: "var(--text-muted)",
+      cursor: "pointer",
+      transition: "background var(--dur-fast) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      transform: open ? "rotate(180deg)" : "rotate(0deg)",
+      transition: "transform var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 9l6 6 6-6"
+  })))), detail && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateRows: open ? "1fr" : "0fr",
+      transition: "grid-template-rows var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    role: "region",
+    id: panelId,
+    "aria-label": "Audit detail",
+    style: {
+      overflow: "hidden",
+      minHeight: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: `0 16px 14px ${INDENT}px`,
+      opacity: open ? 1 : 0,
+      transition: "opacity var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      paddingLeft: 12,
+      borderLeft: "2px solid var(--border-default)",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)",
+      lineHeight: "var(--lh-normal)"
+    }
+  }, detail)))));
+}
+__ds_scope.AuditLogRow = AuditLogRow;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/AuditLogRow.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/UpgradeModal.jsx
+try { (() => {
+const { Modal, Button } = __ds_scope;
+/**
+ * Alfred AI — UpgradeModal
+ * The in-app paywall moment. A Modal (which owns the focus trap, Escape and
+ * backdrop) filled with structured upgrade content: Alfred explains the limit
+ * in first person, a compact 2–3 column plan mini-compare shows the jump, and
+ * the footer offers a primary upgrade CTA with a quiet escape. Controlled via
+ * `open`/`onClose`; an optional `trigger` node (e.g. the locked control)
+ * renders inline before the dialog.
+ */
+function UpgradeModal({
+  open,
+  onClose,
+  trigger = null,
+  title = "You've used all 3 seats",
+  body = "I've been briefing all 3 of your seats, and two more people on your team asked me questions this week. On Growth I can cover everyone — 10 seats, unlimited data sources, and approval routing built in.",
+  plans = [{
+    name: "Starter",
+    price: "$99/mo",
+    features: ["3 seats", "2 data sources", "Weekly briefings"]
+  }, {
+    name: "Growth",
+    price: "$299/mo",
+    highlight: true,
+    features: ["10 seats", "Unlimited data sources", "Daily briefings + approvals"]
+  }],
+  cta = {
+    label: "Upgrade to Growth"
+  },
+  secondaryCta = {
+    label: "Not now"
+  },
+  style = {}
+}) {
+  const list = Array.isArray(plans) ? plans : [];
+  const cols = Math.max(1, Math.min(list.length, 3));
+  const check = /*#__PURE__*/React.createElement("svg", {
+    width: "13",
+    height: "13",
+    viewBox: "0 0 16 16",
+    fill: "none",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      marginTop: 2
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2.8 8.6l3.2 3.2 7.2-7.6",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }));
+  const renderPrice = price => {
+    if (typeof price !== "string" || price.indexOf("/") === -1) {
+      return /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontFamily: "var(--font-display)",
+          fontSize: "var(--text-h4)",
+          fontWeight: "var(--fw-semibold)",
+          letterSpacing: "var(--ls-tight)",
+          lineHeight: "var(--lh-snug)",
+          color: "var(--text-primary)"
+        }
+      }, price);
+    }
+    const at = price.indexOf("/");
+    return /*#__PURE__*/React.createElement("span", {
+      style: {
+        display: "inline-flex",
+        alignItems: "baseline",
+        gap: 2
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-display)",
+        fontSize: "var(--text-h4)",
+        fontWeight: "var(--fw-semibold)",
+        letterSpacing: "var(--ls-tight)",
+        lineHeight: "var(--lh-snug)",
+        color: "var(--text-primary)"
+      }
+    }, price.slice(0, at)), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: "var(--text-xs)",
+        color: "var(--text-muted)"
+      }
+    }, price.slice(at)));
+  };
+  const footer = /*#__PURE__*/React.createElement(React.Fragment, null, secondaryCta && /*#__PURE__*/React.createElement(Button, {
+    variant: "ghost",
+    onClick: secondaryCta.onClick || onClose,
+    style: {
+      color: "var(--text-secondary)"
+    }
+  }, secondaryCta.label), cta && /*#__PURE__*/React.createElement(Button, {
+    variant: "primary",
+    onClick: cta.onClick
+  }, cta.label));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, trigger, /*#__PURE__*/React.createElement(Modal, {
+    open: open,
+    onClose: onClose,
+    title: title,
+    size: cols >= 3 ? "lg" : "md",
+    footer: footer,
+    style: style
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 18
+    }
+  }, body && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, body), list.length > 0 && /*#__PURE__*/React.createElement("ul", {
+    role: "list",
+    "aria-label": "Compare plans",
+    style: {
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      display: "grid",
+      gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+      gap: 12
+    }
+  }, list.map((plan, i) => {
+    const hi = !!plan.highlight;
+    return /*#__PURE__*/React.createElement("li", {
+      key: plan.name || i,
+      style: {
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+        padding: "16px 16px 14px",
+        borderRadius: "var(--radius-lg)",
+        background: hi ? "var(--accent-soft)" : "var(--surface-sunken)",
+        border: hi ? "1px solid var(--orange-500)" : "1px solid var(--border-subtle)"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 8
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-display)",
+        fontSize: "var(--text-base)",
+        fontWeight: "var(--fw-semibold)",
+        letterSpacing: "var(--ls-tight)",
+        color: "var(--text-primary)",
+        minWidth: 0
+      }
+    }, plan.name), hi && /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: "none",
+        display: "inline-flex",
+        alignItems: "center",
+        height: 20,
+        padding: "0 9px",
+        borderRadius: "var(--radius-pill)",
+        background: "var(--orange-500)",
+        color: "var(--text-on-brand)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        letterSpacing: "var(--ls-caps)",
+        textTransform: "uppercase",
+        whiteSpace: "nowrap"
+      }
+    }, "Recommended")), plan.price != null && renderPrice(plan.price), Array.isArray(plan.features) && plan.features.length > 0 && /*#__PURE__*/React.createElement("ul", {
+      role: "list",
+      style: {
+        listStyle: "none",
+        margin: 0,
+        padding: 0,
+        display: "flex",
+        flexDirection: "column",
+        gap: 7
+      }
+    }, plan.features.map((feature, j) => /*#__PURE__*/React.createElement("li", {
+      key: j,
+      style: {
+        display: "flex",
+        alignItems: "flex-start",
+        gap: 8,
+        fontSize: "var(--text-xs)",
+        lineHeight: "var(--lh-normal)",
+        color: "var(--text-secondary)"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--orange-500)",
+        display: "inline-flex",
+        flex: "none"
+      }
+    }, check), /*#__PURE__*/React.createElement("span", {
+      style: {
+        minWidth: 0
+      }
+    }, feature)))));
+  })))));
+}
+__ds_scope.UpgradeModal = UpgradeModal;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/UpgradeModal.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/TeamMemberRow.jsx
+try { (() => {
+const { Avatar, Badge } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — TeamMemberRow
+ * One member in the Team & permissions list: avatar + name/email, a compact
+ * role dropdown (native <select>, brand-styled with the warm focus ring),
+ * a status chip (active = success, invited = periwinkle info) and a
+ * labelled remove action. Designed to stack inside a settings Card —
+ * rows separate with a subtle bottom hairline.
+ */
+function TeamMemberRow({
+  name,
+  email,
+  role,
+  roles = ["Admin", "Member", "Viewer"],
+  status = "active",
+  onRoleChange,
+  onRemove,
+  style = {},
+  ...rest
+}) {
+  const [focus, setFocus] = React.useState(false);
+  const [hoverRemove, setHoverRemove] = React.useState(false);
+  const invited = status === "invited";
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      fontFamily: "var(--font-sans)",
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      gap: 14,
+      padding: "12px 16px",
+      background: "var(--surface-card)",
+      borderBottom: "1px solid var(--border-subtle)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement(Avatar, {
+    name: name,
+    size: 38,
+    tone: invited ? "periwinkle" : "gradient"
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      display: "flex",
+      flexDirection: "column",
+      gap: 2
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)",
+      lineHeight: "var(--lh-tight)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, name), email && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      lineHeight: "var(--lh-tight)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, email)), /*#__PURE__*/React.createElement(Badge, {
+    tone: invited ? "info" : "success",
+    dot: true
+  }, invited ? "Invited" : "Active"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "relative",
+      display: "inline-flex",
+      alignItems: "center",
+      flex: "none",
+      height: 36,
+      background: "var(--surface-input-plain)",
+      border: `1.5px solid ${focus ? "var(--orange-500)" : "var(--border-default)"}`,
+      borderRadius: "var(--radius-md)",
+      boxShadow: focus ? "var(--shadow-focus)" : "none",
+      transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("select", {
+    value: role,
+    "aria-label": `Role for ${name}`,
+    onChange: e => onRoleChange && onRoleChange(e.target.value),
+    onFocus: () => setFocus(true),
+    onBlur: () => setFocus(false),
+    style: {
+      appearance: "none",
+      WebkitAppearance: "none",
+      border: "none",
+      outline: "none",
+      background: "transparent",
+      height: "100%",
+      padding: "0 32px 0 12px",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-primary)",
+      cursor: "pointer"
+    }
+  }, roles.map(r => /*#__PURE__*/React.createElement("option", {
+    key: r,
+    value: r
+  }, r))), /*#__PURE__*/React.createElement("svg", {
+    width: "15",
+    height: "15",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      right: 10,
+      pointerEvents: "none",
+      color: "var(--text-muted)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 9l6 6 6-6"
+  }))), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": `Remove ${name}`,
+    onClick: onRemove,
+    onMouseEnter: () => setHoverRemove(true),
+    onMouseLeave: () => setHoverRemove(false),
+    style: {
+      flex: "none",
+      width: 32,
+      height: 32,
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 0,
+      border: "none",
+      borderRadius: "var(--radius-sm)",
+      background: hoverRemove ? "var(--surface-sunken)" : "transparent",
+      color: hoverRemove ? "var(--danger-500)" : "var(--text-muted)",
+      cursor: "pointer",
+      transition: "background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M3 6h18"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M10 11v6M14 11v6"
+  }))));
+}
+__ds_scope.TeamMemberRow = TeamMemberRow;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/TeamMemberRow.jsx", error: String((e && e.message) || e) }); }
+
 // components/app/CommandPalette.jsx
 try { (() => {
 const { Button } = __ds_scope;
@@ -10341,6 +14107,604 @@ function CommandPalette({
 __ds_scope.CommandPalette = CommandPalette;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/CommandPalette.jsx", error: String((e && e.message) || e) }); }
 
+// components/app/ModuleSwitcher.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — ModuleSwitcher
+ * Workspace module switcher (menu-button pattern). The trigger shows the
+ * current module under a small "Module" eyebrow with a status dot and a
+ * rotating chevron; the dropdown is a role="menu" of role="menuitemradio"
+ * rows, each with a status badge — live modules get a green dot, modules
+ * still in development a periwinkle one. Enter, Space or ArrowDown open and
+ * focus the checked item, arrows wrap through the list, Home/End jump,
+ * Escape closes and returns focus to the trigger. Controlled via `active`;
+ * emits onChange(id).
+ */
+const DEFAULT_MODULES = [{
+  id: "marketing",
+  label: "Marketing",
+  status: "live"
+}, {
+  id: "sales",
+  label: "Sales",
+  status: "in-development"
+}];
+const STATUS = {
+  live: {
+    word: "Live",
+    dot: "var(--success-500)",
+    fg: "var(--success-500)"
+  },
+  "in-development": {
+    word: "In development",
+    dot: "var(--periwinkle-400)",
+    fg: "var(--text-secondary)"
+  }
+};
+function ModuleSwitcher({
+  modules = DEFAULT_MODULES,
+  active,
+  onChange,
+  defaultOpen = false,
+  style = {},
+  ...rest
+}) {
+  const items = Array.isArray(modules) && modules.length ? modules : DEFAULT_MODULES;
+  const activeId = active != null ? active : items[0].id;
+  const checkedIdx = Math.max(0, items.findIndex(m => m.id === activeId));
+  const current = items[checkedIdx];
+  const uid = React.useId().replace(/:/g, "");
+  const triggerId = `mods-btn-${uid}`;
+  const menuId = `mods-menu-${uid}`;
+  const [open, setOpen] = React.useState(!!defaultOpen);
+  const [activeIdx, setActiveIdx] = React.useState(checkedIdx);
+  const [focusVisible, setFocusVisible] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
+  const triggerRef = React.useRef(null);
+  const itemRefs = React.useRef([]);
+  const focusPending = React.useRef(false);
+
+  // Move focus into the menu once it has rendered (opened by interaction only,
+  // so a defaultOpen preview never steals focus on mount).
+  React.useEffect(() => {
+    if (open && focusPending.current) {
+      focusPending.current = false;
+      const el = itemRefs.current[activeIdx];
+      if (el) el.focus();
+    }
+  }, [open, activeIdx]);
+  const statusOf = m => STATUS[String(m.status || "").trim().toLowerCase().replace(/\s+/g, "-")] || null;
+  const openMenu = idx => {
+    setActiveIdx(idx);
+    focusPending.current = true;
+    setOpen(true);
+  };
+  const closeMenu = refocus => {
+    setOpen(false);
+    if (refocus && triggerRef.current) triggerRef.current.focus();
+  };
+  const pick = m => {
+    if (typeof onChange === "function") onChange(m.id);
+    closeMenu(true);
+  };
+  const moveTo = idx => {
+    const next = (idx + items.length) % items.length;
+    setActiveIdx(next);
+    const el = itemRefs.current[next];
+    if (el) el.focus();
+  };
+  const onTriggerKeyDown = e => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      open ? moveTo(activeIdx) : openMenu(checkedIdx);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      open ? moveTo(activeIdx) : openMenu(items.length - 1);
+    } else if (e.key === "Escape" && open) {
+      e.preventDefault();
+      closeMenu(true);
+    }
+  };
+  const onMenuKeyDown = e => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      moveTo(activeIdx + 1);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      moveTo(activeIdx - 1);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      moveTo(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      moveTo(items.length - 1);
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      closeMenu(true);
+    } else if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      if (items[activeIdx]) pick(items[activeIdx]);
+    } else if (e.key === "Tab") {
+      setOpen(false);
+    }
+  };
+  const currentStatus = statusOf(current);
+  return /*#__PURE__*/React.createElement("div", _extends({
+    onBlur: e => {
+      if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false);
+    },
+    style: {
+      position: "relative",
+      display: "inline-block",
+      minWidth: 248,
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("button", {
+    ref: triggerRef,
+    id: triggerId,
+    type: "button",
+    "aria-haspopup": "menu",
+    "aria-expanded": open,
+    "aria-controls": menuId,
+    onClick: () => open ? closeMenu(false) : openMenu(checkedIdx),
+    onKeyDown: onTriggerKeyDown,
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    onFocus: e => {
+      let v = false;
+      try {
+        v = e.target.matches(":focus-visible");
+      } catch (err) {
+        v = true;
+      }
+      setFocusVisible(v);
+    },
+    onBlur: () => setFocusVisible(false),
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      width: "100%",
+      padding: "9px 12px",
+      textAlign: "left",
+      cursor: "pointer",
+      background: hover || open ? "var(--surface-sunken)" : "var(--surface-card)",
+      border: `1px solid ${open ? "var(--border-focus)" : "var(--border-default)"}`,
+      borderRadius: "var(--radius-md)",
+      boxShadow: focusVisible ? "var(--shadow-focus)" : "var(--shadow-xs)",
+      transition: "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 34,
+      height: 34,
+      flex: "none",
+      borderRadius: 10,
+      background: "var(--accent-soft)",
+      color: "var(--orange-600)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "17",
+    height: "17",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "3.5",
+    y: "3.5",
+    width: "7",
+    height: "7",
+    rx: "1.5"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "13.5",
+    y: "3.5",
+    width: "7",
+    height: "7",
+    rx: "1.5"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "3.5",
+    y: "13.5",
+    width: "7",
+    height: "7",
+    rx: "1.5"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "13.5",
+    y: "13.5",
+    width: "7",
+    height: "7",
+    rx: "1.5"
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      display: "flex",
+      flexDirection: "column",
+      gap: 2
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "0.08em",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, "Module"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-semibold)",
+      lineHeight: 1.2,
+      color: "var(--text-primary)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, current.label), currentStatus && /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 6,
+      height: 6,
+      flex: "none",
+      borderRadius: "var(--radius-circle)",
+      background: currentStatus.dot
+    }
+  }))), /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--text-muted)",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      transform: open ? "rotate(180deg)" : "rotate(0deg)",
+      transition: "transform var(--dur-base) var(--ease-standard)"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 9l6 6 6-6"
+  }))), open && /*#__PURE__*/React.createElement("div", {
+    role: "menu",
+    id: menuId,
+    "aria-labelledby": triggerId,
+    onKeyDown: onMenuKeyDown,
+    style: {
+      position: "absolute",
+      top: "calc(100% + 8px)",
+      left: 0,
+      right: 0,
+      zIndex: "var(--z-dropdown)",
+      background: "var(--surface-raised)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-lg)",
+      boxShadow: "var(--shadow-md)",
+      padding: 6
+    }
+  }, items.map((m, i) => {
+    const checked = m.id === activeId;
+    const s = statusOf(m);
+    return /*#__PURE__*/React.createElement("button", {
+      key: m.id != null ? m.id : i,
+      ref: el => {
+        itemRefs.current[i] = el;
+      },
+      type: "button",
+      role: "menuitemradio",
+      "aria-checked": checked,
+      tabIndex: -1,
+      onClick: () => pick(m),
+      onMouseEnter: () => setActiveIdx(i),
+      onFocus: () => setActiveIdx(i),
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        width: "100%",
+        padding: "10px 10px",
+        border: "none",
+        textAlign: "left",
+        cursor: "pointer",
+        borderRadius: "var(--radius-sm)",
+        background: i === activeIdx ? "var(--accent-soft)" : "transparent",
+        fontFamily: "var(--font-sans)",
+        transition: "background var(--dur-fast) var(--ease-standard)"
+      }
+    }, /*#__PURE__*/React.createElement("svg", {
+      width: "16",
+      height: "16",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "var(--orange-500)",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true",
+      style: {
+        flex: "none",
+        opacity: checked ? 1 : 0
+      }
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M5 12.5l4.5 4.5L19 7.5"
+    })), /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: 1,
+        minWidth: 0,
+        fontSize: "var(--text-sm)",
+        lineHeight: 1.3,
+        fontWeight: checked ? "var(--fw-bold)" : "var(--fw-medium)",
+        color: "var(--text-primary)",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+      }
+    }, m.label), s && /*#__PURE__*/React.createElement("span", {
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        flex: "none",
+        padding: "3px 9px",
+        borderRadius: "var(--radius-pill)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-card)",
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-semibold)",
+        color: s.fg,
+        lineHeight: 1.4,
+        whiteSpace: "nowrap"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        width: 6,
+        height: 6,
+        flex: "none",
+        borderRadius: "var(--radius-circle)",
+        background: s.dot
+      }
+    }), s.word));
+  })));
+}
+__ds_scope.ModuleSwitcher = ModuleSwitcher;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/ModuleSwitcher.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/BillingPlanCard.jsx
+try { (() => {
+const { Button } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — BillingPlanCard
+ * Current-plan card for billing settings: a "Current plan" eyebrow, the plan
+ * name in Clash Display with the price + period on the right, a renewal +
+ * payment-method meta line ("Renews Aug 2 · Visa ·· 4242"), simple used/limit
+ * usage rows (no meters — the used figure tints orange at 80% of the
+ * allowance and danger at the limit), and a Manage billing / Upgrade plan
+ * action pair.
+ */
+function BillingPlanCard({
+  plan,
+  price,
+  period = "per month",
+  renewal = "",
+  usage = [],
+  onManage,
+  onUpgrade,
+  style = {},
+  ...rest
+}) {
+  const rows = Array.isArray(usage) ? usage : [];
+  const fmt = n => typeof n === "number" ? n.toLocaleString("en-US") : String(n == null ? "" : n);
+  const cardIcon = /*#__PURE__*/React.createElement("svg", {
+    width: "15",
+    height: "15",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "2.5",
+    y: "5",
+    width: "19",
+    height: "14",
+    rx: "3"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M2.5 10h19"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6.5 15h4"
+  }));
+  const divider = /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      height: 1,
+      background: "var(--border-subtle)",
+      flex: "none"
+    }
+  });
+  return /*#__PURE__*/React.createElement("div", _extends({
+    role: "group",
+    "aria-label": `${plan} plan`,
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 16,
+      boxSizing: "border-box",
+      width: "100%",
+      maxWidth: 440,
+      padding: 24,
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-sm)",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "space-between",
+      gap: 16
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      lineHeight: 1,
+      color: "var(--text-muted)"
+    }
+  }, "Current plan"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h3)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--text-primary)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, plan)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "baseline",
+      gap: 5,
+      flex: "none",
+      paddingTop: 14
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      fontWeight: "var(--fw-semibold)",
+      letterSpacing: "var(--ls-tight)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, price), period ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      whiteSpace: "nowrap"
+    }
+  }, period) : null)), renewal ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginTop: -6,
+      color: "var(--text-secondary)"
+    }
+  }, cardIcon, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-sm)",
+      lineHeight: 1.4,
+      minWidth: 0
+    }
+  }, renewal)) : null, rows.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, divider, /*#__PURE__*/React.createElement("dl", {
+    "aria-label": "Usage this cycle",
+    style: {
+      margin: 0,
+      display: "flex",
+      flexDirection: "column",
+      gap: 10
+    }
+  }, rows.map((row, i) => {
+    const used = typeof row.used === "number" ? row.used : 0;
+    const limit = typeof row.limit === "number" ? row.limit : 0;
+    const ratio = limit > 0 ? used / limit : 0;
+    const usedColor = ratio >= 1 ? "var(--danger-500)" : ratio >= 0.8 ? "var(--orange-600)" : "var(--text-primary)";
+    return /*#__PURE__*/React.createElement("div", {
+      key: row.label || i,
+      style: {
+        display: "flex",
+        alignItems: "baseline",
+        justifyContent: "space-between",
+        gap: 12
+      }
+    }, /*#__PURE__*/React.createElement("dt", {
+      style: {
+        margin: 0,
+        fontSize: "var(--text-sm)",
+        color: "var(--text-secondary)",
+        lineHeight: 1.4,
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+        minWidth: 0
+      }
+    }, row.label), /*#__PURE__*/React.createElement("dd", {
+      style: {
+        margin: 0,
+        flex: "none",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-medium)",
+        fontVariantNumeric: "tabular-nums",
+        lineHeight: 1.4,
+        whiteSpace: "nowrap"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: usedColor
+      }
+    }, fmt(row.used)), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--text-muted)"
+      }
+    }, " / ", fmt(row.limit))));
+  }))) : null, divider, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement(Button, {
+    size: "sm",
+    variant: "outline",
+    onClick: onManage
+  }, "Manage billing"), /*#__PURE__*/React.createElement(Button, {
+    size: "sm",
+    variant: "primary",
+    onClick: onUpgrade
+  }, "Upgrade plan")));
+}
+__ds_scope.BillingPlanCard = BillingPlanCard;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/BillingPlanCard.jsx", error: String((e && e.message) || e) }); }
+
 // components/app/DateRangePicker.jsx
 try { (() => {
 /**
@@ -10491,6 +14855,526 @@ function DateRangePicker({
 }
 __ds_scope.DateRangePicker = DateRangePicker;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/DateRangePicker.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/SyncStatusBadge.jsx
+try { (() => {
+/**
+ * Alfred AI — SyncStatusBadge
+ * The small sync-status pill reused across connection surfaces (integration
+ * rows, source panels, settings). A colored dot plus one short word: fresh
+ * data is "Live" (green), an active sync is "Syncing" (warm orange, gentle
+ * pulse), aged data goes quiet ("Stale", gray) and a broken connection asks
+ * for action ("Reconnect needed", red). The pulse is a CSS keyframe scoped
+ * by a unique useId class and switches off under prefers-reduced-motion,
+ * where the static dot + halo still reads complete.
+ */
+function SyncStatusBadge({
+  status = "fresh",
+  label,
+  size = "md",
+  style = {}
+}) {
+  const STATUS = {
+    fresh: {
+      dot: "var(--success-500)",
+      fg: "var(--success-500)",
+      word: "Live",
+      pulse: false
+    },
+    syncing: {
+      dot: "var(--warning-500)",
+      fg: "var(--warning-500)",
+      word: "Syncing",
+      pulse: true
+    },
+    stale: {
+      dot: "var(--text-muted)",
+      fg: "var(--text-secondary)",
+      word: "Stale",
+      pulse: false
+    },
+    error: {
+      dot: "var(--danger-500)",
+      fg: "var(--danger-500)",
+      word: "Reconnect needed",
+      pulse: false
+    }
+  };
+  const s = STATUS[status] || STATUS.fresh;
+  const word = label != null ? label : s.word;
+  const SIZES = {
+    sm: {
+      font: "var(--text-2xs)",
+      dot: 6,
+      gap: 6,
+      padding: "3px 9px 3px 8px"
+    },
+    md: {
+      font: "var(--text-xs)",
+      dot: 8,
+      gap: 7,
+      padding: "5px 11px 5px 9px"
+    }
+  };
+  const z = SIZES[size] || SIZES.md;
+  const uid = React.useId().replace(/:/g, "");
+  const cls = `ssb-${uid}`;
+  const dotBase = {
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    width: z.dot,
+    height: z.dot,
+    borderRadius: "var(--radius-circle)",
+    background: s.dot,
+    transform: "translate(-50%, -50%)"
+  };
+  return /*#__PURE__*/React.createElement("span", {
+    role: "status",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: z.gap,
+      padding: z.padding,
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-pill)",
+      boxShadow: "var(--shadow-xs)",
+      fontFamily: "var(--font-sans)",
+      fontSize: z.font,
+      lineHeight: 1,
+      whiteSpace: "nowrap",
+      ...style
+    }
+  }, s.pulse && /*#__PURE__*/React.createElement("style", null, `
+          @keyframes ${cls}-pulse {
+            0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.5; }
+            70%  { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+          }
+          .${cls}-ring { animation: ${cls}-pulse 1.8s var(--ease-standard) infinite; }
+          @media (prefers-reduced-motion: reduce) {
+            .${cls}-ring { animation: none; opacity: 0; }
+          }
+        `), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: "relative",
+      width: z.dot,
+      height: z.dot,
+      flex: "none"
+    }
+  }, s.pulse && /*#__PURE__*/React.createElement("span", {
+    className: `${cls}-ring`,
+    style: dotBase
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...dotBase,
+      boxShadow: `0 0 0 3px color-mix(in srgb, ${s.dot} 18%, transparent)`
+    }
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: "var(--fw-bold)",
+      color: s.fg,
+      letterSpacing: "0.01em"
+    }
+  }, word));
+}
+__ds_scope.SyncStatusBadge = SyncStatusBadge;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/SyncStatusBadge.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/NotificationPref.jsx
+try { (() => {
+const { Switch } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — NotificationPref
+ * Per-agent notification preference row for the settings surface: agent name
+ * and a one-line description on the left, three channel switches (email /
+ * Slack / in-app) in a labeled group on the right. Rows stack flush in a
+ * settings list — each closes with a subtle bottom border.
+ *
+ * Each switch carries a visually hidden accessible name ("<agent> via email",
+ * "<agent> via Slack", "<agent> in-app") so screen readers announce exactly
+ * which agent-channel pair is toggling, while the visible caption above each
+ * track stays short.
+ */
+function NotificationPref({
+  agent,
+  description,
+  channels = {},
+  onChange,
+  style = {},
+  ...rest
+}) {
+  // Visually hidden but announced — carries the full per-switch label.
+  const hidden = {
+    position: "absolute",
+    width: 1,
+    height: 1,
+    padding: 0,
+    margin: -1,
+    overflow: "hidden",
+    clip: "rect(0 0 0 0)",
+    whiteSpace: "nowrap",
+    border: 0
+  };
+  const cells = [{
+    key: "email",
+    caption: "Email",
+    name: `${agent} via email`
+  }, {
+    key: "slack",
+    caption: "Slack",
+    name: `${agent} via Slack`
+  }, {
+    key: "inApp",
+    caption: "In-app",
+    name: `${agent} in-app`
+  }];
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      fontFamily: "var(--font-sans)",
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      gap: 24,
+      padding: "14px 16px",
+      background: "var(--surface-card)",
+      borderBottom: "1px solid var(--border-subtle)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)",
+      lineHeight: "var(--lh-snug)"
+    }
+  }, agent), description && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "3px 0 0",
+      fontSize: "var(--text-sm)",
+      color: "var(--text-secondary)",
+      lineHeight: "var(--lh-normal)"
+    }
+  }, description)), /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": `${agent} notification channels`,
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 18,
+      flex: "none"
+    }
+  }, cells.map(c => /*#__PURE__*/React.createElement("div", {
+    key: c.key,
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 6,
+      minWidth: 48
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-semibold)",
+      color: "var(--text-muted)",
+      letterSpacing: "0.08em",
+      textTransform: "uppercase",
+      lineHeight: 1
+    }
+  }, c.caption), /*#__PURE__*/React.createElement(Switch, {
+    checked: !!channels[c.key],
+    onChange: value => onChange && onChange(c.key, value),
+    label: /*#__PURE__*/React.createElement("span", {
+      style: hidden
+    }, c.name),
+    style: {
+      gap: 0
+    }
+  })))));
+}
+__ds_scope.NotificationPref = NotificationPref;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/NotificationPref.jsx", error: String((e && e.message) || e) }); }
+
+// components/app/ConnectionHealthCard.jsx
+try { (() => {
+const { Button } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * Alfred AI — ConnectionHealthCard
+ * Integration health card: an icon tile, the connection name, a status pill
+ * (fresh / syncing / stale / error) with a coloured dot, a last-sync meta
+ * line, optional granted-scope chips and a one-line detail in Alfred's voice.
+ * Stale and error states surface a Reconnect action — subtle for stale,
+ * primary for error, where the card also picks up --danger-500 accents.
+ */
+function ConnectionHealthCard({
+  name,
+  icon = null,
+  status = "fresh",
+  lastSync = "",
+  scopes = [],
+  detail = "",
+  onReconnect,
+  style = {},
+  ...rest
+}) {
+  const statuses = {
+    fresh: {
+      dot: "var(--success-500)",
+      label: "Fresh",
+      bg: "var(--surface-sunken)",
+      fg: "var(--text-secondary)",
+      border: "var(--border-subtle)"
+    },
+    syncing: {
+      dot: "var(--periwinkle-600)",
+      label: "Syncing",
+      bg: "var(--surface-sunken)",
+      fg: "var(--text-secondary)",
+      border: "var(--border-subtle)"
+    },
+    stale: {
+      dot: "var(--warning-500)",
+      label: "Stale",
+      bg: "var(--warning-100)",
+      fg: "var(--orange-600)",
+      border: "transparent"
+    },
+    error: {
+      dot: "var(--danger-500)",
+      label: "Error",
+      bg: "var(--danger-100)",
+      fg: "var(--danger-500)",
+      border: "transparent"
+    }
+  };
+  const st = statuses[status] || statuses.fresh;
+  const isError = status === "error";
+  const isStale = status === "stale";
+  const showReconnect = typeof onReconnect === "function" && (isError || isStale);
+  const hasScopes = Array.isArray(scopes) && scopes.length > 0;
+
+  // Syncing dot pulse — effect-only, gated on prefers-reduced-motion.
+  // SSR / static fallback renders the dot at full opacity, which reads complete.
+  const [dim, setDim] = React.useState(false);
+  React.useEffect(() => {
+    if (status !== "syncing") return undefined;
+    let reduced = false;
+    try {
+      reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (e) {
+      reduced = true;
+    }
+    if (reduced) return undefined;
+    const id = setInterval(() => setDim(d => !d), 720);
+    return () => {
+      clearInterval(id);
+    };
+  }, [status]);
+  const defaultIcon = /*#__PURE__*/React.createElement("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M9 3v5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M15 3v5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 17v4"
+  }));
+  const alertIcon = /*#__PURE__*/React.createElement("svg", {
+    width: "15",
+    height: "15",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.7",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true",
+    style: {
+      flex: "none",
+      marginTop: 1
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 9v4"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 17h.01"
+  }));
+  return /*#__PURE__*/React.createElement("div", _extends({
+    role: "group",
+    "aria-label": `${name} connection`,
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 14,
+      boxSizing: "border-box",
+      width: "100%",
+      maxWidth: 420,
+      padding: 20,
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      boxShadow: "var(--shadow-sm)",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 42,
+      height: 42,
+      flex: "none",
+      borderRadius: "var(--radius-md)",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      color: isError ? "var(--danger-500)" : "var(--text-primary)"
+    }
+  }, icon || defaultIcon), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 3,
+      flex: 1,
+      minWidth: 0,
+      paddingTop: 2
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "-0.01em",
+      lineHeight: 1.25,
+      color: "var(--text-primary)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, name), lastSync ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      lineHeight: 1.4
+    }
+  }, "Last sync ", lastSync) : null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      flex: "none",
+      marginTop: 2,
+      padding: "4px 10px",
+      borderRadius: "var(--radius-pill)",
+      border: `1px solid ${st.border}`,
+      background: st.bg,
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      lineHeight: 1,
+      color: st.fg,
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: "var(--radius-pill)",
+      background: st.dot,
+      flex: "none",
+      opacity: dim ? 0.3 : 1,
+      transition: "opacity var(--dur-slow) var(--ease-standard)"
+    }
+  }), st.label)), detail ? isError ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 8,
+      padding: "10px 12px",
+      borderRadius: "var(--radius-md)",
+      background: "var(--danger-100)",
+      color: "var(--danger-600)",
+      fontSize: "var(--text-sm)",
+      lineHeight: 1.5
+    }
+  }, alertIcon, /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0
+    }
+  }, detail)) : /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: "var(--text-sm)",
+      lineHeight: 1.55,
+      color: "var(--text-secondary)"
+    }
+  }, detail) : null, hasScopes ? /*#__PURE__*/React.createElement("div", {
+    role: "list",
+    "aria-label": "Granted scopes",
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 6
+    }
+  }, scopes.map((scope, i) => /*#__PURE__*/React.createElement("span", {
+    key: typeof scope === "string" ? scope : i,
+    role: "listitem",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      padding: "4px 10px",
+      borderRadius: "var(--radius-pill)",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-medium)",
+      lineHeight: 1.3,
+      color: "var(--text-secondary)",
+      whiteSpace: "nowrap"
+    }
+  }, scope))) : null, showReconnect ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      marginTop: 2
+    }
+  }, /*#__PURE__*/React.createElement(Button, {
+    size: "sm",
+    variant: isError ? "primary" : "subtle",
+    onClick: onReconnect
+  }, "Reconnect")) : null);
+}
+__ds_scope.ConnectionHealthCard = ConnectionHealthCard;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/app/ConnectionHealthCard.jsx", error: String((e && e.message) || e) }); }
 
 // components/conversation/SeekComposer.jsx
 try { (() => {
@@ -11168,6 +16052,154 @@ function ThinkingTrace({
 }
 __ds_scope.ThinkingTrace = ThinkingTrace;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/conversation/ThinkingTrace.jsx", error: String((e && e.message) || e) }); }
+
+// components/conversation/ReasoningState.jsx
+try { (() => {
+const { Spinner } = __ds_scope;
+/**
+ * Alfred AI — ReasoningState
+ * Branded "Alfred is reasoning" loading treatment for Seek Alfred surfaces.
+ * The gradient spark mark leads, a status line narrates what Alfred is doing
+ * right now ("Reading your spend data…"), and a small spinner plus an optional
+ * elapsed tag sit at the trailing edge. Server render shows the first line and
+ * the spinner statically; an effect rotates through the lines every ~1.8s
+ * (paused when the user prefers reduced motion). `compact` drops the strip
+ * chrome for inline use next to a message.
+ */
+function ReasoningState({
+  lines = ["Reading your spend data…", "Isolating what changed…", "Drafting the move…"],
+  elapsed,
+  compact = false,
+  style = {}
+}) {
+  const safe = Array.isArray(lines) && lines.length > 0 ? lines : ["Reading your spend data…", "Isolating what changed…", "Drafting the move…"];
+  const [index, setIndex] = React.useState(0);
+  const [entering, setEntering] = React.useState(true); // false during the swap fade
+
+  React.useEffect(() => {
+    if (safe.length < 2) return;
+    let reduced = false;
+    try {
+      reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (e) {/* leave animated */}
+    if (reduced) return; // static first line is a complete state
+    let swap;
+    const tick = setInterval(() => {
+      setEntering(false);
+      swap = setTimeout(() => {
+        setIndex(i => (i + 1) % safe.length);
+        setEntering(true);
+      }, 180);
+    }, 1800);
+    return () => {
+      clearInterval(tick);
+      clearTimeout(swap);
+    };
+  }, [safe.length]);
+  const line = /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      minWidth: 0,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+      opacity: entering ? 1 : 0,
+      transform: entering ? "translateY(0)" : "translateY(-4px)",
+      transition: "opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)"
+    }
+  }, safe[index % safe.length]);
+  const elapsedTag = elapsed ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "none",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, elapsed) : null;
+  if (compact) {
+    return /*#__PURE__*/React.createElement("span", {
+      role: "status",
+      "aria-live": "polite",
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+        maxWidth: "100%",
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        color: "var(--text-muted)",
+        ...style
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        display: "inline-flex",
+        flex: "none"
+      }
+    }, /*#__PURE__*/React.createElement(Spinner, {
+      size: "sm"
+    })), line, elapsedTag);
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    role: "status",
+    "aria-live": "polite",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 12,
+      maxWidth: "100%",
+      boxSizing: "border-box",
+      padding: "10px 14px",
+      background: "var(--surface-sunken)",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-lg)",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 26,
+      height: 26,
+      flex: "none",
+      borderRadius: "var(--radius-sm)",
+      background: "var(--gradient-brand)",
+      color: "var(--text-on-brand)",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    fill: "currentColor"
+  }))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0,
+      flex: 1,
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-medium)",
+      color: "var(--text-secondary)",
+      lineHeight: "var(--lh-normal)"
+    }
+  }, line), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex",
+      flex: "none"
+    }
+  }, /*#__PURE__*/React.createElement(Spinner, {
+    size: "sm"
+  })), elapsedTag);
+}
+__ds_scope.ReasoningState = ReasoningState;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/conversation/ReasoningState.jsx", error: String((e && e.message) || e) }); }
 
 // components/conversation/PromptSuggestions.jsx
 try { (() => {
@@ -12219,6 +17251,8 @@ __ds_ns.EmptyState = __ds_scope.EmptyState;
 
 __ds_ns.Pagination = __ds_scope.Pagination;
 
+__ds_ns.StateBlock = __ds_scope.StateBlock;
+
 __ds_ns.ProgressBar = __ds_scope.ProgressBar;
 
 __ds_ns.ProgressRing = __ds_scope.ProgressRing;
@@ -12279,9 +17313,37 @@ __ds_ns.StatBand = __ds_scope.StatBand;
 
 __ds_ns.StepFlow = __ds_scope.StepFlow;
 
+__ds_ns.Countdown = __ds_scope.Countdown;
+
+__ds_ns.DotMatrix = __ds_scope.DotMatrix;
+
+__ds_ns.PriceCard = __ds_scope.PriceCard;
+
 __ds_ns.SignalCard = __ds_scope.SignalCard;
 
 __ds_ns.AgentStatus = __ds_scope.AgentStatus;
+
+__ds_ns.AvatarStack = __ds_scope.AvatarStack;
+
+__ds_ns.OfferSwitch = __ds_scope.OfferSwitch;
+
+__ds_ns.EyebrowBadge = __ds_scope.EyebrowBadge;
+
+__ds_ns.DashboardMock = __ds_scope.DashboardMock;
+
+__ds_ns.JobListingRow = __ds_scope.JobListingRow;
+
+__ds_ns.AnimatedCounter = __ds_scope.AnimatedCounter;
+
+__ds_ns.IntegrationCard = __ds_scope.IntegrationCard;
+
+__ds_ns.CapabilityTicker = __ds_scope.CapabilityTicker;
+
+__ds_ns.ModuleStatusCard = __ds_scope.ModuleStatusCard;
+
+__ds_ns.CategoryCountBadge = __ds_scope.CategoryCountBadge;
+
+__ds_ns.MemoryCard = __ds_scope.MemoryCard;
 
 __ds_ns.CausalChain = __ds_scope.CausalChain;
 
@@ -12292,6 +17354,10 @@ __ds_ns.SourceTrace = __ds_scope.SourceTrace;
 __ds_ns.DataFreshness = __ds_scope.DataFreshness;
 
 __ds_ns.ConfidenceMeter = __ds_scope.ConfidenceMeter;
+
+__ds_ns.InsightFeedback = __ds_scope.InsightFeedback;
+
+__ds_ns.ProvenancePanel = __ds_scope.ProvenancePanel;
 
 __ds_ns.RecommendationCard = __ds_scope.RecommendationCard;
 
@@ -12305,15 +17371,35 @@ __ds_ns.FilterBar = __ds_scope.FilterBar;
 
 __ds_ns.PageHeader = __ds_scope.PageHeader;
 
+__ds_ns.UsageMeter = __ds_scope.UsageMeter;
+
+__ds_ns.AuditLogRow = __ds_scope.AuditLogRow;
+
+__ds_ns.UpgradeModal = __ds_scope.UpgradeModal;
+
+__ds_ns.TeamMemberRow = __ds_scope.TeamMemberRow;
+
 __ds_ns.CommandPalette = __ds_scope.CommandPalette;
 
+__ds_ns.ModuleSwitcher = __ds_scope.ModuleSwitcher;
+
+__ds_ns.BillingPlanCard = __ds_scope.BillingPlanCard;
+
 __ds_ns.DateRangePicker = __ds_scope.DateRangePicker;
+
+__ds_ns.SyncStatusBadge = __ds_scope.SyncStatusBadge;
+
+__ds_ns.NotificationPref = __ds_scope.NotificationPref;
+
+__ds_ns.ConnectionHealthCard = __ds_scope.ConnectionHealthCard;
 
 __ds_ns.SeekComposer = __ds_scope.SeekComposer;
 
 __ds_ns.AlfredMessage = __ds_scope.AlfredMessage;
 
 __ds_ns.ThinkingTrace = __ds_scope.ThinkingTrace;
+
+__ds_ns.ReasoningState = __ds_scope.ReasoningState;
 
 __ds_ns.PromptSuggestions = __ds_scope.PromptSuggestions;
 

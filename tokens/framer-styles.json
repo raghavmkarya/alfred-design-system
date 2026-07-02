@@ -150,16 +150,18 @@
     },
     {
       "name": "bg-page",
-      "light": "#FFFFFF"
+      "light": "#FFFFFF",
+      "dark": "#000000"
     },
     {
       "name": "surface-card",
-      "light": "#FFFFFF"
+      "light": "#FFFFFF",
+      "dark": "rgba(255,255,255,0.03)"
     },
     {
       "name": "surface-raised",
       "light": "#FFFFFF",
-      "dark": "#1E1E1C"
+      "dark": "rgba(255,255,255,0.06)"
     },
     {
       "name": "surface-input-plain",

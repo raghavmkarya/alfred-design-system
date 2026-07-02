@@ -101,8 +101,10 @@ If you're not going through a Claude surface, consume it like any static design 
    ```
    Point `Icon`/`Logo` `root` props and asset `<img src>`s at the correct relative path to
    `assets/` for the page you're building.
-3. **Light vs dark** — set `<html data-theme="dark">` to switch surfaces/text to the dark theme;
-   accent colors and the gradient are identical in both.
+3. **Light vs dark** — set `<html data-theme="dark">` to switch surfaces/text to the dark theme
+   (pure-black pages, 3%-white cards, Satoshi for headlines and body — matching the live site);
+   accent colors and the gradient are identical in both. `ui_kits/website/LIVE-DRIFT.md` records
+   what was adopted from the live site vs the live defects deliberately not adopted.
 
 ---
 
