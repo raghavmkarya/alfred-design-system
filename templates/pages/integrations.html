@@ -95,7 +95,10 @@ function CategorySection({ category, first }) {
     <section style={{ borderTop: first ? "none" : "1px solid var(--border-subtle)", padding: first ? "0 0 56px" : "56px 0" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 8 }}>
         <Icon name={category.icon} size={20} color="var(--text-secondary)" root="../../assets/icons" title="" aria-hidden="true" />
-        <CategoryCountBadge count={category.tools.length} label={category.name} />
+        {/* Real heading for the document outline — font/margin reset keeps the badge's visual style unchanged. */}
+        <h2 style={{ margin: 0, font: "inherit" }}>
+          <CategoryCountBadge count={category.tools.length} label={category.name} />
+        </h2>
       </div>
       <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)", margin: "0 0 24px" }}>
         {category.blurb}

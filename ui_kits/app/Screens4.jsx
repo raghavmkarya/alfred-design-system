@@ -100,7 +100,7 @@ function SettingsProfile() {
                     <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{t}</div>
                     <div style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{d}</div>
                   </div>
-                  <Switch checked={val} onChange={set} />
+                  <Switch checked={val} onChange={set} label={t} />
                 </div>
               ))}
             </div>
@@ -157,8 +157,8 @@ function TeamPermissions() {
           <Card padding={24} shadow="sm">
             <SectionHead title="Invite someone" sub="They'll get their first brief from me the morning after they join" />
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <Input placeholder="name@northwindlabs.com" value={inviteEmail} onChange={(e) => setInviteEmail(e.target.value)} fill="plain" style={{ flex: 1 }} />
-              <Select value={inviteRole} onChange={(e) => setInviteRole(e.target.value)} options={[
+              <Input aria-label="Invite email" placeholder="name@northwindlabs.com" value={inviteEmail} onChange={(e) => setInviteEmail(e.target.value)} fill="plain" style={{ flex: 1 }} />
+              <Select aria-label="Invite role" value={inviteRole} onChange={(e) => setInviteRole(e.target.value)} options={[
                 { value: "admin", label: "Admin" },
                 { value: "member", label: "Member" },
                 { value: "viewer", label: "Viewer" },

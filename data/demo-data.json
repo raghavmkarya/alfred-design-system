@@ -54,7 +54,7 @@
   ],
   "recommendations": [
     { "action": "Shift $18K from non-brand search to Performance Max", "impact": "+6% non-brand coverage, ~$30K pipeline", "confidence": 82 },
-    { "action": "Kill Meta US-broad prospecting and cap the audience at $4K/day", "impact": "Recovers $4.8K/day of waste", "confidence": 91 },
+    { "action": "Kill Meta US-broad prospecting and cap the audience at $4K/day", "impact": "Recovers $4.8K/mo of waste", "confidence": 91 },
     { "action": "Scale LinkedIn ABM +30%", "impact": "+$30K pipeline at flat CPL", "confidence": 78 },
     { "action": "Rotate TikTok hero creative before Friday", "impact": "Protects ~$26K/mo of spend from fatigue decay", "confidence": 74 }
   ],
@@ -66,7 +66,7 @@
   "dailyBrief": {
     "greeting": "Good morning, Priya. Three things need you today.",
     "items": [
-      { "rank": 1, "title": "Kill the Meta broad campaign", "why": "It burned $4.8K this week with zero conversions — lead quality fell 14% when the new audience launched.", "sources": ["Meta", "GA4", "HubSpot"] },
+      { "rank": 1, "title": "Kill the Meta broad campaign", "why": "It's burning $4.8K a month with zero conversions — lead quality fell 14% when the new audience launched.", "sources": ["Meta", "GA4", "HubSpot"] },
       { "rank": 2, "title": "Approve the $18K reallocation", "why": "Performance Max is converting at 5.1x while non-brand search holds at 3.4x.", "sources": ["Google Ads", "GA4"] },
       { "rank": 3, "title": "Rotate the TikTok hero creative", "why": "CTR is down 12% this week — fatigue, not audience. A fresh variant protects $26K/mo.", "sources": ["TikTok", "GA4"] }
     ]

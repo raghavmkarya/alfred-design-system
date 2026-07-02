@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../styles.css" />
   <style>
     /* ============================================================
-       linkedin-quote — founder-note quote card (LinkedIn 4:5).
+       linkedin-quote — founder-note quote card, 1200×1350 (8:9 portrait).
        Fixed 1200×1350 frame. Screenshot at exactly that size
        (see social/README.md).
 
@@ -19,9 +19,15 @@
        SLOTS (find-and-replace the inner text of the marked elements):
        quote       — the quote, no surrounding quote marks (the big
                      gradient mark carries that), 2–4 lines
-       name        — speaker, e.g. Arjun Mehta
-       role        — e.g. Co-founder & CEO, Alfred
-       initials    — 2 letters for the avatar
+       name        — speaker, e.g. [FOUNDER NAME]
+       role        — e.g. [ROLE]
+       initials    — 2 letters for the avatar (the speaker's real
+                     initials)
+
+       PLACEHOLDER CONVENTION: bracketed values like [FOUNDER NAME]
+       and [ROLE] are unset slots — replace every bracketed value
+       with the real, approved person before export. Never ship a
+       card with brackets visible.
        ============================================================ */
     :root { --frame-w: 1200px; --frame-h: 1350px; }
 
@@ -139,13 +145,13 @@
       <blockquote class="quote" data-slot="quote">I spent a decade watching great teams lose their mornings to reporting. We&rsquo;re building the layer that gives them back.</blockquote>
 
       <div class="attrib">
-        <!-- SLOT: initials -->
-        <span class="avatar" data-slot="initials">AM</span>
+        <!-- SLOT: initials — the speaker's real initials -->
+        <span class="avatar" data-slot="initials">[XX]</span>
         <span>
           <!-- SLOT: name -->
-          <div class="name" data-slot="name">Arjun Mehta</div>
+          <div class="name" data-slot="name">[FOUNDER NAME]</div>
           <!-- SLOT: role -->
-          <div class="role" data-slot="role">Co-founder &amp; CEO, Alfred</div>
+          <div class="role" data-slot="role">[ROLE]</div>
         </span>
       </div>
     </div>

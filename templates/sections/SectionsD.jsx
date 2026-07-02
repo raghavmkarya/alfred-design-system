@@ -5,7 +5,7 @@
    function is a self-contained <section> you can lift into any page.
    Reuses the Container helper exposed by SectionsA when present.
    ============================================================ */
-const { EyebrowBadge, AvatarStack, Countdown, CapabilityTicker, DotMatrix, Accordion, Button } =
+const { EyebrowBadge, Countdown, CapabilityTicker, DotMatrix, Accordion, Button } =
   window.AlfredAIDesignSystem_1ce241;
 
 const ContainerD = window.SecContainer || (({ children, style }) => (
@@ -38,7 +38,7 @@ function Hero({
   secondaryCta = "How it works",
   variant = "default",
   tickerItems = ["Budget reallocation", "CAC diagnosis", "Pipeline forecasting", "Creative fatigue alerts", "Spend pacing guardrails", "Channel mix planning"],
-  countdownTarget = "2026-09-01T09:00:00",
+  countdownTarget, /* no default — omit the prop and the countdown is omitted */
 }) {
   const [email, setEmail] = React.useState("");
   return (
@@ -62,15 +62,11 @@ function Hero({
             <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", margin: "12px 0 0" }}>
               We'll only reach out when your early access is ready.
             </p>
-            <div style={{ display: "flex", justifyContent: "center", marginTop: 26 }}>
-              <AvatarStack
-                names={["Priya Menon", "Daniel Okafor", "Mei Lin", "Sofia Alvarez", "James Carter"]}
-                max={4} label="Join the leaders putting Alfred to work."
-              />
-            </div>
-            <div style={{ display: "flex", justifyContent: "center", marginTop: 36 }}>
-              <Countdown target={countdownTarget} size="md" />
-            </div>
+            {countdownTarget && (
+              <div style={{ display: "flex", justifyContent: "center", marginTop: 36 }}>
+                <Countdown target={countdownTarget} size="md" />
+              </div>
+            )}
           </div>
         ) : (
           <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 32 }}>
@@ -109,7 +105,7 @@ function ClosingCTA({
   title = "Built for the leaders who decide things.",
   sub = "Marketing, sales, finance, operations, and the people running it all. Alfred is the intelligence layer underneath.",
   primaryCta = "get started",
-  secondaryCta = "Talk to us",
+  secondaryCta = "talk to sales",
 }) {
   return (
     <section style={{ position: "relative", overflow: "hidden", background: "var(--bg-page)", borderTop: "1px solid var(--border-subtle)" }}>
@@ -131,7 +127,7 @@ function ClosingCTA({
 
 /* ——— 15 · FAQ (accordion + support rail) ——— */
 function Faq({
-  title = "Got Any Questions? We've Got Answers",
+  title = "Got any questions? We've got answers",
   items = [
     { q: "What is Alfred AI?", a: "Alfred is a decision intelligence platform for business leaders. It connects your stack, learns how your organisation actually works, and delivers decision-ready answers — what changed, why, and what to do next." },
     { q: "What is decision intelligence?", a: "Turning raw business data into clear, explained, decision-ready answers. It sits between your data and your decisions — detecting what changed, explaining why, and recommending what to do next." },

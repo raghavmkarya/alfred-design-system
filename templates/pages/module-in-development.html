@@ -67,7 +67,7 @@ function ModulesRow() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 36, alignItems: "start" }}>
           <ModuleStatusCard
             module="Alfred for Sales"
-            slogan="Catch it at risk, not at loss."
+            slogan="Catch it at risk, not at loss"
             status="in-development"
             agents={SALES_AGENTS}
             cta="Join the waitlist"
@@ -75,7 +75,7 @@ function ModulesRow() {
           />
           <ModuleStatusCard
             module="Alfred for Marketing"
-            slogan="Read less, know more."
+            slogan="Read less, know more"
             status="live"
             agents={MARKETING_AGENTS}
             cta="Explore Alfred for Marketing"
@@ -92,8 +92,8 @@ function Page() {
     <div>
       <window.SiteNav />
 
-      {/* Waitlist hero — honest about in-development status. SecHero's waitlist variant
-          always renders its Countdown; countdownTarget is left at the signature default. */}
+      {/* Waitlist hero — honest about in-development status. No countdownTarget is passed,
+          so no countdown renders: the FAQ's "we don't announce dates we can't keep" holds. */}
       <div id="waitlist">
         <window.SecHero
           variant="waitlist"

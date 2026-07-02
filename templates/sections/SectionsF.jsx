@@ -17,10 +17,11 @@ const EyebrowF = window.SecEyebrow || (({ children, style }) => (
   <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)",
     letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--orange-400)", ...style }}>{children}</span>
 ));
-const H2F = window.SecH2 || (({ children, style }) => (
-  <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40,
-    letterSpacing: "-0.02em", color: "#fff", margin: "14px 0 0", ...style }}>{children}</h2>
-));
+/* Dark-surface H2 — var(--font-display) inherits Satoshi under [data-theme="dark"] (live spec), weight 500. */
+const H2F = ({ children, style }) => (
+  <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-medium)", fontSize: 40,
+    letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 0", ...style }}>{children}</h2>
+);
 const CheckF = window.SecCheck || (({ color = "var(--orange-400)", size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 6.5" /></svg>
 ));
@@ -172,7 +173,7 @@ function IndustryCards({
             <div key={it.id} style={{ background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-2xl)", padding: 24 }}>
               <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
                 <IndGlyphF color={it.color}>{IND_ICONS_F[it.icon] || IND_ICONS_F.saas}</IndGlyphF>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, letterSpacing: "-0.01em", color: "#fff" }}>{it.name}</div>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, letterSpacing: "-0.01em", color: "var(--text-primary)" }}>{it.name}</div>
               </div>
               <p style={{ ...bodySmF, margin: "12px 0 4px" }}>{it.tagline}</p>
               <Accordion
@@ -340,7 +341,7 @@ function EnterpriseBand({
           display: "grid", gridTemplateColumns: "1fr auto", gap: 32, alignItems: "center",
         }}>
           <div>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 26, letterSpacing: "-0.01em", color: "#fff" }}>{title}</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 26, letterSpacing: "-0.01em", color: "var(--text-primary)", margin: 0 }}>{title}</h2>
             <p style={{ ...bodySmF, margin: "6px 0 0" }}>Marketing, sales and finance on one memory — with governance.</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 26px", marginTop: 16 }}>
               {bullets.map((b) => (
@@ -448,7 +449,7 @@ function Timeline({
               </div>
               <div style={{ paddingRight: i < milestones.length - 1 ? 36 : 0 }}>
                 <div style={{ ...capsLabelF, marginTop: 20 }}>{m.marker}</div>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, letterSpacing: "-0.01em", color: "#fff", margin: "8px 0 0" }}>{m.title}</div>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, letterSpacing: "-0.01em", color: "var(--text-primary)", margin: "8px 0 0" }}>{m.title}</div>
                 <p style={{ ...bodySmF, marginTop: 8, maxWidth: 300 }}>{m.line}</p>
               </div>
             </div>

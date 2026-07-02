@@ -16,6 +16,13 @@ files inside `social/` or fix the relative paths.
 | `linkedin-insight.html` | 1200×1350 | Signal card — mono "SIGNAL DETECTED" eyebrow, Northwind-framed insight + provenance chips. |
 | `linkedin-quote.html` | 1200×1350 | Founder-note quote — gradient mark, big quote, name/role. |
 | `linkedin-announcement.html` | 1200×1350 | Launch card — eyebrow + headline + one CTA pill. |
+| `blog-hero.html` | 1600×900 | Blog hero image system — pillar-colored 16:9 header; also crops cleanly to 1200×630 OG. Set one `.pillar-*` class on `.frame`. |
+| `brief-of-the-day.html` | 1200×1350 | "Brief of the day" — recreated mini Daily Brief (Northwind demo data) inside a browser-chrome window. |
+| `carousel-cover.html` | 1080×1350 | LinkedIn carousel cover (page 1 of N) — series kicker + title; pairs with `carousel-slide.html`. |
+| `carousel-slide.html` | 1080×1350 | LinkedIn carousel content slide (pages 2…N) — duplicate per page and fill the slots. |
+| `profile-avatar.html` | 400×400 | Avatar mark, dark + light variants on one page — screenshot each `.frame`; sized for the circular crop. |
+| `profile-banner-linkedin.html` | 1584×396 | LinkedIn company-page banner — centered lockup; bottom-left avatar safe zone kept clear. |
+| `profile-banner-x.html` | 1500×500 | X (Twitter) profile header — same banner system re-set for the 3:1 canvas. |
 | `organisation-brain-01.html` | 1080×1350 | Pre-existing essay-series post ("What is an organisation brain?") + exported PNG; drafts in `_variants/`. |
 
 ## Capture
@@ -60,9 +67,9 @@ Alfred has **no public customer metrics**. Two legal shapes for a number on a pu
 
 - **Real market-level stat → visible citation.** `linkedin-stat.html` renders the
   `Source:` chip next to the claim; swap the number and the citation together or the card
-  doesn't ship. Reuse already-vetted pairs from the system (e.g. "73% of marketing data
-  goes unused — Source: NIQ, 2025" in `templates/collateral/`), or bring a new stat *with*
-  its source.
+  doesn't ship. Reuse already-vetted pairs from the system (e.g. "63% of leaders miss
+  opportunities — decisions take too long — Source: PwC CMO Survey, 2025" in
+  `templates/collateral/`), or bring a new stat *with* its source.
 - **Demo numbers → framed as demo.** `linkedin-insight.html` draws every number from
   `data/demo-data.json` (Northwind Labs) and carries the visible line "Illustrative
   scenario from Northwind Labs, our fictional demo company — not customer results."

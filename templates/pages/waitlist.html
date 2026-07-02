@@ -1,10 +1,12 @@
 <!-- @dsCard group="Pages" viewport="1280x900" name="Waitlist" subtitle="Early-access capture — countdown hero, module roadmap, sourced stats + confirmation state" -->
+<!-- TEMPLATE SLOT: confirm the real onboarding window date before publishing; update hero sub, meta description, FAQ and countdownTarget together -->
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Alfred ai — Join the waitlist</title>
+<!-- slot: onboarding-date -->
 <meta name="description" content="Join the waitlist for Alfred — the decision intelligence platform for marketing, sales, and the leaders running them. Alfred for Marketing is live today; the next onboarding window opens September 15, 2026." />
 <link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
 <link rel="stylesheet" href="../../styles.css" />
@@ -127,6 +129,7 @@ function WaitlistConfirmation() {
 const WAITLIST_FAQ = [
   {
     q: "When do I get access?",
+    // slot: onboarding-date
     a: "Alfred for Marketing is live today, and we onboard the waitlist in the order people joined. When your spot comes up, we reach out to schedule a 30-minute walkthrough — the next onboarding window opens September 15, 2026.",
   },
   {
@@ -153,8 +156,8 @@ function Page() {
             variant="waitlist"
             eyebrow="Early access"
             title={<>Be first in line for <span style={gradText}>decision intelligence</span></>}
-            sub="Alfred for Marketing is live today, and we onboard the waitlist in order. Leave a work email — the next onboarding window opens September 15, 2026."
-            countdownTarget="2026-09-15T09:00:00"
+            sub="Alfred for Marketing is live today, and we onboard the waitlist in order. Leave a work email — the next onboarding window opens September 15, 2026." // slot: onboarding-date
+            countdownTarget="2026-09-15T09:00:00" // slot: onboarding-date
           />
         </div>
       )}

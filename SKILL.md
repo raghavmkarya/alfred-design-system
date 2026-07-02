@@ -19,25 +19,44 @@ production code, depending on the need.
 - `styles.css` — link this one file; everything is CSS custom properties.
 - `tokens/` — colors, typography, spacing/radius/shadow/motion, fonts (@font-face), base defaults.
 - `assets/` — `logos/` (color + white lockups), `icons/` (single-color brand glyphs), `fonts/`.
-- `components/` — 86 components: brand (Logo, Icon) · core (Button, Input, Textarea, SearchInput,
+- `components/` — 113 components: brand (Logo, Icon) · core (Button, Input, Textarea, SearchInput,
   FileDropzone, Select, Switch, Chip, Card, Badge, Avatar, Tabs, Accordion, Combobox, TagInput,
-  NumberInput, Kbd, Divider, Spinner…) · data (KpiCard, DecisionAlert, ProgressRing, Table,
-  Stepper, ActivityTimeline, NotificationItem…) · charts (Area, Stacked, Gauge, Waterfall,
+  NumberInput, Kbd, Divider, Spinner…) · data (KpiCard, DecisionAlert, ProgressRing, StateBlock,
+  Table, Stepper, ActivityTimeline, NotificationItem…) · charts (Area, Stacked, Gauge, Waterfall,
   Bullet, Scatter, Sankey, Heatmap, Legend + spark/line/bar/donut/funnel — all on the --chart-1…8 palette)
-  · trust (ConfidenceMeter, SourceTrace, RecommendationCard, DecisionLog, DataFreshness, CausalChain)
-  · app (Sidebar, PageHeader, DataTable, FilterBar, DateRangePicker, CommandPalette, StatTile) ·
+  · trust (ConfidenceMeter, SourceTrace, RecommendationCard, DecisionLog, DataFreshness, CausalChain,
+  ProvenancePanel, InsightFeedback, MemoryCard — the glass-box set)
+  · app (Sidebar, PageHeader, DataTable, FilterBar, DateRangePicker, CommandPalette, StatTile,
+  ConnectionHealthCard, SyncStatusBadge, UsageMeter, UpgradeModal, AuditLogRow, ModuleSwitcher,
+  TeamMemberRow, BillingPlanCard, NotificationPref) ·
   overlay (Modal, Drawer, Toast, Tooltip, Popover, Menu — focus-trapped, keyboard-complete) ·
-  feedback (Banner, Callout) · marketing ·
-  conversation (SeekComposer, AlfredMessage, ThinkingTrace, PromptSuggestions) ·
+  feedback (Banner, Callout) · marketing (EyebrowBadge, PriceCard, OfferSwitch, Countdown,
+  AvatarStack, CapabilityTicker, AnimatedCounter, IntegrationCard, CategoryCountBadge, DotMatrix,
+  JobListingRow, ModuleStatusCard, DashboardMock + SignalCard, StepFlow, StatBand, FaqItem, AgentStatus) ·
+  conversation (SeekComposer, AlfredMessage, ThinkingTrace, ReasoningState, PromptSuggestions) ·
   decision (ScenarioSimulator, GoalPacing, ApprovalGate, AnomalyFlag).
+- `data/demo-data.json` — the canonical Northwind Labs demo dataset. Every mock/demo number
+  comes from here — never invent proof.
 - `ui_kits/app/` — multi-screen Alfred workspace (light): auth → home, daily briefing, Seek Alfred,
   KPI cockpit, spend & ROI, decision alerts, creative lifecycle, AI visibility, integrations,
   settings. Routed from the sidebar; screens in `Screens.jsx` + `Screens2.jsx`.
 - `ui_kits/onboarding/` — standalone first-run flow (light): connect your stack → calibrate →
   first brief, on the four-stage operating model. Single component in `Onboarding.jsx`.
 - `ui_kits/website/` — the dark seekalfred.ai marketing site recreation.
-- `templates/sections/` — copy-paste marketing section blocks (logo cloud, bento, feature split,
-  comparison, pricing, testimonial, integrations, CTA) — each a `window.Sec*` component.
+- `templates/sections/` — 27 copy-paste marketing section blocks (`window.Sec*`): logo cloud,
+  bento, feature split, comparison, pricing, testimonial, integrations, CTA + hero (3 variants),
+  statement, closing CTA, FAQ, security grid, team, values, careers, story editorial, contact
+  split, industry cards, agent showcase, enterprise band, stack diagram, timeline, sourced stats.
+- `templates/pages/` — 13 full-page templates composing those sections: pricing (working
+  currency/module/offer toggles), alfred_core, product module, waitlist (+confirmation state),
+  contact, about, blog index + article, docs shell, integrations directory, in-development
+  module, 404, legal.
+- `templates/email/` — the 600px email system: `shell.html` + `blocks.html` + 19 lifecycle,
+  onboarding, marketing and transactional templates (inline styles, hex mirrors of tokens).
+- `templates/collateral/` — A4 print theme (`collateral.css`) + 12 sales/CS docs: one-pagers,
+  4 battle cards, security pack, pilot plan, case-study template, interactive ROI calculator.
+- `social/` — pixel-sized frames for OG images, LinkedIn/X cards, profile kits, carousel,
+  blog heroes (open → screenshot).
 - `templates/deck/` — the 16:9 deck runtime (`deck-stage.js`, `ds-base.js`) + the shared
   `deck.css` slide-layout library and the starter deck.
 - `templates/decks/` — 16 ready-to-present decks across marketing, sales & operations

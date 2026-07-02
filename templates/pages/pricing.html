@@ -109,7 +109,7 @@ function PlanGrid() {
         </div>
         {moduleTab === "sales" && (
           <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)", textAlign: "center", margin: "16px auto 0", maxWidth: 560 }}>
-            Alfred for Sales is in development — the same tiers will apply. Join the waitlist to lock launch pricing.
+            Alfred for Sales is in development — the same tiers will apply. Join the waitlist to be first in line.
           </p>
         )}
 
@@ -126,7 +126,7 @@ function PlanGrid() {
               badge={t.highlighted ? "Most popular" : undefined}
               highlighted={!!t.highlighted}
               features={t.features}
-              cta={{ label: moduleTab === "marketing" ? "talk to sales" : "join the waitlist" }}
+              cta={{ label: moduleTab === "marketing" ? "talk to sales" : "Join the waitlist" }}
               footnote={offer ? `Then ${P.symbol}${P.list[i]}/month from month 3` : "Per module, billed monthly"}
             />
           ))}

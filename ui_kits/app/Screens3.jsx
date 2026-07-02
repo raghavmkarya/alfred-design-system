@@ -100,7 +100,16 @@ function ConnectionFlow() {
                   const planned = it.status === "planned";
                   return (
                     <Card key={it.name} padding={16} shadow="sm" interactive={!planned}
+                      role="button" tabIndex={0}
+                      aria-pressed={isSelected}
+                      aria-disabled={planned || undefined}
                       onClick={() => { if (!planned) setSelected(it.name); }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          if (!planned) setSelected(it.name);
+                        }
+                      }}
                       style={{
                         display: "flex", alignItems: "center", gap: 12,
                         border: isSelected ? "1.5px solid var(--orange-500)" : "1px solid var(--border-subtle)",
@@ -344,7 +353,9 @@ function FirstRunWaiting() {
 }
 
 /* ======================= NOTIFICATIONS CENTER ======================= */
-function NotificationsCenter() {
+/* `onOpenAlert` is optional — the app shell passes it to route into the
+   full Alert Detail screen; prop-less renders (verify-render) stay valid. */
+function NotificationsCenter({ onOpenAlert } = {}) {
   const AGENTS = [
     ["Daily Brief", "Your 8:00 AM read on what changed and what to do."],
     ["Anomaly Detection", "The moment something breaks from baseline."],
@@ -366,7 +377,7 @@ function NotificationsCenter() {
 
   const feed = [
     { title: "Your Daily Brief is ready", body: "Good morning, Priya. Three things need you today.", time: "8:00 AM", tone: "brand", unread: true, actions: [{ label: "Read the brief" }] },
-    { title: "P1 — Campaign burning $4.8K with zero conversions", body: "Meta — prospecting, US broad. I've drafted the kill; it holds for your approval.", time: "7:42 AM", tone: "danger", unread: true, actions: [{ label: "Open alert" }, { label: "Dismiss" }] },
+    { title: "P1 — Campaign burning $4.8K with zero conversions", body: "Meta — prospecting, US broad. I've drafted the kill; it holds for your approval.", time: "7:42 AM", tone: "danger", unread: true, actions: [{ label: "Open alert", onClick: onOpenAlert }, { label: "Dismiss" }] },
     { title: "Awaiting your approval — reallocate $18K from Search to Performance Max", body: "The moment you approve, I'll move $18K of daily budget and cap Search at $12K/day.", time: "Yesterday", tone: "info", actions: [{ label: "Review" }] },
     { title: "Brand search ROAS at 6.1x — headroom to scale +20%", body: "Google Ads — brand exact. I've sized the lift; the draft is ready when you are.", time: "Yesterday", tone: "success" },
     { title: "Hero creative fatiguing — CTR down 12% this week", body: "TikTok — spark ads. No action needed yet — I'm watching the decay curve.", time: "Monday", tone: "warning" },
@@ -450,7 +461,7 @@ function AlertDetail() {
               <div>
                 <Eyebrow color="var(--orange-600)">What changed</Eyebrow>
                 <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--ink-900)", lineHeight: "var(--lh-relaxed)" }}>
-                  Your Meta US-broad prospecting campaign burned <strong>$4.8K this week with zero conversions</strong>.
+                  Your Meta US-broad prospecting campaign is burning <strong>$4.8K a month with zero conversions</strong>.
                   Spend kept flowing at full pace while every downstream signal went flat.
                 </p>
               </div>
@@ -466,7 +477,7 @@ function AlertDetail() {
                 <Eyebrow color="var(--orange-600)">Do this</Eyebrow>
                 <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--ink-900)", lineHeight: "var(--lh-relaxed)" }}>
                   <strong>Kill Meta US-broad prospecting and cap the audience at $4K/day.</strong> That recovers
-                  $4.8K/day of waste — and it's the single largest line in the $55.1K/mo of recoverable waste
+                  $4.8K/mo of waste — and it's the single largest line in the $55.1K/mo of recoverable waste
                   I'm tracking across your account.
                 </p>
               </div>
@@ -488,7 +499,7 @@ function AlertDetail() {
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <ApprovalGate priority="high" approver="Priya Menon" requestedAt="Alfred · 7:42 AM"
             title="Pause Meta US-broad prospecting"
-            summary="Recovers $4.8K/day of waste at 91% confidence. Retargeting is untouched — this only stops the broad audience that stopped converting."
+            summary="Recovers $4.8K/mo of waste at 91% confidence. Retargeting is untouched — this only stops the broad audience that stopped converting."
             steps={["Pause 3 ad sets", "Archive the broad audience"]}
             style={{ maxWidth: "none" }} />
 

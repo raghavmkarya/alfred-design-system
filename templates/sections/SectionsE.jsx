@@ -7,7 +7,11 @@
 const { Avatar, JobListingRow, EyebrowBadge, Icon } = window.AlfredAIDesignSystem_1ce241;
 const ContainerE = window.SecContainer;
 const EyebrowE = window.SecEyebrow;
-const H2E = window.SecH2;
+/* Dark-surface H2 — var(--font-display) inherits Satoshi under [data-theme="dark"] (live spec), weight 500. */
+const H2E = ({ children, style }) => (
+  <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-medium)", fontSize: 40,
+    letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 0", ...style }}>{children}</h2>
+);
 const SIR5 = "../../assets/icons";
 
 const GlyphE = ({ name, color = "var(--orange-400)" }) => (
@@ -50,6 +54,7 @@ function SecurityGrid({
 /* ——— E2 · Team grid (photo-less, initials) ——— */
 function TeamGrid({
   title = "The people behind Alfred",
+  /* placeholder — replace with the real E902 AI Labs team/roles before shipping */
   members = [
     { name: "Arjun Mehta", role: "Co-founder & CEO", line: "Spent a decade watching great teams lose their mornings to reporting. Building the layer that gives them back." },
     { name: "Sara Iyer", role: "Co-founder & CTO", line: "Owns Alfred Core — the memory that makes every briefing sharper than the last." },
@@ -97,7 +102,7 @@ function ValuesGrid({
           {values.map((v) => (
             <div key={v.title} style={{ background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-2xl)", padding: 28 }}>
               <GlyphE name={v.icon} color={v.color} />
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, letterSpacing: "-0.01em", color: "#fff", margin: "16px 0 8px" }}>{v.title}</div>
+              <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, letterSpacing: "-0.01em", color: "var(--text-primary)", margin: "16px 0 8px" }}>{v.title}</div>
               <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", margin: 0 }}>{v.line}</p>
             </div>
           ))}
@@ -110,6 +115,7 @@ function ValuesGrid({
 /* ——— E4 · Careers band (light-inverted — the live About pattern) ——— */
 function Careers({
   title = "Come build the intelligence layer",
+  /* placeholder — replace with the real E902 AI Labs team/roles before shipping */
   jobs = [
     { title: "Founding product engineer", team: "Engineering", location: "Bengaluru", type: "Full-time", href: "#" },
     { title: "Product designer", team: "Design", location: "Remote (India)", type: "Full-time", href: "#" },
@@ -117,15 +123,15 @@ function Careers({
   note = "Don't see your role? Write to hello@seekalfred.ai.",
 }) {
   /* Local light inversion: remap the dark tokens to their light values inside
-     this band only, so JobListingRow and text render on #FAFAFA with ink. */
+     this band only, so JobListingRow and text render on var(--gray-50) with ink. */
   const noteParts = note.split(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/);
   return (
-    <section className="sec-careers-light" style={{ background: "#FAFAFA" }}>
+    <section className="sec-careers-light" style={{ background: "var(--gray-50)" }}>
       <style>{`
         .sec-careers-light {
-          --bg-page: #FAFAFA;
-          --surface-card: #FFFFFF;
-          --surface-raised: #FFFFFF;
+          --bg-page: var(--gray-50);
+          --surface-card: var(--white);
+          --surface-raised: var(--white);
           --surface-sunken: var(--gray-50);
           --text-primary: var(--ink-900);
           --text-secondary: var(--ink-600);
@@ -172,7 +178,7 @@ function StoryEditorial({
         <EyebrowBadge>{eyebrow}</EyebrowBadge>
         <div style={{ display: "flex", flexDirection: "column", gap: 28, marginTop: 32, maxWidth: 720 }}>
           {paragraphs.map((p, i) => (
-            <p key={i} style={{ fontFamily: "var(--font-sans)", fontWeight: "var(--fw-medium)", fontSize: 22, lineHeight: 1.6, letterSpacing: "-0.005em", color: i === 0 ? "#fff" : "var(--text-secondary)", margin: 0 }}>{p}</p>
+            <p key={i} style={{ fontFamily: "var(--font-sans)", fontWeight: "var(--fw-medium)", fontSize: 22, lineHeight: 1.6, letterSpacing: "-0.005em", color: i === 0 ? "var(--text-primary)" : "var(--text-secondary)", margin: 0 }}>{p}</p>
           ))}
         </div>
       </ContainerE>

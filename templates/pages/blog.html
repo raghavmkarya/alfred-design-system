@@ -38,11 +38,11 @@ const capsLabel = { fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", 
    $4.8K figure is the Northwind demo number (data/demo-data.json). */
 const PILLARS = ["All", "Decision intelligence", "AI visibility", "Playbooks"];
 const POSTS = [
-  { cat: "Decision intelligence", title: "Why dashboards stalled — and what replaced them", date: "Jun 24, 2026", read: "6 min", grad: "var(--gradient-brand-reverse)" },
-  { cat: "Decision intelligence", title: "What changed, why, and what next: the anatomy of a decision-ready answer", date: "Jun 17, 2026", read: "7 min", grad: "linear-gradient(135deg, #A7A7FC 0%, #16162E 100%)" },
-  { cat: "AI visibility", title: "Your AI Visibility Score, explained", date: "Jun 10, 2026", read: "5 min", grad: "linear-gradient(135deg, #FF8431 0%, #02021E 100%)" },
-  { cat: "AI visibility", title: "When buyers ask AI before they ask you", date: "Jun 3, 2026", read: "4 min", grad: "linear-gradient(135deg, #7B7BF5 0%, #02021E 100%)" },
-  { cat: "Playbooks", title: "Catching budget drift four days early", date: "May 27, 2026", read: "5 min", grad: "linear-gradient(135deg, #FFA040 0%, #16162E 100%)" },
+  { cat: "Decision intelligence", title: "Why dashboards stalled — and what replaced them", date: "Jun 24, 2026", read: "6 min", grad: "var(--periwinkle-600)" },
+  { cat: "Decision intelligence", title: "What changed, why, and what next: the anatomy of a decision-ready answer", date: "Jun 17, 2026", read: "7 min", grad: "linear-gradient(135deg, var(--periwinkle-400) 0%, var(--ink-800) 100%)" },
+  { cat: "AI visibility", title: "Your AI Visibility Score, explained", date: "Jun 10, 2026", read: "5 min", grad: "linear-gradient(135deg, var(--orange-500) 0%, var(--ink-900) 100%)" },
+  { cat: "AI visibility", title: "When buyers ask AI before they ask you", date: "Jun 3, 2026", read: "4 min", grad: "linear-gradient(135deg, var(--periwinkle-600) 0%, var(--ink-900) 100%)" },
+  { cat: "Playbooks", title: "Catching budget drift four days early", date: "May 27, 2026", read: "5 min", grad: "linear-gradient(135deg, var(--orange-400) 0%, var(--ink-800) 100%)" },
   { cat: "Playbooks", title: "The kill call: retiring a campaign burning $4.8K with zero conversions", date: "May 20, 2026", read: "4 min", grad: "var(--gradient-brand)" },
 ];
 
@@ -53,7 +53,7 @@ function PostCard({ post }) {
       <div style={{ height: 160, background: post.grad }} />
       <div style={{ padding: 22 }}>
         <Chip tone="info">{post.cat}</Chip>
-        <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, color: "#fff", letterSpacing: "-0.01em", margin: "14px 0 10px", lineHeight: 1.2 }}>{post.title}</div>
+        <h3 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 22, color: "#fff", letterSpacing: "-0.01em", margin: "14px 0 10px", lineHeight: 1.2 }}>{post.title}</h3>
         <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{post.date} · {post.read} read</div>
       </div>
     </a>

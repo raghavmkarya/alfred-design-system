@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../styles.css" />
   <style>
     /* ============================================================
-       linkedin-stat — the sourced-stat card (LinkedIn 4:5).
+       linkedin-stat — the sourced-stat card, 1200×1350 (8:9 portrait).
        Fixed 1200×1350 frame. Screenshot at exactly that size
        (see social/README.md).
 
@@ -18,9 +18,10 @@
        belong on linkedin-insight, framed as demo data.
 
        SLOTS (find-and-replace the inner text of the marked elements):
-       stat        — the number, e.g. 73%  (keep to ~4 characters)
+       stat        — the number, e.g. 63%  (keep to ~4 characters)
        claim       — what the number means, sentence case, ≤ 2 lines
-       source      — the visible citation, e.g. NIQ, 2025 (REQUIRED)
+       source      — the visible citation, e.g. PwC CMO Survey, 2025
+                     (REQUIRED)
        bridge      — the Alfred line, third person, one sentence
        ============================================================ */
     :root { --frame-w: 1200px; --frame-h: 1350px; }
@@ -140,10 +141,10 @@
       <p class="eyebrow">The problem, quantified</p>
 
       <!-- SLOT: stat -->
-      <div class="stat" data-slot="stat">73%</div>
+      <div class="stat" data-slot="stat">63%</div>
 
       <!-- SLOT: claim -->
-      <h1 class="claim" data-slot="claim">of marketing data goes unused.</h1>
+      <h1 class="claim" data-slot="claim">of leaders miss opportunities — decisions take too long.</h1>
 
       <!-- SLOT: source — REQUIRED. No visible citation, no card. -->
       <span class="source">
@@ -152,7 +153,7 @@
           <path d="M14 3v5h5" />
           <path d="M9 13h6M9 17h6" />
         </svg>
-        <span>Source: <span data-slot="source">NIQ, 2025</span></span>
+        <span>Source: <span data-slot="source">PwC CMO Survey, 2025</span></span>
       </span>
 
       <!-- SLOT: bridge — Alfred in third person, one sentence -->

@@ -98,7 +98,7 @@ function Products() {
   const [tab, setTab] = React.useState("mkt");
   const data = {
     mkt: { name: "Alfred for Marketing", blurb: "Six intelligence agents work across your marketing stack, turning signals from campaigns, channels and performance systems into a clear view of business impact.", agents: ["Daily Brief", "Spend Mix", "AI Visibility", "Unified KPI Cockpit", "Creative Fatigue", "Anomaly Detection"], cta: "Read less, know more" },
-    sales: { name: "Alfred for Sales", blurb: "Converts fragmented deal signals into a clear view of performance and next steps with six sales-intelligence agents.", agents: ["Sales Play", "Deal Deviation", "Revenue Signal", "Coaching Intelligence", "Forecast Intelligence", "Daily Brief"], cta: "Catch it at risk, not at lost" },
+    sales: { name: "Alfred for Sales", blurb: "Converts fragmented deal signals into a clear view of performance and next steps with six sales-intelligence agents.", agents: ["Sales Play", "Deal Deviation", "Revenue Signal", "Coaching Intelligence", "Forecast Intelligence", "Daily Brief"], cta: "Catch it at risk, not at loss" },
     next: { name: "Upcoming products", blurb: "The memory compounds as each module activates. Finance, Operations and Founders are next in line.", agents: ["Alfred for Finance", "Alfred for Operations", "Alfred for Founders"], cta: "Be first in line" },
   };
   const d = data[tab];

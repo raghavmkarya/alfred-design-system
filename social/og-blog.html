@@ -20,10 +20,15 @@
        │               │ Marketing ops, Company                        │
        │ title         │ post title, sentence case, ≤ ~70 chars;       │
        │               │ clips at 2 lines                              │
-       │ author-name   │ e.g. Arjun Mehta                              │
-       │ author-role   │ e.g. Co-founder & CEO                         │
+       │ author-name   │ e.g. [FOUNDER NAME]                           │
+       │ author-role   │ e.g. [ROLE]                                   │
        │ date          │ e.g. July 2026 (month + year is enough)       │
        └───────────────┴───────────────────────────────────────────────┘
+
+       PLACEHOLDER CONVENTION: bracketed values like [FOUNDER NAME]
+       and [ROLE] are unset slots — replace every bracketed value
+       with the real, approved person before export. Never ship a
+       card with brackets visible.
        ============================================================ */
     :root { --frame-w: 1200px; --frame-h: 630px; }
 
@@ -180,12 +185,12 @@
 
     <footer class="footer">
       <div class="author">
-        <!-- initials update with the author; keep 2 letters -->
-        <span class="avatar" data-slot="author-initials">AM</span>
+        <!-- initials update with the author; keep 2 letters (real initials) -->
+        <span class="avatar" data-slot="author-initials">[XX]</span>
         <span>
-          <span class="name" data-slot="author-name">Arjun Mehta</span>
+          <span class="name" data-slot="author-name">[FOUNDER NAME]</span>
           <!-- SLOT: author-role · date -->
-          <div class="role"><span data-slot="author-role">Co-founder &amp; CEO</span> · <span data-slot="date">July 2026</span></div>
+          <div class="role"><span data-slot="author-role">[ROLE]</span> · <span data-slot="date">July 2026</span></div>
         </span>
       </div>
       <span class="meta"><b>seekalfred.ai</b>/blog</span>

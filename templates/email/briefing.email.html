@@ -1,91 +1,256 @@
-<!-- @dsCard group="Templates" viewport="640x860" name="Email — daily briefing" subtitle="Transactional email: Alfred's morning briefing" -->
+<!-- @dsCard group="Templates" viewport="640x1400" name="Email — daily briefing" subtitle="Lifecycle email: Alfred's morning brief — KPIs, three decisions, one CTA" -->
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="color-scheme" content="light" />
-<title>Alfred — Daily briefing</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="color-scheme" content="light dark" />
+<meta name="supported-color-schemes" content="light dark" />
+<title>Alfred — Daily brief</title>
 <!--
-  Self-contained transactional email. Table layout + inline styles for client
-  compatibility; brand hex values are inlined (custom fonts don't load in most
-  clients, so Satoshi falls back to system sans). For production, swap the
-  relative logo src for a hosted https URL.
+  ALFRED LIFECYCLE EMAIL — daily brief.
+  Subject: Three things need you today — ROAS 4.8x, CAC climbing to $142
+  Built on templates/email/shell.html + blocks.html. Rules: templates/email/README.md.
+  All numbers from data/demo-data.json (Northwind Labs demo). First-person Alfred voice.
+  Every color is literal hex mirroring a design-system token (named in adjacent comments).
 -->
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<![endif]-->
+<style>
+  /* Kept minimal — everything visual is inline. This block only handles
+     client resets + dark-mode overrides (Apple Mail, iOS Mail, some Outlook). */
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
+  body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
+  table { border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; }
+  img { border: 0; line-height: 100%; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  .logo-dark { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    /* #000000 mirrors --bg-page (dark) */
+    .em-canvas { background: #000000 !important; }
+    /* #171715 mirrors --ink-875 (raised dark card) */
+    .em-card { background: #171715 !important; border-color: rgba(255,255,255,0.12) !important; } /* border mirrors --border-default (dark) */
+    .em-hair { border-color: rgba(255,255,255,0.08) !important; } /* mirrors --border-subtle (dark) */
+    .em-h { color: #FFFFFF !important; }                          /* mirrors --text-primary (dark) */
+    .em-t { color: rgba(255,255,255,0.78) !important; }           /* mirrors --text-secondary (dark) */
+    .em-mut { color: rgba(255,255,255,0.55) !important; }         /* mirrors --text-muted (dark) */
+    .em-link { color: #FFA040 !important; }                       /* mirrors --orange-400 / --text-link (dark) */
+    .em-sunken { background: #111110 !important; }                /* mirrors --ink-925 (dark section band) */
+    /* Swap the color lockup for the all-white lockup on dark */
+    .logo-light { display: none !important; }
+    .logo-dark { display: block !important; }
+  }
+</style>
 </head>
-<body style="margin:0; padding:0; background:#F9F9F9;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F9F9F9;">
-  <tr><td align="center" style="padding:28px 16px;">
-    <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FFFFFF; border:1px solid #E6E6E6; border-radius:24px; overflow:hidden; font-family:'Satoshi',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 
-      <!-- Header -->
-      <tr><td style="padding:24px 28px; border-bottom:1px solid #F1F1F1;">
-        <img src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred ai" height="26" style="height:26px; display:block;" />
-      </td></tr>
+<!-- Canvas: #F9F9F9 mirrors --gray-50 -->
+<body class="em-canvas" style="margin:0; padding:0; background:#F9F9F9;">
 
-      <!-- Briefing spotlight (ink card) -->
-      <tr><td style="padding:28px 28px 8px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#02021E; border-radius:20px;">
-          <tr><td style="padding:26px 26px 24px;">
-            <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#FFA040;">Daily briefing · 8:00 AM</div>
-            <div style="font-size:22px; font-weight:700; color:#FFFFFF; line-height:1.3; margin:12px 0 8px;">Good morning, Priya. Spend is pacing 6% hot — but ROAS is up.</div>
-            <div style="font-size:15px; color:#C9C9FF; line-height:1.55;">Paid social drove 38% of pipeline this week. I've flagged two budget reallocations worth an estimated <strong style="color:#FFFFFF;">+$48K in revenue</strong>. Three creatives are entering fatigue.</div>
-          </td></tr>
-        </table>
-      </td></tr>
+  <!-- Preheader: hidden preview text shown next to the subject line. -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">Good morning, Priya. Three things need you today — ROAS is at 4.8x, CAC climbed $18 to $142.</div>
 
-      <!-- KPI row -->
-      <tr><td style="padding:18px 28px 8px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-canvas" style="background:#F9F9F9;">
+    <tr>
+      <td align="center" style="padding:28px 16px;">
+
+        <!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+        <!-- Card: 600px fixed, #FFFFFF mirrors --surface-card, border #E6E6E6 mirrors --gray-150,
+             24px radius mirrors --radius card scale (Outlook ignores radius — acceptable degrade) -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" class="em-card" style="width:600px; max-width:600px; background:#FFFFFF; border:1px solid #E6E6E6; border-radius:24px; overflow:hidden; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;">
+
+          <!-- ================= HEADER — logo ================= -->
+          <!-- Hairline #F1F1F1 mirrors --gray-100 -->
           <tr>
-            <td width="33%" style="padding:6px;">
-              <table role="presentation" width="100%" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;"><tr><td style="padding:16px;">
-                <div style="font-size:12px; color:#6B6B78;">Blended ROAS</div>
-                <div style="font-size:24px; font-weight:700; color:#02021E; letter-spacing:-0.02em;">4.8x</div>
-                <div style="font-size:12px; font-weight:700; color:#2FB67C;">▲ 12.4%</div>
-              </td></tr></table>
-            </td>
-            <td width="33%" style="padding:6px;">
-              <table role="presentation" width="100%" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;"><tr><td style="padding:16px;">
-                <div style="font-size:12px; color:#6B6B78;">Spend</div>
-                <div style="font-size:24px; font-weight:700; color:#02021E; letter-spacing:-0.02em;">$312K</div>
-                <div style="font-size:12px; font-weight:700; color:#FF8431;">▲ 6.1% hot</div>
-              </td></tr></table>
-            </td>
-            <td width="33%" style="padding:6px;">
-              <table role="presentation" width="100%" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;"><tr><td style="padding:16px;">
-                <div style="font-size:12px; color:#6B6B78;">Blended CAC</div>
-                <div style="font-size:24px; font-weight:700; color:#02021E; letter-spacing:-0.02em;">$184</div>
-                <div style="font-size:12px; font-weight:700; color:#2FB67C;">▼ 8.0%</div>
-              </td></tr></table>
+            <td class="em-hair" style="padding:24px 28px; border-bottom:1px solid #F1F1F1;">
+              <a href="https://seekalfred.ai" style="text-decoration:none;">
+                <img class="logo-light" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" height="26" style="height:26px; display:block;" />
+                <!--[if !mso]><!-- -->
+                <img class="logo-dark" src="../../assets/logos/alfred-logo-color-white.svg" alt="Alfred" height="26" style="height:26px; display:none;" />
+                <!--<![endif]-->
+              </a>
             </td>
           </tr>
+
+          <!-- ================= BODY ================= -->
+          <tr>
+            <td style="padding:32px 28px;">
+
+              <!-- Hero: eyebrow + headline + sub -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:0 0 8px;">
+                    <!-- Eyebrow: #6B6B78 mirrors --ink-500 / --text-muted -->
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#6B6B78;">Daily brief &middot; {{brief_date}}</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 0 10px;">
+                    <!-- Headline: #02021E mirrors --ink-900; Clash-stack, tight tracking -->
+                    <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:28px; font-weight:600; letter-spacing:-0.02em; line-height:1.16; color:#02021E;">Good morning, Priya. Three things need you today.</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 0 20px;">
+                    <!-- Sub: #505050 mirrors --ink-600 / --text-secondary -->
+                    <div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:15px; line-height:1.55; color:#505050;">Spend is pacing 6.1% hot at $310K this month, but blended ROAS is up 12.4% to 4.8x. I've queued three decisions below — you approve, I execute.</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- KPI strip: three tiles + REQUIRED source citation. Deltas are plain
+                   text, never unicode arrows.
+                   Tokens: #F9F9F9 --gray-50 · #F1F1F1 --gray-100 · #6B6B78 --ink-500
+                           #02021E --ink-900 · #2FB67C --success-500 · #FF8431 --orange-500 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="33%" style="padding:0 6px 0 0;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;">
+                      <tr><td style="padding:16px;">
+                        <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; color:#6B6B78;">Blended ROAS</div>
+                        <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:24px; font-weight:600; letter-spacing:-0.02em; color:#02021E; padding-top:2px;">4.8x</div>
+                        <!-- #2FB67C mirrors --success-500 -->
+                        <div style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; color:#2FB67C;">+12.4% vs 30d</div>
+                      </td></tr>
+                    </table>
+                  </td>
+                  <td width="34%" style="padding:0 3px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;">
+                      <tr><td style="padding:16px;">
+                        <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; color:#6B6B78;">Spend</div>
+                        <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:24px; font-weight:600; letter-spacing:-0.02em; color:#02021E; padding-top:2px;">$310K</div>
+                        <!-- #FF8431 mirrors --orange-500 (running warm) -->
+                        <div style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; color:#FF8431;">+6.1% hot</div>
+                      </td></tr>
+                    </table>
+                  </td>
+                  <td width="33%" style="padding:0 0 0 6px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-sunken em-hair" style="background:#F9F9F9; border:1px solid #F1F1F1; border-radius:16px;">
+                      <tr><td style="padding:16px;">
+                        <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; color:#6B6B78;">CAC (blended)</div>
+                        <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:24px; font-weight:600; letter-spacing:-0.02em; color:#02021E; padding-top:2px;">$142</div>
+                        <!-- #FF8431 mirrors --orange-500 (rising / running warm) -->
+                        <div style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; color:#FF8431;">+$18 WoW</div>
+                      </td></tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="padding:10px 2px 0;">
+                    <!-- Source citation — REQUIRED whenever stats appear. #9CA3AF mirrors --ink-400 -->
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:1.5; color:#9CA3AF;">Source: Alfred KPI Cockpit &middot; Meta Ads + Google Ads + HubSpot &middot; last 7 days, pulled {{data_pulled_date}}</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider. #F1F1F1 mirrors --gray-100 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="em-hair" style="padding:20px 0 0; border-bottom:1px solid #F1F1F1; font-size:0; line-height:0;">&nbsp;</td>
+                </tr>
+                <tr><td style="padding-top:20px; font-size:0; line-height:0;">&nbsp;</td></tr>
+              </table>
+
+              <!-- Brief item 1 of 3. Left bar #FF8431 mirrors --orange-500 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-hair" style="border:1px solid #F1F1F1; border-left:3px solid #FF8431; border-radius:16px;">
+                <tr>
+                  <td style="padding:18px 20px;">
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#6B6B78;">Today &middot; item 1 of 3</div>
+                    <div class="em-h" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:16px; font-weight:700; color:#02021E; padding:8px 0 10px;">Kill the Meta broad campaign</div>
+                    <div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">It's burning $4.8K a month with zero conversions — lead quality fell 14% when the new audience launched. I've drafted the pause; it's one click to approve.</div>
+                    <!-- Per-item source citation. #9CA3AF mirrors --ink-400 -->
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:1.5; color:#9CA3AF; padding-top:8px;">Sources: Meta &middot; GA4 &middot; HubSpot</div>
+                    <div style="padding-top:10px;">
+                      <a class="em-link" href="{{item_1_url}}" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#FF8431; text-decoration:underline;">Open this item in Alfred</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding-top:12px; font-size:0; line-height:0;">&nbsp;</td></tr></table>
+
+              <!-- Brief item 2 of 3 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-hair" style="border:1px solid #F1F1F1; border-left:3px solid #FF8431; border-radius:16px;">
+                <tr>
+                  <td style="padding:18px 20px;">
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#6B6B78;">Today &middot; item 2 of 3</div>
+                    <div class="em-h" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:16px; font-weight:700; color:#02021E; padding:8px 0 10px;">Approve the $18K reallocation</div>
+                    <div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">Performance Max is converting at 5.1x while non-brand search holds at 3.4x. Shifting $18K buys +6% non-brand coverage and roughly $30K of pipeline — 82% confidence.</div>
+                    <!-- Per-item source citation. #9CA3AF mirrors --ink-400 -->
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:1.5; color:#9CA3AF; padding-top:8px;">Sources: Google Ads &middot; GA4</div>
+                    <div style="padding-top:10px;">
+                      <a class="em-link" href="{{item_2_url}}" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#FF8431; text-decoration:underline;">Open this item in Alfred</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding-top:12px; font-size:0; line-height:0;">&nbsp;</td></tr></table>
+
+              <!-- Brief item 3 of 3 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-hair" style="border:1px solid #F1F1F1; border-left:3px solid #FF8431; border-radius:16px;">
+                <tr>
+                  <td style="padding:18px 20px;">
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#6B6B78;">Today &middot; item 3 of 3</div>
+                    <div class="em-h" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:16px; font-weight:700; color:#02021E; padding:8px 0 10px;">Rotate the TikTok hero creative</div>
+                    <div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">CTR is down 12% this week — fatigue, not audience. A fresh variant protects ~$26K/mo of spend; I recommend rotating before Friday.</div>
+                    <!-- Per-item source citation. #9CA3AF mirrors --ink-400 -->
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:1.5; color:#9CA3AF; padding-top:8px;">Sources: TikTok &middot; GA4</div>
+                    <div style="padding-top:10px;">
+                      <a class="em-link" href="{{item_3_url}}" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#FF8431; text-decoration:underline;">Open this item in Alfred</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- CTA: bulletproof button. bgcolor #FF8431 mirrors --orange-500, 12px radius,
+                   #FFFFFF mirrors --text-on-brand. One primary CTA per email. -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center" style="padding:24px 0 4px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center" bgcolor="#FF8431" style="background:#FF8431; border-radius:12px;">
+                          <a href="{{brief_url}}" style="display:inline-block; padding:14px 32px; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:15px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:12px;">Review today's brief in Alfred</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- ================= FOOTER — product/lifecycle variant ================= -->
+          <!-- Sunken band #F9F9F9 mirrors --gray-50 / --surface-sunken · hairline #F1F1F1 mirrors --gray-100 -->
+          <tr>
+            <td class="em-sunken em-hair" style="padding:24px 28px; background:#F9F9F9; border-top:1px solid #F1F1F1;">
+              <!-- #6B6B78 mirrors --ink-500 / --text-muted · links #FF8431 mirror --orange-500 / --text-link -->
+              <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:1.7; color:#6B6B78;">
+                I send this brief every morning because you subscribed to the daily brief for {{workspace_name}}. Change the cadence any time.<br />
+                &copy; 2026 E902 AI Labs Private Limited<br />
+                {{registered_address — replace before sending}}<br />
+                <a class="em-link" href="{{unsubscribe_url}}" style="color:#FF8431; text-decoration:underline;">Unsubscribe</a>
+                &nbsp;&middot;&nbsp;
+                <a class="em-link" href="{{preferences_url}}" style="color:#FF8431; text-decoration:underline;">Manage preferences</a>
+                &nbsp;&middot;&nbsp;
+                <a class="em-link" href="mailto:hello@seekalfred.ai" style="color:#FF8431; text-decoration:underline;">hello@seekalfred.ai</a><br />
+                @seekalfred on
+                <a class="em-link" href="https://x.com/seekalfred" style="color:#FF8431; text-decoration:underline;">X</a>,
+                <a class="em-link" href="https://www.linkedin.com/company/seekalfred" style="color:#FF8431; text-decoration:underline;">LinkedIn</a>
+                and
+                <a class="em-link" href="https://www.instagram.com/seekalfred" style="color:#FF8431; text-decoration:underline;">Instagram</a>
+              </div>
+            </td>
+          </tr>
+
         </table>
-      </td></tr>
+        <!--[if mso]></td></tr></table><![endif]-->
 
-      <!-- Decision alert -->
-      <tr><td style="padding:14px 28px 4px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #F1F1F1; border-left:3px solid #E5484D; border-radius:14px;">
-          <tr><td style="padding:16px 18px;">
-            <div style="font-size:12px; font-weight:700; letter-spacing:0.6px; text-transform:uppercase; color:#E5484D;">Needs action · 12m ago</div>
-            <div style="font-size:16px; font-weight:700; color:#02021E; margin:6px 0 4px;">Google Ads over budget</div>
-            <div style="font-size:14px; color:#505050; line-height:1.5;">Brand campaign exhausts its cap in 4 days. Shift $18K to Performance Max to protect non-brand coverage.</div>
-          </td></tr>
-        </table>
-      </td></tr>
-
-      <!-- CTA -->
-      <tr><td align="center" style="padding:22px 28px 30px;">
-        <a href="#" style="display:inline-block; background:#FF8431; color:#FFFFFF; font-size:15px; font-weight:700; text-decoration:none; padding:14px 28px; border-radius:12px;">Review reallocations</a>
-      </td></tr>
-
-      <!-- Footer -->
-      <tr><td style="padding:22px 28px; background:#F9F9F9; border-top:1px solid #F1F1F1;">
-        <div style="font-size:12px; color:#6B6B78; line-height:1.6;">You're receiving the daily briefing for Northwind Co.<br/>Alfred AI · Decisions, on demand · <a href="#" style="color:#FF8431; text-decoration:none;">Manage preferences</a></div>
-      </td></tr>
-
-    </table>
-  </td></tr>
-</table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>

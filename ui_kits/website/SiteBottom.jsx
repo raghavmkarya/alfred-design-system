@@ -92,7 +92,8 @@ function Faq() {
       <Container2 style={{ padding: "84px 40px", maxWidth: 880 }}>
         <Eyebrow2>FAQ</Eyebrow2>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 40, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 24px" }}>
-          Got Any Questions? We've Got Answers
+          {/* Live site renders this heading in Title Case — a documented defect; the DS keeps sentence case. */}
+          Got any questions? We've got answers
         </h2>
         {qs.map(([q, a], i) => (
           <FaqItem key={i} question={q} open={open === i} onToggle={(v) => setOpen(v ? i : -1)}>{a}</FaqItem>

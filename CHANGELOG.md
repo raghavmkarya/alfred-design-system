@@ -3,6 +3,52 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-02 — Live-site reconciliation + 20x expansion — 86 → 113 components, full GTM surface coverage
+
+### Reconciled to the live site (full crawl of seekalfred.ai)
+- **Dark theme now truthfully models live**: pure-black pages, 3%-white cards, white-alpha
+  borders, Satoshi as headline AND body on dark (Inter fallback only). New `--urgent-500`
+  (#FF3D00). Website kit nav/footer/FAQ/security matched to live (E902 AI Labs entity,
+  Integrations link, 7 FAQ items, live column structure).
+- `ui_kits/website/LIVE-DRIFT.md` — the adopted-vs-defect register (two-orange drift, mint
+  fallbacks, Framer-blue links, forced Title Case, unicode checkmarks: documented, NOT adopted).
+- `guidelines/voice-and-naming.md` — verified canon: Alfred Core, module names + slogans, the
+  6+6 agents, tier pricing (₹19,900/₹49,900/₹99,900 · $239/$599/$1,199), verbatim boilerplate,
+  marketing-third-person vs product-first-person voice rule.
+
+### Expansion — 27 new components
+- **Marketing conversion set**: EyebrowBadge, DotMatrix, OfferSwitch, PriceCard,
+  IntegrationCard, CategoryCountBadge, Countdown, AvatarStack, CapabilityTicker,
+  AnimatedCounter (SSRs at final value — fixes the live 0% counter defect), JobListingRow,
+  ModuleStatusCard, DashboardMock.
+- **Glass-box & admin set**: ProvenancePanel, InsightFeedback, ReasoningState,
+  ConnectionHealthCard, SyncStatusBadge, UsageMeter, UpgradeModal, AuditLogRow, MemoryCard,
+  ModuleSwitcher, TeamMemberRow, BillingPlanCard, NotificationPref, StateBlock.
+
+### Expansion — surfaces
+- **Sections 11 → 27** (`SectionsD–F.jsx`): SecHero (default/waitlist/product), SecStatement,
+  SecClosingCTA, SecFaq, SecSecurityGrid, SecTeamGrid, SecValuesGrid, SecCareers,
+  SecStoryEditorial, SecContactSplit, SecIndustryCards, SecAgentShowcase, SecEnterpriseBand,
+  SecStackDiagram, SecTimeline, SecSourcedStats (citations built in).
+- **Pages (new)** — 13 full-page templates in `templates/pages/`.
+- **App kit 12 → 22 screens** (`Screens3–4.jsx`, routed): ConnectionFlow, ConnectionHealth,
+  FirstRunWaiting, NotificationsCenter, AlertDetail (provenance + approval), SettingsProfile,
+  TeamPermissions, BillingPlans, MemoryCore, AuditLog.
+- **Email system (new)** — `templates/email/`: shell + block library + 19 templates
+  (product alerts/digest/reconnect/approval, onboarding 0–3, waitlist/nurture/launch/
+  newsletter, verify/magic-link/invite/reset/dunning/NPS).
+- **Collateral (new)** — `templates/collateral/`: A4 print theme + one-pagers, 4 battle
+  cards, security pack, pilot plan, case-study template, interactive ROI calculator.
+- **Social (new)** — OG system, LinkedIn card set, profile kits, brief-of-the-day frame,
+  carousel + blog-hero systems.
+- **Canonical demo data (new)** — `data/demo-data.json` (Northwind Labs): the single
+  fake-data source; the no-fabricated-proof rule enforced across every surface.
+
+### Verification
+- All 113 components render clean; 53 a11y contracts hold; all 57 kit/section/screen
+  surfaces render clean (verify-render now covers the website kit + new files);
+  adversarial 5-lens review pass (pages/emails/collateral/product/functional).
+
 ## 2026-07-02 — Accessibility hardening, token scales & 9 new primitives — 77 → 86
 
 ### Added

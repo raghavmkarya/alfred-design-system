@@ -5,6 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../../styles.css" />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
 <title>Alfred — ROI calculator</title>
 <style>
   /* Screen tool, not print — dark marketing surface, token-driven throughout. */
@@ -236,14 +237,14 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
             </button>
             <span class="affix">$</span>
-            <input id="in-cost" type="text" inputmode="decimal" role="spinbutton" value="12,000"
+            <input id="in-cost" type="text" inputmode="decimal" role="spinbutton" value="14,400"
               data-min="0" data-max="1000000" data-step="1000" />
             <span class="affix">/yr</span>
             <button type="button" class="step" data-for="in-cost" data-dir="1" aria-label="Increase Alfred cost">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
             </button>
           </div>
-          <p class="hint">Default: Max plan, billed annually. Set to your quoted plan.</p>
+          <p class="hint">Default: Max plan at $1,199/mo — about $14,388/yr, rounded to $14,400. Set to your quoted plan.</p>
         </div>
 
       </div>
