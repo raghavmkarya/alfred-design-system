@@ -1,0 +1,65 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Contact" subtitle="Talk-to-sales page — short hero, contact split, sales FAQ and closing band" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Talk to us</title>
+<meta name="description" content="Talk to the team behind Alfred — the decision intelligence platform for marketing, sales, and the leaders running them. Tell us about your stack and we reply within one working day." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel" src="../sections/SectionsF.jsx"></script>
+<script type="text/babel">
+const gradTextC = { background: "var(--gradient-brand)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" };
+
+const CONTACT_FAQ = [
+  {
+    q: "Can we start with a pilot?",
+    a: "Yes. Most teams start with a 30-minute walkthrough of Alfred on a stack like theirs, then connect read-only and judge the daily brief on their own data. Write-back stays opt-in and approval-gated until you decide otherwise.",
+  },
+  {
+    q: "How does a security review work?",
+    a: "Alfred connects read-only to your stack, your data is logically isolated, never trains shared models, and is never sold or shared with third parties. RBAC and a full audit trail are built in — send your questionnaire to hello@seekalfred.ai and we'll work through it with your team.",
+  },
+  {
+    q: "What should we expect from a pricing call?",
+    a: "Plans run Starter ₹19,900, Growth ₹49,900 and Max ₹99,900 per month, with a 50% launch offer on your first 2 months and Alfred for Enterprise for custom needs. There's no self-serve checkout — every plan starts with this conversation.",
+  },
+];
+
+function Page() {
+  return (
+    <>
+      <window.SiteNav />
+      <window.SecHero
+        eyebrow="Contact"
+        title={<>Talk to the team behind <span style={gradTextC}>Alfred</span></>}
+        sub="Tell us about your stack and the decisions you're slow on. A human replies within one working day."
+        primaryCta="Send a message"
+        secondaryCta="See pricing"
+      />
+      <window.SecContactSplit />
+      <window.SecFaq title="Before you reach out" items={CONTACT_FAQ} />
+      <window.SecClosingCTA secondaryCta="See pricing" />
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

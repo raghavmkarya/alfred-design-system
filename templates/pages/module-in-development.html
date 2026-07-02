@@ -1,0 +1,155 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Module in development" subtitle="Honest waitlist page for Alfred for Sales — fixes the live 404 pattern" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred for Sales — in development</title>
+<meta name="description" content="Alfred for Sales — catch it at risk, not at loss. Six sales-intelligence agents are in development on Alfred Core, the same memory that runs Alfred for Marketing today. Join the waitlist for early access." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel">
+const { ModuleStatusCard } = window.AlfredAIDesignSystem_1ce241;
+
+const SALES_AGENTS = [
+  "Sales Play",
+  "Deal Deviation",
+  "Revenue Signal",
+  "Coaching Intelligence",
+  "Forecast Intelligence",
+  "Daily Brief",
+];
+const MARKETING_AGENTS = [
+  "Daily Brief",
+  "Spend Mix",
+  "AI Visibility",
+  "Unified KPI Cockpit",
+  "Creative Fatigue",
+  "Anomaly Detection",
+];
+
+/* Page-local section: honest module-status row — Sales in development, Marketing live as cross-sell. */
+function ModulesRow() {
+  const eyebrow = {
+    fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)",
+    letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--orange-400)",
+  };
+  const heading = {
+    fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 36,
+    letterSpacing: "-0.02em", color: "var(--text-primary)", margin: "14px 0 0",
+  };
+  const note = {
+    fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)",
+    lineHeight: "var(--lh-relaxed)", margin: "14px 0 0", maxWidth: 560,
+  };
+  return (
+    <section style={{ background: "var(--surface-sunken)", borderTop: "1px solid var(--border-subtle)", borderBottom: "1px solid var(--border-subtle)" }}>
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "84px 40px" }}>
+        <span style={eyebrow}>Modules</span>
+        <h2 style={heading}>Where each module stands</h2>
+        <p style={note}>
+          No fake doors. This page tells you exactly what ships today and what is still being built — and Alfred for Marketing is live right now if you want to start.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 36, alignItems: "start" }}>
+          <ModuleStatusCard
+            module="Alfred for Sales"
+            slogan="Catch it at risk, not at loss."
+            status="in-development"
+            agents={SALES_AGENTS}
+            cta="Join the waitlist"
+            href="#waitlist"
+          />
+          <ModuleStatusCard
+            module="Alfred for Marketing"
+            slogan="Read less, know more."
+            status="live"
+            agents={MARKETING_AGENTS}
+            cta="Explore Alfred for Marketing"
+            href="product-marketing.html"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Page() {
+  return (
+    <div>
+      <window.SiteNav />
+
+      {/* Waitlist hero — honest about in-development status. SecHero's waitlist variant
+          always renders its Countdown; countdownTarget is left at the signature default. */}
+      <div id="waitlist">
+        <window.SecHero
+          variant="waitlist"
+          eyebrow="In development"
+          title="Alfred for Sales — catch it at risk, not at loss"
+          sub="Alfred for Sales is not live yet. Six sales-intelligence agents are in development on Alfred Core — the same memory that runs Alfred for Marketing today. Leave your work email and you'll be first in line for early access."
+        />
+      </div>
+
+      {/* Honest module-status row: Sales in development, Marketing live as cross-sell */}
+      <ModulesRow />
+
+      {/* What it will do — the six sales agents from canon */}
+      <window.SecStatement
+        eyebrow="What it will do"
+        statement="Converts fragmented deal signals into a clear view of performance and next steps."
+        body="Six sales-intelligence agents — Sales Play, Deal Deviation, Revenue Signal, Coaching Intelligence, Forecast Intelligence and Daily Brief — will watch your pipeline the way Alfred for Marketing watches your spend. Every one runs on Alfred Core, so if your organisation uses Alfred today, Sales starts with the memory you have already built — no briefing starts from zero."
+      />
+
+      {/* FAQ — when, how, and what's live today */}
+      <window.SecFaq
+        title="Questions about the Sales module"
+        items={[
+          {
+            q: "When does Alfred for Sales launch?",
+            a: "It's in active development. We'd rather ship it right than ship it fast, so we don't announce dates we can't keep — join the waitlist and we'll only reach out when your early access is ready.",
+          },
+          {
+            q: "What is live today, and what is coming?",
+            a: "Alfred for Marketing is live today. Alfred for Sales is in development, and Finance, Operations and Founders modules are planned next — each one built on the same shared memory.",
+          },
+          {
+            q: "What will Alfred for Sales do?",
+            a: "Convert fragmented deal signals into a clear view of performance and next steps, with six sales-intelligence agents: Sales Play, Deal Deviation, Revenue Signal, Coaching Intelligence, Forecast Intelligence and Daily Brief.",
+          },
+          {
+            q: "How do I get early access?",
+            a: "Join the waitlist above with your work email. When early access opens, we'll reach out directly — there is nothing to install or pay today.",
+          },
+          {
+            q: "Will it share memory with Alfred for Marketing?",
+            a: "Yes. Every module runs on Alfred Core, the compounding memory layer. Teams that run Alfred for Marketing today will start the Sales module with the context their organisation has already built.",
+          },
+          {
+            q: "Can my team use Alfred before Sales ships?",
+            a: "Yes — Alfred for Marketing is live today, with six agents across your marketing stack. Many teams start there, so Alfred Core is already trained on their business when the next module arrives.",
+          },
+        ]}
+      />
+
+      <window.SecClosingCTA />
+      <window.SiteFooter />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

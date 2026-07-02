@@ -1,0 +1,171 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Waitlist" subtitle="Early-access capture — countdown hero, module roadmap, sourced stats + confirmation state" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred ai — Join the waitlist</title>
+<meta name="description" content="Join the waitlist for Alfred — the decision intelligence platform for marketing, sales, and the leaders running them. Alfred for Marketing is live today; the next onboarding window opens September 15, 2026." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel" src="../sections/SectionsF.jsx"></script>
+<script type="text/babel">
+const { ModuleStatusCard } = window.AlfredAIDesignSystem_1ce241;
+
+/* ——— page-local helpers (token-driven, mirrors the SectionsD display spec) ——— */
+const gradText = { background: "var(--gradient-brand)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" };
+const displayW = (size) => ({
+  fontFamily: "var(--font-sans)", fontWeight: 400, fontSize: size,
+  lineHeight: 1.1, letterSpacing: "-0.02em", color: "var(--text-primary)", margin: 0,
+});
+const eyebrowW = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)",
+  letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--orange-400)",
+};
+const bodyW = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)",
+  lineHeight: "var(--lh-relaxed)", margin: 0,
+};
+
+/* ——— Module roadmap row (ModuleStatusCard, no wrapper section exists yet) ——— */
+const MARKETING_AGENTS = ["Daily Brief", "Spend Mix", "AI Visibility", "Unified KPI Cockpit", "Creative Fatigue", "Anomaly Detection"];
+const SALES_AGENTS = ["Sales Play", "Deal Deviation", "Revenue Signal", "Coaching Intelligence", "Forecast Intelligence", "Daily Brief"];
+
+function ModuleRoadmap() {
+  return (
+    <section style={{ background: "var(--bg-page)", borderTop: "1px solid var(--border-subtle)" }}>
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "84px 40px" }}>
+        <span style={eyebrowW}>Modules</span>
+        <h2 style={{ ...displayW(40), marginTop: 14 }}>What your place in line unlocks</h2>
+        <p style={{ ...bodyW, maxWidth: 580, marginTop: 14 }}>
+          Every module runs on Alfred Core, the shared memory underneath — so what Alfred learns
+          about your business compounds as each module comes online.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, alignItems: "start", marginTop: 36 }}>
+          <ModuleStatusCard
+            module="Alfred for Marketing"
+            slogan="Read less, know more"
+            status="live"
+            agents={MARKETING_AGENTS}
+            cta="See the module"
+            href="https://seekalfred.ai/products/alfred-for-marketing"
+          />
+          <ModuleStatusCard
+            module="Alfred for Sales"
+            slogan="Catch it at risk, not at loss"
+            status="in-development"
+            agents={SALES_AGENTS}
+          />
+          <ModuleStatusCard
+            module="Alfred for Finance"
+            slogan="Planned next, on the same shared memory"
+            status="planned"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ——— Confirmation state (shown after the waitlist form submits) ——— */
+const CONFIRM_STEPS = [
+  "We hold your place — onboarding happens in the order you joined, no action needed today.",
+  "When your access is ready, we reach out to schedule a 30-minute walkthrough of Alfred on a stack like yours.",
+  "Connect your stack, and the first daily brief lands that week.",
+];
+
+function WaitlistConfirmation() {
+  return (
+    <section style={{ position: "relative", overflow: "hidden", background: "var(--glow-periwinkle), var(--glow-orange), var(--bg-page)" }}>
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 40px", display: "flex", justifyContent: "center" }}>
+        <div style={{ maxWidth: 560, width: "100%", background: "var(--surface-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-2xl)", boxShadow: "var(--shadow-md)", padding: 36 }}>
+          <div style={{ width: 44, height: 44, borderRadius: "var(--radius-md)", background: "color-mix(in srgb, var(--success-500) 12%, transparent)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--success-500)" }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M8.5 12.5l2.5 2.5 4.5-5.5" />
+            </svg>
+          </div>
+          <h1 style={{ ...displayW(34), lineHeight: 1.14, marginTop: 20 }}>You're on the list — here's what happens next</h1>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 26 }}>
+            {CONFIRM_STEPS.map((s, i) => (
+              <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                <span style={{
+                  width: 22, height: 22, flex: "none", borderRadius: "var(--radius-circle)",
+                  border: "1px solid var(--border-default)", display: "flex", alignItems: "center", justifyContent: "center",
+                  fontFamily: "var(--font-sans)", fontSize: 11, fontWeight: "var(--fw-bold)", color: "var(--text-secondary)",
+                }}>{i + 1}</span>
+                <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", paddingTop: 2 }}>{s}</span>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", lineHeight: "var(--lh-normal)", margin: "26px 0 0", borderTop: "1px solid var(--border-subtle)", paddingTop: 18 }}>
+            We'll only reach out when your early access is ready. In the meantime,{" "}
+            <a href="mailto:hello@seekalfred.ai" style={{ color: "var(--text-link)", fontWeight: "var(--fw-bold)", textDecoration: "none" }}>hello@seekalfred.ai</a>
+            {" "}reaches a human.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ——— FAQ content ——— */
+const WAITLIST_FAQ = [
+  {
+    q: "When do I get access?",
+    a: "Alfred for Marketing is live today, and we onboard the waitlist in the order people joined. When your spot comes up, we reach out to schedule a 30-minute walkthrough — the next onboarding window opens September 15, 2026.",
+  },
+  {
+    q: "What happens to my data?",
+    a: "Your data is logically isolated, never trains shared models, and is never sold or shared with third parties. Alfred connects read-only to your stack — write-back is opt-in and approval-gated.",
+  },
+  {
+    q: "What will it cost?",
+    a: "Plans run Starter ₹19,900, Growth ₹49,900 and Max ₹99,900 per month, with a 50% launch offer on your first 2 months and Alfred for Enterprise for custom needs. There's no self-serve checkout — every plan starts with a conversation.",
+  },
+];
+
+/* ——— Page composer ——— */
+function Page() {
+  const [joined, setJoined] = React.useState(false);
+  return (
+    <>
+      <window.SiteNav />
+      {joined ? (
+        <WaitlistConfirmation />
+      ) : (
+        <div onSubmit={(e) => { e.preventDefault(); setJoined(true); }}>
+          <window.SecHero
+            variant="waitlist"
+            eyebrow="Early access"
+            title={<>Be first in line for <span style={gradText}>decision intelligence</span></>}
+            sub="Alfred for Marketing is live today, and we onboard the waitlist in order. Leave a work email — the next onboarding window opens September 15, 2026."
+            countdownTarget="2026-09-15T09:00:00"
+          />
+        </div>
+      )}
+      <ModuleRoadmap />
+      <window.SecSourcedStats />
+      <window.SecFaq title="Waitlist questions, answered" items={WAITLIST_FAQ} />
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

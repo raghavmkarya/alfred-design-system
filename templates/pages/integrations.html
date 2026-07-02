@@ -1,0 +1,170 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Integrations" subtitle="Thirteen integrations across six categories — directory with live/planned statuses" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Integrations — Alfred decision intelligence</title>
+<meta name="description" content="Thirteen integrations. One source of truth. Alfred connects your ad platforms, analytics, CRM, commerce, lifecycle and delivery tools and turns them into decision-ready intelligence." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+  .int-mail-link { color: var(--text-link); text-decoration: none; font-weight: var(--fw-bold); }
+  .int-mail-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel">
+const { IntegrationCard, CategoryCountBadge, Icon, Button } = window.AlfredAIDesignSystem_1ce241;
+
+/* The hero headline carries the page's single gradient element. */
+const gradText = { background: "var(--gradient-brand)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" };
+
+/* ——— Directory data: names, categories and statuses mirror data/demo-data.json.
+       10 live today, 3 planned — 13 total. ——— */
+const CATEGORIES = [
+  {
+    name: "Ad platforms",
+    icon: "channel-mix",
+    blurb: "Every dollar of paid spend, read in one place.",
+    tools: [
+      { name: "Google Ads", status: "live", body: "Campaign, spend and conversion signals from Search, Performance Max and YouTube — the data behind every budget call." },
+      { name: "Meta", status: "live", body: "Prospecting and retargeting performance read daily — so a $4.8K zero-conversion burn gets flagged, not found." },
+      { name: "LinkedIn", status: "live", body: "ABM campaign spend and CPL trends, joined to pipeline so scale decisions stay grounded in revenue." },
+      { name: "TikTok", status: "live", body: "Creative-level performance signals — Alfred catches fatigue before CTR decay eats the budget." },
+    ],
+  },
+  {
+    name: "Analytics",
+    icon: "trend-up",
+    blurb: "The behavioural ground truth behind every recommendation.",
+    tools: [
+      { name: "GA4", status: "live", body: "Sessions, conversions and attribution context — the evidence Alfred cites when it explains what changed." },
+      { name: "Search Console", status: "live", body: "Query, click and ranking trends, so organic shifts are explained alongside paid." },
+    ],
+  },
+  {
+    name: "CRM & pipeline",
+    icon: "mql",
+    blurb: "From first click to closed-won, in the same picture.",
+    tools: [
+      { name: "HubSpot", status: "live", body: "Lead quality, lifecycle stages and pipeline — connected back to the spend that created them." },
+      { name: "Salesforce", status: "planned", body: "Opportunity and pipeline data for revenue-grade attribution across the full funnel." },
+    ],
+  },
+  {
+    name: "Commerce & billing",
+    icon: "budget",
+    blurb: "Revenue as it actually lands.",
+    tools: [
+      { name: "Shopify", status: "planned", body: "Orders and revenue, tied back to the campaigns that drove them." },
+      { name: "Stripe", status: "live", body: "Billing and revenue truth, so reported ROAS reconciles to cash." },
+    ],
+  },
+  {
+    name: "Lifecycle",
+    icon: "refresh",
+    blurb: "Owned channels, same brief.",
+    tools: [
+      { name: "Klaviyo", status: "planned", body: "Flow and campaign engagement, folded into the same lifecycle picture as paid." },
+      { name: "Mailchimp", status: "live", body: "Email performance read next to every other channel — one view of the whole funnel." },
+    ],
+  },
+  {
+    name: "Delivery",
+    icon: "export",
+    blurb: "Where Alfred reaches your team.",
+    tools: [
+      { name: "Slack", status: "live", body: "The Daily Brief, anomaly alerts and approvals, delivered where your team already works." },
+    ],
+  },
+];
+
+function CategorySection({ category, first }) {
+  return (
+    <section style={{ borderTop: first ? "none" : "1px solid var(--border-subtle)", padding: first ? "0 0 56px" : "56px 0" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 8 }}>
+        <Icon name={category.icon} size={20} color="var(--text-secondary)" root="../../assets/icons" title="" aria-hidden="true" />
+        <CategoryCountBadge count={category.tools.length} label={category.name} />
+      </div>
+      <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)", margin: "0 0 24px" }}>
+        {category.blurb}
+      </p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+        {category.tools.map((tool) => (
+          <IntegrationCard key={tool.name} name={tool.name} body={tool.body} status={tool.status} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function RequestToolCard() {
+  return (
+    <section style={{ paddingTop: 8 }}>
+      <div style={{
+        background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+        borderRadius: "var(--radius-3xl)", padding: "56px 48px", textAlign: "center",
+      }}>
+        <h2 style={{
+          fontFamily: "var(--font-sans)", fontWeight: 400, fontSize: 34, letterSpacing: "-0.02em",
+          lineHeight: 1.1, color: "var(--text-primary)", margin: 0,
+        }}>
+          Don't see your tool?
+        </h2>
+        <p style={{
+          fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)",
+          lineHeight: "var(--lh-relaxed)", maxWidth: 520, margin: "14px auto 0",
+        }}>
+          We ship new connections on a rolling basis, and requests set the order. Tell us what
+          your stack needs next.
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 26 }}>
+          <Button variant="primary" size="lg">Request an integration</Button>
+        </div>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)", margin: "16px 0 0" }}>
+          Or write to <a href="mailto:hello@seekalfred.ai" className="int-mail-link">hello@seekalfred.ai</a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Page() {
+  return (
+    <>
+      <window.SiteNav />
+      <window.SecHero
+        eyebrow="Integrations"
+        title={<>Thirteen integrations. <span style={gradText}>One source of truth.</span></>}
+        sub="Alfred connects the stack you already run — ten connections live today, three more planned — and synthesises it into decision-ready intelligence every day."
+        primaryCta="get started"
+        secondaryCta="Talk to us"
+      />
+      <main style={{ background: "var(--bg-page)" }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "24px 40px 84px" }}>
+          {CATEGORIES.map((category, i) => (
+            <CategorySection key={category.name} category={category} first={i === 0} />
+          ))}
+          <RequestToolCard />
+        </div>
+      </main>
+      <window.SecClosingCTA />
+      <window.SiteFooter />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

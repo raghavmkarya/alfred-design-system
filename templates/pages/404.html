@@ -1,0 +1,68 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="404" subtitle="On-brand not-found page — one viewport tall" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found — Alfred ai</title>
+<meta name="description" content="This page went the way of the dashboard. Head back home, or seek Alfred for what to do next." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel">
+const { EyebrowBadge, Button } = window.AlfredAIDesignSystem_1ce241;
+
+/* Ghost CTA on dark — transparent with a white-alpha hairline (the live secondary). */
+const ghostCtaStyle = { background: "transparent", color: "var(--text-primary)", borderColor: "var(--border-default)" };
+
+function Page() {
+  return (
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <window.SiteNav />
+      <main style={{
+        flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
+        background: "var(--glow-periwinkle), var(--glow-orange), var(--bg-page)",
+        padding: "64px 40px",
+      }}>
+        <div style={{ textAlign: "center", maxWidth: 680 }}>
+          <EyebrowBadge tone="brand">404</EyebrowBadge>
+          <h1 style={{
+            fontFamily: "var(--font-sans)", fontWeight: 400, fontSize: 56,
+            lineHeight: 1.06, letterSpacing: "-0.02em", color: "var(--text-primary)",
+            margin: "22px 0 0",
+          }}>
+            This page went the way of the dashboard.
+          </h1>
+          <p style={{
+            fontFamily: "var(--font-sans)", fontSize: "var(--text-lg)",
+            color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)",
+            margin: "20px auto 0", maxWidth: 480,
+          }}>
+            It's been retired, moved, or never existed. The decisions worth making are all still one page away.
+          </p>
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 32 }}>
+            <Button variant="primary" size="lg">Back home</Button>
+            <Button variant="outline" size="lg" style={ghostCtaStyle}>Seek Alfred</Button>
+          </div>
+        </div>
+      </main>
+      <window.SiteFooter />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

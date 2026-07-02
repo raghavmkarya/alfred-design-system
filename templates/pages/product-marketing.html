@@ -1,0 +1,114 @@
+<!-- @dsCard group="Pages" viewport="1280x900" name="Alfred for Marketing" subtitle="Live module page — six agents on one memory, read less know more" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred for Marketing — Read less, know more</title>
+<meta name="description" content="Alfred for Marketing is live today. Six intelligence agents — Daily Brief, Spend Mix, AI Visibility, Unified KPI Cockpit, Creative Fatigue and Anomaly Detection — work across your marketing stack, turning signals from campaigns, channels and performance systems into a clear view of business impact." />
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="../../ui_kits/website/SiteTop.jsx"></script>
+<script type="text/babel" src="../../ui_kits/website/SiteBottom.jsx"></script>
+<script type="text/babel" src="../sections/SectionsD.jsx"></script>
+<script type="text/babel" src="../sections/SectionsF.jsx"></script>
+<script type="text/babel">
+function Page() {
+  const gradientText = {
+    background: "var(--gradient-brand)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+  };
+  return (
+    <div>
+      <window.SiteNav />
+
+      {/* Hero — product variant with the marketing agents + capability nouns in the ticker */}
+      <window.SecHero
+        variant="product"
+        eyebrow="Alfred for Marketing"
+        title={<>Read less, <span style={gradientText}>know more</span></>}
+        sub="Six intelligence agents work across your marketing stack, turning signals from campaigns, channels and performance systems into a clear view of business impact."
+        primaryCta="get started"
+        secondaryCta="See the agents"
+        tickerItems={[
+          "Daily Brief",
+          "Spend Mix",
+          "AI Visibility",
+          "Unified KPI Cockpit",
+          "Creative Fatigue",
+          "Anomaly Detection",
+          "AI Chat with write-back",
+          "Scheduled reports",
+          "Seek Alfred",
+        ]}
+      />
+
+      {/* Six agents, one memory — selector rail + embedded product mock (Northwind Labs demo data) */}
+      <window.SecAgentShowcase />
+
+      {/* Market stats — only stats with a visible citation ship */}
+      <window.SecSourcedStats />
+
+      {/* Where the decisions live — industry scenarios from the demo workspace */}
+      <window.SecIndustryCards />
+
+      {/* Connect → first brief → compounding */}
+      <window.SecTimeline />
+
+      {/* Module-specific FAQ */}
+      <window.SecFaq
+        title="Questions about Alfred for Marketing"
+        items={[
+          {
+            q: "What is Alfred for Marketing?",
+            a: "The first live Alfred module. Six intelligence agents work across your marketing stack, turning signals from campaigns, channels and performance systems into a clear view of business impact.",
+          },
+          {
+            q: "What are the six agents?",
+            a: "Daily Brief, Spend Mix, AI Visibility, Unified KPI Cockpit, Creative Fatigue and Anomaly Detection. All six run on the same Alfred Core memory, so every insight compounds instead of starting from zero.",
+          },
+          {
+            q: "What does it connect to?",
+            a: "Your marketing stack — campaigns, channels, CRM, analytics and performance systems. Connections are read-only by default; write-back is opt-in and approval-gated.",
+          },
+          {
+            q: "How fast do we see value?",
+            a: "Your stack plugs in read-only in week one, and the first daily brief lands the same week. By month one, Alfred Core has enough memory to trace changes to their causes.",
+          },
+          {
+            q: "What is the AI Visibility Score?",
+            a: "A score out of 100 for how often AI assistants surface you when buyers ask. Alfred tracks it weekly and recommends what moves it.",
+          },
+          {
+            q: "How much does it cost?",
+            a: "Starter is ₹19,900, Growth is ₹49,900 and Max is ₹99,900 per month, with a 50% launch offer for your first 2 months. Every plan starts with a conversation — talk to us and we'll match you to the right tier.",
+          },
+          {
+            q: "Is my data used to train models?",
+            a: "No. Your data is logically isolated, never trains shared models, and is never sold or shared with third parties.",
+          },
+        ]}
+      />
+
+      <window.SecClosingCTA />
+      <window.SiteFooter />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>
