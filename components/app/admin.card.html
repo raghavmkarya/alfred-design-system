@@ -1,0 +1,150 @@
+<!-- @dsCard group="Components" name="App — connections, billing & team" viewport="780x1040" subtitle="Connection health, sync, usage, billing, team, notifications, audit trail & empty state" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .wrap { display: flex; flex-direction: column; gap: 20px; max-width: 724px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold);
+         letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background: #fff; border: 1px solid var(--border-subtle); border-radius: var(--radius-2xl);
+           padding: 22px; box-shadow: var(--shadow-sm); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { ConnectionHealthCard, SyncStatusBadge, UsageMeter, BillingPlanCard, TeamMemberRow, NotificationPref, ModuleSwitcher, AuditLogRow, StateBlock } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="wrap">
+      <div>
+        <div className="lbl">Connection health</div>
+        <div className="two">
+          <ConnectionHealthCard
+            name="GA4"
+            status="fresh"
+            lastSync="6m ago"
+            scopes={["Analytics read", "Reporting"]}
+            detail="I read sessions and conversions from here every 15 minutes." />
+          <ConnectionHealthCard
+            name="HubSpot"
+            status="error"
+            lastSync="3h ago"
+            scopes={["CRM read", "Contacts"]}
+            detail="I lost access when the token expired — reconnect and I'll backfill the gap."
+            onReconnect={() => {}} />
+        </div>
+      </div>
+      <div>
+        <div className="lbl">Sync status</div>
+        <div className="row">
+          <SyncStatusBadge status="fresh" />
+          <SyncStatusBadge status="syncing" />
+          <SyncStatusBadge status="stale" />
+          <SyncStatusBadge status="error" />
+        </div>
+      </div>
+      <div className="two">
+        <div className="panel">
+          <div className="lbl">Usage — seats</div>
+          <UsageMeter label="Seats" used={6} limit={8} unit="seats" footnote="Growth includes 8 seats" />
+        </div>
+        <div className="panel">
+          <div className="lbl">Usage — queries</div>
+          <UsageMeter label="Alfred queries" used={342} limit={500} unit="queries" footnote="Resets Aug 2" />
+        </div>
+      </div>
+      <div className="two">
+        <div>
+          <div className="lbl">Billing plan</div>
+          <BillingPlanCard
+            plan="Growth"
+            price="$599"
+            period="per month"
+            renewal="Renews Aug 2 · Visa ·· 4242"
+            usage={[
+              { label: "Seats", used: 6, limit: 8 },
+              { label: "Alfred queries", used: 342, limit: 500 },
+              { label: "Integrations", used: 10, limit: 12 },
+            ]}
+            onManage={() => {}}
+            onUpgrade={() => {}} />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div className="panel" style={{ paddingTop: 16, paddingBottom: 8 }}>
+            <div className="lbl">Team &amp; permissions</div>
+            <TeamMemberRow
+              name="Priya Menon"
+              email="priya@northwindlabs.com"
+              role="Admin"
+              status="active"
+              onRoleChange={() => {}}
+              onRemove={() => {}} />
+            <TeamMemberRow
+              name="Sofia Alvarez"
+              email="sofia@northwindlabs.com"
+              role="Member"
+              status="invited"
+              onRoleChange={() => {}}
+              onRemove={() => {}} />
+          </div>
+          <div>
+            <div className="lbl">Module switcher</div>
+            <ModuleSwitcher active="marketing" onChange={() => {}} />
+          </div>
+        </div>
+      </div>
+      <div className="panel" style={{ paddingTop: 16, paddingBottom: 8 }}>
+        <div className="lbl">Notification preferences</div>
+        <NotificationPref
+          agent="Daily Brief"
+          description="I send your three priorities before 8 AM."
+          channels={{ email: true, slack: true, inApp: true }}
+          onChange={() => {}} />
+        <NotificationPref
+          agent="Anomaly Detection"
+          description="I flag spend that breaks pattern the moment it does."
+          channels={{ slack: true, inApp: true }}
+          onChange={() => {}} />
+      </div>
+      <div className="panel" style={{ paddingTop: 16, paddingBottom: 10 }}>
+        <div className="lbl">Audit trail</div>
+        <AuditLogRow
+          actor="Alfred"
+          isAlfred
+          action="reallocated $18K to"
+          target="Performance Max — US"
+          time="Today, 08:04"
+          defaultOpen
+          detail="Priya approved the move at 8:02 AM — Performance Max converts at 5.1x while non-brand search holds at 3.4x." />
+        <AuditLogRow
+          actor="Priya Menon"
+          action="approved"
+          target="Reallocate $18K from Search to Performance Max"
+          time="Today, 08:02" />
+      </div>
+      <div className="panel">
+        <div className="lbl">Empty state</div>
+        <StateBlock
+          kind="empty"
+          title="No connections yet"
+          body="Connect your ad platforms and analytics and I'll start learning how Northwind runs."
+          action={{ label: "Connect a source", onClick: () => {} }} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

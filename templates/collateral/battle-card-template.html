@@ -1,0 +1,112 @@
+<!-- @dsCard group="Templates" viewport="820x1160" name="Battle card — template" subtitle="Reusable 1-page competitive battle card format for sales enablement" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="collateral.css" />
+<title>Alfred battle card — template</title>
+</head>
+<body>
+<!--
+  BATTLE CARD TEMPLATE — how to use
+  1. Copy this file; replace every [bracketed] placeholder. Everything must fit ONE A4 page —
+     the geometry below is tuned for it: battle rows under ~32 characters (style="margin:0" keeps
+     them one line), landmines under ~45 characters, objection responses under ~145 characters,
+     callout text under ~280 characters. Verify: open in a browser; the page must not exceed 297mm.
+  2. Ground every claim in the competitive canon (product-marketing repo:
+     market/competitive-landscape.md, market/competitors/*, sales-enablement/battle-cards.md).
+     Where the canon is silent, keep claims structural and category-level — never invent
+     competitor pricing, features, or customers.
+  3. Voice: third person about Alfred, sentence case, no emoji. Reframe, don't feature-fight.
+  4. The "where they win" section is mandatory — honesty is what makes the rest credible.
+  5. Stats need a citation in the proof footer, or must be framed as the Northwind Labs demo
+     (data/demo-data.json). Internal use only; reconfirm figures before any external use.
+-->
+<section class="col-page" style="--col-margin-top:10mm; --col-margin-bottom:20mm">
+  <header class="col-header" style="margin-bottom:5mm">
+    <img src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Battle card · vs [competitor category] · internal</span>
+  </header>
+
+  <!-- Competitor header block -->
+  <p class="col-eyebrow">Vs [competitor category — e.g. BI platforms, named class]</p>
+  <h1 style="font-size:22pt">[Wedge one-liner — keep under 48 characters]</h1>
+  <p class="col-lead" style="margin-bottom:3mm">[Two sentences, under ~180 characters: the job their
+    category does, and the category Alfred occupies that they don't.]</p>
+
+  <div class="col-stat-band" style="margin-bottom:3mm">
+    <div class="col-stat"><span class="col-stat-l">Their pitch</span><p style="margin:0">[Fair, one line — under 32 chars.]</p></div>
+    <div class="col-stat"><span class="col-stat-l">Built for</span><p style="margin:0">[Who they actually serve.]</p></div>
+    <div class="col-stat"><span class="col-stat-l">Classification</span><p style="margin:0">[Direct / Secondary / Indirect.]</p></div>
+  </div>
+
+  <!-- When you're in this deal -->
+  <div class="col-callout peri" style="margin:0 0 3mm">
+    <p class="col-callout-t">When you're in this deal</p>
+    <p>[The situation and the verbatim signals to listen for — “we already have X”. Note any
+      disqualifier. <strong>The trap:</strong> the comparison that concedes the frame — name it so
+      the seller doesn't take the bait.]</p>
+  </div>
+
+  <!-- Us / them battle grid -->
+  <div class="col-battle-grid">
+    <div class="col-battle-col col-battle-us">
+      <p class="col-battle-h">Alfred</p>
+      <p class="col-battle-row" style="margin:0">[Decision claim — brief + why]</p>
+      <p class="col-battle-row" style="margin:0">[Provenance — sources shown]</p>
+      <p class="col-battle-row" style="margin:0">[Execution — acts with approval]</p>
+      <p class="col-battle-row" style="margin:0">[Memory — compounding outcomes]</p>
+    </div>
+    <div class="col-battle-col col-battle-them">
+      <p class="col-battle-h">[Competitor category]</p>
+      <p class="col-battle-row" style="margin:0">[Structural gap 1 — stated fairly]</p>
+      <p class="col-battle-row" style="margin:0">[Gap 2 — reactive vs proactive]</p>
+      <p class="col-battle-row" style="margin:0">[Gap 3 — no execution loop]</p>
+      <p class="col-battle-row" style="margin:0">[Gap 4 — no outcome memory]</p>
+    </div>
+  </div>
+
+  <div class="col-two-col" style="margin-top:3mm">
+    <div>
+      <h3 style="margin-top:0">Landmine questions to plant</h3>
+      <ol style="margin:0; padding-left:5mm">
+        <li style="margin-bottom:1mm">“[Question exposing the latency gap]”</li>
+        <li style="margin-bottom:1mm">“[Question exposing the provenance gap]”</li>
+        <li style="margin-bottom:1mm">“[Question exposing the memory gap]”</li>
+        <li>“[Question exposing the execution gap]”</li>
+      </ol>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Where they win — say it first</h3>
+      <p style="margin:0">[Their genuine strengths, conceded plainly — it buys credibility for the
+        claim that matters. Note when they're simply the right choice, and why Alfred connects to
+        or sits above them rather than replacing them.]</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:3mm">Objection handling</h3>
+  <table class="col-table">
+    <thead><tr><th style="width:30%">You'll hear</th><th>Respond</th></tr></thead>
+    <tbody>
+      <tr><td>“[Objection 1 — usually ‘we already have X’.]”</td><td>[Reframe to the decision-layer job; keep-it-don't-replace-it where true.]</td></tr>
+      <tr><td>“[Objection 2 — their newest credible feature.]”</td><td>[Acknowledge it honestly, then name the structural dependency or gap.]</td></tr>
+      <tr><td>“[Objection 3 — budget or overlap worry.]”</td><td>[Quantified answer from the canon, with its citation carried below.]</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Proof / citation footer: every stat above must trace to a line here -->
+  <p class="col-footnote" style="margin-top:2mm">Sources: [market stat + named source, e.g. “63% of
+    marketing leaders miss opportunities from slow decisions — PwC CMO Survey 2025”]. Alfred figures are
+    confirmed module outcomes from internal canon (product-marketing repo, modules/marketing.md) —
+    reconfirm before external use. Competitor claims are category-level; demo numbers are the fictional
+    Northwind Labs scenario. Internal use only.</p>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited</span>
+    <span class="col-page-no"></span>
+  </footer>
+</section>
+</body>
+</html>

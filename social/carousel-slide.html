@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn carousel · content slide · 1080×1350</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       LinkedIn carousel system — CONTENT slide (pages 2…N).
+       Export .frame at exactly 1080×1350 (4:5). Pair with
+       carousel-cover.html (page 1). Duplicate this file per page
+       and fill the slots.
+
+       Slots (marked in the markup):
+         · KICKER    — series name, UPPERCASE tracked (fixed per series)
+         · HEADLINE  — one idea per slide; sentence case, ≤ 3 lines
+         · BODY      — 1–3 short sentences; third person about Alfred;
+                       any stat needs a visible citation or Northwind
+                       demo framing — never unsourced proof
+         · LOGO      — footer lockup (fixed)
+         · PAGE      — page number "02 / 06" (update per slide)
+
+       Voice: marketing — third person, sentence case, no emoji.
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #17171a;               /* bench chrome — not part of the asset */
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============ THE EXPORTABLE CANVAS — 1080×1350 ============ */
+    .frame {
+      position: relative;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      background: var(--bg-page);        /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px;
+      box-sizing: border-box;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* ---------- kicker ---------- */
+    .kicker {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ---------- content ---------- */
+    .content { margin-top: auto; margin-bottom: auto; padding: 40px 0; }
+    .headline {
+      font-family: var(--font-display);            /* Satoshi on dark */
+      font-weight: 600;
+      font-size: 68px;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin: 0 0 36px;
+      max-width: 15ch;
+    }
+    .body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 34ch;
+    }
+    .body b { color: #ffffff; font-weight: 600; }
+
+    /* ---------- footer: logo slot + page-number slot ---------- */
+    .footer {
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer img { height: 24px; width: auto; display: block; opacity: 0.96; }
+    .page {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .page b { color: #ffffff; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <!-- SLOT: KICKER — series name, fixed across the series -->
+    <p class="kicker">Decision intelligence, explained</p>
+
+    <div class="content">
+      <!-- SLOT: HEADLINE — one idea per slide -->
+      <h1 class="headline">Detects. Explains. Recommends.</h1>
+
+      <!-- SLOT: BODY — 1–3 short sentences, third person about Alfred -->
+      <p class="body">Decision intelligence <b>detects what changed, explains why, and
+        recommends what to do next</b> — so the morning starts with a call
+        to make, not a chart to read.</p>
+    </div>
+
+    <footer class="footer">
+      <!-- SLOT: LOGO — fixed; all-white lockup on black -->
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+
+      <!-- SLOT: PAGE — update per slide, tabular numerals -->
+      <span class="page"><b>02</b> / 06</span>
+    </footer>
+
+  </div>
+</body>
+</html>

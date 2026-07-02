@@ -1,0 +1,190 @@
+<!-- @dsCard group="Templates" viewport="640x1040" name="Email — anomaly alert (P1)" subtitle="Lifecycle email: single P1 alert with provenance + deep link" -->
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="color-scheme" content="light dark" />
+<meta name="supported-color-schemes" content="light dark" />
+<title>Alfred — P1 anomaly alert</title>
+<!--
+  ALFRED LIFECYCLE EMAIL — anomaly alert (P1).
+  Subject: I found a campaign burning $4.8K with zero conversions
+  Built on templates/email/shell.html + blocks.html. Rules: templates/email/README.md.
+  All numbers from data/demo-data.json (Northwind Labs demo). First-person Alfred voice.
+  Every color is literal hex mirroring a design-system token (named in adjacent comments).
+-->
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<![endif]-->
+<style>
+  /* Kept minimal — everything visual is inline. This block only handles
+     client resets + dark-mode overrides (Apple Mail, iOS Mail, some Outlook). */
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
+  body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
+  table { border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; }
+  img { border: 0; line-height: 100%; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  .logo-dark { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    /* #000000 mirrors --bg-page (dark) */
+    .em-canvas { background: #000000 !important; }
+    /* #171715 mirrors --ink-875 (raised dark card) */
+    .em-card { background: #171715 !important; border-color: rgba(255,255,255,0.12) !important; } /* border mirrors --border-default (dark) */
+    .em-hair { border-color: rgba(255,255,255,0.08) !important; } /* mirrors --border-subtle (dark) */
+    .em-h { color: #FFFFFF !important; }                          /* mirrors --text-primary (dark) */
+    .em-t { color: rgba(255,255,255,0.78) !important; }           /* mirrors --text-secondary (dark) */
+    .em-mut { color: rgba(255,255,255,0.55) !important; }         /* mirrors --text-muted (dark) */
+    .em-link { color: #FFA040 !important; }                       /* mirrors --orange-400 / --text-link (dark) */
+    .em-sunken { background: #111110 !important; }                /* mirrors --ink-925 (dark section band) */
+    /* Swap the color lockup for the all-white lockup on dark */
+    .logo-light { display: none !important; }
+    .logo-dark { display: block !important; }
+  }
+</style>
+</head>
+
+<!-- Canvas: #F9F9F9 mirrors --gray-50 -->
+<body class="em-canvas" style="margin:0; padding:0; background:#F9F9F9;">
+
+  <!-- Preheader: hidden preview text shown next to the subject line. -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">Meta prospecting — US broad. I recommend killing it and capping the audience at $4K/day — 91% confidence.</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-canvas" style="background:#F9F9F9;">
+    <tr>
+      <td align="center" style="padding:28px 16px;">
+
+        <!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+        <!-- Card: 600px fixed, #FFFFFF mirrors --surface-card, border #E6E6E6 mirrors --gray-150,
+             24px radius mirrors --radius card scale (Outlook ignores radius — acceptable degrade) -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" class="em-card" style="width:600px; max-width:600px; background:#FFFFFF; border:1px solid #E6E6E6; border-radius:24px; overflow:hidden; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif;">
+
+          <!-- ================= HEADER — logo ================= -->
+          <!-- Hairline #F1F1F1 mirrors --gray-100 -->
+          <tr>
+            <td class="em-hair" style="padding:24px 28px; border-bottom:1px solid #F1F1F1;">
+              <a href="https://seekalfred.ai" style="text-decoration:none;">
+                <img class="logo-light" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" height="26" style="height:26px; display:block;" />
+                <!--[if !mso]><!-- -->
+                <img class="logo-dark" src="../../assets/logos/alfred-logo-color-white.svg" alt="Alfred" height="26" style="height:26px; display:none;" />
+                <!--<![endif]-->
+              </a>
+            </td>
+          </tr>
+
+          <!-- ================= BODY ================= -->
+          <tr>
+            <td style="padding:32px 28px;">
+
+              <!-- Eyebrow: #E5484D mirrors --danger-500 (needs-action accent) -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:0 0 8px;">
+                    <div style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#E5484D;">Anomaly detection &middot; P1 &middot; needs action</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 0 10px;">
+                    <!-- Headline: #02021E mirrors --ink-900; Clash-stack, tight tracking -->
+                    <div class="em-h" style="font-family:'Clash Display','Satoshi','Helvetica Neue',Arial,sans-serif; font-size:28px; font-weight:600; letter-spacing:-0.02em; line-height:1.16; color:#02021E;">I found a campaign burning $4.8K with zero conversions</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 0 20px;">
+                    <!-- Sub: #505050 mirrors --ink-600 / --text-secondary -->
+                    <div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:15px; line-height:1.55; color:#505050;">Meta prospecting &mdash; US broad spent $4.8K this week and returned nothing. Here is what changed, why, and what I recommend you do about it.</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Alert card: what changed / why / what I recommend.
+                   Left bar #E5484D mirrors --danger-500 · hairline #F1F1F1 mirrors --gray-100
+                   16px radius = small-card radius -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-hair" style="border:1px solid #F1F1F1; border-left:3px solid #E5484D; border-radius:16px;">
+                <tr>
+                  <td style="padding:18px 20px;">
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#6B6B78;">Meta &middot; prospecting &mdash; US broad &middot; ROAS 0.0x</div>
+                    <div class="em-h" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:16px; font-weight:700; color:#02021E; padding:8px 0 10px;">Kill this campaign — the spend is pure waste</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td width="110" valign="top" style="padding:0 0 6px;"><div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#6B6B78;">What changed</div></td>
+                        <td valign="top" style="padding:0 0 6px;"><div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">The campaign burned $4.8K this week with zero conversions across its three ad sets.</div></td>
+                      </tr>
+                      <tr>
+                        <td width="110" valign="top" style="padding:0 0 6px;"><div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#6B6B78;">Why</div></td>
+                        <td valign="top" style="padding:0 0 6px;"><div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">Lead quality fell 14% when the new broad audience launched — the budget is reaching people who never convert.</div></td>
+                      </tr>
+                      <tr>
+                        <td width="110" valign="top"><div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:#6B6B78;">I recommend</div></td>
+                        <td valign="top"><div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">Kill the campaign and cap the audience at $4K/day. Confidence: 91%. I've drafted the pause — three ad sets, broad audience archived — so approval is one click. This is the largest single item in the $55.1K/mo of recoverable waste I'm tracking.</div></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Provenance line — REQUIRED whenever stats appear. #9CA3AF mirrors --ink-400 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:10px 2px 0;">
+                    <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:1.5; color:#9CA3AF;">Sources: Meta &middot; GA4 &middot; HubSpot &middot; detected {{detected_timestamp}}</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- CTA: bulletproof button. bgcolor #FF8431 mirrors --orange-500, 12px radius,
+                   #FFFFFF mirrors --text-on-brand. One primary CTA per email. -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center" style="padding:24px 0 4px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center" bgcolor="#FF8431" style="background:#FF8431; border-radius:12px;">
+                          <a href="{{alert_url}}" style="display:inline-block; padding:14px 32px; font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:15px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:12px;">Review in Alfred</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding:12px 0 0;">
+                    <div class="em-t" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:13px; line-height:1.5; color:#505050;">Nothing runs until you approve it. Every step I take lands in your audit trail.</div>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- ================= FOOTER — product/lifecycle variant ================= -->
+          <!-- Sunken band #F9F9F9 mirrors --gray-50 / --surface-sunken · hairline #F1F1F1 mirrors --gray-100 -->
+          <tr>
+            <td class="em-sunken em-hair" style="padding:24px 28px; background:#F9F9F9; border-top:1px solid #F1F1F1;">
+              <!-- #6B6B78 mirrors --ink-500 / --text-muted · links #FF8431 mirror --orange-500 / --text-link -->
+              <div class="em-mut" style="font-family:'Satoshi','Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:1.7; color:#6B6B78;">
+                I send P1 alerts the moment I detect them because you enabled Anomaly Detection alerts for {{workspace_name}}. Change the cadence any time.<br />
+                &copy; 2026 E902 AI Labs Private Limited<br />
+                {{registered_address — replace before sending}}<br />
+                <a class="em-link" href="{{unsubscribe_url}}" style="color:#FF8431; text-decoration:underline;">Unsubscribe</a>
+                &nbsp;&middot;&nbsp;
+                <a class="em-link" href="{{preferences_url}}" style="color:#FF8431; text-decoration:underline;">Manage preferences</a>
+                &nbsp;&middot;&nbsp;
+                <a class="em-link" href="mailto:hello@seekalfred.ai" style="color:#FF8431; text-decoration:underline;">hello@seekalfred.ai</a><br />
+                @seekalfred on
+                <a class="em-link" href="https://x.com/seekalfred" style="color:#FF8431; text-decoration:underline;">X</a>,
+                <a class="em-link" href="https://www.linkedin.com/company/seekalfred" style="color:#FF8431; text-decoration:underline;">LinkedIn</a>
+                and
+                <a class="em-link" href="https://www.instagram.com/seekalfred" style="color:#FF8431; text-decoration:underline;">Instagram</a>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

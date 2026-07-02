@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn insight card (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-insight — the "signal" card (LinkedIn 4:5).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       All numbers on this card come from data/demo-data.json
+       (Northwind Labs) and the card SAYS SO — the demo-framing line
+       above the footer is not optional. Never present these numbers
+       as customer results.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       insight     — the flagged line, verbatim from demo-data.json
+       detail      — where it fired, e.g. Meta — prospecting, US broad
+       severity    — chip text, e.g. P1 · Kill  (urgent tone)
+       confidence  — chip text, e.g. Confidence 91%
+       sources     — one chip per connected source the signal used
+       explain     — the Alfred line, third person, one sentence
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+
+    .head img { height: 38px; width: auto; display: block; opacity: 0.96; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    /* mono eyebrow — --font-mono is the DS mono token (Satoshi-first;
+       Geist Mono is live-only and deliberately not adopted, see
+       ui_kits/website/LIVE-DRIFT.md). Orange marks the action moment. */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange-500);
+      margin: 0 0 36px;
+    }
+    .eyebrow .ping {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--orange-500);
+      box-shadow: 0 0 0 6px rgba(255, 132, 49, 0.18);
+    }
+    .insight {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-medium);
+      font-size: 82px;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0 0 28px;
+      max-width: 14ch;
+    }
+    .detail {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 27px;
+      line-height: 1.4;
+      color: var(--text-secondary);
+      margin: 0 0 44px;
+    }
+
+    /* provenance chips — the glass-box receipt */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 0 0 52px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 11px 20px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-secondary);
+    }
+    .chip svg { width: 18px; height: 18px; color: var(--text-muted); }
+    .chip.urgent {
+      color: var(--urgent-500);
+      border-color: rgba(255, 61, 0, 0.38);
+      background: rgba(255, 61, 0, 0.08);
+    }
+    .chip.urgent svg { color: var(--urgent-500); }
+
+    .explain {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 27px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 34ch;
+    }
+    .explain b { color: #fff; font-weight: var(--fw-semibold); }
+
+    /* the demo-framing line — never remove this */
+    .demo-note {
+      margin-top: 52px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 18px;
+      line-height: 1.4;
+      color: var(--text-muted);
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <p class="eyebrow"><span class="ping"></span>Signal detected</p>
+
+      <!-- SLOT: insight — verbatim from data/demo-data.json -->
+      <h1 class="insight" data-slot="insight">Campaign burning $4.8K with zero conversions.</h1>
+
+      <!-- SLOT: detail -->
+      <p class="detail" data-slot="detail">Meta — prospecting, US broad. Lead quality fell 14% the week the new audience launched.</p>
+
+      <div class="chips">
+        <!-- SLOT: severity -->
+        <span class="chip urgent">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 9v4" /><path d="M12 17h.01" />
+            <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+          </svg>
+          <span data-slot="severity">P1 · Kill</span>
+        </span>
+        <!-- SLOT: confidence -->
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+          <span data-slot="confidence">Confidence 91%</span>
+        </span>
+        <!-- SLOT: sources — one chip per source the signal used -->
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
+          </svg>
+          <span data-slot="sources">Meta · GA4 · HubSpot</span>
+        </span>
+      </div>
+
+      <!-- SLOT: explain — Alfred in third person, one sentence -->
+      <p class="explain" data-slot="explain">Alfred catches it the morning it starts — <b>with the evidence attached</b> — instead of in next month&rsquo;s report.</p>
+
+      <!-- Demo framing — required whenever Northwind numbers appear in public -->
+      <p class="demo-note">Illustrative scenario from Northwind Labs, our fictional demo company — not customer results.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!-- @dsCard group="Components" name="Trust — provenance, feedback & memory" viewport="740x820" subtitle="ProvenancePanel, InsightFeedback, MemoryCard & ReasoningState" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--gray-50); padding: 28px; }
+  .wrap { display: flex; flex-direction: column; gap: 20px; max-width: 684px; }
+  .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold);
+         letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .panel { background: #fff; border: 1px solid var(--border-subtle); border-radius: var(--radius-2xl);
+           padding: 22px; box-shadow: var(--shadow-sm); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { ProvenancePanel, InsightFeedback, MemoryCard, ReasoningState } = window.AlfredAIDesignSystem_1ce241;
+function Demo() {
+  return (
+    <div className="wrap">
+      <div className="panel">
+        <div className="lbl">Provenance — how I know this</div>
+        <ProvenancePanel
+          defaultOpen
+          confidence={91}
+          updated="6m ago"
+          method="I compared lead quality before and after the new audience launched — spend held while conversions fell to zero."
+          sources={[
+            { name: "Meta", detail: "spend & conversions", status: "live" },
+            { name: "GA4", detail: "sessions", status: "live" },
+            { name: "HubSpot", detail: "lead quality", status: "syncing" },
+          ]} />
+      </div>
+      <div className="panel">
+        <div className="lbl">Insight feedback</div>
+        <InsightFeedback onFeedback={() => {}} />
+      </div>
+      <div>
+        <div className="lbl">Alfred Core memory</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <MemoryCard
+            category="Root cause"
+            fact="Lead quality falls when Meta broad audiences launch — the US-broad test dropped it 14% while burning $4.8K with zero conversions."
+            source="Learned from Meta + HubSpot · this week"
+            onConfirm={() => {}}
+            onEdit={() => {}}
+            onRemove={() => {}} />
+          <MemoryCard
+            category="Institutional"
+            fact="Priya Menon signs off on every budget reallocation — two moves are pending her approval."
+            source="Learned from approvals · Q3 2026"
+            onConfirm={() => {}}
+            onEdit={() => {}}
+            onRemove={() => {}} />
+        </div>
+      </div>
+      <div className="panel">
+        <div className="lbl">Reasoning state</div>
+        <ReasoningState elapsed="8s" />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

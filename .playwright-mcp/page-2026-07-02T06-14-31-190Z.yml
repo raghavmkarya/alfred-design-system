@@ -1,0 +1,103 @@
+- generic [active] [ref=f5e1]:
+  - generic [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - img "Alfred" [ref=f5e4]
+      - generic [ref=f5e5]: Demo leave-behind
+    - paragraph [ref=f5e6]: Alfred for Marketing · demo recap
+    - heading "What you saw, and why it matters" [level=1] [ref=f5e7]
+    - paragraph [ref=f5e8]: "The demo retraced one morning at Northwind Labs — from the Daily Brief, into an anomaly alert, to an approved reallocation. At no point did anyone go looking for a problem: Alfred brought it, explained it, and the fix was one approval away."
+    - generic [ref=f5e9]:
+      - paragraph [ref=f5e10]: About the numbers
+      - paragraph [ref=f5e11]: Northwind Labs is Alfred's fictional demo customer — a 120-person B2B SaaS company spending ~$310K/month across eight campaigns. Every figure in this document comes from that one consistent demo scenario; none are real customer outcomes.
+    - heading "Step 1 — the morning Daily Brief" [level=2] [ref=f5e12]
+    - generic [ref=f5e13]:
+      - paragraph [ref=f5e14]: "\"Good morning, Priya. Three things need you today.\""
+      - paragraph [ref=f5e15]: Alfred opened with a prioritised morning narrative — items ranked by business impact, each a plain-language line with its reasoning and sources attached, everything else marked on track.
+    - table [ref=f5e16]:
+      - rowgroup [ref=f5e17]:
+        - row "Priority Alfred's call Why Sources" [ref=f5e18]:
+          - columnheader "Priority" [ref=f5e19]
+          - columnheader "Alfred's call" [ref=f5e20]
+          - columnheader "Why" [ref=f5e21]
+          - columnheader "Sources" [ref=f5e22]
+      - rowgroup [ref=f5e23]:
+        - row "1 Kill the Meta broad campaign Burned $4.8K this week with zero conversions; lead quality fell 14% Meta · GA4 · HubSpot" [ref=f5e24]:
+          - cell "1" [ref=f5e25]
+          - cell "Kill the Meta broad campaign" [ref=f5e26]
+          - cell "Burned $4.8K this week with zero conversions; lead quality fell 14%" [ref=f5e27]
+          - cell "Meta · GA4 · HubSpot" [ref=f5e28]
+        - row "2 Approve the $18K reallocation Performance Max converts at 5.1x while non-brand search holds at 3.4x Google Ads · GA4" [ref=f5e29]:
+          - cell "2" [ref=f5e30]
+          - cell "Approve the $18K reallocation" [ref=f5e31]
+          - cell "Performance Max converts at 5.1x while non-brand search holds at 3.4x" [ref=f5e32]
+          - cell "Google Ads · GA4" [ref=f5e33]
+        - row "3 Rotate the TikTok hero creative CTR down 12% this week — fatigue, not audience; protects $26K/mo TikTok · GA4" [ref=f5e34]:
+          - cell "3" [ref=f5e35]
+          - cell "Rotate the TikTok hero creative" [ref=f5e36]
+          - cell "CTR down 12% this week — fatigue, not audience; protects $26K/mo" [ref=f5e37]
+          - cell "TikTok · GA4" [ref=f5e38]
+    - generic [ref=f5e39]:
+      - generic [ref=f5e40]:
+        - heading "What you saw" [level=3] [ref=f5e41]
+        - paragraph [ref=f5e42]: One two-minute brief covering eight campaigns and thirteen integrations — read before the first meeting, instead of a morning spent across eight tabs.
+      - generic [ref=f5e43]:
+        - heading "Why it matters" [level=3] [ref=f5e44]
+        - paragraph [ref=f5e45]: Items are ordered by what matters to the business, not by which tool they came from. The monitoring work is done before you sit down; only the decisions reach you.
+    - heading "Step 2 — inside the anomaly alert" [level=2] [ref=f5e47]
+    - generic [ref=f5e48]:
+      - paragraph [ref=f5e49]: P1 — campaign burning $4.8K with zero conversions
+      - paragraph [ref=f5e50]: "Meta — prospecting, US broad. Recommended action: kill the campaign and cap the audience at $4K/day, recovering $4.8K/day of waste. Confidence: 91%. Method shown: lead quality compared before and after the new audience launched — spend held while conversions fell to zero. Sources: Meta, GA4, HubSpot."
+    - generic [ref=f5e51]:
+      - generic [ref=f5e52]:
+        - heading "What you saw" [level=3] [ref=f5e53]
+        - paragraph [ref=f5e54]: "The alert carried two things a notification never does: the root cause and the recommended action — plus the sources, the method and a confidence score, all inspectable in the provenance panel."
+      - generic [ref=f5e55]:
+        - heading "Why it matters" [level=3] [ref=f5e56]
+        - paragraph [ref=f5e57]: A dashboard would have shown a line going down. Alfred names the cause and gives you the move — a glass box, not a black box, so the number survives a board room.
+    - generic [ref=f5e59]: © 2026 E902 AI Labs Private Limited · seekalfred.ai
+  - generic [ref=f5e61]:
+    - generic [ref=f5e62]:
+      - img "Alfred" [ref=f5e63]
+      - generic [ref=f5e64]: Demo leave-behind
+    - heading "Step 3 — approve, and Alfred acts" [level=2] [ref=f5e65]
+    - generic [ref=f5e66]:
+      - paragraph [ref=f5e67]: Approval — reallocate $18K from search to Performance Max
+      - paragraph [ref=f5e68]: "Two steps, spelled out before sign-off: move $18K of daily budget, cap search at $12K/day. Projected impact: +6% non-brand coverage, ~$30K of pipeline. Confidence: 82%. Approver: Priya Menon, VP Marketing."
+    - generic [ref=f5e69]:
+      - generic [ref=f5e70]:
+        - heading "What you saw" [level=3] [ref=f5e71]
+        - paragraph [ref=f5e72]: "One approval executed the change inside the connected ad platform, then logged it to the audit trail: what changed, who approved it, when. Connections in are read-only; write-back is encrypted and runs only on explicit approval."
+      - generic [ref=f5e73]:
+        - heading "Why it matters" [level=3] [ref=f5e74]
+        - paragraph [ref=f5e75]: Detection has no value until something moves. The loop closes in one step, fully governed — budget defended on evidence and projected impact, not instinct.
+    - heading "The Northwind numbers from the demo" [level=2] [ref=f5e77]
+    - generic [ref=f5e78]:
+      - generic [ref=f5e79]:
+        - generic [ref=f5e80]: $4.8K
+        - generic [ref=f5e81]: zero-conversion spend caught
+        - generic [ref=f5e82]: Northwind Labs demo
+      - generic [ref=f5e83]:
+        - generic [ref=f5e84]: $55.1K
+        - generic [ref=f5e85]: recoverable waste per month
+        - generic [ref=f5e86]: Northwind Labs demo
+      - generic [ref=f5e87]:
+        - generic [ref=f5e88]: 4.8x
+        - generic [ref=f5e89]: blended ROAS, +12.4% vs 30d
+        - generic [ref=f5e90]: Northwind Labs demo
+      - generic [ref=f5e91]:
+        - generic [ref=f5e92]: "72"
+        - generic [ref=f5e93]: AI Visibility Score, +4 pts
+        - generic [ref=f5e94]: Northwind Labs demo
+    - heading "Your next steps — the two-week pilot" [level=2] [ref=f5e95]
+    - list [ref=f5e96]:
+      - listitem [ref=f5e97]: Pick the stack to connect. Google Ads, Meta, LinkedIn, GA4, HubSpot, Search Console, Slack and more — secure, read-only APIs, zero engineering.
+      - listitem [ref=f5e98]: Week one — connect and calibrate. Up to a year of history synced; your KPIs, alert thresholds, channels and business objectives set with you.
+      - listitem [ref=f5e99]: Week two — your first Daily Brief. Delivered on your own data, prioritised by business impact; the first useful insight typically lands inside week one.
+      - listitem [ref=f5e100]: "Then decide together. Review the first briefs with your team and judge Alfred the way the demo asked: did it tell you what to do?"
+    - generic [ref=f5e101]:
+      - generic [ref=f5e102]:
+        - paragraph [ref=f5e103]: Ready to see this on your own data?
+        - paragraph [ref=f5e104]: Reply to your Alfred contact, or hello@seekalfred.ai · seekalfred.ai/contact — the pilot starts the week you say yes.
+      - generic [ref=f5e105]: Start the pilot
+    - paragraph [ref=f5e106]: All performance figures in this document are from the Northwind Labs demo scenario — one fictional customer, consistent across every Alfred demo — and are not real customer outcomes.
+    - generic [ref=f5e108]: © 2026 E902 AI Labs Private Limited · seekalfred.ai

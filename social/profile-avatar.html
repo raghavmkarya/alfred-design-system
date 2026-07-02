@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Profile avatar · 400×400 (LinkedIn / X company avatar)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       Two exportable frames on this page — screenshot each .frame
+       at exactly 400×400. Dark variant first (default for the black
+       LinkedIn/X presence), light variant below, clearly separated.
+
+       Both platforms crop avatars to a CIRCLE: the mark is sized so
+       its full bounding box sits inside the inscribed 400px circle
+       with comfortable margin. Do not add text — the mark only.
+
+       Logo rule: the gradient mark ships as-is (never recolored);
+       one gradient element per view = the mark itself.
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #17171a;                /* workbench chrome — NOT part of the asset */
+      -webkit-font-smoothing: antialiased;
+    }
+    .bench { padding: 48px; display: flex; flex-direction: column; gap: 20px; }
+    .bench-label {
+      font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin: 12px 0 0;
+    }
+
+    /* ============ FRAME — exactly 400×400 ============ */
+    .frame {
+      width: 400px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .frame img { width: 208px; height: auto; display: block; }
+
+    /* —— variant A: dark (pure black, matches the dark marketing presence) —— */
+    .frame--dark { background: #000000; }
+
+    /* —— variant B: light (white canvas, for light-UI contexts) —— */
+    .frame--light { background: #FFFFFF; }
+  </style>
+</head>
+<body>
+  <div class="bench">
+
+    <!-- ==================== VARIANT A — DARK (default avatar) ==================== -->
+    <p class="bench-label">Variant A — dark · export this frame at 400×400</p>
+    <div class="frame frame--dark" data-theme="dark">
+      <!-- Gradient mark, centered. White-mark fallback: ../assets/logos/alfred-icon-white.svg -->
+      <img src="../assets/logos/alfred-icon.svg" alt="Alfred" />
+    </div>
+
+    <!-- ==================== VARIANT B — LIGHT ==================== -->
+    <p class="bench-label">Variant B — light · export this frame at 400×400</p>
+    <div class="frame frame--light">
+      <img src="../assets/logos/alfred-icon.svg" alt="Alfred" />
+    </div>
+
+  </div>
+</body>
+</html>

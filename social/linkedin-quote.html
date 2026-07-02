@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn quote card (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-quote — founder-note quote card (LinkedIn 4:5).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Voice: the SPEAKER talks in first person ("I", "we") — that is
+       the founder's voice, not Alfred's. Marketing copy elsewhere on
+       the card stays third person about Alfred. Never attribute a
+       quote to a real customer unless it is a real, approved quote.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       quote       — the quote, no surrounding quote marks (the big
+                     gradient mark carries that), 2–4 lines
+       name        — speaker, e.g. Arjun Mehta
+       role        — e.g. Co-founder & CEO, Alfred
+       initials    — 2 letters for the avatar
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+
+    .head img { height: 38px; width: auto; display: block; opacity: 0.96; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    /* the opening mark is the one gradient element on this view */
+    .mark {
+      font-family: var(--font-display);
+      font-weight: var(--fw-bold);
+      font-size: 150px;
+      line-height: 0.72;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0 0 12px -6px;
+    }
+    blockquote.quote {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-medium);
+      font-size: 62px;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin: 0 0 64px;
+      max-width: 19ch;
+    }
+
+    .attrib {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .avatar {
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      background: var(--surface-raised);
+      border: 1px solid var(--border-default);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 26px;
+      letter-spacing: 0.02em;
+      color: var(--periwinkle-300);
+    }
+    .attrib .name {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 27px;
+      color: var(--text-primary);
+    }
+    .attrib .role {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 21px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .footer {
+      margin-top: 64px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <div class="mark" aria-hidden="true">&ldquo;</div>
+
+      <!-- SLOT: quote — founder's own voice, no quote marks -->
+      <blockquote class="quote" data-slot="quote">I spent a decade watching great teams lose their mornings to reporting. We&rsquo;re building the layer that gives them back.</blockquote>
+
+      <div class="attrib">
+        <!-- SLOT: initials -->
+        <span class="avatar" data-slot="initials">AM</span>
+        <span>
+          <!-- SLOT: name -->
+          <div class="name" data-slot="name">Arjun Mehta</div>
+          <!-- SLOT: role -->
+          <div class="role" data-slot="role">Co-founder &amp; CEO, Alfred</div>
+        </span>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

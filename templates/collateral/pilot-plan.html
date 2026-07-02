@@ -1,0 +1,211 @@
+<!-- @dsCard group="Templates" viewport="820x1160" name="Collateral — 30-day pilot plan" subtitle="2-page A4: week-by-week plan, quantified success criteria, roles, exit criteria" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="collateral.css" />
+<title>Alfred — 30-day pilot success plan</title>
+<style>
+  .slot {
+    font-weight: 700; white-space: nowrap;
+    color: var(--periwinkle-600); background: var(--periwinkle-50);
+    border: 1px dashed var(--periwinkle-300); border-radius: 1.5mm; padding: 0 1.6mm;
+  }
+  .pilot-roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 4mm; }
+  .pilot-role { border: 1px solid var(--gray-150); border-radius: 5mm; padding: 4.5mm 5mm; }
+  .pilot-role-w { font-size: 7pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--periwinkle-600); }
+  .pilot-role-t { font-family: var(--font-display); font-weight: 600; font-size: 10.5pt;
+    letter-spacing: -0.01em; color: var(--ink-900); margin: 1mm 0 1.4mm; }
+  .pilot-role p { margin: 0; font-size: 8.5pt; line-height: 1.45; color: var(--ink-600); }
+  .pilot-role .time { display: block; margin-top: 2mm; font-size: 7.5pt; font-weight: 700;
+    color: var(--orange-600); }
+</style>
+</head>
+<body>
+
+<!-- ============ Page 1 — the plan, week by week ============ -->
+<section class="col-page">
+  <header class="col-header">
+    <img class="col-logo" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Pilot success plan · 30 days</span>
+  </header>
+
+  <p class="col-eyebrow">Pilot success plan</p>
+  <h1>Thirty days from connect to a decision habit</h1>
+  <p class="col-lead">A pilot with Alfred is not a technical evaluation — it is a working
+    month. By day 30, <span class="slot">[CUSTOMER]</span> should be running its mornings
+    on Alfred's briefs and be able to point to specific decisions the briefs produced.
+    This plan defines the weeks, the roles, and the pass/fail criteria up front.</p>
+
+  <h2>Week by week</h2>
+  <table class="col-table">
+    <thead><tr><th style="width:24mm">Week</th><th style="width:26mm">Focus</th><th>What happens</th><th style="width:42mm">Done when</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Week 1</td>
+        <td>Connect</td>
+        <td>Secure read-only integrations across ad platforms, analytics and CRM — typically
+          under an hour each, zero engineering. Up to a year of history syncs in the
+          background.</td>
+        <td>Priority sources live (target: 6+); history synced</td>
+      </tr>
+      <tr>
+        <td>Week 1–2</td>
+        <td>Calibrate</td>
+        <td>One working session: KPIs, alert thresholds, channels and business objectives
+          tuned to how the team operates. The champion nominates the brief's recipients.</td>
+        <td>Calibration session held; thresholds signed off</td>
+      </tr>
+      <tr>
+        <td>Week 2–3</td>
+        <td>First briefs</td>
+        <td>The Daily Brief starts landing — what changed, why, and what needs a decision,
+          with sources and confidence on every recommendation. The team reads, reacts, and
+          flags anything miscalibrated.</td>
+        <td>First brief by day 10; brief read 4+ days/week</td>
+      </tr>
+      <tr class="hl">
+        <td>Week 4</td>
+        <td>Decision review</td>
+        <td>A 45-minute review with the exec sponsor: which recommendations were actioned,
+          what they were worth, what Alfred missed, and whether the success criteria on
+          page 2 were met.</td>
+        <td>Go / extend / stop decision made, in writing</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Roles — who does what</h2>
+  <div class="pilot-roles">
+    <div class="pilot-role">
+      <span class="pilot-role-w">Customer</span>
+      <p class="pilot-role-t">Champion</p>
+      <p>Owns the pilot day to day: connects the stack, attends calibration, makes sure the
+        brief gets read, and collects the decision log for week 4.</p>
+      <span class="time">~3 hours in week 1, then ~30 min/week</span>
+    </div>
+    <div class="pilot-role">
+      <span class="pilot-role-w">Customer</span>
+      <p class="pilot-role-t">Exec sponsor</p>
+      <p>Sets the success criteria at kickoff, receives the weekly pulse, and chairs the
+        day-30 decision review. Where the go / no-go call lives.</p>
+      <span class="time">Kickoff + 45-minute review</span>
+    </div>
+    <div class="pilot-role">
+      <span class="pilot-role-w">Alfred</span>
+      <p class="pilot-role-t">Alfred + our team</p>
+      <p>Alfred delivers the briefs, alerts and recommendations. Our team runs calibration,
+        monitors sync health, and prepares the week-4 review pack.</p>
+      <span class="time">Daily briefs; support within one business day</span>
+    </div>
+  </div>
+
+  <div class="col-callout" style="margin-top:6mm">
+    <p class="col-callout-t">What this costs the team</p>
+    <p>Under four hours of total customer effort across the month. No engineering tickets,
+      no migration, no rip-and-replace — connections are read-only and revocable at any
+      time, and every read is captured in the audit trail.</p>
+  </div>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited · hello@seekalfred.ai</span>
+    <span class="col-page-no"> / 02</span>
+  </footer>
+</section>
+
+<!-- ============ Page 2 — success criteria + exit criteria ============ -->
+<section class="col-page">
+  <header class="col-header">
+    <img class="col-logo" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Pilot success plan · criteria</span>
+  </header>
+
+  <p class="col-eyebrow">Success criteria</p>
+  <h1>Agreed up front, measured at day 30</h1>
+  <p class="col-lead">A pilot passes on evidence, not vibes. These are the defaults — edit
+    the numbers with the exec sponsor at kickoff, then hold both sides to them.</p>
+
+  <div class="col-two-col">
+    <div>
+      <h3>Adoption</h3>
+      <ul class="col-checklist">
+        <li><b>6+ integrations live in week one</b>, each connected in under an hour</li>
+        <li><b>First Daily Brief delivered by day 10</b></li>
+        <li><b>Brief opened 4+ days per week</b> in weeks 3–4 by the named recipients</li>
+        <li><b>Weekly pulse held 4 of 4 weeks</b> with the champion</li>
+      </ul>
+      <h3>Trust</h3>
+      <ul class="col-checklist">
+        <li>Every recommendation reviewed carried <b>visible sources and a confidence
+          score</b></li>
+        <li><b>Zero write actions</b> without explicit authorisation, verified in the
+          audit trail</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Decisions — the bar that matters</h3>
+      <ul class="col-checklist">
+        <li><b>3+ decisions actioned from briefs</b> by day 30 (reallocation, kill, scale
+          or creative rotation)</li>
+        <li><b>1+ decision with a quantified impact estimate</b> attached before it was
+          made</li>
+        <li><b>1+ anomaly caught by Alfred before the team saw it</b>, with the alert
+          timestamp as evidence</li>
+        <li>Recoverable waste identified and sized, in dollars per month</li>
+      </ul>
+      <div class="col-callout peri">
+        <p class="col-callout-t">What "3 decisions" looks like — demo scenario</p>
+        <p>In the fictional Northwind Labs dataset, week one alone surfaces a kill (a Meta
+          campaign burning $4.8K with zero conversions), a reallocation ($18K from
+          non-brand search to Performance Max) and a creative rotation (TikTok CTR down
+          12%) — $55.1K/mo of recoverable waste sized and sourced. Demo data, not a
+          customer result.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Exit criteria — the day-30 call</h2>
+  <table class="col-table">
+    <thead><tr><th style="width:28mm">Outcome</th><th>When it applies</th><th>What happens next</th></tr></thead>
+    <tbody>
+      <tr class="hl">
+        <td>Convert</td>
+        <td>Decision criteria met — 3+ actioned decisions and the team wants to keep its
+          mornings</td>
+        <td>Move to an annual plan; calibration and history carry over, nothing is
+          re-implemented</td>
+      </tr>
+      <tr>
+        <td>Extend once</td>
+        <td>Adoption criteria met but decisions lagged — for example, a slow connect or a
+          quiet month</td>
+        <td>One two-week extension with a named blocker to remove; no second extension</td>
+      </tr>
+      <tr>
+        <td>Stop</td>
+        <td>Criteria unmet, or the briefs did not earn the team's attention</td>
+        <td>Integrations revoked, workspace exported on request, all data deleted within
+          30 days</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="col-cta-band">
+    <div>
+      <p class="col-cta-t">Ready to put a date on week one?</p>
+      <p class="col-cta-s">hello@seekalfred.ai · seekalfred.ai/contact</p>
+    </div>
+    <span class="col-cta-chip">Schedule the kickoff</span>
+  </div>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited · hello@seekalfred.ai</span>
+    <span class="col-page-no"> / 02</span>
+  </footer>
+</section>
+
+</body>
+</html>

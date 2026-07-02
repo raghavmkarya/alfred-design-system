@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn stat card (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-stat — the sourced-stat card (LinkedIn 4:5).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       THE RULE THIS CARD EMBODIES: no fabricated proof. The stat,
+       claim and citation travel together — if you swap the number,
+       you swap the visible "Source:" chip with it, or the card does
+       not ship. Real market-level stats only; Northwind demo numbers
+       belong on linkedin-insight, framed as demo data.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       stat        — the number, e.g. 73%  (keep to ~4 characters)
+       claim       — what the number means, sentence case, ≤ 2 lines
+       source      — the visible citation, e.g. NIQ, 2025 (REQUIRED)
+       bridge      — the Alfred line, third person, one sentence
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+
+    .head img { height: 38px; width: auto; display: block; opacity: 0.96; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 19px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 8px;
+    }
+    /* the stat is the one gradient element on this view */
+    .stat {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-medium);
+      font-size: 300px;
+      line-height: 1;
+      letter-spacing: -0.045em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0 0 24px -8px;
+    }
+    .claim {
+      font-family: var(--font-display);
+      font-weight: var(--fw-medium);
+      font-size: 56px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin: 0 0 36px;
+      max-width: 17ch;
+    }
+    /* the visible citation — this chip is NOT optional */
+    .source {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      align-self: flex-start;
+      background: var(--surface-card);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 12px 22px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 20px;
+      color: var(--text-secondary);
+    }
+    .source svg { width: 20px; height: 20px; color: var(--text-muted); }
+
+    .bridge {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 27px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 56px 0 0;
+      max-width: 34ch;
+    }
+    .bridge b { color: #fff; font-weight: var(--fw-semibold); }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <p class="eyebrow">The problem, quantified</p>
+
+      <!-- SLOT: stat -->
+      <div class="stat" data-slot="stat">73%</div>
+
+      <!-- SLOT: claim -->
+      <h1 class="claim" data-slot="claim">of marketing data goes unused.</h1>
+
+      <!-- SLOT: source — REQUIRED. No visible citation, no card. -->
+      <span class="source">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+          <path d="M14 3v5h5" />
+          <path d="M9 13h6M9 17h6" />
+        </svg>
+        <span>Source: <span data-slot="source">NIQ, 2025</span></span>
+      </span>
+
+      <!-- SLOT: bridge — Alfred in third person, one sentence -->
+      <p class="bridge" data-slot="bridge">Alfred connects your stack, reads all of it, and briefs you on what changed — <b>every morning</b>.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

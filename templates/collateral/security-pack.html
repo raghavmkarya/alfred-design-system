@@ -1,0 +1,264 @@
+<!-- @dsCard group="Templates" viewport="820x1160" name="Collateral — security pack" subtitle="3-page A4: posture, data flow, access controls, subprocessors, FAQ" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="collateral.css" />
+<title>Alfred — security &amp; data-handling pack</title>
+<style>
+  /* Slot chip — dashed placeholder for values that MUST be confirmed before sending. */
+  .slot {
+    font-weight: 700; white-space: nowrap;
+    color: var(--periwinkle-600); background: var(--periwinkle-50);
+    border: 1px dashed var(--periwinkle-300); border-radius: 1.5mm; padding: 0 1.6mm;
+  }
+  .sec-principles { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 7mm; }
+  .sec-principle {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 5mm; padding: 5mm 5.5mm;
+  }
+  .sec-principle .ic { display: block; margin-bottom: 2.6mm; color: var(--orange-400); }
+  .sec-principle-t { font-family: var(--font-display); font-weight: 600; font-size: 10.5pt;
+    letter-spacing: -0.01em; color: #fff; margin: 0 0 1.2mm; }
+  .sec-principle p { margin: 0; font-size: 8.5pt; line-height: 1.45; color: rgba(255,255,255,0.7); }
+  .sec-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin: 4mm 0 2mm; }
+  .sec-step { border: 1px solid var(--gray-150); border-radius: 5mm; padding: 4.5mm 5mm; position: relative; }
+  .sec-step-n { font-family: var(--font-display); font-weight: 700; font-size: 9pt;
+    color: var(--orange-500); letter-spacing: 0.04em; }
+  .sec-step-t { font-family: var(--font-display); font-weight: 600; font-size: 10.5pt;
+    letter-spacing: -0.01em; color: var(--ink-900); margin: 1mm 0 1.4mm; }
+  .sec-step p { margin: 0; font-size: 8.5pt; line-height: 1.45; color: var(--ink-600); }
+  .sec-faq dt { font-weight: 700; color: var(--ink-900); margin: 3.4mm 0 0.8mm; }
+  .sec-faq dd { margin: 0 0 0.6mm; font-size: 9pt; line-height: 1.5; color: var(--ink-600); }
+</style>
+</head>
+<body>
+
+<!-- ============ Page 1 — posture overview (dark cover) ============ -->
+<section class="col-page col-dark col-glow">
+  <header class="col-header">
+    <img class="col-logo" src="../../assets/logos/alfred-logo-white.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Security pack · July 2026</span>
+  </header>
+
+  <p class="col-eyebrow">Security &amp; data handling</p>
+  <h1 class="col-cover-title">Your data is yours. Full stop.</h1>
+  <div class="col-rule"></div>
+  <p class="col-lead">Alfred connects to your marketing stack read-only, synthesises what
+    matters inside your own workspace, and delivers decision-ready intelligence — without
+    taking control of your accounts, and without your data ever training anyone else's
+    Alfred. This pack explains exactly how, in plain language.</p>
+
+  <div class="sec-principles">
+    <div class="sec-principle">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.8"/></svg>
+      <p class="sec-principle-t">Read-only by default</p>
+      <p>Alfred connects over secure read-only APIs. It can see your data; it cannot change
+        it. Write-back is off until you explicitly authorise it, per integration.</p>
+    </div>
+    <div class="sec-principle">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2"/></svg>
+      <p class="sec-principle-t">Encrypted throughout</p>
+      <p>Every connection and every synced record is encrypted in transit and at rest.
+        Credentials and OAuth tokens are stored encrypted and are revocable at any time.</p>
+    </div>
+    <div class="sec-principle">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h11.5a2.5 2.5 0 0 1 2.5 2.5v12.5H7.5A2.5 2.5 0 0 1 5 17V4.5Z"/><path d="M5 4.5A2 2 0 0 0 3 6.5V17M8.5 9h7M8.5 12.5h7M8.5 16h4"/></svg>
+      <p class="sec-principle-t">Everything is logged</p>
+      <p>Every read, recommendation and authorised write lands in a full audit trail — who,
+        what, when — exportable for your own review at any time.</p>
+    </div>
+    <div class="sec-principle">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17" opacity="0"/><path d="M12 8v4.5M12 15.8v.2" stroke-width="2"/></svg>
+      <p class="sec-principle-t">No cross-customer training</p>
+      <p>Your workspace is isolated. Your data, your patterns and your outcomes are never
+        used to train models for any other customer.</p>
+    </div>
+  </div>
+
+  <div class="col-callout peri" style="margin-top:8mm">
+    <p class="col-callout-t">Where we are on certifications — the honest answer</p>
+    <p><b>SOC 2 Type II is in progress:</b> the audit window is underway and the report is
+      expected <span class="slot">[DATE — confirm with security before sending]</span>. A
+      GDPR-aligned data-processing agreement is available on request. ISO 27001 is on the
+      roadmap and <b>not yet certified</b>. Alfred does not display badges for
+      certifications it has not earned — if a claim is not in this pack, do not make it.</p>
+  </div>
+
+  <h3 style="color:#fff">In this pack</h3>
+  <ul class="col-checklist">
+    <li>How your data moves through Alfred — connect, synthesise, deliver</li>
+    <li>Where your data lives, and for how long</li>
+    <li>Access controls: roles, audit trail, retention and deletion</li>
+    <li>Subprocessors and frequently asked questions</li>
+  </ul>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited · hello@seekalfred.ai</span>
+    <span class="col-page-no"> / 03</span>
+  </footer>
+</section>
+
+<!-- ============ Page 2 — data flow + where data lives + subprocessors ============ -->
+<section class="col-page">
+  <header class="col-header">
+    <img class="col-logo" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Security pack · data flow</span>
+  </header>
+
+  <p class="col-eyebrow">The data-flow narrative</p>
+  <h1>How your data moves through Alfred</h1>
+  <p class="col-lead">Three stages, one direction of trust: Alfred reads, reasons, and
+    reports back. Nothing changes in your accounts unless you authorise it.</p>
+
+  <div class="sec-flow">
+    <div class="sec-step">
+      <span class="sec-step-n">01</span>
+      <p class="sec-step-t">Connect — read-only</p>
+      <p>You connect your stack over secure read-only API and OAuth integrations — ad
+        platforms, analytics, CRM, billing. Typical setup is under an hour with zero
+        engineering, syncing up to a year of history. Alfred can see; it cannot touch.</p>
+    </div>
+    <div class="sec-step">
+      <span class="sec-step-n">02</span>
+      <p class="sec-step-t">Synthesise — in isolation</p>
+      <p>Synced data is normalised into your workspace's isolated store, where Alfred
+        detects what changed, explains why, and recommends what to do next. Every
+        recommendation carries its sources and a confidence score — never a black-box
+        answer.</p>
+    </div>
+    <div class="sec-step">
+      <span class="sec-step-n">03</span>
+      <p class="sec-step-t">Deliver — and only act if asked</p>
+      <p>Briefs and alerts arrive in the app, email and Slack. If you enable write-back,
+        Alfred acts in your tools only after explicit per-integration authorisation and an
+        approval step — and every action is logged.</p>
+    </div>
+  </div>
+
+  <h2>Where your data lives</h2>
+  <table class="col-table">
+    <thead><tr><th style="width:34mm">Data category</th><th>What it includes</th><th>Where it lives</th><th style="width:32mm">Retention</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Connected-platform data</td>
+        <td>Campaign, spend, performance and pipeline records synced read-only</td>
+        <td>Encrypted at rest in Alfred's cloud infrastructure, <span class="slot">[REGION — confirm current hosting region]</span></td>
+        <td>While your account is active; deleted within 30 days of termination</td>
+      </tr>
+      <tr>
+        <td>Workspace content</td>
+        <td>Briefs, recommendations, decisions, annotations, audit log</td>
+        <td>Your isolated workspace store — never pooled across customers</td>
+        <td>While active; exportable any time; deleted within 30 days of termination</td>
+      </tr>
+      <tr>
+        <td>Credentials</td>
+        <td>OAuth tokens and API keys for your integrations</td>
+        <td>Encrypted secret storage; never logged in plaintext</td>
+        <td>Revocable instantly — by you in Alfred, or at the platform side</td>
+      </tr>
+      <tr>
+        <td>Account &amp; billing</td>
+        <td>Users, roles, invoices</td>
+        <td>Alfred's application database and payment subprocessor</td>
+        <td>As required for legal, tax and accounting obligations</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Subprocessors</h2>
+  <p class="col-muted">The current subprocessor list is maintained by our security team and
+    provided with the DPA. <b>Confirm this table is current before sending.</b></p>
+  <table class="col-table">
+    <thead><tr><th>Subprocessor</th><th>Purpose</th><th>Region</th><th>DPA status</th></tr></thead>
+    <tbody>
+      <tr><td><span class="slot">[CLOUD PROVIDER]</span></td><td>Hosting &amp; encrypted storage</td><td><span class="slot">[REGION]</span></td><td><span class="slot">[SIGNED / DATE]</span></td></tr>
+      <tr><td><span class="slot">[MODEL PROVIDER]</span></td><td>Model inference (no training on customer data)</td><td><span class="slot">[REGION]</span></td><td><span class="slot">[SIGNED / DATE]</span></td></tr>
+      <tr><td><span class="slot">[EMAIL PROVIDER]</span></td><td>Brief &amp; alert delivery</td><td><span class="slot">[REGION]</span></td><td><span class="slot">[SIGNED / DATE]</span></td></tr>
+      <tr><td><span class="slot">[PAYMENTS PROVIDER]</span></td><td>Billing</td><td><span class="slot">[REGION]</span></td><td><span class="slot">[SIGNED / DATE]</span></td></tr>
+    </tbody>
+  </table>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited · hello@seekalfred.ai</span>
+    <span class="col-page-no"> / 03</span>
+  </footer>
+</section>
+
+<!-- ============ Page 3 — access controls + FAQ ============ -->
+<section class="col-page">
+  <header class="col-header">
+    <img class="col-logo" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Security pack · access &amp; FAQ</span>
+  </header>
+
+  <p class="col-eyebrow">Access controls</p>
+  <h1>Who can see what — and the record of it</h1>
+
+  <div class="col-two-col">
+    <div>
+      <h3>Role-based access control</h3>
+      <p>RBAC is available on the Max and Enterprise plans. People see and do only what
+        their role permits — nothing further.</p>
+      <table class="col-table">
+        <thead><tr><th>Role</th><th>Can do</th></tr></thead>
+        <tbody>
+          <tr><td>Admin</td><td>Manage integrations, users, write-back authorisation and billing</td></tr>
+          <tr><td>Member</td><td>Read briefs, ask Alfred, propose and approve actions within their scope</td></tr>
+          <tr><td>Viewer</td><td>Read-only access to briefs and the KPI cockpit</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3>Audit trail</h3>
+      <p>Every read, recommendation and authorised write is logged with who, what and when.
+        The trail is exportable for review at any time — by you, without asking us.</p>
+      <h3>Retention &amp; deletion</h3>
+      <p>Alfred syncs up to a year of history to build context. When you leave, you can
+        export your workspace, and all customer data is deleted within 30 days of
+        termination. Deletion earlier than that is available on request.</p>
+    </div>
+  </div>
+
+  <div class="col-divider"></div>
+
+  <h2>Frequently asked questions</h2>
+  <dl class="sec-faq">
+    <dt>Does Alfred train models on our data?</dt>
+    <dd>No. Your workspace is isolated, and your data is never used to train models for any
+      other customer. Alfred's memory of your business compounds for you alone.</dd>
+    <dt>Can Alfred change our campaigns without us knowing?</dt>
+    <dd>No. Connections are read-only by default. Write-back requires explicit
+      per-integration authorisation plus an approval step, and every action is recorded in
+      the audit trail.</dd>
+    <dt>What certifications does Alfred hold today?</dt>
+    <dd>SOC 2 Type II is in progress — the report is expected
+      <span class="slot">[DATE — confirm before sending]</span>. A GDPR-aligned DPA is
+      available on request. We will not claim a certification before it is earned.</dd>
+    <dt>Who at E902 AI Labs can access our data?</dt>
+    <dd>Access is restricted to named engineers for support and reliability, under
+      least-privilege controls, and that access is itself logged.</dd>
+    <dt>How do we off-board?</dt>
+    <dd>Export your workspace, revoke the integrations (from either side), and terminate.
+      Data is deleted within 30 days; written confirmation is provided on request.</dd>
+    <dt>Where can we send security questionnaires?</dt>
+    <dd>hello@seekalfred.ai — we respond to standard questionnaires (CAIQ, SIG Lite) as part
+      of every Enterprise evaluation.</dd>
+  </dl>
+
+  <p class="col-footnote" style="margin-top:5mm">Prepared by E902 AI Labs Private Limited.
+    This pack describes current architecture and practice; it is not a contractual
+    commitment — contractual terms live in the MSA and DPA. Bracketed values must be
+    confirmed with the security team before this document is shared externally.</p>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited · hello@seekalfred.ai</span>
+    <span class="col-page-no"> / 03</span>
+  </footer>
+</section>
+
+</body>
+</html>

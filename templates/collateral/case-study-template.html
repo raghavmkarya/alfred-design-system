@@ -1,0 +1,170 @@
+<!-- @dsCard group="Templates" viewport="820x1160" name="Collateral — case study template" subtitle="2-page A4: situation → decision → outcome, sourced-metric slots + Northwind worked example" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="collateral.css" />
+<title>Alfred — case study template</title>
+<style>
+  /* Slot chip — dashed placeholder; every metric slot must carry a source before shipping. */
+  .slot {
+    font-weight: 700;
+    color: var(--periwinkle-600); background: var(--periwinkle-50);
+    border: 1px dashed var(--periwinkle-300); border-radius: 1.5mm; padding: 0 1.6mm;
+  }
+  .cs-arc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin: 4mm 0; }
+  .cs-stage { border: 1px solid var(--gray-150); border-radius: 5mm; padding: 4.5mm 5mm; }
+  .cs-stage-w { font-size: 7pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--orange-600); }
+  .cs-stage-t { font-family: var(--font-display); font-weight: 600; font-size: 10.5pt;
+    letter-spacing: -0.01em; color: var(--ink-900); margin: 1mm 0 1.4mm; }
+  .cs-stage p { margin: 0 0 1.6mm; font-size: 8.5pt; line-height: 1.5; color: var(--ink-600); }
+  .cs-stage p:last-child { margin-bottom: 0; }
+  .demo-tag {
+    display: inline-block; font-size: 7pt; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--orange-600); background: var(--orange-50);
+    border: 1px solid var(--orange-200); border-radius: var(--radius-pill);
+    padding: 1mm 3mm; margin-bottom: 3mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ Page 1 — the template ============ -->
+<section class="col-page">
+  <header class="col-header">
+    <img class="col-logo" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Case study · template</span>
+  </header>
+
+  <p class="col-eyebrow"><span class="slot">[CUSTOMER INDUSTRY]</span> · <span class="slot">[TEAM SIZE]</span></p>
+  <h1><span class="slot">[CUSTOMER]</span> — <span class="slot">[HEADLINE METRIC — must be sourced]</span> with Alfred</h1>
+  <p class="col-lead">One sentence: who <span class="slot">[CUSTOMER]</span> is, the
+    decision Alfred surfaced, and the sourced number it produced. Lead with the number;
+    keep the adjectives out.</p>
+
+  <div class="col-stat-band">
+    <div class="col-stat"><span class="col-stat-n"><span class="slot">[METRIC 1]</span></span><span class="col-stat-l"><span class="slot">[what it measures]</span></span><span class="col-stat-src">Source: <span class="slot">[customer-approved source + period]</span></span></div>
+    <div class="col-stat"><span class="col-stat-n"><span class="slot">[METRIC 2]</span></span><span class="col-stat-l"><span class="slot">[what it measures]</span></span><span class="col-stat-src">Source: <span class="slot">[customer-approved source + period]</span></span></div>
+    <div class="col-stat"><span class="col-stat-n"><span class="slot">[METRIC 3]</span></span><span class="col-stat-l"><span class="slot">[what it measures]</span></span><span class="col-stat-src">Source: <span class="slot">[customer-approved source + period]</span></span></div>
+  </div>
+
+  <h2>The arc — situation → decision → outcome</h2>
+  <div class="cs-arc">
+    <div class="cs-stage">
+      <span class="cs-stage-w">1 · Situation</span>
+      <p class="cs-stage-t">What was true before</p>
+      <p><span class="slot">[CUSTOMER]</span>'s stack, spend and team — and the specific
+        pain: where were the numbers scattered, what was being missed, what did a
+        decision cost in hours or days?</p>
+      <p>Quantify the before-state: <span class="slot">[SPEND/MO]</span>,
+        <span class="slot">[SOURCES]</span>, <span class="slot">[HOURS/WK ON
+        REPORTING]</span>.</p>
+    </div>
+    <div class="cs-stage">
+      <span class="cs-stage-w">2 · Decision</span>
+      <p class="cs-stage-t">What Alfred surfaced</p>
+      <p>The specific brief, alert or recommendation — what changed, why, and what Alfred
+        recommended, with the confidence score it carried. Quote the brief verbatim where
+        possible.</p>
+      <p>Name the human who decided: <span class="slot">[NAME, ROLE]</span> actioned it on
+        <span class="slot">[DATE]</span>. Alfred recommends; people decide.</p>
+    </div>
+    <div class="cs-stage">
+      <span class="cs-stage-w">3 · Outcome</span>
+      <p class="cs-stage-t">What the number says</p>
+      <p>The result, measured over <span class="slot">[PERIOD]</span> against
+        <span class="slot">[BASELINE]</span>: <span class="slot">[METRIC — must be
+        sourced]</span>.</p>
+      <p>State the measurement method in one line — where the number comes from and who
+        verified it.</p>
+    </div>
+  </div>
+
+  <blockquote class="col-quote">
+    <p class="col-quote-text">"<span class="slot">[QUOTE — the customer's own words on the
+      decision, not on the product]</span>"</p>
+    <p class="col-quote-by"><span class="col-quote-nm"><span class="slot">[NAME]</span></span>
+      <span class="col-quote-rl">· <span class="slot">[ROLE]</span>, <span class="slot">[CUSTOMER]</span></span></p>
+  </blockquote>
+
+  <div class="col-callout">
+    <p class="col-callout-t">Rules before this ships</p>
+    <p>Every metric carries a visible source and the customer's written approval — a metric
+      without both does not ship, and neither does the case study. No rounding up, no
+      "up to" framing, no composite numbers. If real numbers are not available yet, use the
+      Northwind demo scenario on page 2 and label it as demo — never as a customer.</p>
+  </div>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited · hello@seekalfred.ai</span>
+    <span class="col-page-no"> / 02</span>
+  </footer>
+</section>
+
+<!-- ============ Page 2 — worked example: Northwind Labs (demo) ============ -->
+<section class="col-page">
+  <header class="col-header">
+    <img class="col-logo" src="../../assets/logos/alfred-logo-primary.svg" alt="Alfred" style="height:26px" onerror="this.style.display='none'" />
+    <span class="col-doc-type">Case study · worked example</span>
+  </header>
+
+  <span class="demo-tag">Demo scenario — Northwind Labs is fictional</span>
+  <p class="col-eyebrow">B2B SaaS · 120 people</p>
+  <h1>Northwind Labs sizes $55.1K/mo of recoverable waste in its first month</h1>
+  <p class="col-lead">Northwind Labs is the fictional demo customer used across every
+    Alfred surface — one company, one internally consistent dataset. This page shows the
+    template filled in correctly; none of it is a real customer outcome.</p>
+
+  <div class="col-stat-band">
+    <div class="col-stat"><span class="col-stat-n">$55.1K</span><span class="col-stat-l">recoverable waste sized, per month</span><span class="col-stat-src">Northwind Labs demo dataset</span></div>
+    <div class="col-stat"><span class="col-stat-n">$4.8K</span><span class="col-stat-l">zero-conversion campaign caught</span><span class="col-stat-src">Northwind Labs demo dataset</span></div>
+    <div class="col-stat"><span class="col-stat-n grad">4.8x</span><span class="col-stat-l">blended ROAS, +12.4% vs 30d</span><span class="col-stat-src">Northwind Labs demo dataset</span></div>
+  </div>
+
+  <h2>Situation</h2>
+  <p>Northwind Labs is a 120-person B2B SaaS company spending ~$310K/month across eight
+    campaigns on Google Ads, Meta, LinkedIn and TikTok, with GA4, HubSpot, Stripe and
+    Mailchimp behind them. Performance lived in ten tabs; the Monday number never matched
+    the Friday number, and a mid-quarter pipeline of $1.84M against a $3.2M target left no
+    room for wasted spend.</p>
+
+  <h2>Decision</h2>
+  <p>Alfred connected read-only in week one and synced a year of history. The first Daily
+    Brief led with the sharpest anomaly — quoted verbatim from the demo:</p>
+  <blockquote class="col-quote">
+    <p class="col-quote-text">"Kill the Meta broad campaign. It burned $4.8K this week with
+      zero conversions — lead quality fell 14% when the new audience launched."</p>
+    <p class="col-quote-by"><span class="col-quote-nm">Alfred</span>
+      <span class="col-quote-rl">· Daily Brief · sources: Meta, GA4, HubSpot · Northwind demo</span></p>
+  </blockquote>
+  <p>Priya Menon, VP Marketing, approved the kill (confidence 91) and the companion
+    recommendation: reallocate $18K from non-brand search into Performance Max, converting
+    at 5.1x against 3.4x (confidence 82). Both approvals — and every read behind them —
+    are in the audit trail.</p>
+
+  <h2>Outcome</h2>
+  <p>Within the first month, Alfred sized $55.1K/mo of recoverable waste across the
+    portfolio, blended ROAS reached 4.8x (+12.4% vs the prior 30 days), and a fatiguing
+    TikTok hero creative (CTR −12% in a week) was rotated before it decayed ~$26K/mo of
+    spend. Measurement method: Alfred's reconciled cross-platform dataset — the same
+    numbers on every surface.</p>
+
+  <div class="col-callout peri">
+    <p class="col-callout-t">Why this example is labelled demo</p>
+    <p>Alfred publishes no customer metrics until they are sourced and customer-approved.
+      Northwind Labs exists so demos and collateral can show real mechanics with visibly
+      fictional, internally consistent numbers — drawn only from the canonical dataset,
+      never invented per document.</p>
+  </div>
+
+  <footer class="col-footer">
+    <span class="col-entity">© 2026 E902 AI Labs Private Limited · hello@seekalfred.ai</span>
+    <span class="col-page-no"> / 02</span>
+  </footer>
+</section>
+
+</body>
+</html>

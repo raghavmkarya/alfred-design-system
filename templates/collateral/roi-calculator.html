@@ -1,0 +1,398 @@
+<!-- @dsCard group="Templates" viewport="1280x980" name="Collateral — ROI calculator" subtitle="Interactive dark screen tool: editable assumptions → hours saved, waste recovered, payback" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<title>Alfred — ROI calculator</title>
+<style>
+  /* Screen tool, not print — dark marketing surface, token-driven throughout. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    background: var(--bg-page); color: var(--text-secondary);
+    font-family: var(--font-sans); font-size: var(--text-base); line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 48px 32px 64px; }
+
+  /* ---- header ---- */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding-bottom: 24px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 40px; }
+  .top img { height: 28px; display: block; }
+  .eyebrow { font-size: 12px; font-weight: var(--fw-bold); letter-spacing: var(--ls-caps);
+    text-transform: uppercase; color: var(--periwinkle-200); }
+  h1 { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: 44px;
+    line-height: 1.05; letter-spacing: -0.02em; color: var(--text-primary); margin: 12px 0 14px; max-width: 720px; }
+  .sub { max-width: 640px; margin: 0 0 36px; color: var(--text-secondary); }
+  .sub b { color: var(--text-primary); }
+
+  /* ---- layout ---- */
+  .grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: start; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 34px; } }
+  .card { background: var(--surface-card); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-2xl); padding: 28px; }
+  .card-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+  .card-t { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: 20px;
+    letter-spacing: -0.01em; color: var(--text-primary); margin: 0; }
+  .chip { font-size: 11px; font-weight: var(--fw-bold); letter-spacing: var(--ls-caps);
+    text-transform: uppercase; color: var(--periwinkle-200);
+    border: 1px solid var(--border-default); border-radius: var(--radius-pill); padding: 4px 12px; white-space: nowrap; }
+
+  /* ---- NumberInput-style fields ---- */
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; }
+  @media (max-width: 560px) { .fields { grid-template-columns: 1fr; } }
+  .field label { display: block; font-size: var(--text-sm); font-weight: var(--fw-medium);
+    color: var(--text-primary); margin-bottom: 8px; }
+  .num { display: flex; align-items: center; gap: 4px; height: 52px; padding: 0 8px;
+    background: var(--surface-input-plain); border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    transition: border-color 150ms ease, box-shadow 150ms ease; }
+  .num:focus-within { border-color: var(--border-focus); box-shadow: var(--shadow-focus); }
+  .num .step { display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 36px; height: 36px; padding: 0; border: none; border-radius: var(--radius-sm);
+    background: transparent; color: var(--text-secondary); cursor: pointer;
+    transition: background 150ms ease; }
+  .num .step:hover { background: rgba(255,255,255,0.06); }
+  .num .affix { flex: none; font-size: var(--text-sm); font-weight: var(--fw-medium);
+    color: var(--text-muted); }
+  .num input { flex: 1; min-width: 0; height: 100%; padding: 0; border: none; outline: none;
+    background: transparent; text-align: center; font-family: var(--font-sans);
+    font-size: var(--text-base); font-weight: var(--fw-semibold); color: var(--text-primary);
+    font-variant-numeric: tabular-nums; }
+  .hint { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-muted); }
+  .fields-caption { grid-column: 1 / -1; margin: 6px 0 -6px; font-size: 12px; font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); }
+
+  /* ---- outputs ---- */
+  .out { display: flex; flex-direction: column; gap: 0; }
+  .out-row { padding: 18px 0; border-top: 1px solid var(--border-subtle); }
+  .out-row:first-of-type { border-top: none; padding-top: 4px; }
+  .out-l { font-size: 12px; font-weight: var(--fw-bold); letter-spacing: var(--ls-caps);
+    text-transform: uppercase; color: var(--text-muted); margin: 0 0 6px; }
+  .out-n { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: 36px;
+    line-height: 1; letter-spacing: -0.02em; color: var(--text-primary);
+    font-variant-numeric: tabular-nums; margin: 0; }
+  .out-n.grad { background: var(--gradient-brand-reverse);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .out-s { margin: 6px 0 0; font-size: 13px; color: var(--text-muted); }
+  .disclaimer { margin-top: 20px; padding: 16px 18px; border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--orange-500); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: 13px; line-height: 1.55; color: var(--text-secondary); background: var(--surface-card); }
+  .disclaimer b { color: var(--text-primary); }
+
+  .foot { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border-subtle);
+    display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+    font-size: 12px; color: var(--text-muted); }
+  .foot a { color: var(--text-link); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="../../assets/logos/alfred-logo-white.svg" alt="Alfred" onerror="this.style.display='none'" />
+    <span class="eyebrow">ROI calculator</span>
+  </header>
+
+  <p class="eyebrow">Assumptions in, arithmetic out</p>
+  <h1>What decision intelligence is worth to your team</h1>
+  <p class="sub">Every number below is <b>an editable assumption</b> — the defaults are the
+    fictional Northwind Labs demo scenario, not customer results. Alfred connects your
+    stack read-only, synthesises what matters, and delivers decision-ready intelligence;
+    this page just does the arithmetic on what that could be worth to you.</p>
+
+  <div class="grid">
+
+    <!-- ================= assumptions ================= -->
+    <section class="card" aria-labelledby="assump-t">
+      <div class="card-h">
+        <h2 class="card-t" id="assump-t">Your assumptions</h2>
+        <span class="chip">Defaults: Northwind demo</span>
+      </div>
+      <div class="fields">
+
+        <div class="field">
+          <label for="in-team">Marketing team size</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-team" data-dir="-1" aria-label="Decrease team size">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <input id="in-team" type="text" inputmode="decimal" role="spinbutton" value="6"
+              data-min="1" data-max="500" data-step="1" />
+            <span class="affix">people</span>
+            <button type="button" class="step" data-for="in-team" data-dir="1" aria-label="Increase team size">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">People who build or consume marketing reporting. Northwind runs 6 seats.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-spend">Monthly ad spend</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-spend" data-dir="-1" aria-label="Decrease ad spend">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <span class="affix">$</span>
+            <input id="in-spend" type="text" inputmode="decimal" role="spinbutton" value="310,000"
+              data-min="0" data-max="100000000" data-step="10000" />
+            <span class="affix">/mo</span>
+            <button type="button" class="step" data-for="in-spend" data-dir="1" aria-label="Increase ad spend">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">Northwind spends ~$310K/month across eight campaigns.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-hours">Hours per person per week on reporting</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-hours" data-dir="-1" aria-label="Decrease reporting hours">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <input id="in-hours" type="text" inputmode="decimal" role="spinbutton" value="6"
+              data-min="0" data-max="60" data-step="1" />
+            <span class="affix">hrs/wk</span>
+            <button type="button" class="step" data-for="in-hours" data-dir="1" aria-label="Increase reporting hours">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">Time spent assembling, reconciling and explaining numbers by hand.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-waste">Wasted share of ad spend</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-waste" data-dir="-1" aria-label="Decrease waste share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <input id="in-waste" type="text" inputmode="decimal" role="spinbutton" value="17.8"
+              data-min="0" data-max="100" data-step="0.5" />
+            <span class="affix">%</span>
+            <button type="button" class="step" data-for="in-waste" data-dir="1" aria-label="Increase waste share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">Northwind demo: $55.1K of $310K/mo identified as recoverable (about 17.8%).</p>
+        </div>
+
+        <p class="fields-caption">Model assumptions — edit these too</p>
+
+        <div class="field">
+          <label for="in-rate">Loaded cost per hour</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-rate" data-dir="-1" aria-label="Decrease hourly cost">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <span class="affix">$</span>
+            <input id="in-rate" type="text" inputmode="decimal" role="spinbutton" value="60"
+              data-min="0" data-max="1000" data-step="5" />
+            <span class="affix">/hr</span>
+            <button type="button" class="step" data-for="in-rate" data-dir="1" aria-label="Increase hourly cost">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">Fully loaded cost of a marketer's hour. Use your own figure.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-removal">Reporting time Alfred removes</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-removal" data-dir="-1" aria-label="Decrease time removed">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <input id="in-removal" type="text" inputmode="decimal" role="spinbutton" value="70"
+              data-min="0" data-max="100" data-step="5" />
+            <span class="affix">%</span>
+            <button type="button" class="step" data-for="in-removal" data-dir="1" aria-label="Increase time removed">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">Modelled share of manual reporting the Daily Brief and cockpit replace.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-recovery">Identified waste actually recovered</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-recovery" data-dir="-1" aria-label="Decrease recovery share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <input id="in-recovery" type="text" inputmode="decimal" role="spinbutton" value="60"
+              data-min="0" data-max="100" data-step="5" />
+            <span class="affix">%</span>
+            <button type="button" class="step" data-for="in-recovery" data-dir="1" aria-label="Increase recovery share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">Not every flagged dollar gets reallocated — assume a haircut.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-cost">Alfred cost per year</label>
+          <div class="num">
+            <button type="button" class="step" data-for="in-cost" data-dir="-1" aria-label="Decrease Alfred cost">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <span class="affix">$</span>
+            <input id="in-cost" type="text" inputmode="decimal" role="spinbutton" value="12,000"
+              data-min="0" data-max="1000000" data-step="1000" />
+            <span class="affix">/yr</span>
+            <button type="button" class="step" data-for="in-cost" data-dir="1" aria-label="Increase Alfred cost">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <p class="hint">Default: Max plan, billed annually. Set to your quoted plan.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= outputs ================= -->
+    <section class="card" aria-labelledby="out-t" aria-live="polite">
+      <div class="card-h">
+        <h2 class="card-t" id="out-t">What the arithmetic says</h2>
+      </div>
+      <div class="out">
+        <div class="out-row">
+          <p class="out-l">Hours saved per month</p>
+          <p class="out-n" id="o-hours">—</p>
+          <p class="out-s" id="o-hours-sub">—</p>
+        </div>
+        <div class="out-row">
+          <p class="out-l">Waste recovered per month</p>
+          <p class="out-n" id="o-waste">—</p>
+          <p class="out-s" id="o-waste-sub">—</p>
+        </div>
+        <div class="out-row">
+          <p class="out-l">Total modelled value per year</p>
+          <p class="out-n grad" id="o-annual">—</p>
+          <p class="out-s" id="o-annual-sub">—</p>
+        </div>
+        <div class="out-row">
+          <p class="out-l">Payback on Alfred</p>
+          <p class="out-n" id="o-payback">—</p>
+          <p class="out-s" id="o-payback-sub">—</p>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <b>Assumptions, not promises.</b> This model is arithmetic on the inputs you set —
+        nothing more. Alfred publishes no customer outcome metrics yet; the defaults come
+        from the fictional Northwind Labs demo scenario. Change any assumption and the
+        outputs follow. Actual results depend on your stack, your spend and the decisions
+        your team makes.
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="foot">
+    <span>© 2026 E902 AI Labs Private Limited · <a href="mailto:hello@seekalfred.ai">hello@seekalfred.ai</a></span>
+    <span>Northwind Labs is a fictional demo company — see data/demo-data.json.</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var WEEKS_PER_MONTH = 52 / 12; // 4.333…
+  var inputs = ["in-team", "in-spend", "in-hours", "in-waste", "in-rate", "in-removal", "in-recovery", "in-cost"];
+
+  function el(id) { return document.getElementById(id); }
+
+  function parseVal(node) {
+    var n = parseFloat(String(node.value).replace(/[,$\s]/g, ""));
+    return isNaN(n) ? 0 : n;
+  }
+  function clamp(node, n) {
+    var min = parseFloat(node.dataset.min), max = parseFloat(node.dataset.max);
+    if (!isNaN(min)) n = Math.max(min, n);
+    if (!isNaN(max)) n = Math.min(max, n);
+    return n;
+  }
+  function fmtInt(n) { return Math.round(n).toLocaleString("en-US"); }
+  function fmtMoney(n) {
+    if (n >= 1e6) return "$" + (n / 1e6).toFixed(2).replace(/\.?0+$/, "") + "M";
+    if (n >= 1e4) return "$" + (n / 1e3).toFixed(1).replace(/\.0$/, "") + "K";
+    return "$" + fmtInt(n);
+  }
+
+  function values() {
+    var v = {};
+    inputs.forEach(function (id) { v[id] = clamp(el(id), parseVal(el(id))); });
+    return v;
+  }
+
+  function compute() {
+    var v = values();
+    var hoursSaved = v["in-team"] * v["in-hours"] * WEEKS_PER_MONTH * (v["in-removal"] / 100);
+    var hoursValue = hoursSaved * v["in-rate"];
+    var wasteRecovered = v["in-spend"] * (v["in-waste"] / 100) * (v["in-recovery"] / 100);
+    var monthlyValue = hoursValue + wasteRecovered;
+    var annualValue = monthlyValue * 12;
+    var paybackDays = monthlyValue > 0 ? (v["in-cost"] / monthlyValue) * 30.4 : Infinity;
+    var multiple = v["in-cost"] > 0 ? annualValue / v["in-cost"] : Infinity;
+
+    el("o-hours").textContent = fmtInt(hoursSaved) + " hrs";
+    el("o-hours-sub").textContent = "Worth " + fmtMoney(hoursValue) + "/mo at $" +
+      fmtInt(v["in-rate"]) + "/hr — " + fmtInt(v["in-team"] * v["in-hours"]) +
+      " team hrs/wk on reporting, " + fmtInt(v["in-removal"]) + "% removed.";
+
+    el("o-waste").textContent = fmtMoney(wasteRecovered);
+    el("o-waste-sub").textContent = fmtMoney(v["in-spend"] * (v["in-waste"] / 100)) +
+      "/mo flagged as waste, " + fmtInt(v["in-recovery"]) + "% assumed recovered.";
+
+    el("o-annual").textContent = fmtMoney(annualValue);
+    el("o-annual-sub").textContent = fmtMoney(monthlyValue) +
+      "/mo — recovered spend plus the value of reclaimed hours.";
+
+    if (!isFinite(paybackDays)) {
+      el("o-payback").textContent = "—";
+      el("o-payback-sub").textContent = "Enter a monthly value above zero to model payback.";
+    } else if (paybackDays < 1) {
+      el("o-payback").textContent = "Under a day";
+      el("o-payback-sub").textContent = "Modelled value covers the annual cost " +
+        (isFinite(multiple) ? multiple.toFixed(0) + "x over a year." : "many times over.");
+    } else {
+      el("o-payback").textContent = fmtInt(paybackDays) + " days";
+      el("o-payback-sub").textContent = "At " + fmtMoney(v["in-cost"]) +
+        "/yr" + (isFinite(multiple) ? " — a modelled " + multiple.toFixed(0) + "x over twelve months." : ".");
+    }
+  }
+
+  function commit(node) {
+    var n = clamp(node, parseVal(node));
+    var isMoney = node.id === "in-spend" || node.id === "in-cost";
+    node.value = isMoney ? n.toLocaleString("en-US") : String(n);
+    compute();
+  }
+
+  inputs.forEach(function (id) {
+    var node = el(id);
+    node.addEventListener("input", compute);            // live while typing
+    node.addEventListener("blur", function () { commit(node); });
+    node.addEventListener("keydown", function (e) {
+      var step = parseFloat(node.dataset.step) || 1;
+      if (e.key === "Enter") { commit(node); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); node.value = String(clamp(node, parseVal(node) + step)); commit(node); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); node.value = String(clamp(node, parseVal(node) - step)); commit(node); }
+    });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll(".step"), function (btn) {
+    btn.addEventListener("click", function () {
+      var node = el(btn.dataset.for);
+      var step = (parseFloat(node.dataset.step) || 1) * parseInt(btn.dataset.dir, 10);
+      node.value = String(clamp(node, parseVal(node) + step));
+      commit(node);
+    });
+  });
+
+  compute();
+})();
+</script>
+</body>
+</html>

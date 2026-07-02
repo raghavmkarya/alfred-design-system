@@ -24,6 +24,8 @@
 <script type="text/babel" src="Dashboard.jsx"></script>
 <script type="text/babel" src="Screens.jsx"></script>
 <script type="text/babel" src="Screens2.jsx"></script>
+<script type="text/babel" src="Screens3.jsx"></script>
+<script type="text/babel" src="Screens4.jsx"></script>
 <script type="text/babel">
 const LOGOROOT = "../../assets/logos";
 const ICONROOT = "../../assets/icons";
@@ -39,6 +41,13 @@ const NAV = [
   { id: "creative", glyph: "creative", label: "Creative" },
   { id: "visibility", glyph: "visibility", label: "AI Visibility" },
   { id: "integrations", glyph: "integrations", label: "Integrations" },
+  { id: "notifications", glyph: "alerts", label: "Notifications", badge: "2" },
+  { id: "memory", glyph: "briefing", label: "Alfred Core" },
+  { id: "connections", glyph: "integrations", label: "Connect data" },
+  { id: "health", glyph: "visibility", label: "Connection health" },
+  { id: "team", glyph: "settings", label: "Team" },
+  { id: "billing", glyph: "spend", label: "Billing" },
+  { id: "audit", glyph: "search", label: "Audit log" },
   { id: "settings", glyph: "settings", label: "Settings" },
 ];
 
@@ -64,7 +73,17 @@ const SCREENS = {
   creative: () => <window.CreativeLifecycle />,
   visibility: () => <window.AiVisibility />,
   integrations: () => <window.Integrations />,
+  notifications: () => <window.NotificationsCenter />,
+  memory: () => <window.MemoryCore />,
+  connections: () => <window.ConnectionFlow />,
+  health: () => <window.ConnectionHealth />,
+  team: () => <window.TeamPermissions />,
+  billing: () => <window.BillingPlans />,
+  audit: () => <window.AuditLog />,
   settings: () => <window.SettingsScreen />,
+  profile: () => <window.SettingsProfile />,
+  "alert-detail": () => <window.AlertDetail />,
+  "first-run": () => <window.FirstRunWaiting />,
 };
 
 function App() {
@@ -82,9 +101,19 @@ function App() {
     creative: ["Creative Lifecycle", "Fatigue, caught before the metrics show it"],
     visibility: ["AI Visibility Score", "Whether AI recommends you — and what to fix"],
     integrations: ["Integrations", "Connect your marketing stack"],
+    notifications: ["Notifications", "Briefs, alerts and approvals — in one inbox"],
+    memory: ["Alfred Core", "Everything I've learned about your org"],
+    connections: ["Connect your data", "Read-only by default, first sync in minutes"],
+    health: ["Connection health", "Every source, its freshness and status"],
+    team: ["Team & permissions", "Seats, roles and invites"],
+    billing: ["Billing & plans", "Your plan, usage and invoices"],
+    audit: ["Audit log", "Every action — mine and yours — on the record"],
     settings: ["Settings", "Workspace & team"],
+    profile: ["Profile", "You and your preferences"],
+    "alert-detail": ["Decision alert", "What changed, why, and what I recommend"],
+    "first-run": ["Preparing your first brief", "I'm learning your baseline now"],
   };
-  const [title, subtitle] = titles[active];
+  const [title, subtitle] = titles[active] || titles.home;
 
   return (
     <window.AppShell
