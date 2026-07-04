@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn question card (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-question — the discussion prompt, 1200×1350 (8:9).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Daily-cadence card: one open question, built to earn comments.
+       The question speaks to "you"; keep the invite line warm and
+       specific. No emoji, no engagement-bait punctuation.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — kicker, e.g. Open question
+       question    — the question; sentence case, ≤ 3 lines
+       invite      — the comment nudge, one sentence
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* ghost question mark — texture, not decoration that dies small */
+    .ghost {
+      position: absolute;
+      right: 24px;
+      bottom: -110px;
+      z-index: 0;
+      font-family: var(--font-display);
+      font-weight: var(--fw-bold);
+      font-size: 620px;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.05);
+      user-select: none;
+    }
+
+    .head img { height: 38px; width: auto; display: block; opacity: 0.96; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-400);
+      margin: 0 0 36px;
+    }
+    .question {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-medium);
+      font-size: 104px;
+      line-height: 1.03;
+      letter-spacing: -0.035em;
+      color: #fff;
+      margin: 0 0 48px;
+      max-width: 11ch;
+    }
+    .invite {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 29px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 30ch;
+    }
+    .invite b { color: #fff; font-weight: var(--fw-semibold); }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="ghost" aria-hidden="true">?</div>
+
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow" data-slot="eyebrow">Open question</p>
+
+      <!-- SLOT: question -->
+      <h1 class="question" data-slot="question">What eats your Monday morning?</h1>
+
+      <!-- SLOT: invite -->
+      <p class="invite" data-slot="invite">Say it in the comments — <b>the ritual, the tabs, the meeting about the meeting</b>.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

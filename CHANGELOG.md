@@ -3,6 +3,29 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-04 — Daily-content system — 18 archetype frames for the everyday calendar (34 → 52 frames)
+
+### New frames (all in `social/`)
+- **Education set**: `linkedin-tip` (field-notes series), `linkedin-checklist`,
+  `linkedin-myth-fact` (struck-through myth vs white fact), `linkedin-comparison`
+  (old-way/with-Alfred split), `definition` (1080×1080 "decision dictionary", cross-platform).
+- **Engagement set**: `linkedin-question` (ghost-"?" discussion prompt), `linkedin-hot-take`,
+  `instagram-story-poll` (designed landing pad for the IG poll sticker), `x-post`
+  (1200×675 16:9 statement card for the X feed).
+- **Product & promo set**: `linkedin-feature-spotlight` (principle-level memory chips),
+  `integration-spotlight` (typographic "Alfred × Partner" lockups — no third-party logos),
+  `blog-promo` (pillar-colored, 1080×1350), `linkedin-weekly-recap` (Friday themes).
+- **Moments set**: `milestone` (number ships `[BRACKETED]` — real figures only),
+  `instagram-story-countdown` (bracketed day count, true on the day it posts).
+- **Carousel expansion**: `carousel-slide-checklist`, `carousel-slide-stat` (visible
+  citation), `carousel-end` (follow pill + save chip, last dot active) — all pairing with
+  the existing cover/slide skeleton.
+
+### Docs
+- `social/README.md` — new inventory sections (LinkedIn carousel, cross-platform daily)
+  plus a **daily cadence map**: a Mon–Fri archetype rotation with an event-driven row.
+- Gallery groups for the carousel system and cross-platform daily set.
+
 ## 2026-07-04 — Social platform expansion — Facebook, Instagram, YouTube + LinkedIn depth (15 → 34 frames)
 
 ### New frames (19, all in `social/`)
