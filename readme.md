@@ -129,7 +129,7 @@ templates/email/      ← 600px email system: shell + block library + 19 lifecyc
 templates/collateral/ ← A4 print theme + 12 sales/CS docs (one-pagers, battle cards, security pack, pilot plan, ROI calculator)
 templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout library + starter deck
 templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
-social/               ← OG image system, LinkedIn/X card + profile kits, carousel & blog-hero frames
+social/               ← 33-frame social system: OG images · LinkedIn/Facebook/Instagram cards, stories & covers · YouTube thumbnails & banner · profile kits · carousel & blog-hero frames (+ gallery index.html, batch export via scripts/capture-social.mjs)
 slides/               ← presentation templates (cover, index, section, content)
 scripts/              ← tooling, incl. verify-render.mjs · verify-components.mjs · verify-a11y.mjs
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
