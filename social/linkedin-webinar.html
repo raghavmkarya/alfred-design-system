@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn webinar card (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-webinar — live-session invite, 1200×1350 (8:9 portrait).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Speakers are REAL PEOPLE — the bracketed placeholders follow
+       the linkedin-quote convention: fill them with actual names and
+       roles before shipping, never invent people.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — session kicker, e.g. Live session
+       title       — the hook; sentence case, ≤ 3 lines
+       date        — chip text, e.g. Thu, Jul 23
+       time        — chip text, e.g. 9:00 AM PT
+       length      — chip text, e.g. 45 min + Q&A
+       speakers    — one .person row per speaker (initials, name, role)
+       cta         — the one CTA line, e.g. Save your seat
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+
+    .head img { height: 38px; width: auto; display: block; opacity: 0.96; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-400);
+      margin: 0 0 36px;
+    }
+    .eyebrow .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--periwinkle-400);
+      box-shadow: 0 0 0 6px rgba(167, 167, 252, 0.16);
+    }
+    .title {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-medium);
+      font-size: 84px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0 0 44px;
+      max-width: 14ch;
+    }
+
+    /* when / how long — chip row */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 0 0 56px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 12px 22px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 20px;
+      color: var(--text-secondary);
+    }
+    .chip svg { width: 19px; height: 19px; color: var(--text-muted); }
+
+    /* speakers — real people, fill the placeholders before shipping */
+    .speakers { display: flex; flex-direction: column; gap: 22px; margin: 0 0 60px; }
+    .person { display: flex; align-items: center; gap: 20px; }
+    .person .ava {
+      width: 66px; height: 66px;
+      border-radius: 50%;
+      background: var(--surface-card);
+      border: 1px solid var(--border-default);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 23px;
+      color: var(--text-secondary);
+      flex: none;
+    }
+    .person .name {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 25px;
+      color: #fff;
+      line-height: 1.25;
+    }
+    .person .role {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 21px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* the one CTA — primary pill, brand orange = action */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      align-self: flex-start;
+      background: var(--orange-500);
+      color: var(--text-on-brand);
+      border-radius: var(--radius-pill);
+      padding: 20px 38px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 25px;
+      letter-spacing: -0.005em;
+      box-shadow: 0 18px 48px rgba(255, 132, 49, 0.28);
+    }
+    .cta svg { width: 24px; height: 24px; }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow"><span class="dot"></span><span data-slot="eyebrow">Live session</span></p>
+
+      <!-- SLOT: title -->
+      <h1 class="title" data-slot="title">Watch Alfred brief a marketing leader, live.</h1>
+
+      <div class="chips">
+        <!-- SLOT: date -->
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="3" /><path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+          <span data-slot="date">Thu, Jul 23</span>
+        </span>
+        <!-- SLOT: time -->
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
+          </svg>
+          <span data-slot="time">9:00 AM PT</span>
+        </span>
+        <!-- SLOT: length -->
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v3M12 18v3M3 12h3M18 12h3" /><circle cx="12" cy="12" r="6" />
+          </svg>
+          <span data-slot="length">45 min + Q&amp;A</span>
+        </span>
+      </div>
+
+      <!-- SLOT: speakers — one row per real speaker; fill the brackets -->
+      <div class="speakers">
+        <div class="person">
+          <span class="ava">[XX]</span>
+          <span>
+            <div class="name" data-slot="speaker-1-name">[HOST NAME]</div>
+            <div class="role" data-slot="speaker-1-role">[ROLE], Alfred</div>
+          </span>
+        </div>
+        <div class="person">
+          <span class="ava">[XX]</span>
+          <span>
+            <div class="name" data-slot="speaker-2-name">[GUEST NAME]</div>
+            <div class="role" data-slot="speaker-2-role">[ROLE, COMPANY]</div>
+          </span>
+        </div>
+      </div>
+
+      <!-- SLOT: cta — one line, one action -->
+      <span class="cta">
+        <span data-slot="cta">Save your seat</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+        </svg>
+      </span>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn hiring card (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-hiring — the "we're hiring" card, 1200×1350 (8:9).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       The sample rows mirror the careers canon verbatim
+       (templates/sections SectionsE.jsx, SecCareers jobs) — which is
+       itself a placeholder list. Before shipping, replace the rows
+       with the roles that are ACTUALLY open. Never invent openings.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — kicker, e.g. We're hiring
+       title       — the hook; sentence case, ≤ 3 lines
+       roles       — one .role row per real opening (title, team,
+                     location) — add/remove rows to match
+       cta         — the one CTA line, e.g. See open roles
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+
+    .head img { height: 38px; width: auto; display: block; opacity: 0.96; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-400);
+      margin: 0 0 36px;
+    }
+    .title {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-medium);
+      font-size: 96px;
+      line-height: 1.03;
+      letter-spacing: -0.035em;
+      color: #fff;
+      margin: 0 0 64px;
+      max-width: 12ch;
+    }
+
+    /* open roles — one row per opening */
+    .roles { display: flex; flex-direction: column; margin: 0 0 64px; }
+    .role {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 30px 4px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .role:last-child { border-bottom: 1px solid var(--border-subtle); }
+    .role .what {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 31px;
+      color: #fff;
+      line-height: 1.25;
+    }
+    .role .meta {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 21px;
+      color: var(--text-muted);
+      line-height: 1.3;
+      margin-top: 6px;
+    }
+    .role svg { width: 26px; height: 26px; color: var(--orange-500); flex: none; }
+
+    /* the one CTA — primary pill, brand orange = action */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      align-self: flex-start;
+      background: var(--orange-500);
+      color: var(--text-on-brand);
+      border-radius: var(--radius-pill);
+      padding: 20px 38px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 25px;
+      letter-spacing: -0.005em;
+      box-shadow: 0 18px 48px rgba(255, 132, 49, 0.28);
+    }
+    .cta svg { width: 24px; height: 24px; }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow" data-slot="eyebrow">We&rsquo;re hiring</p>
+
+      <!-- SLOT: title -->
+      <h1 class="title" data-slot="title">Help build the decision layer.</h1>
+
+      <!-- SLOT: roles — one row per real opening (sample rows mirror
+           the SecCareers canon; replace with actual openings) -->
+      <div class="roles">
+        <div class="role">
+          <span>
+            <div class="what" data-slot="role-1">Founding product engineer</div>
+            <div class="meta" data-slot="role-1-meta">Engineering · Bengaluru · Full-time</div>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+          </svg>
+        </div>
+        <div class="role">
+          <span>
+            <div class="what" data-slot="role-2">Product designer</div>
+            <div class="meta" data-slot="role-2-meta">Design · Remote (India) · Full-time</div>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- SLOT: cta — one line, one action -->
+      <span class="cta">
+        <span data-slot="cta">See open roles</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+        </svg>
+      </span>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — YouTube webinar thumbnail (1280×720)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       youtube-thumb-webinar — live session / talk thumbnail,
+       1280×720. Fixed frame; screenshot at exactly that size
+       (see social/README.md).
+
+       Speakers are REAL PEOPLE — fill the bracketed initials with
+       the actual speakers' before shipping (linkedin-quote
+       convention). Swap the LIVE chip for a date line after the
+       session and the same frame works for the recording.
+
+       THUMBNAIL RULE: title ≤ 4 words at ≥ 130px.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       live        — chip text, e.g. Live  (or a date for replays)
+       title       — ≤ 4 words; sentence case
+       when        — date/time line, e.g. Thu, Jul 23 · 9:00 AM PT
+       speakers    — one .ava per speaker (real initials)
+       ============================================================ */
+    :root { --frame-w: 1280px; --frame-h: 720px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 64px 80px 56px;
+      isolation: isolate;
+    }
+
+    .top { display: flex; align-items: center; justify-content: space-between; }
+    /* the live chip — urgent red, mono, unmissable at small size */
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 61, 0, 0.1);
+      border: 1px solid rgba(255, 61, 0, 0.4);
+      border-radius: var(--radius-pill);
+      padding: 14px 28px;
+      font-family: var(--font-mono);
+      font-weight: var(--fw-bold);
+      font-size: 26px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--urgent-500);
+    }
+    .live .dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--urgent-500);
+      box-shadow: 0 0 0 7px rgba(255, 61, 0, 0.18);
+    }
+    /* speakers — real people; fill the initials */
+    .speakers { display: flex; }
+    .speakers .ava {
+      width: 84px; height: 84px;
+      border-radius: 50%;
+      background: var(--surface-card);
+      border: 2px solid var(--bg-page);
+      box-shadow: 0 0 0 1px var(--border-default);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 23px;
+      color: var(--text-secondary);
+    }
+    .speakers .ava + .ava { margin-left: -16px; }
+
+    .title {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-semibold);
+      font-size: 136px;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin: 0;
+      max-width: 9ch;
+    }
+    .title .accent { color: var(--periwinkle-400); }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .foot img { height: 38px; width: auto; display: block; opacity: 0.96; }
+    .when {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 26px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <!-- SLOT: live — or a date line for the replay -->
+      <span class="live"><span class="dot"></span><span data-slot="live">Live</span></span>
+
+      <!-- SLOT: speakers — one .ava per real speaker -->
+      <span class="speakers">
+        <span class="ava" data-slot="speaker-1">[XX]</span>
+        <span class="ava" data-slot="speaker-2">[XX]</span>
+      </span>
+    </div>
+
+    <!-- SLOT: title — ≤ 4 words -->
+    <h1 class="title" data-slot="title">Ask Alfred <span class="accent">anything.</span></h1>
+
+    <div class="foot">
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+      <!-- SLOT: when -->
+      <span class="when" data-slot="when">Thu, Jul 23 · 9:00 AM PT</span>
+    </div>
+  </div>
+</body>
+</html>

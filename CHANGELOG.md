@@ -3,6 +3,35 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-04 — Social platform expansion — Facebook, Instagram, YouTube + LinkedIn depth (15 → 34 frames)
+
+### New frames (19, all in `social/`)
+- **LinkedIn +3**: `linkedin-webinar` (live-session invite: date/time/length chips, speaker
+  rows, CTA), `linkedin-hiring` (role rows from the careers canon), `linkedin-product-update`
+  ("New in Alfred" changelog card; the gradient hairline is its one gradient element).
+- **Facebook +5**: `facebook-link` (1200×630 feed/ad link card), `facebook-square` (1080×1080
+  brief-teaser with ranked `dailyBrief` items + demo framing), `facebook-story` (1080×1920,
+  280px chrome-safe padding), `facebook-cover` (820×312, mobile-safe 640px column),
+  `facebook-event-cover` (1920×1005).
+- **Instagram +6**: `instagram-announcement`, `instagram-stat`, `instagram-quote` (1080×1080),
+  `instagram-insight` (1080×1350 — the P2 SCALE twin of linkedin-insight), `instagram-story`
+  + `instagram-story-stat` (1080×1920, safe-zone padded; story survives the reel grid crop).
+- **YouTube +5**: `youtube-thumb-episode` / `-demo` / `-stat` / `-webinar` (1280×720, built to
+  the ≤ 5-words-at-≥ 120px thumbnail rule) and `youtube-banner` (2560×1440, content inside the
+  1546×423 device-safe area).
+
+### Tooling & docs
+- `social/index.html` — live gallery of every frame, scaled tiles grouped by platform.
+- `scripts/capture-social.mjs` — batch PNG export: reads each frame's exact size out of the
+  file, screenshots via headless Chrome (`--scale 2` for @2x); output to gitignored
+  `social/_exports/`.
+- `social/README.md` — platform-grouped inventory, safe-zone table (stories, reel crop,
+  FB cover, YouTube banner), the YouTube thumbnail legibility rule, and the citation rule
+  extended with the three vetted stat/source pairs (63% PwC 2025 · 54% + 37% NIQ 2026).
+- Guardrails carried into every new frame: one gradient element per view, visible citations
+  or Northwind demo framing on all numbers, third-person marketing voice, bracketed
+  `[PLACEHOLDER]`s for real people/roles/locations, white logo lockups only.
+
 ## 2026-07-02 — Live-site reconciliation + 20x expansion — 86 → 113 components, full GTM surface coverage
 
 ### Reconciled to the live site (full crawl of seekalfred.ai)

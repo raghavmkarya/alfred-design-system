@@ -8,3 +8,6 @@
 # Node / build artifacts (none committed today; guard against future tooling)
 node_modules/
 .playwright-mcp/
+
+# Social frame exports (regenerate with scripts/capture-social.mjs)
+social/_exports/

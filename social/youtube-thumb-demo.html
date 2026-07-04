@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — YouTube demo thumbnail (1280×720)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       youtube-thumb-demo — product-demo thumbnail, 1280×720.
+       Fixed 1280×720 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Split layout: hook left, a mini Daily Brief window right (the
+       brief-of-the-day pattern, shrunk). Brief copy comes from
+       data/demo-data.json (Northwind Labs) and the window carries
+       the "Northwind Labs · demo data" tag — keep it; at watch size
+       the full framing sentence lives in the video description.
+
+       THUMBNAIL RULE: title ≤ 4 words at ≥ 120px; the window is
+       texture at 168px wide — it only needs to READ as the product.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       kicker      — e.g. Product demo · 6 min
+       title       — ≤ 4 words; sentence case
+       greeting    — the brief greeting, from dailyBrief
+       items       — two brief rows (rank + title), from dailyBrief
+       ============================================================ */
+    :root { --frame-w: 1280px; --frame-h: 720px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      align-items: stretch;
+      gap: 56px;
+      padding: 72px 0 64px 80px;
+      isolation: isolate;
+    }
+
+    .left {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+      padding-bottom: 0;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      align-self: flex-start;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 24px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--periwinkle-400);
+    }
+    .kicker .tick {
+      width: 36px; height: 4px;
+      border-radius: 999px;
+      background: var(--periwinkle-400);
+    }
+    .title {
+      font-family: var(--font-display);      /* Satoshi on dark */
+      font-weight: var(--fw-semibold);
+      font-size: 128px;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin: 0;
+      max-width: 7ch;
+    }
+    .foot { display: flex; align-items: center; gap: 28px; }
+    .foot img { height: 40px; width: auto; display: block; opacity: 0.96; }
+    .foot .site {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 24px;
+      color: var(--text-muted);
+    }
+
+    /* —— the mini product window, bleeding off the right edge —— */
+    .window {
+      flex: none;
+      width: 460px;
+      margin-right: -40px;
+      align-self: center;
+      background: var(--surface-card);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-2xl);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+    }
+    .bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .bar span {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      display: block;
+    }
+    /* extra right padding keeps rows clear of the off-canvas bleed */
+    .win-body { padding: 28px 68px 24px 28px; }
+    .greeting {
+      font-family: var(--font-display);
+      font-weight: var(--fw-medium);
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin: 0 0 24px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .row .rank {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--surface-raised);
+      border: 1px solid var(--border-default);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 17px;
+      color: var(--text-secondary);
+      flex: none;
+    }
+    .row .what {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 21px;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .row .tag {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-weight: var(--fw-bold);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--urgent-500);
+      flex: none;
+    }
+    .row .tag.ok { color: var(--success-500); }
+    /* demo tag — keep; the full framing goes in the video description */
+    .win-note {
+      margin: 20px 0 0;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="left">
+      <!-- SLOT: kicker -->
+      <p class="kicker"><span class="tick"></span><span data-slot="kicker">Product demo · 6 min</span></p>
+
+      <!-- SLOT: title — ≤ 4 words -->
+      <h1 class="title" data-slot="title">Watch Alfred work.</h1>
+
+      <div class="foot">
+        <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+        <span class="site">seekalfred.ai</span>
+      </div>
+    </div>
+
+    <!-- the mini Daily Brief window — Northwind demo data -->
+    <div class="window">
+      <div class="bar"><span></span><span></span><span></span></div>
+      <div class="win-body">
+        <!-- SLOT: greeting — verbatim from demo-data.json -->
+        <p class="greeting" data-slot="greeting">Good morning, Priya. Three things need you today.</p>
+
+        <!-- SLOT: items — from dailyBrief -->
+        <div class="row">
+          <span class="rank">1</span>
+          <span class="what" data-slot="item-1">Kill the Meta broad campaign</span>
+          <span class="tag">P1</span>
+        </div>
+        <div class="row">
+          <span class="rank">2</span>
+          <span class="what" data-slot="item-2">Approve the $18K reallocation</span>
+          <span class="tag ok">P2</span>
+        </div>
+
+        <p class="win-note">Northwind Labs · demo data</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
