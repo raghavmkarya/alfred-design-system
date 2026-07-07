@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — OG default · light (1200×630)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       og-default-light — LIGHT VARIANT of og-default.html.
+       Same slots, same rules, white canvas.
+       Fixed 1200×630 frame. Screenshot the page at exactly that size
+       (see social/README.md for the headless capture command).
+       No slots: this asset ships as-is on every page without a
+       page-specific OG image.
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 630px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      isolation: isolate;
+    }
+
+    /* the one gradient element on this view — signature hairline, top edge */
+    .brand-rule {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-brand);
+      z-index: 2;
+    }
+
+    /* static DotMatrix-style band (6px squares, 3px gap = 9px pitch —
+       mirrors components/marketing/DotMatrix.jsx; no JS, no motion) */
+    .dots {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      display: block;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 72px 96px 96px;
+    }
+    .content img {
+      height: 72px;
+      width: auto;
+      display: block;
+    }
+    .tagline {
+      margin: 40px 0 0;
+      font-family: var(--font-sans);          /* Satoshi for body — same on light */
+      font-weight: var(--fw-regular);
+      font-size: 30px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--text-secondary);
+      max-width: 30ch;
+    }
+
+    .site {
+      position: absolute;
+      left: 0; right: 0; bottom: 44px;
+      z-index: 1;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="brand-rule"></div>
+
+    <!-- subtle dot-matrix band, faded in from the top; a small clustered
+         subset lit in brand orange (static, pre-baked — 9px grid pitch) -->
+    <svg class="dots" width="1200" height="200" viewBox="0 0 1200 200" aria-hidden="true">
+      <defs>
+        <pattern id="dm-grid" width="9" height="9" patternUnits="userSpaceOnUse">
+          <rect width="6" height="6" rx="1" fill="rgba(2,2,30,0.05)" />
+        </pattern>
+        <linearGradient id="dm-fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0" />
+          <stop offset="1" stop-color="#fff" stop-opacity="1" />
+        </linearGradient>
+        <mask id="dm-mask">
+          <rect width="1200" height="200" fill="url(#dm-fade)" />
+        </mask>
+      </defs>
+      <rect width="1200" height="200" fill="url(#dm-grid)" mask="url(#dm-mask)" />
+      <!-- lit subset — brand orange, drifting clusters (all coords on the 9px pitch) -->
+      <g fill="#FF8431">
+        <rect x="828" y="119" width="6" height="6" rx="1" opacity="0.35" />
+        <rect x="846" y="128" width="6" height="6" rx="1" opacity="0.55" />
+        <rect x="855" y="128" width="6" height="6" rx="1" opacity="0.8" />
+        <rect x="855" y="137" width="6" height="6" rx="1" opacity="0.45" />
+        <rect x="864" y="146" width="6" height="6" rx="1" opacity="0.9" />
+        <rect x="873" y="146" width="6" height="6" rx="1" opacity="0.5" />
+        <rect x="882" y="155" width="6" height="6" rx="1" opacity="0.7" />
+        <rect x="900" y="164" width="6" height="6" rx="1" opacity="0.4" />
+        <rect x="909" y="173" width="6" height="6" rx="1" opacity="0.85" />
+        <rect x="927" y="173" width="6" height="6" rx="1" opacity="0.5" />
+        <rect x="936" y="182" width="6" height="6" rx="1" opacity="0.65" />
+        <rect x="1008" y="146" width="6" height="6" rx="1" opacity="0.4" />
+        <rect x="1017" y="155" width="6" height="6" rx="1" opacity="0.75" />
+        <rect x="1026" y="155" width="6" height="6" rx="1" opacity="0.5" />
+        <rect x="1035" y="164" width="6" height="6" rx="1" opacity="0.9" />
+        <rect x="1044" y="173" width="6" height="6" rx="1" opacity="0.55" />
+        <rect x="1053" y="182" width="6" height="6" rx="1" opacity="0.7" />
+        <rect x="1089" y="173" width="6" height="6" rx="1" opacity="0.4" />
+        <rect x="180" y="137" width="6" height="6" rx="1" opacity="0.3" />
+        <rect x="189" y="146" width="6" height="6" rx="1" opacity="0.6" />
+        <rect x="198" y="155" width="6" height="6" rx="1" opacity="0.85" />
+        <rect x="207" y="155" width="6" height="6" rx="1" opacity="0.45" />
+        <rect x="216" y="164" width="6" height="6" rx="1" opacity="0.7" />
+        <rect x="234" y="173" width="6" height="6" rx="1" opacity="0.5" />
+        <rect x="243" y="182" width="6" height="6" rx="1" opacity="0.75" />
+        <rect x="117" y="164" width="6" height="6" rx="1" opacity="0.35" />
+        <rect x="126" y="173" width="6" height="6" rx="1" opacity="0.55" />
+      </g>
+    </svg>
+
+    <div class="content">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+      <p class="tagline">AI memory powering every decision across your organisation.</p>
+    </div>
+
+    <div class="site">seekalfred.ai</div>
+  </div>
+</body>
+</html>

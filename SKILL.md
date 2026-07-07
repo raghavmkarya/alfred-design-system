@@ -55,14 +55,15 @@ production code, depending on the need.
   onboarding, marketing and transactional templates (inline styles, hex mirrors of tokens).
 - `templates/collateral/` — A4 print theme (`collateral.css`) + 12 sales/CS docs: one-pagers,
   4 battle cards, security pack, pilot plan, case-study template, interactive ROI calculator.
-- `social/` — 52 pixel-sized frames (open → screenshot, or `node scripts/capture-social.mjs`):
+- `social/` — 102 pixel-sized frames (open → screenshot, or `node scripts/capture-social.mjs`):
   OG images · LinkedIn cards (stat/insight/quote/announcement/webinar/hiring/product-update/
   tip/checklist/myth-fact/comparison/question/hot-take/feature-spotlight/weekly-recap) ·
   Facebook (link/square/story/cover/event) · Instagram (squares/insight/stories/poll/countdown)
   · cross-platform daily (definition/integration-spotlight/milestone/blog-promo/x-post) ·
-  YouTube (4 thumbnails + banner) · 5-part carousel kit · profile kits · blog heroes.
-  `social/index.html` is the gallery; safe zones, the citation rule and the **daily cadence
-  map** live in `social/README.md`.
+  YouTube (4 thumbnails + banner) · 5-part carousel kit · profile kits · blog heroes —
+  every feed/OG frame in a dark AND a white twin (`<name>-light.html`, same size/slots;
+  Clash headlines + color lockup on light). `social/index.html` is the gallery; safe zones,
+  the citation rule and the **daily cadence map** live in `social/README.md`.
 - `templates/deck/` — the 16:9 deck runtime (`deck-stage.js`, `ds-base.js`) + the shared
   `deck.css` slide-layout library and the starter deck.
 - `templates/decks/` — 16 ready-to-present decks across marketing, sales & operations

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Instagram story countdown · light (1080×1920)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       instagram-story-countdown-light — LIGHT VARIANT of instagram-story-countdown.html.
+       Same slots, same rules, white canvas. 9:16 countdown story,
+       1080×1920. Fixed 1080×1920 frame. Screenshot at exactly that
+       size (see social/README.md). Also works as a Facebook story.
+
+       SAFE ZONES: content clear of the ~250px story chrome top and
+       bottom (280px padding does the work).
+
+       REAL COUNTDOWNS ONLY: the day count ships bracketed — [2] —
+       and must be true on the day it posts. Re-export per day of
+       the run ([3] → [2] → [1]); swap the unit slot to "day to go"
+       for the final one.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — kicker, e.g. Live session
+       count       — days remaining (bracketed until real)
+       unit        — e.g. days to go
+       title       — the event name, ≤ 3 lines
+       date        — chip text, e.g. Thu, Jul 23 · 9:00 AM PT
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1920px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      /* 280px top/bottom keeps everything clear of story chrome */
+      padding: 280px 96px;
+      isolation: isolate;
+    }
+
+    .head img { height: 40px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 21px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-600);
+      margin: 0 0 24px;
+    }
+    .eyebrow .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--periwinkle-600);
+      box-shadow: 0 0 0 6px rgba(123, 123, 245, 0.16);
+    }
+    /* the count is the one gradient element on this view */
+    .count {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 380px;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0 0 8px -10px;
+      font-variant-numeric: tabular-nums;
+    }
+    .unit {
+      font-family: var(--font-display);
+      font-weight: var(--fw-medium);
+      font-size: 72px;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin: 0 0 48px;
+    }
+    .title {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 31px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 0 0 44px;
+      max-width: 26ch;
+    }
+    .date {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      align-self: flex-start;
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 15px 28px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 24px;
+      color: var(--text-secondary);
+    }
+    .date svg { width: 23px; height: 23px; color: var(--text-muted); }
+
+    .footer {
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 21px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow"><span class="dot"></span><span data-slot="eyebrow">Live session</span></p>
+
+      <!-- SLOT: count — true on the day it posts; bracketed until real -->
+      <div class="count" data-slot="count">[2]</div>
+      <!-- SLOT: unit -->
+      <p class="unit" data-slot="unit">days to go</p>
+
+      <!-- SLOT: title -->
+      <p class="title" data-slot="title">Watch Alfred brief a marketing leader, live — bring your Monday questions.</p>
+
+      <!-- SLOT: date -->
+      <span class="date">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="3" /><path d="M16 2v4M8 2v4M3 10h18" />
+        </svg>
+        <span data-slot="date">Thu, Jul 23 · 9:00 AM PT</span>
+      </span>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

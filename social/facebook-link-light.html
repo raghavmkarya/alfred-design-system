@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Facebook link card · light (1200×630)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       facebook-link-light — LIGHT VARIANT of facebook-link.html.
+       Same slots, same rules, white canvas. 1200×630 (1.91:1).
+       Fixed 1200×630 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Facebook renders this as the shared-link image and as the
+       standard feed-ad creative. The headline hard-clips at two
+       lines — keep it ≤ ~40 characters and re-check after any copy
+       change. Keep critical content away from the outer 40px; some
+       placements crop toward 1:1.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — kicker, e.g. Alfred for Marketing
+       headline    — the hook; sentence case, ≤ 2 lines at 76px
+       sub         — one supporting sentence
+       cta         — the one CTA line, e.g. Join the waitlist
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 630px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 64px 72px 52px;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* faint dot texture, right-weighted */
+    .dots-bg {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(2,2,30,0.10) 1.25px, transparent 1.25px);
+      background-size: 26px 26px;
+      -webkit-mask-image: radial-gradient(55% 90% at 88% 50%, #000 0%, transparent 100%);
+      mask-image: radial-gradient(55% 90% at 88% 50%, #000 0%, transparent 100%);
+    }
+
+    .head img { height: 34px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-600);
+      margin: 0 0 22px;
+    }
+    .headline {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 76px;
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0 0 22px;
+      max-width: 16ch;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    .sub {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 25px;
+      line-height: 1.4;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 42ch;
+    }
+
+    .footer {
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-secondary);
+    }
+    /* the one CTA — primary pill, brand orange = action */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--orange-500);
+      color: var(--text-on-brand);
+      border-radius: var(--radius-pill);
+      padding: 15px 30px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 21px;
+      letter-spacing: -0.005em;
+      box-shadow: 0 14px 38px rgba(255, 132, 49, 0.28);
+    }
+    .cta svg { width: 20px; height: 20px; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="dots-bg"></div>
+
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow" data-slot="eyebrow">Alfred for Marketing</p>
+
+      <!-- SLOT: headline -->
+      <h1 class="headline" data-slot="headline">Know what to do by 9:05.</h1>
+
+      <!-- SLOT: sub -->
+      <p class="sub" data-slot="sub">Alfred reads your whole stack overnight and briefs you every morning — decisions, not dashboards.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <!-- SLOT: cta — one line, one action -->
+      <span class="cta">
+        <span data-slot="cta">Join the waitlist</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+        </svg>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

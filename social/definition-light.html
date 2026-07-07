@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — definition card · light (1080×1080)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       definition-light — LIGHT VARIANT of definition.html.
+       Same slots, same rules, white canvas. 1080×1080 (1:1).
+       Fixed 1080×1080 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       CROSS-PLATFORM: works as-is on LinkedIn, Instagram, Facebook
+       and X. Series-able — count the No. up per term.
+
+       One gradient element per view = the tick under the term.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — series + number, e.g. The decision dictionary · No. 01
+       term        — the term being defined
+       pos         — part of speech, e.g. noun
+       definition  — the definition, 1–2 sentences, plain language
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1080px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px 84px 72px;
+      isolation: isolate;
+    }
+
+    .head img { height: 34px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-weight: var(--fw-bold);
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 40px;
+    }
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin: 0 0 26px;
+    }
+    .term {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 88px;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .pos {
+      font-family: var(--font-sans);
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      font-size: 30px;
+      color: var(--text-muted);
+    }
+    /* the one gradient element on this view */
+    .tick {
+      width: 92px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--gradient-brand);
+      margin: 0 0 40px;
+    }
+    .definition {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 33px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 27ch;
+    }
+    .definition b { color: var(--text-primary); font-weight: var(--fw-semibold); }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow — count the No. up per term -->
+      <p class="eyebrow" data-slot="eyebrow">The decision dictionary · No. 01</p>
+
+      <div class="term-row">
+        <!-- SLOT: term -->
+        <h1 class="term" data-slot="term">Decision intelligence</h1>
+        <!-- SLOT: pos -->
+        <span class="pos" data-slot="pos">noun</span>
+      </div>
+
+      <div class="tick"></div>
+
+      <!-- SLOT: definition -->
+      <p class="definition" data-slot="definition">The layer between your data and your decisions — it detects what changed, <b>explains why</b>, and recommends what to do next.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

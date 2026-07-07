@@ -9,6 +9,30 @@ files inside `social/` or fix the relative paths.
 to fit and grouped by platform. **Export everything at once**:
 `node scripts/capture-social.mjs` (details under Capture).
 
+## Light variants
+
+Every frame in the inventory ships a white twin — `<name>-light.html`, same pixel size,
+same slots, same rules — for placements where the dark card is wrong: newsletter and blog
+embeds, docs, light-native ad placements, or simply to vary the calendar so the feed isn't
+wall-to-wall black. Two frames are exceptions: `profile-avatar.html` already carries both
+variants on one page, and `organisation-brain-01.html` is a shipped post, not a template.
+
+What changes on white (and only this):
+
+- **Theme.** The `data-theme="dark"` attribute is dropped, so every semantic token flips:
+  white page, ink `#02021E` text, opaque gray hairlines, `--surface-sunken` (gray-50) chips.
+- **Type.** `--font-display` resolves to **Clash Display** on light — headlines and big
+  stats set in Clash, body/UI stays Satoshi. This matches every other light Alfred surface
+  (app, slides, deck, collateral); Satoshi-for-headlines is a dark-marketing rule only.
+- **Logo.** The color lockup (`alfred-logo-primary.svg`) replaces the white one. White
+  lockups survive only on elements that stay ink/gradient inside the frame.
+- **Textures & glows.** White-alpha ghosts become ink-alpha whispers; ambient glows use the
+  light `--glow-*` tints, kept quiet — white space is the canvas.
+
+Everything else — sizes, safe zones, slots, the citation rule, demo framing, the
+one-gradient-element budget, severity semantics — is identical between the twins. Edit a
+dark frame? Mirror the change in its light twin before shipping either.
+
 ## Inventory
 
 ### Open Graph & blog
@@ -143,6 +167,7 @@ All frames at once (skips `index.html` and multi-frame `profile-avatar.html`):
 node scripts/capture-social.mjs              # → social/_exports/*.png (gitignored)
 node scripts/capture-social.mjs --scale 2    # @2x — recommended for LinkedIn/Instagram
 node scripts/capture-social.mjs youtube-     # just one platform (filename filter)
+node scripts/capture-social.mjs -light       # just the light variants
 ```
 
 Or a single frame by hand — headless Chrome, 1× (exact pixels):
@@ -208,10 +233,14 @@ as proof (see `ui_kits/website/LIVE-DRIFT.md`).
 
 - `data-theme="dark"`: pure black pages (`--bg-page`), 3%-white chips/cards
   (`--surface-card`), white-alpha hairlines (`--border-subtle/default`), Satoshi for
-  everything (the dark theme maps `--font-display` to Satoshi).
+  everything (the dark theme maps `--font-display` to Satoshi). The `-light` twins drop
+  the attribute: white pages, ink text, gray hairlines, Clash Display headlines, color
+  logo lockup (see **Light variants** above).
 - Orange `#FF8431` = action/accent only; periwinkle for eyebrows and cool accents;
   **one gradient element per view** (hairline, stat clip, quote mark, ambient glow, or
-  the color lockup's mark — never several).
+  the color lockup's mark — never several). On the `-light` twins the color lockup's
+  small mark is the logo, not decoration — it does not count against the budget; each
+  light frame keeps exactly its dark twin's one sanctioned gradient accent.
 - `--urgent-500` carries KILL/anomaly/P1 severity semantics — plus one sanctioned
   extension on these frames: the red **LIVE broadcast badge** on
   `youtube-thumb-webinar.html` (swap it for a date line on replays). `--success-500`
@@ -221,4 +250,5 @@ as proof (see `ui_kits/website/LIVE-DRIFT.md`).
 - Voice: these are marketing surfaces — third person about Alfred ("Alfred catches it…").
   First person belongs to human speakers on the quote cards, and to Alfred only on
   product/email surfaces.
-- Logos: white lockups only, from `../assets/logos/` — never recolor.
+- Logos: from `../assets/logos/` — white lockups on the dark frames, the color lockup
+  (`alfred-logo-primary.svg`) on the `-light` twins; never recolor either.

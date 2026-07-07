@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Instagram stat square · light (1080×1080)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       instagram-stat-light — LIGHT VARIANT of instagram-stat.html.
+       Same slots, same rules, white canvas. 1080×1080 (1:1).
+       Fixed 1080×1080 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       THE RULE THIS CARD EMBODIES: no fabricated proof. The stat,
+       claim and citation travel together — if you swap the number,
+       you swap the visible "Source:" chip with it, or the card does
+       not ship. Real market-level stats only; Northwind demo numbers
+       belong on instagram-insight, framed as demo data.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       stat        — the number, e.g. 54%  (keep to ~4 characters)
+       claim       — what the number means, sentence case, ≤ 2 lines
+       source      — the visible citation, e.g. NIQ CMO Outlook, 2026
+                     (REQUIRED)
+       bridge      — the Alfred line, third person, one sentence
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1080px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px 84px 72px;
+      isolation: isolate;
+    }
+
+    .head img { height: 34px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 6px;
+    }
+    /* the stat is the one gradient element on this view */
+    .stat {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 240px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0 0 20px -6px;
+    }
+    .claim {
+      font-family: var(--font-display);
+      font-weight: var(--fw-medium);
+      font-size: 46px;
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0 0 32px;
+      max-width: 20ch;
+    }
+    /* the visible citation — this chip is NOT optional */
+    .source {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      align-self: flex-start;
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 11px 20px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-secondary);
+    }
+    .source svg { width: 19px; height: 19px; color: var(--text-muted); }
+
+    .bridge {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 25px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 44px 0 0;
+      max-width: 34ch;
+    }
+    .bridge b { color: var(--text-primary); font-weight: var(--fw-semibold); }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <p class="eyebrow">The problem, quantified</p>
+
+      <!-- SLOT: stat -->
+      <div class="stat" data-slot="stat">54%</div>
+
+      <!-- SLOT: claim -->
+      <h1 class="claim" data-slot="claim">of leaders call connecting data sources a major barrier to insight.</h1>
+
+      <!-- SLOT: source — REQUIRED. No visible citation, no card. -->
+      <span class="source">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+          <path d="M14 3v5h5" />
+          <path d="M9 13h6M9 17h6" />
+        </svg>
+        <span>Source: <span data-slot="source">NIQ CMO Outlook, 2026</span></span>
+      </span>
+
+      <!-- SLOT: bridge — Alfred in third person, one sentence -->
+      <p class="bridge" data-slot="bridge">Alfred connects the stack and does the reading for you — <b>so the barrier disappears</b>.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

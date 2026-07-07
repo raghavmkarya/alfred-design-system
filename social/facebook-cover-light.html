@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Facebook page cover · light · 820×312</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       facebook-cover-light — LIGHT VARIANT of facebook-cover.html.
+       Same slots, same rules, white canvas. Export .frame at
+       exactly 820×312.
+
+       Safe zones: desktop shows the full 820×312; MOBILE crops to
+       the central ~640×312. Everything readable is therefore held
+       inside that central 640px column — only the dot texture may
+       bleed. (Facebook's page avatar sits below the cover in the
+       current layout, so no avatar clearance is needed.)
+
+       One gradient element per view = the gradient mark inside the
+       lockup (alfred-logo-primary.svg). Everything else is
+       ink / ink-alpha on white.
+       ============================================================ */
+    :root { --frame-w: 820px; --frame-h: 312px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);        /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* —— subtle dot pattern, fading out toward the edges —— */
+    .dots {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(2,2,30,0.13) 1.25px, transparent 1.25px);
+      background-size: 26px 26px;
+      background-position: 13px 13px;
+      -webkit-mask-image: radial-gradient(55% 130% at 50% 46%, #000 18%, transparent 100%);
+      mask-image: radial-gradient(55% 130% at 50% 46%, #000 18%, transparent 100%);
+    }
+
+    /* —— lockup: gradient mark + ink wordmark —— */
+    .lockup img { height: 34px; width: auto; display: block; }
+
+    /* —— tagline held within the mobile-safe 640px column —— */
+    .tagline {
+      font-family: var(--font-display);            /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 20px 0 0;
+      text-align: center;
+      max-width: 600px;
+      text-wrap: balance;
+    }
+    .tagline .quiet { color: var(--text-secondary); }
+
+    .site {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+      margin: 12px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="dots"></div>
+
+    <div class="lockup">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </div>
+
+    <p class="tagline">Decision intelligence <span class="quiet">for the leaders who decide things</span></p>
+
+    <p class="site">seekalfred.ai</p>
+  </div>
+</body>
+</html>

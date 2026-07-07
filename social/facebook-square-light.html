@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Facebook square post · light (1080×1080)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       facebook-square-light — LIGHT VARIANT of facebook-square.html.
+       Same slots, same rules, white canvas. 1080×1080 (1:1).
+       Fixed 1080×1080 frame. Screenshot at exactly that size
+       (see social/README.md). Also valid as an Instagram square if
+       you need the brief-teaser archetype there.
+
+       All numbers come from data/demo-data.json (Northwind Labs,
+       dailyBrief items) and the card SAYS SO — the demo-framing line
+       above the footer is not optional. Never present these as
+       customer results.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — kicker, e.g. The 9:00 brief
+       title       — the greeting line, from dailyBrief
+       items       — one .item row per brief item (rank + title)
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1080px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px 84px 72px;
+      isolation: isolate;
+    }
+
+    .head img { height: 34px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      font-family: var(--font-mono);
+      font-weight: var(--fw-bold);
+      font-size: 18px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange-500);
+      margin: 0 0 30px;
+    }
+    .eyebrow .ping {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--orange-500);
+      box-shadow: 0 0 0 5px rgba(255, 132, 49, 0.18);
+    }
+    .title {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 66px;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0 0 52px;
+      max-width: 15ch;
+    }
+
+    /* the three brief items — rank + action */
+    .items { display: flex; flex-direction: column; }
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 26px 4px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .item:last-child { border-bottom: 1px solid var(--border-subtle); }
+    .item .rank {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-default);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 22px;
+      color: var(--text-secondary);
+      flex: none;
+    }
+    .item .what {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 29px;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    /* the demo-framing line — never remove this */
+    .demo-note {
+      margin-top: 44px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 17px;
+      line-height: 1.4;
+      color: var(--text-muted);
+    }
+
+    .footer {
+      margin-top: 20px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow"><span class="ping"></span><span data-slot="eyebrow">The 9:00 brief</span></p>
+
+      <!-- SLOT: title — the greeting, verbatim from demo-data.json -->
+      <h1 class="title" data-slot="title">Three things need you today.</h1>
+
+      <!-- SLOT: items — ranks + titles from dailyBrief -->
+      <div class="items">
+        <div class="item">
+          <span class="rank">1</span>
+          <span class="what" data-slot="item-1">Kill the Meta broad campaign</span>
+        </div>
+        <div class="item">
+          <span class="rank">2</span>
+          <span class="what" data-slot="item-2">Approve the $18K reallocation</span>
+        </div>
+        <div class="item">
+          <span class="rank">3</span>
+          <span class="what" data-slot="item-3">Rotate the TikTok hero creative</span>
+        </div>
+      </div>
+
+      <!-- Demo framing — required whenever Northwind numbers appear in public -->
+      <p class="demo-note">Illustrative scenario from Northwind Labs, our fictional demo company — not customer results.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

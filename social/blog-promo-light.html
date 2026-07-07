@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — blog promo card · light (1080×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       blog-promo-light — LIGHT VARIANT of blog-promo.html.
+       Same slots, same rules, white canvas. 1080×1350 (4:5).
+       Fixed 1080×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       CROSS-PLATFORM: LinkedIn + Instagram portrait. Not the OG
+       image (that's og-blog.html) — this is the card you POST when
+       an article ships.
+
+       PILLAR COLOR MAPPING — set ONE pillar class on .frame
+       (mirrors blog-hero.html):
+         · .pillar-decision    → orange      (Decision intelligence)
+         · .pillar-visibility  → periwinkle  (AI visibility)
+         · .pillar-playbooks   → success     (Playbooks)
+       The pillar drives ONLY the tick + eyebrow. On white the
+       periwinkle pillar uses --periwinkle-600 so it stays legible.
+       Fill [AUTHOR] with the real byline before shipping.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — the pillar name (keep matching the class)
+       title       — the article title, ≤ 4 lines
+       meta        — read time + byline, e.g. 6 min read · by [AUTHOR]
+       cta         — where to read, e.g. Read it at seekalfred.ai/blog
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 88px 88px 76px;
+      isolation: isolate;
+    }
+
+    /* —— pillar accent variable (see mapping above) —— */
+    .frame.pillar-decision   { --pillar: var(--orange-500); }
+    .frame.pillar-visibility { --pillar: var(--periwinkle-600); }
+    .frame.pillar-playbooks  { --pillar: var(--success-500); }
+
+    .head img { height: 36px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .kicker {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 19px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 20px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 19px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--pillar);
+      margin: 0 0 36px;
+    }
+    .eyebrow .tick {
+      width: 34px; height: 3px;
+      border-radius: 999px;
+      background: var(--pillar);
+    }
+    .title {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 76px;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0 0 36px;
+      max-width: 16ch;
+    }
+    .meta {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 25px;
+      color: var(--text-muted);
+      margin: 0 0 56px;
+    }
+    .meta b { color: var(--text-secondary); font-weight: var(--fw-medium); }
+
+    /* the read nudge — plain, one action */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      align-self: flex-start;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 27px;
+      color: var(--text-primary);
+    }
+    .cta svg { width: 26px; height: 26px; color: var(--pillar); }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <!-- Set the pillar class here: pillar-decision | pillar-visibility | pillar-playbooks -->
+  <div class="frame pillar-decision">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <p class="kicker">New on the blog</p>
+
+      <!-- SLOT: eyebrow — the pillar name; keep it matching the pillar class -->
+      <p class="eyebrow"><span class="tick"></span><span data-slot="eyebrow">Decision intelligence</span></p>
+
+      <!-- SLOT: title -->
+      <h1 class="title" data-slot="title">The morning brief, and why leaders stopped reading dashboards</h1>
+
+      <!-- SLOT: meta — fill [AUTHOR] with the real byline -->
+      <p class="meta" data-slot="meta">6 min read · by <b>[AUTHOR]</b></p>
+
+      <!-- SLOT: cta -->
+      <span class="cta">
+        <span data-slot="cta">Read it at seekalfred.ai/blog</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+        </svg>
+      </span>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

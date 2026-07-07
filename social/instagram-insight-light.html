@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Instagram insight card · light (1080×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       instagram-insight-light — LIGHT VARIANT of instagram-insight.html.
+       Same slots, same rules, white canvas. 1080×1350 (4:5).
+       Fixed frame; screenshot at exactly that size
+       (see social/README.md).
+
+       This is the upside twin of linkedin-insight: a P2 SCALE signal
+       instead of a P1 kill. All numbers come from data/demo-data.json
+       (Northwind Labs, anomalies[1]) and the card SAYS SO — the
+       demo-framing line above the footer is not optional. Never
+       present these numbers as customer results.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       insight     — the flagged line, verbatim from demo-data.json
+       detail      — where it fired, e.g. Google Ads — brand exact
+       severity    — chip text, e.g. P2 · Scale  (positive tone)
+       sources     — one chip per connected source the signal used
+       explain     — the Alfred line, third person, one sentence
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 88px 88px 76px;
+      isolation: isolate;
+    }
+
+    .head img { height: 36px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    /* mono eyebrow — orange marks the action moment */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      font-family: var(--font-mono);
+      font-weight: var(--fw-bold);
+      font-size: 19px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange-500);
+      margin: 0 0 32px;
+    }
+    .eyebrow .ping {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--orange-500);
+      box-shadow: 0 0 0 5px rgba(255, 132, 49, 0.18);
+    }
+    .insight {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 72px;
+      line-height: 1.07;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0 0 26px;
+      max-width: 15ch;
+    }
+    .detail {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 25px;
+      line-height: 1.4;
+      color: var(--text-secondary);
+      margin: 0 0 40px;
+    }
+
+    /* provenance chips — the glass-box receipt */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin: 0 0 46px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 10px 19px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+    .chip svg { width: 17px; height: 17px; color: var(--text-muted); }
+    .chip.scale {
+      color: var(--success-500);
+      border-color: rgba(47, 182, 124, 0.38);
+      background: rgba(47, 182, 124, 0.08);
+    }
+    .chip.scale svg { color: var(--success-500); }
+
+    .explain {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 25px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 34ch;
+    }
+    .explain b { color: var(--text-primary); font-weight: var(--fw-semibold); }
+
+    /* the demo-framing line — never remove this */
+    .demo-note {
+      margin-top: 46px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 17px;
+      line-height: 1.4;
+      color: var(--text-muted);
+    }
+
+    .footer {
+      margin-top: 20px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <p class="eyebrow"><span class="ping"></span>Signal detected</p>
+
+      <!-- SLOT: insight — verbatim from data/demo-data.json -->
+      <h1 class="insight" data-slot="insight">Brand search ROAS at 6.1x — headroom to scale +20%.</h1>
+
+      <!-- SLOT: detail -->
+      <p class="detail" data-slot="detail">Google Ads — brand exact. Alfred sized the headroom before the weekly review did.</p>
+
+      <div class="chips">
+        <!-- SLOT: severity -->
+        <span class="chip scale">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 17 9 11l4 4 8-8" /><path d="M14 7h7v7" />
+          </svg>
+          <span data-slot="severity">P2 · Scale</span>
+        </span>
+        <!-- SLOT: sources — one chip per source the signal used -->
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
+          </svg>
+          <span data-slot="sources">Google Ads · GA4</span>
+        </span>
+      </div>
+
+      <!-- SLOT: explain — Alfred in third person, one sentence -->
+      <p class="explain" data-slot="explain">Alfred flags the upside too — <b>where to lean in</b>, not just what to switch off.</p>
+
+      <!-- Demo framing — required whenever Northwind numbers appear in public -->
+      <p class="demo-note">Illustrative scenario from Northwind Labs, our fictional demo company — not customer results.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>
