@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn carousel · stat slide · 1080×1350</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       LinkedIn carousel system — STAT slide (any page 2…N).
+       Export .frame at exactly 1080×1350 (4:5). Pairs with
+       carousel-cover.html / carousel-slide.html / carousel-end.html.
+
+       THE RULE THIS SLIDE EMBODIES: no fabricated proof. The stat,
+       claim and citation travel together — swap the number, swap
+       the visible "Source:" chip with it, or the slide does not
+       ship. Vetted pairs live in social/README.md.
+
+       Slots (marked in the markup):
+         · KICKER  — series name (fixed per series)
+         · STAT    — the number (the one gradient element)
+         · CLAIM   — what the number means, ≤ 2 lines
+         · SOURCE  — the visible citation (REQUIRED)
+         · PAGE    — page number (update per slide)
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #17171a;               /* bench chrome — not part of the asset */
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============ THE EXPORTABLE CANVAS — 1080×1350 ============ */
+    .frame {
+      position: relative;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      background: var(--bg-page);        /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px;
+      box-sizing: border-box;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* ---------- kicker ---------- */
+    .kicker {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ---------- content ---------- */
+    .content { margin-top: auto; margin-bottom: auto; padding: 40px 0; }
+    /* the stat is the one gradient element on this slide */
+    .stat {
+      font-family: var(--font-display);            /* Satoshi on dark */
+      font-weight: 600;
+      font-size: 230px;
+      line-height: 1;
+      letter-spacing: -0.045em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0 0 28px -6px;
+    }
+    .claim {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin: 0 0 36px;
+      max-width: 17ch;
+    }
+    /* the visible citation — this chip is NOT optional */
+    .source {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      align-self: flex-start;
+      background: var(--surface-card);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 11px 20px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--text-secondary);
+    }
+    .source svg { width: 19px; height: 19px; color: var(--text-muted); }
+
+    /* ---------- footer: logo slot + page-number slot ---------- */
+    .footer {
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer img { height: 24px; width: auto; display: block; opacity: 0.96; }
+    .page {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .page b { color: #ffffff; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <!-- SLOT: KICKER — series name, fixed across the series -->
+    <p class="kicker">Decision intelligence, explained</p>
+
+    <div class="content">
+      <!-- SLOT: STAT -->
+      <div class="stat" data-slot="stat">63%</div>
+
+      <!-- SLOT: CLAIM -->
+      <h1 class="claim" data-slot="claim">of leaders miss opportunities — decisions take too long.</h1>
+
+      <!-- SLOT: SOURCE — REQUIRED. No visible citation, no slide. -->
+      <span class="source">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+          <path d="M14 3v5h5" />
+          <path d="M9 13h6M9 17h6" />
+        </svg>
+        <span>Source: <span data-slot="source">PwC CMO Survey, 2025</span></span>
+      </span>
+    </div>
+
+    <footer class="footer">
+      <!-- SLOT: LOGO — fixed; all-white lockup on black -->
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+
+      <!-- SLOT: PAGE — update per slide, tabular numerals -->
+      <span class="page"><b>02</b> / 06</span>
+    </footer>
+
+  </div>
+</body>
+</html>

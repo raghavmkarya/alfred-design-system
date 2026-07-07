@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn carousel · checklist slide · 1080×1350</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       LinkedIn carousel system — CHECKLIST slide (any page 2…N).
+       Export .frame at exactly 1080×1350 (4:5). Pairs with
+       carousel-cover.html / carousel-slide.html / carousel-end.html.
+
+       Slots (marked in the markup):
+         · KICKER    — series name, UPPERCASE tracked (fixed per series)
+         · HEADLINE  — what the list is; sentence case, ≤ 2 lines
+         · ITEMS     — 3–5 check rows; ≤ 6 words each
+         · PAGE      — page number "03 / 06" (update per slide)
+
+       Voice: marketing — third person, sentence case, no emoji.
+       Principle-level items only — numbers need a citation and
+       belong on the stat slide.
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #17171a;               /* bench chrome — not part of the asset */
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============ THE EXPORTABLE CANVAS — 1080×1350 ============ */
+    .frame {
+      position: relative;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      background: var(--bg-page);        /* pure black on dark */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px;
+      box-sizing: border-box;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* ---------- kicker ---------- */
+    .kicker {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ---------- content ---------- */
+    .content { margin-top: auto; margin-bottom: auto; padding: 40px 0; }
+    .headline {
+      font-family: var(--font-display);            /* Satoshi on dark */
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin: 0 0 48px;
+      max-width: 14ch;
+    }
+
+    .checks { display: flex; flex-direction: column; gap: 28px; }
+    .check { display: flex; align-items: center; gap: 22px; }
+    .check .box {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--surface-card);
+      border: 1px solid var(--border-default);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange-500);
+      flex: none;
+    }
+    .check .box svg { width: 23px; height: 23px; }
+    .check .what {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 29px;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    /* ---------- footer: logo slot + page-number slot ---------- */
+    .footer {
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer img { height: 24px; width: auto; display: block; opacity: 0.96; }
+    .page {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .page b { color: #ffffff; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <!-- SLOT: KICKER — series name, fixed across the series -->
+    <p class="kicker">Decision intelligence, explained</p>
+
+    <div class="content">
+      <!-- SLOT: HEADLINE -->
+      <h1 class="headline">Before you scale spend.</h1>
+
+      <!-- SLOT: ITEMS — 3–5 rows, ≤ 6 words each -->
+      <div class="checks">
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-1">Lead quality holding, not just volume</span>
+        </div>
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-2">Creative fresh enough for the lift</span>
+        </div>
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-3">Frequency capped and under control</span>
+        </div>
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-4">A kill threshold, agreed in writing</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <!-- SLOT: LOGO — fixed; all-white lockup on black -->
+      <img src="../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+
+      <!-- SLOT: PAGE — update per slide, tabular numerals -->
+      <span class="page"><b>03</b> / 06</span>
+    </footer>
+
+  </div>
+</body>
+</html>
