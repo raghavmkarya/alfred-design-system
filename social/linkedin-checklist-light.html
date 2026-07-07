@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn checklist card · light (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-checklist-light — LIGHT VARIANT of linkedin-checklist.html.
+       Same slots, same rules, white canvas. 1200×1350 (8:9).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Daily-cadence card: a save-worthy operating checklist. Keep
+       items short (≤ 6 words each reads best), 4–6 rows. No numbers
+       without a citation — checklists should stay principle-level.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — the moment, e.g. Before you scale spend
+       title       — the promise; sentence case, ≤ 2 lines
+       items       — one .check row per item; add/remove rows
+       bridge      — the Alfred line, third person, one sentence
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+
+    .head img { height: 38px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-600);          /* periwinkle-400 washes out on white */
+      margin: 0 0 32px;
+    }
+    .title {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 84px;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0 0 56px;
+      max-width: 13ch;
+    }
+
+    /* checklist rows — check square + item */
+    .checks { display: flex; flex-direction: column; gap: 30px; margin: 0 0 60px; }
+    .check { display: flex; align-items: center; gap: 24px; }
+    .check .box {
+      width: 46px; height: 46px;
+      border-radius: var(--radius-md);
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-default);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange-500);
+      flex: none;
+    }
+    .check .box svg { width: 24px; height: 24px; }
+    .check .what {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 30px;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .bridge {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 25px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 36ch;
+    }
+    .bridge b { color: var(--text-primary); font-weight: var(--fw-semibold); }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow" data-slot="eyebrow">Before you scale spend</p>
+
+      <!-- SLOT: title -->
+      <h1 class="title" data-slot="title">Five checks before you say yes.</h1>
+
+      <!-- SLOT: items — one row per item -->
+      <div class="checks">
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-1">Lead quality holding — not just volume</span>
+        </div>
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-2">Creative fresh enough to survive the lift</span>
+        </div>
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-3">Frequency capped and under control</span>
+        </div>
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-4">Acquisition cost trending flat or better</span>
+        </div>
+        <div class="check">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>
+          <span class="what" data-slot="item-5">A kill threshold, agreed in writing</span>
+        </div>
+      </div>
+
+      <!-- SLOT: bridge — Alfred in third person, one sentence -->
+      <p class="bridge" data-slot="bridge">Alfred runs these checks every morning — <b>with the evidence attached</b>.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

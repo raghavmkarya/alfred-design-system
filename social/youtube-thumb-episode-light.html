@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — YouTube episode thumbnail · light (1280×720)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       youtube-thumb-episode-light — LIGHT VARIANT of
+       youtube-thumb-episode.html. Same slots, same rules, white
+       canvas. 1280×720. Fixed 1280×720 frame. Screenshot at exactly
+       that size (see social/README.md).
+
+       THUMBNAIL RULE: this renders at ~168px wide in suggested
+       videos. Title ≤ 5 words at ≥ 150px, one accent color, nothing
+       decorative that won't survive the shrink. Check every copy
+       change at 25% zoom before shipping.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       kicker      — series name, e.g. Decision intelligence, explained
+       title       — ≤ 5 words; sentence case; ≤ 2 lines at 150px
+       ep          — the ghost episode number, e.g. 01
+       ============================================================ */
+    :root { --frame-w: 1280px; --frame-h: 720px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 72px 80px 64px;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* ghost episode number — big enough to read at 168px wide */
+    .ep {
+      position: absolute;
+      right: 48px;
+      bottom: -78px;
+      z-index: 0;
+      font-family: var(--font-display);
+      font-weight: var(--fw-bold);
+      font-size: 430px;
+      line-height: 1;
+      letter-spacing: -0.035em;
+      color: rgba(2, 2, 30, 0.05);
+      user-select: none;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      align-self: flex-start;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 24px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--periwinkle-600);          /* deeper periwinkle — 400 is too faint on white */
+    }
+    .kicker .tick {
+      width: 36px; height: 4px;
+      border-radius: 999px;
+      background: var(--periwinkle-600);
+    }
+
+    .title {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-semibold);
+      font-size: 150px;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0;
+      max-width: 8ch;
+    }
+    .title .accent { color: var(--orange-500); }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .foot img { height: 40px; width: auto; display: block; }
+    .foot .site {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 24px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <!-- SLOT: ep — the ghost episode number -->
+    <div class="ep" aria-hidden="true" data-slot="ep">01</div>
+
+    <!-- SLOT: kicker — series name -->
+    <p class="kicker"><span class="tick"></span><span data-slot="kicker">Decision intelligence, explained</span></p>
+
+    <!-- SLOT: title — ≤ 5 words; the accent span is optional -->
+    <h1 class="title" data-slot="title">Why dashboards <span class="accent">fail.</span></h1>
+
+    <div class="foot">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+      <span class="site">seekalfred.ai</span>
+    </div>
+  </div>
+</body>
+</html>

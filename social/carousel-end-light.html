@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn carousel · end slide · light · 1080×1350</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       carousel-end-light — LIGHT VARIANT of carousel-end.html.
+       Same slots, same rules, white canvas.
+       Export .frame at exactly 1080×1350 (4:5). Pairs with
+       carousel-cover-light.html / carousel-slide-light.html and
+       the checklist and stat slides.
+
+       Slots (marked in the markup):
+         · KICKER    — series name (fixed per series)
+         · HEADLINE  — the sign-off; sentence case
+         · BODY      — the ask, 1–2 sentences
+         · CTA       — the one orange action (follow)
+         · SAVE      — the neutral secondary chip (save)
+         · DOTS      — one dot per page; LAST dot active
+         · PAGE      — page number "06 / 06"
+
+       Voice: marketing — third person, sentence case, no emoji.
+       Orange = the single action accent (the follow pill + active dot
+       share it — one action moment, one color).
+       ============================================================ */
+    html, body {
+      margin: 0;
+      background: #ececef;               /* bench chrome — not part of the asset */
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ============ THE EXPORTABLE CANVAS — 1080×1350 ============ */
+    .frame {
+      position: relative;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      background: var(--bg-page);        /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px;
+      box-sizing: border-box;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* faint dot texture, bottom-weighted */
+    .dots-bg {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(2,2,30,0.09) 1.25px, transparent 1.25px);
+      background-size: 26px 26px;
+      -webkit-mask-image: radial-gradient(80% 60% at 50% 96%, #000 0%, transparent 100%);
+      mask-image: radial-gradient(80% 60% at 50% 96%, #000 0%, transparent 100%);
+    }
+
+    /* ---------- kicker ---------- */
+    .kicker {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ---------- content ---------- */
+    .content { margin-top: auto; margin-bottom: auto; padding: 40px 0; }
+    .headline {
+      font-family: var(--font-display);            /* Clash Display on light */
+      font-weight: 600;
+      font-size: 88px;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0 0 32px;
+      max-width: 12ch;
+    }
+    .body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0 0 52px;
+      max-width: 30ch;
+    }
+    .body b { color: var(--text-primary); font-weight: 600; }
+
+    /* actions — ONE orange pill; the save chip stays neutral */
+    .actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--orange-500);
+      color: var(--text-on-brand);
+      border-radius: var(--radius-pill);
+      padding: 18px 34px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 24px;
+      letter-spacing: -0.005em;
+      box-shadow: 0 18px 48px rgba(255, 132, 49, 0.28);
+    }
+    .cta svg { width: 22px; height: 22px; }
+    .save {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 17px 30px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 23px;
+      color: var(--text-secondary);
+    }
+    .save svg { width: 22px; height: 22px; color: var(--text-muted); }
+
+    /* ---------- page dots — last dot active ---------- */
+    .pager { display: flex; align-items: center; gap: 10px; margin-top: 52px; }
+    .pager span {
+      width: 9px; height: 9px; border-radius: 999px;
+      background: rgba(2,2,30,0.15);
+      display: block;
+    }
+    .pager .active { width: 30px; background: var(--orange-500); }
+
+    /* ---------- footer ---------- */
+    .footer {
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer img { height: 24px; width: auto; display: block; }
+    .page {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .page b { color: var(--text-primary); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="dots-bg"></div>
+
+    <!-- SLOT: KICKER — series name, fixed across the series -->
+    <p class="kicker">Decision intelligence, explained</p>
+
+    <div class="content">
+      <!-- SLOT: HEADLINE -->
+      <h1 class="headline" data-slot="headline">That&rsquo;s the brief.</h1>
+
+      <!-- SLOT: BODY -->
+      <p class="body" data-slot="body">Follow for the daily signal — and <b>save this for Monday morning</b>, when the tabs come calling.</p>
+
+      <div class="actions">
+        <!-- SLOT: CTA — the one orange action -->
+        <span class="cta">
+          <span data-slot="cta">Follow @seekalfred</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+        </span>
+        <!-- SLOT: SAVE — neutral secondary -->
+        <span class="save">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 21 12 16 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          <span data-slot="save">Save this post</span>
+        </span>
+      </div>
+
+      <!-- SLOT: DOTS — one per page; the LAST dot is active -->
+      <div class="pager" aria-label="Page 6 of 6">
+        <span></span><span></span><span></span><span></span><span></span><span class="active"></span>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+      <!-- SLOT: PAGE -->
+      <span class="page"><b>06</b> / 06</span>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Facebook story · light (1080×1920)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       facebook-story-light — LIGHT VARIANT of facebook-story.html.
+       Same slots, same rules, white canvas. 9:16 story frame,
+       1080×1920. Fixed 1080×1920 frame. Screenshot at exactly that
+       size (see social/README.md). Works for Instagram stories too —
+       instagram-story.html is the IG-first variant.
+
+       SAFE ZONES: Facebook overlays profile chrome across the TOP
+       ~250px and CTA chrome across the BOTTOM ~250px. All content
+       here lives inside the central band (padding does the work) —
+       keep it that way when editing. The background texture may
+       bleed edge to edge; text and logos may not.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — kicker, e.g. Alfred for Marketing
+       headline    — the hook; sentence case, ≤ 4 lines at 104px
+       sub         — one supporting sentence
+       cta         — the one CTA line, e.g. Join the waitlist
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1920px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      /* 280px top/bottom keeps everything clear of story chrome */
+      padding: 280px 96px;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* faint dot texture, bottom-weighted — may bleed full frame */
+    .dots-bg {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(2,2,30,0.10) 1.25px, transparent 1.25px);
+      background-size: 26px 26px;
+      -webkit-mask-image: radial-gradient(85% 45% at 50% 100%, #000 0%, transparent 100%);
+      mask-image: radial-gradient(85% 45% at 50% 100%, #000 0%, transparent 100%);
+    }
+
+    .head img { height: 40px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 21px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-600);
+      margin: 0 0 40px;
+    }
+    .headline {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 104px;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin: 0 0 40px;
+      max-width: 9ch;
+    }
+    .sub {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 30px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin: 0 0 72px;
+      max-width: 26ch;
+    }
+    /* the one CTA — primary pill, brand orange = action */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      align-self: flex-start;
+      background: var(--orange-500);
+      color: var(--text-on-brand);
+      border-radius: var(--radius-pill);
+      padding: 24px 44px;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 28px;
+      letter-spacing: -0.005em;
+      box-shadow: 0 18px 48px rgba(255, 132, 49, 0.28);
+    }
+    .cta svg { width: 26px; height: 26px; }
+
+    .footer {
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 21px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="dots-bg"></div>
+
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow" data-slot="eyebrow">Alfred for Marketing</p>
+
+      <!-- SLOT: headline -->
+      <h1 class="headline" data-slot="headline">Your mornings just got shorter.</h1>
+
+      <!-- SLOT: sub -->
+      <p class="sub" data-slot="sub">Alfred reads your whole stack overnight and briefs you at 9 — what changed, why, and what to do.</p>
+
+      <!-- SLOT: cta — one line, one action -->
+      <span class="cta">
+        <span data-slot="cta">Join the waitlist</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+        </svg>
+      </span>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

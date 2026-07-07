@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Instagram story poll · light (1080×1920)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       instagram-story-poll-light — LIGHT VARIANT of instagram-story-poll.html.
+       Same slots, same rules, white canvas. 9:16 poll background,
+       1080×1920. Fixed 1080×1920 frame. Screenshot at exactly that
+       size (see social/README.md).
+
+       SAFE ZONES: content clear of the ~250px story chrome top and
+       bottom (280px padding does the work).
+
+       THE STICKER PAD: the hairline card mid-frame is a designed
+       landing zone — after uploading, place Instagram's poll (or
+       question/slider) sticker on top of it. It reads as intentional
+       even if a sticker never lands. Don't put content inside it.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow     — kicker, e.g. Quick poll
+       question    — the question; sentence case, ≤ 4 lines
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1920px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      /* 280px top/bottom keeps everything clear of story chrome */
+      padding: 280px 96px;
+      isolation: isolate;
+    }
+    .frame > * { position: relative; z-index: 1; }
+
+    /* faint dot texture, center-weighted — may bleed full frame */
+    .dots-bg {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(2,2,30,0.08) 1.25px, transparent 1.25px);
+      background-size: 26px 26px;
+      -webkit-mask-image: radial-gradient(80% 40% at 50% 55%, #000 0%, transparent 100%);
+      mask-image: radial-gradient(80% 40% at 50% 55%, #000 0%, transparent 100%);
+    }
+
+    .head img { height: 40px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-bold);
+      font-size: 21px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--periwinkle-600);
+      margin: 0 0 40px;
+    }
+    .question {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 96px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0 0 72px;
+      max-width: 10ch;
+    }
+
+    /* the sticker pad — place the IG poll sticker over this.
+       On white it needs a real tint to read as a designed pad:
+       whisper periwinkle fill + dashed periwinkle hairline. */
+    .pad {
+      width: 100%;
+      max-width: 700px;
+      height: 240px;
+      border-radius: var(--radius-2xl);
+      background: var(--periwinkle-50);
+      border: 1px dashed var(--periwinkle-200);
+      align-self: center;
+    }
+    .pad-hint {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 21px;
+      color: var(--text-muted);
+      text-align: center;
+      margin: 24px 0 0;
+    }
+
+    .footer {
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 21px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="dots-bg"></div>
+
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow -->
+      <p class="eyebrow" data-slot="eyebrow">Quick poll</p>
+
+      <!-- SLOT: question -->
+      <h1 class="question" data-slot="question">What&rsquo;s the first tab you open on Monday?</h1>
+
+      <!-- the sticker pad — poll sticker goes on top of this -->
+      <div class="pad" aria-hidden="true"></div>
+      <p class="pad-hint">Vote above</p>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

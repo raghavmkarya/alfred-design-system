@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — Instagram quote square · light (1080×1080)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       instagram-quote-light — LIGHT VARIANT of instagram-quote.html.
+       Same slots, same rules, white canvas. 1080×1080 (1:1).
+       Fixed 1080×1080 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Voice: the quote itself is a HUMAN speaking in first person —
+       that is where first person belongs on marketing surfaces.
+       Fill the bracketed placeholders with the real speaker before
+       shipping; never invent people or attribute words they did not
+       say.
+
+       One gradient element per view = the oversized quote mark.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       quote       — the quote, ≤ 4 lines at 54px
+       initials    — the speaker's real initials
+       name        — the speaker's real name
+       role        — the speaker's real role
+       ============================================================ */
+    :root { --frame-w: 1080px; --frame-h: 1080px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 84px 84px 72px;
+      isolation: isolate;
+    }
+
+    .head img { height: 34px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    /* the one gradient element on this view */
+    .mark {
+      font-family: var(--font-display);
+      font-weight: var(--fw-bold);
+      font-size: 170px;
+      line-height: 0.6;
+      letter-spacing: -0.02em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0 0 24px -8px;
+      user-select: none;
+    }
+    .quote {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 54px;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0 0 56px;
+      max-width: 17ch;
+    }
+
+    .attrib { display: flex; align-items: center; gap: 22px; }
+    .attrib .ava {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-default);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 25px;
+      color: var(--text-secondary);
+      flex: none;
+    }
+    .attrib .name {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 27px;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+    .attrib .role {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 22px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <div class="mark" aria-hidden="true">&ldquo;</div>
+
+      <!-- SLOT: quote — a real human, first person -->
+      <blockquote class="quote" data-slot="quote">I spent a decade watching great teams lose their mornings to reporting. We&rsquo;re building the layer that gives them back.</blockquote>
+
+      <div class="attrib">
+        <!-- SLOT: initials — the speaker's real initials -->
+        <span class="ava" data-slot="initials">[XX]</span>
+        <span>
+          <!-- SLOT: name -->
+          <div class="name" data-slot="name">[FOUNDER NAME]</div>
+          <!-- SLOT: role -->
+          <div class="role" data-slot="role">[ROLE]</div>
+        </span>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>

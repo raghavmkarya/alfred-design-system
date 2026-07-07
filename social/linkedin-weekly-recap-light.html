@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred — LinkedIn weekly recap card · light (1200×1350)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ============================================================
+       linkedin-weekly-recap-light — LIGHT VARIANT of
+       linkedin-weekly-recap.html. Same slots, same rules, white
+       canvas. 1200×1350 (8:9).
+       Fixed 1200×1350 frame. Screenshot at exactly that size
+       (see social/README.md).
+
+       Daily-cadence card (weekly slot): three themes from the week,
+       editorial not statistical — each row is an observation plus
+       one line of guidance. Numbers pull a row under the citation
+       rule; keep it principle-level. Fill [WEEK OF] with the real
+       week before shipping.
+
+       SLOTS (find-and-replace the inner text of the marked elements):
+       eyebrow       — series + week, e.g. The week in decisions · [WEEK OF]
+       title         — the promise; sentence case, ≤ 2 lines
+       theme-1..3    — row titles
+       note-1..3     — row one-liners
+       ============================================================ */
+    :root { --frame-w: 1200px; --frame-h: 1350px; }
+
+    html, body {
+      margin: 0;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .frame {
+      position: relative;
+      width: var(--frame-w);
+      height: var(--frame-h);
+      overflow: hidden;
+      background: var(--bg-page);            /* white — the light canvas */
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      padding: 96px 96px 84px;
+      isolation: isolate;
+    }
+
+    .head img { height: 38px; width: auto; display: block; }
+
+    .message {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--periwinkle-600);          /* periwinkle-400 washes out on white */
+      margin: 0 0 32px;
+    }
+    .title {
+      font-family: var(--font-display);      /* Clash Display on light */
+      font-weight: var(--fw-medium);
+      font-size: 80px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0 0 60px;
+      max-width: 14ch;
+    }
+
+    .themes { display: flex; flex-direction: column; }
+    .theme {
+      display: flex;
+      gap: 28px;
+      padding: 32px 4px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .theme:last-child { border-bottom: 1px solid var(--border-subtle); }
+    .theme .n {
+      font-family: var(--font-display);
+      font-weight: var(--fw-medium);
+      font-size: 40px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--orange-500);
+      flex: none;
+      width: 64px;
+      font-variant-numeric: tabular-nums;
+    }
+    .theme .what {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      font-size: 30px;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin: 0 0 10px;
+    }
+    .theme .note {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-regular);
+      font-size: 23px;
+      line-height: 1.4;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: 38ch;
+    }
+
+    .footer {
+      margin-top: 64px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+    .footer .site { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="head">
+      <img src="../assets/logos/alfred-logo-primary.svg" alt="Alfred" />
+    </header>
+
+    <div class="message">
+      <!-- SLOT: eyebrow — fill [WEEK OF] with the real week -->
+      <p class="eyebrow" data-slot="eyebrow">The week in decisions · [WEEK OF]</p>
+
+      <!-- SLOT: title -->
+      <h1 class="title" data-slot="title">Three themes from this week&rsquo;s briefs.</h1>
+
+      <div class="themes">
+        <div class="theme">
+          <span class="n">01</span>
+          <span>
+            <p class="what" data-slot="theme-1">Creative fatigue is the quiet budget killer</p>
+            <p class="note" data-slot="note-1">A rotation cadence beats reactive refreshes — plan the next variant before this one tires.</p>
+          </span>
+        </div>
+        <div class="theme">
+          <span class="n">02</span>
+          <span>
+            <p class="what" data-slot="theme-2">Headroom hides in steady campaigns</p>
+            <p class="note" data-slot="note-2">The performers nobody talks about are worth a weekly look — quiet rarely means finished.</p>
+          </span>
+        </div>
+        <div class="theme">
+          <span class="n">03</span>
+          <span>
+            <p class="what" data-slot="theme-3">Kill thresholds save Mondays</p>
+            <p class="note" data-slot="note-3">Agree the exit before launch, then decide by evidence — not by anniversary.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span class="site">seekalfred.ai</span>
+      <span>@seekalfred</span>
+    </footer>
+  </div>
+</body>
+</html>
