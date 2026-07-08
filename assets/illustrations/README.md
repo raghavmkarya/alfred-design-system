@@ -36,8 +36,18 @@ decision card** (a quantified call). The logo *is* the character.
 - **Pose vocabulary** (arm-swaps on one shared body): *at attention · presenting a decision · welcoming.*
   Add poses by swapping only the arm group — the body/head stay identical so he never drifts.
 
-_Planned next: **The Leader** (the CMO hero), plus motif/scene kits (the noise, the situation
-room, up-trend, decision card, energy burst)._
+### The Leader — the marketing hero  (`characters/the-leader*.svg`)
+The human counterpart. A confident modern CMO in a **hands-on-hips power stance** — long fitted
+charcoal blazer, periwinkle top, orange belt + shoes. Where Alfred *presents* the call, the Leader
+*makes* it. Built in **both variants** so the hero can be anyone:
+
+- `the-leader.svg` — female variant (bob, heels)
+- `the-leader-male.svg` — male variant (short hair, loafers)
+
+Same house style, palette, pose and 640×940 frame as Alfred, so the whole cast reads as one family.
+
+_Planned next: comic-ink twins of the Leaders; motif/scene kits (the noise, the situation room,
+up-trend, decision card, energy burst)._
 
 ## Naming
 

@@ -1,0 +1,33 @@
+<svg viewBox="0 0 640 940" xmlns="http://www.w3.org/2000/svg" width="640" height="940" role="img" aria-label="The Leader — the marketing hero, hands on hips">
+  <title>The Leader (Priya) — the marketing hero (flat brand skin)</title>
+  <!-- legs -->
+  <path d="M294,468 L326,468 L322,864 L298,864 Z" fill="#16151f"/>
+  <path d="M334,468 L366,468 L362,864 L338,864 Z" fill="#16151f"/>
+  <path d="M310,486 L309,856" stroke="#221f2e" stroke-width="2" fill="none"/>
+  <path d="M350,486 L351,856" stroke="#221f2e" stroke-width="2" fill="none"/>
+  <!-- heels -->
+  <path d="M298,860 h26 l9,16 -10,11 h-31 c-7,-8 -2,-27 6,-27 Z" fill="#FF8431"/>
+  <path d="M362,860 h-26 l-9,16 10,11 h31 c7,-8 2,-27 -6,-27 Z" fill="#FF8431"/>
+  <!-- periwinkle top + belt -->
+  <path d="M300,300 L340,300 L347,455 L293,455 Z" fill="#A7A7FC"/>
+  <rect x="292" y="446" width="56" height="15" rx="3.5" fill="#FF8431"/>
+  <rect x="314" y="446" width="12" height="15" rx="2" fill="#C75A12"/>
+  <!-- blazer (fitted, long, open) -->
+  <path d="M320,300 C305,300 293,305 283,313 C270,324 256,330 252,344 C247,384 250,430 286,452 C268,474 256,566 258,704 L300,704 L304,452 L310,340 Z" fill="#171624"/>
+  <path d="M320,300 C335,300 347,305 357,313 C370,324 384,330 388,344 C393,384 390,430 354,452 C372,474 384,566 382,704 L340,704 L336,452 L330,340 Z" fill="#1b1928"/>
+  <path d="M320,302 L300,318 L308,366 L320,352 Z" fill="#221f30"/>
+  <path d="M320,302 L340,318 L332,366 L320,352 Z" fill="#201d2b"/>
+  <!-- arms akimbo -->
+  <path d="M262,316 C230,336 210,382 214,420 C217,448 250,462 290,458 L296,440 C262,438 240,424 236,398 C233,372 244,344 262,330 Z" fill="#171624"/>
+  <ellipse cx="292" cy="452" rx="15" ry="12" fill="#B87A4E"/>
+  <path d="M378,316 C410,336 430,382 426,420 C423,448 390,462 350,458 L344,440 C378,438 400,424 404,398 C407,372 396,344 378,330 Z" fill="#1b1928"/>
+  <ellipse cx="348" cy="452" rx="15" ry="12" fill="#B87A4E"/>
+  <!-- neck -->
+  <path d="M308,276 L332,276 L332,306 L308,306 Z" fill="#9E6338"/>
+  <!-- hair + face -->
+  <path d="M320,92 C262,92 236,132 236,186 C236,236 250,276 268,290 L268,206 C268,166 296,160 320,160 C344,160 372,166 372,206 L372,290 C390,276 404,236 404,186 C404,132 378,92 320,92 Z" fill="#15131d"/>
+  <path d="M270,196 C270,172 292,164 320,164 C348,164 370,172 370,196 C370,246 350,286 320,286 C290,286 270,246 270,196 Z" fill="#B87A4E"/>
+  <path d="M320,164 L320,180" stroke="#241f2e" stroke-width="2" opacity="0.4"/>
+  <circle cx="271" cy="246" r="6" fill="#A7A7FC"/>
+  <circle cx="369" cy="246" r="6" fill="#A7A7FC"/>
+</svg>
