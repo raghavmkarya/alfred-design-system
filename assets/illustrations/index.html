@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfred — Illustration System</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;background:var(--bg-canvas,#f9f9f9);color:var(--ink-900,#02021e);
+    font-family:"Satoshi","Inter",system-ui,sans-serif;}
+  .page{max-width:1120px;margin:0 auto;padding:56px 32px 96px;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-600,#f26a1b);}
+  h1{font-family:"Clash Display","Satoshi",sans-serif;font-weight:600;font-size:44px;letter-spacing:-.02em;margin:10px 0 8px;}
+  .lede{font-size:18px;color:var(--ink-500,#6b6b78);max-width:620px;margin:0 0 40px;line-height:1.5;}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .card{border-radius:24px;overflow:hidden;border:1px solid var(--border-subtle,#e6e6e6);
+    box-shadow:0 18px 48px rgba(2,2,30,.08);display:flex;flex-direction:column;}
+  .stage{height:440px;display:grid;place-items:center;padding:24px;}
+  .stage.light{background:radial-gradient(70% 70% at 50% 36%,#fff,#ecebf5);}
+  .stage.cream{background:#f4ecda;background-image:radial-gradient(#e0761f 1.4px,transparent 1.6px);background-size:11px 11px;}
+  .stage img{height:100%;width:auto;}
+  .meta{padding:20px 24px;background:var(--surface-card,#fff);}
+  .meta h3{margin:0 0 4px;font-size:17px;font-weight:600;}
+  .meta p{margin:0;font-size:14px;color:var(--ink-500,#6b6b78);}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--gray-100,#f1f1f1);padding:2px 6px;border-radius:6px;}
+  .poses{margin-top:40px;padding:24px;border-radius:20px;background:var(--surface-card,#fff);border:1px solid var(--border-subtle,#e6e6e6);}
+  .poses h2{font-family:"Clash Display",sans-serif;font-weight:600;font-size:22px;margin:0 0 6px;}
+  .poses p{margin:0;color:var(--ink-500,#6b6b78);font-size:15px;line-height:1.55;}
+  .chip{display:inline-block;font-size:13px;font-weight:600;background:var(--periwinkle-100,#e7e7ff);color:var(--periwinkle-600,#7b7bf5);padding:4px 12px;border-radius:999px;margin:8px 8px 0 0;}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="eyebrow">Design system · Illustration</div>
+    <h1>Alfred — the chief of staff</h1>
+    <p class="lede">The Alfred mark is his head; the body is a distinguished butler who watches
+      everything and presents the call. Hand-built to the house style, reusable everywhere — one
+      character, two skins.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="stage light"><img src="characters/alfred-butler.svg" alt="Alfred, flat brand skin"></div>
+        <div class="meta"><h3>Flat brand skin</h3><p>Product · social · decks · web. <code>characters/alfred-butler.svg</code></p></div>
+      </div>
+      <div class="card">
+        <div class="stage cream"><img src="characters/alfred-butler-ink.svg" alt="Alfred, comic-ink skin"></div>
+        <div class="meta"><h3>Comic-ink skin</h3><p>Graphic-novel / motion-comic. <code>characters/alfred-butler-ink.svg</code></p></div>
+      </div>
+    </div>
+
+    <div class="poses">
+      <h2>Pose vocabulary</h2>
+      <p>Poses are arm-swaps on one shared body, so Alfred never drifts between appearances.</p>
+      <span class="chip">At attention</span><span class="chip">Presenting a decision</span><span class="chip">Welcoming</span>
+      <p style="margin-top:14px">See <code>README.md</code> for the full house style and how to add new art.</p>
+    </div>
+  </div>
+</body>
+</html>
