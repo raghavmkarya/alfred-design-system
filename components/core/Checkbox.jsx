@@ -41,7 +41,7 @@ export function Checkbox({ checked = false, onChange, label, disabled = false, i
         />
         {checked && (
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style={{ pointerEvents: "none" }}>
-            <path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="var(--white)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="var(--text-on-orange)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )}
       </span>

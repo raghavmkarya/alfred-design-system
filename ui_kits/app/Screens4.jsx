@@ -1,9 +1,12 @@
 /* ============================================================
    Alfred workspace — admin & settings screens (part 4).
    Profile & preferences · Team & permissions · Billing & plans ·
-   Alfred Core memory · Audit log.
+   Memory · Audit log.
    Light theme. Composed from the design-system primitives, matching
-   Screens.jsx (soft cards, PageHeader scaffolding, first-person voice).
+   Screens.jsx (soft cards, first-person voice). The AppShell header owns
+   each page's title + subtitle, so these screens open with a slim utility
+   row (meta chips) instead of an in-body PageHeader — SettingsProfile
+   keeps its PageHeader because it carries the Save/Cancel actions.
    All numbers and names come from data/demo-data.json (Northwind Labs).
    Each component is self-contained so scripts/verify-render.mjs can
    server-render it prop-less.
@@ -30,22 +33,48 @@ const Footnote = ({ children }) => (
   </div>
 );
 
+/* Slim meta row that replaces the old in-body PageHeader — the shell header
+   owns the title + subtitle; this keeps just the chips/pills. */
+const UtilityRow = ({ children }) => (
+  <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 10 }}>
+    {children}
+  </div>
+);
+
+/* Admin-managed value: plain text with a lock glyph — never a focusable input. */
+const LockedField = ({ label, value }) => (
+  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+    <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-medium)", color: "var(--text-primary)" }}>{label}</span>
+    <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+      <span style={{ fontSize: 13.5, color: "var(--text-primary)", lineHeight: "var(--lh-normal)" }}>{value}</span>
+      <Icon name="step-locked" root={ICN} size={12} color="var(--text-muted)" title="Locked" />
+    </div>
+    <span style={{ fontSize: 12, color: "var(--text-muted)" }}>Managed by your admin</span>
+  </div>
+);
+
 /* ======================= PROFILE & PREFERENCES ======================= */
+const PROFILE_INITIAL = { name: "Priya Menon", email: "priya@northwindlabs.com" };
 function SettingsProfile() {
-  const [name, setName] = React.useState("Priya Menon");
-  const [email, setEmail] = React.useState("priya@northwindlabs.com");
+  const [saved, setSaved] = React.useState(PROFILE_INITIAL);
+  const [name, setName] = React.useState(PROFILE_INITIAL.name);
+  const [email, setEmail] = React.useState(PROFILE_INITIAL.email);
   const [tz, setTz] = React.useState("et");
   const [ccy, setCcy] = React.useState("usd");
   const [brief, setBrief] = React.useState(true);
   const [alerts, setAlerts] = React.useState(true);
   const [digest, setDigest] = React.useState(false);
+  const dirty = name !== saved.name || email !== saved.email;
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       <PageHeader
         title="Profile & preferences"
         subtitle="How you appear across Northwind Labs — and how I show up for you"
         breadcrumb={[{ label: "Settings" }, { label: "Profile" }]}
-        actions={<><Button variant="ghost" size="sm">Cancel</Button><Button variant="primary" size="sm">Save changes</Button></>}
+        actions={<>
+          <Button variant="ghost" size="sm" disabled={!dirty} onClick={() => { setName(saved.name); setEmail(saved.email); }}>Cancel</Button>
+          <Button variant="primary" size="sm" disabled={!dirty} onClick={() => setSaved({ name, email })}>Save changes</Button>
+        </>}
       />
 
       <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 22, alignItems: "start" }}>
@@ -59,8 +88,8 @@ function SettingsProfile() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
               <Input label="Full name" value={name} onChange={(e) => setName(e.target.value)} fill="plain" />
               <Input label="Work email" value={email} onChange={(e) => setEmail(e.target.value)} fill="plain" />
-              <Input label="Role" value="VP Marketing" fill="plain" readOnly />
-              <Input label="Workspace" value="Northwind Labs" fill="plain" readOnly />
+              <LockedField label="Role" value="VP Marketing" />
+              <LockedField label="Workspace" value="Northwind Labs" />
             </div>
           </Card>
 
@@ -144,13 +173,9 @@ function TeamPermissions() {
   ];
   const setRole = (n) => (r) => setRoles((prev) => ({ ...prev, [n]: r }));
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
-      <PageHeader
-        title="Team & permissions"
-        subtitle="Who works with me at Northwind Labs, and what each seat can approve"
-        breadcrumb={[{ label: "Settings" }, { label: "Team" }]}
-        actions={<Badge tone="neutral">6 of 8 seats</Badge>}
-      />
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
+      {/* Title + subtitle live in the shell header — just the meta chip here. */}
+      <UtilityRow><Badge tone="neutral">6 of 8 seats</Badge></UtilityRow>
 
       <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 22, alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
@@ -223,13 +248,9 @@ function TeamPermissions() {
 function BillingPlans() {
   const [upgradeOpen, setUpgradeOpen] = React.useState(false);
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
-      <PageHeader
-        title="Billing & plans"
-        subtitle="Growth plan · Northwind Labs"
-        breadcrumb={[{ label: "Settings" }, { label: "Billing" }]}
-        actions={<Badge tone="brand" dot>50% off your first 2 months</Badge>}
-      />
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
+      {/* Title + subtitle live in the shell header — just the offer pill here. */}
+      <UtilityRow><Badge tone="brand" dot>50% off your first 2 months</Badge></UtilityRow>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 22, alignItems: "start" }}>
         <BillingPlanCard
@@ -245,34 +266,38 @@ function BillingPlans() {
           <SectionHead title="Usage this cycle" sub="Where you stand against the Growth allowance" />
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
             <UsageMeter label="Seats" used={6} limit={8} unit="seats" footnote="5 active members · 1 pending invite" />
-            <UsageMeter label="Seek Alfred queries" used={342} limit={500} unit="queries" footnote="Resets Aug 2" />
-            <UsageMeter label="Integrations" used={10} limit={12} unit="sources" footnote="Salesforce, Shopify and Klaviyo are ready when you are" />
+            <UsageMeter label="Ask Alfred queries" used={342} limit={500} unit="queries" footnote="Resets Aug 2" />
+            {/* 9 of 12 — the three named sources are the free slots; keeps all
+                three meters in the same healthy gradient-fill grammar. */}
+            <UsageMeter label="Integrations" used={9} limit={12} unit="sources" footnote="Salesforce, Shopify and Klaviyo are ready when you are" />
           </div>
         </Card>
       </div>
 
       <div>
-        <SectionHead title="Compare plans" sub="Every tier includes Alfred Core — memory that compounds from day one" />
+        <SectionHead title="Compare plans" sub="Every tier includes Memory — everything I learn compounds from day one" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, paddingTop: 13 }}>
           <PriceCard
             name="Starter"
             currency="₹"
             price="19,900"
             period="/month"
-            features={["Daily Brief and KPI Cockpit", "Anomaly Detection", "Email and Slack delivery"]}
+            features={["Daily brief and KPI cockpit", "Anomaly detection", "Email and Slack delivery"]}
             cta={{ label: "Talk to us" }}
             style={{ padding: "26px 24px 22px" }}
           />
+          {/* Not `highlighted`: the screen's one solid-orange primary is the
+              plan card's "Upgrade plan" — this CTA stays quiet. The badge pill
+              is solid orange, so its text re-scopes to ink (--text-on-orange). */}
           <PriceCard
             name="Growth"
             currency="₹"
             price="49,900"
             period="/month"
             badge="Current plan"
-            highlighted
             features={["All six marketing agents", "8 seats · 500 queries a month", "12 integrations", "Approvals and audit trail"]}
             cta={{ label: "Manage plan" }}
-            style={{ padding: "26px 24px 22px" }}
+            style={{ padding: "26px 24px 22px", "--text-on-brand": "var(--text-on-orange)" }}
           />
           <PriceCard
             name="Max"
@@ -294,7 +319,7 @@ function BillingPlans() {
         open={upgradeOpen}
         onClose={() => setUpgradeOpen(false)}
         title="Room to grow past Growth"
-        body="You're at 6 of 8 seats and you've used 342 of your 500 Seek Alfred queries this cycle. On Max I can brief the whole team and answer every question without anyone watching the meter."
+        body="You're at 6 of 8 seats and you've used 342 of your 500 Ask Alfred queries this cycle. On Max I can brief the whole team and answer every question without anyone watching the meter."
         plans={[
           { name: "Growth", price: "₹49,900/mo", features: ["8 seats", "500 queries a month", "12 integrations"] },
           { name: "Max", price: "₹99,900/mo", highlight: true, features: ["Expanded seats and queries", "Advanced RBAC and scheduled reports", "Priority support"] },
@@ -306,7 +331,7 @@ function BillingPlans() {
   );
 }
 
-/* ======================= ALFRED CORE — MEMORY ======================= */
+/* ======================= MEMORY ======================= */
 function MemoryCore() {
   const [cat, setCat] = React.useState("All");
   const memories = [
@@ -334,18 +359,16 @@ function MemoryCore() {
   const cats = ["All", "Root cause", "Institutional", "Cross-function", "Compounding"];
   const shown = cat === "All" ? memories : memories.filter((m) => m.category === cat);
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
-      <PageHeader
-        title="Alfred Core"
-        subtitle="Everything I've learned about Northwind Labs — correct me where I'm wrong."
-        breadcrumb={[{ label: "Workspace" }, { label: "Memory" }]}
-        actions={<Badge tone="neutral">4 memories shown</Badge>}
-      />
-
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
+      {/* Title + subtitle live in the shell header — filters and the count
+          share one slim utility row. */}
+      <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
         {cats.map((c) => (
           <Chip key={c} selected={cat === c} onClick={() => setCat(c)}>{c}</Chip>
         ))}
+        <span style={{ marginLeft: "auto" }}>
+          <Badge tone="neutral">{shown.length} {shown.length === 1 ? "memory" : "memories"} shown</Badge>
+        </span>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, alignItems: "start" }}>
@@ -408,14 +431,9 @@ function AuditLog() {
     if (id === "range") setRange(v);
   };
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
-      <PageHeader
-        title="Audit log"
-        subtitle="Every action — mine and the team's — with who approved it and when"
-        breadcrumb={[{ label: "Settings" }, { label: "Audit log" }]}
-        actions={<Badge tone="success" dot>Logging live</Badge>}
-      />
-
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
+      {/* Title + subtitle live in the shell header — the FilterBar is the
+          utility row, with the live-logging chip beside Export. */}
       <FilterBar
         filters={[
           { id: "actor", type: "select", label: "Actor", value: actor, placeholder: "Everyone", width: 150, options: [
@@ -435,7 +453,10 @@ function AuditLog() {
           ] },
         ]}
         onChange={onFilter}
-        right={<Button variant="subtle" size="sm" iconLeft={<Icon name="export" root={ICN} size={15} />}>Export</Button>}
+        right={<div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <Badge tone="success" dot>Logging live</Badge>
+          <Button variant="subtle" size="sm" iconLeft={<Icon name="export" root={ICN} size={15} />}>Export</Button>
+        </div>}
       />
 
       <Card padding={0} shadow="sm" style={{ overflow: "hidden" }}>

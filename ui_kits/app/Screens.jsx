@@ -4,7 +4,7 @@
    Light theme. Composed from the design-system primitives, matching
    the Dashboard's language (soft cards, gradient accents, first-person voice).
    ============================================================ */
-const { Card, KpiCard, DecisionAlert, ProgressBar, Badge, Button, IconButton, Icon, Avatar, Tabs, Switch, Checkbox, Input } =
+const { Card, KpiCard, ProgressBar, Badge, Button, IconButton, Icon, Avatar, Tabs, Switch, Checkbox, Input, Modal } =
   window.AlfredAIDesignSystem_1ce241;
 const ICN = "../../assets/icons";
 
@@ -52,15 +52,21 @@ function KpiCockpit() {
   };
   const funnel = [["Visitors", 100, "var(--periwinkle-400)"], ["MQL", 64, "var(--periwinkle-500)"], ["SQL", 34, "var(--orange-300)"], ["Opportunity", 19, "var(--orange-400)"], ["Won", 8, "var(--orange-500)"]];
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
+      <Card padding={14} tone="surface" shadow="sm" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <span style={{ width: 16, height: 16, borderRadius: "var(--radius-pill)", background: "var(--gradient-brand)", flex: "none" }} />
+        <span style={{ fontSize: 13.5, color: "var(--text-secondary)" }}>
+          Everything is on plan except one thing — Meta fatigue is inflating blended CAC. The fix is drafted in Decision alerts.
+        </span>
+      </Card>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
         <KpiCard label="Blended ROAS" value="4.8x" delta="+12.4%" direction="up" caption="vs last 30d" icon="trend-up" iconRoot={ICN} />
-        <KpiCard label="Marketing Spend" value="$312K" delta="+6.1%" direction="up" caption="pacing hot" icon="budget" iconRoot={ICN} />
-        <KpiCard label="Blended CAC" value="$184" delta="-8.0%" direction="down" caption="improving" icon="channel-mix" iconRoot={ICN} />
+        <KpiCard label="Marketing Spend" value="$312K" delta="+6.1%" direction="up" valence="bad" caption="pacing hot" icon="budget" iconRoot={ICN} />
+        <KpiCard label="Blended CAC" value="$184" delta="-8.0%" direction="down" valence="good" caption="improving" icon="channel-mix" iconRoot={ICN} />
         <KpiCard label="MQL → SQL" value="34%" delta="0.0%" direction="flat" caption="flat WoW" icon="mql" iconRoot={ICN} />
         <KpiCard label="Pipeline created" value="$2.68M" delta="+19.5%" direction="up" caption="this quarter" icon="trend-up" iconRoot={ICN} />
         <KpiCard label="LTV : CAC" value="4.1:1" delta="+0.3" direction="up" caption="healthy" icon="trend-up" iconRoot={ICN} />
-        <KpiCard label="Avg. CPL" value="$58" delta="-14.0%" direction="down" caption="LinkedIn ABM" icon="trend-down" iconRoot={ICN} />
+        <KpiCard label="Avg. CPL" value="$58" delta="-14.0%" direction="down" valence="good" caption="LinkedIn ABM" icon="trend-down" iconRoot={ICN} />
         <KpiCard label="Win rate" value="22%" delta="+1.8%" direction="up" caption="vs last Q" icon="trend-up" iconRoot={ICN} />
       </div>
 
@@ -108,11 +114,11 @@ function SpendRoi() {
   const statusTone = { high: "success", med: "warning", low: "danger" };
   const statusText = { high: "Scaling", med: "Holding", low: "At risk" };
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-        <KpiCard label="Spend this month" value="$312K" delta="+6.1%" direction="up" caption="of $295K plan" icon="budget" iconRoot={ICN} />
+        <KpiCard label="Spend this month" value="$312K" delta="+6.1%" direction="up" valence="bad" caption="of $295K plan" icon="budget" iconRoot={ICN} />
         <KpiCard label="Blended ROAS" value="4.8x" delta="+12.4%" direction="up" caption="above 4.0x target" icon="trend-up" iconRoot={ICN} />
-        <KpiCard label="Wasted spend" value="$11.4K" delta="-31%" direction="down" caption="Alfred reclaimed" icon="trend-down" iconRoot={ICN} />
+        <KpiCard label="Wasted spend" value="$11.4K" delta="-31%" direction="down" valence="good" caption="I reclaimed it" icon="trend-down" iconRoot={ICN} />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 22, alignItems: "start" }}>
@@ -173,22 +179,85 @@ function SpendRoi() {
 }
 
 /* ======================= DECISION ALERTS ======================= */
+/* Local alert card: same visual language as the DS DecisionAlert, but the CTA
+   area is controllable — a subtle "review" CTA at rest, an executing state
+   (brand badge + undo) once a draft is approved. */
+const ALERT_META = {
+  high: { rail: "var(--danger-500)", icon: "alert-warning", badge: "danger", label: "High" },
+  medium: { rail: "var(--orange-500)", icon: "alert-warning", badge: "warning", label: "Medium" },
+  low: { rail: "var(--periwinkle-400)", icon: "bookmark", badge: "info", label: "Low" },
+  opportunity: { rail: "var(--success-500)", icon: "trend-up", badge: "success", label: "Opportunity" },
+};
+function AlertCard({ alert, executing, onReview, onUndo }) {
+  const p = ALERT_META[alert.priority] || ALERT_META.medium;
+  return (
+    <div style={{
+      display: "flex", gap: 14, alignItems: "flex-start",
+      background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-xl)", padding: "16px 18px 16px 14px",
+      boxShadow: "var(--shadow-xs)", position: "relative", overflow: "hidden",
+    }}>
+      <span style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: p.rail }} />
+      <span style={{
+        width: 38, height: 38, borderRadius: "var(--radius-md)", flex: "none", marginLeft: 6,
+        background: "var(--orange-50)", display: "inline-flex", alignItems: "center", justifyContent: "center",
+      }}>
+        <Icon name={p.icon} size={18} color={p.rail} root={ICN} />
+      </span>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+          <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{alert.title}</span>
+          <Badge tone={p.badge} dot>{p.label}</Badge>
+          {alert.time && <span style={{ marginLeft: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{alert.time}</span>}
+        </div>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", margin: 0 }}>{alert.insight}</p>
+        {executing ? (
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 12, flexWrap: "wrap" }}>
+            <Badge tone="brand" dot>Executing</Badge>
+            <Button variant="ghost" size="sm" onClick={onUndo}>Undo</Button>
+            <span style={{ fontFamily: "var(--font-sans)", fontSize: 12.5, color: "var(--text-muted)" }}>I'll confirm in Slack when it's live.</span>
+          </div>
+        ) : alert.action ? (
+          <Button variant="subtle" size="sm" style={{ marginTop: 12 }} onClick={onReview}>{alert.action}</Button>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 function AlertsInbox() {
   const [filter, setFilter] = React.useState("all");
+  const [reviewId, setReviewId] = React.useState(null);
+  const [executing, setExecuting] = React.useState({});
   const all = [
-    { priority: "high", time: "12m ago", title: "Google Ads over budget", insight: "Brand campaign will exhaust its monthly cap in 4 days at current pacing. Shift $18K to Performance Max to protect non-brand coverage.", action: "Reallocate budget", tag: "high" },
-    { priority: "opportunity", time: "1h ago", title: "LinkedIn CPL down 22%", insight: "Cost-per-lead dropped sharply on the new ABM audience. I recommend scaling spend +30% while efficiency holds.", action: "Scale campaign", tag: "opportunity" },
-    { priority: "medium", time: "3h ago", title: "Creative fatigue detected", insight: "Three Meta creatives crossed the frequency-3.0 threshold; CTR is down 14% over 7 days. Queue refreshes from the creative library.", action: "Queue refreshes", tag: "high" },
-    { priority: "opportunity", time: "5h ago", title: "Search impression share rising", insight: "Non-brand impression share climbed to 71%. There is room to capture an estimated +$22K pipeline by lifting the Search cap 15%.", action: "Raise cap", tag: "opportunity" },
-    { priority: "low", time: "Yesterday", title: "Email engagement steady", insight: "Open rate held at 41% after the subject-line test. No action needed — I'll keep watching the next send.", tag: "resolved" },
+    { id: "google-budget", priority: "high", time: "12m ago", title: "Google Ads over budget", insight: "Brand campaign will exhaust its monthly cap in 4 days at current pacing. Shift $18K to Performance Max to protect non-brand coverage.", action: "Reallocate budget", tag: "high",
+      draft: { what: "Search daily budget", from: "$30K", to: "$12K cap", impact: "Protects non-brand coverage · est. +$48K pipeline", approve: "Approve — move $18K" } },
+    { id: "linkedin-scale", priority: "opportunity", time: "1h ago", title: "LinkedIn CPL down 22%", insight: "Cost-per-lead dropped sharply on the new ABM audience. I recommend scaling spend +30% while efficiency holds.", action: "Scale campaign", tag: "opportunity",
+      draft: { what: "LinkedIn ABM daily budget", from: "$1.6K", to: "$2.1K (+30%)", impact: "Holds $58 CPL at scale · est. +$12K pipeline per month", approve: "Approve — scale +30%" } },
+    { id: "creative-fatigue", priority: "medium", time: "3h ago", title: "Creative fatigue detected", insight: "Three Meta creatives crossed the frequency-3.0 threshold; CTR is down 14% over 7 days. Queue refreshes from the creative library.", action: "Queue refreshes", tag: "high",
+      draft: { what: "Meta retargeting creative", from: "3 fatigued ads", to: "3 fresh variants", impact: "Recovers ~14% CTR · protects $61K retargeting spend", approve: "Approve — queue refreshes" } },
+    { id: "search-cap", priority: "opportunity", time: "5h ago", title: "Search impression share rising", insight: "Non-brand impression share climbed to 71%. There is room to capture an estimated +$22K pipeline by lifting the Search cap 15%.", action: "Raise cap", tag: "opportunity",
+      draft: { what: "Search monthly cap", from: "$39.1K", to: "$45.0K (+15%)", impact: "Captures rising demand · est. +$22K pipeline", approve: "Approve — raise cap 15%" } },
+    { id: "email-steady", priority: "low", time: "Yesterday", title: "Email engagement steady", insight: "Open rate held at 41% after the subject-line test. No action needed — I'll keep watching the next send.", tag: "resolved" },
   ];
   const shown = filter === "all" ? all : all.filter((a) => a.tag === filter);
+  const review = all.find((a) => a.id === reviewId) || null;
+  const openFirstDraft = () => {
+    const next = all.find((a) => a.draft && !executing[a.id]) || all.find((a) => a.draft);
+    if (next) setReviewId(next.id);
+  };
+  const approve = () => {
+    setExecuting((prev) => ({ ...prev, [reviewId]: true }));
+    setReviewId(null);
+  };
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 22, alignItems: "start", maxWidth: 1180 }}>
+    <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 22, alignItems: "start", maxWidth: 1180, margin: "0 auto" }}>
       <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         <Tabs value={filter} onChange={setFilter} tabs={[{ id: "all", label: "All" }, { id: "high", label: "Needs action" }, { id: "opportunity", label: "Opportunities" }, { id: "resolved", label: "Resolved" }]} />
         {shown.map((a) => (
-          <DecisionAlert key={a.title} priority={a.priority} time={a.time} title={a.title} insight={a.insight} action={a.action} iconRoot={ICN} />
+          <AlertCard key={a.id} alert={a} executing={!!executing[a.id]}
+            onReview={() => setReviewId(a.id)}
+            onUndo={() => setExecuting((prev) => { const next = { ...prev }; delete next[a.id]; return next; })} />
         ))}
       </div>
 
@@ -199,7 +268,7 @@ function AlertsInbox() {
             <img src="../../assets/logos/alfred-icon-white.svg" alt="" style={{ height: 24 }} />
             <span style={{ color: "#fff", fontWeight: "var(--fw-bold)", fontSize: "var(--text-base)" }}>Alfred's read on today</span>
           </div>
-          <p style={{ color: "var(--periwinkle-200)", fontSize: "var(--text-base)", lineHeight: "var(--lh-relaxed)", margin: "0 0 18px" }}>
+          <p style={{ color: "rgba(255,255,255,0.78)", fontSize: "var(--text-base)", lineHeight: "var(--lh-relaxed)", margin: "0 0 18px" }}>
             Two items need a decision and both are upside. Reallocating Google Ads spend protects non-brand coverage; scaling LinkedIn while CPL is low is worth an estimated <strong style={{ color: "#fff" }}>+$48K in pipeline</strong>. I've drafted both — approve and I'll execute.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -210,9 +279,35 @@ function AlertsInbox() {
               </div>
             ))}
           </div>
-          <Button variant="primary" size="sm" fullWidth style={{ marginTop: 18 }}>Approve all drafts</Button>
+          <Button variant="subtle" size="sm" fullWidth style={{ marginTop: 18 }} onClick={openFirstDraft}>Review drafts</Button>
         </div>
       </Card>
+
+      {review && (
+        <Modal open onClose={() => setReviewId(null)} title={`Review draft — ${review.title}`}
+          footer={<>
+            <Button variant="ghost" onClick={() => setReviewId(null)}>Cancel</Button>
+            <Button variant="primary" onClick={approve}>{review.draft.approve}</Button>
+          </>}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "12px 14px", background: "var(--surface-sunken)", borderRadius: "var(--radius-md)", fontSize: "var(--text-sm)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>{review.draft.what}</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontVariantNumeric: "tabular-nums" }}>
+                <span style={{ color: "var(--text-muted)", textDecoration: "line-through" }}>{review.draft.from}</span>
+                <span style={{ color: "var(--text-muted)" }}>→</span>
+                <span style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{review.draft.to}</span>
+              </span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>
+              <Icon name="trend-up" root={ICN} size={15} color="var(--success-500)" />
+              <span>{review.draft.impact}</span>
+            </div>
+            <p style={{ margin: 0, paddingTop: 12, borderTop: "1px solid var(--border-subtle)", fontSize: "var(--text-sm)", color: "var(--text-muted)", lineHeight: "var(--lh-normal)" }}>
+              I'll watch this for 48 hours and can revert it the moment it underperforms.
+            </p>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 }
@@ -233,16 +328,16 @@ function Integrations() {
   );
   const Glyph = ({ color }) => (
     <div style={{ width: 42, height: 42, borderRadius: "var(--radius-md)", flex: "none", background: color, display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <Icon name="web-stack-connected" root={ICN} size={22} color="#fff" />
+      <Icon name="web-stack-connected" root={ICN} size={22} color="var(--text-on-orange)" />
     </div>
   );
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 26, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 26, maxWidth: 1180, margin: "0 auto" }}>
       <Card tone="gradient" padding={24} style={{ display: "flex", alignItems: "center", gap: 18 }}>
         <Icon name="integration-success" root={ICN} size={30} color="#fff" />
         <div style={{ flex: 1 }}>
           <div style={{ color: "#fff", fontWeight: "var(--fw-bold)", fontSize: "var(--text-h4)" }}>6 sources connected</div>
-          <div style={{ color: "rgba(255,255,255,0.92)", fontSize: "var(--text-sm)" }}>Alfred Core is reading from your full marketing stack. The more you connect, the sharper the memory.</div>
+          <div style={{ color: "rgba(255,255,255,0.92)", fontSize: "var(--text-sm)" }}>I'm reading from your full marketing stack. The more you connect, the sharper my memory.</div>
         </div>
         <Button variant="secondary" size="sm" style={{ background: "#fff", color: "var(--ink-900)" }}>Add a source</Button>
       </Card>
@@ -275,7 +370,7 @@ function Integrations() {
                 <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{name}</div>
                 <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{desc}</div>
               </div>
-              <Button variant="outline" size="sm">Connect</Button>
+              <Button variant="subtle" size="sm">Connect</Button>
             </Tile>
           ))}
         </div>
@@ -288,7 +383,7 @@ function Integrations() {
 function Settings() {
   const [pane, setPane] = React.useState("profile");
   const [name, setName] = React.useState("Priya Menon");
-  const [email, setEmail] = React.useState("priya@northwind.co");
+  const [email, setEmail] = React.useState("priya@northwindlabs.com");
   const [brief, setBrief] = React.useState(true);
   const [alerts, setAlerts] = React.useState(true);
   const [digest, setDigest] = React.useState(false);
@@ -301,7 +396,7 @@ function Settings() {
     }}>{label}</button>
   );
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 28, maxWidth: 1000, alignItems: "start" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 28, maxWidth: 1000, margin: "0 auto", alignItems: "start" }}>
       <nav style={{ display: "flex", flexDirection: "column", gap: 4, position: "sticky", top: 0 }}>{panes.map(NavRow)}</nav>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
@@ -310,13 +405,13 @@ function Settings() {
             <SectionHead title="Profile" sub="How you appear across the workspace" />
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 22 }}>
               <Avatar name={name} size={64} />
-              <Button variant="outline" size="sm">Change photo</Button>
+              <Button variant="subtle" size="sm">Change photo</Button>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
               <Input label="Full name" value={name} onChange={(e) => setName(e.target.value)} fill="plain" />
               <Input label="Work email" value={email} onChange={(e) => setEmail(e.target.value)} fill="plain" />
               <Input label="Role" value="CMO" fill="plain" readOnly />
-              <Input label="Team" value="Northwind Co." fill="plain" readOnly />
+              <Input label="Team" value="Northwind Labs" fill="plain" readOnly />
             </div>
             <div style={{ display: "flex", gap: 10, marginTop: 22 }}>
               <Button variant="primary" size="sm">Save changes</Button>
@@ -327,9 +422,9 @@ function Settings() {
 
         {pane === "workspace" && (
           <Card padding={28} shadow="sm">
-            <SectionHead title="Workspace" sub="Northwind Co. · 14 members" />
+            <SectionHead title="Workspace" sub="Northwind Labs · 14 members" />
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-              <Input label="Workspace name" value="Northwind Co." fill="plain" readOnly />
+              <Input label="Workspace name" value="Northwind Labs" fill="plain" readOnly />
               <Input label="Industry" value="B2B SaaS" fill="plain" readOnly />
             </div>
             <div style={{ marginTop: 22, display: "flex", flexDirection: "column", gap: 14 }}>

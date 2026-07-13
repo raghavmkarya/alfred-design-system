@@ -242,6 +242,11 @@
   ],
   "textStyles": [
     {
+      "name": "text-display",
+      "fontSize": "var(--text-primary)",
+      "fontFamily": "Satoshi (web) / Clash Display (app headings)"
+    },
+    {
       "name": "text-display-2xl",
       "fontSize": "96px",
       "fontFamily": "Satoshi (web) / Clash Display (app headings)"

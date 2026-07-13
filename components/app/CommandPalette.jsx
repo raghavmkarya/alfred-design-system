@@ -159,7 +159,7 @@ export function CommandPalette({
         <span style={{
           ...chipBase,
           background: isAsk ? "var(--orange-500)" : "var(--surface-sunken)",
-          color: isAsk ? "var(--text-on-brand)" : (active ? "var(--orange-500)" : "var(--text-muted)"),
+          color: isAsk ? "var(--text-on-orange)" : (active ? "var(--orange-500)" : "var(--text-muted)"),
         }}>
           {item.icon ? item.icon : <SparkleIcon size={15} color="currentColor" />}
         </span>
@@ -259,7 +259,7 @@ export function CommandPalette({
             variant="primary"
             disabled={!query}
             onClick={() => submit(currentStr)}
-            iconLeft={<SparkleIcon size={15} color="var(--text-on-brand)" />}
+            iconLeft={<SparkleIcon size={15} color="var(--text-on-orange)" />}
             style={{ flex: "none" }}
           >
             Ask

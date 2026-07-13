@@ -1,4 +1,4 @@
-<!-- @dsCard group="Alfred App" viewport="1440x900" name="Alfred — CMO workspace" subtitle="Login → briefing, Seek Alfred, KPI cockpit, spend, alerts, creative, AI visibility, integrations & settings" -->
+<!-- @dsCard group="Alfred App" viewport="1440x900" name="Alfred — CMO workspace" subtitle="Login → briefing, Ask Alfred, KPI cockpit, spend, alerts, creative, AI visibility, integrations & settings" -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,28 +32,28 @@ const ICONROOT = "../../assets/icons";
 const { Avatar, Badge } = window.AlfredAIDesignSystem_1ce241;
 
 const NAV = [
-  { id: "home", glyph: "home", label: "Home" },
-  { id: "briefing", glyph: "briefing", label: "Daily Briefing" },
-  { id: "ask", glyph: "ask", label: "Seek Alfred" },
-  { id: "cockpit", glyph: "cockpit", label: "KPI Cockpit" },
-  { id: "spend", glyph: "spend", label: "Spend & ROI" },
-  { id: "alerts", glyph: "alerts", label: "Decision Alerts", badge: "3" },
-  { id: "creative", glyph: "creative", label: "Creative" },
-  { id: "visibility", glyph: "visibility", label: "AI Visibility" },
-  { id: "integrations", glyph: "integrations", label: "Integrations" },
-  { id: "notifications", glyph: "alerts", label: "Notifications", badge: "2" },
-  { id: "memory", glyph: "briefing", label: "Alfred Core" },
-  { id: "connections", glyph: "integrations", label: "Connect data" },
-  { id: "health", glyph: "visibility", label: "Connection health" },
-  { id: "team", glyph: "settings", label: "Team" },
-  { id: "billing", glyph: "spend", label: "Billing" },
-  { id: "audit", glyph: "search", label: "Audit log" },
-  { id: "settings", glyph: "settings", label: "Settings" },
+  { id: "home", glyph: "home", label: "Home", section: "Today" },
+  { id: "briefing", glyph: "briefing", label: "Daily briefing", section: "Today" },
+  { id: "alerts", glyph: "alerts", label: "Decision alerts", badge: "3", section: "Today" },
+  { id: "ask", glyph: "ask", label: "Ask Alfred", section: "Today" },
+  { id: "cockpit", glyph: "cockpit", label: "KPI cockpit", section: "Intelligence" },
+  { id: "spend", glyph: "spend", label: "Spend & ROI", section: "Intelligence" },
+  { id: "creative", glyph: "creative", label: "Creative", section: "Intelligence" },
+  { id: "visibility", glyph: "visibility", label: "AI visibility", section: "Intelligence" },
+  { id: "integrations", glyph: "integrations", label: "Integrations", section: "Data" },
+  { id: "connections", glyph: "integrations", label: "Connect data", section: "Data" },
+  { id: "health", glyph: "visibility", label: "Connection health", section: "Data" },
+  { id: "notifications", glyph: "inbox", label: "Notifications", badge: "2", section: "Workspace" },
+  { id: "memory", glyph: "memory", label: "Memory", section: "Workspace" },
+  { id: "team", glyph: "settings", label: "Team", section: "Workspace" },
+  { id: "billing", glyph: "spend", label: "Billing", section: "Workspace" },
+  { id: "audit", glyph: "search", label: "Audit log", section: "Workspace" },
+  { id: "settings", glyph: "settings", label: "Settings", section: "Workspace" },
 ];
 
-function Bell() {
+function Bell({ onClick }) {
   return (
-    <button title="Alerts" style={{
+    <button onClick={onClick} aria-label="Open decision alerts" title="Open decision alerts" style={{
       position: "relative", width: 42, height: 42, borderRadius: "50%", border: "1px solid var(--border-subtle)",
       background: "var(--surface-card)", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--text-secondary)",
     }}>
@@ -94,17 +94,17 @@ function App() {
   if (!authed) return <window.AuthScreen onSignedIn={() => setAuthed(true)} />;
 
   const titles = {
-    home: ["Home", "Tuesday, 11 June · Northwind Co."],
-    briefing: ["Daily Briefing", "What changed, why, and what to do"],
-    ask: ["Seek Alfred", "Ask anything — answered from your data"],
-    cockpit: ["Unified KPI Cockpit", "All metrics, one source of truth"],
-    spend: ["Spend & ROI Intelligence", "Where every dollar is working"],
-    alerts: ["Real-Time Decision Alerts", "What needs your attention now"],
-    creative: ["Creative Lifecycle", "Fatigue, caught before the metrics show it"],
-    visibility: ["AI Visibility Score", "Whether AI recommends you — and what to fix"],
+    home: ["Home", "Tuesday, 11 June · Northwind Labs"],
+    briefing: ["Daily briefing", "What changed, why, and what to do"],
+    ask: ["Ask Alfred", "Ask anything — answered from your data"],
+    cockpit: ["KPI cockpit", "All metrics, one source of truth"],
+    spend: ["Spend & ROI", "Where every dollar is working"],
+    alerts: ["Decision alerts", "What needs your attention now"],
+    creative: ["Creative lifecycle", "Fatigue, caught before the metrics show it"],
+    visibility: ["AI visibility", "Whether AI recommends you — and what to fix"],
     integrations: ["Integrations", "Connect your marketing stack"],
     notifications: ["Notifications", "Briefs, alerts and approvals — in one inbox"],
-    memory: ["Alfred Core", "Everything I've learned about your org"],
+    memory: ["Memory", "Everything I've learned about your org"],
     connections: ["Connect your data", "Read-only by default, first sync in minutes"],
     health: ["Connection health", "Every source, its freshness and status"],
     team: ["Team & permissions", "Seats, roles and invites"],
@@ -122,7 +122,7 @@ function App() {
       nav={NAV} active={active} onNav={setActive}
       title={title} subtitle={subtitle}
       logoRoot={LOGOROOT} iconRoot={ICONROOT}
-      headerRight={<><Bell />
+      headerRight={<><Bell onClick={() => setActive("alerts")} />
         <button aria-label="Your profile" title="Your profile" onClick={() => setActive("profile")} style={{
           padding: 0, border: "none", background: "transparent", borderRadius: "50%",
           cursor: "pointer", display: "inline-flex", lineHeight: 0,

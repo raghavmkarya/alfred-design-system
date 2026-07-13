@@ -9,7 +9,7 @@
    server-render it prop-less.
    ============================================================ */
 const { Card, Badge, Button, Icon, Banner, Table, ProgressBar, DecisionAlert,
-  NotificationItem, NotificationPref, ConnectionHealthCard, DataFreshness,
+  Switch, ConnectionHealthCard, DataFreshness,
   ReasoningState, ProvenancePanel, ApprovalGate, InsightFeedback, PageHeader } =
   window.AlfredAIDesignSystem_1ce241;
 const ICN = "../../assets/icons";
@@ -64,7 +64,7 @@ const SourceGlyph = ({ seed = 0, muted = false, size = 40 }) => (
     background: muted ? "var(--gray-100)" : SOURCE_COLORS[seed % SOURCE_COLORS.length],
     display: "inline-flex", alignItems: "center", justifyContent: "center",
   }}>
-    <Icon name={muted ? "web-clarity" : "web-stack-connected"} root={ICN} size={Math.round(size / 2)} color={muted ? "var(--text-muted)" : "#fff"} />
+    <Icon name={muted ? "web-clarity" : "web-stack-connected"} root={ICN} size={Math.round(size / 2)} color={muted ? "var(--text-muted)" : "var(--text-on-orange)"} />
   </span>
 );
 
@@ -81,7 +81,7 @@ function ConnectionFlow() {
   ];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       <PageHeader
         title="Connect your stack"
         subtitle="The more I can read, the sharper your briefs get. Everything is read-only until you approve otherwise."
@@ -222,7 +222,7 @@ function ConnectionHealth() {
   const rows = cards.map((c) => ({ name: c.name, category: catOf(c.name), lastSync: c.lastSync === "just now" ? "just now" : c.lastSync, status: c.status }));
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       <PageHeader
         title="Connection health"
         subtitle="Silent stale data is a trust failure — so I show you exactly what I'm reading, and when I last read it."
@@ -230,7 +230,7 @@ function ConnectionHealth() {
       />
 
       <Banner tone="warning" title="Search Console has been stale for 26 hours"
-        action={<Button variant="primary" size="sm">Reconnect</Button>}>
+        action={<Button variant="subtle" size="sm">Reconnect</Button>}>
         The OAuth token expired overnight. I'm holding your AI Visibility inputs at yesterday's data rather than
         guessing — reconnect and I'll backfill the gap automatically.
       </Banner>
@@ -273,7 +273,7 @@ function FirstRunWaiting() {
   ];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       {/* hero — the time-to-value moment */}
       <Card tone="ink" radius="var(--radius-2xl)" padding={30} style={{ position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "var(--glow-orange)", opacity: 0.55 }} />
@@ -355,6 +355,71 @@ function FirstRunWaiting() {
 /* ======================= NOTIFICATIONS CENTER ======================= */
 /* `onOpenAlert` is optional — the app shell passes it to route into the
    full Alert Detail screen; prop-less renders (verify-render) stay valid. */
+
+/* Local inbox row. Unread is a plain card row — bold primary title plus a
+   6px orange dot — never a tinted band; read rows mute the title and drop
+   the dot. Row CTAs are subtle Buttons (never a solid-orange fill). */
+const NOTIF_TONES = {
+  brand: { color: "var(--orange-500)", bg: "var(--accent-soft)" },
+  info: { color: "var(--periwinkle-500)", bg: "var(--info-100)" },
+  success: { color: "var(--success-500)", bg: "var(--success-100)" },
+  warning: { color: "var(--warning-500)", bg: "var(--warning-100)" },
+  danger: { color: "var(--danger-500)", bg: "var(--danger-100)" },
+};
+function NotifRow({ title, body, time, tone = "brand", unread = false, actions = [] }) {
+  const T = NOTIF_TONES[tone] || NOTIF_TONES.brand;
+  return (
+    <div style={{
+      display: "flex", gap: 12, padding: "14px 16px", width: "100%", boxSizing: "border-box",
+      background: "var(--surface-card)", borderBottom: "1px solid var(--border-subtle)",
+    }}>
+      <span aria-hidden="true" style={{
+        width: 36, height: 36, flex: "none", borderRadius: "var(--radius-md)", background: T.bg,
+        display: "inline-flex", alignItems: "center", justifyContent: "center",
+      }}>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={T.color} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.7 21a2 2 0 0 1-3.4 0" />
+        </svg>
+      </span>
+      <div style={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+          {unread && <span aria-label="Unread" style={{
+            width: 6, height: 6, flex: "none", alignSelf: "center",
+            borderRadius: "var(--radius-circle)", background: "var(--orange-500)",
+          }} />}
+          <span style={{
+            flex: 1, minWidth: 0, fontSize: "var(--text-sm)", lineHeight: "var(--lh-snug)",
+            fontWeight: unread ? "var(--fw-bold)" : "var(--fw-medium)",
+            color: unread ? "var(--text-primary)" : "var(--text-muted)",
+          }}>{title}</span>
+          <span style={{ flex: "none", fontSize: "var(--text-2xs)", color: "var(--text-muted)", whiteSpace: "nowrap" }}>{time}</span>
+        </div>
+        {body && <span style={{ fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)" }}>{body}</span>}
+        {actions.length > 0 && (
+          <span style={{ display: "inline-flex", flexWrap: "wrap", gap: 8, marginTop: 6 }}>
+            {actions.map((a) => (
+              <Button key={a.label} variant="subtle" size="sm" onClick={a.onClick}>{a.label}</Button>
+            ))}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* Delivery matrix columns — one shared header row of labels; each agent row
+   keeps only its three switches, aligned under the columns. Accessible names
+   live on the switches themselves ("<agent> via email", …). */
+const NOTIF_CHANNELS = [
+  { key: "email", caption: "Email", name: "via email" },
+  { key: "slack", caption: "Slack", name: "via Slack" },
+  { key: "inApp", caption: "In-app", name: "in-app" },
+];
+const HIDDEN_LABEL = {
+  position: "absolute", width: 1, height: 1, padding: 0, margin: -1,
+  overflow: "hidden", clip: "rect(0 0 0 0)", whiteSpace: "nowrap", border: 0,
+};
+
 function NotificationsCenter({ onOpenAlert } = {}) {
   const AGENTS = [
     ["Daily Brief", "Your 8:00 AM read on what changed and what to do."],
@@ -384,23 +449,19 @@ function NotificationsCenter({ onOpenAlert } = {}) {
   ];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
-      <PageHeader
-        title="Notifications"
-        subtitle="Everything I've flagged, in one place — briefs, anomalies and approvals waiting on you."
-        actions={<>
-          <Badge tone="brand" dot>2 unread</Badge>
-          <Button variant="subtle" size="sm">Mark all read</Button>
-        </>}
-      />
-
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
+      {/* The shell header already says "Notifications" — no in-body page
+          header; the utility row lives on the Inbox card instead. */}
       <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 22, alignItems: "start" }}>
         <Card padding={0} shadow="sm" style={{ overflow: "hidden" }}>
           <div style={{ padding: "18px 20px 12px" }}>
-            <Sect title="Inbox" sub="Ranked by how much they need you" right={<Icon name="refresh" root={ICN} size={16} color="var(--text-muted)" />} />
+            <Sect title="Inbox" sub="Ranked by how much they need you" right={<>
+              <Badge tone="brand" dot>2 unread</Badge>
+              <Button variant="ghost" size="sm">Mark all read</Button>
+            </>} />
           </div>
           {feed.map((n) => (
-            <NotificationItem key={n.title} title={n.title} body={n.body} time={n.time}
+            <NotifRow key={n.title} title={n.title} body={n.body} time={n.time}
               tone={n.tone} unread={!!n.unread} actions={n.actions || []} />
           ))}
         </Card>
@@ -409,9 +470,42 @@ function NotificationsCenter({ onOpenAlert } = {}) {
           <div style={{ padding: "18px 20px 12px" }}>
             <Sect title="Delivery per agent" sub="Choose where each agent reaches you" />
           </div>
+          {/* One shared header row of column labels — not repeated per row */}
+          <div aria-hidden="true" style={{
+            display: "flex", alignItems: "center", gap: 24, padding: "0 16px 10px",
+            borderBottom: "1px solid var(--border-subtle)",
+          }}>
+            <div style={{ flex: 1 }} />
+            <div style={{ display: "flex", gap: 18, flex: "none" }}>
+              {NOTIF_CHANNELS.map((c) => (
+                <span key={c.key} style={{
+                  minWidth: 48, textAlign: "center", fontSize: 10.5, fontWeight: "var(--fw-semibold)",
+                  letterSpacing: "var(--ls-caps)", textTransform: "uppercase",
+                  color: "var(--text-muted)", lineHeight: 1,
+                }}>{c.caption}</span>
+              ))}
+            </div>
+          </div>
           {AGENTS.map(([agent, description]) => (
-            <NotificationPref key={agent} agent={agent} description={description}
-              channels={prefs[agent]} onChange={setPref(agent)} />
+            <div key={agent} style={{
+              display: "flex", alignItems: "center", gap: 24, padding: "14px 16px",
+              background: "var(--surface-card)", borderBottom: "1px solid var(--border-subtle)",
+            }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", lineHeight: "var(--lh-snug)" }}>{agent}</div>
+                <p style={{ margin: "3px 0 0", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)" }}>{description}</p>
+              </div>
+              <div role="group" aria-label={`${agent} notification channels`} style={{ display: "flex", gap: 18, flex: "none" }}>
+                {NOTIF_CHANNELS.map((c) => (
+                  <span key={c.key} style={{ minWidth: 48, display: "inline-flex", justifyContent: "center" }}>
+                    <Switch checked={!!prefs[agent][c.key]}
+                      onChange={(value) => setPref(agent)(c.key, value)}
+                      label={<span style={HIDDEN_LABEL}>{`${agent} ${c.name}`}</span>}
+                      style={{ gap: 0 }} />
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
           <div style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "14px 20px", background: "var(--surface-sunken)" }}>
             <Icon name="alert-warning" root={ICN} size={15} color="var(--text-muted)" style={{ marginTop: 2 }} />
@@ -437,7 +531,7 @@ function AlertDetail() {
     ["CAC", "—"],
   ];
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       <PageHeader
         breadcrumb={[{ label: "Decision alerts" }, { label: "P1 — Meta prospecting, US broad" }]}
         title="P1 anomaly"
@@ -448,10 +542,11 @@ function AlertDetail() {
         </>}
       />
 
+      {/* No `action` here — the approval gate below owns this screen's one
+          primary CTA; a second solid-orange button would compete with it. */}
       <DecisionAlert priority="high" time="7:42 AM" iconRoot={ICN}
         title="Campaign burning $4.8K with zero conversions"
-        insight="Meta — prospecting, US broad. I haven't touched anything yet — the kill is drafted below and holds for your approval."
-        action="Review the draft" />
+        insight="Meta — prospecting, US broad. I haven't touched anything yet — the kill is drafted below and holds for your approval." />
 
       <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 22, alignItems: "start" }}>
         {/* narrative + provenance + feedback */}
@@ -501,6 +596,7 @@ function AlertDetail() {
             title="Pause Meta US-broad prospecting"
             summary="Recovers $4.8K/mo of waste at 91% confidence. Retargeting is untouched — this only stops the broad audience that stopped converting."
             steps={["Pause 3 ad sets", "Archive the broad audience"]}
+            approveLabel="Approve — pause campaign"
             style={{ maxWidth: "none" }} />
 
           <Card padding={22} shadow="sm">

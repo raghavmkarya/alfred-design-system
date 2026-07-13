@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5 {
   font-weight: var(--fw-semibold);
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
-  color: var(--text-primary);
+  color: var(--text-display);
   margin: 0;
 }
 
@@ -59,10 +59,26 @@ a:hover { opacity: 0.78; }
 [data-theme="dark"] .ds-logo-auto .ds-logo-white,
 [data-theme="app-dark"] .ds-logo-auto .ds-logo-white { display: block !important; }
 
+/* App-dark: the ink hero panel keeps its rank with a periwinkle→orange
+   hairline — the view's one sanctioned gradient element. */
+[data-theme="app-dark"] .ds-card--ink {
+  background: linear-gradient(var(--surface-ink), var(--surface-ink)) padding-box, var(--gradient-brand) border-box !important;
+  border-color: transparent !important;
+}
+
+/* App-dark switch tracks: the off state must clear 3:1 against the card,
+   and the on state is a dimmed ember rather than full-strength orange so a
+   panel of enabled toggles doesn't read as a hazard wall. */
+[data-theme="app-dark"] .ds-switch-track[data-checked="false"] { background: rgba(255,255,255,0.20) !important; }
+[data-theme="app-dark"] .ds-switch-track[data-checked="true"] { background: rgba(255,132,49,0.55) !important; }
+
+/* Focus is additive: an offset outline follows the element's own geometry,
+   never mutates its radius, and never displaces its elevation shadow.
+   --border-focus is a solid accent in every theme, so the ring stays visible
+   on dark where the old low-alpha glow ring vanished. */
 :focus-visible {
-  outline: none;
-  box-shadow: var(--shadow-focus);
-  border-radius: var(--radius-sm);
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
 }
 
 /* Respect users who ask for less motion — neutralise animations & transitions. */

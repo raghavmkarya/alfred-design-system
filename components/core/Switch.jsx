@@ -16,6 +16,8 @@ export function Switch({ checked = false, onChange, disabled = false, label, sty
       userSelect: "none", ...style,
     }}>
       <span
+        className="ds-switch-track"
+        data-checked={checked ? "true" : "false"}
         style={{
           position: "relative",
           width: 44, height: 26, borderRadius: "var(--radius-pill)", padding: 3,

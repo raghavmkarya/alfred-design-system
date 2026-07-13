@@ -47,7 +47,8 @@ export function DecisionAlert({
         <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)" }}>{insight}</p>
         {action && (
           <button onClick={onAction} style={{
-            marginTop: 12, border: "none", cursor: "pointer", background: "var(--orange-500)", color: "#fff",
+            marginTop: 12, cursor: "pointer", background: "var(--orange-50)", color: "var(--text-on-tint-brand)",
+            border: "1px solid var(--border-subtle)",
             fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
             padding: "8px 16px", borderRadius: "var(--radius-md)",
           }}>{action}</button>

@@ -1,6 +1,6 @@
 /* ============================================================
    Alfred workspace — flagship product screens (part 2).
-   Daily Briefing · Seek Alfred · Creative Lifecycle · AI Visibility.
+   Daily Briefing · Ask Alfred · Creative Lifecycle · AI Visibility.
    Light theme. Composed from the design-system primitives, matching
    Screens.jsx (soft cards, gradient accents, first-person voice).
    Each component is self-contained so scripts/verify-render.mjs can
@@ -47,13 +47,13 @@ function MeterRow({ label, value, color, suffix = "%" }) {
 /* ======================= DAILY BRIEFING ======================= */
 function DailyBrief() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       {/* hero — the full morning narrative */}
       <Card tone="ink" radius="var(--radius-2xl)" padding={30} style={{ position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "var(--glow-orange)", opacity: 0.6 }} />
         <div style={{ position: "relative" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-            <Badge tone="brand" dot>Daily Briefing · 8:00 AM</Badge>
+            <Badge tone="brand" dot>Daily briefing · 8:00 AM</Badge>
             <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "var(--text-xs)" }}>Tuesday, 11 June · 90-second read</span>
           </div>
           <h2 style={{ color: "#fff", fontSize: "var(--text-h2)", fontWeight: "var(--fw-semibold)", margin: "14px 0 10px", letterSpacing: "var(--ls-tight)", maxWidth: 840, lineHeight: 1.15 }}>
@@ -77,7 +77,7 @@ function DailyBrief() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
           <KpiCard label="Blended ROAS" value="4.8x" delta="+12.4%" direction="up" caption="vs last 30d" icon="trend-up" iconRoot={ICN} />
           <KpiCard label="Pipeline created" value="$2.68M" delta="+19.5%" direction="up" caption="this quarter" icon="trend-up" iconRoot={ICN} />
-          <KpiCard label="Wasted spend" value="$11.4K" delta="-31%" direction="down" caption="I reclaimed" icon="trend-down" iconRoot={ICN} />
+          <KpiCard label="Wasted spend" value="$11.4K" delta="-31%" direction="down" valence="good" caption="I reclaimed" icon="trend-down" iconRoot={ICN} />
           <KpiCard label="Spend pacing" value="106%" delta="+6.0%" direction="flat" caption="of monthly plan" icon="budget" iconRoot={ICN} />
         </div>
       </div>
@@ -108,17 +108,15 @@ function DailyBrief() {
               <SignalCard tone="truth" label="Reconciled" statement="GA4 and HubSpot agree on attribution" trace="No discrepancy this cycle — your board numbers will match." />
             </div>
           </Card>
-          <Card tone="gradient" padding={22} style={{ position: "relative", overflow: "hidden" }}>
-            <div style={{ color: "#fff" }}>
-              <div style={{ fontWeight: "var(--fw-bold)", fontSize: "var(--text-base)", marginBottom: 6 }}>Delivered the way you read</div>
-              <div style={{ fontSize: "var(--text-sm)", opacity: 0.92, lineHeight: "var(--lh-normal)", marginBottom: 14 }}>
-                This brief reaches you at 8:00 AM on email, Slack, and in-app — every weekday.
-              </div>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                {["Email", "Slack", "In-app"].map((c) => (
-                  <span key={c} style={{ padding: "5px 12px", borderRadius: "var(--radius-pill)", background: "rgba(255,255,255,0.18)", color: "#fff", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)" }}>{c}</span>
-                ))}
-              </div>
+          <Card tone="surface" padding={22} shadow="sm">
+            <div style={{ fontWeight: "var(--fw-bold)", fontSize: "var(--text-base)", color: "var(--text-primary)", marginBottom: 6 }}>Delivered the way you read</div>
+            <div style={{ fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", marginBottom: 14 }}>
+              This brief reaches you at 8:00 AM on email, Slack, and in-app — every weekday.
+            </div>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              {["Email", "Slack", "In-app"].map((c) => (
+                <span key={c} style={{ padding: "5px 12px", borderRadius: "var(--radius-pill)", background: "var(--accent-soft)", color: "var(--text-on-tint-brand)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)" }}>{c}</span>
+              ))}
             </div>
           </Card>
         </div>
@@ -133,18 +131,18 @@ function SeekAlfred() {
   const chips = ["Forecast Q3 pipeline", "Which channel is underspending?", "What's my most efficient campaign?", "How is AI visibility trending?"];
   const follow = ["Break this down by week", "What would fixing it cost?", "Draft the reallocation"];
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       {/* ask bar */}
       <Card padding={20} shadow="sm" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <img src={`${LOGO}/alfred-icon.svg`} alt="" style={{ height: 26 }} />
-          <span style={{ fontWeight: "var(--fw-bold)", fontSize: "var(--text-base)" }}>Seek Alfred</span>
+          <span style={{ fontWeight: "var(--fw-bold)", fontSize: "var(--text-base)" }}>Ask Alfred</span>
           <Badge tone="info">on-demand · grounded in your data</Badge>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 6px 6px 18px", background: "var(--gray-50)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-pill)" }}>
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask anything about your marketing performance…"
             style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-primary)" }} />
-          <Button variant="primary" size="sm" iconRight={<SendGlyph />}>Ask</Button>
+          <Button variant="subtle" size="sm" iconRight={<SendGlyph />}>Ask</Button>
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           {chips.map((c) => <Chip key={c} onClick={() => setQ(c)}>{c}</Chip>)}
@@ -191,7 +189,7 @@ function SeekAlfred() {
             </p>
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               <Button variant="primary" size="sm">Queue creative refreshes</Button>
-              <Button variant="outline" size="sm">Open Creative Lifecycle</Button>
+              <Button variant="subtle" size="sm">Open Creative Lifecycle</Button>
             </div>
           </Card>
 
@@ -228,26 +226,34 @@ function SeekAlfred() {
 /* ======================= CREATIVE LIFECYCLE ======================= */
 function CreativeLifecycle() {
   const creatives = [
-    { name: "Spring Launch — Hero A", ch: "Meta", freq: "3.4", fatigue: 86, ctr: "-18%", rec: "Refresh", tone: "danger", color: "var(--orange-400)" },
-    { name: "ABM Carousel — Tier 1", ch: "LinkedIn", freq: "2.1", fatigue: 38, ctr: "+4%", rec: "Keep live", tone: "success", color: "var(--periwinkle-500)" },
-    { name: "Retargeting — Testimonial", ch: "Meta", freq: "3.1", fatigue: 72, ctr: "-12%", rec: "Rotate", tone: "warning", color: "var(--orange-500)" },
-    { name: "PMax — Asset Group 2", ch: "Google", freq: "2.6", fatigue: 54, ctr: "-6%", rec: "Rotate", tone: "warning", color: "var(--periwinkle-400)" },
-    { name: "Brand Film — 15s", ch: "YouTube", freq: "1.4", fatigue: 22, ctr: "+1%", rec: "Keep live", tone: "success", color: "var(--orange-300)" },
-    { name: "Promo — Static B", ch: "Meta", freq: "3.6", fatigue: 91, ctr: "-21%", rec: "Pause", tone: "danger", color: "var(--periwinkle-600)" },
+    { name: "Spring Launch — Hero A", ch: "Meta", freq: "3.4", fatigue: 86, ctr: "-18%", rec: "Refresh", tone: "danger" },
+    { name: "ABM Carousel — Tier 1", ch: "LinkedIn", freq: "2.1", fatigue: 38, ctr: "+4%", rec: "Keep live", tone: "success" },
+    { name: "Retargeting — Testimonial", ch: "Meta", freq: "3.1", fatigue: 72, ctr: "-12%", rec: "Rotate", tone: "warning" },
+    { name: "PMax — Asset Group 2", ch: "Google", freq: "2.6", fatigue: 54, ctr: "-6%", rec: "Rotate", tone: "warning" },
+    { name: "Brand Film — 15s", ch: "YouTube", freq: "1.4", fatigue: 22, ctr: "+1%", rec: "Keep live", tone: "success" },
+    { name: "Promo — Static B", ch: "Meta", freq: "3.6", fatigue: 91, ctr: "-21%", rec: "Pause", tone: "danger" },
   ];
   const sev = (f) => (f >= 75 ? "var(--danger-500)" : f >= 50 ? "var(--orange-500)" : "var(--success-500)");
+  /* Quiet, deterministic platform-coded tints — the fatigue meter stays the loudest element on each card. */
+  const platformTint = {
+    Meta: "var(--periwinkle-100)",
+    LinkedIn: "var(--periwinkle-50)",
+    Google: "var(--orange-50)",
+    YouTube: "var(--orange-100)",
+    TikTok: "var(--gray-100)",
+  };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
         <KpiCard label="Creatives live" value="24" delta="+3" direction="flat" caption="across 4 channels" icon="channel-mix" iconRoot={ICN} />
-        <KpiCard label="Entering fatigue" value="3" delta="+2" direction="down" caption="frequency > 3.0" icon="alert-warning" iconRoot={ICN} />
+        <KpiCard label="Entering fatigue" value="3" delta="+2" direction="up" valence="bad" caption="frequency > 3.0" icon="alert-warning" iconRoot={ICN} />
         <KpiCard label="Avg. frequency" value="2.8" delta="+0.4" direction="flat" caption="last 7 days" icon="trend-up" iconRoot={ICN} />
         <KpiCard label="CTR (7-day)" value="1.9%" delta="-9.0%" direction="down" caption="blended" icon="trend-down" iconRoot={ICN} />
       </div>
 
       <Banner tone="warning" title="Three creatives crossed the frequency-3.0 threshold in the 25–34 segment"
-        action={<Button variant="primary" size="sm">Queue all refreshes</Button>}>
+        action={<Button variant="subtle" size="sm">Queue all refreshes</Button>}>
         I caught this before it showed in aggregate CTR. Refreshing now recovers an estimated $9K in efficiency this month —
         your spend hasn't noticed the fatigue yet, but I have.
       </Banner>
@@ -257,8 +263,7 @@ function CreativeLifecycle() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
           {creatives.map((c) => (
             <Card key={c.name} interactive padding={0} shadow="sm" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
-              <div style={{ height: 92, background: c.color, position: "relative", display: "flex", alignItems: "flex-start", justifyContent: "flex-end", padding: 12 }}>
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(255,255,255,0.18), rgba(2,2,30,0.12))" }} />
+              <div style={{ height: 92, background: platformTint[c.ch] || "var(--gray-100)", position: "relative", display: "flex", alignItems: "flex-start", justifyContent: "flex-end", padding: 12 }}>
                 <span style={{ position: "relative", padding: "4px 10px", borderRadius: "var(--radius-pill)", background: "rgba(255,255,255,0.92)", color: "var(--ink-800)", fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase" }}>{c.ch}</span>
               </div>
               <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 12 }}>
@@ -325,7 +330,7 @@ function AiVisibility() {
   ];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       {/* score + read */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: 22, alignItems: "stretch" }}>
         <Card padding={24} shadow="sm" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, justifyContent: "center" }}>
@@ -338,8 +343,9 @@ function AiVisibility() {
         </Card>
 
         <Card tone="gradient" padding={28} style={{ position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <div style={{ color: "#fff" }}>
-            <div style={{ fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase", opacity: 0.9, marginBottom: 10 }}>AI Visibility Score · unique to Alfred</div>
+          {/* ink on the gradient: 9.3:1 on the periwinkle end, 8.3:1 on the orange end */}
+          <div style={{ color: "var(--ink-900)" }}>
+            <div style={{ fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase", opacity: 0.9, marginBottom: 10 }}>AI visibility score · unique to Alfred</div>
             <p style={{ fontSize: "var(--text-h4)", fontWeight: "var(--fw-semibold)", lineHeight: 1.3, margin: "0 0 14px", letterSpacing: "var(--ls-tight)" }}>
               Your buyers are asking AI which marketing platform to use. Right now you're the answer 72% of the time.
             </p>

@@ -111,7 +111,7 @@ export function SeekComposer({
                 width: 38, height: 38, flex: "none", borderRadius: "var(--radius-circle)",
                 border: "none", cursor: canSend ? "pointer" : "not-allowed",
                 background: canSend ? "var(--orange-500)" : "var(--gray-150)",
-                color: canSend ? "#fff" : "var(--text-placeholder)",
+                color: canSend ? "var(--text-on-orange)" : "var(--text-placeholder)",
                 boxShadow: canSend ? "var(--shadow-brand)" : "none",
                 transition: "background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
               }}

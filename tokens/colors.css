@@ -77,7 +77,9 @@
   --text-body: var(--ink-700);          /* long-form body copy — one step darker than secondary */
   --text-muted: var(--ink-500);
   --text-placeholder: var(--ink-400);
-  --text-on-brand: #FFFFFF;
+  --text-display: var(--text-primary);  /* display/KPI type — capped below pure white on app-dark to stop halation */
+  --text-on-brand: #FFFFFF;             /* white — for gradient surfaces and danger fills */
+  --text-on-orange: var(--ink-900);     /* ink on solid orange (8.35:1) — orange cannot carry white small text (2.4:1) */
   --text-link: var(--orange-500);
 
   --border-subtle: var(--gray-150);
@@ -187,17 +189,18 @@
   --surface-card: var(--ink-875);           /* real raised cards — the app keeps its elevation */
   --surface-raised: #1D1D1B;
   --surface-sunken: var(--ink-925);
-  --surface-input: rgba(255,132,49,0.06);   /* faint warm cast — dark twin of the peach auth inputs */
+  --surface-input: rgba(255,255,255,0.05);  /* neutral wells — the warm cast reads as stain on ink; warmth arrives on focus */
   --surface-input-plain: rgba(255,255,255,0.05);
   --surface-hover: rgba(255,255,255,0.06);
-  --surface-veil: rgba(12,12,10,0.72);
-  --surface-ink: #1D1D1B;                   /* the navy hero splash calms into a quiet raised panel */
+  --surface-veil: rgba(23,23,21,0.85);      /* card-tinted so header and sidebar chrome sit on one plane */
+  --surface-ink: #16161F;                   /* hero panel: deep periwinkle-cast ink, one clear step above cards */
 
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255,255,255,0.78);
   --text-body: rgba(255,255,255,0.82);
   --text-muted: rgba(255,255,255,0.55);
   --text-placeholder: rgba(255,255,255,0.38);
+  --text-display: rgba(255,255,255,0.92);   /* display sizes below pure white — kills halation on Clash Display */
   --text-on-brand: #FFFFFF;
   --text-link: var(--orange-400);
 
@@ -210,6 +213,14 @@
   --overlay-scrim: rgba(12,12,10,0.66);
   --surface-tooltip: #262623;
   --shadow-brand: 0 10px 28px rgba(255,132,49,0.18); /* the hover glow is an ember at night */
+
+  /* Real dark shadows — ink-tinted shadows vanish on an ink canvas, so the
+     elevation axis needs ~5x the alpha in true black to register at all */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.50);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.50);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.55);
+  --shadow-lg: 0 18px 48px rgba(0,0,0,0.60);
+  --shadow-xl: 0 32px 80px rgba(0,0,0,0.65);
 
   /* Tint text lifts with the fills below — dusty, not vivid, so status
      reads at a glance without shouting */

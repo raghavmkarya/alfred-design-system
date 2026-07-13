@@ -2,16 +2,30 @@ import React from "react";
 
 /**
  * Alfred AI — Avatar
- * Round monogram or image. Falls back to brand-gradient initials.
+ * Round monogram or image. The default "auto" tone hashes the name onto a
+ * muted tint palette so lists of people read as people, not as a row of
+ * identical brand discs; explicit tones (gradient/ink/periwinkle) remain
+ * for the places identity should carry the brand.
  */
-export function Avatar({ name = "", src, size = 40, tone = "gradient", style = {} }) {
+const AUTO_TONES = [
+  { bg: "var(--periwinkle-100)", fg: "var(--text-on-tint-info)" },
+  { bg: "var(--success-100)", fg: "var(--text-on-tint-success)" },
+  { bg: "var(--orange-100)", fg: "var(--text-on-tint-brand)" },
+  { bg: "var(--gray-100)", fg: "var(--text-secondary)" },
+];
+
+export function Avatar({ name = "", src, size = 40, tone = "auto", style = {} }) {
   const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("");
-  const bg = tone === "gradient" ? "var(--gradient-brand)" : tone === "ink" ? "var(--ink-900)" : "var(--periwinkle-400)";
+  const hash = [...name].reduce((n, c) => n + c.charCodeAt(0), 0);
+  const auto = AUTO_TONES[hash % AUTO_TONES.length];
+  const fixed = { gradient: "var(--gradient-brand)", ink: "var(--ink-900)", periwinkle: "var(--periwinkle-400)" }[tone];
+  const bg = fixed || auto.bg;
+  const fg = fixed ? "#fff" : auto.fg;
   return (
     <span style={{
       width: size, height: size, borderRadius: "50%", overflow: "hidden",
       display: "inline-flex", alignItems: "center", justifyContent: "center",
-      background: src ? "transparent" : bg, color: "#fff", flex: "none",
+      background: src ? "transparent" : bg, color: fg, flex: "none",
       fontFamily: "var(--font-sans)", fontWeight: "var(--fw-bold)",
       fontSize: Math.round(size * 0.38), letterSpacing: "0.01em", ...style,
     }}>

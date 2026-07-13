@@ -1,6 +1,6 @@
 # RecommendationCard
 
-Alfred's recommendation in the draft → approve → act loop. A soft card with a left priority rail (high = danger, opportunity = success, medium = orange), an "Alfred recommends" eyebrow + priority Badge, the title, reasoning and an emphasised projected-impact line, an optional inline ConfidenceMeter, and a footer of actions — defaulting to a primary "Approve" and a ghost "Dismiss".
+Alfred's recommendation in the draft → approve → act loop. A soft card with a left priority rail (high = danger, opportunity = success, medium = orange), an "I recommend" eyebrow + priority Badge, the title, reasoning and an emphasised projected-impact line, an optional inline ConfidenceMeter, and a footer of actions — defaulting to a primary "Approve" and a ghost "Dismiss".
 
 ## Props
 

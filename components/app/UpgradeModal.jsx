@@ -102,7 +102,7 @@ export function UpgradeModal({
                       {hi && (
                         <span style={{
                           flex: "none", display: "inline-flex", alignItems: "center", height: 20, padding: "0 9px",
-                          borderRadius: "var(--radius-pill)", background: "var(--orange-500)", color: "var(--text-on-brand)",
+                          borderRadius: "var(--radius-pill)", background: "var(--orange-500)", color: "var(--text-on-orange)",
                           fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)",
                           textTransform: "uppercase", whiteSpace: "nowrap",
                         }}>
