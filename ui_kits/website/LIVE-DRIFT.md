@@ -22,6 +22,7 @@ the site should migrate toward it, not the other way around.
 | Defect | Live evidence | DS position |
 |---|---|---|
 | Two competing oranges | `#FF7A2B`/`#FF7A2F` hardcoded across /pricing, /integrations, /alfred_core alongside the `#FF8431` token | One orange: `--orange-500 #FF8431` |
+| White CTA labels on solid orange | White on `#FF8431` ≈ 2.4:1 — fails WCAG AA at button-label sizes on every live CTA | Ink labels on solid orange: `--text-on-orange` (`#02021E`, 8.35:1); white stays for gradient + danger fills (`--text-on-brand`) |
 | Mint-green fallback | `#9FF690` baked as the inline var() fallback on 120+ elements (AgentFlow residue); renders green pre-hydration | Never ship non-brand fallbacks |
 | Framer-blue links | `#0099FF` default on all rich-text/footer links | `--text-link` (orange-400 on dark) |
 | Forced Title Case | `text-transform: capitalize` on h1/h2 presets | Sentence case everywhere |

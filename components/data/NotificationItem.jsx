@@ -3,7 +3,7 @@ import React from "react";
 /**
  * Alfred AI — NotificationItem
  * A single row in Alfred's notification inbox: a tone-coloured icon, a title and body in
- * his voice, a timestamp, an unread dot, and optional inline actions. Set `unread` to tint
+ * his voice, a timestamp, an unread dot, and optional inline actions. Set `unread` to mark
  * the row. Compose a list of these for a notification center or drawer.
  */
 export function NotificationItem({
@@ -37,7 +37,7 @@ export function NotificationItem({
       onClick={onClick}
       style={{
         display: "flex", gap: 12, padding: "14px 16px", boxSizing: "border-box", width: "100%",
-        background: unread ? "var(--accent-soft)" : "var(--surface-card)",
+        background: "var(--surface-card)",
         borderBottom: "1px solid var(--border-subtle)", cursor: onClick ? "pointer" : "default",
         fontFamily: "var(--font-sans)", ...style,
       }}
@@ -51,7 +51,7 @@ export function NotificationItem({
 
       <span style={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
         <span style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
-          <span style={{ flex: 1, minWidth: 0, fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", lineHeight: "var(--lh-snug)" }}>{title}</span>
+          <span style={{ flex: 1, minWidth: 0, fontSize: "var(--text-sm)", fontWeight: unread ? "var(--fw-bold)" : "var(--fw-medium)", color: unread ? "var(--text-primary)" : "var(--text-secondary)", lineHeight: "var(--lh-snug)" }}>{title}</span>
           <span style={{ flex: "none", fontSize: "var(--text-2xs)", color: "var(--text-muted)", whiteSpace: "nowrap" }}>{time}</span>
         </span>
         {body && <span style={{ fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)" }}>{body}</span>}
@@ -66,9 +66,9 @@ export function NotificationItem({
                 style={{
                   height: 30, padding: "0 12px", borderRadius: "var(--radius-md)", cursor: "pointer",
                   fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
-                  border: i === 0 ? "none" : "1px solid var(--border-default)",
-                  background: i === 0 ? "var(--orange-500)" : "transparent",
-                  color: i === 0 ? "#fff" : "var(--text-secondary)",
+                  border: i === 0 ? "1px solid var(--border-subtle)" : "1px solid var(--border-default)",
+                  background: i === 0 ? "var(--orange-50)" : "transparent",
+                  color: i === 0 ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
                 }}
               >
                 {a.label}

@@ -23,8 +23,10 @@ export function Card({
     ink: { background: "var(--surface-ink)", color: "#fff", border: "1px solid rgba(255,255,255,0.10)" },
   };
   const shadows = { none: "none", sm: "var(--shadow-sm)", md: "var(--shadow-md)", lg: "var(--shadow-lg)" };
+  const { className, ...others } = rest;
   return (
     <div
+      className={["ds-card--" + tone, className].filter(Boolean).join(" ")}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
@@ -37,7 +39,7 @@ export function Card({
         ...tones[tone],
         ...style,
       }}
-      {...rest}
+      {...others}
     >
       {children}
     </div>

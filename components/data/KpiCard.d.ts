@@ -8,8 +8,10 @@ export interface KpiCardProps {
   value: React.ReactNode;
   /** Trend delta text, e.g. "+12.4%". */
   delta?: string;
-  /** Colours the delta and trend glyph. @default "up" */
+  /** Arrow glyph only — which way the number moved. @default "up" */
   direction?: "up" | "down" | "flat";
+  /** Whether the move is good news — colours the chip independently of direction, so a falling cost metric can be green. Defaults from direction (up = good, down = bad, flat = neutral). */
+  valence?: "good" | "bad" | "neutral";
   caption?: string;
   /** Optional brand icon name shown as an accent. */
   icon?: string;

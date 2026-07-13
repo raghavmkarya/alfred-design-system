@@ -56,7 +56,7 @@ export function PriceCard({
     ...(highlighted
       ? {
           background: hover ? "var(--orange-600)" : "var(--orange-500)",
-          color: "var(--text-on-brand)",
+          color: "var(--text-on-orange)",
           border: "1px solid transparent",
           boxShadow: focusRing ? "var(--shadow-focus)" : hover ? "var(--shadow-brand)" : "none",
         }
@@ -97,7 +97,7 @@ export function PriceCard({
             padding: "0 14px",
             borderRadius: "var(--radius-pill)",
             background: "var(--orange-500)",
-            color: "var(--text-on-brand)",
+            color: "var(--text-on-orange)",
             fontSize: "var(--text-2xs)",
             fontWeight: "var(--fw-bold)",
             letterSpacing: "var(--ls-caps)",

@@ -47,11 +47,11 @@ export function Button({
   };
 
   const variants = {
-    primary: { background: "var(--orange-500)", color: "var(--text-on-brand)" },
+    primary: { background: "var(--orange-500)", color: "var(--text-on-orange)" },
     secondary: { background: "var(--periwinkle-400)", color: "var(--ink-900)" },
     outline: { background: "transparent", color: "var(--text-primary)", borderColor: "var(--border-default)" },
     ghost: { background: "transparent", color: "var(--text-body)" },
-    subtle: { background: "var(--orange-50)", color: "var(--orange-600)" },
+    subtle: { background: "var(--orange-50)", color: "var(--text-on-tint-brand)", borderColor: "var(--border-subtle)" },
     danger: { background: "var(--danger-500)", color: "var(--text-on-brand)" },
   };
 

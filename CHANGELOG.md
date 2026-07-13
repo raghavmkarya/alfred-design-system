@@ -3,6 +3,50 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-13 — The critique pass — five-critic review, everything fixed
+
+A five-lens design review (visual craft · color/a11y · UX/IA · interaction states ·
+dark craft) of the workspace, then the full fix list. Both themes.
+
+### Accessibility & color
+- **Ink on orange.** New theme-constant token `--text-on-orange` (`ink #02021E`, 8.35:1) —
+  every solid-orange fill (Button primary, SegmentedControl, pills, glyphs across 15
+  components) drops white-on-orange (2.44:1, AA fail). White stays for gradient + danger
+  (`--text-on-brand`); recorded in `LIVE-DRIFT.md` as a deliberate divergence.
+- **Valence ≠ direction.** `KpiCard` gains `valence` ("good"/"bad"/"neutral") so falling
+  cost metrics (CAC −8%, CPL −14%, wasted spend −31%) finally read green; the arrow alone
+  shows direction. Delta chips now use the `--text-on-tint-*` ramp (6.7–8.2:1).
+- **Focus you can see.** Global `:focus-visible` is a 2px offset `--border-focus` outline —
+  no more radius mutation, no shadow displacement, visible on dark (the old alpha ring
+  composited to 1.4:1).
+- New `--text-display` tier: display/KPI type at 92% white on app-dark (halation fix), ink
+  in light. Real dark shadow ramp (true black, ~5x alpha) so overlays actually float.
+
+### Orange budget & hierarchy
+- One solid-orange primary per view; every other CTA is the quiet `subtle` recipe
+  (incl. `DecisionAlert`/`NotificationItem` internal actions). Switch tracks on dark:
+  visible off state (20% white), ember on state.
+- The hero ink panel gets `--surface-ink` + a periwinkle→orange hairline on app-dark —
+  the view's one gradient — so the briefing wins the squint test again. Sidebar upsell is
+  now a quiet usage card ("412 of 500 Ask Alfred queries" + See plans → Billing); no more
+  permanent gradient card, no more nonexistent "Pro" plan.
+- `Avatar` default `tone="auto"` hashes names onto a muted tint palette — people lists
+  stop being rows of identical orange discs.
+
+### IA, UX & content
+- Sidebar grouped: Today / Intelligence / Data / Workspace with eyebrows; distinct inbox +
+  memory glyphs; "Alfred Core" → **Memory**, "Seek Alfred" → **Ask Alfred** everywhere.
+- Header chrome is real: the search pill is a button with a ⌘K chip that opens
+  CommandPalette (wired to nav + ask); the bell opens Decision alerts.
+- **Review-before-approve**: alert CTAs open a Modal with the from→to diff, projected
+  impact and rollback promise; approving shows Executing + Undo ("I'll confirm in Slack
+  when it's live"). "Approve all drafts" is gone.
+- Double page headers removed (Notifications, Billing, Team, Memory); unread rows are
+  dot + bold, not tinted bands; the delivery matrix has one EMAIL/SLACK/IN-APP header row;
+  Settings locked fields are labeled rows ("Managed by your admin") with real dirty-state
+  Save/Cancel; content columns center at wide viewports; sentence case + first-person
+  voice throughout; one demo fixture (Northwind Labs, priya@northwindlabs.com).
+
 ## 2026-07-13 — App dark, quiet pass — color whispers at night
 
 - Retuned `[data-theme="app-dark"]` after first review ("too much"): tint washes

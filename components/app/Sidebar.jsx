@@ -147,7 +147,7 @@ function SidebarItem({ item = {}, active = false, onSelect = () => {} }) {
             padding: "0 7px",
             borderRadius: "var(--radius-pill)",
             background: active ? "var(--orange-500)" : "var(--orange-100)",
-            color: active ? "var(--text-on-brand)" : "var(--orange-700)",
+            color: active ? "var(--text-on-orange)" : "var(--orange-700)",
             fontFamily: "var(--font-sans)",
             fontSize: "var(--text-2xs)",
             fontWeight: "var(--fw-bold)",

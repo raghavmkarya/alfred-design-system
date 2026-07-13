@@ -61,7 +61,7 @@ export function DateRangePicker({ value = "30d", presets = DEFAULT_PRESETS, onCh
                   borderRadius: "var(--radius-pill)", whiteSpace: "nowrap",
                   fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
                   fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
-                  color: active ? "var(--text-on-brand)" : (hot ? "var(--orange-600)" : "var(--text-secondary)"),
+                  color: active ? "var(--text-on-orange)" : (hot ? "var(--orange-600)" : "var(--text-secondary)"),
                   background: active ? "var(--orange-500)" : (hot ? "var(--accent-soft)" : "transparent"),
                   boxShadow: active ? "var(--shadow-sm)" : "none",
                   transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)",

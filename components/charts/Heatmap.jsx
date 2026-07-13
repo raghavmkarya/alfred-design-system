@@ -7,8 +7,8 @@ import React from "react";
  * column (top), and `values` is a rows×cols grid of numbers. Each cell is
  * tinted from a faint peach (low) to full brand orange (high) by
  * value / maxValue, where `maxValue` defaults to the data max. Numbers print
- * centered with theme-aware contrast (dark on light cells, white on strong
- * cells). Pass `valueFormat` to format the printed value; an optional
+ * centered with theme-aware contrast (theme text on light cells, ink on strong
+ * orange cells). Pass `valueFormat` to format the printed value; an optional
  * intensity legend strip shows the scale.
  */
 const ORANGE_RGB = "255, 132, 49"; // var(--orange-500) #FF8431
@@ -52,7 +52,7 @@ export function Heatmap({ rows = [], cols = [], values = [], maxValue, valueForm
   // alpha = value / maxValue, floored so the lightest cells still read as a
   // soft orange-50 tint rather than vanishing into the surface.
   const cellBg = (t) => `rgba(${ORANGE_RGB}, ${(0.08 + t * 0.92).toFixed(3)})`;
-  const cellFg = (t) => (t >= 0.66 ? "var(--text-on-brand)" : "var(--text-primary)");
+  const cellFg = (t) => (t >= 0.66 ? "var(--text-on-orange)" : "var(--text-primary)");
 
   return (
     <div style={{ width: "100%", ...style }} role="figure" aria-label="Intensity heatmap">

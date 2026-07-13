@@ -13,7 +13,7 @@ function Briefing() {
           <img src="../../assets/logos/alfred-icon-white.svg" alt="" style={{ height: 28 }} />
         </div>
         <div style={{ flex: 1 }}>
-          <Badge tone="brand" dot>Daily Briefing · 8:00 AM</Badge>
+          <Badge tone="brand" dot>Daily briefing · 8:00 AM</Badge>
           <h2 style={{ color: "#fff", fontSize: "var(--text-h3)", fontWeight: "var(--fw-semibold)", margin: "12px 0 8px", letterSpacing: "var(--ls-tight)" }}>
             Good morning, Priya. Spend is pacing 6% hot — but ROAS is up.
           </h2>
@@ -47,7 +47,7 @@ function AskAlfred() {
       }}>
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask anything about your marketing performance…"
           style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-primary)" }} />
-        <Button variant="primary" size="sm" iconRight={<window.NavGlyph d={window.AppGlyphs.send} size={15} />}>Ask</Button>
+        <Button variant="subtle" size="sm" iconRight={<window.NavGlyph d={window.AppGlyphs.send} size={15} />}>Ask</Button>
       </div>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         {chips.map((c) => (
@@ -64,13 +64,13 @@ function AskAlfred() {
 
 function Dashboard() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 1180, margin: "0 auto" }}>
       <Briefing />
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
         <KpiCard label="Blended ROAS" value="4.8x" delta="+12.4%" direction="up" caption="vs last 30d" icon="trend-up" iconRoot={IR} />
-        <KpiCard label="Marketing Spend" value="$312K" delta="+6.1%" direction="up" caption="pacing hot" icon="budget" iconRoot={IR} />
-        <KpiCard label="Blended CAC" value="$184" delta="-8.0%" direction="down" caption="improving" icon="channel-mix" iconRoot={IR} />
+        <KpiCard label="Marketing spend" value="$312K" delta="+6.1%" direction="up" valence="bad" caption="pacing hot" icon="budget" iconRoot={IR} />
+        <KpiCard label="Blended CAC" value="$184" delta="-8.0%" direction="down" valence="good" caption="improving" icon="channel-mix" iconRoot={IR} />
         <KpiCard label="MQL → SQL" value="34%" delta="0.0%" direction="flat" caption="flat WoW" icon="mql" iconRoot={IR} />
       </div>
 
@@ -87,7 +87,7 @@ function Dashboard() {
             action="Reallocate budget" />
           <DecisionAlert priority="opportunity" time="1h ago" iconRoot={IR}
             title="LinkedIn CPL down 22%"
-            insight="Cost-per-lead dropped sharply on the new ABM audience. Alfred recommends scaling spend +30% while efficiency holds."
+            insight="Cost-per-lead dropped sharply on the new ABM audience. I recommend scaling spend +30% while efficiency holds."
             action="Scale campaign" />
           <DecisionAlert priority="medium" time="3h ago" iconRoot={IR}
             title="Creative fatigue detected"

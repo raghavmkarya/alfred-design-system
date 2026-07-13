@@ -1,6 +1,6 @@
 # Avatar
 
-Round monogram or image. Falls back to brand-gradient initials.
+Round monogram or image. The default "auto" tone hashes the name onto a muted tint palette so lists of people read as people, not a row of identical brand discs; explicit tones (gradient/ink/periwinkle) remain for the places identity should carry the brand.
 
 ## Props
 
@@ -9,7 +9,7 @@ Round monogram or image. Falls back to brand-gradient initials.
 | `name?` | `string` | — |  |
 | `src?` | `string` | — |  |
 | `size?` | `number` | — |  |
-| `tone?` | `"gradient" \| "ink" \| "periwinkle"` | `"gradient"` | Fallback fill behind initials. |
+| `tone?` | `"auto" \| "gradient" \| "ink" \| "periwinkle"` | `"auto"` | Fallback fill behind initials. "auto" hashes the name onto a muted tint palette; the fixed tones carry the brand. |
 | `style?` | `React.CSSProperties` | — |  |
 
 ## Usage
