@@ -5,6 +5,14 @@ kits, slide/section templates, and brand assets — packaged to plug directly in
 Code** and **Claude design (claude.ai/design)**. Nothing to build: the bundle, token CSS, and
 preview cards are committed ready-to-use.
 
+**Live site:** [raghavmkarya.github.io/alfred-design-system](https://raghavmkarya.github.io/alfred-design-system/)
+— the component gallery, both workspace kits ([light](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app/)
+· [dark](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app-dark/)), the
+[marketing site](https://raghavmkarya.github.io/alfred-design-system/ui_kits/website/), the
+[social gallery](https://raghavmkarya.github.io/alfred-design-system/social/) and the
+[deck library](https://raghavmkarya.github.io/alfred-design-system/templates/decks/), served
+straight from `main` — every merge republishes automatically.
+
 - One stylesheet entry point: `styles.css` (imports the full token + `@font-face` closure).
 - One component bundle: `_ds_bundle.js`, exposed on `window.AlfredAIDesignSystem_1ce241`.
 - A component manifest (`_ds_manifest.json`) and `@dsCard` preview cards for claude.ai/design.
