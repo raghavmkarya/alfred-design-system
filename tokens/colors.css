@@ -70,6 +70,7 @@
   --surface-input-plain: #FFFFFF;
   --surface-hover: var(--gray-50);      /* hover fill on nav rows / ghost targets */
   --surface-veil: rgba(255,255,255,0.70); /* translucent page-tone veil for blurred sticky chrome */
+  --surface-ink: var(--ink-900);        /* the dramatic ink hero panel (briefing bands, first-run) */
 
   --text-primary: var(--ink-900);
   --text-secondary: var(--ink-600);
@@ -175,6 +176,10 @@
    in every theme. Unlike the marketing theme, this scope also re-maps
    the soft tint ramps (--*-100, --orange-50, --gray-50…200) to low-alpha
    equivalents so badge/chip/callout/alert fills read correctly on ink.
+   Tuned quiet (2026-07-13): at night color whispers — tint washes sit
+   near 10% alpha, tint text is dusty rather than vivid, and the ambient
+   glows are embers, not floodlights. Solid orange actions keep full
+   strength; everything decorative steps back.
    ============================================================ */
 [data-theme="app-dark"] {
   --bg-page: var(--ink-950);                /* warm near-black, not marketing pure-black */
@@ -182,10 +187,11 @@
   --surface-card: var(--ink-875);           /* real raised cards — the app keeps its elevation */
   --surface-raised: #1D1D1B;
   --surface-sunken: var(--ink-925);
-  --surface-input: rgba(255,132,49,0.09);   /* warm-tinted fields — dark twin of the peach auth inputs */
+  --surface-input: rgba(255,132,49,0.06);   /* faint warm cast — dark twin of the peach auth inputs */
   --surface-input-plain: rgba(255,255,255,0.05);
   --surface-hover: rgba(255,255,255,0.06);
   --surface-veil: rgba(12,12,10,0.72);
+  --surface-ink: #1D1D1B;                   /* the navy hero splash calms into a quiet raised panel */
 
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255,255,255,0.78);
@@ -200,33 +206,35 @@
   --border-strong: rgba(255,255,255,0.26);
   --border-focus: var(--orange-400);
 
-  --accent-soft: rgba(255,132,49,0.14);
+  --accent-soft: rgba(255,132,49,0.10);
   --overlay-scrim: rgba(12,12,10,0.66);
   --surface-tooltip: #262623;
+  --shadow-brand: 0 10px 28px rgba(255,132,49,0.18); /* the hover glow is an ember at night */
 
-  /* Tint text lifts with the fills below — deep shades would vanish on ink */
-  --text-on-tint-brand:   var(--orange-400);
-  --text-on-tint-info:    var(--periwinkle-300);
-  --text-on-tint-success: #63D9AC;
-  --text-on-tint-danger:  #F27E82;
+  /* Tint text lifts with the fills below — dusty, not vivid, so status
+     reads at a glance without shouting */
+  --text-on-tint-brand:   #EDA26A;
+  --text-on-tint-info:    #A9B2E9;
+  --text-on-tint-success: #82CBA4;
+  --text-on-tint-danger:  #E09193;
 
   /* Soft tint ramps → low-alpha ink equivalents (badges, chips, callouts,
      alert fills). Raw brand primaries and the chart palette never change. */
-  --orange-50:  rgba(255,132,49,0.12);
-  --orange-100: rgba(255,132,49,0.20);
-  --periwinkle-50:  rgba(167,167,252,0.12);
-  --periwinkle-100: rgba(167,167,252,0.20);
-  --success-100: rgba(47,182,124,0.18);
-  --warning-100: rgba(255,132,49,0.18);
-  --danger-100:  rgba(229,72,77,0.18);
-  --info-100:    rgba(167,167,252,0.18);
-  --urgent-100:  rgba(255,61,0,0.18);
+  --orange-50:  rgba(255,132,49,0.08);
+  --orange-100: rgba(255,132,49,0.13);
+  --periwinkle-50:  rgba(167,167,252,0.08);
+  --periwinkle-100: rgba(167,167,252,0.13);
+  --success-100: rgba(47,182,124,0.10);
+  --warning-100: rgba(255,132,49,0.10);
+  --danger-100:  rgba(229,72,77,0.10);
+  --info-100:    rgba(167,167,252,0.10);
+  --urgent-100:  rgba(255,61,0,0.10);
   --gray-50:  rgba(255,255,255,0.04);
-  --gray-100: rgba(255,255,255,0.07);
-  --gray-150: rgba(255,255,255,0.10);
-  --gray-200: rgba(255,255,255,0.14);
+  --gray-100: rgba(255,255,255,0.06);
+  --gray-150: rgba(255,255,255,0.09);
+  --gray-200: rgba(255,255,255,0.13);
 
-  /* Dark-tuned ambient glow — behind auth and empty states */
-  --glow-periwinkle: radial-gradient(58% 52% at 18% 12%, rgba(167,167,252,0.26) 0%, rgba(167,167,252,0) 70%); /* @kind color */
-  --glow-orange:     radial-gradient(60% 58% at 90% 96%, rgba(255,132,49,0.22) 0%, rgba(255,132,49,0) 70%); /* @kind color */
+  /* Ambient glow — a faint ember behind auth and hero bands, not a floodlight */
+  --glow-periwinkle: radial-gradient(58% 52% at 18% 12%, rgba(167,167,252,0.12) 0%, rgba(167,167,252,0) 70%); /* @kind color */
+  --glow-orange:     radial-gradient(60% 58% at 90% 96%, rgba(255,132,49,0.10) 0%, rgba(255,132,49,0) 70%); /* @kind color */
 }
