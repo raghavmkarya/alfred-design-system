@@ -1,0 +1,55 @@
+<svg viewBox="0 0 640 940" xmlns="http://www.w3.org/2000/svg" width="640" height="940" role="img" aria-label="Alfred — the chief of staff, comic-ink skin">
+  <title>Alfred — the chief of staff (comic-ink skin)</title>
+  <defs>
+    <linearGradient id="alfHeadGrad" x1="0.85" y1="0.05" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#B9B9FF"/><stop offset="0.28" stop-color="#A7A7FC"/><stop offset="0.9" stop-color="#FF8431"/>
+    </linearGradient>
+    <filter id="alfCardSh" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#02021e" flood-opacity="0.24"/></filter>
+    <filter id="alfInk" x="-25%" y="-25%" width="150%" height="150%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="d"/>
+      <feFlood flood-color="#141019"/>
+      <feComposite in2="d" operator="in" result="o"/>
+      <feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#alfInk)">
+    <path d="M312,458 L204,478 C196,566 206,652 238,712 L300,472 Z" fill="#171422"/>
+    <path d="M328,458 L436,478 C444,566 434,652 402,712 L340,472 Z" fill="#171422"/>
+    <path d="M262,478 L316,478 L312,858 L272,858 Z" fill="#1a1826"/>
+    <path d="M324,478 L378,478 L366,858 L328,858 Z" fill="#1a1826"/>
+    <path d="M260,854 h42 c14,0 26,10 26,20 c0,10 -10,14 -22,14 h-50 c-12,0 -18,-6 -18,-16 c0,-12 12,-22 22,-22 Z" fill="#0c0b14"/>
+    <path d="M380,854 h-42 c-14,0 -26,10 -26,20 c0,10 10,14 22,14 h50 c12,0 18,-6 18,-16 c0,-12 -12,-22 -22,-22 Z" fill="#0c0b14"/>
+    <path d="M320,196 C300,196 285,202 273,210 C247,224 215,228 199,244
+             C191,251 187,261 185,274 C179,342 176,412 184,480
+             C200,491 228,497 260,497 L380,497 C412,497 440,491 456,480
+             C464,412 461,342 455,274 C453,261 449,251 441,244
+             C425,228 393,224 367,210 C355,202 340,196 320,196 Z" fill="#1b1928"/>
+    <path d="M296,222 L344,222 L346,480 L320,496 L294,480 Z" fill="#262336"/>
+    <path d="M320,208 L352,252 L342,332 L298,332 L288,252 Z" fill="#ffffff"/>
+    <path d="M320,206 L279,252 L303,404 L320,396 Z" fill="#2c2a3d"/>
+    <path d="M320,206 L361,252 L337,404 L320,396 Z" fill="#211f30"/>
+    <path d="M306,214 L320,206 L320,236 Z" fill="#ffffff"/>
+    <path d="M334,214 L320,206 L320,236 Z" fill="#eeeef4"/>
+    <path d="M320,250 L289,236 L289,266 Z" fill="#FF8431"/>
+    <path d="M320,250 L351,236 L351,266 Z" fill="#F26A1B"/>
+    <rect x="313" y="243" width="14" height="14" rx="3" fill="#C75A12"/>
+    <circle cx="320" cy="352" r="5" fill="#A7A7FC"/><circle cx="320" cy="402" r="5" fill="#A7A7FC"/><circle cx="320" cy="448" r="5" fill="#A7A7FC"/>
+    <path d="M320,356 Q356,368 344,402" fill="none" stroke="#A7A7FC" stroke-width="2.4" opacity="0.85"/>
+    <path d="M236,300 l26,0 -13,20 Z" fill="#A7A7FC"/>
+    <path d="M440,248 C460,322 462,410 452,480 C446,488 436,490 426,486 C420,410 422,322 424,252 Z" fill="#191727"/>
+    <path d="M204,244 C182,304 182,364 196,396 C212,424 250,428 292,414 L302,390 C260,394 224,382 214,344 C208,304 216,274 226,250 Z" fill="#1d1b2b"/>
+    <path d="M282,410 L316,398 L322,418 L288,430 Z" fill="#f4f4f7"/>
+    <ellipse cx="304" cy="424" rx="23" ry="16" fill="#ffffff" stroke="#141019" stroke-width="2"/>
+    <ellipse cx="322" cy="410" rx="8" ry="12" fill="#ffffff" stroke="#141019" stroke-width="1.6" transform="rotate(24 322 410)"/>
+    <g transform="translate(240,350) rotate(-12)" filter="url(#alfCardSh)">
+      <rect x="0" y="0" width="98" height="60" rx="12" fill="#ffffff" stroke="#141019" stroke-width="2"/>
+      <polygon points="17,42 30,23 43,42" fill="#FF8431"/>
+      <rect x="52" y="22" width="32" height="7" rx="3.5" fill="#C9C9D2"/>
+      <rect x="52" y="35" width="22" height="7" rx="3.5" fill="#DFDFE6"/>
+    </g>
+    <g transform="translate(245,40) scale(0.345)">
+      <path d="M288.241 0H145.654C65.1568 0 0 65.2299 0 145.654V291.747C0 372.244 65.1568 437.475 145.654 437.475H155.151C232.142 437.475 294.523 375.093 294.523 298.103C294.523 375.093 356.904 437.475 433.895 437.475V145.654C433.895 65.2299 368.665 0 288.241 0ZM294.523 296.35H143.828V145.581H294.523V296.35Z" fill="url(#alfHeadGrad)"/>
+    </g>
+  </g>
+</svg>
