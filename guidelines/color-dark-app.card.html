@@ -1,0 +1,43 @@
+<!-- @dsCard group="Colors" viewport="700x240" name="App dark theme" subtitle="Product workspace surfaces — [data-theme=app-dark], Clash Display kept" -->
+<!doctype html>
+<html lang="en" data-theme="app-dark">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-page); font-family: var(--font-sans); }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .sw { display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 48px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); }
+  .name { font-size: 11px; font-weight: 700; color: var(--text-secondary); }
+  .hex { font-size: 10px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl);
+    padding: 14px 18px; display: flex; align-items: center; gap: 14px; }
+  .kpi { font-family: var(--font-display); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight);
+    font-size: 26px; color: var(--text-primary); }
+  .lbl { font-size: 11px; color: var(--text-muted); }
+  .tints { display: flex; gap: 8px; margin-left: auto; }
+  .tint { padding: 4px 10px; border-radius: var(--radius-pill); font-size: 10.5px; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="row" id="s"></div>
+  <div class="card">
+    <div>
+      <div class="kpi">$1.28M</div>
+      <div class="lbl">Clash Display stays — the app keeps its type identity in the dark</div>
+    </div>
+    <div class="tints">
+      <span class="tint" style="background: var(--success-100); color: var(--success-500);">On pace</span>
+      <span class="tint" style="background: var(--warning-100); color: var(--orange-400);">Watch</span>
+      <span class="tint" style="background: var(--danger-100); color: var(--danger-500);">Fatigued</span>
+    </div>
+  </div>
+<script>
+  const steps = [["Page · canvas","#0C0C0A"],["Sunken","#111110"],["Card","#171715"],["Raised","#1D1D1B"]];
+  document.getElementById('s').innerHTML = steps.map(([n,h])=>
+    `<div class="sw"><div class="chip" style="background:${h}"></div><div class="name">${n}</div><div class="hex">${h}</div></div>`
+  ).join('');
+</script>
+</body>
+</html>

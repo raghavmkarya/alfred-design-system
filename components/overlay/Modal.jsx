@@ -51,7 +51,7 @@ export function Modal({ open, onClose, title, children, footer, size = "md", sty
       <div ref={panelRef} tabIndex={-1} style={{ position: "relative", width: "100%", maxWidth: widths[size] || 520, background: "var(--surface-card)", borderRadius: "var(--radius-3xl)", boxShadow: "var(--shadow-xl)", border: "1px solid var(--border-subtle)", overflow: "hidden", ...style }}>
         <div style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "24px 24px 0" }}>
           {title && <h3 id={titleId} style={{ flex: 1, fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: "var(--text-h3)", color: "var(--text-primary)", letterSpacing: "var(--ls-tight)", margin: 0 }}>{title}</h3>}
-          <button onClick={onClose} aria-label="Close" style={{ border: "none", background: "transparent", cursor: "pointer", color: "var(--ink-400)", padding: 4, display: "inline-flex" }}>
+          <button onClick={onClose} aria-label="Close" style={{ border: "none", background: "transparent", cursor: "pointer", color: "var(--text-placeholder)", padding: 4, display: "inline-flex" }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
           </button>
         </div>

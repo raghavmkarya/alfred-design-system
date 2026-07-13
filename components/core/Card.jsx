@@ -20,7 +20,7 @@ export function Card({
     surface: { background: "var(--surface-card)", color: "var(--text-primary)", border: "1px solid var(--border-subtle)" },
     sunken: { background: "var(--surface-sunken)", color: "var(--text-primary)", border: "1px solid var(--border-subtle)" },
     gradient: { background: "var(--gradient-brand)", color: "#fff", border: "none" },
-    ink: { background: "var(--ink-900)", color: "#fff", border: "none" },
+    ink: { background: "var(--ink-900)", color: "#fff", border: "1px solid rgba(255,255,255,0.10)" },
   };
   const shadows = { none: "none", sm: "var(--shadow-sm)", md: "var(--shadow-md)", lg: "var(--shadow-lg)" };
   return (

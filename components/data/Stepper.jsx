@@ -18,7 +18,7 @@ export function Stepper({ steps = [], current = 0, style = {} }) {
               <div style={{
                 width: 32, height: 32, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
                 background: done ? "var(--orange-500)" : active ? "var(--orange-50)" : "transparent",
-                border: `2px solid ${ring}`, color: done ? "#fff" : active ? "var(--orange-600)" : "var(--ink-400)",
+                border: `2px solid ${ring}`, color: done ? "#fff" : active ? "var(--orange-600)" : "var(--text-placeholder)",
                 fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
               }}>
                 {done ? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 6.5" /></svg> : i + 1}

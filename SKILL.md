@@ -40,6 +40,9 @@ production code, depending on the need.
 - `ui_kits/app/` — multi-screen Alfred workspace (light): auth → home, daily briefing, Seek Alfred,
   KPI cockpit, spend & ROI, decision alerts, creative lifecycle, AI visibility, integrations,
   settings. Routed from the sidebar; screens in `Screens.jsx` + `Screens2.jsx`.
+- `ui_kits/app-dark/` — the same workspace under `[data-theme="app-dark"]`: warm ink surfaces
+  (`#0C0C0A / #111110 / #171715`), white-alpha hairlines, Clash Display kept. Reuses the light
+  kit's screen files — build a dark app surface by setting the theme attribute, not by forking screens.
 - `ui_kits/onboarding/` — standalone first-run flow (light): connect your stack → calibrate →
   first brief, on the four-stage operating model. Single component in `Onboarding.jsx`.
 - `ui_kits/website/` — the dark seekalfred.ai marketing site recreation.
@@ -90,6 +93,13 @@ white-alpha hairlines. This is auto-applied to anything under `[data-theme="dark
 (marketing site, section templates, dark cards) — the light app, slides and deck are
 unaffected and keep Clash + Satoshi. See `ui_kits/website/LIVE-DRIFT.md` for live defects
 we deliberately do not adopt, and `guidelines/voice-and-naming.md` for the naming canon.
+
+**Product app in the dark** uses `[data-theme="app-dark"]` instead — a separate theme that
+keeps the app's identity (Clash Display headlines/KPIs, real card elevation) on the warm ink
+ramp rather than marketing pure-black. It also re-maps the soft tint fills (`--*-100`,
+`--orange-50`, `--gray-50…200`) to low-alpha equivalents so badges, chips and alert fills read
+correctly on ink. Never put the marketing `dark` theme on a product surface — it swaps
+headlines to Satoshi.
 
 ## Components at runtime
 Load the compiled bundle and destructure from the namespace:

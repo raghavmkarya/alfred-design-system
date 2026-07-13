@@ -1,11 +1,11 @@
-<!-- @dsCard group="Alfred App" viewport="1440x900" name="Alfred — CMO workspace" subtitle="Login → briefing, Seek Alfred, KPI cockpit, spend, alerts, creative, AI visibility, integrations & settings" -->
+<!-- @dsCard group="Alfred App" viewport="1440x900" name="Alfred — CMO workspace (dark)" subtitle="The same 22-screen workspace under [data-theme=app-dark] — warm ink surfaces, Clash Display kept" -->
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="app-dark">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Alfred ai — Workspace</title>
-<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<title>Alfred ai — Workspace (dark)</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
 <link rel="stylesheet" href="../../styles.css" />
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -19,14 +19,17 @@
 </head>
 <body>
 <div id="root"></div>
-<script type="text/babel" src="AppShell.jsx"></script>
-<script type="text/babel" src="AuthScreen.jsx"></script>
-<script type="text/babel" src="Dashboard.jsx"></script>
-<script type="text/babel" src="Screens.jsx"></script>
-<script type="text/babel" src="Screens2.jsx"></script>
-<script type="text/babel" src="Screens3.jsx"></script>
-<script type="text/babel" src="Screens4.jsx"></script>
+<script type="text/babel" src="../app/AppShell.jsx"></script>
+<script type="text/babel" src="../app/AuthScreen.jsx"></script>
+<script type="text/babel" src="../app/Dashboard.jsx"></script>
+<script type="text/babel" src="../app/Screens.jsx"></script>
+<script type="text/babel" src="../app/Screens2.jsx"></script>
+<script type="text/babel" src="../app/Screens3.jsx"></script>
+<script type="text/babel" src="../app/Screens4.jsx"></script>
 <script type="text/babel">
+/* Dark twin of ui_kits/app/index.html — same screens, same nav, same routes.
+   Only the theme scope, the favicon and the white logo lockup differ; keep the
+   bootstrap below in step with the light kit when routes change. */
 const LOGOROOT = "../../assets/logos";
 const ICONROOT = "../../assets/icons";
 const { Avatar, Badge } = window.AlfredAIDesignSystem_1ce241;
@@ -121,7 +124,7 @@ function App() {
     <window.AppShell
       nav={NAV} active={active} onNav={setActive}
       title={title} subtitle={subtitle}
-      logoRoot={LOGOROOT} iconRoot={ICONROOT}
+      logoRoot={LOGOROOT} iconRoot={ICONROOT} logoTone="white"
       headerRight={<><Bell />
         <button aria-label="Your profile" title="Your profile" onClick={() => setActive("profile")} style={{
           padding: 0, border: "none", background: "transparent", borderRadius: "50%",

@@ -169,9 +169,22 @@
       "dark": "rgba(255,255,255,0.04)"
     },
     {
+      "name": "surface-veil",
+      "light": "rgba(255,255,255,0.70)",
+      "dark": "rgba(0,0,0,0.72)"
+    },
+    {
       "name": "text-on-brand",
       "light": "#FFFFFF",
       "dark": "#FFFFFF"
+    },
+    {
+      "name": "text-on-tint-success",
+      "light": "#1B7A52"
+    },
+    {
+      "name": "text-on-tint-danger",
+      "light": "#B5363A"
     },
     {
       "name": "chart-1",

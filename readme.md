@@ -101,10 +101,13 @@ If you're not going through a Claude surface, consume it like any static design 
    ```
    Point `Icon`/`Logo` `root` props and asset `<img src>`s at the correct relative path to
    `assets/` for the page you're building.
-3. **Light vs dark** — set `<html data-theme="dark">` to switch surfaces/text to the dark theme
-   (pure-black pages, 3%-white cards, Satoshi for headlines and body — matching the live site);
-   accent colors and the gradient are identical in both. `ui_kits/website/LIVE-DRIFT.md` records
-   what was adopted from the live site vs the live defects deliberately not adopted.
+3. **Light vs dark** — set `<html data-theme="dark">` to switch surfaces/text to the marketing
+   dark theme (pure-black pages, 3%-white cards, Satoshi for headlines and body — matching the
+   live site); accent colors and the gradient are identical in every theme.
+   `ui_kits/website/LIVE-DRIFT.md` records what was adopted from the live site vs the live
+   defects deliberately not adopted. For **product surfaces** use `<html data-theme="app-dark">`
+   instead — the workspace dark theme keeps Clash Display and real card elevation on the warm
+   ink ramp, and re-maps the soft tint fills to low-alpha equivalents.
 
 ---
 
@@ -121,6 +124,7 @@ components/           ← 113 components (brand · core · data · charts · tru
 data/                 ← demo-data.json — the canonical Northwind Labs demo dataset (no fabricated proof)
 guidelines/           ← foundation specimen cards (color / type / spacing / brand)
 ui_kits/app/          ← 22-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility, connections, notifications, Alfred Core memory, team, billing, audit log…
+ui_kits/app-dark/     ← the same workspace under [data-theme="app-dark"]: warm ink surfaces, Clash kept (reuses the light kit's screens)
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
 ui_kits/website/      ← marketing site recreation (dark) + LIVE-DRIFT.md register
 templates/sections/   ← 27 copy-paste marketing section blocks (window.Sec* — hero, statement, FAQ, agent showcase, stack diagram, careers, contact…)

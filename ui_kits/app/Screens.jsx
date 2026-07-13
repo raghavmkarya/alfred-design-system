@@ -80,8 +80,8 @@ function KpiCockpit() {
             {funnel.map(([n, p, c]) => (
               <div key={n}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: "var(--text-sm)" }}>
-                  <span style={{ color: "var(--ink-600)" }}>{n}</span>
-                  <span style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontVariantNumeric: "tabular-nums" }}>{p}%</span>
+                  <span style={{ color: "var(--text-secondary)" }}>{n}</span>
+                  <span style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontVariantNumeric: "tabular-nums" }}>{p}%</span>
                 </div>
                 <div style={{ height: 10, background: "var(--gray-100)", borderRadius: "var(--radius-pill)", overflow: "hidden" }}>
                   <div style={{ width: `${p}%`, height: "100%", background: c, borderRadius: "var(--radius-pill)" }} />
@@ -97,7 +97,7 @@ function KpiCockpit() {
 
 /* ======================= SPEND & ROI ======================= */
 function SpendRoi() {
-  const channels = [["Paid social", 38, "var(--orange-500)"], ["Search", 26, "var(--periwinkle-400)"], ["Email", 18, "var(--orange-300)"], ["Organic", 12, "var(--periwinkle-600)"], ["Events", 6, "var(--gray-200)"]];
+  const channels = [["Paid social", 38, "var(--orange-500)"], ["Search", 26, "var(--periwinkle-400)"], ["Email", 18, "var(--orange-300)"], ["Organic", 12, "var(--periwinkle-600)"], ["Events", 6, "var(--slate-300)"]];
   const rows = [
     ["Performance Max — Q2", "$84.2K", "5.1x", "$142", "high"],
     ["Meta — Retargeting", "$61.0K", "4.6x", "$168", "high"],
@@ -122,7 +122,7 @@ function SpendRoi() {
             {[["Total budget", 62, "gradient"], ["Search", 71, "plain"], ["Paid social", 58, "plain"]].map(([n, v, tone]) => (
               <div key={n}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 7, fontSize: "var(--text-sm)" }}>
-                  <span style={{ color: "var(--ink-600)" }}>{n}</span>
+                  <span style={{ color: "var(--text-secondary)" }}>{n}</span>
                   <span style={{ fontWeight: "var(--fw-bold)", fontVariantNumeric: "tabular-nums" }}>{v}%</span>
                 </div>
                 <ProgressBar value={v} tone={tone} height={9} />
@@ -135,7 +135,7 @@ function SpendRoi() {
           <SectionHead title="Channel mix" sub="Share of spend" right={<IconButton name="export" iconRoot={ICN} variant="ghost" title="Export" />} />
           {channels.map(([n, p, c]) => (
             <div key={n} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 13 }}>
-              <span style={{ width: 84, fontSize: "var(--text-sm)", color: "var(--ink-600)" }}>{n}</span>
+              <span style={{ width: 84, fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>{n}</span>
               <div style={{ flex: 1, height: 8, background: "var(--gray-100)", borderRadius: "var(--radius-pill)", overflow: "hidden" }}>
                 <div style={{ width: `${p}%`, height: "100%", background: c, borderRadius: "var(--radius-pill)" }} />
               </div>
@@ -158,10 +158,10 @@ function SpendRoi() {
           <tbody>
             {rows.map(([name, spend, roas, cac, st], i) => (
               <tr key={name} style={{ borderTop: "1px solid var(--border-subtle)", fontSize: "var(--text-sm)" }}>
-                <td style={{ padding: "15px 24px", fontWeight: "var(--fw-bold)", color: "var(--ink-900)" }}>{name}</td>
-                <td style={{ padding: "15px 24px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: "var(--ink-700)" }}>{spend}</td>
-                <td style={{ padding: "15px 24px", textAlign: "right", fontVariantNumeric: "tabular-nums", fontWeight: "var(--fw-bold)", color: "var(--ink-900)" }}>{roas}</td>
-                <td style={{ padding: "15px 24px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: "var(--ink-700)" }}>{cac}</td>
+                <td style={{ padding: "15px 24px", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{name}</td>
+                <td style={{ padding: "15px 24px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: "var(--text-body)" }}>{spend}</td>
+                <td style={{ padding: "15px 24px", textAlign: "right", fontVariantNumeric: "tabular-nums", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{roas}</td>
+                <td style={{ padding: "15px 24px", textAlign: "right", fontVariantNumeric: "tabular-nums", color: "var(--text-body)" }}>{cac}</td>
                 <td style={{ padding: "15px 24px" }}><Badge tone={statusTone[st]} dot>{statusText[st]}</Badge></td>
               </tr>
             ))}
@@ -254,7 +254,7 @@ function Integrations() {
             <Tile key={name}>
               <Glyph color={c} />
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{name}</div>
+                <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{name}</div>
                 <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{desc}</div>
               </div>
               <Badge tone="success" dot>Live</Badge>
@@ -269,10 +269,10 @@ function Integrations() {
           {available.map(([name, desc]) => (
             <Tile key={name}>
               <div style={{ width: 42, height: 42, borderRadius: "var(--radius-md)", flex: "none", background: "var(--gray-100)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon name="web-clarity" root={ICN} size={22} color="var(--ink-500)" />
+                <Icon name="web-clarity" root={ICN} size={22} color="var(--text-muted)" />
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{name}</div>
+                <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{name}</div>
                 <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{desc}</div>
               </div>
               <Button variant="outline" size="sm">Connect</Button>
@@ -296,7 +296,7 @@ function Settings() {
   const NavRow = ([id, label]) => (
     <button key={id} onClick={() => setPane(id)} style={{
       textAlign: "left", border: "none", cursor: "pointer", padding: "10px 14px", borderRadius: "var(--radius-md)",
-      background: pane === id ? "var(--orange-50)" : "transparent", color: pane === id ? "var(--orange-600)" : "var(--ink-600)",
+      background: pane === id ? "var(--orange-50)" : "transparent", color: pane === id ? "var(--orange-600)" : "var(--text-secondary)",
       fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: pane === id ? "var(--fw-bold)" : "var(--fw-medium)",
     }}>{label}</button>
   );
@@ -335,7 +335,7 @@ function Settings() {
             <div style={{ marginTop: 22, display: "flex", flexDirection: "column", gap: 14 }}>
               {[["Reporting currency", "USD ($)"], ["Fiscal year start", "January"], ["Default attribution", "Data-driven"]].map(([l, v]) => (
                 <div key={l} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderTop: "1px solid var(--border-subtle)" }}>
-                  <span style={{ fontSize: "var(--text-sm)", color: "var(--ink-600)" }}>{l}</span>
+                  <span style={{ fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>{l}</span>
                   <Badge tone="neutral">{v}</Badge>
                 </div>
               ))}
@@ -350,7 +350,7 @@ function Settings() {
               {[["Daily briefing", "Your 8:00 AM summary, every weekday", brief, setBrief], ["Real-time decision alerts", "The moment something needs a call", alerts, setAlerts], ["Weekly digest", "A Monday recap of the week's outcomes", digest, setDigest]].map(([t, d, val, set]) => (
                 <div key={t} style={{ display: "flex", alignItems: "center", gap: 16, padding: "16px 0", borderTop: "1px solid var(--border-subtle)" }}>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{t}</div>
+                    <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{t}</div>
                     <div style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{d}</div>
                   </div>
                   <Switch checked={val} onChange={set} />
@@ -370,7 +370,7 @@ function Settings() {
                     <Icon name="security-lock" root={ICN} size={18} color="var(--orange-500)" />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{t}</div>
+                    <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{t}</div>
                     <div style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{d}</div>
                   </div>
                   <Button variant="subtle" size="sm">{cta}</Button>

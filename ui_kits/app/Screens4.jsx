@@ -97,7 +97,7 @@ function SettingsProfile() {
                 ["Weekly digest", "A Monday recap of the week's outcomes", digest, setDigest]].map(([t, d, val, set]) => (
                 <div key={t} style={{ display: "flex", alignItems: "center", gap: 16, padding: "14px 0", borderTop: "1px solid var(--border-subtle)" }}>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{t}</div>
+                    <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{t}</div>
                     <div style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{d}</div>
                   </div>
                   <Switch checked={val} onChange={set} label={t} />
@@ -202,7 +202,7 @@ function TeamPermissions() {
                 ["Member", "Works with me daily — asks, drafts, and requests approvals"],
                 ["Viewer", "Reads every brief and dashboard, can't approve or edit"]].map(([r, d]) => (
                 <div key={r} style={{ display: "flex", gap: 12, alignItems: "baseline" }}>
-                  <span style={{ width: 68, flex: "none", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--ink-900)" }}>{r}</span>
+                  <span style={{ width: 68, flex: "none", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{r}</span>
                   <span style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)", lineHeight: "var(--lh-normal)" }}>{d}</span>
                 </div>
               ))}

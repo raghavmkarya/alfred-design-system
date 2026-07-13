@@ -19,10 +19,10 @@ export function IconButton({
 }) {
   const [hover, setHover] = React.useState(false);
   const variants = {
-    ghost: { bg: "transparent", fg: "var(--ink-600)", hbg: "var(--gray-100)" },
+    ghost: { bg: "transparent", fg: "var(--text-secondary)", hbg: "var(--gray-100)" },
     subtle: { bg: "var(--orange-50)", fg: "var(--orange-600)", hbg: "var(--orange-100)" },
     solid: { bg: "var(--orange-500)", fg: "#fff", hbg: "var(--orange-600)" },
-    outline: { bg: "transparent", fg: "var(--ink-700)", hbg: "var(--gray-50)", border: "1px solid var(--border-default)" },
+    outline: { bg: "transparent", fg: "var(--text-body)", hbg: "var(--surface-hover)", border: "1px solid var(--border-default)" },
   };
   const v = variants[variant] || variants.ghost;
   return (
