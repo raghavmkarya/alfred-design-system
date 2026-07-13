@@ -3,6 +3,40 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-13 — App dark theme — the product workspace at night
+
+### New theme: `[data-theme="app-dark"]`
+- A third theme scope in `tokens/colors.css`, distinct from the marketing `dark` theme:
+  the app keeps **Clash Display** headlines/KPIs (no Satoshi swap) and real card elevation
+  on the **warm ink ramp** — page/canvas `#0C0C0A`, sunken `#111110`, card `#171715`,
+  raised `#1D1D1B` — with white-alpha hairlines and white text tiers.
+- Unlike the marketing theme, `app-dark` also re-maps the soft tint ramps
+  (`--orange-50/100`, `--periwinkle-50/100`, `--success/warning/danger/info/urgent-100`,
+  `--gray-50…200`) to low-alpha ink equivalents so badge, chip, callout and alert fills
+  read correctly on dark. Brand primaries, the gradient and `--chart-1…8` never change.
+- New semantic tokens in every theme: `--surface-hover` (nav/ghost hover fill),
+  `--surface-veil` (translucent blur veil for sticky chrome), `--text-body`
+  (`ink-700`-tier long-form copy). Dark-theme `::selection` is now readable (white on
+  warm orange alpha).
+
+### New kit: `ui_kits/app-dark/`
+- The full 22-screen CMO workspace under `app-dark`, reusing the light kit's screen files —
+  the dark twin is a theme attribute, not a fork. White logo lockup via the new optional
+  `logoTone` prop on the kit `AppShell`.
+
+### Component & kit hygiene (light rendering unchanged)
+- Swept raw ink/white refs to the semantic layer (`--text-primary/-body/-secondary/-muted/
+  -placeholder`, `--surface-card`, `--surface-veil`, `--accent-soft`, `--surface-hover`)
+  across core, data, overlay, feedback, decision, conversation and marketing components and
+  all eight app-kit files, so every component renders on light, marketing-dark and app-dark
+  from one source. Intentional ink surfaces (Card `ink` variant, Avatar `ink` tone,
+  DashboardMock) and white-on-brand pairs are untouched.
+
+### Docs & registration
+- `guidelines/color-dark-app.card.html` specimen; app-dark kit + guideline cards and the
+  `App dark` theme registered in `_ds_manifest.json`; readme, SKILL.md and CONTRIBUTING.md
+  updated with the two-dark-themes rule (never put marketing `dark` on a product surface).
+
 ## 2026-07-04 — Daily-content system — 18 archetype frames for the everyday calendar (34 → 52 frames)
 
 ### New frames (all in `social/`)

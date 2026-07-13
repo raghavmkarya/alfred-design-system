@@ -73,7 +73,7 @@ export function GoalPacing({
           position: "absolute", top: 0, bottom: 0, left: `${pace}%`, transform: "translateX(-50%)",
           display: "flex", flexDirection: "column", alignItems: "center",
         }}>
-          <span style={{ width: 2, height: 20, background: "var(--ink-900)", borderRadius: "var(--radius-pill)", opacity: 0.55 }} />
+          <span style={{ width: 2, height: 20, background: "var(--text-primary)", borderRadius: "var(--radius-pill)", opacity: 0.55 }} />
         </span>
       </div>
 

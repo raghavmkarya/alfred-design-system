@@ -49,8 +49,8 @@ export function Button({
   const variants = {
     primary: { background: "var(--orange-500)", color: "var(--text-on-brand)" },
     secondary: { background: "var(--periwinkle-400)", color: "var(--ink-900)" },
-    outline: { background: "transparent", color: "var(--ink-900)", borderColor: "var(--border-default)" },
-    ghost: { background: "transparent", color: "var(--ink-700)" },
+    outline: { background: "transparent", color: "var(--text-primary)", borderColor: "var(--border-default)" },
+    ghost: { background: "transparent", color: "var(--text-body)" },
     subtle: { background: "var(--orange-50)", color: "var(--orange-600)" },
     danger: { background: "var(--danger-500)", color: "var(--text-on-brand)" },
   };
@@ -61,7 +61,7 @@ export function Button({
   const hoverStyle = !disabled && hover ? {
     primary: { background: "var(--orange-600)", boxShadow: "var(--shadow-brand)" },
     secondary: { background: "var(--periwinkle-500)" },
-    outline: { borderColor: "var(--ink-900)", background: "var(--gray-50)" },
+    outline: { borderColor: "var(--text-primary)", background: "var(--surface-hover)" },
     ghost: { background: "var(--gray-100)" },
     subtle: { background: "var(--orange-100)" },
     danger: { background: "var(--danger-600)" },

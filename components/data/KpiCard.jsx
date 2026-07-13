@@ -19,7 +19,7 @@ export function KpiCard({
   const dir = {
     up: { icon: "trend-up", color: "var(--success-500)", bg: "var(--success-100)" },
     down: { icon: "trend-down", color: "var(--danger-500)", bg: "var(--danger-100)" },
-    flat: { icon: "trend-flat", color: "var(--ink-500)", bg: "var(--gray-100)" },
+    flat: { icon: "trend-flat", color: "var(--text-muted)", bg: "var(--gray-100)" },
   }[direction];
   return (
     <div style={{

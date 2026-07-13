@@ -68,9 +68,12 @@
   --surface-sunken: var(--gray-50);
   --surface-input: var(--orange-50);    /* peach-tinted fields (auth) */
   --surface-input-plain: #FFFFFF;
+  --surface-hover: var(--gray-50);      /* hover fill on nav rows / ghost targets */
+  --surface-veil: rgba(255,255,255,0.70); /* translucent page-tone veil for blurred sticky chrome */
 
   --text-primary: var(--ink-900);
   --text-secondary: var(--ink-600);
+  --text-body: var(--ink-700);          /* long-form body copy — one step darker than secondary */
   --text-muted: var(--ink-500);
   --text-placeholder: var(--ink-400);
   --text-on-brand: #FFFFFF;
@@ -85,6 +88,14 @@
   --accent-hover: var(--orange-600);
   --accent-press: var(--orange-700);
   --accent-soft: var(--orange-50);
+
+  /* Text sitting ON the soft tint fills (badges, chips, alert pills).
+     Deep shades on the light pastels; app-dark lifts them so they stay
+     legible on the low-alpha dark fills. */
+  --text-on-tint-brand:   var(--orange-700);
+  --text-on-tint-info:    var(--periwinkle-600);
+  --text-on-tint-success: #1B7A52;
+  --text-on-tint-danger:  #B5363A;
 
   /* —— Data-viz categorical palette ———————————————————— */
   /* Series colors in assignment order. Every chart and the Legend default
@@ -129,8 +140,12 @@
   --surface-input: rgba(255,255,255,0.05);
   --surface-input-plain: rgba(255,255,255,0.04);
 
+  --surface-hover: rgba(255,255,255,0.06);
+  --surface-veil: rgba(0,0,0,0.72);
+
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255,255,255,0.78); /* live tiers: 0.70 / 0.82 / #B8B8B8 */
+  --text-body: rgba(255,255,255,0.82);
   --text-muted: rgba(255,255,255,0.55);
   --text-placeholder: rgba(255,255,255,0.40);
   --text-on-brand: #FFFFFF;
@@ -147,4 +162,71 @@
   /* Dark-tuned ambient glow — richer, used behind the hero */
   --glow-periwinkle: radial-gradient(58% 52% at 18% 12%, rgba(167,167,252,0.30) 0%, rgba(167,167,252,0) 70%); /* @kind color */
   --glow-orange:     radial-gradient(60% 58% at 90% 96%, rgba(255,132,49,0.26) 0%, rgba(255,132,49,0) 70%); /* @kind color */
+}
+
+/* ============================================================
+   App dark theme — the product workspace at night.
+   Apply with <html data-theme="app-dark"> or any [data-theme="app-dark"] scope.
+   Distinct from the marketing dark theme above: the app keeps its own
+   identity — Clash Display headlines and KPI values (no font swap), the
+   warm near-black ink ramp (--ink-950/925/875) instead of pure-black
+   marketing pages, and real card surfaces instead of 3%-white fills.
+   Orange, periwinkle, the gradient and the chart palette are identical
+   in every theme. Unlike the marketing theme, this scope also re-maps
+   the soft tint ramps (--*-100, --orange-50, --gray-50…200) to low-alpha
+   equivalents so badge/chip/callout/alert fills read correctly on ink.
+   ============================================================ */
+[data-theme="app-dark"] {
+  --bg-page: var(--ink-950);                /* warm near-black, not marketing pure-black */
+  --bg-canvas: var(--ink-950);
+  --surface-card: var(--ink-875);           /* real raised cards — the app keeps its elevation */
+  --surface-raised: #1D1D1B;
+  --surface-sunken: var(--ink-925);
+  --surface-input: rgba(255,132,49,0.09);   /* warm-tinted fields — dark twin of the peach auth inputs */
+  --surface-input-plain: rgba(255,255,255,0.05);
+  --surface-hover: rgba(255,255,255,0.06);
+  --surface-veil: rgba(12,12,10,0.72);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.78);
+  --text-body: rgba(255,255,255,0.82);
+  --text-muted: rgba(255,255,255,0.55);
+  --text-placeholder: rgba(255,255,255,0.38);
+  --text-on-brand: #FFFFFF;
+  --text-link: var(--orange-400);
+
+  --border-subtle: rgba(255,255,255,0.08);
+  --border-default: rgba(255,255,255,0.12);
+  --border-strong: rgba(255,255,255,0.26);
+  --border-focus: var(--orange-400);
+
+  --accent-soft: rgba(255,132,49,0.14);
+  --overlay-scrim: rgba(12,12,10,0.66);
+  --surface-tooltip: #262623;
+
+  /* Tint text lifts with the fills below — deep shades would vanish on ink */
+  --text-on-tint-brand:   var(--orange-400);
+  --text-on-tint-info:    var(--periwinkle-300);
+  --text-on-tint-success: #63D9AC;
+  --text-on-tint-danger:  #F27E82;
+
+  /* Soft tint ramps → low-alpha ink equivalents (badges, chips, callouts,
+     alert fills). Raw brand primaries and the chart palette never change. */
+  --orange-50:  rgba(255,132,49,0.12);
+  --orange-100: rgba(255,132,49,0.20);
+  --periwinkle-50:  rgba(167,167,252,0.12);
+  --periwinkle-100: rgba(167,167,252,0.20);
+  --success-100: rgba(47,182,124,0.18);
+  --warning-100: rgba(255,132,49,0.18);
+  --danger-100:  rgba(229,72,77,0.18);
+  --info-100:    rgba(167,167,252,0.18);
+  --urgent-100:  rgba(255,61,0,0.18);
+  --gray-50:  rgba(255,255,255,0.04);
+  --gray-100: rgba(255,255,255,0.07);
+  --gray-150: rgba(255,255,255,0.10);
+  --gray-200: rgba(255,255,255,0.14);
+
+  /* Dark-tuned ambient glow — behind auth and empty states */
+  --glow-periwinkle: radial-gradient(58% 52% at 18% 12%, rgba(167,167,252,0.26) 0%, rgba(167,167,252,0) 70%); /* @kind color */
+  --glow-orange:     radial-gradient(60% 58% at 90% 96%, rgba(255,132,49,0.22) 0%, rgba(255,132,49,0) 70%); /* @kind color */
 }

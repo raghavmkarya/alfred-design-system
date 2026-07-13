@@ -23,7 +23,7 @@ function AuthScreen({ onSignedIn }) {
   return (
     <div style={{
       position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
-      background: "var(--glow-periwinkle), var(--glow-orange), #fff", overflow: "hidden",
+      background: "var(--glow-periwinkle), var(--glow-orange), var(--bg-page)", overflow: "hidden",
     }}>
       {stage === "login" ? (
         <div style={{

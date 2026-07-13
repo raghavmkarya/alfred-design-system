@@ -7,7 +7,7 @@ import React from "react";
  */
 export function Chip({ children, tone = "neutral", selected = false, onRemove, onClick, style = {} }) {
   const tones = {
-    neutral: ["var(--gray-100)", "var(--ink-700)"],
+    neutral: ["var(--gray-100)", "var(--text-body)"],
     brand: ["var(--orange-50)", "var(--orange-600)"],
     info: ["var(--info-100)", "var(--periwinkle-600)"],
     success: ["var(--success-100)", "var(--success-500)"],

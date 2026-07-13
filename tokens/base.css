@@ -44,6 +44,21 @@ a:hover { opacity: 0.78; }
   color: var(--ink-900);
 }
 
+/* On dark themes --orange-100 resolves to a low-alpha tint, so keep the
+   selected text readable in white instead of ink. */
+[data-theme="dark"] ::selection,
+[data-theme="app-dark"] ::selection {
+  background: rgba(255,132,49,0.32);
+  color: #FFFFFF;
+}
+
+/* Logo tone="auto" — the color lockup by default; dark scopes swap in the
+   all-white lockup (brand rule: white only on ink or the gradient). */
+[data-theme="dark"] .ds-logo-auto .ds-logo-color,
+[data-theme="app-dark"] .ds-logo-auto .ds-logo-color { display: none !important; }
+[data-theme="dark"] .ds-logo-auto .ds-logo-white,
+[data-theme="app-dark"] .ds-logo-auto .ds-logo-white { display: block !important; }
+
 :focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus);

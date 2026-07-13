@@ -13,7 +13,7 @@ export function ActivityTimeline({ items = [], style = {} }) {
     alert: "var(--danger-500)",
     success: "var(--success-500)",
     info: "var(--periwinkle-400)",
-    neutral: "var(--ink-400)",
+    neutral: "var(--text-placeholder)",
   };
 
   return (

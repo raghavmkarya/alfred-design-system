@@ -11,7 +11,10 @@ syncs to claude.ai/design. Keep it token-driven, verified, and on-brand.
    - A single `export function <Name>(props)` (or `export const <Name> = React.forwardRef(…)`
      for form controls that should expose their inner element).
    - Style **only** with design-system tokens (`var(--…)`) — no raw hex. It then inherits the
-     active theme and works on the light app and the dark website unchanged.
+     active theme and works on the light app, the dark website (`data-theme="dark"`) and the
+     dark workspace (`data-theme="app-dark"`) unchanged. Prefer the semantic layer
+     (`--text-*`, `--surface-*`, `--border-*`) over raw ink/gray ramps for anything that sits
+     on a themed surface.
    - Lead with a JSDoc block: what it is + when to use it (this becomes the `prompt.md` description).
 2. **Contract** — `components/<group>/<Name>.d.ts` with a `<Name>Props` interface. This drives the
    generated props table and is the design agent's API contract. Add `@default` in prop doc comments.

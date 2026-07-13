@@ -64,7 +64,7 @@ const SourceGlyph = ({ seed = 0, muted = false, size = 40 }) => (
     background: muted ? "var(--gray-100)" : SOURCE_COLORS[seed % SOURCE_COLORS.length],
     display: "inline-flex", alignItems: "center", justifyContent: "center",
   }}>
-    <Icon name={muted ? "web-clarity" : "web-stack-connected"} root={ICN} size={Math.round(size / 2)} color={muted ? "var(--ink-500)" : "#fff"} />
+    <Icon name={muted ? "web-clarity" : "web-stack-connected"} root={ICN} size={Math.round(size / 2)} color={muted ? "var(--text-muted)" : "#fff"} />
   </span>
 );
 
@@ -117,7 +117,7 @@ function ConnectionFlow() {
                       }}>
                       <SourceGlyph seed={INTEGRATIONS.indexOf(it)} muted={planned} />
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{it.name}</div>
+                        <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{it.name}</div>
                         <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{it.category}</div>
                       </div>
                       {planned ? <Badge tone="neutral">Coming soon</Badge>
@@ -148,7 +148,7 @@ function ConnectionFlow() {
                 <div key={scope} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 0", borderTop: "1px solid var(--border-subtle)" }}>
                   <span style={{ marginTop: 2 }}><CheckGlyph /></span>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--ink-900)" }}>{scope}</div>
+                    <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{scope}</div>
                     <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{why}</div>
                   </div>
                   <Badge tone="neutral">Read</Badge>
@@ -161,8 +161,8 @@ function ConnectionFlow() {
               background: "var(--accent-soft)", borderRadius: "var(--radius-md)", marginBottom: 18,
             }}>
               <Icon name="read-only" root={ICN} size={17} color="var(--orange-600)" style={{ marginTop: 1 }} />
-              <div style={{ fontSize: "var(--text-sm)", color: "var(--ink-700)", lineHeight: "var(--lh-normal)" }}>
-                <strong style={{ color: "var(--ink-900)" }}>Read-only by default.</strong> I never change anything in your
+              <div style={{ fontSize: "var(--text-sm)", color: "var(--text-body)", lineHeight: "var(--lh-normal)" }}>
+                <strong style={{ color: "var(--text-primary)" }}>Read-only by default.</strong> I never change anything in your
                 account without an approval you've signed off in Alfred.
               </div>
             </div>
@@ -214,7 +214,7 @@ function ConnectionHealth() {
   const catOf = (n) => (INTEGRATIONS.find((i) => i.name === n) || {}).category || "";
 
   const columns = [
-    { key: "name", header: "Source", render: (v) => <strong style={{ color: "var(--ink-900)" }}>{v}</strong> },
+    { key: "name", header: "Source", render: (v) => <strong style={{ color: "var(--text-primary)" }}>{v}</strong> },
     { key: "category", header: "Category" },
     { key: "lastSync", header: "Last sync", align: "right" },
     { key: "status", header: "Status", align: "right", render: (v) => <Badge tone={statusBadge[v][0]} dot>{statusBadge[v][1]}</Badge> },
@@ -317,7 +317,7 @@ function FirstRunWaiting() {
                   {s.done && <CheckGlyph size={14} />}
                 </span>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: s.done ? "var(--text-muted)" : "var(--ink-900)", textDecoration: s.done ? "line-through" : "none", textDecorationThickness: 1 }}>{s.label}</div>
+                  <div style={{ fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: s.done ? "var(--text-muted)" : "var(--text-primary)", textDecoration: s.done ? "line-through" : "none", textDecorationThickness: 1 }}>{s.label}</div>
                   <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{s.meta}</div>
                 </div>
                 {!s.done && <Button variant="subtle" size="sm">Do it now</Button>}
@@ -341,7 +341,7 @@ function FirstRunWaiting() {
                 </div>
                 <div style={{ paddingBottom: i < expect.length - 1 ? 20 : 0 }}>
                   <Eyebrow color={i === 0 ? "var(--orange-600)" : "var(--text-muted)"}>{e.when}</Eyebrow>
-                  <p style={{ margin: "-2px 0 0", fontSize: "var(--text-sm)", color: "var(--ink-700)", lineHeight: "var(--lh-normal)" }}>{e.what}</p>
+                  <p style={{ margin: "-2px 0 0", fontSize: "var(--text-sm)", color: "var(--text-body)", lineHeight: "var(--lh-normal)" }}>{e.what}</p>
                 </div>
               </div>
             ))}
@@ -397,7 +397,7 @@ function NotificationsCenter({ onOpenAlert } = {}) {
       <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 22, alignItems: "start" }}>
         <Card padding={0} shadow="sm" style={{ overflow: "hidden" }}>
           <div style={{ padding: "18px 20px 12px" }}>
-            <Sect title="Inbox" sub="Ranked by how much they need you" right={<Icon name="refresh" root={ICN} size={16} color="var(--ink-500)" />} />
+            <Sect title="Inbox" sub="Ranked by how much they need you" right={<Icon name="refresh" root={ICN} size={16} color="var(--text-muted)" />} />
           </div>
           {feed.map((n) => (
             <NotificationItem key={n.title} title={n.title} body={n.body} time={n.time}
@@ -414,7 +414,7 @@ function NotificationsCenter({ onOpenAlert } = {}) {
               channels={prefs[agent]} onChange={setPref(agent)} />
           ))}
           <div style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "14px 20px", background: "var(--surface-sunken)" }}>
-            <Icon name="alert-warning" root={ICN} size={15} color="var(--ink-500)" style={{ marginTop: 2 }} />
+            <Icon name="alert-warning" root={ICN} size={15} color="var(--text-muted)" style={{ marginTop: 2 }} />
             <span style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)", lineHeight: "var(--lh-normal)" }}>
               P1 anomalies always reach you on every channel — that's the one setting I won't let you silence.
             </span>
@@ -460,14 +460,14 @@ function AlertDetail() {
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <div>
                 <Eyebrow color="var(--orange-600)">What changed</Eyebrow>
-                <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--ink-900)", lineHeight: "var(--lh-relaxed)" }}>
+                <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--text-primary)", lineHeight: "var(--lh-relaxed)" }}>
                   Your Meta US-broad prospecting campaign is burning <strong>$4.8K a month with zero conversions</strong>.
                   Spend kept flowing at full pace while every downstream signal went flat.
                 </p>
               </div>
               <div style={{ borderTop: "1px solid var(--border-subtle)", paddingTop: 18 }}>
                 <Eyebrow color="var(--orange-600)">Why it happened</Eyebrow>
-                <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--ink-700)", lineHeight: "var(--lh-relaxed)" }}>
+                <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--text-body)", lineHeight: "var(--lh-relaxed)" }}>
                   Lead quality fell <strong>14%</strong> the week the new broad audience launched. This isn't creative
                   fatigue or seasonality — GA4 sessions from these ad sets stopped converting the day the audience
                   switched, and HubSpot shows the leads it did produce going nowhere. The audience itself is wrong.
@@ -475,7 +475,7 @@ function AlertDetail() {
               </div>
               <div style={{ borderTop: "1px solid var(--border-subtle)", paddingTop: 18 }}>
                 <Eyebrow color="var(--orange-600)">Do this</Eyebrow>
-                <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--ink-900)", lineHeight: "var(--lh-relaxed)" }}>
+                <p style={{ margin: 0, fontSize: "var(--text-base)", color: "var(--text-primary)", lineHeight: "var(--lh-relaxed)" }}>
                   <strong>Kill Meta US-broad prospecting and cap the audience at $4K/day.</strong> That recovers
                   $4.8K/mo of waste — and it's the single largest line in the $55.1K/mo of recoverable waste
                   I'm tracking across your account.
@@ -508,12 +508,12 @@ function AlertDetail() {
             <div style={{ display: "flex", flexDirection: "column" }}>
               {facts.map(([label, value]) => (
                 <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderTop: "1px solid var(--border-subtle)" }}>
-                  <span style={{ fontSize: "var(--text-sm)", color: "var(--ink-600)" }}>{label}</span>
-                  <span style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontVariantNumeric: "tabular-nums" }}>{value}</span>
+                  <span style={{ fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>{label}</span>
+                  <span style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontVariantNumeric: "tabular-nums" }}>{value}</span>
                 </div>
               ))}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderTop: "1px solid var(--border-subtle)" }}>
-                <span style={{ fontSize: "var(--text-sm)", color: "var(--ink-600)" }}>My call</span>
+                <span style={{ fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>My call</span>
                 <Badge tone="danger" dot>Kill</Badge>
               </div>
             </div>

@@ -29,8 +29,8 @@ function NavItem({ glyph, label, active, badge, onClick }) {
       style={{
         display: "flex", alignItems: "center", gap: 12, width: "100%", border: "none", cursor: "pointer",
         padding: "11px 14px", borderRadius: "var(--radius-md)", textAlign: "left",
-        background: active ? "var(--orange-50)" : h ? "var(--gray-50)" : "transparent",
-        color: active ? "var(--orange-600)" : "var(--ink-600)",
+        background: active ? "var(--accent-soft)" : h ? "var(--surface-hover)" : "transparent",
+        color: active ? "var(--orange-600)" : "var(--text-secondary)",
         fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
         transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)",
       }}>
@@ -41,15 +41,15 @@ function NavItem({ glyph, label, active, badge, onClick }) {
   );
 }
 
-function AppShell({ nav, active, onNav, title, subtitle, headerRight, children, logoRoot, iconRoot }) {
+function AppShell({ nav, active, onNav, title, subtitle, headerRight, children, logoRoot, iconRoot, logoTone }) {
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", background: "var(--bg-canvas)", fontFamily: "var(--font-sans)" }}>
       {/* Sidebar */}
       <aside style={{
-        width: 248, flex: "none", background: "#fff", borderRight: "1px solid var(--border-subtle)",
+        width: 248, flex: "none", background: "var(--surface-card)", borderRight: "1px solid var(--border-subtle)",
         display: "flex", flexDirection: "column", padding: "22px 16px",
       }}>
-        <div style={{ padding: "4px 8px 22px" }}><Logo height={30} root={logoRoot} /></div>
+        <div style={{ padding: "4px 8px 22px" }}><Logo height={30} root={logoRoot} tone={logoTone} /></div>
         <nav style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           {nav.map((n) => (
             <NavItem key={n.id} glyph={n.glyph} label={n.label} badge={n.badge}
@@ -66,8 +66,8 @@ function AppShell({ nav, active, onNav, title, subtitle, headerRight, children, 
           <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "4px 6px" }}>
             <Avatar name="Priya Menon" size={36} />
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--ink-900)" }}>Priya Menon</div>
-              <div style={{ fontSize: "var(--text-xs)", color: "var(--ink-500)" }}>CMO · Northwind</div>
+              <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>Priya Menon</div>
+              <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>CMO · Northwind</div>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ function AppShell({ nav, active, onNav, title, subtitle, headerRight, children, 
       <main style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column" }}>
         <header style={{
           height: 76, flex: "none", padding: "0 32px", display: "flex", alignItems: "center", gap: 20,
-          borderBottom: "1px solid var(--border-subtle)", background: "rgba(255,255,255,0.7)", backdropFilter: "blur(8px)",
+          borderBottom: "1px solid var(--border-subtle)", background: "var(--surface-veil)", backdropFilter: "blur(8px)",
         }}>
           <div style={{ minWidth: 0 }}>
             <h1 style={{ fontSize: "var(--text-h2)", fontWeight: "var(--fw-semibold)", letterSpacing: "var(--ls-tight)" }}>{title}</h1>
@@ -87,7 +87,7 @@ function AppShell({ nav, active, onNav, title, subtitle, headerRight, children, 
             <div style={{
               display: "flex", alignItems: "center", gap: 8, height: 42, padding: "0 14px", width: 240,
               background: "var(--gray-50)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-pill)",
-              color: "var(--ink-400)",
+              color: "var(--text-placeholder)",
             }}>
               <NavGlyph d={GLYPHS.search} size={18} />
               <span style={{ fontSize: "var(--text-sm)" }}>Ask or search…</span>

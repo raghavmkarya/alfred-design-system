@@ -7,7 +7,7 @@ The gradient "a" mark plus the "Alfred ai" wordmark. Variants render the full lo
 | Prop | Type | Default | Notes |
 | --- | --- | --- | --- |
 | `variant?` | `LogoVariant` | `"full"` | full lockup, the gradient mark only, or the wordmark only. |
-| `tone?` | `LogoTone` | `"color"` | "white" for dark/photographic backgrounds. |
+| `tone?` | `LogoTone` | `"auto"` | "auto" follows the active theme (white lockup under dark scopes); force "color" or "white" when the surface, not the theme, decides. |
 | `height?` | `number` | `32` | Rendered height in px. |
 | `root?` | `string` | `"assets/logos"` | Path to the logos folder relative to the host page. |
 | `style?` | `React.CSSProperties` | — |  |

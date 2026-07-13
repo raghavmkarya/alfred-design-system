@@ -1,7 +1,7 @@
 import React from "react";
 
 export type LogoVariant = "full" | "mark" | "wordmark";
-export type LogoTone = "color" | "white";
+export type LogoTone = "auto" | "color" | "white";
 
 /**
  * Alfred ai brand lockup. Use the full lockup by default; the mark alone for
@@ -13,7 +13,7 @@ export type LogoTone = "color" | "white";
 export interface LogoProps {
   /** full lockup, the gradient mark only, or the wordmark only. @default "full" */
   variant?: LogoVariant;
-  /** "white" for dark/photographic backgrounds. @default "color" */
+  /** "auto" follows the active theme (white lockup under dark scopes); force "color" or "white" when the surface, not the theme, decides. @default "auto" */
   tone?: LogoTone;
   /** Rendered height in px. @default 32 */
   height?: number;

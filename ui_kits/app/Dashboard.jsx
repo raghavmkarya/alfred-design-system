@@ -46,14 +46,14 @@ function AskAlfred() {
         background: "var(--gray-50)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-pill)",
       }}>
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask anything about your marketing performance…"
-          style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--ink-900)" }} />
+          style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-primary)" }} />
         <Button variant="primary" size="sm" iconRight={<window.NavGlyph d={window.AppGlyphs.send} size={15} />}>Ask</Button>
       </div>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         {chips.map((c) => (
           <button key={c} onClick={() => setQ(c)} style={{
-            border: "1px solid var(--border-default)", background: "#fff", cursor: "pointer",
-            padding: "7px 14px", borderRadius: "var(--radius-pill)", color: "var(--ink-600)",
+            border: "1px solid var(--border-default)", background: "var(--surface-card)", cursor: "pointer",
+            padding: "7px 14px", borderRadius: "var(--radius-pill)", color: "var(--text-secondary)",
             fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)",
           }}>{c}</button>
         ))}
@@ -102,11 +102,11 @@ function Dashboard() {
             </div>
             {[["Paid social", 38, "var(--orange-500)"], ["Search", 26, "var(--periwinkle-400)"], ["Email", 18, "var(--orange-300)"], ["Organic", 12, "var(--periwinkle-600)"], ["Other", 6, "var(--gray-200)"]].map(([n, p, c]) => (
               <div key={n} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-                <span style={{ width: 78, fontSize: "var(--text-sm)", color: "var(--ink-600)" }}>{n}</span>
+                <span style={{ width: 78, fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>{n}</span>
                 <div style={{ flex: 1, height: 8, background: "var(--gray-100)", borderRadius: "var(--radius-pill)", overflow: "hidden" }}>
                   <div style={{ width: `${p}%`, height: "100%", background: c, borderRadius: "var(--radius-pill)" }} />
                 </div>
-                <span style={{ width: 34, textAlign: "right", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontVariantNumeric: "tabular-nums" }}>{p}%</span>
+                <span style={{ width: 34, textAlign: "right", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontVariantNumeric: "tabular-nums" }}>{p}%</span>
               </div>
             ))}
           </Card>

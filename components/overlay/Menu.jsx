@@ -53,11 +53,11 @@ export function Menu({ items = [], style = {} }) {
           ref={(el) => { itemRefs.current[i] = el; }}
           tabIndex={i === activeIndex ? 0 : -1}
           onFocus={() => setActiveIndex(i)}
-          onMouseEnter={(e) => { if (!it.disabled) e.currentTarget.style.background = "var(--surface-sunken)"; }}
+          onMouseEnter={(e) => { if (!it.disabled) e.currentTarget.style.background = "var(--surface-hover)"; }}
           onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
           style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", textAlign: "left", border: "none", background: "transparent", cursor: it.disabled ? "not-allowed" : "pointer", opacity: it.disabled ? "var(--opacity-disabled)" : 1, padding: "9px 12px", borderRadius: "var(--radius-sm)", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: it.danger ? "var(--danger-500)" : "var(--text-primary)" }}
         >
-          {it.icon && <span style={{ display: "inline-flex", color: it.danger ? "var(--danger-500)" : "var(--ink-500)" }}>{it.icon}</span>}
+          {it.icon && <span style={{ display: "inline-flex", color: it.danger ? "var(--danger-500)" : "var(--text-muted)" }}>{it.icon}</span>}
           {it.label}
         </button>
       ))}

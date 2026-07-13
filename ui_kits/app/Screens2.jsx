@@ -143,7 +143,7 @@ function SeekAlfred() {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 6px 6px 18px", background: "var(--gray-50)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-pill)" }}>
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask anything about your marketing performance…"
-            style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--ink-900)" }} />
+            style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-primary)" }} />
           <Button variant="primary" size="sm" iconRight={<SendGlyph />}>Ask</Button>
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -155,7 +155,7 @@ function SeekAlfred() {
       <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 22, alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <div style={{ background: "var(--orange-50)", color: "var(--ink-800)", padding: "10px 16px", borderRadius: "var(--radius-xl)", fontSize: "var(--text-base)", fontWeight: "var(--fw-medium)", maxWidth: 460 }}>
+            <div style={{ background: "var(--orange-50)", color: "var(--text-primary)", padding: "10px 16px", borderRadius: "var(--radius-xl)", fontSize: "var(--text-base)", fontWeight: "var(--fw-medium)", maxWidth: 460 }}>
               Why did CAC rise last week?
             </div>
           </div>
@@ -168,7 +168,7 @@ function SeekAlfred() {
               <span style={{ fontWeight: "var(--fw-bold)", fontSize: "var(--text-base)" }}>Alfred</span>
               <Badge tone="success" dot>answered in 4s</Badge>
             </div>
-            <p style={{ fontSize: "var(--text-lg)", lineHeight: "var(--lh-relaxed)", color: "var(--ink-900)", margin: "0 0 16px" }}>
+            <p style={{ fontSize: "var(--text-lg)", lineHeight: "var(--lh-relaxed)", color: "var(--text-primary)", margin: "0 0 16px" }}>
               Blended CAC rose <strong>8% to $184</strong> last week, and it's almost entirely one channel: <strong>Meta</strong>.
               Creative fatigue in the 25–34 segment pushed frequency past 3.0, so CTR fell 14% and you paid more for the same
               conversions. Search and LinkedIn CAC actually improved.
@@ -185,7 +185,7 @@ function SeekAlfred() {
               ]} />
             </Card>
 
-            <p style={{ fontSize: "var(--text-base)", lineHeight: "var(--lh-relaxed)", color: "var(--ink-700)", margin: "0 0 18px" }}>
+            <p style={{ fontSize: "var(--text-base)", lineHeight: "var(--lh-relaxed)", color: "var(--text-body)", margin: "0 0 18px" }}>
               Refreshing the three fatigued Meta creatives should pull Meta CAC back toward $205 within a week, recovering an
               estimated <strong>$9K</strong> in efficiency this month.
             </p>
@@ -211,7 +211,7 @@ function SeekAlfred() {
                 <div key={n} style={{ display: "flex", alignItems: "center", gap: 12 }}>
                   <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--success-500)", flex: "none" }} />
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--ink-900)" }}>{n}</div>
+                    <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{n}</div>
                     <div style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{d}</div>
                   </div>
                   <Badge tone="success" dot>live</Badge>
@@ -262,10 +262,10 @@ function CreativeLifecycle() {
                 <span style={{ position: "relative", padding: "4px 10px", borderRadius: "var(--radius-pill)", background: "rgba(255,255,255,0.92)", color: "var(--ink-800)", fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase" }}>{c.ch}</span>
               </div>
               <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 12 }}>
-                <div style={{ fontWeight: "var(--fw-bold)", color: "var(--ink-900)", fontSize: "var(--text-base)" }}>{c.name}</div>
+                <div style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)", fontSize: "var(--text-base)" }}>{c.name}</div>
                 <MeterRow label="Fatigue" value={c.fatigue} color={sev(c.fatigue)} />
-                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "var(--text-sm)", color: "var(--ink-600)" }}>
-                  <span>Frequency <strong style={{ color: "var(--ink-900)" }}>{c.freq}</strong></span>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>
+                  <span>Frequency <strong style={{ color: "var(--text-primary)" }}>{c.freq}</strong></span>
                   <span>CTR <strong style={{ color: c.ctr.startsWith("-") ? "var(--danger-500)" : "var(--success-500)" }}>{c.ctr}</strong></span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, borderTop: "1px solid var(--border-subtle)", paddingTop: 12 }}>
@@ -367,7 +367,7 @@ function AiVisibility() {
             {engines.map((e) => (
               <div key={e.name}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
-                  <span style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--ink-900)" }}>{e.name}</span>
+                  <span style={{ fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{e.name}</span>
                   <span style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{e.note}</span>
                 </div>
                 <div style={{ height: 8, background: "var(--gray-100)", borderRadius: "var(--radius-pill)", overflow: "hidden" }}>
