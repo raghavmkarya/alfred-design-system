@@ -3,6 +3,19 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-13 — App dark, quiet pass — color whispers at night
+
+- Retuned `[data-theme="app-dark"]` after first review ("too much"): tint washes
+  dropped to ~10% alpha (from 18%), tint text went dusty instead of vivid
+  (`--text-on-tint-*`: `#EDA26A / #A9B2E9 / #82CBA4 / #E09193`), the ambient
+  glows became embers (~0.10–0.12 alpha, half strength), the warm input cast and
+  `--accent-soft` softened, and the primary-button hover glow dimmed
+  (`--shadow-brand` override). Solid orange actions keep full strength.
+- New semantic token `--surface-ink` for the dramatic ink hero panels (briefing
+  bands, first-run): still the deep navy `ink-900` in light, but a quiet raised
+  `#1D1D1B` panel on app-dark — the navy splash was the loudest element on the
+  dark canvas. `Card tone="ink"` now uses it.
+
 ## 2026-07-13 — App dark theme — the product workspace at night
 
 ### New theme: `[data-theme="app-dark"]`
