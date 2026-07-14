@@ -1,5 +1,14 @@
 # Alfred design-system sync notes
 
+- **Claude account scoping (2026-07-14).** claude.ai/design projects are scoped per Claude
+  account. The prior pin (`ffaac5ec-88c5-411c-b366-f81b55b70a22`) was created under the
+  `raghav@e902.ai` account and 404s from other accounts/sessions (e.g. `hello@e902.ai`) — it's
+  not deleted, just invisible cross-account. `list_projects` under a different account may also
+  surface same-named projects owned by teammates (e.g. Damini's "Alfred AI Design System") —
+  never re-adopt those without explicit confirmation. When a pinned project 404s, check which
+  Claude account is active before assuming the project is gone. Current pin
+  (`4682509f-3a38-43e7-9817-20198e0e643c`, "Alfred AI design system(MK Synced)") was created
+  fresh under the account active in this session; re-verify account/pin match at the next sync.
 - **Off-script shape.** This repo has no package.json / dist / Storybook. It is a hand-authored
   static design system already in the claude.ai/design upload format: a prebuilt `_ds_bundle.js`
   (`window.AlfredAIDesignSystem_1ce241`, `@ds-bundle` header), `styles.css` that `@import`s the
