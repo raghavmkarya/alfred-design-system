@@ -3,6 +3,18 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-21 — Full success & warning tint ramps
+
+- **Success and warning gain complete tint ramps** (`50 · 100 · 200 · 300 · 400 · 500 ·
+  600 · 700`), matching the coverage `orange`/`periwinkle` already ship. Purely additive:
+  the established `--success-500` (`#2FB67C`), `--success-100` (`#E3F6EE`), `--warning-500`
+  (`#FF8431`) and `--warning-100` (`#FFF0E3`) are unchanged, so every existing usage is
+  untouched. Success is anchored on the brand green with the on-tint text green
+  (`#1B7A52`) as its `700`; warning reuses the brand-orange scale. Fills the gap where a
+  status color needed pale→deep steps (tinted callouts, status pills, linkage/data-viz)
+  and there were only two stops to reach for. Regenerated `tokens.json`, the Tailwind
+  preset, and the Framer style map via `gen-tokens.mjs`.
+
 ## 2026-07-13 — The critique pass — five-critic review, everything fixed
 
 A five-lens design review (visual craft · color/a11y · UX/IA · interaction states ·

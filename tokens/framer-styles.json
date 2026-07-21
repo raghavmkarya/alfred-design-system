@@ -113,20 +113,68 @@
       "light": "#000000"
     },
     {
-      "name": "success-500",
-      "light": "#2FB67C"
+      "name": "success-50",
+      "light": "#EBFAF3"
     },
     {
       "name": "success-100",
       "light": "#E3F6EE"
     },
     {
-      "name": "warning-500",
-      "light": "#FF8431"
+      "name": "success-200",
+      "light": "#BFEAD7"
+    },
+    {
+      "name": "success-300",
+      "light": "#93DBBB"
+    },
+    {
+      "name": "success-400",
+      "light": "#5FC898"
+    },
+    {
+      "name": "success-500",
+      "light": "#2FB67C"
+    },
+    {
+      "name": "success-600",
+      "light": "#1F9A66"
+    },
+    {
+      "name": "success-700",
+      "light": "#1B7A52"
+    },
+    {
+      "name": "warning-50",
+      "light": "#FFF3EA"
     },
     {
       "name": "warning-100",
       "light": "#FFF0E3"
+    },
+    {
+      "name": "warning-200",
+      "light": "#FDB381"
+    },
+    {
+      "name": "warning-300",
+      "light": "#FFB07B"
+    },
+    {
+      "name": "warning-400",
+      "light": "#FFA040"
+    },
+    {
+      "name": "warning-500",
+      "light": "#FF8431"
+    },
+    {
+      "name": "warning-600",
+      "light": "#F26A1B"
+    },
+    {
+      "name": "warning-700",
+      "light": "#C75A12"
     },
     {
       "name": "danger-500",

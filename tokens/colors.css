@@ -39,10 +39,26 @@
   --black: #000000;
 
   /* —— Semantic ——————————————————————————————————— */
-  --success-500: #2FB67C;
+  /* Full success ramp, anchored on the brand green (#2FB67C) with the existing tint
+     (#E3F6EE) and the on-tint text green (#1B7A52) as its ends — for tinted fills,
+     status pills, callouts and data-viz that need pale→deep green steps. */
+  --success-50:  #EBFAF3;
   --success-100: #E3F6EE;
-  --warning-500: #FF8431;  /* warm — reuses brand orange */
+  --success-200: #BFEAD7;
+  --success-300: #93DBBB;
+  --success-400: #5FC898;
+  --success-500: #2FB67C;
+  --success-600: #1F9A66;
+  --success-700: #1B7A52;
+  /* Full warning ramp — warm, reuses the brand-orange scale (core #FF8431). */
+  --warning-50:  #FFF3EA;
   --warning-100: #FFF0E3;
+  --warning-200: #FDB381;
+  --warning-300: #FFB07B;
+  --warning-400: #FFA040;
+  --warning-500: #FF8431;
+  --warning-600: #F26A1B;
+  --warning-700: #C75A12;
   --danger-500:  #E5484D;
   --danger-600:  #CF3A3F;
   --danger-100:  #FCE8E9;
