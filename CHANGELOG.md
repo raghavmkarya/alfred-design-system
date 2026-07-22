@@ -3,6 +3,25 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — verify-craft — mechanical craft checks + gradient-text reconciliation
+
+A fourth verifier that turns the checkable half of the new craft guidelines into an enforced gate.
+
+- **`scripts/verify-craft.mjs`** — scans the design system's own source (`.html`/`.css`/`.jsx`)
+  for the mechanically-detectable craft violations and fails on any hit: `transition: all`,
+  `ease-in` on UI, `scale(0)` entries, hardcoded `cubic-bezier` outside `tokens/`, arbitrary
+  `z-index` (999/9999), `outline: none` with no focus replacement, and emoji in source — plus a
+  positive check that `tokens/base.css` still ships the global `prefers-reduced-motion` block.
+  Green today (359 files, 8 rules), so it acts as a forward regression guard. The subjective
+  rules (eyebrow-per-section, layout sameness, copy) stay with the human/five-critic pass.
+- **Gradient-text reconciliation.** `background-clip: text` with `--gradient-brand` on short
+  display/emphasis text is a committed Alfred brand device (~30 deliberate uses across social,
+  decks, heroes), not a slop tell — the checker allows it. `craft-checklist.md` and `anti-slop.md`
+  updated from a flat "gradient-text ban" to the nuanced rule (gradient on body copy / as the only
+  emphasis everywhere is the tell; gradient on a short display word is on-brand).
+- Wired into `CONTRIBUTING.md` (Verify step + pre-sync checklist), `readme.md`, and `SKILL.md` as
+  the fourth verifier. Documentation/tooling only — no token, component, or bundle changes.
+
 ## 2026-07-22 — Craft & taste — three craft guidelines distilled from external skills
 
 A **craft & taste layer** so on-brand work also clears a real craft bar. The durable principles

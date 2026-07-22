@@ -83,9 +83,11 @@ Card-overuse and the 3-equal-columns feature row are two of the loudest tells.
   a divider, or plain negative space. In dense/data contexts, drop the boxes entirely; don't box
   a KPI cluster just because it's grouped — let the white canvas do the separating.
 - **One intentional gradient per view.** `--gradient-brand` (135deg periwinkle→orange) is the
-  owned one-per-view element. Never gradient-filled body text, never a wallpapered surface, never
-  recolored. Alfred's orange and periwinkle are fixed and full-strength by design — keep the
-  *count* discipline, drop the source's "desaturate every accent" advice.
+  owned one-per-view element. Gradient-filling it on a **short display/emphasis word or headline**
+  (`background-clip: text`) is on-brand — it's used deliberately across social cards, decks, and
+  heroes. The tell is gradient on **body copy**, as a wallpapered surface, or as the only emphasis
+  on every heading; never recolor it. Alfred's orange and periwinkle are fixed and full-strength
+  by design — keep the *count* discipline, drop the source's "desaturate every accent" advice.
 
 ## Depth is machined, not stacked
 

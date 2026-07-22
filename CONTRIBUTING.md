@@ -25,6 +25,8 @@ syncs to claude.ai/design. Keep it token-driven, verified, and on-brand.
    Run `node scripts/verify-render.mjs` too if you touched anything the UI kits use.
    Interactive components carry an accessibility contract (roles, aria-* wiring, keyboard
    support) — add a case to `scripts/verify-a11y.mjs` and keep `node scripts/verify-a11y.mjs` green.
+   Finally run `node scripts/verify-craft.mjs` — the craft/anti-slop guard (no per-component
+   registration; it scans source for the mechanical rules distilled in `guidelines/`). Keep it green.
 5. **Docs** — add a curated example to `EXAMPLES` in `scripts/gen-prompts.mjs`, then
    `node scripts/gen-prompts.mjs` (it leaves existing `prompt.md` files untouched).
 6. **Preview** — show it in a card: `components/<group>/<something>.card.html` whose first line is
@@ -45,6 +47,6 @@ SVG icon set. Soft corners (12/24/32), soft diffuse shadows, orange = action, pe
 
 ## Before syncing
 
-Run all three verifiers (`verify-components`, `verify-render`, `verify-a11y`), rebuild the
+Run all four verifiers (`verify-components`, `verify-render`, `verify-a11y`, `verify-craft`), rebuild the
 bundle, then re-run `/design-sync` — it reads the pin in `.design-sync/config.json` and
 updates the same Claude Design project.

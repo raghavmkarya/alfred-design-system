@@ -80,7 +80,8 @@ production code, depending on the need.
 > Verify any kit edits with `node scripts/verify-render.mjs` — it server-renders every kit
 > component against the real bundle and fails on render errors or React warnings. Component
 > edits: `node scripts/verify-components.mjs` (render health, all 86) and
-> `node scripts/verify-a11y.mjs` (the ARIA/keyboard contracts).
+> `node scripts/verify-a11y.mjs` (the ARIA/keyboard contracts). Any surface: `node
+> scripts/verify-craft.mjs` — the craft/anti-slop guard over the `guidelines/` rules.
 
 ## Brand in one breath
 Decision intelligence platform for marketing leaders. Warm + premium. **Orange `#FF8431`** = action; **periwinkle
