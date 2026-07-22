@@ -25,6 +25,7 @@ export function SeekComposer({
   const isControlled = onChange != null && value !== undefined;
   const text = isControlled ? value : internal;
   const [focus, setFocus] = React.useState(false);
+  const [press, setPress] = React.useState(false);
 
   const setText = (v) => { if (!isControlled) setInternal(v); };
   const handleChange = (e) => { setText(e.target.value); onChange && onChange(e); };
@@ -43,16 +44,28 @@ export function SeekComposer({
 
   return (
     <div style={{ width: "100%", fontFamily: "var(--font-sans)", ...style }}>
-      {/* Gradient focus ring — a thin gradient frame revealed on focus */}
+      {/* Gradient focus ring — a persistent gradient frame cross-faded in on focus.
+          The solid border stays as the base; a stacked gradient layer rides opacity
+          0→1 so the ring cross-fades instead of snapping (gradients don't interpolate). */}
       <div style={{
+        position: "relative",
         borderRadius: "var(--radius-2xl)",
         padding: 1.5,
-        background: focus ? "var(--gradient-brand)" : "var(--border-default)",
+        background: "var(--border-default)",
         boxShadow: focus ? "var(--shadow-focus)" : "var(--shadow-sm)",
-        transition: "box-shadow var(--dur-base) var(--ease-standard), background var(--dur-base) var(--ease-standard)",
+        transition: "box-shadow var(--dur-base) var(--ease-standard)",
         opacity: disabled ? 0.6 : 1,
       }}>
+        <div aria-hidden="true" style={{
+          position: "absolute", inset: 0,
+          borderRadius: "var(--radius-2xl)",
+          background: "var(--gradient-brand)",
+          opacity: focus ? 1 : 0,
+          transition: "opacity var(--dur-base) var(--ease-standard)",
+          pointerEvents: "none",
+        }} />
         <div style={{
+          position: "relative", zIndex: 1,
           background: "var(--surface-card)",
           borderRadius: "calc(var(--radius-2xl) - 2px)",
           padding: "14px 14px 12px",
@@ -106,6 +119,9 @@ export function SeekComposer({
               onClick={submit}
               disabled={!canSend}
               aria-label="Send to Alfred"
+              onMouseDown={() => setPress(true)}
+              onMouseUp={() => setPress(false)}
+              onMouseLeave={() => setPress(false)}
               style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center",
                 width: 38, height: 38, flex: "none", borderRadius: "var(--radius-circle)",
@@ -113,7 +129,8 @@ export function SeekComposer({
                 background: canSend ? "var(--orange-500)" : "var(--gray-150)",
                 color: canSend ? "var(--text-on-orange)" : "var(--text-placeholder)",
                 boxShadow: canSend ? "var(--shadow-brand)" : "none",
-                transition: "background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
+                transform: press && canSend ? "scale(0.98)" : "scale(1)",
+                transition: "background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)",
               }}
             >
               {busy ? (

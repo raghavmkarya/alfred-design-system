@@ -18,10 +18,10 @@ export function DecisionAlert({
   style = {},
 }) {
   const map = {
-    high: { rail: "var(--danger-500)", icon: "alert-warning", badge: "danger", label: "High" },
-    medium: { rail: "var(--orange-500)", icon: "alert-warning", badge: "warning", label: "Medium" },
-    low: { rail: "var(--periwinkle-400)", icon: "bookmark", badge: "info", label: "Low" },
-    opportunity: { rail: "var(--success-500)", icon: "trend-up", badge: "success", label: "Opportunity" },
+    high: { rail: "var(--danger-500)", soft: "var(--danger-100)", icon: "alert-warning", badge: "danger", label: "High" },
+    medium: { rail: "var(--orange-500)", soft: "var(--orange-50)", icon: "alert-warning", badge: "warning", label: "Medium" },
+    low: { rail: "var(--periwinkle-400)", soft: "var(--periwinkle-100)", icon: "bookmark", badge: "info", label: "Low" },
+    opportunity: { rail: "var(--success-500)", soft: "var(--success-100)", icon: "trend-up", badge: "success", label: "Opportunity" },
   };
   const p = map[priority] || map.medium;
   return (
@@ -34,7 +34,7 @@ export function DecisionAlert({
       <span style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: p.rail }} />
       <span style={{
         width: 38, height: 38, borderRadius: "var(--radius-md)", flex: "none", marginLeft: 6,
-        background: "var(--orange-50)", display: "inline-flex", alignItems: "center", justifyContent: "center",
+        background: p.soft, display: "inline-flex", alignItems: "center", justifyContent: "center",
       }}>
         <Icon name={p.icon} size={18} color={p.rail} root={iconRoot} />
       </span>

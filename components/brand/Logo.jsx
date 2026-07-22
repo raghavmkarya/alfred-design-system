@@ -24,13 +24,15 @@ export function Logo({
       : (t === "white" ? "alfred-logo-white.svg" : "alfred-logo-primary.svg");
 
   if (tone === "auto") {
-    /* Both lockups render; tokens/base.css shows the right one per theme scope. */
+    /* Both lockups render; tokens/base.css shows the right one per theme scope.
+       loading="lazy" lets the browser skip the fetch for whichever lockup is
+       display:none in the active scope, so only the visible one downloads. */
     return (
       <span className="ds-logo-auto" style={{ display: "inline-block", height, ...style }} {...rest}>
         <img className="ds-logo-color" src={`${root}/${fileFor("color")}`} alt="Alfred ai"
-          style={{ height, width: "auto", display: "block" }} />
+          loading="lazy" style={{ height, width: "auto", display: "block" }} />
         <img className="ds-logo-white" src={`${root}/${fileFor("white")}`} alt="Alfred ai"
-          style={{ height, width: "auto", display: "none" }} />
+          loading="lazy" style={{ height, width: "auto", display: "none" }} />
       </span>
     );
   }

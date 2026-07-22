@@ -32,21 +32,12 @@ export function ConnectionHealthCard({
   const showReconnect = typeof onReconnect === "function" && (isError || isStale);
   const hasScopes = Array.isArray(scopes) && scopes.length > 0;
 
-  // Syncing dot pulse — effect-only, gated on prefers-reduced-motion.
-  // SSR / static fallback renders the dot at full opacity, which reads complete.
-  const [dim, setDim] = React.useState(false);
-  React.useEffect(() => {
-    if (status !== "syncing") return undefined;
-    let reduced = false;
-    try {
-      reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    } catch (e) {
-      reduced = true;
-    }
-    if (reduced) return undefined;
-    const id = setInterval(() => setDim((d) => !d), 720);
-    return () => { clearInterval(id); };
-  }, [status]);
+  // Syncing dot pulse — a useId-scoped CSS keyframe, gated on
+  // prefers-reduced-motion. SSR / reduced-motion renders the dot at full
+  // opacity, which reads complete.
+  const isSyncing = status === "syncing";
+  const uid = React.useId().replace(/:/g, "");
+  const cls = `chc-${uid}`;
 
   const defaultIcon = (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -148,16 +139,27 @@ export function ConnectionHealthCard({
             whiteSpace: "nowrap",
           }}
         >
+          {isSyncing && (
+            <style>{`
+              @keyframes ${cls}-pulse {
+                0%, 100% { opacity: 1; }
+                50%      { opacity: 0.3; }
+              }
+              .${cls}-dot { animation: ${cls}-pulse 1.44s var(--ease-standard) infinite; }
+              @media (prefers-reduced-motion: reduce) {
+                .${cls}-dot { animation: none; opacity: 1; }
+              }
+            `}</style>
+          )}
           <span
             aria-hidden="true"
+            className={isSyncing ? `${cls}-dot` : undefined}
             style={{
               width: 7,
               height: 7,
               borderRadius: "var(--radius-pill)",
               background: st.dot,
               flex: "none",
-              opacity: dim ? 0.3 : 1,
-              transition: "opacity var(--dur-slow) var(--ease-standard)",
             }}
           />
           {st.label}

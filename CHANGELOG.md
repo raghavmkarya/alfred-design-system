@@ -3,6 +3,41 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Component craft polish + rail reconciliation
+
+The contained half of the emil + impeccable component review, plus the side-stripe rail decision.
+13 component fixes, all backward-compatible; bundle rebuilt; all four verifiers green.
+
+### Component fixes
+- **StatTile** gains an optional `valence` prop (good/bad/neutral) like KpiCard — decouples the
+  delta-pill colour from the arrow direction, so a rising *bad* KPI can read red. Falls back to the
+  direction colour when omitted. Adds `StatTile.d.ts`.
+- **ConnectionHealthCard** syncing-dot pulse moved off a `setInterval`/`setState` timer (which
+  re-rendered the whole card) to a `useId`-scoped CSS `@keyframes` gated on `prefers-reduced-motion`
+  (mirrors `SyncStatusBadge`; now also honours a live reduced-motion change).
+- **Card** hover-lift is gated to hover-capable pointers — no sticky hover on touch.
+- **SeekComposer** focus ring cross-fades a persistent `--gradient-brand` layer's opacity (no
+  solid→gradient snap); the send button gains the house `scale(0.98)` press.
+- **PromptSuggestions · TagInput · InsightFeedback** gain hover/active/press feedback on their
+  hand-rolled pressables, via semantic tokens.
+- **DecisionAlert** icon-chip background now tone-matches the priority (glyph + chip read as one family).
+- **Callout** action underline cross-fades `text-decoration-color` (the old `color` transition was a no-op).
+- **AgentStatus · SankeyChart** motion now uses the `--ease-standard` / `--dur-*` tokens instead of
+  the default easing / a raw `160ms`.
+- **LineChart** keeps a uniform 3px stroke under non-uniform scaling (`vector-effect: non-scaling-stroke`).
+- **Logo** `tone="auto"` adds `loading="lazy"` so the browser can skip fetching the hidden lockup
+  (partial, browser-dependent mitigation).
+
+### Rail reconciliation
+- `craft-checklist.md`'s side-stripe ban is softened: the tone-matched priority/kind **rail** on
+  decision surfaces (`DecisionAlert`, `RecommendationCard`, `ApprovalGate`, `CausalChain`, `Callout`,
+  `Banner`) is an accepted Alfred device — the ban is only for a stripe with no systematic meaning.
+
+### Held for a careful pass
+- 4 motion-restructure items — `Tooltip` delay-group, `Drawer` slide-in, `Popover` entrance,
+  `Menu` highlight source-of-truth — need individual review with browser verification.
+- `Logo` colour wordmark — no colour wordmark asset exists yet.
+
 ## 2026-07-22 — verify-craft — mechanical craft checks + gradient-text reconciliation
 
 A fourth verifier that turns the checkable half of the new craft guidelines into an enforced gate.

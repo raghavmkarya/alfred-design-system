@@ -23,6 +23,7 @@ export const TagInput = React.forwardRef(function TagInput({
   const [text, setText] = React.useState("");
   const [focus, setFocus] = React.useState(false);
   const [ring, setRing] = React.useState(false);
+  const [active, setActive] = React.useState(-1);
   const [announce, setAnnounce] = React.useState("");
   const innerRef = React.useRef(null);
   const uid = React.useId().replace(/:/g, "");
@@ -133,12 +134,18 @@ export const TagInput = React.forwardRef(function TagInput({
                 key={`${s}-${i}`}
                 type="button"
                 role="option"
-                aria-selected={false}
+                aria-selected={i === active}
                 onMouseDown={(e) => { e.preventDefault(); commit(s); }}
+                onMouseEnter={() => setActive(i)}
+                onMouseLeave={() => setActive(-1)}
+                onFocus={() => setActive(i)}
+                onBlur={() => setActive(-1)}
                 style={{
                   display: "flex", alignItems: "center", width: "100%", textAlign: "left",
                   padding: "9px 12px", border: "none", borderRadius: "var(--radius-sm)", cursor: "pointer",
-                  background: "transparent", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+                  background: i === active ? "var(--accent-soft)" : "transparent",
+                  transition: "background var(--dur-fast) var(--ease-standard)",
+                  fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
                   fontWeight: "var(--fw-medium)", color: "var(--text-primary)",
                 }}
               >

@@ -46,7 +46,25 @@ export function InsightFeedback({
 }) {
   const [stage, setStage] = React.useState("idle"); // idle → reason → done
   const [hovered, setHovered] = React.useState(null);
+  const [pressed, setPressed] = React.useState(null);
   const firstReasonRef = React.useRef(null);
+
+  // Hover treatment is mirrored onto keyboard focus, and press mirrors the
+  // house Button (scale 0.98). Shared handlers keep every pressable in step.
+  const pressable = (key) => ({
+    onMouseEnter: () => setHovered(key),
+    onMouseLeave: () => {
+      setHovered(null);
+      setPressed(null);
+    },
+    onFocus: () => setHovered(key),
+    onBlur: () => {
+      setHovered(null);
+      setPressed(null);
+    },
+    onMouseDown: () => setPressed(key),
+    onMouseUp: () => setPressed(null),
+  });
 
   const thanks = "Thanks — I'll learn from this.";
   const reasonPrompt = "Got it — what did I get wrong?";
@@ -88,15 +106,16 @@ export function InsightFeedback({
     padding: compact ? "0 8px" : "0 12px",
     borderRadius: "var(--radius-pill)",
     border: `1px solid ${hovered === key ? "var(--border-default)" : "var(--border-subtle)"}`,
-    background: hovered === key ? "var(--gray-100)" : "transparent",
+    background: hovered === key ? "var(--surface-hover)" : "transparent",
     color: hovered === key ? "var(--text-primary)" : "var(--text-secondary)",
     fontFamily: "var(--font-sans)",
     fontSize: "var(--text-xs)",
     fontWeight: "var(--fw-medium)",
     lineHeight: 1,
     cursor: "pointer",
+    transform: pressed === key ? "scale(0.98)" : "scale(1)",
     transition:
-      "background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard)",
+      "background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)",
     whiteSpace: "nowrap",
     userSelect: "none",
   });
@@ -108,15 +127,16 @@ export function InsightFeedback({
     padding: "0 12px",
     borderRadius: "var(--radius-pill)",
     border: "1px solid transparent",
-    background: hovered === key ? "var(--orange-50)" : "var(--gray-100)",
-    color: hovered === key ? "var(--orange-600)" : "var(--text-secondary)",
+    background: hovered === key ? "var(--accent-soft)" : "var(--gray-100)",
+    color: hovered === key ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
     fontFamily: "var(--font-sans)",
     fontSize: "var(--text-xs)",
     fontWeight: "var(--fw-medium)",
     lineHeight: 1,
     cursor: "pointer",
+    transform: pressed === key ? "scale(0.98)" : "scale(1)",
     transition:
-      "background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard)",
+      "background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)",
     whiteSpace: "nowrap",
     userSelect: "none",
   });
@@ -153,8 +173,7 @@ export function InsightFeedback({
               type="button"
               aria-label="Useful"
               onClick={() => choose("useful")}
-              onMouseEnter={() => setHovered("up")}
-              onMouseLeave={() => setHovered(null)}
+              {...pressable("up")}
               style={thumbBtn("up")}
             >
               <ThumbIcon size={compact ? 14 : 15} />
@@ -164,8 +183,7 @@ export function InsightFeedback({
               type="button"
               aria-label="Not useful"
               onClick={() => choose("not-useful")}
-              onMouseEnter={() => setHovered("down")}
-              onMouseLeave={() => setHovered(null)}
+              {...pressable("down")}
               style={thumbBtn("down")}
             >
               <ThumbIcon down size={compact ? 14 : 15} />
@@ -188,8 +206,7 @@ export function InsightFeedback({
                   fire("not-useful", reason);
                   setStage("done");
                 }}
-                onMouseEnter={() => setHovered(`r-${i}`)}
-                onMouseLeave={() => setHovered(null)}
+                {...pressable(`r-${i}`)}
                 style={reasonChip(`r-${i}`)}
               >
                 {reason}
@@ -201,8 +218,7 @@ export function InsightFeedback({
                 fire("not-useful");
                 setStage("done");
               }}
-              onMouseEnter={() => setHovered("skip")}
-              onMouseLeave={() => setHovered(null)}
+              {...pressable("skip")}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -217,7 +233,9 @@ export function InsightFeedback({
                 fontWeight: "var(--fw-medium)",
                 lineHeight: 1,
                 cursor: "pointer",
-                transition: "color var(--dur-fast) var(--ease-standard)",
+                transform: pressed === "skip" ? "scale(0.98)" : "scale(1)",
+                transition:
+                  "color var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)",
                 whiteSpace: "nowrap",
                 userSelect: "none",
               }}

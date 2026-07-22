@@ -17,6 +17,11 @@ export function PromptSuggestions({
   const items = (suggestions || []).map((s) => (typeof s === "string" ? { label: s } : s));
   const isList = layout === "list";
 
+  const [hover, setHover] = React.useState(-1);
+  const [press, setPress] = React.useState(-1);
+  const hoverable = typeof window !== "undefined" && window.matchMedia
+    && window.matchMedia("(hover: hover)").matches;
+
   const spark = (
     <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style={{ flex: "none" }}>
       <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
@@ -46,15 +51,22 @@ export function PromptSuggestions({
             key={i}
             type="button"
             onClick={() => onSelect && onSelect(it.label)}
+            onMouseEnter={() => setHover(i)}
+            onMouseLeave={() => { setHover((h) => (h === i ? -1 : h)); setPress((p) => (p === i ? -1 : p)); }}
+            onMouseDown={() => setPress(i)}
+            onMouseUp={() => setPress((p) => (p === i ? -1 : p))}
             style={{
               display: "inline-flex", alignItems: "center", gap: 9,
               width: isList ? "100%" : "auto", textAlign: "left",
               padding: isList ? "12px 14px" : "9px 14px",
               borderRadius: isList ? "var(--radius-md)" : "var(--radius-pill)",
-              background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+              background: hoverable && hover === i ? "var(--surface-hover)" : "var(--surface-card)",
+              border: `1px solid ${hoverable && hover === i ? "var(--border-default)" : "var(--border-subtle)"}`,
               boxShadow: "var(--shadow-xs)", cursor: "pointer",
               fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
               fontWeight: "var(--fw-medium)", color: "var(--text-primary)",
+              transition: "transform var(--dur-fast) var(--ease-standard), background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard)",
+              transform: press === i ? "scale(0.98)" : "scale(1)",
             }}
           >
             {spark}

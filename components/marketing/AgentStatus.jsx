@@ -42,7 +42,7 @@ export function AgentStatus({
         {steps.map((s, i) => {
           const done = i < active, on = i === active;
           return (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, opacity: done || on ? 1 : 0.4, transition: "opacity var(--dur-base)" }}>
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, opacity: done || on ? 1 : 0.4, transition: "opacity var(--dur-base) var(--ease-standard)" }}>
               <span style={{
                 width: 18, height: 18, flex: "none", borderRadius: "50%",
                 background: done ? "var(--success-500)" : on ? "transparent" : "var(--border-default)",
