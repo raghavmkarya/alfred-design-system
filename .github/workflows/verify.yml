@@ -1,8 +1,8 @@
 name: verify
 
-# Gates every PR (and pushes to main) on the design system's four verifiers, and
+# Gates every PR (and pushes to main) on the design system's five verifiers, and
 # fails if the committed bundle is stale. Locks in what the verifiers guarantee:
-# component render health, ARIA/keyboard contracts, and the craft rules.
+# component render health, ARIA/keyboard contracts, craft rules, and type contracts.
 on:
   pull_request:
   push:
@@ -37,3 +37,5 @@ jobs:
         run: node scripts/verify-a11y.mjs
       - name: verify-craft (motion/anti-slop craft rules)
         run: node scripts/verify-craft.mjs
+      - name: verify-types (every component has a matching .d.ts)
+        run: node scripts/verify-types.mjs

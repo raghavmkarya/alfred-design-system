@@ -3,6 +3,17 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Type completeness — 113/113 components typed + a `verify-types` gate
+
+Phase 1.2 of `ROADMAP.md`. Authored the **21 missing `.d.ts`** (app / charts / trust — the complex
+components: DataTable, CommandPalette, FilterBar, the 9 charts, DecisionLog, RecommendationCard, …), so
+**all 113 components now ship a TypeScript declaration**. Types match the real props — precise unions,
+callback signatures, named sub-shape interfaces, index signatures for dynamic-key data — cross-checked
+against each component's `.jsx` and its `verify-components` sample props. Adds a **5th verifier**,
+`scripts/verify-types.mjs`: fails if any component lacks a sibling `.d.ts`, or if a `.d.ts` doesn't
+declare the component it types. Dependency-free and wired into CI. (Full `tsc --noEmit` type-resolution
+needs `@types/react` in CI — noted as a follow-up.) Authored via a fan-out workflow (one agent per group).
+
 ## 2026-07-22 — Shared interaction primitive — `usePress` / `isFocusVisible`
 
 Phase 1.1 of the expansion plan (`ROADMAP.md`). Extracted the hand-rolled press/hover/focus state
