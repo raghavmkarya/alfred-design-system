@@ -73,7 +73,9 @@ production code, depending on the need.
   (pitch, ROI, competitive, demo, security, pricing, onboarding, QBR, all-hands, runbook…);
   `index.html` is the gallery. Build new decks from `deck.css` classes.
 - `slides/` — presentation templates (cover, index, section divider, content+stat).
-- `guidelines/` — foundation specimen cards.
+- `guidelines/` — foundation specimen cards, `voice-and-naming.md`, and three **craft & taste**
+  guidelines (`motion-and-animation.md`, `anti-slop.md`, `craft-checklist.md`) — see "Craft &
+  taste" below.
 
 > Verify any kit edits with `node scripts/verify-render.mjs` — it server-renders every kit
 > component against the real bundle and fails on render errors or React warnings. Component
@@ -106,3 +108,47 @@ Load the compiled bundle and destructure from the namespace:
 `const { Button, Card, KpiCard, Icon, Logo } = window.AlfredAIDesignSystem_1ce241;`
 Point `Icon`/`Logo` `root` props and asset `<img src>`s at the correct relative path to
 `assets/` for the page you're building.
+
+## Craft & taste
+On-brand is the floor, not the ceiling. Three guidelines in `guidelines/` raise an Alfred surface
+from "correct" to genuinely crafted — load the relevant one before building or reviewing UI:
+- `guidelines/motion-and-animation.md` — how motion should *feel*: the two `--ease-*` and three
+  `--dur-*` tokens, when *not* to animate, component patterns (press/popover/tooltip/spring),
+  performance, and reduced-motion (already handled by `base.css`). Alfred motion is crisp, fast,
+  quiet — never playful. Distilled from Emil Kowalski (animations.dev).
+- `guidelines/anti-slop.md` — how to stay off the AI-generated tell list while staying 100% on
+  Alfred brand: the VARIANCE/MOTION/DENSITY dials, layout diversity, restraint, real assets over
+  fakes, and a pre-flight check. Alfred's look is committed, so it's "avoid the tells," not "pick
+  a language." Distilled from the taste-skill plugin.
+- `guidelines/craft-checklist.md` — the pre-ship quality gate: contrast, all interactive states,
+  hardening against real data, the absolute bans, the three `verify-*.mjs` scripts, and the
+  impeccable "modes of work" lenses. Distilled from the impeccable skill.
+
+## Companion skills (if installed)
+The durable principles above are already distilled into `guidelines/`, so **claude.ai/design and
+any clone of this repo need nothing extra** — the guidance travels with the sync. But when a
+Claude Code session *does* have these plugins/skills installed, load them for the deeper craft;
+they are the sources these guidelines came from. Always translate their advice through Alfred's
+committed tokens (palette, Clash/Satoshi, the `--ease-*`/`--dur-*` motion tokens) — never adopt
+their palette/font-picking machinery.
+- **emil-design-eng** — the source of `motion-and-animation.md`. Reach for it for the deeper
+  "why" behind a motion call, gesture/drag physics, `clip-path` techniques, or its Before/After
+  review table.
+- **impeccable** — the source of `craft-checklist.md`. Its `critique` / `audit` (pre-ship
+  review), `polish` / `harden` (pre-merge), and `live` (in-browser variant iteration) commands
+  map directly onto Alfred's ship gate. Skip its greenfield palette/font machinery.
+- **taste-skill** plugin (13 skills) — the source of `anti-slop.md`. Grouped by Alfred fit:
+  - *Useful daily lenses* — `taste-skill` (anti-slop default), `taste-skill:soft-skill`
+    (expensive-look depth: nested enclosures, concentric radii, tinted shadows),
+    `taste-skill:redesign-skill` (audit-first: scan → diagnose → fix in-stack),
+    `taste-skill:output-skill` (ship complete: no placeholder code / lazy truncation),
+    `taste-skill:gpt-tasteskill` (layout-variance discipline, generous section spacing).
+  - *Alternate aesthetics — reference vocabulary only, never a shipping path* (they would
+    override Alfred's committed brand): `taste-skill:minimalist-skill` (warm-monochrome + serif),
+    `taste-skill:brutalist-skill` (zero radius, hazard red), `taste-skill:stitch-skill` (targets
+    Google Stitch; mandates perpetual motion).
+  - *Image-generation only — disposable concept references, never shipped UI*:
+    `taste-skill:imagegen-frontend-web`, `taste-skill:imagegen-frontend-mobile`,
+    `taste-skill:image-to-code-skill`, `taste-skill:brandkit` (Alfred's identity is already
+    committed — brandkit never defines Alfred's brand).
+  - *Superseded* — `taste-skill:taste-skill-v1` (its rules already flow in via the v2 flagship).
