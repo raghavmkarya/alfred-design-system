@@ -15,6 +15,45 @@ export function Drawer({ open, onClose, side = "right", title, children, width =
   const onCloseRef = React.useRef(onClose);
   onCloseRef.current = onClose;
 
+  // Slide lifecycle. `exiting` keeps the panel mounted through the close
+  // animation, so `mounted = open || exiting`. `atRest` toggles the panel
+  // between its off-screen offset and translateX(0).
+  const [exiting, setExiting] = React.useState(false);
+  const [atRest, setAtRest] = React.useState(false);
+  const EXIT_MS = 140; // upper bound for the exit (var(--dur-fast) 120ms) before unmount
+
+  // Begin (or cancel) the exit *synchronously* the render `open` flips — never
+  // in an effect — so the panel never unmounts on the same render it starts
+  // closing (no flash) and, while open is true, it is mounted on that commit
+  // for the focus-trap effect below (still keyed on `open`) to find.
+  const prevOpen = React.useRef(open);
+  if (prevOpen.current !== open) {
+    prevOpen.current = open;
+    if (open) { if (exiting) setExiting(false); }
+    else if (!exiting) setExiting(true);
+  }
+
+  React.useEffect(() => {
+    if (open) {
+      // Enter: paint at the offset, then transition to rest on the next frame
+      // so the browser sees the start state first and the transition runs.
+      setAtRest(false);
+      const raf = requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAtRest(true));
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+    if (exiting) {
+      // Exit: slide back to the offset, then unmount after the duration. The
+      // timeout — not the transition event — guarantees unmount, so this does
+      // not depend on the animation firing (reduced motion stays correct).
+      setAtRest(false);
+      const t = setTimeout(() => setExiting(false), EXIT_MS);
+      return () => clearTimeout(t);
+    }
+    return undefined;
+  }, [open]);
+
   React.useEffect(() => {
     if (!open) return undefined;
     const panel = panelRef.current;
@@ -44,15 +83,19 @@ export function Drawer({ open, onClose, side = "right", title, children, width =
     };
   }, [open]);
 
-  if (!open) return null;
+  if (!open && !exiting) return null;
+  const offset = side === "right" ? "100%" : "-100%";
   return (
     <div role="dialog" aria-modal="true" aria-labelledby={title ? titleId : undefined} style={{ position: "fixed", inset: 0, zIndex: "var(--z-overlay)" }}>
-      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "var(--overlay-scrim)" }} />
-      <div ref={panelRef} tabIndex={-1} style={{
+      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "var(--overlay-scrim)", opacity: atRest ? 1 : 0, transition: `opacity var(${exiting ? "--dur-fast" : "--dur-base"}) var(--ease-standard)` }} />
+      <div ref={panelRef} tabIndex={-1} onTransitionEnd={(e) => { if (exiting && e.target === panelRef.current && e.propertyName === "transform") setExiting(false); }} style={{
         position: "absolute", top: 0, bottom: 0, [side]: 0, width, maxWidth: "90vw",
         background: "var(--surface-card)", boxShadow: "var(--shadow-xl)", display: "flex", flexDirection: "column",
         borderLeft: side === "right" ? "1px solid var(--border-subtle)" : "none",
-        borderRight: side === "left" ? "1px solid var(--border-subtle)" : "none", ...style,
+        borderRight: side === "left" ? "1px solid var(--border-subtle)" : "none",
+        transform: atRest ? "translateX(0)" : `translateX(${offset})`,
+        transition: `transform var(${exiting ? "--dur-fast" : "--dur-base"}) var(--ease-standard)`,
+        willChange: "transform", ...style,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "20px 22px", borderBottom: "1px solid var(--border-subtle)" }}>
           {title && <h3 id={titleId} style={{ flex: 1, fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: "var(--text-h4)", color: "var(--text-primary)", margin: 0 }}>{title}</h3>}
