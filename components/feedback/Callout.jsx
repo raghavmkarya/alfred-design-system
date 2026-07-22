@@ -17,9 +17,9 @@ export function Callout({
   style = {},
 }) {
   const tones = {
-    insight: { accent: "var(--periwinkle-600)", bg: "rgba(167,167,252,0.14)", actionColor: "var(--periwinkle-600)" },
+    insight: { accent: "var(--text-on-tint-info)", bg: "rgba(167,167,252,0.14)", actionColor: "var(--text-on-tint-info)" },
     success: { accent: "var(--success-500)", bg: "rgba(47,182,124,0.14)", actionColor: "var(--success-500)" },
-    warning: { accent: "var(--orange-600)", bg: "rgba(255,132,49,0.14)", actionColor: "var(--orange-600)" },
+    warning: { accent: "var(--text-on-tint-brand)", bg: "rgba(255,132,49,0.14)", actionColor: "var(--text-on-tint-brand)" },
     danger: { accent: "var(--danger-500)", bg: "rgba(229,72,77,0.12)", actionColor: "var(--danger-500)" },
     neutral: { accent: "var(--text-muted)", bg: "var(--surface-sunken)", actionColor: "var(--text-primary)" },
   };

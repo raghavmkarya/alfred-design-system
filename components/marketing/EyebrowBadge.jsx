@@ -18,7 +18,7 @@ export function EyebrowBadge({
 }) {
   const tones = {
     brand: "var(--text-link)",           /* brand orange, theme-adapted */
-    periwinkle: "var(--periwinkle-600)", /* legible cool accent on both themes */
+    periwinkle: "var(--text-on-tint-info)", /* legible cool accent on both themes */
     neutral: "var(--text-secondary)",
     urgent: "var(--urgent-500)",
   };

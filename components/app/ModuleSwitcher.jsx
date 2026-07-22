@@ -18,7 +18,7 @@ const DEFAULT_MODULES = [
 
 const STATUS = {
   live: { word: "Live", dot: "var(--success-500)", fg: "var(--success-500)" },
-  "in-development": { word: "In development", dot: "var(--periwinkle-400)", fg: "var(--text-secondary)" },
+  "in-development": { word: "In development", dot: "var(--info-500)", fg: "var(--text-secondary)" },
 };
 
 export function ModuleSwitcher({
@@ -148,7 +148,7 @@ export function ModuleSwitcher({
         <span aria-hidden="true" style={{
           display: "inline-flex", alignItems: "center", justifyContent: "center",
           width: 34, height: 34, flex: "none", borderRadius: 10,
-          background: "var(--accent-soft)", color: "var(--orange-600)",
+          background: "var(--accent-soft)", color: "var(--text-on-tint-brand)",
         }}>
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -225,7 +225,7 @@ export function ModuleSwitcher({
                   transition: "background var(--dur-fast) var(--ease-standard)",
                 }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange-500)"
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
                   strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
                   style={{ flex: "none", opacity: checked ? 1 : 0 }}>
                   <path d="M5 12.5l4.5 4.5L19 7.5" />

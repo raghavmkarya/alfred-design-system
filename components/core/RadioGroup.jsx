@@ -52,12 +52,12 @@ export function RadioGroup({ options = [], value, onChange, name, label, style =
           >
             <span aria-hidden="true" style={{
               width: 20, height: 20, borderRadius: "50%", flex: "none",
-              border: `2px solid ${checked ? "var(--orange-500)" : "var(--border-default)"}`,
+              border: `2px solid ${checked ? "var(--border-focus)" : "var(--border-default)"}`,
               display: "flex", alignItems: "center", justifyContent: "center",
               boxShadow: focusIdx === i ? "var(--shadow-focus)" : "none",
               transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
             }}>
-              {checked && <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--orange-500)" }} />}
+              {checked && <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--accent)" }} />}
             </span>
             {o.label}
           </label>

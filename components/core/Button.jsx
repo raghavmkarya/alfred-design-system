@@ -47,11 +47,11 @@ export function Button({
   };
 
   const variants = {
-    primary: { background: "var(--orange-500)", color: "var(--text-on-orange)" },
-    secondary: { background: "var(--periwinkle-400)", color: "var(--ink-900)" },
+    primary: { background: "var(--accent)", color: "var(--text-on-orange)" },
+    secondary: { background: "var(--periwinkle-400)", color: "var(--ink-900)" },  /* raw-ramp-ok: ink-on-periwinkle brand secondary — no semantic equivalent (fixed light fill) */
     outline: { background: "transparent", color: "var(--text-primary)", borderColor: "var(--border-default)" },
     ghost: { background: "transparent", color: "var(--text-body)" },
-    subtle: { background: "var(--orange-50)", color: "var(--text-on-tint-brand)", borderColor: "var(--border-subtle)" },
+    subtle: { background: "var(--accent-soft)", color: "var(--text-on-tint-brand)", borderColor: "var(--border-subtle)" },
     danger: { background: "var(--danger-500)", color: "var(--text-on-brand)" },
   };
 
@@ -59,11 +59,11 @@ export function Button({
   const [press, setPress] = React.useState(false);
 
   const hoverStyle = !disabled && hover ? {
-    primary: { background: "var(--orange-600)", boxShadow: "var(--shadow-brand)" },
-    secondary: { background: "var(--periwinkle-500)" },
+    primary: { background: "var(--accent-hover)", boxShadow: "var(--shadow-brand)" },
+    secondary: { background: "var(--periwinkle-500)" },  /* raw-ramp-ok: brand secondary hover (fixed periwinkle) */
     outline: { borderColor: "var(--text-primary)", background: "var(--surface-hover)" },
-    ghost: { background: "var(--gray-100)" },
-    subtle: { background: "var(--orange-100)" },
+    ghost: { background: "var(--surface-hover)" },
+    subtle: { background: "var(--accent-soft)" },
     danger: { background: "var(--danger-600)" },
   }[variant] : {};
 

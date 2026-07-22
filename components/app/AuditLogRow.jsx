@@ -68,7 +68,7 @@ export function AuditLogRow({
                 width: 9,
                 height: 9,
                 borderRadius: "var(--radius-circle)",
-                background: "var(--orange-500)",
+                background: "var(--accent)",
               }}
             />
           </span>

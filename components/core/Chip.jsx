@@ -7,14 +7,14 @@ import React from "react";
  */
 export function Chip({ children, tone = "neutral", selected = false, onRemove, onClick, style = {} }) {
   const tones = {
-    neutral: ["var(--gray-100)", "var(--text-body)"],
-    brand: ["var(--orange-50)", "var(--orange-600)"],
-    info: ["var(--info-100)", "var(--periwinkle-600)"],
+    neutral: ["var(--surface-sunken)", "var(--text-body)"],
+    brand: ["var(--accent-soft)", "var(--text-on-tint-brand)"],
+    info: ["var(--info-100)", "var(--text-on-tint-info)"],
     success: ["var(--success-100)", "var(--success-500)"],
-    warning: ["var(--warning-100)", "var(--orange-600)"],
+    warning: ["var(--warning-100)", "var(--text-on-tint-brand)"],
     danger: ["var(--danger-100)", "var(--danger-500)"],
   };
-  const [bg, fg] = selected ? ["var(--orange-500)", "#fff"] : tones[tone] || tones.neutral;
+  const [bg, fg] = selected ? ["var(--accent)", "#fff"] : tones[tone] || tones.neutral;
   return (
     <span
       onClick={onClick}

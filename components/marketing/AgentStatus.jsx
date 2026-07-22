@@ -34,7 +34,7 @@ export function AgentStatus({
           background: "var(--surface-sunken)", borderRadius: "var(--radius-md)",
           fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-medium)", color: "var(--text-primary)",
         }}>
-          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--orange-500)", flex: "none" }} />
+          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", flex: "none" }} />
           {query}
         </div>
       )}
@@ -46,7 +46,7 @@ export function AgentStatus({
               <span style={{
                 width: 18, height: 18, flex: "none", borderRadius: "50%",
                 background: done ? "var(--success-500)" : on ? "transparent" : "var(--border-default)",
-                border: on ? "2px solid var(--orange-500)" : "none",
+                border: on ? "2px solid var(--border-focus)" : "none",
                 display: "inline-flex", alignItems: "center", justifyContent: "center",
                 animation: on ? "alfredPulse 1.1s var(--ease-standard) infinite" : "none",
               }}>
@@ -56,7 +56,7 @@ export function AgentStatus({
               </span>
               <span style={{
                 fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", letterSpacing: "0.04em", textTransform: "uppercase",
-                fontWeight: "var(--fw-bold)", color: done ? "var(--text-secondary)" : on ? "var(--orange-600)" : "var(--text-muted)",
+                fontWeight: "var(--fw-bold)", color: done ? "var(--text-secondary)" : on ? "var(--accent-hover)" : "var(--text-muted)",
               }}>{s}</span>
             </div>
           );

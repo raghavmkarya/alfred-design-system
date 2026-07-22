@@ -22,8 +22,8 @@ export function ConnectionHealthCard({
 }) {
   const statuses = {
     fresh: { dot: "var(--success-500)", label: "Fresh", bg: "var(--surface-sunken)", fg: "var(--text-secondary)", border: "var(--border-subtle)" },
-    syncing: { dot: "var(--periwinkle-600)", label: "Syncing", bg: "var(--surface-sunken)", fg: "var(--text-secondary)", border: "var(--border-subtle)" },
-    stale: { dot: "var(--warning-500)", label: "Stale", bg: "var(--warning-100)", fg: "var(--orange-600)", border: "transparent" },
+    syncing: { dot: "var(--info-500)", label: "Syncing", bg: "var(--surface-sunken)", fg: "var(--text-secondary)", border: "var(--border-subtle)" },
+    stale: { dot: "var(--warning-500)", label: "Stale", bg: "var(--warning-100)", fg: "var(--text-on-tint-brand)", border: "transparent" },
     error: { dot: "var(--danger-500)", label: "Error", bg: "var(--danger-100)", fg: "var(--danger-500)", border: "transparent" },
   };
   const st = statuses[status] || statuses.fresh;

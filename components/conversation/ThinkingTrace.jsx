@@ -24,7 +24,7 @@ export function ThinkingTrace({
 
   const STATUS = {
     done:    { color: "var(--success-500)" },
-    active:  { color: "var(--orange-500)" },
+    active:  { color: "var(--accent)" },
     pending: { color: "var(--text-placeholder)" },
   };
 

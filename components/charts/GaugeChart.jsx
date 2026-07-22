@@ -97,7 +97,7 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
         {ratio > 0.0001 && (
           <>
             <path d={arc(START, valueAngle)} fill="none" stroke={`url(#${uid}g)`} strokeWidth={sw} strokeLinecap="round" />
-            <circle cx={knobX} cy={knobY} r={sw * 0.34} fill="var(--surface-card)" stroke="var(--orange-500)" strokeWidth="2.5" />
+            <circle cx={knobX} cy={knobY} r={sw * 0.34} fill="var(--surface-card)" stroke="var(--accent)" strokeWidth="2.5" />
           </>
         )}
 

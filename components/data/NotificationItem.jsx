@@ -18,12 +18,12 @@ export function NotificationItem({
   style = {},
 }) {
   const T = {
-    brand: { color: "var(--orange-500)", bg: "var(--accent-soft)" },
-    info: { color: "var(--periwinkle-500)", bg: "var(--info-100)" },
+    brand: { color: "var(--accent)", bg: "var(--accent-soft)" },
+    info: { color: "var(--text-on-tint-info)", bg: "var(--info-100)" },
     success: { color: "var(--success-500)", bg: "var(--success-100)" },
     warning: { color: "var(--warning-500)", bg: "var(--warning-100)" },
     danger: { color: "var(--danger-500)", bg: "var(--danger-100)" },
-  }[tone] || { color: "var(--orange-500)", bg: "var(--accent-soft)" };
+  }[tone] || { color: "var(--accent)", bg: "var(--accent-soft)" };
 
   const defaultGlyph = (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={T.color} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -71,7 +71,7 @@ export function NotificationItem({
                   height: 30, padding: "0 12px", borderRadius: "var(--radius-md)", cursor: "pointer",
                   fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
                   border: i === 0 ? "1px solid var(--border-subtle)" : "1px solid var(--border-default)",
-                  background: i === 0 ? "var(--orange-50)" : "transparent",
+                  background: i === 0 ? "var(--accent-soft)" : "transparent",
                   color: i === 0 ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
                 }}
               >
@@ -82,7 +82,7 @@ export function NotificationItem({
         )}
       </span>
 
-      {unread && <span aria-label="Unread" style={{ width: 9, height: 9, flex: "none", marginTop: 4, borderRadius: "var(--radius-circle)", background: "var(--orange-500)" }} />}
+      {unread && <span aria-label="Unread" style={{ width: 9, height: 9, flex: "none", marginTop: 4, borderRadius: "var(--radius-circle)", background: "var(--accent)" }} />}
     </div>
   );
 }

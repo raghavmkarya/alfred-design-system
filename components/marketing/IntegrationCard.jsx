@@ -20,7 +20,7 @@ export function IntegrationCard({
 
   const statuses = {
     live: { dot: "var(--success-500)", label: "Live" },
-    planned: { dot: "var(--periwinkle-400)", label: "Planned" },
+    planned: { dot: "var(--info-500)", label: "Planned" },
   };
   const st = statuses[status] || statuses.live;
 
@@ -58,7 +58,7 @@ export function IntegrationCard({
     fontSize: "var(--text-sm)",
     fontWeight: "var(--fw-bold)",
     lineHeight: 1,
-    color: linkHover ? "var(--orange-600)" : "var(--text-link)",
+    color: linkHover ? "var(--accent-hover)" : "var(--text-link)",
     textDecoration: linkHover ? "underline" : "none",
     textUnderlineOffset: 3,
     background: "none",

@@ -25,7 +25,7 @@ export function RecommendationCard({
   const map = {
     high: { rail: "var(--danger-500)", badge: "danger", label: "High priority" },
     opportunity: { rail: "var(--success-500)", badge: "success", label: "Opportunity" },
-    medium: { rail: "var(--orange-500)", badge: "warning", label: "Medium priority" },
+    medium: { rail: "var(--warning-500)", badge: "warning", label: "Medium priority" },
   };
   const p = map[priority] || map.opportunity;
 
@@ -131,7 +131,7 @@ export function RecommendationCard({
               display: "inline-flex", alignItems: "center", justifyContent: "center",
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange-500)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M7 17 L17 7" />
               <path d="M7 7 H17 V17" />
             </svg>

@@ -61,8 +61,8 @@ export function DateRangePicker({ value = "30d", presets = DEFAULT_PRESETS, onCh
                   borderRadius: "var(--radius-pill)", whiteSpace: "nowrap",
                   fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
                   fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
-                  color: active ? "var(--text-on-orange)" : (hot ? "var(--orange-600)" : "var(--text-secondary)"),
-                  background: active ? "var(--orange-500)" : (hot ? "var(--accent-soft)" : "transparent"),
+                  color: active ? "var(--text-on-orange)" : (hot ? "var(--text-on-tint-brand)" : "var(--text-secondary)"),
+                  background: active ? "var(--accent)" : (hot ? "var(--accent-soft)" : "transparent"),
                   boxShadow: active ? "var(--shadow-sm)" : "none",
                   transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)",
                 }}
@@ -82,7 +82,7 @@ export function DateRangePicker({ value = "30d", presets = DEFAULT_PRESETS, onCh
         }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
-            style={{ color: "var(--orange-500)", flex: "none" }}>
+            style={{ color: "var(--accent)", flex: "none" }}>
             <rect x="3.5" y="5" width="17" height="16" rx="3" />
             <path d="M3.5 9.5h17" />
             <path d="M8 3.5v3M16 3.5v3" />

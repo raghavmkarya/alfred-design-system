@@ -53,7 +53,7 @@ export function Tabs({ tabs = [], value, onChange, style = {} }) {
             {t.label}
             <span aria-hidden="true" style={{
               position: "absolute", left: 0, right: 0, bottom: -1, height: 3, borderRadius: "3px 3px 0 0",
-              background: on ? "var(--orange-500)" : "transparent",
+              background: on ? "var(--accent)" : "transparent",
               transition: "background var(--dur-base) var(--ease-standard)",
             }} />
           </button>

@@ -8,8 +8,8 @@ import React from "react";
  */
 export function SignalCard({ label, statement, trace, tone = "signal", style = {} }) {
   const tones = {
-    truth: "var(--periwinkle-400)",     // ONE SOURCE OF TRUTH
-    signal: "var(--orange-500)",         // SIGNAL DETECTED
+    truth: "var(--info-500)",     // ONE SOURCE OF TRUTH
+    signal: "var(--accent)",         // SIGNAL DETECTED
     early: "var(--warning-500)",         // CAUGHT EARLY
     action: "var(--success-500)",        // ALIGNED ACTION
   };

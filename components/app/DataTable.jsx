@@ -60,7 +60,7 @@ function SortGlyph({ dir }) {
       strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ flex: "none", opacity: active ? 1 : 0.4, color: active ? "var(--orange-500)" : "currentColor" }}
+      style={{ flex: "none", opacity: active ? 1 : 0.4, color: active ? "var(--accent)" : "currentColor" }}
       aria-hidden="true"
     >
       {path}
@@ -94,8 +94,8 @@ function CheckBox({ checked = false, mixed = false, onChange = () => {}, label =
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "var(--radius-xs)",
-        border: `1.5px solid ${on ? "var(--orange-500)" : "var(--border-default)"}`,
-        background: on ? "var(--orange-500)" : "var(--surface-card)",
+        border: `1.5px solid ${on ? "var(--border-focus)" : "var(--border-default)"}`,
+        background: on ? "var(--accent)" : "var(--surface-card)",
         color: "var(--text-on-orange)",
         cursor: "pointer",
         boxShadow: focusVisible ? "var(--shadow-focus)" : "none",

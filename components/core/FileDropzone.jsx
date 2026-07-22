@@ -39,7 +39,7 @@ export function FileDropzone({
         style={{
           display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10,
           padding: "30px 24px", textAlign: "center", cursor: "pointer",
-          borderRadius: "var(--radius-2xl)", border: `2px dashed ${active ? "var(--orange-500)" : "var(--border-default)"}`,
+          borderRadius: "var(--radius-2xl)", border: `2px dashed ${active ? "var(--border-focus)" : "var(--border-default)"}`,
           background: active ? "var(--accent-soft)" : "var(--surface-sunken)",
           transition: "border-color var(--dur-base) var(--ease-standard), background var(--dur-base) var(--ease-standard)",
         }}
@@ -49,7 +49,7 @@ export function FileDropzone({
           border: "1px solid var(--border-subtle)", boxShadow: "var(--shadow-xs)",
           display: "inline-flex", alignItems: "center", justifyContent: "center",
         }}>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange-500)"
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
             strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M12 16V4M7 9l5-5 5 5" /><path d="M5 16v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2" />
           </svg>

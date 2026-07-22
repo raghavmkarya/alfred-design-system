@@ -27,9 +27,9 @@ export function ApprovalGate({
 }) {
   const pr = {
     high: { rail: "var(--danger-500)", badge: "danger", label: "High priority" },
-    medium: { rail: "var(--periwinkle-400)", badge: "info", label: "Needs approval" },
+    medium: { rail: "var(--info-500)", badge: "info", label: "Needs approval" },
     low: { rail: "var(--text-placeholder)", badge: "neutral", label: "Low priority" },
-  }[priority] || { rail: "var(--periwinkle-400)", badge: "info", label: "Needs approval" };
+  }[priority] || { rail: "var(--info-500)", badge: "info", label: "Needs approval" };
 
   const ghostFix = { color: "var(--text-secondary)" };
 
@@ -52,7 +52,7 @@ export function ApprovalGate({
             width: 24, height: 24, flex: "none", borderRadius: "var(--radius-sm)", background: "var(--info-100)",
             display: "inline-flex", alignItems: "center", justifyContent: "center",
           }}>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--periwinkle-600)"
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-on-tint-info)"
               strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M10 5v14M16 5v14" />
             </svg>
@@ -94,7 +94,7 @@ export function ApprovalGate({
           }}>If you approve, I'll</span>
           {steps.map((s, i) => (
             <span key={i} style={{ display: "flex", alignItems: "flex-start", gap: 9 }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--orange-500)"
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flex: "none", marginTop: 2 }}>
                 <path d="M20 6 L9 17 L4 12" />
               </svg>

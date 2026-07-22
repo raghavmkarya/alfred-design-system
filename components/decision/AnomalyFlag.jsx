@@ -19,10 +19,10 @@ export function AnomalyFlag({
   const pulse = `af-pulse-${uid}`;
 
   const t = {
-    watch: { color: "var(--periwinkle-500)", bg: "var(--info-100)" },
-    anomaly: { color: "var(--orange-500)", bg: "var(--accent-soft)" },
+    watch: { color: "var(--text-on-tint-info)", bg: "var(--info-100)" },
+    anomaly: { color: "var(--accent)", bg: "var(--accent-soft)" },
     critical: { color: "var(--danger-500)", bg: "var(--danger-100)" },
-  }[tone] || { color: "var(--orange-500)", bg: "var(--accent-soft)" };
+  }[tone] || { color: "var(--accent)", bg: "var(--accent-soft)" };
 
   const dot = (
     <span aria-hidden="true" style={{ position: "relative", width: 10, height: 10, flex: "none", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>

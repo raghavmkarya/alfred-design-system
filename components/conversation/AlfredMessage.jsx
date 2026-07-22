@@ -87,7 +87,7 @@ function renderWithCitations(text) {
         <span style={{
           display: "inline-flex", alignItems: "center", justifyContent: "center",
           minWidth: 16, height: 16, padding: "0 4px", marginLeft: 2, borderRadius: "var(--radius-xs)",
-          background: "var(--accent-soft)", color: "var(--orange-600)",
+          background: "var(--accent-soft)", color: "var(--text-on-tint-brand)",
           fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", verticalAlign: "middle",
         }}>
           {m[1]}

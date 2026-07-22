@@ -7,7 +7,7 @@ import React from "react";
  * a decision alert. Pass `onClose` for a dismiss ×.
  */
 export function Toast({ tone = "info", title, children, onClose, style = {} }) {
-  const tones = { info: "var(--periwinkle-500)", success: "var(--success-500)", warning: "var(--orange-500)", danger: "var(--danger-500)" };
+  const tones = { info: "var(--info-500)", success: "var(--success-500)", warning: "var(--warning-500)", danger: "var(--danger-500)" };
   const fg = tones[tone] || tones.info;
   const assertive = tone === "danger";
   return (

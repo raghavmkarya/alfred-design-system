@@ -158,8 +158,8 @@ export function CommandPalette({
       >
         <span style={{
           ...chipBase,
-          background: isAsk ? "var(--orange-500)" : "var(--surface-sunken)",
-          color: isAsk ? "var(--text-on-orange)" : (active ? "var(--orange-500)" : "var(--text-muted)"),
+          background: isAsk ? "var(--accent)" : "var(--surface-sunken)",
+          color: isAsk ? "var(--text-on-orange)" : (active ? "var(--accent)" : "var(--text-muted)"),
         }}>
           {item.icon ? item.icon : <SparkleIcon size={15} color="currentColor" />}
         </span>
@@ -222,7 +222,7 @@ export function CommandPalette({
         <div style={{
           display: "flex", alignItems: "center", gap: 10, padding: "8px 8px 8px 10px",
           background: "var(--surface-card)", borderRadius: "var(--radius-lg)",
-          border: `1.5px solid ${focused ? "var(--orange-500)" : "var(--border-default)"}`,
+          border: `1.5px solid ${focused ? "var(--border-focus)" : "var(--border-default)"}`,
           boxShadow: focused ? "var(--shadow-focus)" : "var(--shadow-xs)",
           transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
         }}>

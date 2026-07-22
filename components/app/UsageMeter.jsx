@@ -28,7 +28,7 @@ export function UsageMeter({
 
   const usedColor = {
     ok: "var(--text-primary)",
-    warn: "var(--orange-600)",
+    warn: "var(--warning-500)",
     danger: "var(--danger-500)",
   }[status];
 

@@ -13,8 +13,8 @@ import React from "react";
  */
 export function CausalChain({ steps = [], confidence = null, title = "", style = {} }) {
   const KIND = {
-    cause: { accent: "var(--periwinkle-400)", label: "Cause" },
-    effect: { accent: "var(--orange-500)", label: "Effect" },
+    cause: { accent: "var(--info-500)", label: "Cause" },
+    effect: { accent: "var(--accent)", label: "Effect" },
     impact: { accent: "var(--danger-500)", label: "Impact" },
   };
   const resolve = (k) => KIND[k] || KIND.effect;

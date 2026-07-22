@@ -127,7 +127,7 @@ export function InsightFeedback({
     padding: "0 12px",
     borderRadius: "var(--radius-pill)",
     border: "1px solid transparent",
-    background: hovered === key ? "var(--accent-soft)" : "var(--gray-100)",
+    background: hovered === key ? "var(--accent-soft)" : "var(--surface-sunken)",
     color: hovered === key ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
     fontFamily: "var(--font-sans)",
     fontSize: "var(--text-xs)",

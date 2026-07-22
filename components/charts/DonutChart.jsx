@@ -6,7 +6,7 @@ import React from "react";
  * [{label, value, color?}] — colors default through the brand ramp. Optional
  * center label/sub. The track reads the theme so it works on light + dark.
  */
-const RAMP = ["var(--orange-500)", "var(--periwinkle-400)", "var(--orange-300)", "var(--periwinkle-600)", "var(--gray-200)"];
+const RAMP = ["var(--chart-1)", "var(--chart-2)", "var(--chart-7)", "var(--chart-4)", "var(--border-default)"];
 
 export function DonutChart({ segments = [], size = 180, thickness = 22, centerLabel, centerSub, style = {} }) {
   const total = segments.reduce((s, x) => s + x.value, 0) || 1;

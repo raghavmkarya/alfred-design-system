@@ -26,7 +26,7 @@ export function GoalPacing({
   const verdict =
     diff >= 4 ? { word: "Ahead of pace", color: "var(--success-500)", bg: "var(--success-100)" }
     : diff <= -4 ? { word: "Behind pace", color: "var(--danger-500)", bg: "var(--danger-100)" }
-    : { word: "On track", color: "var(--orange-600)", bg: "var(--accent-soft)" };
+    : { word: "On track", color: "var(--text-on-tint-brand)", bg: "var(--accent-soft)" };
 
   return (
     <section
@@ -62,7 +62,7 @@ export function GoalPacing({
 
       {/* Track with on-pace marker */}
       <div style={{ position: "relative", paddingTop: 4 }}>
-        <div style={{ position: "relative", height: 12, borderRadius: "var(--radius-pill)", background: "var(--gray-200)", overflow: "hidden" }}>
+        <div style={{ position: "relative", height: 12, borderRadius: "var(--radius-pill)", background: "var(--border-default)", overflow: "hidden" }}>
           <div style={{
             position: "absolute", inset: 0, width: `${pct}%`, borderRadius: "var(--radius-pill)",
             background: "var(--gradient-brand-reverse)",
@@ -93,7 +93,7 @@ export function GoalPacing({
           width: 28, height: 28, flex: "none", borderRadius: "var(--radius-sm)", background: "var(--surface-card)",
           border: "1px solid var(--border-subtle)", display: "inline-flex", alignItems: "center", justifyContent: "center",
         }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--periwinkle-500)"
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text-on-tint-info)"
             strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M3 17l6-6 4 4 8-8" /><path d="M21 7v5h-5" />
           </svg>

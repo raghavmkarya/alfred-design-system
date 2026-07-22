@@ -20,6 +20,20 @@ const ROOT = new URL("..", import.meta.url).pathname;
 const SKIP_DIRS = new Set(["scripts", "uploads", "node_modules", ".git", ".design-sync", ".design_sync", "mocks"]);
 const EXTS = new Set([".html", ".css", ".jsx"]);
 
+/* Files where raw ramp tokens are a legitimate, reviewed brand device — gradient <stop>s that
+   render the brand gradient in SVG, the sequential heat scale, and the fake dark DashboardMock
+   device frame (must NOT re-theme with the host page). Everywhere else in components/ the
+   raw-ramp-token rule requires a theme-aware semantic token; individual legit lines outside these
+   files carry an inline `raw-ramp-ok` marker (see components/core/Avatar.jsx, Button.jsx). */
+const RAW_RAMP_ALLOW_FILES = new Set([
+  "components/charts/GaugeChart.jsx",
+  "components/charts/Heatmap.jsx",
+  "components/charts/LineChart.jsx",
+  "components/charts/Sparkline.jsx",
+  "components/data/ProgressRing.jsx",
+  "components/marketing/DashboardMock.jsx",
+]);
+
 /* gather source files */
 function walk(dir, out = []) {
   for (const name of fs.readdirSync(dir)) {
@@ -55,6 +69,12 @@ const RULES = [
     re: /outline:\s*(?:none|0)\b/, suppressIf: (t) => /:focus(?:-visible|-within)?\b/.test(t) },
   { id: "emoji-in-source", why: "no emoji in Alfred surfaces — use the custom single-color SVG icon set (assets/icons/)",
     re: /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F1E6}-\u{1F1FF}]/u },
+  { id: "raw-ramp-token", why: "use a theme-aware semantic token (--accent / --accent-soft / --border-focus / --text-link / --info-500 / --surface-* / --text-on-tint-*) — raw ramps don't re-theme across light / dark / app-dark",
+    re: /var\(\s*--(?:gray|orange|periwinkle|ink)-\d/,
+    // component .jsx source only (not the .card.html preview pages); skip the reviewed gradient/mock
+    // files; individual legit lines carry a `raw-ramp-ok` marker
+    skipFile: (r) => !(r.startsWith("components/") && r.endsWith(".jsx")) || RAW_RAMP_ALLOW_FILES.has(r),
+    skipLine: (line) => { const t = line.trim(); return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /raw-ramp-ok/.test(line); } },
 ];
 
 const files = walk(ROOT);
@@ -67,6 +87,7 @@ for (const rel of files) {
     if (rule.skipFile && rule.skipFile(rel)) continue;
     if (rule.suppressIf && rule.suppressIf(text)) continue;
     lines.forEach((line, i) => {
+      if (rule.skipLine && rule.skipLine(line)) return;
       if (rule.re.test(line)) findings.push({ rule: rule.id, why: rule.why, file: rel, line: i + 1, snippet: line.trim().slice(0, 100) });
     });
   }

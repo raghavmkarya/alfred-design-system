@@ -21,7 +21,7 @@ export function Switch({ checked = false, onChange, disabled = false, label, sty
         style={{
           position: "relative",
           width: 44, height: 26, borderRadius: "var(--radius-pill)", padding: 3,
-          background: checked ? "var(--orange-500)" : "var(--gray-200)",
+          background: checked ? "var(--accent)" : "var(--border-default)",
           display: "inline-flex", alignItems: "center",
           boxShadow: focusRing ? "var(--shadow-focus)" : "none",
           transition: "background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",

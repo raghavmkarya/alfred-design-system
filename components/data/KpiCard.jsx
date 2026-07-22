@@ -23,8 +23,8 @@ export function KpiCard({
   const tone = {
     good: { color: "var(--text-on-tint-success)", bg: "var(--success-100)" },
     bad: { color: "var(--text-on-tint-danger)", bg: "var(--danger-100)" },
-    neutral: { color: "var(--text-muted)", bg: "var(--gray-100)" },
-  }[v] || { color: "var(--text-muted)", bg: "var(--gray-100)" };
+    neutral: { color: "var(--text-muted)", bg: "var(--surface-sunken)" },
+  }[v] || { color: "var(--text-muted)", bg: "var(--surface-sunken)" };
   const arrow = { up: "trend-up", down: "trend-down", flat: "trend-flat" }[direction] || "trend-flat";
   return (
     <div style={{
@@ -35,7 +35,7 @@ export function KpiCard({
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: "var(--text-muted)" }}>{label}</span>
         {icon && (
-          <span style={{ width: 32, height: 32, borderRadius: "var(--radius-md)", background: "var(--gray-100)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ width: 32, height: 32, borderRadius: "var(--radius-md)", background: "var(--surface-sunken)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
             <Icon name={icon} size={16} color="var(--text-muted)" root={iconRoot} />
           </span>
         )}

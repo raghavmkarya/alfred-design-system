@@ -18,9 +18,9 @@ export function Pagination({ page = 1, pageCount = 1, onChange, style = {} }) {
     <button key={key} type="button" disabled={disabled} onClick={onClick} aria-current={active ? "page" : undefined} aria-label={label}
       style={{
         minWidth: 34, height: 34, padding: "0 8px", borderRadius: "var(--radius-sm)",
-        border: `1px solid ${active ? "var(--orange-500)" : "var(--border-subtle)"}`,
-        background: active ? "var(--orange-50)" : "var(--surface-card)",
-        color: active ? "var(--orange-600)" : "var(--text-secondary)",
+        border: `1px solid ${active ? "var(--border-focus)" : "var(--border-subtle)"}`,
+        background: active ? "var(--accent-soft)" : "var(--surface-card)",
+        color: active ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
         fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
         cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1, fontVariantNumeric: "tabular-nums",
         display: "inline-flex", alignItems: "center", justifyContent: "center",

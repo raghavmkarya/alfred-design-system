@@ -111,7 +111,7 @@ export function CapabilityTicker({
               height: 5,
               flex: "none",
               borderRadius: "var(--radius-circle)",
-              background: "var(--orange-400)",
+              background: "var(--accent)",
             }}
           />
         )}
