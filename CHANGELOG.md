@@ -3,6 +3,14 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — CI — the four verifiers now gate every PR
+
+Added `.github/workflows/verify.yml` (the repo's first CI). On every pull request and push to
+`main` it rebuilds the bundle, fails if the committed `_ds_bundle.js`/`_ds_manifest.json` are stale
+(`build-bundle.mjs` is deterministic), then runs `verify-render`, `verify-components`, `verify-a11y`,
+and `verify-craft`. A red check blocks the merge — so the render health, ARIA/keyboard contracts, and
+craft rules the verifiers guarantee can no longer regress un-noticed. `CONTRIBUTING.md` updated to note it.
+
 ## 2026-07-22 — Overlay motion pass — the 4 held interactive items
 
 The behavior-restructuring items held from the component review, done as a careful individual pass.
