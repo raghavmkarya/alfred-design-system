@@ -49,4 +49,5 @@ SVG icon set. Soft corners (12/24/32), soft diffuse shadows, orange = action, pe
 
 Run all four verifiers (`verify-components`, `verify-render`, `verify-a11y`, `verify-craft`), rebuild the
 bundle, then re-run `/design-sync` — it reads the pin in `.design-sync/config.json` and
-updates the same Claude Design project.
+updates the same Claude Design project. **CI runs all four verifiers (and checks the committed bundle
+is fresh) on every PR — see `.github/workflows/verify.yml`; a red check blocks the merge.**

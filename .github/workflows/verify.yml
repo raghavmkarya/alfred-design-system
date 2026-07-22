@@ -1,0 +1,39 @@
+name: verify
+
+# Gates every PR (and pushes to main) on the design system's four verifiers, and
+# fails if the committed bundle is stale. Locks in what the verifiers guarantee:
+# component render health, ARIA/keyboard contracts, and the craft rules.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # The verifiers test the committed _ds_bundle.js, so a stale bundle would
+      # let unshipped source changes pass silently. Rebuild and require no diff.
+      # (build-bundle.mjs is deterministic — a clean rebuild yields no change.)
+      - name: Bundle is committed-fresh
+        run: |
+          node scripts/build-bundle.mjs
+          if ! git diff --quiet -- _ds_bundle.js _ds_manifest.json; then
+            echo "::error::_ds_bundle.js / _ds_manifest.json are stale — run 'node scripts/build-bundle.mjs' and commit the result."
+            git --no-pager diff --stat -- _ds_bundle.js _ds_manifest.json
+            exit 1
+          fi
+
+      - name: verify-render (kit render health)
+        run: node scripts/verify-render.mjs
+      - name: verify-components (all 113 render clean)
+        run: node scripts/verify-components.mjs
+      - name: verify-a11y (ARIA/keyboard contracts)
+        run: node scripts/verify-a11y.mjs
+      - name: verify-craft (motion/anti-slop craft rules)
+        run: node scripts/verify-craft.mjs
