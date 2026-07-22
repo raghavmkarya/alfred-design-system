@@ -3,6 +3,18 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Marketing-dark theme — re-map the soft / status tint ramps
+
+Follow-up to the semantic-token migration, caught in a three-theme visual QA. The marketing `dark`
+theme re-mapped the semantic tokens but not the raw soft / status tint ramps (`--info-100`,
+`--warning-100`, `--success-100`, `--danger-100`, `--orange-50/100`, `--periwinkle-*`, `--gray-*`),
+so a component that fills its whole surface with one — e.g. `Banner` — rendered a *light* pastel fill
+on the pure-black page, and its white primary text failed contrast. Added the same tint re-map block
+`app-dark` already ships to the `[data-theme="dark"]` block, so status/soft fills read as dark
+low-alpha bars (matching the Callouts, which use `rgba()` literals). Fixes `Banner` (all four tones)
+and makes status chips / badges / alerts consistent on marketing-dark. Token-only change; no
+component code touched; all four verifiers green; visually confirmed.
+
 ## 2026-07-22 — Semantic-token migration — the component library off the raw ramps
 
 Every component now styles itself with **theme-aware semantic tokens** instead of raw ramp steps
