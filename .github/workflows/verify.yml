@@ -16,6 +16,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
+
+      # typescript + @types/react — the tsc --noEmit pass inside verify-types
+      - name: Install type-check deps
+        run: npm ci
 
       # The verifiers test the committed _ds_bundle.js, so a stale bundle would
       # let unshipped source changes pass silently. Rebuild and require no diff.
@@ -37,5 +42,5 @@ jobs:
         run: node scripts/verify-a11y.mjs
       - name: verify-craft (motion/anti-slop craft rules)
         run: node scripts/verify-craft.mjs
-      - name: verify-types (every component has a matching .d.ts)
+      - name: verify-types (.d.ts present + declared + tsc --noEmit)
         run: node scripts/verify-types.mjs
