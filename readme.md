@@ -56,7 +56,9 @@ where the skill is loaded. Claude will:
 
 > After editing any UI-kit component, verify with `node scripts/verify-render.mjs` — it
 > server-renders every kit component against the real bundle and fails on render errors or
-> React warnings.
+> React warnings. Run `node scripts/verify-craft.mjs` too — the craft/anti-slop guard that fails
+> on the mechanical rules distilled in `guidelines/` (motion tokens, no `transition: all` /
+> `ease-in` / `scale(0)`, semantic z-index, no emoji; `--gradient-brand` text is allowed as brand).
 
 ---
 
@@ -147,7 +149,7 @@ templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout libra
 templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
 social/               ← 102-frame social system: OG images · LinkedIn/Facebook/Instagram/X cards, stories & covers · daily-content archetypes (tips, checklists, myth/fact, questions, definitions, spotlights, recaps, milestones) · YouTube thumbnails & banner · 5-part carousel kit · profile kits — every feed/OG frame in dark + white twins (*-light.html) (+ gallery index.html, daily cadence map in social/README.md, batch export via scripts/capture-social.mjs)
 slides/               ← presentation templates (cover, index, section, content)
-scripts/              ← tooling, incl. verify-render.mjs · verify-components.mjs · verify-a11y.mjs
+scripts/              ← tooling, incl. verify-render.mjs · verify-components.mjs · verify-a11y.mjs · verify-craft.mjs
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes
 ```

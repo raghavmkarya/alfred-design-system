@@ -76,9 +76,13 @@ If you're about to write any of these, rewrite the element with different struct
 
 - **Side-stripe borders** — `border-left/right` > 1px as a colored accent on cards/alerts/callouts.
   Use full borders, background tints, or leading icons/numbers.
-- **Gradient text** — `background-clip: text` over a gradient. Decorative, never meaningful; use
-  one solid color, emphasize via weight/size. *(Compatible with Alfred: `--gradient-brand` is a
-  **surface** element, one per view, never clipped into text.)*
+- **Gradient text on body copy** — `background-clip: text` over a gradient on running prose, or
+  as the default emphasis on *every* heading. That is the tell. *Not banned outright on Alfred:*
+  gradient-filling the signature `--gradient-brand` on a **short display/emphasis word or
+  headline** is a committed brand device (used deliberately across social cards, decks, and
+  heroes). Keep it to short display text and one gradient moment per view; never long body copy,
+  never the only emphasis mechanism everywhere. `scripts/verify-craft.mjs` allows
+  `--gradient-brand` text and does not flag it.
 - **Glassmorphism as default** — rare and purposeful, or nothing.
 - **The hero-metric template** — big number + small label + supporting stats + gradient accent.
   SaaS cliché. *(Alfred does lead with the number — but through the `KpiCard` (with valence)
