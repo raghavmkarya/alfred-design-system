@@ -62,12 +62,12 @@ function SidebarItem({ item = {}, active = false, onSelect = () => {} }) {
   const [hover, setHover] = React.useState(false);
 
   const labelColor = active
-    ? "var(--orange-600)"
+    ? "var(--text-on-tint-brand)"
     : hover
     ? "var(--text-primary)"
     : "var(--text-secondary)";
   const iconColor = active
-    ? "var(--orange-500)"
+    ? "var(--accent)"
     : hover
     ? "var(--text-secondary)"
     : "var(--text-muted)";
@@ -89,7 +89,7 @@ function SidebarItem({ item = {}, active = false, onSelect = () => {} }) {
         cursor: "pointer",
         padding: "9px 12px",
         borderRadius: "var(--radius-md)",
-        background: active ? "var(--orange-50)" : hover ? "var(--surface-sunken)" : "transparent",
+        background: active ? "var(--accent-soft)" : hover ? "var(--surface-sunken)" : "transparent",
         color: labelColor,
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-sm)",
@@ -146,8 +146,8 @@ function SidebarItem({ item = {}, active = false, onSelect = () => {} }) {
             height: 20,
             padding: "0 7px",
             borderRadius: "var(--radius-pill)",
-            background: active ? "var(--orange-500)" : "var(--orange-100)",
-            color: active ? "var(--text-on-orange)" : "var(--orange-700)",
+            background: active ? "var(--accent)" : "var(--accent-soft)",
+            color: active ? "var(--text-on-orange)" : "var(--text-on-tint-brand)",
             fontFamily: "var(--font-sans)",
             fontSize: "var(--text-2xs)",
             fontWeight: "var(--fw-bold)",

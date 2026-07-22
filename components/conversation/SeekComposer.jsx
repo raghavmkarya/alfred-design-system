@@ -107,7 +107,7 @@ export function SeekComposer({
             }}>
               <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
-                  fill="var(--orange-500)" />
+                  fill="var(--accent)" />
               </svg>
               {model}
             </span>
@@ -126,7 +126,7 @@ export function SeekComposer({
                 display: "inline-flex", alignItems: "center", justifyContent: "center",
                 width: 38, height: 38, flex: "none", borderRadius: "var(--radius-circle)",
                 border: "none", cursor: canSend ? "pointer" : "not-allowed",
-                background: canSend ? "var(--orange-500)" : "var(--gray-150)",
+                background: canSend ? "var(--accent)" : "var(--surface-sunken)",
                 color: canSend ? "var(--text-on-orange)" : "var(--text-placeholder)",
                 boxShadow: canSend ? "var(--shadow-brand)" : "none",
                 transform: press && canSend ? "scale(0.98)" : "scale(1)",
@@ -167,7 +167,7 @@ export function SeekComposer({
             >
               <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true" style={{ flex: "none" }}>
                 <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
-                  fill="var(--periwinkle-400)" />
+                  fill="var(--info-500)" />
               </svg>
               {s}
             </button>

@@ -3,6 +3,31 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Semantic-token migration — the component library off the raw ramps
+
+Every component now styles itself with **theme-aware semantic tokens** instead of raw ramp steps
+(`--gray-*`, `--orange-*`, `--periwinkle-*`, `--ink-*`), so surfaces re-theme correctly across
+`light` / marketing `dark` / `app-dark`. Raw ramps only re-map under `app-dark` (and not at all under
+marketing `dark`), so a raw `--gray-100` fill or `--orange-50` tint rendered wrong on a dark page; the
+semantic aliases carry the correct per-theme value.
+
+- **159 token swaps across 67 component `.jsx` files** (the whole library minus the already-clean ones).
+  Mapped by role: solid accent → `--accent`, hover → `--accent-hover`, focus/active border →
+  `--border-focus`, link → `--text-link`, soft fill → `--accent-soft`, grays → `--surface-*` / `--border-*`,
+  periwinkle info → `--info-500`, and foreground-on-tint → `--text-on-tint-brand` / `--text-on-tint-info`
+  (the last two also lift under `app-dark`, fixing chip/badge/pill text legibility on ink).
+- **Priority families made symmetric** — DecisionAlert / RecommendationCard / DecisionLog now use the
+  status tokens (`--danger` / `--warning` / `--info` / `--success`) end-to-end instead of a raw orange rail.
+- **Legit raw uses preserved** (reviewed): brand-gradient SVG `<stop>`s (Gauge / ProgressRing), the Heatmap
+  sequential scale, the DashboardMock fake-dark device frame, DotMatrix's var-name lookup, Button's
+  ink-on-periwinkle secondary, the Avatar identity palette, and UsageMeter's `--orange-500` re-scope — each
+  carries an inline `raw-ramp-ok` marker or sits in an allow-listed file.
+- **New guard** — `verify-craft` gains a `raw-ramp-token` rule that fails if any component `.jsx`
+  reintroduces a raw ramp step outside the reviewed allow-list, so this can't silently regress.
+
+All four verifiers green. The migration + an independent adversarial review ran as a fan-out workflow
+(one agent per component group, one reviewer per group).
+
 ## 2026-07-22 — CI — the four verifiers now gate every PR
 
 Added `.github/workflows/verify.yml` (the repo's first CI). On every pull request and push to

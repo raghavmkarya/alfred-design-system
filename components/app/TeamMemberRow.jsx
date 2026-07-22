@@ -87,7 +87,7 @@ export function TeamMemberRow({
           flex: "none",
           height: 36,
           background: "var(--surface-input-plain)",
-          border: `1.5px solid ${focus ? "var(--orange-500)" : "var(--border-default)"}`,
+          border: `1.5px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
           borderRadius: "var(--radius-md)",
           boxShadow: focus ? "var(--shadow-focus)" : "none",
           transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",

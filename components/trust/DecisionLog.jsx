@@ -46,7 +46,7 @@ export function DecisionLog({ entries = [], title = "", style = {} }) {
             width: 30, height: 30, borderRadius: "var(--radius-md)", flex: "none",
             background: "var(--accent-soft)", display: "inline-flex", alignItems: "center", justifyContent: "center",
           }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange-500)"
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
               strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="8.5" />
               <path d="M12 7.5V12l3 1.7" />
@@ -198,16 +198,16 @@ function StatusNode({ status = "pending", pulse = "" }) {
   // pending — orange ring with a soft pulsing halo
   return (
     <span style={{
-      position: "relative", width: size, height: size, flex: "none", color: "var(--orange-500)",
+      position: "relative", width: size, height: size, flex: "none", color: "var(--warning-500)",
       display: "inline-flex", alignItems: "center", justifyContent: "center",
     }}>
       <span aria-hidden="true" style={{
-        position: "absolute", inset: -3, borderRadius: "var(--radius-circle)", background: "var(--orange-500)",
+        position: "absolute", inset: -3, borderRadius: "var(--radius-circle)", background: "var(--warning-500)",
         opacity: 0.16, ...(pulse ? { animation: `${pulse} 1.8s var(--ease-standard) infinite` } : {}),
       }} />
       <span style={{
         position: "relative", width: size, height: size, borderRadius: "var(--radius-circle)",
-        background: "var(--surface-card)", border: "2px solid var(--orange-500)",
+        background: "var(--surface-card)", border: "2px solid var(--warning-500)",
         display: "inline-flex", alignItems: "center", justifyContent: "center",
       }}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"

@@ -29,10 +29,10 @@ export function ModuleStatusCard({
     },
     "in-development": {
       label: "In development",
-      dot: "var(--orange-500)",
-      color: "var(--orange-600)",
+      dot: "var(--accent)",
+      color: "var(--accent-hover)",
       bg: "var(--accent-soft)",
-      border: "color-mix(in srgb, var(--orange-500) 30%, transparent)",
+      border: "color-mix(in srgb, var(--accent) 30%, transparent)",
     },
     planned: {
       label: "Planned",
@@ -70,7 +70,7 @@ export function ModuleStatusCard({
     fontSize: "var(--text-sm)",
     fontWeight: "var(--fw-bold)",
     lineHeight: 1,
-    color: linkHover ? "var(--orange-600)" : "var(--text-link)",
+    color: linkHover ? "var(--accent-hover)" : "var(--text-link)",
     textDecoration: linkHover ? "underline" : "none",
     textUnderlineOffset: 3,
     background: "none",

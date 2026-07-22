@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"b793e08dfdd7","components/core/Tabs.jsx":"4b87bb6122a5","components/core/Badge.jsx":"5fc95b020fca","components/core/Input.jsx":"c4ed87b28014","components/core/Avatar.jsx":"f2b91b6842eb","components/core/Button.jsx":"651c180f9844","components/core/Select.jsx":"b8e1f5628d72","components/core/Slider.jsx":"1c0ffe3ec386","components/core/Switch.jsx":"07c3b2a412df","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"8d1e78924815","components/core/Checkbox.jsx":"da514a1b6ba3","components/core/Combobox.jsx":"4ac6f9b112c2","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"b29d19a4715a","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"4a77d0af9aa2","components/core/RadioGroup.jsx":"9157e4d1110f","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"f7f990c47df5","components/core/FileDropzone.jsx":"d623ca9be792","components/core/SegmentedControl.jsx":"4fd2ba51116d","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9ef33d3f4a65","components/data/Stepper.jsx":"eeb6c638a1fd","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"fa053e671b69","components/data/StateBlock.jsx":"d75c3387cc65","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"007ba0a0662e","components/data/ActivityTimeline.jsx":"dee5afa73795","components/data/NotificationItem.jsx":"850e8b81826c","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"514e76d2fcac","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"9acf1f90dd4f","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"0322060ea5f5","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"beda662e42ce","components/overlay/Drawer.jsx":"7720e725a960","components/overlay/Popover.jsx":"ebb9e12a3a12","components/overlay/Tooltip.jsx":"65bf54ffa004","components/feedback/Banner.jsx":"985b1d3ee4e5","components/feedback/Callout.jsx":"0d40f939be54","components/marketing/FaqItem.jsx":"6d296a9c6228","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"3ad54df287b2","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"ef57bcbee5dc","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"dd326ef03ea3","components/marketing/EyebrowBadge.jsx":"ad0f7b221957","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"bb709e5eb31b","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"4c64be3b99eb","components/marketing/CapabilityTicker.jsx":"453412e5e698","components/marketing/ModuleStatusCard.jsx":"f930230faac4","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"2d48d63dd95b","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"c967e45a7c7d","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"6e233643f546","components/app/Sidebar.jsx":"00e4d386a28c","components/app/StatTile.jsx":"a8753feb510b","components/app/DataTable.jsx":"29d4acaf3a7c","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/UsageMeter.jsx":"c4b56e2cba7b","components/app/AuditLogRow.jsx":"f51db275f81f","components/app/UpgradeModal.jsx":"121f073e9150","components/app/TeamMemberRow.jsx":"02a341a65ca8","components/app/CommandPalette.jsx":"376c2ef0e569","components/app/ModuleSwitcher.jsx":"6f0adda0803a","components/app/BillingPlanCard.jsx":"1715b6b56c34","components/app/DateRangePicker.jsx":"4bed2e578e50","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"ad1fb55748ce","components/conversation/SeekComposer.jsx":"f42b7007215b","components/conversation/AlfredMessage.jsx":"39e6d138f2b2","components/conversation/ThinkingTrace.jsx":"82f057b71eb8","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"1c0a6e99fbd4","components/decision/GoalPacing.jsx":"1b856bf93c95","components/decision/AnomalyFlag.jsx":"63d1a34fda9b","components/decision/ApprovalGate.jsx":"75a63cc2fae6","components/decision/ScenarioSimulator.jsx":"f5fed2a8e1dd"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"57d20a53f79f","components/core/Tabs.jsx":"b91e4e323f25","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"89367db75fa7","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"13d68c723a47","components/core/Select.jsx":"674316f7e537","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"c6f11d2de789","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"8ec24fac33bc","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"7ebe9d9c39e3","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"82fc758194a0","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"7e79c7f3aba6","components/core/FileDropzone.jsx":"9ed80010c187","components/core/SegmentedControl.jsx":"2b7b4427a874","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"06a68d799d75","components/data/Stepper.jsx":"4d48579596e2","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"99cd13b1a5ec","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"766a8ca76a30","components/data/ActivityTimeline.jsx":"954051bfc61f","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"514e76d2fcac","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"9acf1f90dd4f","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"0c92800b3175","components/charts/GaugeChart.jsx":"d002c9e548c7","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"0322060ea5f5","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"4f98b60bb2c6","components/overlay/Drawer.jsx":"7720e725a960","components/overlay/Popover.jsx":"ebb9e12a3a12","components/overlay/Tooltip.jsx":"65bf54ffa004","components/feedback/Banner.jsx":"ff051db36967","components/feedback/Callout.jsx":"97ae150912b5","components/marketing/FaqItem.jsx":"5c495466c6b7","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"917177ac7624","components/marketing/SignalCard.jsx":"216e0d9e2766","components/marketing/AgentStatus.jsx":"bd6f98f9f0a9","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"b1b2f240da42","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"7ec5bee5c45d","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"14e1c4b68435","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"560f659fa5fc","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"5dcfa05b6c04","components/trust/CausalChain.jsx":"5a1d9ba8a6fa","components/trust/DecisionLog.jsx":"a15180f3241d","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"3585fc7965c5","components/app/Sidebar.jsx":"b58c97cc2fd8","components/app/StatTile.jsx":"31b14ba88aa1","components/app/DataTable.jsx":"795c3529c7d5","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"48a65a8461c7","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"193680a192f3","components/app/CommandPalette.jsx":"1238003d0233","components/app/ModuleSwitcher.jsx":"c5c53ef694f8","components/app/BillingPlanCard.jsx":"0502fa06234c","components/app/DateRangePicker.jsx":"11dc5142703e","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"1a04b3a6d16b","components/conversation/SeekComposer.jsx":"5f4f9973acac","components/conversation/AlfredMessage.jsx":"db4a7874f30e","components/conversation/ThinkingTrace.jsx":"00c46ff1681d","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"796cd1cb6dde","components/decision/GoalPacing.jsx":"631138a96e39","components/decision/AnomalyFlag.jsx":"9fbd7458312c","components/decision/ApprovalGate.jsx":"b8286f191caf","components/decision/ScenarioSimulator.jsx":"7f275b3018bc"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -257,14 +257,14 @@ function Chip({
   style = {}
 }) {
   const tones = {
-    neutral: ["var(--gray-100)", "var(--text-body)"],
-    brand: ["var(--orange-50)", "var(--orange-600)"],
-    info: ["var(--info-100)", "var(--periwinkle-600)"],
+    neutral: ["var(--surface-sunken)", "var(--text-body)"],
+    brand: ["var(--accent-soft)", "var(--text-on-tint-brand)"],
+    info: ["var(--info-100)", "var(--text-on-tint-info)"],
     success: ["var(--success-100)", "var(--success-500)"],
-    warning: ["var(--warning-100)", "var(--orange-600)"],
+    warning: ["var(--warning-100)", "var(--text-on-tint-brand)"],
     danger: ["var(--danger-100)", "var(--danger-500)"]
   };
-  const [bg, fg] = selected ? ["var(--orange-500)", "#fff"] : tones[tone] || tones.neutral;
+  const [bg, fg] = selected ? ["var(--accent)", "#fff"] : tones[tone] || tones.neutral;
   return /*#__PURE__*/React.createElement("span", {
     onClick: onClick,
     style: {
@@ -396,7 +396,7 @@ function Tabs({
         bottom: -1,
         height: 3,
         borderRadius: "3px 3px 0 0",
-        background: on ? "var(--orange-500)" : "transparent",
+        background: on ? "var(--accent)" : "transparent",
         transition: "background var(--dur-base) var(--ease-standard)"
       }
     }));
@@ -420,19 +420,19 @@ function Badge({
 }) {
   const tones = {
     neutral: {
-      bg: "var(--gray-100)",
+      bg: "var(--surface-sunken)",
       fg: "var(--text-secondary)",
       dotc: "var(--text-placeholder)"
     },
     brand: {
-      bg: "var(--orange-50)",
+      bg: "var(--accent-soft)",
       fg: "var(--text-on-tint-brand)",
-      dotc: "var(--orange-500)"
+      dotc: "var(--accent)"
     },
     info: {
       bg: "var(--info-100)",
       fg: "var(--text-on-tint-info)",
-      dotc: "var(--periwinkle-500)"
+      dotc: "var(--info-500)"
     },
     success: {
       bg: "var(--success-100)",
@@ -509,7 +509,7 @@ const Input = React.forwardRef(function Input(props, ref) {
   const [focus, setFocus] = React.useState(false);
   const inputId = id || (label ? `in-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
   const wrapBg = fill === "plain" ? "var(--surface-input-plain)" : "var(--surface-input)";
-  const borderColor = error ? "var(--danger-500)" : focus ? "var(--orange-500)" : fill === "plain" ? "var(--border-default)" : "transparent";
+  const borderColor = error ? "var(--danger-500)" : focus ? "var(--border-focus)" : fill === "plain" ? "var(--border-default)" : "transparent";
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
@@ -531,7 +531,7 @@ const Input = React.forwardRef(function Input(props, ref) {
       display: "flex",
       alignItems: "center",
       gap: 8,
-      background: disabled ? "var(--gray-100)" : wrapBg,
+      background: disabled ? "var(--surface-sunken)" : wrapBg,
       border: `1.5px solid ${borderColor}`,
       borderRadius: "var(--radius-md)",
       padding: "0 16px",
@@ -584,16 +584,18 @@ try { (() => {
 const AUTO_TONES = [{
   bg: "var(--periwinkle-100)",
   fg: "var(--text-on-tint-info)"
-}, {
+}, /* raw-ramp-ok: fixed auto-avatar tint palette (re-maps in app-dark; light monogram disc on marketing dark is intentional) */
+{
   bg: "var(--success-100)",
   fg: "var(--text-on-tint-success)"
 }, {
   bg: "var(--orange-100)",
   fg: "var(--text-on-tint-brand)"
-}, {
+}, /* raw-ramp-ok: fixed auto-avatar tint palette */
+{
   bg: "var(--gray-100)",
   fg: "var(--text-secondary)"
-}];
+} /* raw-ramp-ok: fixed auto-avatar tint palette */];
 function Avatar({
   name = "",
   src,
@@ -608,7 +610,7 @@ function Avatar({
     gradient: "var(--gradient-brand)",
     ink: "var(--ink-900)",
     periwinkle: "var(--periwinkle-400)"
-  }[tone];
+  }[tone]; /* raw-ramp-ok: fixed brand-identity avatar tones (solid ink / periwinkle discs) */
   const bg = fixed || auto.bg;
   const fg = fixed ? "#fff" : auto.fg;
   return /*#__PURE__*/React.createElement("span", {
@@ -709,13 +711,14 @@ function Button({
   };
   const variants = {
     primary: {
-      background: "var(--orange-500)",
+      background: "var(--accent)",
       color: "var(--text-on-orange)"
     },
     secondary: {
       background: "var(--periwinkle-400)",
       color: "var(--ink-900)"
     },
+    /* raw-ramp-ok: ink-on-periwinkle brand secondary — no semantic equivalent (fixed light fill) */
     outline: {
       background: "transparent",
       color: "var(--text-primary)",
@@ -726,7 +729,7 @@ function Button({
       color: "var(--text-body)"
     },
     subtle: {
-      background: "var(--orange-50)",
+      background: "var(--accent-soft)",
       color: "var(--text-on-tint-brand)",
       borderColor: "var(--border-subtle)"
     },
@@ -739,21 +742,22 @@ function Button({
   const [press, setPress] = React.useState(false);
   const hoverStyle = !disabled && hover ? {
     primary: {
-      background: "var(--orange-600)",
+      background: "var(--accent-hover)",
       boxShadow: "var(--shadow-brand)"
     },
     secondary: {
       background: "var(--periwinkle-500)"
     },
+    /* raw-ramp-ok: brand secondary hover (fixed periwinkle) */
     outline: {
       borderColor: "var(--text-primary)",
       background: "var(--surface-hover)"
     },
     ghost: {
-      background: "var(--gray-100)"
+      background: "var(--surface-hover)"
     },
     subtle: {
-      background: "var(--orange-100)"
+      background: "var(--accent-soft)"
     },
     danger: {
       background: "var(--danger-600)"
@@ -809,7 +813,7 @@ const Select = React.forwardRef(function Select(props, ref) {
   const [focus, setFocus] = React.useState(false);
   const selId = id || (label ? `sel-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
   const bg = fill === "plain" ? "var(--surface-input-plain)" : "var(--surface-input)";
-  const border = error ? "var(--danger-500)" : focus ? "var(--orange-500)" : fill === "plain" ? "var(--border-default)" : "transparent";
+  const border = error ? "var(--danger-500)" : focus ? "var(--border-focus)" : fill === "plain" ? "var(--border-default)" : "transparent";
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
@@ -831,7 +835,7 @@ const Select = React.forwardRef(function Select(props, ref) {
       position: "relative",
       display: "flex",
       alignItems: "center",
-      background: disabled ? "var(--gray-100)" : bg,
+      background: disabled ? "var(--surface-sunken)" : bg,
       border: `1.5px solid ${border}`,
       borderRadius: "var(--radius-md)",
       height: 52,
@@ -962,11 +966,11 @@ function Slider({
       width: "100%",
       height: 6,
       cursor: "pointer",
-      accentColor: "var(--orange-500)",
+      accentColor: "var(--accent)",
       appearance: "none",
       WebkitAppearance: "none",
       borderRadius: "var(--radius-pill)",
-      background: `linear-gradient(to right, var(--orange-500) ${pct}%, var(--border-default) ${pct}%)`,
+      background: `linear-gradient(to right, var(--accent) ${pct}%, var(--border-default) ${pct}%)`,
       boxShadow: focusRing ? "var(--shadow-focus)" : "none",
       transition: "box-shadow var(--dur-base) var(--ease-standard)"
     }
@@ -1013,7 +1017,7 @@ function Switch({
       height: 26,
       borderRadius: "var(--radius-pill)",
       padding: 3,
-      background: checked ? "var(--orange-500)" : "var(--gray-200)",
+      background: checked ? "var(--accent)" : "var(--border-default)",
       display: "inline-flex",
       alignItems: "center",
       boxShadow: focusRing ? "var(--shadow-focus)" : "none",
@@ -1172,7 +1176,7 @@ function Spinner({
       };
     } catch (e) {/* no matchMedia — leave animated */}
   }, []);
-  const stroke = tone === "muted" ? "var(--text-muted)" : "var(--orange-500)";
+  const stroke = tone === "muted" ? "var(--text-muted)" : "var(--accent)";
   const c = 2 * Math.PI * 9; // r = 9 in a 24-unit viewBox
   const arc = (c * (80 / 360)).toFixed(2); // ~80deg sweep
   const gap = (c - c * (80 / 360)).toFixed(2);
@@ -1268,8 +1272,8 @@ function Checkbox({
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      background: checked ? "var(--orange-500)" : "var(--periwinkle-100)",
-      border: checked ? "1.5px solid var(--orange-500)" : "1.5px solid var(--periwinkle-200)",
+      background: checked ? "var(--accent)" : "var(--info-100)",
+      border: checked ? "1.5px solid var(--border-focus)" : "1.5px solid var(--border-default)",
       boxShadow: focusRing ? "var(--shadow-focus)" : "none",
       transition: "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
       flex: "none"
@@ -1423,7 +1427,7 @@ const Combobox = React.forwardRef(function Combobox({
       gap: 8,
       height: 52,
       padding: "0 14px 0 16px",
-      background: disabled ? "var(--gray-100)" : "var(--surface-input-plain)",
+      background: disabled ? "var(--surface-sunken)" : "var(--surface-input-plain)",
       border: `1px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
       borderRadius: "var(--radius-md)",
       boxShadow: focus ? "var(--shadow-focus)" : "none",
@@ -1804,7 +1808,7 @@ const Textarea = React.forwardRef(function Textarea(props, ref) {
     onChange && onChange(e);
   };
   const wrapBg = fill === "tint" ? "var(--surface-input)" : "var(--surface-input-plain)";
-  const borderColor = error ? "var(--danger-500)" : focus ? "var(--orange-500)" : fill === "tint" ? "transparent" : "var(--border-default)";
+  const borderColor = error ? "var(--danger-500)" : focus ? "var(--border-focus)" : fill === "tint" ? "transparent" : "var(--border-default)";
   const count = (text == null ? "" : String(text)).length;
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1824,7 +1828,7 @@ const Textarea = React.forwardRef(function Textarea(props, ref) {
     }
   }, label), /*#__PURE__*/React.createElement("div", {
     style: {
-      background: disabled ? "var(--gray-100)" : wrapBg,
+      background: disabled ? "var(--surface-sunken)" : wrapBg,
       border: `1.5px solid ${borderColor}`,
       borderRadius: "var(--radius-md)",
       padding: "10px 14px",
@@ -2035,17 +2039,17 @@ function IconButton({
     ghost: {
       bg: "transparent",
       fg: "var(--text-secondary)",
-      hbg: "var(--gray-100)"
+      hbg: "var(--surface-hover)"
     },
     subtle: {
-      bg: "var(--orange-50)",
-      fg: "var(--orange-600)",
-      hbg: "var(--orange-100)"
+      bg: "var(--accent-soft)",
+      fg: "var(--text-on-tint-brand)",
+      hbg: "var(--accent-soft)"
     },
     solid: {
-      bg: "var(--orange-500)",
+      bg: "var(--accent)",
       fg: "#fff",
-      hbg: "var(--orange-600)"
+      hbg: "var(--accent-hover)"
     },
     outline: {
       bg: "transparent",
@@ -2184,7 +2188,7 @@ function RadioGroup({
         height: 20,
         borderRadius: "50%",
         flex: "none",
-        border: `2px solid ${checked ? "var(--orange-500)" : "var(--border-default)"}`,
+        border: `2px solid ${checked ? "var(--border-focus)" : "var(--border-default)"}`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -2196,7 +2200,7 @@ function RadioGroup({
         width: 10,
         height: 10,
         borderRadius: "50%",
-        background: "var(--orange-500)"
+        background: "var(--accent)"
       }
     })), o.label);
   }));
@@ -2517,7 +2521,7 @@ const SearchInput = React.forwardRef(function SearchInput(props, ref) {
     }
   };
   const wrapBg = fill === "tint" ? "var(--surface-input)" : "var(--surface-input-plain)";
-  const borderColor = focus ? "var(--orange-500)" : fill === "tint" ? "transparent" : "var(--border-default)";
+  const borderColor = focus ? "var(--border-focus)" : fill === "tint" ? "transparent" : "var(--border-default)";
   return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
@@ -2781,7 +2785,7 @@ function FileDropzone({
       textAlign: "center",
       cursor: "pointer",
       borderRadius: "var(--radius-2xl)",
-      border: `2px dashed ${active ? "var(--orange-500)" : "var(--border-default)"}`,
+      border: `2px dashed ${active ? "var(--border-focus)" : "var(--border-default)"}`,
       background: active ? "var(--accent-soft)" : "var(--surface-sunken)",
       transition: "border-color var(--dur-base) var(--ease-standard), background var(--dur-base) var(--ease-standard)"
     }
@@ -2803,7 +2807,7 @@ function FileDropzone({
     height: "22",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "var(--orange-500)",
+    stroke: "var(--accent)",
     strokeWidth: "1.75",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -3009,7 +3013,7 @@ function SegmentedControl({
         fontSize: fs,
         fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
         color: active ? "var(--text-on-orange)" : "var(--text-secondary)",
-        background: active ? "var(--orange-500)" : "transparent",
+        background: active ? "var(--accent)" : "transparent",
         boxShadow: ring ? active ? "var(--shadow-sm), var(--shadow-focus)" : "var(--shadow-focus)" : active ? "var(--shadow-sm)" : "none",
         transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
       }
@@ -3117,11 +3121,11 @@ function KpiCard({
     },
     neutral: {
       color: "var(--text-muted)",
-      bg: "var(--gray-100)"
+      bg: "var(--surface-sunken)"
     }
   }[v] || {
     color: "var(--text-muted)",
-    bg: "var(--gray-100)"
+    bg: "var(--surface-sunken)"
   };
   const arrow = {
     up: "trend-up",
@@ -3159,7 +3163,7 @@ function KpiCard({
       width: 32,
       height: 32,
       borderRadius: "var(--radius-md)",
-      background: "var(--gray-100)",
+      background: "var(--surface-sunken)",
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center"
@@ -3236,7 +3240,7 @@ function Stepper({
   }, steps.map((s, i) => {
     const done = i < current,
       active = i === current;
-    const ring = done || active ? "var(--orange-500)" : "var(--border-default)";
+    const ring = done || active ? "var(--border-focus)" : "var(--border-default)";
     return /*#__PURE__*/React.createElement(React.Fragment, {
       key: i
     }, /*#__PURE__*/React.createElement("div", {
@@ -3256,9 +3260,9 @@ function Stepper({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: done ? "var(--orange-500)" : active ? "var(--orange-50)" : "transparent",
+        background: done ? "var(--accent)" : active ? "var(--accent-soft)" : "transparent",
         border: `2px solid ${ring}`,
-        color: done ? "var(--text-on-orange)" : active ? "var(--orange-600)" : "var(--text-placeholder)",
+        color: done ? "var(--text-on-orange)" : active ? "var(--text-on-tint-brand)" : "var(--text-placeholder)",
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-sm)",
         fontWeight: "var(--fw-bold)"
@@ -3286,7 +3290,7 @@ function Stepper({
       style: {
         flex: 1,
         height: 2,
-        background: i < current ? "var(--orange-500)" : "var(--border-subtle)",
+        background: i < current ? "var(--accent)" : "var(--border-subtle)",
         marginTop: 15
       }
     }));
@@ -3429,7 +3433,7 @@ function EmptyState({
       alignItems: "center",
       justifyContent: "center",
       marginBottom: 8,
-      color: "var(--orange-500)"
+      color: "var(--accent)"
     }
   }, icon || /*#__PURE__*/React.createElement("svg", {
     width: "26",
@@ -3522,9 +3526,9 @@ function Pagination({
       height: 34,
       padding: "0 8px",
       borderRadius: "var(--radius-sm)",
-      border: `1px solid ${active ? "var(--orange-500)" : "var(--border-subtle)"}`,
-      background: active ? "var(--orange-50)" : "var(--surface-card)",
-      color: active ? "var(--orange-600)" : "var(--text-secondary)",
+      border: `1px solid ${active ? "var(--border-focus)" : "var(--border-subtle)"}`,
+      background: active ? "var(--accent-soft)" : "var(--surface-card)",
+      color: active ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-sm)",
       fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
@@ -3646,7 +3650,7 @@ function StateBlock({
 
   // danger-500 at 12% — same soft danger fill Callout uses; reads in both themes
   const chipBg = k === "error" ? "rgba(229,72,77,0.12)" : "var(--accent-soft)";
-  const chipColor = k === "error" ? "var(--danger-500)" : "var(--orange-500)";
+  const chipColor = k === "error" ? "var(--danger-500)" : "var(--accent)";
   const live = k === "error" ? {
     role: "alert"
   } : k === "loading" ? {
@@ -3736,7 +3740,7 @@ function ProgressBar({
       width: "100%",
       height,
       borderRadius: "var(--radius-pill)",
-      background: showTrack ? "var(--gray-200)" : "transparent",
+      background: showTrack ? "var(--border-default)" : "transparent",
       overflow: "hidden",
       ...style
     }
@@ -3745,7 +3749,7 @@ function ProgressBar({
       width: `${pct}%`,
       height: "100%",
       borderRadius: "var(--radius-pill)",
-      background: tone === "gradient" ? "var(--gradient-brand-reverse)" : "var(--orange-500)",
+      background: tone === "gradient" ? "var(--gradient-brand-reverse)" : "var(--accent)",
       transition: "width var(--dur-slow) var(--ease-standard)"
     }
   }));
@@ -3949,15 +3953,15 @@ function DecisionAlert({
       label: "High"
     },
     medium: {
-      rail: "var(--orange-500)",
-      soft: "var(--orange-50)",
+      rail: "var(--warning-500)",
+      soft: "var(--warning-100)",
       icon: "alert-warning",
       badge: "warning",
       label: "Medium"
     },
     low: {
-      rail: "var(--periwinkle-400)",
-      soft: "var(--periwinkle-100)",
+      rail: "var(--info-500)",
+      soft: "var(--info-100)",
       icon: "bookmark",
       badge: "info",
       label: "Low"
@@ -4052,7 +4056,7 @@ function DecisionAlert({
     style: {
       marginTop: 12,
       cursor: "pointer",
-      background: "var(--orange-50)",
+      background: "var(--accent-soft)",
       color: "var(--text-on-tint-brand)",
       border: "1px solid var(--border-subtle)",
       fontFamily: "var(--font-sans)",
@@ -4080,10 +4084,10 @@ function ActivityTimeline({
   style = {}
 }) {
   const KIND = {
-    action: "var(--orange-500)",
+    action: "var(--accent)",
     alert: "var(--danger-500)",
     success: "var(--success-500)",
-    info: "var(--periwinkle-400)",
+    info: "var(--info-500)",
     neutral: "var(--text-placeholder)"
   };
   return /*#__PURE__*/React.createElement("ol", {
@@ -4224,11 +4228,11 @@ function NotificationItem({
 }) {
   const T = {
     brand: {
-      color: "var(--orange-500)",
+      color: "var(--accent)",
       bg: "var(--accent-soft)"
     },
     info: {
-      color: "var(--periwinkle-500)",
+      color: "var(--text-on-tint-info)",
       bg: "var(--info-100)"
     },
     success: {
@@ -4244,7 +4248,7 @@ function NotificationItem({
       bg: "var(--danger-100)"
     }
   }[tone] || {
-    color: "var(--orange-500)",
+    color: "var(--accent)",
     bg: "var(--accent-soft)"
   };
   const defaultGlyph = /*#__PURE__*/React.createElement("svg", {
@@ -4355,7 +4359,7 @@ function NotificationItem({
       fontSize: "var(--text-sm)",
       fontWeight: "var(--fw-bold)",
       border: i === 0 ? "1px solid var(--border-subtle)" : "1px solid var(--border-default)",
-      background: i === 0 ? "var(--orange-50)" : "transparent",
+      background: i === 0 ? "var(--accent-soft)" : "transparent",
       color: i === 0 ? "var(--text-on-tint-brand)" : "var(--text-secondary)"
     }
   }, a.label)))), unread && /*#__PURE__*/React.createElement("span", {
@@ -4366,7 +4370,7 @@ function NotificationItem({
       flex: "none",
       marginTop: 4,
       borderRadius: "var(--radius-circle)",
-      background: "var(--orange-500)"
+      background: "var(--accent)"
     }
   }));
 }
@@ -5005,7 +5009,7 @@ try { (() => {
  * [{label, value, color?}] — colors default through the brand ramp. Optional
  * center label/sub. The track reads the theme so it works on light + dark.
  */
-const RAMP = ["var(--orange-500)", "var(--periwinkle-400)", "var(--orange-300)", "var(--periwinkle-600)", "var(--gray-200)"];
+const RAMP = ["var(--chart-1)", "var(--chart-2)", "var(--chart-7)", "var(--chart-4)", "var(--border-default)"];
 function DonutChart({
   segments = [],
   size = 180,
@@ -5202,7 +5206,7 @@ function GaugeChart({
     cy: knobY,
     r: sw * 0.34,
     fill: "var(--surface-card)",
-    stroke: "var(--orange-500)",
+    stroke: "var(--accent)",
     strokeWidth: "2.5"
   })), /*#__PURE__*/React.createElement("text", {
     x: polar(START)[0],
@@ -6665,9 +6669,9 @@ function Toast({
   style = {}
 }) {
   const tones = {
-    info: "var(--periwinkle-500)",
+    info: "var(--info-500)",
     success: "var(--success-500)",
-    warning: "var(--orange-500)",
+    warning: "var(--warning-500)",
     danger: "var(--danger-500)"
   };
   const fg = tones[tone] || tones.info;
@@ -7246,9 +7250,9 @@ function Banner({
   style = {}
 }) {
   const tones = {
-    info: ["var(--info-100)", "var(--periwinkle-600)"],
+    info: ["var(--info-100)", "var(--text-on-tint-info)"],
     success: ["var(--success-100)", "var(--success-500)"],
-    warning: ["var(--warning-100)", "var(--orange-600)"],
+    warning: ["var(--warning-100)", "var(--text-on-tint-brand)"],
     danger: ["var(--danger-100)", "var(--danger-500)"]
   };
   const [bg, fg] = tones[tone] || tones.info;
@@ -7382,9 +7386,9 @@ function Callout({
 }) {
   const tones = {
     insight: {
-      accent: "var(--periwinkle-600)",
+      accent: "var(--text-on-tint-info)",
       bg: "rgba(167,167,252,0.14)",
-      actionColor: "var(--periwinkle-600)"
+      actionColor: "var(--text-on-tint-info)"
     },
     success: {
       accent: "var(--success-500)",
@@ -7392,9 +7396,9 @@ function Callout({
       actionColor: "var(--success-500)"
     },
     warning: {
-      accent: "var(--orange-600)",
+      accent: "var(--text-on-tint-brand)",
       bg: "rgba(255,132,49,0.14)",
-      actionColor: "var(--orange-600)"
+      actionColor: "var(--text-on-tint-brand)"
     },
     danger: {
       accent: "var(--danger-500)",
@@ -7571,8 +7575,8 @@ function FaqItem({
       height: 28,
       flex: "none",
       borderRadius: "var(--radius-sm)",
-      background: isOpen ? "var(--orange-500)" : "var(--accent-soft)",
-      color: isOpen ? "#fff" : "var(--orange-500)",
+      background: isOpen ? "var(--accent)" : "var(--accent-soft)",
+      color: isOpen ? "#fff" : "var(--accent)",
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
@@ -8211,14 +8215,14 @@ function PriceCard({
     transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)",
     transform: press ? "scale(0.98)" : "scale(1)",
     ...(highlighted ? {
-      background: hover ? "var(--orange-600)" : "var(--orange-500)",
+      background: hover ? "var(--accent-hover)" : "var(--accent)",
       color: "var(--text-on-orange)",
       border: "1px solid transparent",
       boxShadow: focusRing ? "var(--shadow-focus)" : hover ? "var(--shadow-brand)" : "none"
     } : {
       background: "transparent",
-      color: hover ? "var(--orange-500)" : "var(--text-primary)",
-      border: hover ? "1px solid var(--orange-500)" : "1px solid var(--border-default)",
+      color: hover ? "var(--accent)" : "var(--text-primary)",
+      border: hover ? "1px solid var(--border-focus)" : "1px solid var(--border-default)",
       boxShadow: focusRing ? "var(--shadow-focus)" : "none"
     })
   };
@@ -8229,7 +8233,7 @@ function PriceCard({
       display: "flex",
       flexDirection: "column",
       background: "var(--surface-card)",
-      border: highlighted ? "1px solid var(--orange-500)" : "1px solid var(--border-subtle)",
+      border: highlighted ? "1px solid var(--border-focus)" : "1px solid var(--border-subtle)",
       borderRadius: "var(--radius-2xl)",
       boxShadow: highlighted ? "var(--shadow-brand)" : "var(--shadow-sm)",
       padding: "32px 28px 28px",
@@ -8247,7 +8251,7 @@ function PriceCard({
       height: 26,
       padding: "0 14px",
       borderRadius: "var(--radius-pill)",
-      background: "var(--orange-500)",
+      background: "var(--accent)",
       color: "var(--text-on-orange)",
       fontSize: "var(--text-2xs)",
       fontWeight: "var(--fw-bold)",
@@ -8326,7 +8330,7 @@ function PriceCard({
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      color: "var(--orange-500)",
+      color: "var(--accent)",
       flex: "none",
       display: "inline-flex",
       marginTop: 2
@@ -8373,9 +8377,9 @@ function SignalCard({
   style = {}
 }) {
   const tones = {
-    truth: "var(--periwinkle-400)",
+    truth: "var(--info-500)",
     // ONE SOURCE OF TRUTH
-    signal: "var(--orange-500)",
+    signal: "var(--accent)",
     // SIGNAL DETECTED
     early: "var(--warning-500)",
     // CAUGHT EARLY
@@ -8489,7 +8493,7 @@ function AgentStatus({
       width: 8,
       height: 8,
       borderRadius: "50%",
-      background: "var(--orange-500)",
+      background: "var(--accent)",
       flex: "none"
     }
   }), query), /*#__PURE__*/React.createElement("div", {
@@ -8517,7 +8521,7 @@ function AgentStatus({
         flex: "none",
         borderRadius: "50%",
         background: done ? "var(--success-500)" : on ? "transparent" : "var(--border-default)",
-        border: on ? "2px solid var(--orange-500)" : "none",
+        border: on ? "2px solid var(--border-focus)" : "none",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
@@ -8541,7 +8545,7 @@ function AgentStatus({
         letterSpacing: "0.04em",
         textTransform: "uppercase",
         fontWeight: "var(--fw-bold)",
-        color: done ? "var(--text-secondary)" : on ? "var(--orange-600)" : "var(--text-muted)"
+        color: done ? "var(--text-secondary)" : on ? "var(--accent-hover)" : "var(--text-muted)"
       }
     }, s));
   })), footer && /*#__PURE__*/React.createElement("div", {
@@ -8683,7 +8687,7 @@ function OfferSwitch({
       margin: 0,
       padding: "10px 12px 10px 16px",
       background: "var(--surface-card)",
-      border: "1px solid " + (checked ? "var(--orange-500)" : "var(--border-default)"),
+      border: "1px solid " + (checked ? "var(--border-focus)" : "var(--border-default)"),
       borderRadius: "var(--radius-pill)",
       cursor: disabled ? "not-allowed" : "pointer",
       opacity: disabled ? "var(--opacity-disabled)" : 1,
@@ -8699,7 +8703,7 @@ function OfferSwitch({
     style: {
       display: "inline-flex",
       flex: "none",
-      color: checked ? "var(--orange-500)" : "var(--text-muted)",
+      color: checked ? "var(--accent)" : "var(--text-muted)",
       transition: "color var(--dur-base) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("svg", {
@@ -8747,7 +8751,7 @@ function OfferSwitch({
       flex: "none",
       padding: 3,
       borderRadius: "var(--radius-pill)",
-      background: checked ? "var(--orange-500)" : "var(--border-default)",
+      background: checked ? "var(--accent)" : "var(--border-default)",
       display: "inline-flex",
       alignItems: "center",
       transition: "background var(--dur-base) var(--ease-standard)"
@@ -8790,7 +8794,7 @@ function EyebrowBadge({
   const tones = {
     brand: "var(--text-link)",
     /* brand orange, theme-adapted */
-    periwinkle: "var(--periwinkle-600)",
+    periwinkle: "var(--text-on-tint-info)",
     /* legible cool accent on both themes */
     neutral: "var(--text-secondary)",
     urgent: "var(--urgent-500)"
@@ -9354,8 +9358,8 @@ function JobListingRow({
       height: 38,
       flex: "none",
       borderRadius: "var(--radius-circle)",
-      border: "1px solid " + (active ? "var(--orange-500)" : "var(--border-subtle)"),
-      background: active ? "var(--orange-500)" : "var(--surface-sunken)",
+      border: "1px solid " + (active ? "var(--border-focus)" : "var(--border-subtle)"),
+      background: active ? "var(--accent)" : "var(--surface-sunken)",
       color: active ? "var(--text-on-orange)" : "var(--text-secondary)",
       transition: "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)"
     }
@@ -9595,7 +9599,7 @@ function IntegrationCard({
       label: "Live"
     },
     planned: {
-      dot: "var(--periwinkle-400)",
+      dot: "var(--info-500)",
       label: "Planned"
     }
   };
@@ -9648,7 +9652,7 @@ function IntegrationCard({
     fontSize: "var(--text-sm)",
     fontWeight: "var(--fw-bold)",
     lineHeight: 1,
-    color: linkHover ? "var(--orange-600)" : "var(--text-link)",
+    color: linkHover ? "var(--accent-hover)" : "var(--text-link)",
     textDecoration: linkHover ? "underline" : "none",
     textUnderlineOffset: 3,
     background: "none",
@@ -9856,7 +9860,7 @@ function CapabilityTicker({
       height: 5,
       flex: "none",
       borderRadius: "var(--radius-circle)",
-      background: "var(--orange-400)"
+      background: "var(--accent)"
     }
   })));
   const fadeMask = "linear-gradient(90deg, transparent 0, black 40px, black calc(100% - 40px), transparent 100%)";
@@ -9923,10 +9927,10 @@ function ModuleStatusCard({
     },
     "in-development": {
       label: "In development",
-      dot: "var(--orange-500)",
-      color: "var(--orange-600)",
+      dot: "var(--accent)",
+      color: "var(--accent-hover)",
       bg: "var(--accent-soft)",
-      border: "color-mix(in srgb, var(--orange-500) 30%, transparent)"
+      border: "color-mix(in srgb, var(--accent) 30%, transparent)"
     },
     planned: {
       label: "Planned",
@@ -9967,7 +9971,7 @@ function ModuleStatusCard({
     fontSize: "var(--text-sm)",
     fontWeight: "var(--fw-bold)",
     lineHeight: 1,
-    color: linkHover ? "var(--orange-600)" : "var(--text-link)",
+    color: linkHover ? "var(--accent-hover)" : "var(--text-link)",
     textDecoration: linkHover ? "underline" : "none",
     textUnderlineOffset: 3,
     background: "none",
@@ -10142,8 +10146,8 @@ try { (() => {
 /* Category → chip dot color. "Compounding" earns the brand gradient —
    memories whose value compounds are the signature accent of the view. */
 const CATEGORY_DOT = {
-  "Root cause": "var(--orange-500)",
-  Institutional: "var(--periwinkle-500)",
+  "Root cause": "var(--accent)",
+  Institutional: "var(--info-500)",
   "Cross-function": "var(--success-500)",
   Compounding: "var(--gradient-brand)"
 };
@@ -10431,11 +10435,11 @@ function CausalChain({
 }) {
   const KIND = {
     cause: {
-      accent: "var(--periwinkle-400)",
+      accent: "var(--info-500)",
       label: "Cause"
     },
     effect: {
-      accent: "var(--orange-500)",
+      accent: "var(--accent)",
       label: "Effect"
     },
     impact: {
@@ -10833,7 +10837,7 @@ function DecisionLog({
     height: "16",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "var(--orange-500)",
+    stroke: "var(--accent)",
     strokeWidth: "1.75",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -11103,7 +11107,7 @@ function StatusNode({
       width: size,
       height: size,
       flex: "none",
-      color: "var(--orange-500)",
+      color: "var(--warning-500)",
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center"
@@ -11114,7 +11118,7 @@ function StatusNode({
       position: "absolute",
       inset: -3,
       borderRadius: "var(--radius-circle)",
-      background: "var(--orange-500)",
+      background: "var(--warning-500)",
       opacity: 0.16,
       ...(pulse ? {
         animation: `${pulse} 1.8s var(--ease-standard) infinite`
@@ -11127,7 +11131,7 @@ function StatusNode({
       height: size,
       borderRadius: "var(--radius-circle)",
       background: "var(--surface-card)",
-      border: "2px solid var(--orange-500)",
+      border: "2px solid var(--warning-500)",
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center"
@@ -11779,7 +11783,7 @@ function InsightFeedback({
     padding: "0 12px",
     borderRadius: "var(--radius-pill)",
     border: "1px solid transparent",
-    background: hovered === key ? "var(--accent-soft)" : "var(--gray-100)",
+    background: hovered === key ? "var(--accent-soft)" : "var(--surface-sunken)",
     color: hovered === key ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
     fontFamily: "var(--font-sans)",
     fontSize: "var(--text-xs)",
@@ -12170,7 +12174,7 @@ function RecommendationCard({
       label: "Opportunity"
     },
     medium: {
-      rail: "var(--orange-500)",
+      rail: "var(--warning-500)",
       badge: "warning",
       label: "Medium priority"
     }
@@ -12334,7 +12338,7 @@ function RecommendationCard({
     height: "16",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "var(--orange-500)",
+    stroke: "var(--accent)",
     strokeWidth: "1.75",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -12465,8 +12469,8 @@ function SidebarItem({
   onSelect = () => {}
 }) {
   const [hover, setHover] = React.useState(false);
-  const labelColor = active ? "var(--orange-600)" : hover ? "var(--text-primary)" : "var(--text-secondary)";
-  const iconColor = active ? "var(--orange-500)" : hover ? "var(--text-secondary)" : "var(--text-muted)";
+  const labelColor = active ? "var(--text-on-tint-brand)" : hover ? "var(--text-primary)" : "var(--text-secondary)";
+  const iconColor = active ? "var(--accent)" : hover ? "var(--text-secondary)" : "var(--text-muted)";
   return /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: () => onSelect(item.id),
@@ -12483,7 +12487,7 @@ function SidebarItem({
       cursor: "pointer",
       padding: "9px 12px",
       borderRadius: "var(--radius-md)",
-      background: active ? "var(--orange-50)" : hover ? "var(--surface-sunken)" : "transparent",
+      background: active ? "var(--accent-soft)" : hover ? "var(--surface-sunken)" : "transparent",
       color: labelColor,
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-sm)",
@@ -12527,8 +12531,8 @@ function SidebarItem({
       height: 20,
       padding: "0 7px",
       borderRadius: "var(--radius-pill)",
-      background: active ? "var(--orange-500)" : "var(--orange-100)",
-      color: active ? "var(--text-on-orange)" : "var(--orange-700)",
+      background: active ? "var(--accent)" : "var(--accent-soft)",
+      color: active ? "var(--text-on-orange)" : "var(--text-on-tint-brand)",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-2xs)",
       fontWeight: "var(--fw-bold)",
@@ -12562,7 +12566,7 @@ function StatTile({
   // "good" | "bad" | "neutral" — pill color; defaults from direction
   caption = "",
   points = [],
-  color = "var(--orange-500)",
+  color = "var(--accent)",
   // accent override
   style = {}
 }) {
@@ -12779,7 +12783,7 @@ function SortGlyph({
     style: {
       flex: "none",
       opacity: active ? 1 : 0.4,
-      color: active ? "var(--orange-500)" : "currentColor"
+      color: active ? "var(--accent)" : "currentColor"
     },
     "aria-hidden": "true"
   }, path);
@@ -12818,8 +12822,8 @@ function CheckBox({
       alignItems: "center",
       justifyContent: "center",
       borderRadius: "var(--radius-xs)",
-      border: `1.5px solid ${on ? "var(--orange-500)" : "var(--border-default)"}`,
-      background: on ? "var(--orange-500)" : "var(--surface-card)",
+      border: `1.5px solid ${on ? "var(--border-focus)" : "var(--border-default)"}`,
+      background: on ? "var(--accent)" : "var(--surface-card)",
       color: "var(--text-on-orange)",
       cursor: "pointer",
       boxShadow: focusVisible ? "var(--shadow-focus)" : "none",
@@ -13246,7 +13250,7 @@ function HeaderTab({
       appearance: "none",
       background: "transparent",
       border: "none",
-      borderBottom: `2px solid ${active ? "var(--orange-500)" : "transparent"}`,
+      borderBottom: `2px solid ${active ? "var(--border-focus)" : "transparent"}`,
       margin: 0,
       padding: "0 1px 12px",
       cursor: "pointer",
@@ -13394,7 +13398,7 @@ function UsageMeter({
   const status = atLimit ? "danger" : pct >= 80 ? "warn" : "ok";
   const usedColor = {
     ok: "var(--text-primary)",
-    warn: "var(--orange-600)",
+    warn: "var(--warning-500)",
     danger: "var(--danger-500)"
   }[status];
 
@@ -13544,7 +13548,7 @@ function AuditLogRow({
       width: 9,
       height: 9,
       borderRadius: "var(--radius-circle)",
-      background: "var(--orange-500)"
+      background: "var(--accent)"
     }
   })) : /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
@@ -13815,7 +13819,7 @@ function UpgradeModal({
         padding: "16px 16px 14px",
         borderRadius: "var(--radius-lg)",
         background: hi ? "var(--accent-soft)" : "var(--surface-sunken)",
-        border: hi ? "1px solid var(--orange-500)" : "1px solid var(--border-subtle)"
+        border: hi ? "1px solid var(--border-focus)" : "1px solid var(--border-subtle)"
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {
@@ -13841,7 +13845,7 @@ function UpgradeModal({
         height: 20,
         padding: "0 9px",
         borderRadius: "var(--radius-pill)",
-        background: "var(--orange-500)",
+        background: "var(--accent)",
         color: "var(--text-on-orange)",
         fontSize: "var(--text-2xs)",
         fontWeight: "var(--fw-bold)",
@@ -13871,7 +13875,7 @@ function UpgradeModal({
       }
     }, /*#__PURE__*/React.createElement("span", {
       style: {
-        color: "var(--orange-500)",
+        color: "var(--accent)",
         display: "inline-flex",
         flex: "none"
       }
@@ -13965,7 +13969,7 @@ function TeamMemberRow({
       flex: "none",
       height: 36,
       background: "var(--surface-input-plain)",
-      border: `1.5px solid ${focus ? "var(--orange-500)" : "var(--border-default)"}`,
+      border: `1.5px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
       borderRadius: "var(--radius-md)",
       boxShadow: focus ? "var(--shadow-focus)" : "none",
       transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
@@ -14269,8 +14273,8 @@ function CommandPalette({
     }, /*#__PURE__*/React.createElement("span", {
       style: {
         ...chipBase,
-        background: isAsk ? "var(--orange-500)" : "var(--surface-sunken)",
-        color: isAsk ? "var(--text-on-orange)" : active ? "var(--orange-500)" : "var(--text-muted)"
+        background: isAsk ? "var(--accent)" : "var(--surface-sunken)",
+        color: isAsk ? "var(--text-on-orange)" : active ? "var(--accent)" : "var(--text-muted)"
       }
     }, item.icon ? item.icon : /*#__PURE__*/React.createElement(SparkleIcon, {
       size: 15,
@@ -14375,7 +14379,7 @@ function CommandPalette({
       padding: "8px 8px 8px 10px",
       background: "var(--surface-card)",
       borderRadius: "var(--radius-lg)",
-      border: `1.5px solid ${focused ? "var(--orange-500)" : "var(--border-default)"}`,
+      border: `1.5px solid ${focused ? "var(--border-focus)" : "var(--border-default)"}`,
       boxShadow: focused ? "var(--shadow-focus)" : "var(--shadow-xs)",
       transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)"
     }
@@ -14478,7 +14482,7 @@ const STATUS = {
   },
   "in-development": {
     word: "In development",
-    dot: "var(--periwinkle-400)",
+    dot: "var(--info-500)",
     fg: "var(--text-secondary)"
   }
 };
@@ -14627,7 +14631,7 @@ function ModuleSwitcher({
       flex: "none",
       borderRadius: 10,
       background: "var(--accent-soft)",
-      color: "var(--orange-600)"
+      color: "var(--text-on-tint-brand)"
     }
   }, /*#__PURE__*/React.createElement("svg", {
     width: "17",
@@ -14772,7 +14776,7 @@ function ModuleSwitcher({
       height: "16",
       viewBox: "0 0 24 24",
       fill: "none",
-      stroke: "var(--orange-500)",
+      stroke: "var(--accent)",
       strokeWidth: "1.7",
       strokeLinecap: "round",
       strokeLinejoin: "round",
@@ -14987,7 +14991,7 @@ function BillingPlanCard({
     const used = typeof row.used === "number" ? row.used : 0;
     const limit = typeof row.limit === "number" ? row.limit : 0;
     const ratio = limit > 0 ? used / limit : 0;
-    const usedColor = ratio >= 1 ? "var(--danger-500)" : ratio >= 0.8 ? "var(--orange-600)" : "var(--text-primary)";
+    const usedColor = ratio >= 1 ? "var(--danger-500)" : ratio >= 0.8 ? "var(--accent-hover)" : "var(--text-primary)";
     return /*#__PURE__*/React.createElement("div", {
       key: row.label || i,
       style: {
@@ -15142,8 +15146,8 @@ function DateRangePicker({
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-sm)",
         fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
-        color: active ? "var(--text-on-orange)" : hot ? "var(--orange-600)" : "var(--text-secondary)",
-        background: active ? "var(--orange-500)" : hot ? "var(--accent-soft)" : "transparent",
+        color: active ? "var(--text-on-orange)" : hot ? "var(--text-on-tint-brand)" : "var(--text-secondary)",
+        background: active ? "var(--accent)" : hot ? "var(--accent-soft)" : "transparent",
         boxShadow: active ? "var(--shadow-sm)" : "none",
         transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)"
       }
@@ -15171,7 +15175,7 @@ function DateRangePicker({
     strokeLinejoin: "round",
     "aria-hidden": "true",
     style: {
-      color: "var(--orange-500)",
+      color: "var(--accent)",
       flex: "none"
     }
   }, /*#__PURE__*/React.createElement("rect", {
@@ -15477,7 +15481,7 @@ function ConnectionHealthCard({
       border: "var(--border-subtle)"
     },
     syncing: {
-      dot: "var(--periwinkle-600)",
+      dot: "var(--info-500)",
       label: "Syncing",
       bg: "var(--surface-sunken)",
       fg: "var(--text-secondary)",
@@ -15487,7 +15491,7 @@ function ConnectionHealthCard({
       dot: "var(--warning-500)",
       label: "Stale",
       bg: "var(--warning-100)",
-      fg: "var(--orange-600)",
+      fg: "var(--text-on-tint-brand)",
       border: "transparent"
     },
     error: {
@@ -15871,7 +15875,7 @@ function SeekComposer({
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
-    fill: "var(--orange-500)"
+    fill: "var(--accent)"
   })), model), /*#__PURE__*/React.createElement("span", {
     style: {
       flex: 1
@@ -15894,7 +15898,7 @@ function SeekComposer({
       borderRadius: "var(--radius-circle)",
       border: "none",
       cursor: canSend ? "pointer" : "not-allowed",
-      background: canSend ? "var(--orange-500)" : "var(--gray-150)",
+      background: canSend ? "var(--accent)" : "var(--surface-sunken)",
       color: canSend ? "var(--text-on-orange)" : "var(--text-placeholder)",
       boxShadow: canSend ? "var(--shadow-brand)" : "none",
       transform: press && canSend ? "scale(0.98)" : "scale(1)",
@@ -15964,7 +15968,7 @@ function SeekComposer({
     }
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
-    fill: "var(--periwinkle-400)"
+    fill: "var(--info-500)"
   })), s))));
 }
 
@@ -16154,7 +16158,7 @@ function renderWithCitations(text) {
         marginLeft: 2,
         borderRadius: "var(--radius-xs)",
         background: "var(--accent-soft)",
-        color: "var(--orange-600)",
+        color: "var(--text-on-tint-brand)",
         fontSize: "var(--text-2xs)",
         fontWeight: "var(--fw-bold)",
         verticalAlign: "middle"
@@ -16193,7 +16197,7 @@ function ThinkingTrace({
       color: "var(--success-500)"
     },
     active: {
-      color: "var(--orange-500)"
+      color: "var(--accent)"
     },
     pending: {
       color: "var(--text-placeholder)"
@@ -16595,7 +16599,7 @@ function PromptSuggestions({
     }
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
-    fill: "var(--periwinkle-400)"
+    fill: "var(--info-500)"
   }));
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -16723,7 +16727,7 @@ function GoalPacing({
     bg: "var(--danger-100)"
   } : {
     word: "On track",
-    color: "var(--orange-600)",
+    color: "var(--text-on-tint-brand)",
     bg: "var(--accent-soft)"
   };
   return /*#__PURE__*/React.createElement("section", {
@@ -16815,7 +16819,7 @@ function GoalPacing({
       position: "relative",
       height: 12,
       borderRadius: "var(--radius-pill)",
-      background: "var(--gray-200)",
+      background: "var(--border-default)",
       overflow: "hidden"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -16891,7 +16895,7 @@ function GoalPacing({
     height: "15",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "var(--periwinkle-500)",
+    stroke: "var(--text-on-tint-info)",
     strokeWidth: "1.75",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -16940,11 +16944,11 @@ function AnomalyFlag({
   const pulse = `af-pulse-${uid}`;
   const t = {
     watch: {
-      color: "var(--periwinkle-500)",
+      color: "var(--text-on-tint-info)",
       bg: "var(--info-100)"
     },
     anomaly: {
-      color: "var(--orange-500)",
+      color: "var(--accent)",
       bg: "var(--accent-soft)"
     },
     critical: {
@@ -16952,7 +16956,7 @@ function AnomalyFlag({
       bg: "var(--danger-100)"
     }
   }[tone] || {
-    color: "var(--orange-500)",
+    color: "var(--accent)",
     bg: "var(--accent-soft)"
   };
   const dot = /*#__PURE__*/React.createElement("span", {
@@ -17094,7 +17098,7 @@ function ApprovalGate({
       label: "High priority"
     },
     medium: {
-      rail: "var(--periwinkle-400)",
+      rail: "var(--info-500)",
       badge: "info",
       label: "Needs approval"
     },
@@ -17104,7 +17108,7 @@ function ApprovalGate({
       label: "Low priority"
     }
   }[priority] || {
-    rail: "var(--periwinkle-400)",
+    rail: "var(--info-500)",
     badge: "info",
     label: "Needs approval"
   };
@@ -17171,7 +17175,7 @@ function ApprovalGate({
     height: "13",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "var(--periwinkle-600)",
+    stroke: "var(--text-on-tint-info)",
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -17242,7 +17246,7 @@ function ApprovalGate({
     height: "15",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "var(--orange-500)",
+    stroke: "var(--accent)",
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -17402,7 +17406,7 @@ function ScenarioSimulator({
     height: "17",
     viewBox: "0 0 24 24",
     fill: "none",
-    stroke: "var(--orange-500)",
+    stroke: "var(--accent)",
     strokeWidth: "1.75",
     strokeLinecap: "round",
     strokeLinejoin: "round",

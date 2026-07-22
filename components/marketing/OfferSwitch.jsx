@@ -35,7 +35,7 @@ export function OfferSwitch({
         display: "inline-flex", alignItems: "center", gap: 14,
         margin: 0, padding: "10px 12px 10px 16px",
         background: "var(--surface-card)",
-        border: "1px solid " + (checked ? "var(--orange-500)" : "var(--border-default)"),
+        border: "1px solid " + (checked ? "var(--border-focus)" : "var(--border-default)"),
         borderRadius: "var(--radius-pill)",
         cursor: disabled ? "not-allowed" : "pointer",
         opacity: disabled ? "var(--opacity-disabled)" : 1,
@@ -47,7 +47,7 @@ export function OfferSwitch({
     >
       <span aria-hidden="true" style={{
         display: "inline-flex", flex: "none",
-        color: checked ? "var(--orange-500)" : "var(--text-muted)",
+        color: checked ? "var(--accent)" : "var(--text-muted)",
         transition: "color var(--dur-base) var(--ease-standard)",
       }}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -69,7 +69,7 @@ export function OfferSwitch({
       <span aria-hidden="true" style={{
         width: 40, height: 24, flex: "none", padding: 3,
         borderRadius: "var(--radius-pill)",
-        background: checked ? "var(--orange-500)" : "var(--border-default)",
+        background: checked ? "var(--accent)" : "var(--border-default)",
         display: "inline-flex", alignItems: "center",
         transition: "background var(--dur-base) var(--ease-standard)",
       }}>

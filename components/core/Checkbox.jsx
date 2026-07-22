@@ -20,8 +20,8 @@ export function Checkbox({ checked = false, onChange, label, disabled = false, i
           position: "relative",
           width: 20, height: 20, borderRadius: "var(--radius-xs)",
           display: "inline-flex", alignItems: "center", justifyContent: "center",
-          background: checked ? "var(--orange-500)" : "var(--periwinkle-100)",
-          border: checked ? "1.5px solid var(--orange-500)" : "1.5px solid var(--periwinkle-200)",
+          background: checked ? "var(--accent)" : "var(--info-100)",
+          border: checked ? "1.5px solid var(--border-focus)" : "1.5px solid var(--border-default)",
           boxShadow: focusRing ? "var(--shadow-focus)" : "none",
           transition: "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)", flex: "none",
         }}

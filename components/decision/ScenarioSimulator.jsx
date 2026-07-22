@@ -47,7 +47,7 @@ export function ScenarioSimulator({
           width: 30, height: 30, flex: "none", borderRadius: "var(--radius-sm)", background: "var(--accent-soft)",
           display: "inline-flex", alignItems: "center", justifyContent: "center",
         }}>
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--orange-500)"
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
             strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 20v-5M4 9V4M12 20v-8M12 6V4M20 20v-3M20 11V4" />
             <path d="M2 15h4M10 12h4M18 17h4" />

@@ -7,9 +7,9 @@ import React from "react";
  */
 export function Badge({ children, tone = "neutral", dot = false, style = {} }) {
   const tones = {
-    neutral: { bg: "var(--gray-100)", fg: "var(--text-secondary)", dotc: "var(--text-placeholder)" },
-    brand: { bg: "var(--orange-50)", fg: "var(--text-on-tint-brand)", dotc: "var(--orange-500)" },
-    info: { bg: "var(--info-100)", fg: "var(--text-on-tint-info)", dotc: "var(--periwinkle-500)" },
+    neutral: { bg: "var(--surface-sunken)", fg: "var(--text-secondary)", dotc: "var(--text-placeholder)" },
+    brand: { bg: "var(--accent-soft)", fg: "var(--text-on-tint-brand)", dotc: "var(--accent)" },
+    info: { bg: "var(--info-100)", fg: "var(--text-on-tint-info)", dotc: "var(--info-500)" },
     success: { bg: "var(--success-100)", fg: "var(--text-on-tint-success)", dotc: "var(--success-500)" },
     warning: { bg: "var(--warning-100)", fg: "var(--text-on-tint-brand)", dotc: "var(--warning-500)" },
     danger: { bg: "var(--danger-100)", fg: "var(--text-on-tint-danger)", dotc: "var(--danger-500)" },

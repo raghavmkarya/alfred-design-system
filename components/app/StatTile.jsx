@@ -18,7 +18,7 @@ export function StatTile({
   valence,                 // "good" | "bad" | "neutral" — pill color; defaults from direction
   caption = "",
   points = [],
-  color = "var(--orange-500)",   // accent override
+  color = "var(--accent)",   // accent override
   style = {},
 }) {
   const dirs = {

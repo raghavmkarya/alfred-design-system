@@ -28,7 +28,7 @@ export const Select = React.forwardRef(function Select(props, ref) {
   const border = error
     ? "var(--danger-500)"
     : focus
-    ? "var(--orange-500)"
+    ? "var(--border-focus)"
     : fill === "plain" ? "var(--border-default)" : "transparent";
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%", ...style }}>
@@ -37,7 +37,7 @@ export const Select = React.forwardRef(function Select(props, ref) {
       )}
       <div style={{
         position: "relative", display: "flex", alignItems: "center",
-        background: disabled ? "var(--gray-100)" : bg, border: `1.5px solid ${border}`,
+        background: disabled ? "var(--surface-sunken)" : bg, border: `1.5px solid ${border}`,
         borderRadius: "var(--radius-md)", height: 52, opacity: disabled ? "var(--opacity-disabled)" : 1,
         boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",

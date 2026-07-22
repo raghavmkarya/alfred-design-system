@@ -56,7 +56,7 @@ export function StateBlock({
 
   // danger-500 at 12% — same soft danger fill Callout uses; reads in both themes
   const chipBg = k === "error" ? "rgba(229,72,77,0.12)" : "var(--accent-soft)";
-  const chipColor = k === "error" ? "var(--danger-500)" : "var(--orange-500)";
+  const chipColor = k === "error" ? "var(--danger-500)" : "var(--accent)";
 
   const live =
     k === "error"

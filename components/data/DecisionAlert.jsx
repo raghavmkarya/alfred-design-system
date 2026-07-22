@@ -19,8 +19,8 @@ export function DecisionAlert({
 }) {
   const map = {
     high: { rail: "var(--danger-500)", soft: "var(--danger-100)", icon: "alert-warning", badge: "danger", label: "High" },
-    medium: { rail: "var(--orange-500)", soft: "var(--orange-50)", icon: "alert-warning", badge: "warning", label: "Medium" },
-    low: { rail: "var(--periwinkle-400)", soft: "var(--periwinkle-100)", icon: "bookmark", badge: "info", label: "Low" },
+    medium: { rail: "var(--warning-500)", soft: "var(--warning-100)", icon: "alert-warning", badge: "warning", label: "Medium" },
+    low: { rail: "var(--info-500)", soft: "var(--info-100)", icon: "bookmark", badge: "info", label: "Low" },
     opportunity: { rail: "var(--success-500)", soft: "var(--success-100)", icon: "trend-up", badge: "success", label: "Opportunity" },
   };
   const p = map[priority] || map.medium;
@@ -47,7 +47,7 @@ export function DecisionAlert({
         <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)" }}>{insight}</p>
         {action && (
           <button onClick={onAction} style={{
-            marginTop: 12, cursor: "pointer", background: "var(--orange-50)", color: "var(--text-on-tint-brand)",
+            marginTop: 12, cursor: "pointer", background: "var(--accent-soft)", color: "var(--text-on-tint-brand)",
             border: "1px solid var(--border-subtle)",
             fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
             padding: "8px 16px", borderRadius: "var(--radius-md)",

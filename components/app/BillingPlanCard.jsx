@@ -124,7 +124,7 @@ export function BillingPlanCard({
               const used = typeof row.used === "number" ? row.used : 0;
               const limit = typeof row.limit === "number" ? row.limit : 0;
               const ratio = limit > 0 ? used / limit : 0;
-              const usedColor = ratio >= 1 ? "var(--danger-500)" : ratio >= 0.8 ? "var(--orange-600)" : "var(--text-primary)";
+              const usedColor = ratio >= 1 ? "var(--danger-500)" : ratio >= 0.8 ? "var(--accent-hover)" : "var(--text-primary)";
               return (
                 <div key={row.label || i} style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12 }}>
                   <dt

@@ -22,7 +22,7 @@ function HeaderTab({ label = "", active = false, onClick = () => {} }) {
         appearance: "none",
         background: "transparent",
         border: "none",
-        borderBottom: `2px solid ${active ? "var(--orange-500)" : "transparent"}`,
+        borderBottom: `2px solid ${active ? "var(--border-focus)" : "transparent"}`,
         margin: 0,
         padding: "0 1px 12px",
         cursor: "pointer",

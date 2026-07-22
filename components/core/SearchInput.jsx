@@ -77,7 +77,7 @@ export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
   };
 
   const wrapBg = fill === "tint" ? "var(--surface-input)" : "var(--surface-input-plain)";
-  const borderColor = focus ? "var(--orange-500)" : (fill === "tint" ? "transparent" : "var(--border-default)");
+  const borderColor = focus ? "var(--border-focus)" : (fill === "tint" ? "transparent" : "var(--border-default)");
 
   return (
     <div style={{ position: "relative", width: "100%", fontFamily: "var(--font-sans)", ...style }}>

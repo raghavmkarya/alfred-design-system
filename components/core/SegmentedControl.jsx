@@ -53,7 +53,7 @@ export function SegmentedControl({ options = [], value, onChange, size = "md", s
             style={{
               border: "none", cursor: "pointer", padding: pad, borderRadius: "var(--radius-pill)",
               fontFamily: "var(--font-sans)", fontSize: fs, fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
-              color: active ? "var(--text-on-orange)" : "var(--text-secondary)", background: active ? "var(--orange-500)" : "transparent",
+              color: active ? "var(--text-on-orange)" : "var(--text-secondary)", background: active ? "var(--accent)" : "transparent",
               boxShadow: ring
                 ? (active ? "var(--shadow-sm), var(--shadow-focus)" : "var(--shadow-focus)")
                 : (active ? "var(--shadow-sm)" : "none"),

@@ -66,8 +66,8 @@ export function JobListingRow({
         height: 38,
         flex: "none",
         borderRadius: "var(--radius-circle)",
-        border: "1px solid " + (active ? "var(--orange-500)" : "var(--border-subtle)"),
-        background: active ? "var(--orange-500)" : "var(--surface-sunken)",
+        border: "1px solid " + (active ? "var(--border-focus)" : "var(--border-subtle)"),
+        background: active ? "var(--accent)" : "var(--surface-sunken)",
         color: active ? "var(--text-on-orange)" : "var(--text-secondary)",
         transition:
           "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)",

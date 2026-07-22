@@ -25,7 +25,7 @@ export function Spinner({ size = "md", label, tone = "brand", style = {} }) {
     } catch (e) { /* no matchMedia — leave animated */ }
   }, []);
 
-  const stroke = tone === "muted" ? "var(--text-muted)" : "var(--orange-500)";
+  const stroke = tone === "muted" ? "var(--text-muted)" : "var(--accent)";
   const c = 2 * Math.PI * 9;                    // r = 9 in a 24-unit viewBox
   const arc = (c * (80 / 360)).toFixed(2);      // ~80deg sweep
   const gap = (c - c * (80 / 360)).toFixed(2);

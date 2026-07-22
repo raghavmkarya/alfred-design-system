@@ -55,15 +55,15 @@ export function PriceCard({
     transform: press ? "scale(0.98)" : "scale(1)",
     ...(highlighted
       ? {
-          background: hover ? "var(--orange-600)" : "var(--orange-500)",
+          background: hover ? "var(--accent-hover)" : "var(--accent)",
           color: "var(--text-on-orange)",
           border: "1px solid transparent",
           boxShadow: focusRing ? "var(--shadow-focus)" : hover ? "var(--shadow-brand)" : "none",
         }
       : {
           background: "transparent",
-          color: hover ? "var(--orange-500)" : "var(--text-primary)",
-          border: hover ? "1px solid var(--orange-500)" : "1px solid var(--border-default)",
+          color: hover ? "var(--accent)" : "var(--text-primary)",
+          border: hover ? "1px solid var(--border-focus)" : "1px solid var(--border-default)",
           boxShadow: focusRing ? "var(--shadow-focus)" : "none",
         }),
   };
@@ -76,7 +76,7 @@ export function PriceCard({
         display: "flex",
         flexDirection: "column",
         background: "var(--surface-card)",
-        border: highlighted ? "1px solid var(--orange-500)" : "1px solid var(--border-subtle)",
+        border: highlighted ? "1px solid var(--border-focus)" : "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
         boxShadow: highlighted ? "var(--shadow-brand)" : "var(--shadow-sm)",
         padding: "32px 28px 28px",
@@ -96,7 +96,7 @@ export function PriceCard({
             height: 26,
             padding: "0 14px",
             borderRadius: "var(--radius-pill)",
-            background: "var(--orange-500)",
+            background: "var(--accent)",
             color: "var(--text-on-orange)",
             fontSize: "var(--text-2xs)",
             fontWeight: "var(--fw-bold)",
@@ -179,7 +179,7 @@ export function PriceCard({
               color: "var(--text-secondary)",
             }}
           >
-            <span style={{ color: "var(--orange-500)", flex: "none", display: "inline-flex", marginTop: 2 }}>
+            <span style={{ color: "var(--accent)", flex: "none", display: "inline-flex", marginTop: 2 }}>
               {check}
             </span>
             <span>{feature}</span>

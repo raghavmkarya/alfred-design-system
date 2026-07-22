@@ -89,7 +89,7 @@ export function UpgradeModal({
                       boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 10,
                       padding: "16px 16px 14px", borderRadius: "var(--radius-lg)",
                       background: hi ? "var(--accent-soft)" : "var(--surface-sunken)",
-                      border: hi ? "1px solid var(--orange-500)" : "1px solid var(--border-subtle)",
+                      border: hi ? "1px solid var(--border-focus)" : "1px solid var(--border-subtle)",
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
@@ -102,7 +102,7 @@ export function UpgradeModal({
                       {hi && (
                         <span style={{
                           flex: "none", display: "inline-flex", alignItems: "center", height: 20, padding: "0 9px",
-                          borderRadius: "var(--radius-pill)", background: "var(--orange-500)", color: "var(--text-on-orange)",
+                          borderRadius: "var(--radius-pill)", background: "var(--accent)", color: "var(--text-on-orange)",
                           fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)",
                           textTransform: "uppercase", whiteSpace: "nowrap",
                         }}>
@@ -117,7 +117,7 @@ export function UpgradeModal({
                       <ul role="list" style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 7 }}>
                         {plan.features.map((feature, j) => (
                           <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: "var(--text-xs)", lineHeight: "var(--lh-normal)", color: "var(--text-secondary)" }}>
-                            <span style={{ color: "var(--orange-500)", display: "inline-flex", flex: "none" }}>{check}</span>
+                            <span style={{ color: "var(--accent)", display: "inline-flex", flex: "none" }}>{check}</span>
                             <span style={{ minWidth: 0 }}>{feature}</span>
                           </li>
                         ))}

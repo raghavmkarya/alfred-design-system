@@ -29,7 +29,7 @@ export const Input = React.forwardRef(function Input(props, ref) {
   const borderColor = error
     ? "var(--danger-500)"
     : focus
-    ? "var(--orange-500)"
+    ? "var(--border-focus)"
     : (fill === "plain" ? "var(--border-default)" : "transparent");
 
   return (
@@ -42,7 +42,7 @@ export const Input = React.forwardRef(function Input(props, ref) {
       )}
       <div style={{
         display: "flex", alignItems: "center", gap: 8,
-        background: disabled ? "var(--gray-100)" : wrapBg,
+        background: disabled ? "var(--surface-sunken)" : wrapBg,
         border: `1.5px solid ${borderColor}`,
         borderRadius: "var(--radius-md)",
         padding: "0 16px", height: 52,

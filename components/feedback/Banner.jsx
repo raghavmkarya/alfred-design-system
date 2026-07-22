@@ -8,9 +8,9 @@ import React from "react";
  */
 export function Banner({ tone = "info", title, children, action, onDismiss, style = {} }) {
   const tones = {
-    info: ["var(--info-100)", "var(--periwinkle-600)"],
+    info: ["var(--info-100)", "var(--text-on-tint-info)"],
     success: ["var(--success-100)", "var(--success-500)"],
-    warning: ["var(--warning-100)", "var(--orange-600)"],
+    warning: ["var(--warning-100)", "var(--text-on-tint-brand)"],
     danger: ["var(--danger-100)", "var(--danger-500)"],
   };
   const [bg, fg] = tones[tone] || tones.info;

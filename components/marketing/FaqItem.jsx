@@ -19,8 +19,8 @@ export function FaqItem({ question, children, open, defaultOpen = false, onToggl
       }}>
         <span style={{ flex: 1 }}>{question}</span>
         <span style={{
-          width: 28, height: 28, flex: "none", borderRadius: "var(--radius-sm)", background: isOpen ? "var(--orange-500)" : "var(--accent-soft)",
-          color: isOpen ? "#fff" : "var(--orange-500)", display: "inline-flex", alignItems: "center", justifyContent: "center",
+          width: 28, height: 28, flex: "none", borderRadius: "var(--radius-sm)", background: isOpen ? "var(--accent)" : "var(--accent-soft)",
+          color: isOpen ? "#fff" : "var(--accent)", display: "inline-flex", alignItems: "center", justifyContent: "center",
           fontSize: 18, fontWeight: "var(--fw-medium)", transition: "background var(--dur-base) var(--ease-standard)",
         }}>{isOpen ? "–" : "+"}</span>
       </button>

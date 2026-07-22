@@ -33,7 +33,7 @@ export const Textarea = React.forwardRef(function Textarea(props, ref) {
   const handleChange = (e) => { if (!isControlled) setInternal(e.target.value); onChange && onChange(e); };
 
   const wrapBg = fill === "tint" ? "var(--surface-input)" : "var(--surface-input-plain)";
-  const borderColor = error ? "var(--danger-500)" : focus ? "var(--orange-500)" : (fill === "tint" ? "transparent" : "var(--border-default)");
+  const borderColor = error ? "var(--danger-500)" : focus ? "var(--border-focus)" : (fill === "tint" ? "transparent" : "var(--border-default)");
   const count = (text == null ? "" : String(text)).length;
 
   return (
@@ -44,7 +44,7 @@ export const Textarea = React.forwardRef(function Textarea(props, ref) {
         }}>{label}</label>
       )}
       <div style={{
-        background: disabled ? "var(--gray-100)" : wrapBg,
+        background: disabled ? "var(--surface-sunken)" : wrapBg,
         border: `1.5px solid ${borderColor}`, borderRadius: "var(--radius-md)",
         padding: "10px 14px", boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",

@@ -9,7 +9,7 @@ import React from "react";
 export function EmptyState({ title, body, action, icon, style = {} }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "48px 24px", gap: 6, ...style }}>
-      <div style={{ width: 56, height: 56, borderRadius: "var(--radius-xl)", background: "var(--accent-soft)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 8, color: "var(--orange-500)" }}>
+      <div style={{ width: 56, height: 56, borderRadius: "var(--radius-xl)", background: "var(--accent-soft)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 8, color: "var(--accent)" }}>
         {icon || <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>}
       </div>
       <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: "var(--text-h4)", color: "var(--text-primary)", letterSpacing: "var(--ls-tight)" }}>{title}</div>

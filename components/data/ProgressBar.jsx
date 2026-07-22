@@ -10,11 +10,11 @@ export function ProgressBar({ value = 0, height = 8, tone = "gradient", showTrac
   return (
     <div style={{
       width: "100%", height, borderRadius: "var(--radius-pill)",
-      background: showTrack ? "var(--gray-200)" : "transparent", overflow: "hidden", ...style,
+      background: showTrack ? "var(--border-default)" : "transparent", overflow: "hidden", ...style,
     }}>
       <div style={{
         width: `${pct}%`, height: "100%", borderRadius: "var(--radius-pill)",
-        background: tone === "gradient" ? "var(--gradient-brand-reverse)" : "var(--orange-500)",
+        background: tone === "gradient" ? "var(--gradient-brand-reverse)" : "var(--accent)",
         transition: "width var(--dur-slow) var(--ease-standard)",
       }} />
     </div>

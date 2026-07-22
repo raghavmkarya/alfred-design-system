@@ -3,8 +3,8 @@ import React from "react";
 /* Category → chip dot color. "Compounding" earns the brand gradient —
    memories whose value compounds are the signature accent of the view. */
 const CATEGORY_DOT = {
-  "Root cause": "var(--orange-500)",
-  Institutional: "var(--periwinkle-500)",
+  "Root cause": "var(--accent)",
+  Institutional: "var(--info-500)",
   "Cross-function": "var(--success-500)",
   Compounding: "var(--gradient-brand)",
 };

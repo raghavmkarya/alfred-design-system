@@ -8,17 +8,17 @@ import React from "react";
  * for the places identity should carry the brand.
  */
 const AUTO_TONES = [
-  { bg: "var(--periwinkle-100)", fg: "var(--text-on-tint-info)" },
+  { bg: "var(--periwinkle-100)", fg: "var(--text-on-tint-info)" },  /* raw-ramp-ok: fixed auto-avatar tint palette (re-maps in app-dark; light monogram disc on marketing dark is intentional) */
   { bg: "var(--success-100)", fg: "var(--text-on-tint-success)" },
-  { bg: "var(--orange-100)", fg: "var(--text-on-tint-brand)" },
-  { bg: "var(--gray-100)", fg: "var(--text-secondary)" },
+  { bg: "var(--orange-100)", fg: "var(--text-on-tint-brand)" },  /* raw-ramp-ok: fixed auto-avatar tint palette */
+  { bg: "var(--gray-100)", fg: "var(--text-secondary)" },  /* raw-ramp-ok: fixed auto-avatar tint palette */
 ];
 
 export function Avatar({ name = "", src, size = 40, tone = "auto", style = {} }) {
   const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("");
   const hash = [...name].reduce((n, c) => n + c.charCodeAt(0), 0);
   const auto = AUTO_TONES[hash % AUTO_TONES.length];
-  const fixed = { gradient: "var(--gradient-brand)", ink: "var(--ink-900)", periwinkle: "var(--periwinkle-400)" }[tone];
+  const fixed = { gradient: "var(--gradient-brand)", ink: "var(--ink-900)", periwinkle: "var(--periwinkle-400)" }[tone];  /* raw-ramp-ok: fixed brand-identity avatar tones (solid ink / periwinkle discs) */
   const bg = fixed || auto.bg;
   const fg = fixed ? "#fff" : auto.fg;
   return (

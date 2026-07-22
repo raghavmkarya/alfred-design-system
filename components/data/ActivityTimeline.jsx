@@ -9,10 +9,10 @@ import React from "react";
  */
 export function ActivityTimeline({ items = [], style = {} }) {
   const KIND = {
-    action: "var(--orange-500)",
+    action: "var(--accent)",
     alert: "var(--danger-500)",
     success: "var(--success-500)",
-    info: "var(--periwinkle-400)",
+    info: "var(--info-500)",
     neutral: "var(--text-placeholder)",
   };
 
