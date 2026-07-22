@@ -44,3 +44,20 @@ jobs:
         run: node scripts/verify-craft.mjs
       - name: verify-types (.d.ts present + declared + tsc --noEmit)
         run: node scripts/verify-types.mjs
+
+  # OS-independent interaction/behaviour tests (Playwright). Visual-regression
+  # snapshots (tests/visual.spec.js) run locally; gating them in CI needs Linux
+  # baselines — tracked as Phase 1.4a in ROADMAP.md.
+  interaction:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Playwright interaction tests
+        run: npx playwright test --project=interaction

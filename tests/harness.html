@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<base href="/" />
+<link rel="stylesheet" href="styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="_ds_bundle.js"></script>
+<style>
+  body { margin: 0; font-family: var(--font-sans); }
+  #interactive { padding: 22px 28px; border-bottom: 2px solid var(--border-default); background: var(--bg-canvas); }
+  .theme { padding: 22px 28px 30px; background: var(--bg-canvas); color: var(--text-primary); }
+  .lbl { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .cols2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; align-items: start; }
+  .grid { display: flex; flex-direction: column; gap: 18px; max-width: 1080px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const ns = window.AlfredAIDesignSystem_1ce241;
+const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination } = ns;
+const { useState } = React;
+
+function StatefulSeg() {
+  const [v, setV] = useState("a");
+  return <div data-testid="seg"><SegmentedControl value={v} onChange={setV}
+    options={[{ value: "a", label: "Day" }, { value: "b", label: "Week" }, { value: "c", label: "Month" }]} /></div>;
+}
+function StatefulSwitch() {
+  const [on, setOn] = useState(false);
+  return <div data-testid="switch"><Switch checked={on} onChange={setOn} label="Alerts" /></div>;
+}
+function StatefulOffer() {
+  const [on, setOn] = useState(false);
+  return <div data-testid="offer"><OfferSwitch checked={on} onChange={setOn} label="Launch offer" detail="first 2 months" /></div>;
+}
+
+function Gallery() {
+  return (
+    <div className="grid">
+      <div><div className="lbl">Buttons</div><div className="row">
+        <Button variant="primary">Primary</Button><Button variant="secondary">Secondary</Button>
+        <Button variant="outline">Outline</Button><Button variant="subtle">Subtle</Button><Button variant="danger">Danger</Button>
+      </div></div>
+      <div><div className="lbl">Chips / Badges</div><div className="row">
+        <Chip tone="neutral">Neutral</Chip><Chip tone="brand">Brand</Chip><Chip tone="info">Info</Chip>
+        <Chip tone="success">Success</Chip><Chip tone="warning">Warning</Chip><Chip tone="danger">Danger</Chip>
+        <Badge tone="brand" dot>Brand</Badge><Badge tone="info" dot>Info</Badge>
+      </div></div>
+      <div><div className="lbl">Banner / Callout</div><div className="cols2">
+        <Banner tone="info" title="Heads up">I re-scoped two campaigns.</Banner>
+        <Banner tone="warning" title="Review">One reallocation needs sign-off.</Banner>
+        <Callout tone="insight" title="Insight">Branded search is compounding.</Callout>
+        <Callout tone="warning" title="Watch">CAC drifted up 6%.</Callout>
+      </div></div>
+      <div><div className="lbl">DecisionAlert / KPI</div><div className="cols2">
+        <DecisionAlert priority="high" title="Pause overspend" insight="Meta is 40% over CPA." time="2m" action="Review" />
+        <DecisionAlert priority="opportunity" title="Scale winner" insight="Retargeting ROAS hit 4.1x." time="today" action="Scale" />
+      </div>
+      <div className="row" style={{ marginTop: 12 }}>
+        <KpiCard label="Blended ROAS" value="3.8x" delta="+12.4%" direction="up" caption="vs 30d" />
+        <Pagination page={2} pageCount={5} />
+      </div></div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <div id="interactive" data-testid="interactive">
+        <div className="lbl">Interactive</div>
+        <div className="row" style={{ gap: 20 }}>
+          <div data-testid="btn"><Button variant="primary">Reallocate</Button></div>
+          <StatefulSeg /><StatefulSwitch /><StatefulOffer />
+        </div>
+      </div>
+      <div className="theme" data-testid="theme-light"><Gallery /></div>
+      <div className="theme" data-theme="app-dark" data-testid="theme-app-dark"><Gallery /></div>
+      <div className="theme" data-theme="dark" data-testid="theme-dark"><Gallery /></div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+requestAnimationFrame(() => {
+  const done = () => { document.body.dataset.ready = "1"; };
+  (document.fonts && document.fonts.ready) ? document.fonts.ready.then(done) : Promise.resolve().then(done);
+});
+</script>
+</body>
+</html>
