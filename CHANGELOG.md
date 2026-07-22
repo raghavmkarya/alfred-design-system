@@ -3,6 +3,21 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Overlay motion pass — the 4 held interactive items
+
+The behavior-restructuring items held from the component review, done as a careful individual pass.
+All four verifiers green (render + the Menu/Drawer/Popover/Tooltip ARIA contracts preserved). Verified
+at the render + a11y-contract + code level; a live browser QA of animation feel is still recommended.
+
+- **Drawer** now slides in/out (enter `var(--dur-base)`, exit `var(--dur-fast)`) via a mounted/`exiting`
+  lifecycle; the focus trap, Escape, scrim, and `role="dialog"`/`aria-modal`/`aria-labelledby` are unchanged.
+- **Popover** grows from its trigger (opacity + `scale(0.98)→1`, placement-aware `transform-origin`) via a
+  mount-then-rAF entrance; close stays instant to protect focus handling.
+- **Tooltip** gains a ~300ms open-delay plus a shared delay group — once one tooltip is open, siblings open
+  instantly (a sweep across an icon row feels connected); `aria-describedby` unchanged.
+- **Menu** row highlight now has a single source of truth (`activeIndex`), so keyboard arrow nav paints the
+  highlight and a stale mouse tint no longer lingers; roving tabindex + keyboard handlers unchanged.
+
 ## 2026-07-22 — Component craft polish + rail reconciliation
 
 The contained half of the emil + impeccable component review, plus the side-stripe rail decision.

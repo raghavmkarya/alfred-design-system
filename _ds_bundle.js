@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"3075c1963c63","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"b793e08dfdd7","components/core/Tabs.jsx":"4b87bb6122a5","components/core/Badge.jsx":"5fc95b020fca","components/core/Input.jsx":"c4ed87b28014","components/core/Avatar.jsx":"f2b91b6842eb","components/core/Button.jsx":"651c180f9844","components/core/Select.jsx":"b8e1f5628d72","components/core/Slider.jsx":"1c0ffe3ec386","components/core/Switch.jsx":"07c3b2a412df","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"8d1e78924815","components/core/Checkbox.jsx":"da514a1b6ba3","components/core/Combobox.jsx":"4ac6f9b112c2","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"b29d19a4715a","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"4a77d0af9aa2","components/core/RadioGroup.jsx":"9157e4d1110f","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"f7f990c47df5","components/core/FileDropzone.jsx":"d623ca9be792","components/core/SegmentedControl.jsx":"4fd2ba51116d","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9ef33d3f4a65","components/data/Stepper.jsx":"eeb6c638a1fd","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"fa053e671b69","components/data/StateBlock.jsx":"d75c3387cc65","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"007ba0a0662e","components/data/ActivityTimeline.jsx":"dee5afa73795","components/data/NotificationItem.jsx":"850e8b81826c","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"514e76d2fcac","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"9acf1f90dd4f","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"0322060ea5f5","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"d73ce761ce4a","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"beda662e42ce","components/overlay/Drawer.jsx":"629a6d1a206b","components/overlay/Popover.jsx":"fcafda290a92","components/overlay/Tooltip.jsx":"335eecc67b50","components/feedback/Banner.jsx":"985b1d3ee4e5","components/feedback/Callout.jsx":"0d40f939be54","components/marketing/FaqItem.jsx":"6d296a9c6228","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"3ad54df287b2","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"ef57bcbee5dc","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"dd326ef03ea3","components/marketing/EyebrowBadge.jsx":"ad0f7b221957","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"bb709e5eb31b","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"4c64be3b99eb","components/marketing/CapabilityTicker.jsx":"453412e5e698","components/marketing/ModuleStatusCard.jsx":"f930230faac4","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"2d48d63dd95b","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"c967e45a7c7d","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"6e233643f546","components/app/Sidebar.jsx":"00e4d386a28c","components/app/StatTile.jsx":"a8753feb510b","components/app/DataTable.jsx":"29d4acaf3a7c","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/UsageMeter.jsx":"c4b56e2cba7b","components/app/AuditLogRow.jsx":"f51db275f81f","components/app/UpgradeModal.jsx":"121f073e9150","components/app/TeamMemberRow.jsx":"02a341a65ca8","components/app/CommandPalette.jsx":"376c2ef0e569","components/app/ModuleSwitcher.jsx":"6f0adda0803a","components/app/BillingPlanCard.jsx":"1715b6b56c34","components/app/DateRangePicker.jsx":"4bed2e578e50","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"ad1fb55748ce","components/conversation/SeekComposer.jsx":"f42b7007215b","components/conversation/AlfredMessage.jsx":"39e6d138f2b2","components/conversation/ThinkingTrace.jsx":"82f057b71eb8","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"1c0a6e99fbd4","components/decision/GoalPacing.jsx":"1b856bf93c95","components/decision/AnomalyFlag.jsx":"63d1a34fda9b","components/decision/ApprovalGate.jsx":"75a63cc2fae6","components/decision/ScenarioSimulator.jsx":"f5fed2a8e1dd"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"3075c1963c63","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"b793e08dfdd7","components/core/Tabs.jsx":"4b87bb6122a5","components/core/Badge.jsx":"5fc95b020fca","components/core/Input.jsx":"c4ed87b28014","components/core/Avatar.jsx":"f2b91b6842eb","components/core/Button.jsx":"651c180f9844","components/core/Select.jsx":"b8e1f5628d72","components/core/Slider.jsx":"1c0ffe3ec386","components/core/Switch.jsx":"07c3b2a412df","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"8d1e78924815","components/core/Checkbox.jsx":"da514a1b6ba3","components/core/Combobox.jsx":"4ac6f9b112c2","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"b29d19a4715a","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"4a77d0af9aa2","components/core/RadioGroup.jsx":"9157e4d1110f","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"f7f990c47df5","components/core/FileDropzone.jsx":"d623ca9be792","components/core/SegmentedControl.jsx":"4fd2ba51116d","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9ef33d3f4a65","components/data/Stepper.jsx":"eeb6c638a1fd","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"eee7f1d534c8","components/data/Pagination.jsx":"fa053e671b69","components/data/StateBlock.jsx":"d75c3387cc65","components/data/ProgressBar.jsx":"4cab4481abd8","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"007ba0a0662e","components/data/ActivityTimeline.jsx":"dee5afa73795","components/data/NotificationItem.jsx":"850e8b81826c","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"514e76d2fcac","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"9acf1f90dd4f","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"14fede54cfdb","components/charts/GaugeChart.jsx":"323a88fbe233","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"0322060ea5f5","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"beda662e42ce","components/overlay/Drawer.jsx":"7720e725a960","components/overlay/Popover.jsx":"ebb9e12a3a12","components/overlay/Tooltip.jsx":"65bf54ffa004","components/feedback/Banner.jsx":"985b1d3ee4e5","components/feedback/Callout.jsx":"0d40f939be54","components/marketing/FaqItem.jsx":"6d296a9c6228","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"3ad54df287b2","components/marketing/SignalCard.jsx":"6f02dd92fe89","components/marketing/AgentStatus.jsx":"ef57bcbee5dc","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"dd326ef03ea3","components/marketing/EyebrowBadge.jsx":"ad0f7b221957","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"bb709e5eb31b","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"4c64be3b99eb","components/marketing/CapabilityTicker.jsx":"453412e5e698","components/marketing/ModuleStatusCard.jsx":"f930230faac4","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"2d48d63dd95b","components/trust/CausalChain.jsx":"2fdcb1d3f376","components/trust/DecisionLog.jsx":"c76aab9deb3a","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"c967e45a7c7d","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"6e233643f546","components/app/Sidebar.jsx":"00e4d386a28c","components/app/StatTile.jsx":"a8753feb510b","components/app/DataTable.jsx":"29d4acaf3a7c","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"2eda686b53ff","components/app/UsageMeter.jsx":"c4b56e2cba7b","components/app/AuditLogRow.jsx":"f51db275f81f","components/app/UpgradeModal.jsx":"121f073e9150","components/app/TeamMemberRow.jsx":"02a341a65ca8","components/app/CommandPalette.jsx":"376c2ef0e569","components/app/ModuleSwitcher.jsx":"6f0adda0803a","components/app/BillingPlanCard.jsx":"1715b6b56c34","components/app/DateRangePicker.jsx":"4bed2e578e50","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"ad1fb55748ce","components/conversation/SeekComposer.jsx":"f42b7007215b","components/conversation/AlfredMessage.jsx":"39e6d138f2b2","components/conversation/ThinkingTrace.jsx":"82f057b71eb8","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"1c0a6e99fbd4","components/decision/GoalPacing.jsx":"1b856bf93c95","components/decision/AnomalyFlag.jsx":"63d1a34fda9b","components/decision/ApprovalGate.jsx":"75a63cc2fae6","components/decision/ScenarioSimulator.jsx":"f5fed2a8e1dd"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -6443,11 +6443,8 @@ function Menu({
     },
     tabIndex: i === activeIndex ? 0 : -1,
     onFocus: () => setActiveIndex(i),
-    onMouseEnter: e => {
-      if (!it.disabled) e.currentTarget.style.background = "var(--surface-hover)";
-    },
-    onMouseLeave: e => {
-      e.currentTarget.style.background = "transparent";
+    onMouseEnter: () => {
+      if (!it.disabled) setActiveIndex(i);
     },
     style: {
       display: "flex",
@@ -6456,7 +6453,8 @@ function Menu({
       width: "100%",
       textAlign: "left",
       border: "none",
-      background: "transparent",
+      background: i === activeIndex ? "var(--surface-hover)" : "transparent",
+      transition: "background var(--dur-fast) var(--ease-standard)",
       cursor: it.disabled ? "not-allowed" : "pointer",
       opacity: it.disabled ? "var(--opacity-disabled)" : 1,
       padding: "9px 12px",
@@ -6769,6 +6767,45 @@ function Drawer({
   const panelRef = React.useRef(null);
   const onCloseRef = React.useRef(onClose);
   onCloseRef.current = onClose;
+
+  // Slide lifecycle. `exiting` keeps the panel mounted through the close
+  // animation, so `mounted = open || exiting`. `atRest` toggles the panel
+  // between its off-screen offset and translateX(0).
+  const [exiting, setExiting] = React.useState(false);
+  const [atRest, setAtRest] = React.useState(false);
+  const EXIT_MS = 140; // upper bound for the exit (var(--dur-fast) 120ms) before unmount
+
+  // Begin (or cancel) the exit *synchronously* the render `open` flips — never
+  // in an effect — so the panel never unmounts on the same render it starts
+  // closing (no flash) and, while open is true, it is mounted on that commit
+  // for the focus-trap effect below (still keyed on `open`) to find.
+  const prevOpen = React.useRef(open);
+  if (prevOpen.current !== open) {
+    prevOpen.current = open;
+    if (open) {
+      if (exiting) setExiting(false);
+    } else if (!exiting) setExiting(true);
+  }
+  React.useEffect(() => {
+    if (open) {
+      // Enter: paint at the offset, then transition to rest on the next frame
+      // so the browser sees the start state first and the transition runs.
+      setAtRest(false);
+      const raf = requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAtRest(true));
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+    if (exiting) {
+      // Exit: slide back to the offset, then unmount after the duration. The
+      // timeout — not the transition event — guarantees unmount, so this does
+      // not depend on the animation firing (reduced motion stays correct).
+      setAtRest(false);
+      const t = setTimeout(() => setExiting(false), EXIT_MS);
+      return () => clearTimeout(t);
+    }
+    return undefined;
+  }, [open]);
   React.useEffect(() => {
     if (!open) return undefined;
     const panel = panelRef.current;
@@ -6811,7 +6848,8 @@ function Drawer({
       if (previous && typeof previous.focus === "function") previous.focus();
     };
   }, [open]);
-  if (!open) return null;
+  if (!open && !exiting) return null;
+  const offset = side === "right" ? "100%" : "-100%";
   return /*#__PURE__*/React.createElement("div", {
     role: "dialog",
     "aria-modal": "true",
@@ -6826,11 +6864,16 @@ function Drawer({
     style: {
       position: "absolute",
       inset: 0,
-      background: "var(--overlay-scrim)"
+      background: "var(--overlay-scrim)",
+      opacity: atRest ? 1 : 0,
+      transition: `opacity var(${exiting ? "--dur-fast" : "--dur-base"}) var(--ease-standard)`
     }
   }), /*#__PURE__*/React.createElement("div", {
     ref: panelRef,
     tabIndex: -1,
+    onTransitionEnd: e => {
+      if (exiting && e.target === panelRef.current && e.propertyName === "transform") setExiting(false);
+    },
     style: {
       position: "absolute",
       top: 0,
@@ -6844,6 +6887,9 @@ function Drawer({
       flexDirection: "column",
       borderLeft: side === "right" ? "1px solid var(--border-subtle)" : "none",
       borderRight: side === "left" ? "1px solid var(--border-subtle)" : "none",
+      transform: atRest ? "translateX(0)" : `translateX(${offset})`,
+      transition: `transform var(${exiting ? "--dur-fast" : "--dur-base"}) var(--ease-standard)`,
+      willChange: "transform",
       ...style
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -6920,6 +6966,26 @@ function Popover({
   const rootRef = React.useRef(null);
   const onOpenChangeRef = React.useRef(onOpenChange);
   onOpenChangeRef.current = onOpenChange;
+
+  // Entrance: mount hidden, then flip to the visible state on the next frame so
+  // the transition fires. `entered` is JS-driven state, not animation state, so
+  // the panel still reaches its final visible values even when motion is
+  // neutralised (prefers-reduced-motion) and the transition is instant.
+  const [entered, setEntered] = React.useState(false);
+  React.useEffect(() => {
+    if (!open) {
+      setEntered(false);
+      return undefined;
+    }
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setEntered(true));
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
+  }, [open]);
   React.useEffect(() => {
     if (!open) return undefined;
     const close = () => {
@@ -6956,6 +7022,12 @@ function Popover({
       marginBottom: 8
     }
   };
+  // Grow out of the anchored edge, not the panel's centre.
+  const origin = {
+    bottom: "top left",
+    "bottom-end": "top right",
+    top: "bottom left"
+  };
   const a11y = {
     "aria-haspopup": "dialog",
     "aria-expanded": !!open,
@@ -6983,6 +7055,10 @@ function Popover({
       boxShadow: "var(--shadow-lg)",
       padding: 8,
       ...(pos[placement] || pos.bottom),
+      transformOrigin: origin[placement] || origin.bottom,
+      opacity: entered ? 1 : 0,
+      transform: entered ? "scale(1)" : "scale(0.98)",
+      transition: "opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard)",
       ...style
     }
   }, children));
@@ -6998,7 +7074,29 @@ try { (() => {
  * announced via aria-describedby while visible. Use for terse clarifications
  * (what a KPI means, an icon-button's action). Keep labels to a few words —
  * anything longer belongs in a Popover.
+ *
+ * Open timing: the tip waits OPEN_DELAY before appearing so a pointer sweeping
+ * across a row of icons doesn't flash every label. A lightweight module-scoped
+ * delay group makes sibling tips feel connected — once ANY tooltip is open (or
+ * closed within GROUP_GRACE), the next one opens INSTANTLY; when the group has
+ * gone cold, the delay applies again. This is hover-intent timing, not motion,
+ * so it is independent of the enter animation and of prefers-reduced-motion.
  */
+
+// ~300ms hover-intent delay before a cold tooltip opens.
+const OPEN_DELAY = 300;
+// ~300ms grace window after the group was last active, during which siblings
+// open with no delay.
+const GROUP_GRACE = 300;
+
+// Shared delay group (module-scoped, intentionally not React state — it is a
+// cross-instance coordination signal, not render data).
+let groupOpenCount = 0; // how many tooltips are open right now
+let groupLastActiveAt = 0; // timestamp of the last open/close in the group
+
+function groupIsWarm() {
+  return groupOpenCount > 0 || Date.now() - groupLastActiveAt < GROUP_GRACE;
+}
 function Tooltip({
   label,
   placement = "top",
@@ -7006,7 +7104,59 @@ function Tooltip({
   style = {}
 }) {
   const [show, setShow] = React.useState(false);
-  const tipId = React.useId();
+  const rawId = React.useId();
+  const tipId = rawId;
+  const cls = `tt${rawId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
+  const timerRef = React.useRef(null);
+  const openRef = React.useRef(false); // this instance's contribution to the group
+
+  const clearTimer = React.useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+  const doOpen = React.useCallback(() => {
+    if (!openRef.current) {
+      openRef.current = true;
+      groupOpenCount += 1;
+      groupLastActiveAt = Date.now();
+    }
+    setShow(true);
+  }, []);
+  const requestOpen = React.useCallback(() => {
+    clearTimer();
+    if (groupIsWarm()) {
+      doOpen();
+    } else {
+      timerRef.current = setTimeout(() => {
+        timerRef.current = null;
+        doOpen();
+      }, OPEN_DELAY);
+    }
+  }, [clearTimer, doOpen]);
+  const requestClose = React.useCallback(() => {
+    clearTimer();
+    if (openRef.current) {
+      openRef.current = false;
+      groupOpenCount = Math.max(0, groupOpenCount - 1);
+      groupLastActiveAt = Date.now();
+    }
+    setShow(false);
+  }, [clearTimer]);
+
+  // On unmount, drop any pending timer and this instance's group contribution
+  // so a tooltip that disappears while open can't leave the group warm forever.
+  React.useEffect(() => {
+    return () => {
+      clearTimer();
+      if (openRef.current) {
+        openRef.current = false;
+        groupOpenCount = Math.max(0, groupOpenCount - 1);
+        groupLastActiveAt = Date.now();
+      }
+    };
+  }, [clearTimer]);
   const pos = {
     top: {
       bottom: "100%",
@@ -7033,6 +7183,13 @@ function Tooltip({
       marginLeft: 8
     }
   };
+  // Grow the tip from the edge nearest its trigger.
+  const origin = {
+    top: "bottom center",
+    bottom: "top center",
+    left: "right center",
+    right: "left center"
+  };
   return /*#__PURE__*/React.createElement("span", {
     "aria-describedby": show ? tipId : undefined,
     style: {
@@ -7040,13 +7197,17 @@ function Tooltip({
       display: "inline-flex",
       ...style
     },
-    onMouseEnter: () => setShow(true),
-    onMouseLeave: () => setShow(false),
-    onFocus: () => setShow(true),
-    onBlur: () => setShow(false)
-  }, children, show && /*#__PURE__*/React.createElement("span", {
+    onMouseEnter: requestOpen,
+    onMouseLeave: requestClose,
+    onFocus: requestOpen,
+    onBlur: requestClose
+  }, children, show && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, `
+            @keyframes ${cls}-in { from { opacity: 0; } to { opacity: 1; } }
+            .${cls} { animation: ${cls}-in var(--dur-fast) var(--ease-standard); }
+          `), /*#__PURE__*/React.createElement("span", {
     role: "tooltip",
     id: tipId,
+    className: cls,
     style: {
       position: "absolute",
       zIndex: "var(--z-tooltip)",
@@ -7060,9 +7221,10 @@ function Tooltip({
       borderRadius: "var(--radius-sm)",
       boxShadow: "var(--shadow-md)",
       pointerEvents: "none",
+      transformOrigin: origin[placement],
       ...pos[placement]
     }
-  }, label));
+  }, label)));
 }
 __ds_scope.Tooltip = Tooltip;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/overlay/Tooltip.jsx", error: String((e && e.message) || e) }); }
