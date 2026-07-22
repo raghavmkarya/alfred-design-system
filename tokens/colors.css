@@ -162,6 +162,27 @@
   --accent-soft: rgba(255,132,49,0.14);
   --overlay-scrim: rgba(12,12,10,0.62); /* deeper warm scrim so raised dark panels still separate */
   --surface-tooltip: #262623;           /* warm raised — floats above the near-black page */
+
+  /* Soft tint ramps → low-alpha equivalents (badge / chip / callout / alert / Banner fills),
+     mirroring the app-dark block. Without these a raw --info-100 / --warning-100 fill stays LIGHT
+     on the pure-black page, so a Banner's white primary text sits on a pale pastel and fails.
+     Re-mapping them to low-alpha ink tints makes status fills read as dark bars (like the Callouts,
+     which already use rgba() literals). Raw brand primaries, the brand gradient and the chart
+     palette never change. */
+  --orange-50:  rgba(255,132,49,0.08);
+  --orange-100: rgba(255,132,49,0.13);
+  --periwinkle-50:  rgba(167,167,252,0.08);
+  --periwinkle-100: rgba(167,167,252,0.13);
+  --success-100: rgba(47,182,124,0.12);
+  --warning-100: rgba(255,132,49,0.12);
+  --danger-100:  rgba(229,72,77,0.12);
+  --info-100:    rgba(167,167,252,0.12);
+  --urgent-100:  rgba(255,61,0,0.12);
+  --gray-50:  rgba(255,255,255,0.04);
+  --gray-100: rgba(255,255,255,0.06);
+  --gray-150: rgba(255,255,255,0.09);
+  --gray-200: rgba(255,255,255,0.13);
+
   /* Dark-tuned ambient glow — richer, used behind the hero */
   --glow-periwinkle: radial-gradient(58% 52% at 18% 12%, rgba(167,167,252,0.30) 0%, rgba(167,167,252,0) 70%); /* @kind color */
   --glow-orange:     radial-gradient(60% 58% at 90% 96%, rgba(255,132,49,0.26) 0%, rgba(255,132,49,0) 70%); /* @kind color */
