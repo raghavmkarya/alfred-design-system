@@ -20,7 +20,7 @@ export function Logo({
     variant === "mark"
       ? (t === "white" ? "alfred-icon-white.svg" : "alfred-icon.svg")
       : variant === "wordmark"
-      ? (t === "white" ? "alfred-wordmark-white.svg" : "alfred-logo-primary.svg")
+      ? (t === "white" ? "alfred-wordmark-white.svg" : "alfred-wordmark.svg")
       : (t === "white" ? "alfred-logo-white.svg" : "alfred-logo-primary.svg");
 
   if (tone === "auto") {
