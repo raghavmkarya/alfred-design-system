@@ -3,6 +3,41 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Craft & taste — three craft guidelines distilled from external skills
+
+A **craft & taste layer** so on-brand work also clears a real craft bar. The durable principles
+of three external design skills — distilled, reconciled to Alfred's committed tokens and voice,
+and made self-contained so they survive the claude.ai/design sync (where the source plugins
+aren't installed). Documentation only — no token, component, or bundle changes.
+
+### New guidelines (`guidelines/`)
+- **`motion-and-animation.md`** — how motion should feel, mapped onto Alfred's real tokens: the
+  two `--ease-*` curves (standard ease-out / rare emphasized overshoot) and three `--dur-*`
+  durations bound to press/dropdown/modal, the "should this animate at all?" frequency test,
+  component patterns (scale-on-press, origin-aware popovers, tooltip skip-delay, transitions over
+  keyframes), transform/opacity + WAAPI performance, and the note that `base.css` already owns
+  `prefers-reduced-motion`. Distilled from Emil Kowalski (animations.dev).
+- **`anti-slop.md`** — how to stay off the AI-generated tell list while staying 100% on brand:
+  the VARIANCE/MOTION/DENSITY dials with Alfred presets, layout-diversity rules, eyebrow
+  rationing, machined depth (nested enclosures + concentric radii + ink-tinted shadows), real
+  assets over div-fakes (Alfred's own icon set, never emoji), quantified content, and a
+  pre-flight check. Periwinkle + the brand gradient are carved out of the source's "no purple
+  glow" rule; the em-dash ban is routed to `voice-and-naming.md` as a voice decision, not
+  imported wholesale. Distilled from the taste-skill plugin (13 skills).
+- **`craft-checklist.md`** — the pre-ship quality gate: contrast thresholds (reusing
+  `--text-on-orange`, `:focus-visible`, KpiCard valence), typographic measure, "cards are the
+  lazy answer," all eight interactive states, the absolute bans, hardening against real data, the
+  three `verify-*.mjs` scripts as the automated floor, and the impeccable "modes of work" lenses.
+  Distilled from the impeccable skill.
+
+### Wiring
+- **`SKILL.md`** gains a **Craft & taste** section (pointing to the three docs) and a **Companion
+  skills (if installed)** section listing emil-design-eng, impeccable, and all 13 taste skills
+  with one-liners + Alfred-fit notes, grouped into useful lenses / alternate-aesthetic
+  reference-only / image-gen-only. Framed so claude.ai/design needs nothing extra — the
+  principles already live in `guidelines/`.
+- **`readme.md`** references the craft guidelines in the Claude Code flow and the file tree.
+
 ## 2026-07-13 — The critique pass — five-critic review, everything fixed
 
 A five-lens design review (visual craft · color/a11y · UX/IA · interaction states ·
