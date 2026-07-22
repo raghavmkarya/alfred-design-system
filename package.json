@@ -1,0 +1,14 @@
+{
+  "name": "designsystem",
+  "private": true,
+  "description": "Alfred AI design system — build, verifiers, and type-check tooling",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "verify:types": "node scripts/verify-types.mjs",
+    "build": "node scripts/build-bundle.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/react": "^18.3.12"
+  }
+}

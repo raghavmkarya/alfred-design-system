@@ -10,6 +10,7 @@
    Run: node scripts/verify-types.mjs */
 import fs from "node:fs";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const COMP = path.join(ROOT, "components");
@@ -50,19 +51,36 @@ for (const [src, names] of Object.entries(bySource)) {
   }
 }
 
-if (!missing.length && !inconsistent.length) {
-  console.log(`OK   presence     — all ${jsxFiles.length} components have a sibling .d.ts`);
-  console.log(`OK   consistency  — every component export is declared in its .d.ts`);
-  console.log(`\nALL TYPE CONTRACTS HOLD (${jsxFiles.length} components)`);
-  process.exit(0);
+if (missing.length || inconsistent.length) {
+  if (missing.length) {
+    console.log(`\nFAIL presence — ${missing.length} component(s) missing a .d.ts:`);
+    missing.forEach((m) => console.log("     " + m));
+  }
+  if (inconsistent.length) {
+    console.log(`\nFAIL consistency — ${inconsistent.length} .d.ts do not declare their component:`);
+    inconsistent.forEach((m) => console.log("     " + m));
+  }
+  console.log(`\n${missing.length + inconsistent.length} TYPE CONTRACT ISSUE(S)`);
+  process.exit(1);
 }
-if (missing.length) {
-  console.log(`\nFAIL presence — ${missing.length} component(s) missing a .d.ts:`);
-  missing.forEach((m) => console.log("     " + m));
+
+console.log(`OK   presence     — all ${jsxFiles.length} components have a sibling .d.ts`);
+console.log(`OK   consistency  — every component export is declared in its .d.ts`);
+
+/* 3. full type-check via tsc when the toolchain is installed (CI runs `npm ci` first).
+   Skipped (not failed) when node_modules is absent, so a bare `node scripts/verify-types.mjs`
+   still gives the presence/consistency guarantee without an install. */
+const tscBin = path.join(ROOT, "node_modules", ".bin", process.platform === "win32" ? "tsc.cmd" : "tsc");
+if (fs.existsSync(tscBin)) {
+  const r = spawnSync(tscBin, ["--noEmit", "-p", path.join(ROOT, "tsconfig.json")], { encoding: "utf8" });
+  if (r.status !== 0) {
+    console.log(`\nFAIL tsc --noEmit — the .d.ts do not type-check:\n${((r.stdout || "") + (r.stderr || "")).trim()}`);
+    process.exit(1);
+  }
+  console.log(`OK   tsc --noEmit — all .d.ts type-check`);
+  console.log(`\nALL TYPE CONTRACTS HOLD (${jsxFiles.length} components, tsc clean)`);
+} else {
+  console.log(`SKIP tsc --noEmit — typescript not installed (\`npm install\` for the full type-check)`);
+  console.log(`\nTYPE CONTRACTS PRESENT (${jsxFiles.length} components; \`npm install\` to also type-check)`);
 }
-if (inconsistent.length) {
-  console.log(`\nFAIL consistency — ${inconsistent.length} .d.ts do not declare their component:`);
-  inconsistent.forEach((m) => console.log("     " + m));
-}
-console.log(`\n${missing.length + inconsistent.length} TYPE CONTRACT ISSUE(S)`);
-process.exit(1);
+process.exit(0);

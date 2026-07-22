@@ -3,6 +3,16 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Type-check completeness — `tsc --noEmit` now gates the `.d.ts`
+
+Finishes Phase 1.2. Adds a minimal `package.json` + `tsconfig.json` (typescript + `@types/react@18`,
+with `node_modules` git-ignored) and folds a real `tsc --noEmit` over all 113 `.d.ts` into
+`scripts/verify-types.mjs` — it runs the type-check when the toolchain is installed and skips (not
+fails) otherwise, so a bare `node scripts/verify-types.mjs` still gives the presence/consistency
+guarantee without an install. CI now runs `npm ci` (npm-cached) before the verifiers, so every PR
+type-checks the declarations. All 113 `.d.ts` type-check clean; `@types/react@18` keeps the global
+`JSX.Element` the declarations use.
+
 ## 2026-07-22 — Type completeness — 113/113 components typed + a `verify-types` gate
 
 Phase 1.2 of `ROADMAP.md`. Authored the **21 missing `.d.ts`** (app / charts / trust — the complex
