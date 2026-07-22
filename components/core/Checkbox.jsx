@@ -23,7 +23,7 @@ export function Checkbox({ checked = false, onChange, label, disabled = false, i
           background: checked ? "var(--orange-500)" : "var(--periwinkle-100)",
           border: checked ? "1.5px solid var(--orange-500)" : "1.5px solid var(--periwinkle-200)",
           boxShadow: focusRing ? "var(--shadow-focus)" : "none",
-          transition: "all var(--dur-base) var(--ease-standard)", flex: "none",
+          transition: "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)", flex: "none",
         }}
       >
         <input
