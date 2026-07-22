@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner } from "./Spinner.jsx";
 
 /**
  * Alfred AI — SearchInput
@@ -111,9 +112,7 @@ export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
           }}
         />
         {loading ? (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange-500)" strokeWidth="2" strokeLinecap="round" aria-hidden="true" style={{ flex: "none" }}>
-            <path d="M21 12a9 9 0 1 1-6.2-8.6" />
-          </svg>
+          <Spinner size="sm" style={{ flex: "none" }} />
         ) : text ? (
           <button type="button" onMouseDown={(e) => e.preventDefault()} onClick={clear} aria-label="Clear search"
             style={{

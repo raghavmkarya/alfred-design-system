@@ -34,7 +34,11 @@ export function NotificationItem({
   return (
     <div
       role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
       onClick={onClick}
+      onKeyDown={onClick ? (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(e); }
+      } : undefined}
       style={{
         display: "flex", gap: 12, padding: "14px 16px", boxSizing: "border-box", width: "100%",
         background: "var(--surface-card)",

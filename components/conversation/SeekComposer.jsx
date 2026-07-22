@@ -139,7 +139,7 @@ export function SeekComposer({
             <button
               key={i}
               type="button"
-              onClick={() => setText(s)}
+              onClick={() => handleChange({ target: { value: s } })}
               style={{
                 display: "inline-flex", alignItems: "center", gap: 7,
                 height: 32, padding: "0 12px", borderRadius: "var(--radius-pill)",

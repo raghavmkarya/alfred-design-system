@@ -42,7 +42,7 @@ function walk(dir, out = []) {
    suppressIf(text) — skip the rule for a whole file when it matches (e.g. a custom focus style). */
 const RULES = [
   { id: "transition-all", why: "name the properties, e.g. `transition: transform var(--dur-base) var(--ease-standard)`",
-    re: /transition(?:-property)?:\s*all\b/ },
+    re: /transition(?:-property)?:\s*["']?\s*all\b/ },   // tolerates the JSX inline-style form: transition: "all …"
   { id: "ease-in-ui", why: "`ease-in` feels sluggish on UI — use `var(--ease-standard)` (ease-out)",
     re: /(?<![-\w])ease-in\b(?!-out)/ },
   { id: "scale-zero-entry", why: "nothing appears from nothing — start from `scale(0.95)` + `opacity: 0`",
