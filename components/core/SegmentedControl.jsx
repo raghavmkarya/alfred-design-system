@@ -1,4 +1,5 @@
 import React from "react";
+import { isFocusVisible } from "../hooks/usePress.jsx";
 
 /**
  * Alfred AI — SegmentedControl
@@ -48,7 +49,7 @@ export function SegmentedControl({ options = [], value, onChange, size = "md", s
             ref={(el) => { segRefs.current[i] = el; }}
             onClick={() => onChange && onChange(o.value)}
             onKeyDown={(e) => handleKeyDown(e, i)}
-            onFocus={(e) => { let kb = true; try { kb = e.target.matches(":focus-visible"); } catch { /* older engines */ } setFocusIdx(kb ? i : -1); }}
+            onFocus={(e) => setFocusIdx(isFocusVisible(e) ? i : -1)}
             onBlur={() => setFocusIdx(-1)}
             style={{
               border: "none", cursor: "pointer", padding: pad, borderRadius: "var(--radius-pill)",

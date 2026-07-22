@@ -1,4 +1,5 @@
 import React from "react";
+import { usePress } from "../hooks/usePress.jsx";
 
 /**
  * Alfred AI — PriceCard
@@ -21,13 +22,7 @@ export function PriceCard({
   footnote,
   style = {},
 }) {
-  const [hover, setHover] = React.useState(false);
-  const [press, setPress] = React.useState(false);
-  const [focusRing, setFocusRing] = React.useState(false);
-
-  const onCtaFocus = (e) => {
-    try { setFocusRing(e.target.matches(":focus-visible")); } catch (err) { setFocusRing(true); }
-  };
+  const { hover, press, focusVisible: focusRing, bind } = usePress({ press: true, focus: true });
 
   const check = (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -191,12 +186,7 @@ export function PriceCard({
         <button
           type="button"
           onClick={cta.onClick}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => { setHover(false); setPress(false); }}
-          onMouseDown={() => setPress(true)}
-          onMouseUp={() => setPress(false)}
-          onFocus={onCtaFocus}
-          onBlur={() => setFocusRing(false)}
+          {...bind}
           style={ctaStyle}
         >
           {cta.label}

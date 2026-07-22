@@ -1,4 +1,5 @@
 import React from "react";
+import { usePress } from "../hooks/usePress.jsx";
 
 /**
  * Alfred AI — JobListingRow
@@ -17,8 +18,7 @@ export function JobListingRow({
   style = {},
   ...rest
 }) {
-  const [hover, setHover] = React.useState(false);
-  const [focusRing, setFocusRing] = React.useState(false);
+  const { hover, focusVisible: focusRing, bind } = usePress({ focus: true });
   const active = hover || focusRing;
 
   const rowStyle = {
@@ -136,10 +136,7 @@ export function JobListingRow({
 
   const shared = {
     onClick,
-    onMouseEnter: () => setHover(true),
-    onMouseLeave: () => setHover(false),
-    onFocus: (e) => { let kb = true; try { kb = e.target.matches(":focus-visible"); } catch { /* older engines */ } setFocusRing(kb); },
-    onBlur: () => setFocusRing(false),
+    ...bind,
     style: rowStyle,
     ...rest,
   };
