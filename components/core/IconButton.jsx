@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "../brand/Icon.jsx";
+import { usePress } from "../hooks/usePress.jsx";
 
 /**
  * Alfred AI — IconButton
@@ -17,7 +18,7 @@ export function IconButton({
   disabled = false,
   style = {},
 }) {
-  const [hover, setHover] = React.useState(false);
+  const { hover, bind } = usePress();
   const variants = {
     ghost: { bg: "transparent", fg: "var(--text-secondary)", hbg: "var(--surface-hover)" },
     subtle: { bg: "var(--accent-soft)", fg: "var(--text-on-tint-brand)", hbg: "var(--accent-soft)" },
@@ -28,7 +29,7 @@ export function IconButton({
   return (
     <button
       title={title} onClick={onClick} disabled={disabled}
-      onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+      {...bind}
       style={{
         width: size, height: size, flex: "none",
         display: "inline-flex", alignItems: "center", justifyContent: "center",

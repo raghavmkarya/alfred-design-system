@@ -1,4 +1,5 @@
 import React from "react";
+import { usePress } from "../hooks/usePress.jsx";
 
 /**
  * Alfred AI — OfferSwitch
@@ -18,7 +19,7 @@ export function OfferSwitch({
   const id = React.useId();
   const labelId = id + "-label";
   const detailId = id + "-detail";
-  const [focusRing, setFocusRing] = React.useState(false);
+  const { focusVisible: focusRing, bind } = usePress({ hover: false, focus: true });
 
   return (
     <button
@@ -29,8 +30,7 @@ export function OfferSwitch({
       aria-describedby={detail ? detailId : undefined}
       disabled={disabled}
       onClick={() => onChange && onChange(!checked)}
-      onFocus={(e) => { let kb = true; try { kb = e.target.matches(":focus-visible"); } catch { /* older engines */ } setFocusRing(kb); }}
-      onBlur={() => setFocusRing(false)}
+      {...bind}
       style={{
         display: "inline-flex", alignItems: "center", gap: 14,
         margin: 0, padding: "10px 12px 10px 16px",

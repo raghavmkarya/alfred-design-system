@@ -1,4 +1,5 @@
 import React from "react";
+import { usePress } from "../hooks/usePress.jsx";
 
 /**
  * Alfred AI — Button
@@ -55,8 +56,7 @@ export function Button({
     danger: { background: "var(--danger-500)", color: "var(--text-on-brand)" },
   };
 
-  const [hover, setHover] = React.useState(false);
-  const [press, setPress] = React.useState(false);
+  const { hover, press, bind } = usePress({ press: true });
 
   const hoverStyle = !disabled && hover ? {
     primary: { background: "var(--accent-hover)", boxShadow: "var(--shadow-brand)" },
@@ -72,10 +72,7 @@ export function Button({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => { setHover(false); setPress(false); }}
-      onMouseDown={() => setPress(true)}
-      onMouseUp={() => setPress(false)}
+      {...bind}
       style={{ ...base, ...variants[variant], ...hoverStyle, transform: press && !disabled ? "scale(0.98)" : "scale(1)", ...style }}
       {...rest}
     >

@@ -21,7 +21,7 @@ import vm from "node:vm";
 const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
 const NS = "AlfredAIDesignSystem_1ce241";
 const COMPONENTS_DIR = path.join(ROOT, "components");
-const GROUP_ORDER = ["brand", "core", "data", "charts", "overlay", "feedback", "marketing", "trust", "app", "conversation", "decision"];
+const GROUP_ORDER = ["hooks", "brand", "core", "data", "charts", "overlay", "feedback", "marketing", "trust", "app", "conversation", "decision"];
 
 // —— load Babel standalone (same build the previews use) ——
 const babelSrc = await (await fetch("https://unpkg.com/@babel/standalone@7.29.0/babel.min.js")).text();
@@ -56,7 +56,7 @@ const parsed = files.map((file) => {
   if (!names.length) throw new Error(`No exported component found in ${rel}`);
   const code = Babel.transform(src, { presets: ["react"], filename: file }).code;
   const sha = crypto.createHash("sha256").update(raw).digest("hex").slice(0, 12);
-  return { rel, group, names, deps: [...new Set(deps)], code, sha };
+  return { rel, group, names, deps: [...new Set(deps)], code, sha, internal: group === "hooks" };
 });
 
 // —— topological order (sibling deps first), tie-broken by group then path ——
@@ -82,9 +82,9 @@ while (remaining.length) {
 // —— assemble bundle ——
 const header = {
   format: 3, namespace: NS,
-  components: ordered.flatMap((p) => p.names.map((name) => ({ name, sourcePath: p.rel }))),
+  components: ordered.filter((p) => !p.internal).flatMap((p) => p.names.map((name) => ({ name, sourcePath: p.rel }))),
   sourceHashes: Object.fromEntries(ordered.map((p) => [p.rel, p.sha])),
-  inlinedExternals: [], unexposedExports: [],
+  inlinedExternals: [], unexposedExports: ordered.filter((p) => p.internal).flatMap((p) => p.names),
 };
 const blocks = ordered.map((p) => {
   const depLine = p.deps.filter((d) => produced.has(d)).length
@@ -93,7 +93,7 @@ const blocks = ordered.map((p) => {
   const assigns = p.names.map((n) => `\n__ds_scope.${n} = ${n};`).join("");
   return `// ${p.rel}\ntry { (() => {${depLine}\n${p.code}${assigns}\n})(); } catch (e) { (__ds_ns.__errors).push({ source: ${JSON.stringify(p.rel)}, error: String((e && e.message) || e) }); }`;
 }).join("\n\n");
-const footer = ordered.flatMap((p) => p.names.map((n) => `__ds_ns.${n} = __ds_scope.${n};`)).join("\n\n");
+const footer = ordered.filter((p) => !p.internal).flatMap((p) => p.names.map((n) => `__ds_ns.${n} = __ds_scope.${n};`)).join("\n\n");
 
 const out = `/* @ds-bundle: ${JSON.stringify(header)} */
 

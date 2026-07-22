@@ -3,6 +3,20 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-22 — Shared interaction primitive — `usePress` / `isFocusVisible`
+
+Phase 1.1 of the expansion plan (`ROADMAP.md`). Extracted the hand-rolled press/hover/focus state
+that ~7 components duplicated — and the `:focus-visible` detection block that was copy-pasted verbatim
+in four — into one internal hook, `components/hooks/usePress.jsx`. Each interaction is opt-in
+(`{ hover, press, focus }`), so every component keeps exactly the listeners it had before
+(behaviour-preserving). Adopted by Button, IconButton, Sidebar, OfferSwitch, JobListingRow and
+PriceCard (full `usePress`); SegmentedControl shares just `isFocusVisible` (its focus is per-segment).
+
+Also introduces the design system's first **internal-module** pattern: `build-bundle.mjs` now bundles
+`components/hooks/*` into the shared scope for sibling imports but excludes them from the component
+list, the namespace, the manifest and the gallery (recorded under `unexposedExports`). The bundle is
+"114 source files, 113 components". All four verifiers green.
+
 ## 2026-07-22 — Marketing-dark theme — re-map the soft / status tint ramps
 
 Follow-up to the semantic-token migration, caught in a three-theme visual QA. The marketing `dark`

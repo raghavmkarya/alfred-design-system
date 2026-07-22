@@ -1,4 +1,5 @@
 import React from "react";
+import { usePress } from "../hooks/usePress.jsx";
 
 /**
  * Alfred AI — Sidebar
@@ -59,7 +60,7 @@ export function Sidebar({
 }
 
 function SidebarItem({ item = {}, active = false, onSelect = () => {} }) {
-  const [hover, setHover] = React.useState(false);
+  const { hover, bind } = usePress();
 
   const labelColor = active
     ? "var(--text-on-tint-brand)"
@@ -76,8 +77,7 @@ function SidebarItem({ item = {}, active = false, onSelect = () => {} }) {
     <button
       type="button"
       onClick={() => onSelect(item.id)}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      {...bind}
       aria-current={active ? "page" : undefined}
       style={{
         display: "flex",
