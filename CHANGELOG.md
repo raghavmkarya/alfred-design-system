@@ -3,6 +3,20 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-23 — Playwright harness — interaction tests (CI) + tri-theme visual regression
+
+Phase 1.4. Stands up `tests/` on Playwright, with a permanent tri-theme harness (`tests/harness.html`) —
+the gallery that caught the marketing-dark Banner bug, made permanent — and two suites:
+- **interaction** (`tests/interaction.spec.js`) — OS-independent behaviour: SegmentedControl roving-radiogroup
+  arrow nav, Switch (native input) + OfferSwitch toggles, and Button hover-state (which guards the
+  `usePress` refactor). A new CI job runs these on every PR (`npm ci` → install Chromium → run).
+- **visual** (`tests/visual.spec.js`) — light / app-dark / marketing-dark screenshot regression, with
+  committed baselines (platform-suffixed). Run locally with `npm run test:visual`.
+
+Adds `@playwright/test`, `playwright.config.js`, and a tiny static server (`scripts/serve-tests.mjs`).
+**Follow-up (Phase 1.4a):** gate the visual snapshots in CI too — needs Linux baselines generated in the
+CI container (there's no Docker locally to seed them).
+
 ## 2026-07-22 — Type-check completeness — `tsc --noEmit` now gates the `.d.ts`
 
 Finishes Phase 1.2. Adds a minimal `package.json` + `tsconfig.json` (typescript + `@types/react@18`,

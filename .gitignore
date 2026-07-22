@@ -11,3 +11,8 @@ node_modules/
 
 # Social frame exports (regenerate with scripts/capture-social.mjs)
 social/_exports/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
