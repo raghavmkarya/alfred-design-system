@@ -145,7 +145,7 @@ export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 
               strokeWidth="1.25"
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(null)}
-              style={{ transition: "fill-opacity 160ms var(--ease-standard), stroke-opacity 160ms var(--ease-standard)" }}
+              style={{ transition: "fill-opacity var(--dur-fast) var(--ease-standard), stroke-opacity var(--dur-fast) var(--ease-standard)" }}
             />
           );
         })}

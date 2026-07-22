@@ -22,7 +22,7 @@ export function LineChart({ points = [], labels = [], height = 200, style = {} }
           <linearGradient id={`${uid}f`} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="rgba(255,132,49,0.20)" /><stop offset="100%" stopColor="rgba(255,132,49,0)" /></linearGradient>
         </defs>
         <path d={area} fill={`url(#${uid}f)`} />
-        <path d={line} fill="none" stroke={`url(#${uid}l)`} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d={line} fill="none" stroke={`url(#${uid}l)`} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
       </svg>
       {labels.length > 0 && (
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>

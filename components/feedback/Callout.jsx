@@ -74,8 +74,9 @@ export function Callout({
               marginTop: compact ? 6 : 10, padding: 0, border: "none", background: "transparent",
               fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-semibold)",
               color: t.actionColor, cursor: "pointer",
-              textDecoration: hoverAction ? "underline" : "none", textUnderlineOffset: 3,
-              transition: "color var(--dur-fast) var(--ease-standard)",
+              textDecoration: "underline", textUnderlineOffset: 3,
+              textDecorationColor: hoverAction ? "currentColor" : "transparent",
+              transition: "text-decoration-color var(--dur-fast) var(--ease-standard)",
             }}
           >
             {action.label}

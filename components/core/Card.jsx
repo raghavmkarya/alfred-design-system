@@ -16,6 +16,13 @@ export function Card({
   ...rest
 }) {
   const [hover, setHover] = React.useState(false);
+  // Only honor the hover lift on hover-capable pointers, so a touch tap
+  // doesn't leave the card stuck in its lifted state (sticky hover).
+  const [canHover] = React.useState(() =>
+    typeof window === "undefined" || !window.matchMedia
+      ? true
+      : window.matchMedia("(hover: hover)").matches
+  );
   const tones = {
     surface: { background: "var(--surface-card)", color: "var(--text-primary)", border: "1px solid var(--border-subtle)" },
     sunken: { background: "var(--surface-sunken)", color: "var(--text-primary)", border: "1px solid var(--border-subtle)" },
@@ -33,7 +40,7 @@ export function Card({
         borderRadius: radius,
         padding,
         boxShadow: interactive && hover ? "var(--shadow-lg)" : shadows[shadow],
-        transform: interactive && hover ? "translateY(-2px)" : "none",
+        transform: interactive && hover && canHover ? "translateY(-2px)" : "none",
         transition: "box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard)",
         cursor: interactive ? "pointer" : "default",
         ...tones[tone],

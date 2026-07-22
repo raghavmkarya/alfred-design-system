@@ -74,8 +74,13 @@ pixel-perfect. Error and empty-state copy stays in Alfred's first-person chief-o
 
 If you're about to write any of these, rewrite the element with different structure:
 
-- **Side-stripe borders** — `border-left/right` > 1px as a colored accent on cards/alerts/callouts.
-  Use full borders, background tints, or leading icons/numbers.
+- **Side-stripe borders as generic decoration** — a `border-left/right` > 1px colored accent on a
+  card/alert/callout that encodes *nothing* is the tell; use a full border, a background tint, or
+  leading icons/numbers instead. *Accepted on Alfred as a deliberate device:* the priority/kind
+  **rail** on decision surfaces (`DecisionAlert`, `RecommendationCard`, `ApprovalGate`, `CausalChain`,
+  `Callout`, `Banner`) is a committed signal — tone-matched to the item's severity/kind, and read as
+  a family with its badge and glyph. Keep it. The ban is for a stripe with no systematic meaning, not
+  for the tone-matched rail.
 - **Gradient text on body copy** — `background-clip: text` over a gradient on running prose, or
   as the default emphasis on *every* heading. That is the tell. *Not banned outright on Alfred:*
   gradient-filling the signature `--gradient-brand` on a **short display/emphasis word or
