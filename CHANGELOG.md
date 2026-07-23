@@ -3,6 +3,27 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-23 — forced-colors (Windows High Contrast) baseline (Phase 1.3, part 3 — completes 1.3)
+
+Adds `tokens/forced-colors.css` (imported by `styles.css`) — a global
+`@media (forced-colors: active)` baseline for Windows High Contrast, where the OS
+flattens author backgrounds to Canvas and drops box-shadows. It restores the two
+things that otherwise vanish, using the semantic hooks components already emit (no
+per-component edits):
+- **Focus stays visible** — `:focus-visible { outline: 2px solid Highlight !important }`.
+  The `!important` beats the inline `outline: none` on the ~12 inner form controls
+  that show focus via a box-shadow ring (HCM strips shadows), so the keyboard ring
+  survives.
+- **Floating surfaces stay delineated** — `[role="dialog"]/[role="menu"]/[role="listbox"]/
+  [role="tooltip"]` get a system-coloured border (they separated by shadow before).
+
+A new `verify-craft` **`forced-colors-contract`** check (mirroring `reduced-motion-contract`)
+gates that the file ships, is imported, and keeps the focus + surface rules — so a
+refactor can't silently drop it. Deep per-component high-contrast tuning (selected-state
+visuals, an HCM render test) is deferred to Phase 2.4. **This completes Phase 1 (harden
+the core): all 113 components are typed, tested, a11y-gated, contrast-gated, and
+high-contrast-safe.**
+
 ## 2026-07-23 — verify-a11y expansion + 5 a11y fixes it surfaced (Phase 1.3, part 2)
 
 Grew the accessibility-contract verifier from **53 → 74 cases** (`scripts/verify-a11y.mjs`), covering

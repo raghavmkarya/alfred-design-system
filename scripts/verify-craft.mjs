@@ -99,11 +99,25 @@ if (!/prefers-reduced-motion/.test(baseCss)) {
   findings.push({ rule: "reduced-motion-contract", why: "tokens/base.css must ship a global `prefers-reduced-motion` block", file: "tokens/base.css", line: 0, snippet: "(missing)" });
 }
 
+/* the forced-colors (Windows High Contrast) baseline must ship — box-shadows/backgrounds are
+   stripped in HCM, so focus rings and floating-surface boundaries need a restored fallback. */
+const stylesCss = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
+let fcCss = "";
+try { fcCss = fs.readFileSync(path.join(ROOT, "tokens/forced-colors.css"), "utf8"); } catch { /* file missing → fail below */ }
+const fcOk = /@import\s+["']tokens\/forced-colors\.css["']/.test(stylesCss)
+  && /@media\s*\(\s*forced-colors:\s*active\s*\)/.test(fcCss)
+  && /:focus-visible/.test(fcCss)
+  && /\[role="dialog"\]/.test(fcCss);
+if (!fcOk) {
+  findings.push({ rule: "forced-colors-contract", why: "styles.css must @import tokens/forced-colors.css, which must ship a `@media (forced-colors: active)` block restoring :focus-visible + floating-surface (role) borders", file: "tokens/forced-colors.css", line: 0, snippet: "(missing or incomplete)" });
+}
+
 /* report */
 if (findings.length === 0) {
   for (const r of RULES) console.log(`OK   ${r.id}`);
   console.log(`OK   reduced-motion-contract`);
-  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 1} rules)`);
+  console.log(`OK   forced-colors-contract`);
+  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 2} rules)`);
   process.exit(0);
 }
 
