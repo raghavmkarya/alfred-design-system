@@ -29,6 +29,7 @@ export const Textarea = React.forwardRef(function Textarea(props, ref) {
   const text = isControlled ? value : internal;
   const [focus, setFocus] = React.useState(false);
   const fieldId = id || (label ? `ta-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
+  const errId = error && fieldId ? `${fieldId}-error` : undefined;
 
   const handleChange = (e) => { if (!isControlled) setInternal(e.target.value); onChange && onChange(e); };
 
@@ -66,12 +67,14 @@ export const Textarea = React.forwardRef(function Textarea(props, ref) {
             background: "transparent", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
             lineHeight: "var(--lh-normal)", color: "var(--text-primary)", minHeight: 24,
           }}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={errId}
           {...rest}
         />
       </div>
       {(error || (showCount && maxLength)) && (
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          {error && <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--danger-500)" }}>{error}</span>}
+          {error && <span id={errId} role="alert" style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--danger-500)" }}>{error}</span>}
           {showCount && maxLength && (
             <span style={{
               marginLeft: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)",

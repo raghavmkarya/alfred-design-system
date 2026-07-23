@@ -14,6 +14,7 @@ export function IconButton({
   shape = "rounded",       // "rounded" | "circle"
   iconRoot = "assets/icons",
   title,
+  label,                   // accessible name for the icon-only button (falls back to title)
   onClick,
   disabled = false,
   style = {},
@@ -28,7 +29,7 @@ export function IconButton({
   const v = variants[variant] || variants.ghost;
   return (
     <button
-      title={title} onClick={onClick} disabled={disabled}
+      title={title} aria-label={label || title} onClick={onClick} disabled={disabled}
       {...bind}
       style={{
         width: size, height: size, flex: "none",

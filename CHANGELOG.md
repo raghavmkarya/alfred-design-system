@@ -3,6 +3,27 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-23 — verify-a11y expansion + 5 a11y fixes it surfaced (Phase 1.3, part 2)
+
+Grew the accessibility-contract verifier from **53 → 74 cases** (`scripts/verify-a11y.mjs`), covering
+core interactive primitives (Button, IconButton, Input/Textarea/Select incl. error states, Slider,
+TagInput, FileDropzone), nav (Breadcrumb, Sidebar), progress (ProgressBar, Stepper, ConfidenceMeter),
+and conversation (SeekComposer, PromptSuggestions) — each authored from real SSR output.
+
+Authoring the cases surfaced **5 real a11y gaps, all fixed**:
+- **ProgressBar** had no semantics at all → now `role="progressbar"` + `aria-valuenow/min/max` +
+  optional `label` (its siblings ProgressRing/UsageMeter already did this).
+- **Stepper** → list semantics + `aria-current="step"` + a per-step accessible name.
+- **IconButton** couldn't carry its own accessible name (title-less usage announced the raw icon slug)
+  → new `label` prop sets `aria-label`.
+- **Input / Textarea / Select** never associated their error text → the error `<span>` now has an `id`
+  + `role="alert"`, and the control gets `aria-describedby` + `aria-invalid` when `error` is set.
+- **FaqItem** toggle had no `type` → `type="button"` (was submitting inside a `<form>`).
+
+All ARIA-only (no visual change; the visual gate is unaffected). `Tooltip` was intentionally left to the
+Playwright interaction suite — its `role="tooltip"`/`aria-describedby` only exist after hover, so there's
+nothing to assert at SSR. Remaining Phase 1.3: `forced-colors` (Windows high-contrast).
+
 ## 2026-07-23 — Programmatic WCAG contrast checker + on-tint AA fixes (Phase 1.3, part 1)
 
 Adds the **6th verifier**, `scripts/verify-contrast.mjs` — a dependency-free WCAG-AA contrast gate.

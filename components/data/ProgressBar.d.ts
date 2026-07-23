@@ -6,6 +6,8 @@ export interface ProgressBarProps {
   /** gradient (brand) or plain (solid orange). @default "gradient" */
   tone?: "gradient" | "plain";
   showTrack?: boolean;
+  /** Accessible name for the progress bar (sets aria-label). */
+  label?: string;
   style?: React.CSSProperties;
 }
 /** Signature periwinkle→orange progress track for onboarding, pacing and load states. */

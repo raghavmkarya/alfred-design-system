@@ -8,13 +8,16 @@ import React from "react";
  */
 export function Stepper({ steps = [], current = 0, style = {} }) {
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", width: "100%", ...style }}>
+    <div role="list" aria-label="Progress" style={{ display: "flex", alignItems: "flex-start", width: "100%", ...style }}>
       {steps.map((s, i) => {
         const done = i < current, active = i === current;
         const ring = done || active ? "var(--border-focus)" : "var(--border-default)";
+        const state = done ? "completed" : active ? "current step" : "upcoming";
         return (
           <React.Fragment key={i}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, flex: "none", width: 120 }}>
+            <div role="listitem" aria-current={active ? "step" : undefined}
+              aria-label={`Step ${i + 1}: ${s.label}, ${state}`}
+              style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, flex: "none", width: 120 }}>
               <div style={{
                 width: 32, height: 32, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
                 background: done ? "var(--accent)" : active ? "var(--accent-soft)" : "transparent",
