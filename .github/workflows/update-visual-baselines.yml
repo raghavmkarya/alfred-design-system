@@ -9,12 +9,6 @@ name: update-visual-baselines
 # It runs in the SAME pinned Playwright container as the gate, so the pixels match.
 on:
   workflow_dispatch:
-  # TEMPORARY (removed before this PR merges): workflow_dispatch is only available
-  # once a workflow lives on the default branch, so this branch-scoped push trigger
-  # bootstraps the very first Linux baselines onto the branch. Deleted in a
-  # follow-up commit so the permanent tool is workflow_dispatch only.
-  push:
-    branches: [phase-1.4a-visual-ci]
 
 permissions:
   contents: write
