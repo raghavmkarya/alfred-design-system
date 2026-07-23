@@ -46,7 +46,7 @@ function AskAlfred() {
         background: "var(--gray-50)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-pill)",
       }}>
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask anything about your marketing performance…"
-          style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-primary)" }} />
+          style={{ flex: 1, border: "none", background: "transparent", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-primary)" }} />
         <Button variant="subtle" size="sm" iconRight={<window.NavGlyph d={window.AppGlyphs.send} size={15} />}>Ask</Button>
       </div>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>

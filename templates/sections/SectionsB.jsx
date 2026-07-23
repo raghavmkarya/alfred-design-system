@@ -132,7 +132,7 @@ function WaitlistCTA() {
             <form onSubmit={(e) => e.preventDefault()} style={{ display: "flex", gap: 10, justifyContent: "center", maxWidth: 460, margin: "0 auto" }}>
               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="you@company.com"
                 style={{ flex: 1, height: 48, padding: "0 18px", borderRadius: "var(--radius-md)", border: "1px solid var(--border-default)",
-                  background: "var(--surface-input-plain)", color: "var(--text-primary)", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", outline: "none" }} />
+                  background: "var(--surface-input-plain)", color: "var(--text-primary)", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)" }} />
               <Button variant="primary" size="lg" type="submit">Seek Alfred</Button>
             </form>
           </div>

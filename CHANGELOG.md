@@ -3,6 +3,20 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-23 — Harden verify-craft: JSX outline/z-index forms (Phase 1.5)
+
+Tightened two craft rules that only caught the CSS syntax, missing the JSX inline-style form:
+- **`outline-none-no-focus`** now catches `outline: "none"` / `outlineStyle: "none"` (quoted), not just
+  bare `outline: none`, and its `suppressIf` also recognises the DS's custom-focus patterns
+  (`--shadow-focus` / `--border-focus` rings, `usePress` / `isFocusVisible`) so the 14 components that
+  legitimately replace the outline aren't flagged.
+- **`arbitrary-z-index`** now also catches the camelCase `zIndex: 9999` form.
+
+The tightened outline rule immediately bit **4 real focus-visibility gaps** — raw `<input>`s in the app
+UI-kit screens (Dashboard, Screens2) and two marketing section templates (SectionsB, SectionsD) that set
+`outline: "none"` with no replacement. Fixed by removing the inline `outline: none` so the DS's global
+`:focus-visible` outline (base.css) applies. All six verifiers green.
+
 ## 2026-07-23 — forced-colors (Windows High Contrast) baseline (Phase 1.3, part 3 — completes 1.3)
 
 Adds `tokens/forced-colors.css` (imported by `styles.css`) — a global
