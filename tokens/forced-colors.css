@@ -1,0 +1,30 @@
+/* ============================================================
+   Alfred AI — forced-colors (Windows High Contrast) baseline
+   When the OS forces its own palette, author background-colors flatten to
+   Canvas and box-shadows are dropped — so anything that conveyed focus,
+   elevation or a boundary via those alone disappears. This restores the
+   essentials using the semantic hooks components already emit (:focus-visible,
+   role), so no per-component edits are needed.
+   Scope: a baseline. Deep per-component high-contrast tuning is Phase 2.4.
+   ============================================================ */
+@media (forced-colors: active) {
+  /* Focus must stay visible even on the inner form controls that set inline
+     `outline: none` and show focus via a box-shadow ring — HCM strips shadows,
+     and `!important` beats the non-important inline outline so the keyboard
+     ring survives. The colour is forced to the system focus colour regardless. */
+  :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+
+  /* Floating surfaces separate from the page by shadow, which HCM removes.
+     Give them a system-coloured border so they stay delineated (the roles are
+     emitted by Modal / Drawer / Popover / UpgradeModal, Menu / ModuleSwitcher,
+     the SearchInput / CommandPalette listboxes, and Tooltip). */
+  [role="dialog"],
+  [role="menu"],
+  [role="listbox"],
+  [role="tooltip"] {
+    border: 1px solid CanvasText !important;
+  }
+}
