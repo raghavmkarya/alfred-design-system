@@ -45,9 +45,8 @@ jobs:
       - name: verify-types (.d.ts present + declared + tsc --noEmit)
         run: node scripts/verify-types.mjs
 
-  # OS-independent interaction/behaviour tests (Playwright). Visual-regression
-  # snapshots (tests/visual.spec.js) run locally; gating them in CI needs Linux
-  # baselines — tracked as Phase 1.4a in ROADMAP.md.
+  # OS-independent interaction/behaviour tests (Playwright). These assert DOM
+  # state, not pixels, so a bare runner + a Chromium install is enough.
   interaction:
     runs-on: ubuntu-latest
     steps:
@@ -61,3 +60,28 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Playwright interaction tests
         run: npx playwright test --project=interaction
+
+  # Tri-theme visual regression (light / app-dark / marketing-dark) — the harness
+  # that caught the marketing-dark Banner bug, now a standing gate. Runs in the
+  # version-pinned Playwright container so pixels match the committed *-linux.png
+  # baselines. Seed / re-bless those baselines with the update-visual-baselines
+  # workflow (it regenerates them in this same container). On a diff, the report
+  # is uploaded so the intended-vs-actual can be eyeballed before re-blessing.
+  visual:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.1-jammy
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - name: Playwright visual regression
+        run: npx playwright test --project=visual
+      - name: Upload diff report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diff-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
