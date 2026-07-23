@@ -24,6 +24,7 @@ export const Select = React.forwardRef(function Select(props, ref) {
 
   const [focus, setFocus] = React.useState(false);
   const selId = id || (label ? `sel-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
+  const errId = error && selId ? `${selId}-error` : undefined;
   const bg = fill === "plain" ? "var(--surface-input-plain)" : "var(--surface-input)";
   const border = error
     ? "var(--danger-500)"
@@ -53,6 +54,8 @@ export const Select = React.forwardRef(function Select(props, ref) {
             color: value ? "var(--text-primary)" : "var(--text-placeholder)",
             cursor: disabled ? "not-allowed" : "pointer",
           }}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={errId}
           {...rest}
         >
           {placeholder && <option value="" disabled>{placeholder}</option>}
@@ -60,7 +63,7 @@ export const Select = React.forwardRef(function Select(props, ref) {
         </select>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-placeholder)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ position: "absolute", right: 14, pointerEvents: "none" }}><path d="M6 9l6 6 6-6" /></svg>
       </div>
-      {error && <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--danger-500)" }}>{error}</span>}
+      {error && <span id={errId} role="alert" style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--danger-500)" }}>{error}</span>}
     </div>
   );
 });

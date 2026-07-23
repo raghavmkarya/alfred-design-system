@@ -10,6 +10,8 @@ export interface IconButtonProps {
   shape?: "rounded" | "circle";
   iconRoot?: string;
   title?: string;
+  /** Accessible name for the icon-only button (sets aria-label; falls back to title). */
+  label?: string;
   onClick?: (e: React.MouseEvent) => void;
   disabled?: boolean;
   style?: React.CSSProperties;

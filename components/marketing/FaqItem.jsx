@@ -12,7 +12,7 @@ export function FaqItem({ question, children, open, defaultOpen = false, onToggl
   const panelId = React.useId();
   return (
     <div style={{ borderBottom: "1px solid var(--border-subtle)", ...style }}>
-      <button onClick={toggle} aria-expanded={isOpen} aria-controls={panelId} style={{
+      <button type="button" onClick={toggle} aria-expanded={isOpen} aria-controls={panelId} style={{
         width: "100%", display: "flex", alignItems: "center", gap: 16, padding: "22px 4px",
         background: "transparent", border: "none", cursor: "pointer", textAlign: "left",
         fontFamily: "var(--font-sans)", fontSize: "var(--text-lg)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)",

@@ -24,6 +24,7 @@ export const Input = React.forwardRef(function Input(props, ref) {
 
   const [focus, setFocus] = React.useState(false);
   const inputId = id || (label ? `in-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
+  const errId = error && inputId ? `${inputId}-error` : undefined;
 
   const wrapBg = fill === "plain" ? "var(--surface-input-plain)" : "var(--surface-input)";
   const borderColor = error
@@ -65,12 +66,14 @@ export const Input = React.forwardRef(function Input(props, ref) {
             fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
             color: "var(--text-primary)", height: "100%",
           }}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={errId}
           {...rest}
         />
         {trailing}
       </div>
       {error && (
-        <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--danger-500)" }}>{error}</span>
+        <span id={errId} role="alert" style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--danger-500)" }}>{error}</span>
       )}
     </div>
   );
