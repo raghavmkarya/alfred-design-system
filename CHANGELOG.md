@@ -3,6 +3,21 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-23 — Visual regression gated in CI (Phase 1.4a)
+
+Completes the #30 follow-up: the tri-theme visual suite is now a standing CI gate, not local-only.
+- **`visual` job** in `.github/workflows/verify.yml` runs `tests/visual.spec.js` in the version-pinned
+  Playwright container (`mcr.microsoft.com/playwright:v1.61.1-jammy`, matched to the lockfile so the
+  preinstalled browsers + font stack are deterministic) against committed `*-linux.png` baselines. The
+  diff report is uploaded as an artifact on failure. A re-introduced marketing-dark Banner regression is
+  now a red check, not a manual browser pass.
+- **`.github/workflows/update-visual-baselines.yml`** (`workflow_dispatch`) regenerates the Linux
+  baselines in the *same* container and commits them back to the branch — the "accept a new look" button
+  for when a visual change is intentional.
+- Seeded `gallery-{light,app-dark,dark}-visual-linux.png` (in that container; no Docker locally, so a
+  temporary branch-scoped push trigger bootstrapped them, since `workflow_dispatch` requires the file on
+  the default branch first). `*-darwin.png` retained for local `npm run test:visual`.
+
 ## 2026-07-23 — Playwright harness — interaction tests (CI) + tri-theme visual regression
 
 Phase 1.4. Stands up `tests/` on Playwright, with a permanent tri-theme harness (`tests/harness.html`) —
@@ -14,8 +29,8 @@ the gallery that caught the marketing-dark Banner bug, made permanent — and tw
   committed baselines (platform-suffixed). Run locally with `npm run test:visual`.
 
 Adds `@playwright/test`, `playwright.config.js`, and a tiny static server (`scripts/serve-tests.mjs`).
-**Follow-up (Phase 1.4a):** gate the visual snapshots in CI too — needs Linux baselines generated in the
-CI container (there's no Docker locally to seed them).
+**Follow-up (Phase 1.4a):** ✅ shipped in #31 — the visual snapshots now gate CI (Linux baselines seeded
+in the CI Playwright container). See the Phase 1.4a entry above.
 
 ## 2026-07-22 — Type-check completeness — `tsc --noEmit` now gates the `.d.ts`
 
