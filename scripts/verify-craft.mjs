@@ -64,9 +64,11 @@ const RULES = [
   { id: "hardcoded-easing", why: "use the motion tokens `var(--ease-standard)` / `var(--ease-emphasized)`, not raw curves",
     re: /cubic-bezier\(/, skipFile: (r) => r.startsWith("tokens/") },
   { id: "arbitrary-z-index", why: "use a semantic z-index (`--z-*`), never 999 / 9999",
-    re: /z-index:\s*9{3,}\b/ },
-  { id: "outline-none-no-focus", why: "removing the outline needs a visible focus replacement (:focus / :focus-visible / :focus-within with a ring or border)",
-    re: /outline:\s*(?:none|0)\b/, suppressIf: (t) => /:focus(?:-visible|-within)?\b/.test(t) },
+    re: /(?:z-index|zIndex):\s*["']?9{3,}\b/ },   // CSS z-index and the JSX camelCase zIndex form
+  { id: "outline-none-no-focus", why: "removing the outline needs a visible focus replacement (:focus-visible, a --shadow-focus/--border-focus ring, or usePress/isFocusVisible)",
+    // catches both CSS `outline: none` and the JSX quoted form `outline: "none"` / `outlineStyle: "none"`
+    re: /(?:outline|outline-style|outlineStyle):\s*["']?(?:none|0)\b/,
+    suppressIf: (t) => /:focus(?:-visible|-within)?\b|--shadow-focus|--border-focus|isFocusVisible|usePress|focusVisible/.test(t) },
   { id: "emoji-in-source", why: "no emoji in Alfred surfaces — use the custom single-color SVG icon set (assets/icons/)",
     re: /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F1E6}-\u{1F1FF}]/u },
   { id: "raw-ramp-token", why: "use a theme-aware semantic token (--accent / --accent-soft / --border-focus / --text-link / --info-500 / --surface-* / --text-on-tint-*) — raw ramps don't re-theme across light / dark / app-dark",

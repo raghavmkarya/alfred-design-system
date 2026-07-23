@@ -55,7 +55,7 @@ function Hero({
                 value={email} onChange={(e) => setEmail(e.target.value)} type="email" required
                 placeholder="you@company.com" aria-label="Work email"
                 style={{ flex: 1, height: 48, padding: "0 18px", borderRadius: "var(--radius-md)", border: "1px solid var(--border-default)",
-                  background: "var(--surface-input-plain)", color: "var(--text-primary)", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", outline: "none" }}
+                  background: "var(--surface-input-plain)", color: "var(--text-primary)", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)" }}
               />
               <Button variant="primary" size="lg" type="submit">Join the waitlist</Button>
             </form>
