@@ -1,9 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
 
 /* Two projects:
-   - interaction: OS-independent behaviour assertions — gates CI.
-   - visual: tri-theme screenshot regression — run locally (baselines are
-     platform-suffixed; CI gating needs Linux baselines, tracked as Phase 1.4a). */
+   - interaction: OS-independent behaviour assertions — gates CI on a bare runner.
+   - visual: tri-theme screenshot regression. Baselines are platform-suffixed:
+     *-darwin.png for local dev, *-linux.png committed for the CI `visual` gate
+     (both run in the version-pinned Playwright container). Regenerate the Linux
+     set with the update-visual-baselines workflow. */
 export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,

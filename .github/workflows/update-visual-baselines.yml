@@ -1,0 +1,49 @@
+name: update-visual-baselines
+
+# Manually-triggered maintenance job that (re)generates the Linux visual-regression
+# baselines and commits them back to the triggering branch. Two uses:
+#   1. Seed — the first time, to create the *-linux.png baselines the `visual`
+#      gate in verify.yml needs (macOS dev machines can only commit *-darwin.png).
+#   2. Re-bless — when a visual change is intentional and the `visual` gate goes
+#      red on purpose, run this to accept the new look.
+# It runs in the SAME pinned Playwright container as the gate, so the pixels match.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebless:
+    runs-on: ubuntu-latest
+    # Version-pinned to the @playwright/test version in package-lock.json so the
+    # preinstalled browsers + font stack match the `visual` gate exactly.
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.1-jammy
+    steps:
+      - uses: actions/checkout@v4
+
+      # The container runs as root while the checkout is owned by the runner user;
+      # without this, git refuses to operate ("detected dubious ownership").
+      - name: Trust the workspace
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      # Browsers are preinstalled in the image; npm ci brings @playwright/test itself.
+      - run: npm ci
+
+      - name: Regenerate Linux visual baselines
+        run: npx playwright test --project=visual --update-snapshots
+
+      - name: Commit updated baselines back to the branch
+        run: |
+          ls -1 tests/visual.spec.js-snapshots/*-linux.png \
+            || { echo "::error::No Linux baselines were produced — did the harness load?"; exit 1; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/visual.spec.js-snapshots
+          if git diff --cached --quiet; then
+            echo "Baselines already up to date — nothing to commit."
+            exit 0
+          fi
+          git commit -m "Update Linux visual baselines [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
