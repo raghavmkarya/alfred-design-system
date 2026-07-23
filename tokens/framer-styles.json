@@ -179,12 +179,24 @@
       "dark": "#FFFFFF"
     },
     {
+      "name": "text-on-tint-brand",
+      "light": "#B44E0E",
+      "dark": "#EDA26A"
+    },
+    {
+      "name": "text-on-tint-info",
+      "light": "#5A5AC8",
+      "dark": "#A9B2E9"
+    },
+    {
       "name": "text-on-tint-success",
-      "light": "#1B7A52"
+      "light": "#1B7A52",
+      "dark": "#82CBA4"
     },
     {
       "name": "text-on-tint-danger",
-      "light": "#B5363A"
+      "light": "#B5363A",
+      "dark": "#E09193"
     },
     {
       "name": "chart-1",

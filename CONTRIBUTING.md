@@ -38,7 +38,9 @@ conversation · decision`.
 ## Tokens
 
 `tokens/*.css` is the **source of truth**. After editing tokens, run `node scripts/gen-tokens.mjs`
-to refresh `tokens/tokens.json`, the Tailwind preset, and the Framer style map.
+to refresh `tokens/tokens.json`, the Tailwind preset, and the Framer style map. After any color-token
+change, keep `node scripts/verify-contrast.mjs` green — it enforces WCAG-AA on the token pairs
+components render, across all three themes (add the pair if you introduce a new fg/bg combination).
 
 ## Voice & form
 
@@ -47,7 +49,8 @@ SVG icon set. Soft corners (12/24/32), soft diffuse shadows, orange = action, pe
 
 ## Before syncing
 
-Run all four verifiers (`verify-components`, `verify-render`, `verify-a11y`, `verify-craft`), rebuild the
-bundle, then re-run `/design-sync` — it reads the pin in `.design-sync/config.json` and
-updates the same Claude Design project. **CI runs all four verifiers (and checks the committed bundle
-is fresh) on every PR — see `.github/workflows/verify.yml`; a red check blocks the merge.**
+Run all six verifiers (`verify-components`, `verify-render`, `verify-a11y`, `verify-craft`,
+`verify-types`, `verify-contrast`), rebuild the bundle, then re-run `/design-sync` — it reads the pin
+in `.design-sync/config.json` and updates the same Claude Design project. **CI runs all six verifiers
+(and checks the committed bundle is fresh) on every PR — see `.github/workflows/verify.yml`; a red
+check blocks the merge.** Playwright interaction + visual jobs run there too.

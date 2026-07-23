@@ -3,6 +3,26 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-23 — Programmatic WCAG contrast checker + on-tint AA fixes (Phase 1.3, part 1)
+
+Adds the **6th verifier**, `scripts/verify-contrast.mjs` — a dependency-free WCAG-AA contrast gate.
+It parses `tokens/colors.css` into per-theme token maps (root → theme override, `var()` resolved),
+composites rgba tints to opaque over their real backdrop, and asserts the 66 foreground/background
+pairs components actually render — body text on surfaces, Banner/Callout copy, and Badge/Chip on-tint
+labels — across light / marketing-dark / app-dark at 4.5:1 (text) / 3:1 (large). Wired into
+`verify.yml` and CONTRIBUTING; run `node scripts/verify-contrast.mjs` (or `--audit` for the full table).
+
+It immediately caught 13 real sub-AA pairs, all now fixed:
+- **On-tint label ramp:** darkened `--text-on-tint-brand`/`--text-on-tint-info` in light to clear AA on
+  their tints (same hue, minimal), and gave marketing-dark its own lifted `--text-on-tint-*` shades
+  (mirroring app-dark) so deep light-theme shades no longer sit on the low-alpha dark fills.
+- **Chip:** success/danger labels now use `--text-on-tint-success`/`--text-on-tint-danger` (were raw
+  `-500`, 2.3–3.3:1); the selected pill is ink-on-orange (was white-on-orange, 2.44:1 → 8.35:1).
+
+Note pixel visual-regression can't catch small-text color shifts (they fall under the 2% tolerance) —
+this is exactly the gap the token-level checker closes. Remaining Phase 1.3: expand `verify-a11y` past
+its 53 cases and add `forced-colors` handling.
+
 ## 2026-07-23 — Visual regression gated in CI (Phase 1.4a)
 
 Completes the #30 follow-up: the tri-theme visual suite is now a standing CI gate, not local-only.
