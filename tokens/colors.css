@@ -95,8 +95,8 @@
   /* Text sitting ON the soft tint fills (badges, chips, alert pills).
      Deep shades on the light pastels; app-dark lifts them so they stay
      legible on the low-alpha dark fills. */
-  --text-on-tint-brand:   var(--orange-700);
-  --text-on-tint-info:    var(--periwinkle-600);
+  --text-on-tint-brand:   #B44E0E;   /* darker orange — AA (≥4.5:1) on --warning-100 / --accent-soft */
+  --text-on-tint-info:    #5A5AC8;   /* darker periwinkle — AA (≥4.5:1) on --info-100 */
   --text-on-tint-success: #1B7A52;
   --text-on-tint-danger:  #B5363A;
 
@@ -153,6 +153,14 @@
   --text-placeholder: rgba(255,255,255,0.40);
   --text-on-brand: #FFFFFF;
   --text-link: var(--orange-400);           /* brand-correct; live ships Framer-default #0099FF (defect) */
+
+  /* On-tint label text (badges / chips). Unlifted, the light theme's deep shades
+     fail AA on the low-alpha dark fills below; these lifted shades (mirroring
+     app-dark) read ≥4.5:1 on the dark tint bars. */
+  --text-on-tint-brand:   #EDA26A;
+  --text-on-tint-info:    #A9B2E9;
+  --text-on-tint-success: #82CBA4;
+  --text-on-tint-danger:  #E09193;
 
   --border-subtle: rgba(255,255,255,0.08);  /* live hairlines are white-alpha, not opaque grays */
   --border-default: rgba(255,255,255,0.12);

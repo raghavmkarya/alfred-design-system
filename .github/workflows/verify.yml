@@ -1,8 +1,9 @@
 name: verify
 
-# Gates every PR (and pushes to main) on the design system's five verifiers, and
+# Gates every PR (and pushes to main) on the design system's six verifiers, and
 # fails if the committed bundle is stale. Locks in what the verifiers guarantee:
-# component render health, ARIA/keyboard contracts, craft rules, and type contracts.
+# component render health, ARIA/keyboard contracts, craft rules, type contracts,
+# and WCAG-AA color contrast across all three themes.
 on:
   pull_request:
   push:
@@ -44,6 +45,8 @@ jobs:
         run: node scripts/verify-craft.mjs
       - name: verify-types (.d.ts present + declared + tsc --noEmit)
         run: node scripts/verify-types.mjs
+      - name: verify-contrast (WCAG AA over color tokens, all themes)
+        run: node scripts/verify-contrast.mjs
 
   # OS-independent interaction/behaviour tests (Playwright). These assert DOM
   # state, not pixels, so a bare runner + a Chromium install is enough.

@@ -10,11 +10,12 @@ export function Chip({ children, tone = "neutral", selected = false, onRemove, o
     neutral: ["var(--surface-sunken)", "var(--text-body)"],
     brand: ["var(--accent-soft)", "var(--text-on-tint-brand)"],
     info: ["var(--info-100)", "var(--text-on-tint-info)"],
-    success: ["var(--success-100)", "var(--success-500)"],
+    success: ["var(--success-100)", "var(--text-on-tint-success)"],
     warning: ["var(--warning-100)", "var(--text-on-tint-brand)"],
-    danger: ["var(--danger-100)", "var(--danger-500)"],
+    danger: ["var(--danger-100)", "var(--text-on-tint-danger)"],
   };
-  const [bg, fg] = selected ? ["var(--accent)", "#fff"] : tones[tone] || tones.neutral;
+  // selected pill is solid orange: ink on orange (8.35:1) — orange can't carry white text (2.4:1)
+  const [bg, fg] = selected ? ["var(--accent)", "var(--text-on-orange)"] : tones[tone] || tones.neutral;
   return (
     <span
       onClick={onClick}
