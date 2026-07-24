@@ -5,7 +5,9 @@
    elevation or a boundary via those alone disappears. This restores the
    essentials using the semantic hooks components already emit (:focus-visible,
    role), so no per-component edits are needed.
-   Scope: a baseline. Deep per-component high-contrast tuning is Phase 2.4.
+   Phase 2.4 adds the deep layer below: selected-state visuals and chart colour.
+   Everything here keys off semantic hooks components already emit (:focus-visible,
+   role, aria-selected/checked/current), so there are still no per-component edits.
    ============================================================ */
 @media (forced-colors: active) {
   /* Focus must stay visible even on the inner form controls that set inline
@@ -26,5 +28,50 @@
   [role="listbox"],
   [role="tooltip"] {
     border: 1px solid CanvasText !important;
+  }
+
+  /* —— Phase 2.4: selection ——————————————————————————————————————————————
+     Alfred marks selection with a tinted or orange FILL. HCM flattens every
+     author background to Canvas, so a selected tab, segment, option or nav
+     item became pixel-identical to its unselected siblings — the state was
+     simply gone. `Highlight`/`HighlightText` is the system's own selection
+     pair, and `forced-color-adjust: none` is required for it to survive.
+     Scoped to the interactive selection roles so it can't leak onto ordinary
+     text that happens to carry an aria-current. */
+  [role="radio"][aria-checked="true"],
+  [role="tab"][aria-selected="true"],
+  [role="option"][aria-selected="true"],
+  [role="switch"][aria-checked="true"],
+  [aria-current="page"],
+  [aria-current="step"],
+  [aria-current="true"] {
+    forced-color-adjust: none;
+    background: Highlight !important;
+    color: HighlightText !important;
+    border-color: Highlight !important;
+  }
+  /* the selected item's own descendants must follow it onto the highlight,
+     or the label keeps CanvasText and disappears into the fill */
+  [role="radio"][aria-checked="true"] *,
+  [role="tab"][aria-selected="true"] *,
+  [role="option"][aria-selected="true"] *,
+  [aria-current="page"] *,
+  [aria-current="step"] *,
+  [aria-current="true"] * {
+    forced-color-adjust: none;
+    color: HighlightText !important;
+  }
+
+  /* —— Phase 2.4: charts ——————————————————————————————————————————————————
+     A chart encodes meaning in colour. Forcing the palette collapses every
+     series to a single CanvasText silhouette, which is worse than useless —
+     six lines become one shape. Opting the graphic out keeps the data legible.
+     This is only defensible because every chart also carries a text
+     alternative (`role="img"`/`group` + aria-label, added in the chart a11y
+     contract), so nothing here is colour-only. See guidelines/chart-contract.md. */
+  svg[role="img"],
+  [role="img"] > svg,
+  [role="group"] > svg {
+    forced-color-adjust: none;
   }
 }
