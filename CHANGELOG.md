@@ -3,6 +3,30 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: chart accessibility contract (10 charts had no text alternative)
+
+An audit for gaps the six verifiers miss found a real one: **10 of the 14 charts exposed nothing at
+all to a screen reader** — no `role`, no `aria-label`, no `<title>`/`<desc>`. A bare `<svg>` announces
+silence, so every chart-only number was invisible to assistive tech (WCAG 1.1.1). Four charts
+(Bullet, Gauge, Heatmap, Waterfall) already did it correctly, so the pattern existed; it was just
+applied inconsistently. The gates missed it because `verify-a11y` had **no chart cases at all**.
+
+- **All 14 charts now carry a text alternative**, in one of three shapes by where the information
+  lives: `role="img"` + `aria-label` where the graphic carries the data (Line, Sparkline, Area,
+  Donut, Scatter, StackedBar, Sankey, Gauge, Waterfall, Bullet) · `role="group"` + `aria-label`
+  where values are already readable text (Bar, Funnel, Heatmap) · `role="list"` / `role="listitem"`
+  for Legend, which is a key rather than a graphic.
+- **Every chart takes an `ariaLabel` prop**, with a derived default that states the chart type and
+  data shape and degrades to a `no data` form on empty input (e.g. `"Line chart, 4 points, from 12
+  to 24"`). Declared in all 13 affected `.d.ts` files.
+- **Heatmap `role="figure"` → `role="group"`**: a figure without a caption gives AT nothing extra.
+- **`verify-a11y` 76 → 92 contracts**, including the empty-data and `ariaLabel`-override paths. A
+  chart with no case is a chart that can silently lose its label again.
+- Docs: `guidelines/chart-contract.md` — the contract plus what roadmap 4.4 still owns (shared
+  interaction/tooltip/legend conventions).
+
+ARIA-only: all three tri-theme visual baselines pass unchanged.
+
 ## 2026-07-25: Phase 2.1 — density scale (compact / comfortable / spacious)
 
 The first of the Phase-2 cross-cutting token systems. One attribute now resizes controls, fields,

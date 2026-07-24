@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"b91e4e323f25","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"dc4f74b6865a","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"c6f11d2de789","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"cbcb567f9c68","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"2261a61f2e2b","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"f0a867fad85a","components/core/FileDropzone.jsx":"9ed80010c187","components/core/SegmentedControl.jsx":"c074209d84a1","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"06a68d799d75","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"766a8ca76a30","components/data/ActivityTimeline.jsx":"954051bfc61f","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"514e76d2fcac","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"9acf1f90dd4f","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"0c92800b3175","components/charts/GaugeChart.jsx":"d002c9e548c7","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"0322060ea5f5","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"4f98b60bb2c6","components/overlay/Drawer.jsx":"7720e725a960","components/overlay/Popover.jsx":"ebb9e12a3a12","components/overlay/Tooltip.jsx":"65bf54ffa004","components/feedback/Banner.jsx":"ff051db36967","components/feedback/Callout.jsx":"97ae150912b5","components/marketing/FaqItem.jsx":"87aca3f979e1","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"10d72a624588","components/marketing/SignalCard.jsx":"216e0d9e2766","components/marketing/AgentStatus.jsx":"bd6f98f9f0a9","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"667614f2f797","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"046279df3844","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"14e1c4b68435","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"560f659fa5fc","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"5dcfa05b6c04","components/trust/CausalChain.jsx":"5a1d9ba8a6fa","components/trust/DecisionLog.jsx":"a15180f3241d","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/EvidenceLedger.jsx":"81bac62d94c1","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"3585fc7965c5","components/app/Sidebar.jsx":"40b3447ac962","components/app/StatTile.jsx":"31b14ba88aa1","components/app/DataTable.jsx":"ce93ac313660","components/app/FilterBar.jsx":"7cf8bca46697","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"48a65a8461c7","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"193680a192f3","components/app/CommandPalette.jsx":"1238003d0233","components/app/ModuleSwitcher.jsx":"c5c53ef694f8","components/app/BillingPlanCard.jsx":"0502fa06234c","components/app/DateRangePicker.jsx":"11dc5142703e","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"1a04b3a6d16b","components/conversation/SeekComposer.jsx":"5f4f9973acac","components/conversation/AlfredMessage.jsx":"db4a7874f30e","components/conversation/ThinkingTrace.jsx":"00c46ff1681d","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"796cd1cb6dde","components/decision/GoalPacing.jsx":"631138a96e39","components/decision/AnomalyFlag.jsx":"9fbd7458312c","components/decision/ApprovalGate.jsx":"b8286f191caf","components/decision/DecisionFork.jsx":"229c87ffe226","components/decision/ScenarioSimulator.jsx":"7f275b3018bc"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress"]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"b91e4e323f25","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"dc4f74b6865a","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"c6f11d2de789","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"cbcb567f9c68","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"2261a61f2e2b","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"f0a867fad85a","components/core/FileDropzone.jsx":"9ed80010c187","components/core/SegmentedControl.jsx":"c074209d84a1","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"06a68d799d75","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"766a8ca76a30","components/data/ActivityTimeline.jsx":"954051bfc61f","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"31dd68a45534","components/charts/Heatmap.jsx":"1b0378532285","components/charts/BarChart.jsx":"ed6dfff8dc0f","components/charts/AreaChart.jsx":"220f585db386","components/charts/LineChart.jsx":"896be1148bdf","components/charts/Sparkline.jsx":"710bf16b0f9d","components/charts/DonutChart.jsx":"e2e4ed193988","components/charts/GaugeChart.jsx":"f93e7aa86727","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"cf9037847a3f","components/charts/SankeyChart.jsx":"72397aeeb94a","components/charts/ScatterChart.jsx":"59ab85c9ab62","components/charts/WaterfallChart.jsx":"3a9f0130e079","components/charts/StackedBarChart.jsx":"f873434b8122","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"4f98b60bb2c6","components/overlay/Drawer.jsx":"7720e725a960","components/overlay/Popover.jsx":"ebb9e12a3a12","components/overlay/Tooltip.jsx":"65bf54ffa004","components/feedback/Banner.jsx":"ff051db36967","components/feedback/Callout.jsx":"97ae150912b5","components/marketing/FaqItem.jsx":"87aca3f979e1","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"10d72a624588","components/marketing/SignalCard.jsx":"216e0d9e2766","components/marketing/AgentStatus.jsx":"bd6f98f9f0a9","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"667614f2f797","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"046279df3844","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"14e1c4b68435","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"560f659fa5fc","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"5dcfa05b6c04","components/trust/CausalChain.jsx":"5a1d9ba8a6fa","components/trust/DecisionLog.jsx":"a15180f3241d","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/EvidenceLedger.jsx":"81bac62d94c1","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"3585fc7965c5","components/app/Sidebar.jsx":"40b3447ac962","components/app/StatTile.jsx":"31b14ba88aa1","components/app/DataTable.jsx":"ce93ac313660","components/app/FilterBar.jsx":"7cf8bca46697","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"48a65a8461c7","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"193680a192f3","components/app/CommandPalette.jsx":"1238003d0233","components/app/ModuleSwitcher.jsx":"c5c53ef694f8","components/app/BillingPlanCard.jsx":"0502fa06234c","components/app/DateRangePicker.jsx":"11dc5142703e","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"1a04b3a6d16b","components/conversation/SeekComposer.jsx":"5f4f9973acac","components/conversation/AlfredMessage.jsx":"db4a7874f30e","components/conversation/ThinkingTrace.jsx":"00c46ff1681d","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"796cd1cb6dde","components/decision/GoalPacing.jsx":"631138a96e39","components/decision/AnomalyFlag.jsx":"9fbd7458312c","components/decision/ApprovalGate.jsx":"b8286f191caf","components/decision/DecisionFork.jsx":"229c87ffe226","components/decision/ScenarioSimulator.jsx":"7f275b3018bc"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress"]} */
 
 (() => {
 
@@ -4478,47 +4478,56 @@ const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--ch
 function Legend({
   items = [],
   direction = "row",
+  ariaLabel = "Chart legend",
   style = {}
 }) {
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      flexDirection: direction === "column" ? "column" : "row",
-      flexWrap: "wrap",
-      gap: direction === "column" ? 8 : 18,
-      ...style
-    }
-  }, items.map((it, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    style: {
-      display: "inline-flex",
-      alignItems: "center",
-      gap: 8,
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      width: 11,
-      height: 11,
-      borderRadius: 3,
-      flex: "none",
-      background: it.color || PALETTE[i % PALETTE.length]
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--text-sm)",
-      color: "var(--text-secondary)"
-    }
-  }, it.label), it.value != null && /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--text-sm)",
-      fontWeight: "var(--fw-bold)",
-      color: "var(--text-primary)",
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, it.value))));
+  return (
+    /*#__PURE__*/
+    // A legend is a key: a list of series names, not a graphic. `list`/`listitem`
+    // keeps each entry readable and countable; the swatch itself is decorative.
+    React.createElement("div", {
+      role: "list",
+      "aria-label": ariaLabel,
+      style: {
+        display: "flex",
+        flexDirection: direction === "column" ? "column" : "row",
+        flexWrap: "wrap",
+        gap: direction === "column" ? 8 : 18,
+        ...style
+      }
+    }, items.map((it, i) => /*#__PURE__*/React.createElement("span", {
+      key: i,
+      role: "listitem",
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        width: 11,
+        height: 11,
+        borderRadius: 3,
+        flex: "none",
+        background: it.color || PALETTE[i % PALETTE.length]
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        color: "var(--text-secondary)"
+      }
+    }, it.label), it.value != null && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        fontWeight: "var(--fw-bold)",
+        color: "var(--text-primary)",
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, it.value))))
+  );
 }
 __ds_scope.Legend = Legend;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/Legend.jsx", error: String((e && e.message) || e) }); }
@@ -4545,6 +4554,7 @@ function Heatmap({
   maxValue,
   valueFormat,
   legend = true,
+  ariaLabel = "Intensity heatmap",
   style = {}
 }) {
   const nCols = cols.length;
@@ -4589,109 +4599,114 @@ function Heatmap({
   // soft orange-50 tint rather than vanishing into the surface.
   const cellBg = t => `rgba(${ORANGE_RGB}, ${(0.08 + t * 0.92).toFixed(3)})`;
   const cellFg = t => t >= 0.66 ? "var(--text-on-orange)" : "var(--text-primary)";
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: "100%",
-      ...style
-    },
-    role: "figure",
-    "aria-label": "Intensity heatmap"
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: "100%",
-      overflowX: "auto"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "grid",
-      gridTemplateColumns: `minmax(64px, auto) repeat(${nCols}, minmax(40px, 1fr))`,
-      gap: 6,
-      minWidth: nCols > 6 ? `${nCols * 56 + 72}px` : undefined
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    key: "corner"
-  }), cols.map((c, ci) => /*#__PURE__*/React.createElement("div", {
-    key: `col-${ci}`,
-    style: {
-      ...labelStyle,
-      display: "flex",
-      alignItems: "flex-end",
-      justifyContent: "center",
-      textAlign: "center",
-      paddingBottom: 2
-    }
-  }, c)), rows.map((rLabel, r) => /*#__PURE__*/React.createElement(React.Fragment, {
-    key: `row-${r}`
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      ...labelStyle,
-      color: "var(--text-secondary)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-end",
-      paddingRight: 10,
-      whiteSpace: "nowrap"
-    }
-  }, rLabel), cols.map((cLabel, c) => {
-    const raw = values?.[r]?.[c];
-    const has = typeof raw === "number" && !Number.isNaN(raw);
-    const t = has ? Math.max(0, Math.min(1, raw / top)) : 0;
-    return /*#__PURE__*/React.createElement("div", {
-      key: `cell-${r}-${c}`,
-      title: has ? `${rLabel} · ${cLabel}: ${fmt(raw)}` : `${rLabel} · ${cLabel}`,
+  return (
+    /*#__PURE__*/
+    // `group`, not `figure`: a figure without a caption gives AT nothing extra,
+    // and every cell value here is already readable text.
+    React.createElement("div", {
       style: {
-        minHeight: 42,
+        width: "100%",
+        ...style
+      },
+      role: "group",
+      "aria-label": ariaLabel
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: "100%",
+        overflowX: "auto"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: `minmax(64px, auto) repeat(${nCols}, minmax(40px, 1fr))`,
+        gap: 6,
+        minWidth: nCols > 6 ? `${nCols * 56 + 72}px` : undefined
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      key: "corner"
+    }), cols.map((c, ci) => /*#__PURE__*/React.createElement("div", {
+      key: `col-${ci}`,
+      style: {
+        ...labelStyle,
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "center",
+        textAlign: "center",
+        paddingBottom: 2
+      }
+    }, c)), rows.map((rLabel, r) => /*#__PURE__*/React.createElement(React.Fragment, {
+      key: `row-${r}`
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...labelStyle,
+        color: "var(--text-secondary)",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        borderRadius: "var(--radius-md)",
-        background: has ? cellBg(t) : "var(--surface-sunken)",
-        border: has ? "none" : "1px dashed var(--border-subtle)",
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--text-sm)",
-        fontWeight: "var(--fw-semibold)",
-        letterSpacing: "var(--ls-tight)",
-        fontVariantNumeric: "tabular-nums",
-        color: has ? cellFg(t) : "var(--text-placeholder)"
+        justifyContent: "flex-end",
+        paddingRight: 10,
+        whiteSpace: "nowrap"
       }
-    }, has ? fmt(raw) : "");
-  }))))), legend && /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "center",
-      gap: 10,
-      marginTop: 14
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      ...labelStyle,
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, fmt(dataMin)), /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      flex: 1,
-      maxWidth: 240,
-      height: 8,
-      borderRadius: "var(--radius-pill)",
-      background: "linear-gradient(90deg, var(--orange-50) 0%, var(--orange-200) 45%, var(--orange-500) 100%)",
-      border: "1px solid var(--border-subtle)"
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      ...labelStyle,
-      fontVariantNumeric: "tabular-nums"
-    }
-  }, fmt(top)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      ...labelStyle,
-      marginLeft: 4,
-      fontSize: "var(--text-2xs)",
-      fontWeight: "var(--fw-bold)",
-      textTransform: "uppercase",
-      letterSpacing: "var(--ls-caps)"
-    }
-  }, "Intensity")));
+    }, rLabel), cols.map((cLabel, c) => {
+      const raw = values?.[r]?.[c];
+      const has = typeof raw === "number" && !Number.isNaN(raw);
+      const t = has ? Math.max(0, Math.min(1, raw / top)) : 0;
+      return /*#__PURE__*/React.createElement("div", {
+        key: `cell-${r}-${c}`,
+        title: has ? `${rLabel} · ${cLabel}: ${fmt(raw)}` : `${rLabel} · ${cLabel}`,
+        style: {
+          minHeight: 42,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: "var(--radius-md)",
+          background: has ? cellBg(t) : "var(--surface-sunken)",
+          border: has ? "none" : "1px dashed var(--border-subtle)",
+          fontFamily: "var(--font-sans)",
+          fontSize: "var(--text-sm)",
+          fontWeight: "var(--fw-semibold)",
+          letterSpacing: "var(--ls-tight)",
+          fontVariantNumeric: "tabular-nums",
+          color: has ? cellFg(t) : "var(--text-placeholder)"
+        }
+      }, has ? fmt(raw) : "");
+    }))))), legend && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        marginTop: 14
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...labelStyle,
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, fmt(dataMin)), /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        flex: 1,
+        maxWidth: 240,
+        height: 8,
+        borderRadius: "var(--radius-pill)",
+        background: "linear-gradient(90deg, var(--orange-50) 0%, var(--orange-200) 45%, var(--orange-500) 100%)",
+        border: "1px solid var(--border-subtle)"
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...labelStyle,
+        fontVariantNumeric: "tabular-nums"
+      }
+    }, fmt(top)), /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...labelStyle,
+        marginLeft: 4,
+        fontSize: "var(--text-2xs)",
+        fontWeight: "var(--fw-bold)",
+        textTransform: "uppercase",
+        letterSpacing: "var(--ls-caps)"
+      }
+    }, "Intensity")))
+  );
 }
 __ds_scope.Heatmap = Heatmap;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/Heatmap.jsx", error: String((e && e.message) || e) }); }
@@ -4709,10 +4724,16 @@ function BarChart({
   height = 200,
   max,
   showValues = true,
+  ariaLabel,
   style = {}
 }) {
   const top = max || Math.max(...data.map(d => d.value), 1);
+  // Every bar's label and value is already readable text, so the bars carry no
+  // extra information — the container just needs a name to group them under.
+  const aria = ariaLabel || (data.length ? `Bar chart, ${data.length} bars` : "Bar chart, no data");
   return /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": aria,
     style: {
       width: "100%",
       ...style
@@ -4796,6 +4817,7 @@ function AreaChart({
   yTicks = 4,
   valueFormat,
   fill = true,
+  ariaLabel,
   style = {}
 }) {
   const uid = React.useId().replace(/:/g, "");
@@ -4820,6 +4842,8 @@ function AreaChart({
     length: yTicks + 1
   }, (_, i) => min + span * i / yTicks);
   const every = Math.ceil(n / 8) || 1;
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (series.length ? `Area chart, ${series.length} series (${series.map(s => s.name).filter(Boolean).join(", ")}), ${n} points` : "Area chart, no data");
   return /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
@@ -4829,6 +4853,8 @@ function AreaChart({
     viewBox: `0 0 ${W} ${height}`,
     width: "100%",
     height: height,
+    role: "img",
+    "aria-label": aria,
     style: {
       display: "block"
     }
@@ -4940,6 +4966,7 @@ function LineChart({
   points = [],
   labels = [],
   height = 200,
+  ariaLabel,
   style = {}
 }) {
   const uid = React.useId().replace(/[:]/g, "");
@@ -4950,6 +4977,9 @@ function LineChart({
   const ny = v => height - (v - min) / (max - min || 1) * (height - 30) - 15;
   const line = points.map((v, i) => `${i === 0 ? "M" : "L"} ${nx(i).toFixed(1)} ${ny(v).toFixed(1)}`).join(" ");
   const area = `${line} L ${w} ${height} L 0 ${height} Z`;
+  // Non-text content needs a text alternative (WCAG 1.1.1). The SVG carries the
+  // summary; the label row below stays readable text.
+  const aria = ariaLabel || (points.length ? `Line chart, ${points.length} points, from ${points[0]} to ${points[points.length - 1]}` : "Line chart, no data");
   return /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
@@ -4960,6 +4990,8 @@ function LineChart({
     width: "100%",
     height: height,
     preserveAspectRatio: "none",
+    role: "img",
+    "aria-label": aria,
     style: {
       display: "block"
     }
@@ -5030,6 +5062,7 @@ function Sparkline({
   height = 160,
   stroke = 3,
   fill = true,
+  ariaLabel,
   style = {}
 }) {
   const uid = React.useId().replace(/[:]/g, "");
@@ -5039,11 +5072,15 @@ function Sparkline({
   const ny = v => height - (v - min) / (max - min || 1) * (height - 20) - 10;
   const line = points.map((v, i) => `${i === 0 ? "M" : "L"} ${nx(i).toFixed(1)} ${ny(v).toFixed(1)}`).join(" ");
   const area = `${line} L ${width} ${height} L 0 ${height} Z`;
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (points.length ? `Sparkline, ${points.length} points, from ${points[0]} to ${points[points.length - 1]}` : "Sparkline, no data");
   return /*#__PURE__*/React.createElement("svg", {
     viewBox: `0 0 ${width} ${height}`,
     width: "100%",
     height: height,
     preserveAspectRatio: "none",
+    role: "img",
+    "aria-label": aria,
     style: {
       display: "block",
       ...style
@@ -5102,12 +5139,15 @@ function DonutChart({
   thickness = 22,
   centerLabel,
   centerSub,
+  ariaLabel,
   style = {}
 }) {
   const total = segments.reduce((s, x) => s + x.value, 0) || 1;
   const r = (size - thickness) / 2;
   const c = 2 * Math.PI * r;
   let offset = 0;
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (segments.length ? `Donut chart: ${segments.map(s => `${s.label} ${Math.round(s.value / total * 100)}%`).join(", ")}` : "Donut chart, no data");
   return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
@@ -5119,6 +5159,8 @@ function DonutChart({
     width: size,
     height: size,
     viewBox: `0 0 ${size} ${size}`,
+    role: "img",
+    "aria-label": aria,
     style: {
       transform: "rotate(-90deg)"
     }
@@ -5192,6 +5234,7 @@ function GaugeChart({
   segments = [],
   size = 200,
   valueFormat = v => `${Math.round(v)}`,
+  ariaLabel,
   style = {}
 }) {
   const uid = React.useId().replace(/:/g, "");
@@ -5232,7 +5275,7 @@ function GaugeChart({
   const endY = bottomArc + endFont + 2;
   const H = Math.ceil(endY + endFont * 0.35);
   const valueFont = Math.round(size * 0.26);
-  const aria = `${label ? `${label}: ` : ""}${fmt(value)} of ${fmt(m)}`;
+  const aria = ariaLabel || `${label ? `${label}: ` : ""}${fmt(value)} of ${fmt(m)}`;
   return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
@@ -5508,10 +5551,16 @@ try { (() => {
  */
 function FunnelChart({
   steps = [],
+  ariaLabel,
   style = {}
 }) {
   const top = Math.max(...steps.map(s => s.value), 1);
+  // Every step's label and value is already readable text, so the bars carry no
+  // extra information — the container just needs a name to group them under.
+  const aria = ariaLabel || (steps.length ? `Conversion funnel, ${steps.length} steps` : "Conversion funnel, no data");
   return /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-label": aria,
     style: {
       display: "flex",
       flexDirection: "column",
@@ -5582,6 +5631,7 @@ function SankeyChart({
   height = 300,
   nodeWidth = 14,
   valueFormat = v => Math.round(v),
+  ariaLabel,
   style = {}
 }) {
   const uid = React.useId().replace(/:/g, "");
@@ -5606,6 +5656,8 @@ function SankeyChart({
   const nodeValue = id => Math.max(inflow[id] || 0, outflow[id] || 0);
   const maxCol = nodes.reduce((m, n) => Math.max(m, n.col || 0), 0);
   const colX = col => padL + (maxCol ? col / maxCol : 0) * (plotW - nodeWidth);
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (nodes.length ? `Sankey flow diagram, ${nodes.length} nodes and ${links.length} flows` : "Sankey flow diagram, no data");
 
   // —— group nodes by column (order preserved) ——
   const columns = {};
@@ -5701,6 +5753,8 @@ function SankeyChart({
     viewBox: `0 0 ${W} ${height}`,
     width: "100%",
     height: height,
+    role: "img",
+    "aria-label": aria,
     style: {
       display: "block"
     }
@@ -5841,6 +5895,7 @@ function ScatterChart({
   yMax,
   valueFormatX,
   valueFormatY,
+  ariaLabel,
   style = {}
 }) {
   const uid = React.useId().replace(/:/g, "");
@@ -5866,6 +5921,8 @@ function ScatterChart({
   const yTickVals = Array.from({
     length: Y_TICKS + 1
   }, (_, i) => yTop * i / Y_TICKS);
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (points.length ? `Scatter chart, ${points.length} points${xLabel && yLabel ? `, ${xLabel} against ${yLabel}` : ""}` : "Scatter chart, no data");
   return /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
@@ -5875,6 +5932,8 @@ function ScatterChart({
     viewBox: `0 0 ${W} ${height}`,
     width: "100%",
     height: height,
+    role: "img",
+    "aria-label": aria,
     style: {
       display: "block",
       overflow: "visible"
@@ -6036,6 +6095,7 @@ function WaterfallChart({
   items = [],
   height = 240,
   valueFormat,
+  ariaLabel,
   style = {}
 }) {
   const W = 680,
@@ -6117,7 +6177,7 @@ function WaterfallChart({
     label: "Decrease",
     color: "var(--danger-500)"
   }].filter(Boolean);
-  const aria = items.length ? `Waterfall from ${bars[0].label ?? "start"} to ${bars[bars.length - 1].label ?? "end"}` : "Waterfall chart";
+  const aria = ariaLabel || items.length ? `Waterfall from ${bars[0].label ?? "start"} to ${bars[bars.length - 1].label ?? "end"}` : "Waterfall chart";
   if (bars.length === 0) {
     return /*#__PURE__*/React.createElement("div", {
       style: {
@@ -6295,6 +6355,7 @@ function StackedBarChart({
   height = 220,
   stacked = true,
   valueFormat,
+  ariaLabel,
   style = {}
 }) {
   const uid = React.useId().replace(/:/g, "");
@@ -6323,6 +6384,9 @@ function StackedBarChart({
   const nKeys = keys.length || 1;
   const gGap = nKeys > 1 ? Math.min(6, innerW * 0.05) : 0;
   const gBarW = Math.max((innerW - gGap * (nKeys - 1)) / nKeys, 1);
+
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (data.length ? `${grouped ? "Grouped" : "Stacked"} bar chart, ${data.length} bars across ${keys.length} series (${keys.join(", ")})` : "Bar chart, no data");
   return /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
@@ -6332,6 +6396,8 @@ function StackedBarChart({
     viewBox: `0 0 ${W} ${height}`,
     width: "100%",
     height: height,
+    role: "img",
+    "aria-label": aria,
     style: {
       display: "block"
     }

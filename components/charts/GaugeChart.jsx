@@ -10,7 +10,7 @@ import React from "react";
  * center readout; `label` sits above it and `sub` below. Theme-aware: surfaces
  * and text invert on dark, while the brand gradient stays identical.
  */
-export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segments = [], size = 200, valueFormat = (v) => `${Math.round(v)}`, style = {} }) {
+export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segments = [], size = 200, valueFormat = (v) => `${Math.round(v)}`, ariaLabel, style = {} }) {
   const uid = React.useId().replace(/:/g, "");
 
   const m = max || 1;
@@ -53,7 +53,7 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
   const H = Math.ceil(endY + endFont * 0.35);
 
   const valueFont = Math.round(size * 0.26);
-  const aria = `${label ? `${label}: ` : ""}${fmt(value)} of ${fmt(m)}`;
+  const aria = ariaLabel || `${label ? `${label}: ` : ""}${fmt(value)} of ${fmt(m)}`;
 
   return (
     <div style={{ position: "relative", width: size, ...style }}>

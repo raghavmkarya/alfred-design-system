@@ -31,7 +31,7 @@ const niceMax = (v, ticks) => {
   return Math.ceil(v / step) * step;
 };
 
-export function ScatterChart({ points = [], xLabel, yLabel, height = 260, xMax, yMax, valueFormatX, valueFormatY, style = {} }) {
+export function ScatterChart({ points = [], xLabel, yLabel, height = 260, xMax, yMax, valueFormatX, valueFormatY, ariaLabel, style = {} }) {
   const uid = React.useId().replace(/:/g, "");
   const W = 660, padL = 54, padR = 18, padT = 16, padB = 46;
   const plotW = W - padL - padR, plotH = height - padT - padB;
@@ -49,10 +49,14 @@ export function ScatterChart({ points = [], xLabel, yLabel, height = 260, xMax, 
 
   const xTickVals = Array.from({ length: X_TICKS + 1 }, (_, i) => (xTop * i) / X_TICKS);
   const yTickVals = Array.from({ length: Y_TICKS + 1 }, (_, i) => (yTop * i) / Y_TICKS);
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (points.length
+    ? `Scatter chart, ${points.length} points${xLabel && yLabel ? `, ${xLabel} against ${yLabel}` : ""}`
+    : "Scatter chart, no data");
 
   return (
     <div style={{ width: "100%", ...style }}>
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} style={{ display: "block", overflow: "visible" }}>
+      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block", overflow: "visible" }}>
         <defs>
           {points.map((p, i) => {
             const c = p.color || PALETTE[i % PALETTE.length];

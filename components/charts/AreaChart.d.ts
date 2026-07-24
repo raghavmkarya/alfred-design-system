@@ -16,6 +16,8 @@ export interface AreaChartProps {
   valueFormat?: (value: number) => React.ReactNode;
   /** Fill the area under each line with a gradient. @default true */
   fill?: boolean;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** Multi-series area/line trend with gridlines, axis labels, and an inline legend. */

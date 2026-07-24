@@ -14,7 +14,7 @@ import React from "react";
 // Shared categorical palette (--chart-1..8); kept at 6 entries so node cycling is unchanged.
 const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 
-export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 14, valueFormat = (v) => Math.round(v), style = {} }) {
+export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 14, valueFormat = (v) => Math.round(v), ariaLabel, style = {} }) {
   const uid = React.useId().replace(/:/g, "");
   const [hover, setHover] = React.useState(null);
 
@@ -34,6 +34,10 @@ export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 
 
   const maxCol = nodes.reduce((m, n) => Math.max(m, n.col || 0), 0);
   const colX = (col) => padL + (maxCol ? col / maxCol : 0) * (plotW - nodeWidth);
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (nodes.length
+    ? `Sankey flow diagram, ${nodes.length} nodes and ${links.length} flows`
+    : "Sankey flow diagram, no data");
 
   // —— group nodes by column (order preserved) ——
   const columns = {};
@@ -110,7 +114,7 @@ export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 
 
   return (
     <div style={{ width: "100%", ...style }}>
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} style={{ display: "block" }}>
+      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           {nodes.map((n, i) => (
             <linearGradient key={n.id} id={`${uid}g${i}`} x1="0" y1="0" x2="1" y2="0">

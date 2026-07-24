@@ -19,6 +19,8 @@ export interface GaugeChartProps {
   size?: number;
   /** Formats the center readout and end labels. @default (v) => `${Math.round(v)}` */
   valueFormat?: (value: number) => React.ReactNode;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** A 270° radial gauge for a single score with a brand-gradient value arc. */
