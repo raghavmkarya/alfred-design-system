@@ -172,13 +172,36 @@ Phase-1 type/test work on charts.
   pass); `arbitrary-z-index` now catches camelCase `zIndex:9999`. Bit 4 real focus gaps (raw `<input>`s in
   ui_kits/templates demos) → fixed by removing the inline `outline:none`.
 
-### Immediate next PRs (in order): **Phase 2: systematize the tokens**
-1. **2.1 density scale** (`--density-*` / spacing multiplier: compact / comfortable / spacious).
-2. **2.2 elevation system** (name + tokenize the `--shadow-*` ramp: surface → raised → overlay → popover).
-3. **2.3 RTL / logical properties** (physical → logical props + a guard rule; same shape as the raw-ramp sweep).
-4. **2.4 deep forced-colors** (per-component HCM tuning + selected-state visuals + an HCM render test).
-Then **Phase 3** (docs playground, npm, Figma parity, sync-drift cron) and **Phase 4** (illustration,
-motion, icon expansion, data-viz consistency).
+### ✅ Phase 2 (systematize the tokens) — COMPLETE, 2026-07-25
+
+- ✅ **2.1 density scale** (PR #38): `tokens/density.css`, 20 `--density-*` tokens × 4 scopes
+  (`:root` + compact/comfortable/spacious); 11 components migrated; `density-contract` craft rule;
+  3 interaction tests. Comfortable is byte-identical to the pre-scale values, so visually neutral.
+- ✅ **chart a11y contract** (PR #40, an audit finding, not a planned item): **10 of the 14 charts
+  exposed nothing at all to a screen reader**. All 14 now carry a text alternative; `ariaLabel` prop;
+  `verify-a11y` 76 → 92. This closes the a11y half of **4.4**.
+- ✅ **2.2 elevation system** (PR #41): six semantic steps (`flat` → `modal`) that **alias** the
+  `--shadow-*` ramp. Found and fixed **marketing-dark never overriding the ramp**, so every elevated
+  surface on that theme rendered flat. 49 components migrated; 2 new craft rules.
+- ✅ **2.3 RTL / logical properties** (PR #42): ~110 physical declarations → logical across 40+
+  components; three categories deliberately stay physical with `rtl-ok` markers (50% centring, chart
+  coordinate space, physical placement APIs); `physical-inline-prop` rule; a mirrored-render test.
+  Logical props are invisible in LTR, so the RTL test is the only real evidence the migration worked.
+- ✅ **2.4 deep forced-colors** (PR #43): under HCM **a selected segment computed to identical colors
+  as an unselected one** — selection was invisible. Restored via `Highlight`/`HighlightText`; chart
+  colour opted out of forcing (justified by the #40 text alternatives); new `forced-colors` Playwright
+  project gating CI; `--text-display` closed out and pinned by 6 new contrast pairs (66 → 72).
+
+**Gates now:** 6 verifiers (92 a11y contracts · 14 craft rules · 72 contrast pairs · 115 typed) +
+3 Playwright projects (8 interaction · 3 visual · 5 forced-colors) across 4 CI jobs.
+
+### Immediate next PRs (in order): **Phase 3 — open the doors (DX + distribution)**
+0. **Sync to claude.ai/design** (blocked on `/design-login`; six merges of drift).
+1. **3.1 interactive docs / playground** — the single biggest adoption unlock.
+2. **3.2 npm package + semver**.
+3. **3.3 Figma library parity** (mind the MCP's Google-Fonts-only limitation).
+4. **3.4 scheduled sync-drift cron** — would have caught the current drift automatically.
+Then **Phase 4** (illustration, motion, icon expansion, and 4.4's remaining *interaction* half).
 
 ## The strategic fork (your call)
 
