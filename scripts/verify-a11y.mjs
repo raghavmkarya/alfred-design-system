@@ -187,6 +187,10 @@ const CASES = [
     [/<textarea[^>]*aria-label="Ask Alfred"/, /title="Add context" aria-label="Add context"/, /disabled="" aria-label="Send to Alfred"/]],
   ["PromptSuggestions", "PromptSuggestions", { title: "Try asking", onSelect: noop, suggestions: ["Where should I move budget?", "Which creatives are fatiguing?"] },
     [/<button type="button"/, /aria-hidden="true"/, />Where should I move budget\?<\/span>/]],
+  ["EvidenceLedger", "EvidenceLedger", { confidence: 82, onSourceOpen: noop, evidence: [{ source: "LinkedIn Ads", stance: "supports", finding: "Pipeline per dollar improved." }, { source: "Finance plan", stance: "contradicts", finding: "Search would fall below its floor." }] },
+    [/aria-label="Evidence ledger"/, /role="meter"/, /aria-valuenow="82"/, /role="list"/, /role="listitem"/, /<button type="button"/]],
+  ["DecisionFork", "DecisionFork", { onSelect: noop },
+    [/role="radiogroup"/, /aria-label="Decision options"/, /role="radio"/, /aria-checked="true"/, /<button type="button"/]],
 ];
 
 let fail = 0;

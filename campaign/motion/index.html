@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred motion toolkit</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../campaign.css" />
+  <link rel="stylesheet" href="./motion.css" />
+</head>
+<body>
+  <main class="motion-shell">
+    <section class="motion-stage" id="motion-stage" aria-label="Alfred campaign motion master">
+      <div class="motion-glow"></div>
+      <header><img src="../../assets/logos/alfred-logo-white.svg" alt="Alfred" /><span id="motion-time"></span></header>
+      <div class="motion-copy">
+        <p>Decision intelligence</p>
+        <h1>Know what changed.<br />Decide what to do.</h1>
+      </div>
+      <div class="motion-flow" aria-label="Signal to evidence to recommendation to action">
+        <span>Signal</span><i></i><span>Evidence</span><i></i><span>Recommendation</span><i></i><span>Action</span>
+      </div>
+      <div class="motion-product">
+        <div><small>Northwind Labs demo</small><strong>Daily Brief</strong></div>
+        <p>Paid demand softened while branded discovery rose.</p>
+        <div class="motion-bars"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="motion-core"><strong>A<small>Alfred Core</small></strong><i></i><i></i></div>
+      <blockquote class="motion-quote">Every decision should make the next decision better.<footer>Founder quote treatment</footer></blockquote>
+      <div class="motion-end"><strong>Seek Alfred</strong><span>Funding details remain restricted</span></div>
+      <footer class="motion-footer"><span id="motion-sequence"></span><span>Static poster remains complete</span></footer>
+    </section>
+    <form class="motion-controls" id="motion-controls">
+      <button type="button" id="motion-play">Play</button>
+      <label>Time<input type="range" id="motion-scrubber" min="0" max="15" step="0.01" value="0" /></label>
+      <label>Duration<select id="motion-duration"><option>6</option><option>10</option><option selected>15</option><option>30</option></select></label>
+      <label>Ratio<select id="motion-ratio"><option>horizontal</option><option>square</option><option>portrait</option><option>vertical</option></select></label>
+    </form>
+  </main>
+  <script src="../generated/alfred-flagship-launch/motion-timelines.js"></script>
+  <script src="./motion.js"></script>
+</body>
+</html>

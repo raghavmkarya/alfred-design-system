@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "campaignId": "alfred-flagship-launch",
+  "assets": [
+    { "assetId": "alfred-primary-logo", "kind": "logo", "status": "public", "source": "assets/logos/alfred-logo-primary.svg", "alt": "Alfred primary logo" },
+    { "assetId": "alfred-white-logo", "kind": "logo", "status": "public", "source": "assets/logos/alfred-logo-white.svg", "alt": "Alfred white logo" },
+    { "assetId": "daily-brief-demo", "kind": "product-shot", "status": "public", "source": "campaign/generated/alfred-flagship-launch/previews/alfred-flagship-launch__product-proof__linkedin-portrait__product-led__short__dark__v0_1_0__1x.png", "alt": "Alfred Daily Brief shown with Northwind Labs demo data" },
+    { "assetId": "company-description", "kind": "company-description", "status": "draft", "source": "flagship-launch.example.json#boilerplate-standard", "alt": "Draft company description" },
+    { "assetId": "founder-photo", "kind": "founder-photo", "status": "unavailable", "source": null, "alt": "Founder photograph pending approval" }
+  ],
+  "publicBundle": ["alfred-primary-logo", "alfred-white-logo", "daily-brief-demo"]
+}

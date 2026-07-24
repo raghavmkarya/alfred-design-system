@@ -1,0 +1,11 @@
+{
+  "campaignId": "alfred-flagship-launch",
+  "blocking": true,
+  "warnings": [
+    "campaign-content-not-public",
+    "release-date-missing",
+    "funding-remains-restricted",
+    "approval-owner-missing",
+    "unresolved-placeholders:7"
+  ]
+}

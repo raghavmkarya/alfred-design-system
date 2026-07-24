@@ -1,0 +1,495 @@
+{
+  "$schema": "../../schemas/campaign-content.schema.json",
+  "campaignId": "alfred-flagship-launch",
+  "campaignName": "Alfred Flagship Launch",
+  "version": "0.1.0",
+  "lifecycle": "draft",
+  "narrative": {
+    "category": "decision intelligence",
+    "summary": {
+      "contentId": "narrative-summary",
+      "value": "[APPROVED CAMPAIGN SUMMARY]",
+      "state": "draft",
+      "ownerCode": "MKT",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "MKT",
+        "assignee": "Raghav",
+        "evidence": null,
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    },
+    "storyBeats": [
+      {
+        "contentId": "story-signal",
+        "value": "Signals arrive across the connected business stack.",
+        "state": "draft",
+        "ownerCode": "MKT",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "MKT",
+          "assignee": "Raghav",
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      },
+      {
+        "contentId": "story-evidence",
+        "value": "Alfred connects each signal to evidence and provenance.",
+        "state": "draft",
+        "ownerCode": "MKT",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "MKT",
+          "assignee": "Raghav",
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      },
+      {
+        "contentId": "story-decision",
+        "value": "Evidence becomes a recommendation a leader can evaluate.",
+        "state": "draft",
+        "ownerCode": "MKT",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "MKT",
+          "assignee": "Raghav",
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      },
+      {
+        "contentId": "story-action",
+        "value": "Approved action and its outcome become organizational memory.",
+        "state": "draft",
+        "ownerCode": "MKT",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "MKT",
+          "assignee": "Raghav",
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      }
+    ]
+  },
+  "audiences": [
+    "general-market",
+    "prospects",
+    "customers",
+    "founders",
+    "investors",
+    "press",
+    "employees",
+    "partners",
+    "candidates",
+    "internal-launch-team"
+  ],
+  "release": {
+    "releaseAt": null,
+    "timezone": "Asia/Kolkata",
+    "embargoUntil": null,
+    "publicUrls": {
+      "announcement": null,
+      "press": null,
+      "mediaKit": null
+    }
+  },
+  "owners": [
+    {
+      "code": "MKT",
+      "role": "Head of Marketing and campaign DRI",
+      "assignee": "Raghav",
+      "email": "raghav@e902.ai"
+    },
+    {
+      "code": "EXEC",
+      "role": "Founder or CEO",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "FUND",
+      "role": "Fundraising or finance lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "LEGAL",
+      "role": "Legal counsel",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "PRODUCT",
+      "role": "Product lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "DESIGN",
+      "role": "Design-system or creative lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "PRESS",
+      "role": "Communications or PR lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "RESEARCH",
+      "role": "Research or content fact-check lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "SECURITY",
+      "role": "Security or data-governance lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "PEOPLE",
+      "role": "People or recruiting lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "WEB",
+      "role": "Web production lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "CRM",
+      "role": "Lifecycle or email lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "SOCIAL",
+      "role": "Social or content lead",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "ACCESS",
+      "role": "Accessibility reviewer",
+      "assignee": null,
+      "email": null
+    },
+    {
+      "code": "RELEASE",
+      "role": "Campaign production and release lead",
+      "assignee": null,
+      "email": null
+    }
+  ],
+  "messaging": {
+    "categoryDefinition": {
+      "contentId": "category-definition",
+      "value": "Decision intelligence detects what changed, explains why, and recommends what to do next.",
+      "state": "draft",
+      "ownerCode": "MKT",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "MKT",
+        "assignee": "Raghav",
+        "evidence": "guidelines/voice-and-naming.md",
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    },
+    "headlines": {
+      "primary": {
+        "contentId": "headline-primary",
+        "value": "[APPROVED FLAGSHIP HEADLINE]",
+        "state": "draft",
+        "ownerCode": "MKT",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "MKT",
+          "assignee": "Raghav",
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      },
+      "short": [
+        {
+          "contentId": "headline-short-decision",
+          "value": "Know what changed. Decide what to do.",
+          "state": "draft",
+          "ownerCode": "MKT",
+          "approval": {
+            "status": "pending",
+            "ownerCode": "MKT",
+            "assignee": "Raghav",
+            "evidence": "guidelines/voice-and-naming.md",
+            "approvedBy": null,
+            "approvedAt": null,
+            "expiresAt": null
+          }
+        }
+      ],
+      "medium": [
+        {
+          "contentId": "headline-medium-decision",
+          "value": "Turn every signal into an evidence-backed decision.",
+          "state": "draft",
+          "ownerCode": "MKT",
+          "approval": {
+            "status": "pending",
+            "ownerCode": "MKT",
+            "assignee": "Raghav",
+            "evidence": "guidelines/voice-and-naming.md",
+            "approvedBy": null,
+            "approvedAt": null,
+            "expiresAt": null
+          }
+        }
+      ],
+      "long": [
+        {
+          "contentId": "headline-long-decision",
+          "value": "Detect what changed, understand why, and choose the next approved action.",
+          "state": "draft",
+          "ownerCode": "MKT",
+          "approval": {
+            "status": "pending",
+            "ownerCode": "MKT",
+            "assignee": "Raghav",
+            "evidence": "guidelines/voice-and-naming.md",
+            "approvedBy": null,
+            "approvedAt": null,
+            "expiresAt": null
+          }
+        }
+      ]
+    },
+    "supportingCopy": [],
+    "ctas": [
+      {
+        "ctaId": "cta-seek-alfred",
+        "label": "Seek Alfred",
+        "destination": "https://seekalfred.ai/",
+        "state": "draft",
+        "ownerCode": "MKT",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "MKT",
+          "assignee": "Raghav",
+          "evidence": "guidelines/voice-and-naming.md",
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      }
+    ],
+    "companyBoilerplate": {
+      "short": {
+        "contentId": "boilerplate-short",
+        "value": "[APPROVED SHORT COMPANY DESCRIPTION]",
+        "state": "draft",
+        "ownerCode": "PRESS",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "PRESS",
+          "assignee": null,
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      },
+      "standard": {
+        "contentId": "boilerplate-standard",
+        "value": "[APPROVED STANDARD COMPANY DESCRIPTION]",
+        "state": "draft",
+        "ownerCode": "PRESS",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "PRESS",
+          "assignee": null,
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      },
+      "extended": {
+        "contentId": "boilerplate-extended",
+        "value": "[APPROVED EXTENDED COMPANY DESCRIPTION]",
+        "state": "draft",
+        "ownerCode": "PRESS",
+        "approval": {
+          "status": "pending",
+          "ownerCode": "PRESS",
+          "assignee": null,
+          "evidence": null,
+          "approvedBy": null,
+          "approvedAt": null,
+          "expiresAt": null
+        }
+      }
+    }
+  },
+  "proofPoints": [
+    {
+      "claimId": "northwind-zero-conversion-spend",
+      "statement": "Northwind Labs has a demo campaign spending $4.8K with zero conversions.",
+      "classification": "northwind-demo",
+      "citationIds": [],
+      "demoDataPath": "$.campaigns[2]",
+      "visibleLabel": "Northwind Labs demo",
+      "state": "draft",
+      "ownerCode": "PRODUCT",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "PRODUCT",
+        "assignee": null,
+        "evidence": "data/demo-data.json",
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    },
+    {
+      "claimId": "funding-amount-placeholder",
+      "statement": "[APPROVED FUNDING AMOUNT]",
+      "classification": "placeholder",
+      "citationIds": [],
+      "demoDataPath": null,
+      "visibleLabel": null,
+      "state": "draft",
+      "ownerCode": "FUND",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "FUND",
+        "assignee": null,
+        "evidence": null,
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    }
+  ],
+  "citations": [],
+  "people": [],
+  "quotes": [],
+  "funding": {
+    "visibility": "restricted",
+    "distribution": {
+      "includeInDefaultGallery": false,
+      "includeInDefaultExport": false
+    },
+    "roundType": null,
+    "amount": null,
+    "closeDate": null,
+    "investors": [],
+    "useOfFunds": [],
+    "quoteIds": [],
+    "approval": {
+      "status": "pending",
+      "ownerCode": "FUND",
+      "assignee": null,
+      "evidence": null,
+      "approvedBy": null,
+      "approvedAt": null,
+      "expiresAt": null
+    }
+  },
+  "legal": {
+    "entityName": {
+      "contentId": "legal-entity",
+      "value": "E902 AI Labs Private Limited",
+      "state": "draft",
+      "ownerCode": "LEGAL",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "LEGAL",
+        "assignee": null,
+        "evidence": "guidelines/voice-and-naming.md",
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    },
+    "pressContact": {
+      "contentId": "press-contact",
+      "value": "[APPROVED PRESS CONTACT]",
+      "state": "draft",
+      "ownerCode": "PRESS",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "PRESS",
+        "assignee": null,
+        "evidence": null,
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    },
+    "supportContact": {
+      "contentId": "support-contact",
+      "value": "hello@seekalfred.ai",
+      "state": "draft",
+      "ownerCode": "LEGAL",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "LEGAL",
+        "assignee": null,
+        "evidence": "guidelines/voice-and-naming.md",
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    },
+    "disclaimers": []
+  },
+  "channelPacks": [
+    {
+      "packId": "website-launch-pack",
+      "channel": "website",
+      "audiences": [
+        "general-market",
+        "prospects",
+        "investors",
+        "press"
+      ],
+      "contentIds": [
+        "category-definition",
+        "headline-primary",
+        "narrative-summary",
+        "cta-seek-alfred",
+        "boilerplate-standard"
+      ],
+      "state": "draft",
+      "ownerCode": "WEB",
+      "approval": {
+        "status": "pending",
+        "ownerCode": "WEB",
+        "assignee": null,
+        "evidence": null,
+        "approvedBy": null,
+        "approvedAt": null,
+        "expiresAt": null
+      }
+    }
+  ]
+}

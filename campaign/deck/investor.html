@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred investor system</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../campaign.css" />
+  <link rel="stylesheet" href="./investor.css" />
+</head>
+<body>
+  <header class="deck-controls">
+    <img src="../../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    <nav aria-label="Deck views">
+      <a href="?view=deck">Investor deck</a>
+      <a href="?view=teaser">Investor teaser</a>
+      <a href="?view=summary">Executive summary</a>
+      <a href="?view=data-room">Data room</a>
+      <a href="?view=deck&mode=public">Public adaptation</a>
+    </nav>
+  </header>
+  <main id="deck-root"></main>
+  <script src="../generated/alfred-flagship-launch/catalog.js"></script>
+  <script src="../generated/alfred-flagship-launch/investor-deck.js"></script>
+  <script src="../primitives.js"></script>
+  <script src="./investor.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "personality": {
+    "intent": "Calm, confident, explanatory",
+    "defaultDamping": 1,
+    "defaultResponseSeconds": 0.4,
+    "momentumDamping": 0.8,
+    "momentumResponseSeconds": 0.4,
+    "transitionCurve": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "loops": false,
+    "flashes": false
+  },
+  "ratios": [
+    { "id": "horizontal", "width": 1280, "height": 720 },
+    { "id": "square", "width": 1080, "height": 1080 },
+    { "id": "portrait", "width": 1080, "height": 1350 },
+    { "id": "vertical", "width": 1080, "height": 1920 }
+  ],
+  "sequences": [
+    { "id": "logo-reveal", "purpose": "Establish identity", "reusable": true },
+    { "id": "category-reveal", "purpose": "Define decision intelligence", "reusable": true },
+    { "id": "kinetic-headline", "purpose": "Establish message hierarchy", "reusable": true },
+    { "id": "decision-flow", "purpose": "Explain signal to evidence to recommendation to action", "reusable": true },
+    { "id": "alfred-core-memory", "purpose": "Explain compounding decision memory", "reusable": true },
+    { "id": "product-window", "purpose": "Reveal accurate product proof and annotations", "reusable": true },
+    { "id": "metric-reveal", "purpose": "Reveal a sourced or demo-labeled metric", "reusable": true },
+    { "id": "founder-quote", "purpose": "Attribute founder perspective", "reusable": true },
+    { "id": "press-quote", "purpose": "Attribute approved publication coverage", "reusable": true },
+    { "id": "funding-end-card", "purpose": "Close a public or restricted funding sequence", "reusable": false },
+    { "id": "story-title", "purpose": "Orient story and reel viewers", "reusable": true }
+  ],
+  "timelines": [
+    {
+      "duration": 6,
+      "cues": [
+        { "at": 0, "sequence": "logo-reveal" },
+        { "at": 0.8, "sequence": "kinetic-headline" },
+        { "at": 2.2, "sequence": "decision-flow" },
+        { "at": 4.6, "sequence": "funding-end-card" }
+      ]
+    },
+    {
+      "duration": 10,
+      "cues": [
+        { "at": 0, "sequence": "logo-reveal" },
+        { "at": 0.8, "sequence": "category-reveal" },
+        { "at": 2.5, "sequence": "decision-flow" },
+        { "at": 5.4, "sequence": "product-window" },
+        { "at": 8.2, "sequence": "funding-end-card" }
+      ]
+    },
+    {
+      "duration": 15,
+      "cues": [
+        { "at": 0, "sequence": "logo-reveal" },
+        { "at": 0.8, "sequence": "category-reveal" },
+        { "at": 2.6, "sequence": "decision-flow" },
+        { "at": 6, "sequence": "product-window" },
+        { "at": 9, "sequence": "alfred-core-memory" },
+        { "at": 12.8, "sequence": "funding-end-card" }
+      ]
+    },
+    {
+      "duration": 30,
+      "cues": [
+        { "at": 0, "sequence": "logo-reveal" },
+        { "at": 1, "sequence": "category-reveal" },
+        { "at": 4, "sequence": "kinetic-headline" },
+        { "at": 7, "sequence": "decision-flow" },
+        { "at": 12, "sequence": "product-window" },
+        { "at": 17, "sequence": "alfred-core-memory" },
+        { "at": 22, "sequence": "founder-quote" },
+        { "at": 26, "sequence": "press-quote" },
+        { "at": 28.4, "sequence": "funding-end-card" }
+      ]
+    }
+  ]
+}

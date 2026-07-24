@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="760x1340" name="Trust — confidence, sources, recommendations, decision log, causal chain" subtitle="The no-black-box primitives: traceable, confident, approvable" -->
+<!-- @dsCard group="Components" viewport="760x1900" name="Trust: evidence, confidence, sources and decisions" subtitle="The glass-box primitives: evidence can support, challenge and explain" -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,10 +20,14 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { RecommendationCard, CausalChain, DecisionLog, ConfidenceMeter, SourceTrace, DataFreshness } = window.AlfredAIDesignSystem_1ce241;
+const { RecommendationCard, EvidenceLedger, CausalChain, DecisionLog, ConfidenceMeter, SourceTrace, DataFreshness } = window.AlfredAIDesignSystem_1ce241;
 function Demo() {
   return (
     <div className="grid">
+      <div className="panel span2">
+        <div className="lbl">EvidenceLedger: inspect the claim, including contradictions</div>
+        <EvidenceLedger />
+      </div>
       <div className="panel span2">
         <div className="lbl">RecommendationCard — the draft → approve → act loop</div>
         <RecommendationCard

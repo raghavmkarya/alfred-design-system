@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred campaign gallery</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="./gallery.css" />
+</head>
+<body>
+  <header class="gallery-head">
+    <div>
+      <p>Alfred launch factory</p>
+      <h1>Campaign gallery</h1>
+    </div>
+    <div class="gallery-status" id="gallery-status"></div>
+  </header>
+  <form class="filters" id="filters">
+    <label>Campaign<select name="campaignId"><option value="">All campaigns</option></select></label>
+    <label>Family<select name="family"><option value="">All families</option></select></label>
+    <label>Platform<select name="platform"><option value="">All platforms</option></select></label>
+    <label>Placement<select name="placement"><option value="">All placements</option></select></label>
+    <label>Composition<select name="composition"><option value="">All compositions</option></select></label>
+    <label>Theme<select name="theme"><option value="">All themes</option></select></label>
+    <label>Copy<select name="copyMode"><option value="">All copy modes</option></select></label>
+    <label>Approval<select name="approvalState"><option value="">All approval states</option></select></label>
+    <label>Output<select name="outputType"><option value="">All output types</option></select></label>
+    <label>Crop<select name="crop"><option value="">No crop preview</option><option value="feed">Feed safe</option><option value="story">Story safe</option><option value="profile-grid">Profile grid</option><option value="banner">Banner safe</option><option value="cover">Cover safe</option><option value="event">Event safe</option></select></label>
+    <label class="toggle"><input type="checkbox" name="safe" /> Safe zones</label>
+  </form>
+  <main class="gallery-grid" id="gallery-grid"></main>
+  <nav class="pager" aria-label="Gallery pages">
+    <button type="button" id="previous">Previous</button>
+    <span id="page-label"></span>
+    <button type="button" id="next">Next</button>
+  </nav>
+  <script src="./generated/alfred-flagship-launch/catalog.js"></script>
+  <script src="./gallery.js"></script>
+</body>
+</html>

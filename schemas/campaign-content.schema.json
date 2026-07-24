@@ -1,0 +1,903 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seekalfred.ai/schemas/campaign-content.schema.json",
+  "title": "Alfred campaign content",
+  "description": "Approved campaign facts and messaging, separated from visual layout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "campaignId",
+    "campaignName",
+    "version",
+    "lifecycle",
+    "narrative",
+    "audiences",
+    "release",
+    "owners",
+    "messaging",
+    "proofPoints",
+    "citations",
+    "people",
+    "quotes",
+    "funding",
+    "legal",
+    "channelPacks"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "campaignId": {
+      "$ref": "#/$defs/slug"
+    },
+    "campaignName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "lifecycle": {
+      "$ref": "#/$defs/lifecycle"
+    },
+    "narrative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "summary",
+        "storyBeats"
+      ],
+      "properties": {
+        "category": {
+          "const": "decision intelligence"
+        },
+        "summary": {
+          "$ref": "#/$defs/contentValue"
+        },
+        "storyBeats": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "$ref": "#/$defs/contentValue"
+          }
+        }
+      }
+    },
+    "audiences": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "general-market",
+          "prospects",
+          "waitlist",
+          "customers",
+          "founders",
+          "investors",
+          "press",
+          "employees",
+          "partners",
+          "candidates",
+          "internal-launch-team"
+        ]
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "releaseAt",
+        "timezone",
+        "embargoUntil",
+        "publicUrls"
+      ],
+      "properties": {
+        "releaseAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "embargoUntil": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "publicUrls": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "owners": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/owner"
+      }
+    },
+    "messaging": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "categoryDefinition",
+        "headlines",
+        "supportingCopy",
+        "ctas",
+        "companyBoilerplate"
+      ],
+      "properties": {
+        "categoryDefinition": {
+          "$ref": "#/$defs/contentValue"
+        },
+        "headlines": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "primary",
+            "short",
+            "medium",
+            "long"
+          ],
+          "properties": {
+            "primary": {
+              "$ref": "#/$defs/contentValue"
+            },
+            "short": {
+              "$ref": "#/$defs/contentValueArray"
+            },
+            "medium": {
+              "$ref": "#/$defs/contentValueArray"
+            },
+            "long": {
+              "$ref": "#/$defs/contentValueArray"
+            }
+          }
+        },
+        "supportingCopy": {
+          "$ref": "#/$defs/contentValueArray"
+        },
+        "ctas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cta"
+          }
+        },
+        "companyBoilerplate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "short",
+            "standard",
+            "extended"
+          ],
+          "properties": {
+            "short": {
+              "$ref": "#/$defs/contentValue"
+            },
+            "standard": {
+              "$ref": "#/$defs/contentValue"
+            },
+            "extended": {
+              "$ref": "#/$defs/contentValue"
+            }
+          }
+        }
+      }
+    },
+    "proofPoints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/citation"
+      }
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/person"
+      }
+    },
+    "quotes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/quote"
+      }
+    },
+    "funding": {
+      "$ref": "#/$defs/funding"
+    },
+    "legal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entityName",
+        "pressContact",
+        "supportContact",
+        "disclaimers"
+      ],
+      "properties": {
+        "entityName": {
+          "$ref": "#/$defs/contentValue"
+        },
+        "pressContact": {
+          "$ref": "#/$defs/contentValue"
+        },
+        "supportContact": {
+          "$ref": "#/$defs/contentValue"
+        },
+        "disclaimers": {
+          "$ref": "#/$defs/contentValueArray"
+        }
+      }
+    },
+    "channelPacks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/channelPack"
+      }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "approved",
+        "embargoed",
+        "public"
+      ]
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "ownerCode",
+        "assignee",
+        "evidence",
+        "approvedBy",
+        "approvedAt",
+        "expiresAt"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "ownerCode": {
+          "type": "string",
+          "pattern": "^[A-Z]+$"
+        },
+        "assignee": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approvedBy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approvedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "approved"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "assignee": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approvedBy": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approvedAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "contentValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contentId",
+        "value",
+        "state",
+        "ownerCode",
+        "approval"
+      ],
+      "properties": {
+        "contentId": {
+          "$ref": "#/$defs/slug"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "$ref": "#/$defs/lifecycle"
+        },
+        "ownerCode": {
+          "type": "string",
+          "pattern": "^[A-Z]+$"
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    },
+    "contentValueArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/contentValue"
+      }
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "role",
+        "assignee",
+        "email"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z]+$"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assignee": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "email"
+        }
+      }
+    },
+    "cta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ctaId",
+        "label",
+        "destination",
+        "state",
+        "ownerCode",
+        "approval"
+      ],
+      "properties": {
+        "ctaId": {
+          "$ref": "#/$defs/slug"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "destination": {
+          "type": "string",
+          "format": "uri"
+        },
+        "state": {
+          "$ref": "#/$defs/lifecycle"
+        },
+        "ownerCode": {
+          "type": "string"
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claimId",
+        "statement",
+        "classification",
+        "citationIds",
+        "demoDataPath",
+        "visibleLabel",
+        "state",
+        "ownerCode",
+        "approval"
+      ],
+      "properties": {
+        "claimId": {
+          "$ref": "#/$defs/slug"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classification": {
+          "enum": [
+            "market-fact",
+            "company-fact",
+            "northwind-demo",
+            "operational-date",
+            "price",
+            "placeholder"
+          ]
+        },
+        "citationIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "demoDataPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "visibleLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "$ref": "#/$defs/lifecycle"
+        },
+        "ownerCode": {
+          "type": "string"
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citationId",
+        "title",
+        "publisher",
+        "publishedAt",
+        "url",
+        "locator",
+        "displayText",
+        "state",
+        "ownerCode",
+        "approval"
+      ],
+      "properties": {
+        "citationId": {
+          "$ref": "#/$defs/slug"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publishedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "locator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "displayText": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "$ref": "#/$defs/lifecycle"
+        },
+        "ownerCode": {
+          "type": "string"
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    },
+    "person": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "personId",
+        "name",
+        "title",
+        "bioShort",
+        "bioLong",
+        "photoAssetId",
+        "state",
+        "ownerCode",
+        "approval"
+      ],
+      "properties": {
+        "personId": {
+          "$ref": "#/$defs/slug"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bioShort": {
+          "type": "string"
+        },
+        "bioLong": {
+          "type": "string"
+        },
+        "photoAssetId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "$ref": "#/$defs/lifecycle"
+        },
+        "ownerCode": {
+          "type": "string"
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    },
+    "quote": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quoteId",
+        "text",
+        "personId",
+        "context",
+        "permissionEvidence",
+        "state",
+        "ownerCode",
+        "approval"
+      ],
+      "properties": {
+        "quoteId": {
+          "$ref": "#/$defs/slug"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "personId": {
+          "$ref": "#/$defs/slug"
+        },
+        "context": {
+          "type": "string"
+        },
+        "permissionEvidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "$ref": "#/$defs/lifecycle"
+        },
+        "ownerCode": {
+          "type": "string"
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    },
+    "funding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "visibility",
+        "distribution",
+        "roundType",
+        "amount",
+        "closeDate",
+        "investors",
+        "useOfFunds",
+        "quoteIds",
+        "approval"
+      ],
+      "properties": {
+        "visibility": {
+          "enum": [
+            "restricted",
+            "embargoed",
+            "public"
+          ]
+        },
+        "distribution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "includeInDefaultGallery",
+            "includeInDefaultExport"
+          ],
+          "properties": {
+            "includeInDefaultGallery": {
+              "type": "boolean"
+            },
+            "includeInDefaultExport": {
+              "type": "boolean"
+            }
+          }
+        },
+        "roundType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/contentValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "amount": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "currency",
+            "display",
+            "state",
+            "ownerCode",
+            "approval"
+          ],
+          "properties": {
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "display": {
+              "type": "string",
+              "minLength": 1
+            },
+            "state": {
+              "$ref": "#/$defs/lifecycle"
+            },
+            "ownerCode": {
+              "type": "string"
+            },
+            "approval": {
+              "$ref": "#/$defs/approval"
+            }
+          }
+        },
+        "closeDate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/contentValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "investors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "investorId",
+              "name",
+              "role",
+              "logoAssetId",
+              "permissionEvidence",
+              "state",
+              "ownerCode",
+              "approval"
+            ],
+            "properties": {
+              "investorId": {
+                "$ref": "#/$defs/slug"
+              },
+              "name": {
+                "type": "string"
+              },
+              "role": {
+                "enum": [
+                  "lead",
+                  "participating",
+                  "existing"
+                ]
+              },
+              "logoAssetId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "permissionEvidence": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "state": {
+                "$ref": "#/$defs/lifecycle"
+              },
+              "ownerCode": {
+                "type": "string"
+              },
+              "approval": {
+                "$ref": "#/$defs/approval"
+              }
+            }
+          }
+        },
+        "useOfFunds": {
+          "$ref": "#/$defs/contentValueArray"
+        },
+        "quoteIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    },
+    "channelPack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "packId",
+        "channel",
+        "audiences",
+        "contentIds",
+        "state",
+        "ownerCode",
+        "approval"
+      ],
+      "properties": {
+        "packId": {
+          "$ref": "#/$defs/slug"
+        },
+        "channel": {
+          "enum": [
+            "website",
+            "linkedin",
+            "facebook",
+            "instagram",
+            "email",
+            "deck",
+            "pdf",
+            "press",
+            "motion",
+            "internal"
+          ]
+        },
+        "audiences": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "contentIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "state": {
+          "$ref": "#/$defs/lifecycle"
+        },
+        "ownerCode": {
+          "type": "string"
+        },
+        "approval": {
+          "$ref": "#/$defs/approval"
+        }
+      }
+    }
+  }
+}

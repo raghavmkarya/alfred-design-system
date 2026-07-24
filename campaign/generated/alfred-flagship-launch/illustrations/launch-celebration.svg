@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="A restrained Alfred launch celebration built from brand geometry"><defs>
+    <linearGradient id="alfred-surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#20222a"/>
+      <stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+    <pattern id="alfred-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#8b8cff" opacity=".34"/>
+    </pattern>
+  </defs>
+    <rect x="280" y="280" width="240" height="240" rx="70" fill="#ff8431" transform="rotate(8 400 400)"/><g stroke="#8b8cff" stroke-width="12" stroke-linecap="round"><path d="M400 100v90M400 610v90M100 400h90M610 400h90M190 190l65 65M545 545l65 65M610 190l-65 65M255 545l-65 65"/></g>
+  </svg>

@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "style": {
+    "geometry": "Rounded rectangles on an 8-pixel grid",
+    "stroke": "1.5-pixel neutral or periwinkle rule",
+    "depth": "One surface shadow and one focal elevation",
+    "lighting": "Soft upper-left surface light",
+    "color": "Neutral surfaces, periwinkle evidence, orange action",
+    "texture": "Sparse dot or rule fields only"
+  },
+  "crops": [
+    { "id": "desktop", "width": 1440, "height": 900 },
+    { "id": "portrait", "width": 1080, "height": 1350 },
+    { "id": "square", "width": 1080, "height": 1080 },
+    { "id": "motion-ready", "width": 1920, "height": 1080 }
+  ],
+  "productShots": [
+    { "id": "daily-brief", "name": "Daily Brief", "focus": "Prioritized changes and recommended actions", "alt": "Alfred Daily Brief showing a Northwind Labs demo signal, supporting evidence, and next action" },
+    { "id": "seek-alfred", "name": "Seek Alfred", "focus": "Question, reasoning, evidence, and answer", "alt": "Seek Alfred conversation with inspectable reasoning and evidence in a Northwind Labs demo" },
+    { "id": "kpi-cockpit", "name": "KPI Cockpit", "focus": "Cross-function KPI movement and pacing", "alt": "Alfred KPI Cockpit with Northwind Labs demo metrics and source labels" },
+    { "id": "spend-mix", "name": "Spend Mix", "focus": "Channel allocation and response", "alt": "Alfred Spend Mix showing Northwind Labs demo channel allocation and response" },
+    { "id": "ai-visibility", "name": "AI Visibility", "focus": "Brand discovery across AI answer systems", "alt": "Alfred AI Visibility showing Northwind Labs demo discovery signals" },
+    { "id": "creative-fatigue", "name": "Creative Fatigue", "focus": "Declining creative response and refresh timing", "alt": "Alfred Creative Fatigue view using Northwind Labs demo performance data" },
+    { "id": "anomaly-investigation", "name": "Anomaly Investigation", "focus": "Signal, root cause, and supporting source path", "alt": "Alfred anomaly investigation tracing a Northwind Labs demo signal to its root cause" },
+    { "id": "evidence-ledger", "name": "Evidence Ledger", "focus": "Source, period, unit, freshness, and status", "alt": "Alfred Evidence Ledger listing Northwind Labs demo sources, freshness, and status" },
+    { "id": "decision-fork", "name": "Decision Fork", "focus": "Options, tradeoffs, confidence, and reversibility", "alt": "Alfred Decision Fork comparing two reversible Northwind Labs demo options" },
+    { "id": "scenario-simulation", "name": "Scenario Simulation", "focus": "Assumptions, range, and sensitivity", "alt": "Alfred scenario simulation with visibly labeled Northwind Labs demo assumptions" },
+    { "id": "approval-action", "name": "Approval and Action", "focus": "Human approval, owner, and reversible execution", "alt": "Alfred approval gate showing an accountable Northwind Labs demo action" },
+    { "id": "decision-audit-trail", "name": "Decision Audit Trail", "focus": "Decision history, approval, action, and outcome", "alt": "Alfred decision audit trail showing a Northwind Labs demo decision history" }
+  ],
+  "illustrations": [
+    { "id": "connected-business-stack", "alt": "Connected business systems feeding one Alfred decision layer" },
+    { "id": "fragmented-to-decision", "alt": "Fragmented business signals converging into one evidence-backed decision" },
+    { "id": "alfred-core-memory", "alt": "Alfred Core preserving signals, evidence, decisions, actions, and outcomes" },
+    { "id": "signal-detection", "alt": "A highlighted signal emerging from a restrained field of business events" },
+    { "id": "root-cause-tracing", "alt": "An evidence path tracing a business signal to its root cause" },
+    { "id": "cross-function-intelligence", "alt": "Marketing, sales, finance, and operations connected through Alfred Core" },
+    { "id": "compounding-knowledge", "alt": "Decision memory growing through reviewed outcomes over time" },
+    { "id": "human-approval", "alt": "A human approval gate between recommendation and action" },
+    { "id": "reversible-action", "alt": "An approved action with a visible return path" },
+    { "id": "continuous-learning", "alt": "Outcome evidence returning to Alfred Core for future decisions" },
+    { "id": "security-trust", "alt": "Protected evidence and approval records inside a trust boundary" },
+    { "id": "data-provenance", "alt": "A visible source path connecting data, evidence, and a decision" },
+    { "id": "module-marketing", "alt": "Marketing signals and evidence connected to Alfred" },
+    { "id": "module-sales", "alt": "Sales pipeline signals and evidence connected to Alfred" },
+    { "id": "module-finance", "alt": "Finance planning signals and evidence connected to Alfred" },
+    { "id": "module-operations", "alt": "Operations signals and dependencies connected to Alfred" },
+    { "id": "module-founder", "alt": "A founder brief connecting every business function" },
+    { "id": "state-empty", "alt": "An empty Alfred state ready for the first connected signal" },
+    { "id": "state-waiting", "alt": "Alfred waiting for a source refresh or human approval" },
+    { "id": "state-success", "alt": "An approved Alfred action completed successfully" },
+    { "id": "state-error", "alt": "An Alfred source or action error with a visible recovery path" },
+    { "id": "launch-celebration", "alt": "A restrained Alfred launch celebration built from brand geometry" },
+    { "id": "background-texture", "alt": "A restrained Alfred background texture of dots and decision paths" },
+    { "id": "transition-plate", "alt": "A transition plate moving from signal to evidence to decision" }
+  ]
+}

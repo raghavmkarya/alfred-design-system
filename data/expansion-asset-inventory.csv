@@ -1,0 +1,388 @@
+asset_id,family,source_path,asset_name,disposition,rationale,tracked
+collateral:_specimen,collateral,templates/collateral/_specimen.html,_specimen,reusable,Reusable authoring specimen for the collateral system.,yes
+collateral:battle-card-agencies,collateral,templates/collateral/battle-card-agencies.html,battle-card-agencies,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:battle-card-bi-tools,collateral,templates/collateral/battle-card-bi-tools.html,battle-card-bi-tools,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:battle-card-generic-ai,collateral,templates/collateral/battle-card-generic-ai.html,battle-card-generic-ai,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:battle-card-template,collateral,templates/collateral/battle-card-template.html,battle-card-template,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:case-study-template,collateral,templates/collateral/case-study-template.html,case-study-template,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:demo-leave-behind,collateral,templates/collateral/demo-leave-behind.html,demo-leave-behind,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:one-pager,collateral,templates/collateral/one-pager.html,one-pager,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:pilot-plan,collateral,templates/collateral/pilot-plan.html,pilot-plan,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:pricing-one-pager,collateral,templates/collateral/pricing-one-pager.html,pricing-one-pager,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:roi-calculator,collateral,templates/collateral/roi-calculator.html,roi-calculator,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+collateral:security-pack,collateral,templates/collateral/security-pack.html,security-pack,needs revision,"Document needs claim, campaign-content, and positioning review.",yes
+component:app/AuditLogRow,component,components/app/AuditLogRow.jsx,app/AuditLogRow,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/BillingPlanCard,component,components/app/BillingPlanCard.jsx,app/BillingPlanCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/CommandPalette,component,components/app/CommandPalette.jsx,app/CommandPalette,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/ConnectionHealthCard,component,components/app/ConnectionHealthCard.jsx,app/ConnectionHealthCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/DataTable,component,components/app/DataTable.jsx,app/DataTable,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/DateRangePicker,component,components/app/DateRangePicker.jsx,app/DateRangePicker,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/FilterBar,component,components/app/FilterBar.jsx,app/FilterBar,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/ModuleSwitcher,component,components/app/ModuleSwitcher.jsx,app/ModuleSwitcher,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/NotificationPref,component,components/app/NotificationPref.jsx,app/NotificationPref,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/PageHeader,component,components/app/PageHeader.jsx,app/PageHeader,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/Sidebar,component,components/app/Sidebar.jsx,app/Sidebar,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/StatTile,component,components/app/StatTile.jsx,app/StatTile,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/SyncStatusBadge,component,components/app/SyncStatusBadge.jsx,app/SyncStatusBadge,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/TeamMemberRow,component,components/app/TeamMemberRow.jsx,app/TeamMemberRow,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/UpgradeModal,component,components/app/UpgradeModal.jsx,app/UpgradeModal,reusable,Typed design-system primitive available to launch compositions.,yes
+component:app/UsageMeter,component,components/app/UsageMeter.jsx,app/UsageMeter,reusable,Typed design-system primitive available to launch compositions.,yes
+component:brand/Icon,component,components/brand/Icon.jsx,brand/Icon,reusable,Typed design-system primitive available to launch compositions.,yes
+component:brand/Logo,component,components/brand/Logo.jsx,brand/Logo,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/AreaChart,component,components/charts/AreaChart.jsx,charts/AreaChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/BarChart,component,components/charts/BarChart.jsx,charts/BarChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/BulletChart,component,components/charts/BulletChart.jsx,charts/BulletChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/DonutChart,component,components/charts/DonutChart.jsx,charts/DonutChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/FunnelChart,component,components/charts/FunnelChart.jsx,charts/FunnelChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/GaugeChart,component,components/charts/GaugeChart.jsx,charts/GaugeChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/Heatmap,component,components/charts/Heatmap.jsx,charts/Heatmap,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/Legend,component,components/charts/Legend.jsx,charts/Legend,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/LineChart,component,components/charts/LineChart.jsx,charts/LineChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/SankeyChart,component,components/charts/SankeyChart.jsx,charts/SankeyChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/ScatterChart,component,components/charts/ScatterChart.jsx,charts/ScatterChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/Sparkline,component,components/charts/Sparkline.jsx,charts/Sparkline,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/StackedBarChart,component,components/charts/StackedBarChart.jsx,charts/StackedBarChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:charts/WaterfallChart,component,components/charts/WaterfallChart.jsx,charts/WaterfallChart,reusable,Typed design-system primitive available to launch compositions.,yes
+component:conversation/AlfredMessage,component,components/conversation/AlfredMessage.jsx,conversation/AlfredMessage,reusable,Typed design-system primitive available to launch compositions.,yes
+component:conversation/PromptSuggestions,component,components/conversation/PromptSuggestions.jsx,conversation/PromptSuggestions,reusable,Typed design-system primitive available to launch compositions.,yes
+component:conversation/ReasoningState,component,components/conversation/ReasoningState.jsx,conversation/ReasoningState,reusable,Typed design-system primitive available to launch compositions.,yes
+component:conversation/SeekComposer,component,components/conversation/SeekComposer.jsx,conversation/SeekComposer,reusable,Typed design-system primitive available to launch compositions.,yes
+component:conversation/ThinkingTrace,component,components/conversation/ThinkingTrace.jsx,conversation/ThinkingTrace,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Accordion,component,components/core/Accordion.jsx,core/Accordion,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Avatar,component,components/core/Avatar.jsx,core/Avatar,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Badge,component,components/core/Badge.jsx,core/Badge,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Button,component,components/core/Button.jsx,core/Button,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Card,component,components/core/Card.jsx,core/Card,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Checkbox,component,components/core/Checkbox.jsx,core/Checkbox,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Chip,component,components/core/Chip.jsx,core/Chip,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Combobox,component,components/core/Combobox.jsx,core/Combobox,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Divider,component,components/core/Divider.jsx,core/Divider,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/FileDropzone,component,components/core/FileDropzone.jsx,core/FileDropzone,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/IconButton,component,components/core/IconButton.jsx,core/IconButton,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Input,component,components/core/Input.jsx,core/Input,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Kbd,component,components/core/Kbd.jsx,core/Kbd,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/NumberInput,component,components/core/NumberInput.jsx,core/NumberInput,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/RadioGroup,component,components/core/RadioGroup.jsx,core/RadioGroup,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/SearchInput,component,components/core/SearchInput.jsx,core/SearchInput,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/SegmentedControl,component,components/core/SegmentedControl.jsx,core/SegmentedControl,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Select,component,components/core/Select.jsx,core/Select,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Slider,component,components/core/Slider.jsx,core/Slider,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Spinner,component,components/core/Spinner.jsx,core/Spinner,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Switch,component,components/core/Switch.jsx,core/Switch,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Tabs,component,components/core/Tabs.jsx,core/Tabs,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/TagInput,component,components/core/TagInput.jsx,core/TagInput,reusable,Typed design-system primitive available to launch compositions.,yes
+component:core/Textarea,component,components/core/Textarea.jsx,core/Textarea,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/ActivityTimeline,component,components/data/ActivityTimeline.jsx,data/ActivityTimeline,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/Breadcrumb,component,components/data/Breadcrumb.jsx,data/Breadcrumb,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/DecisionAlert,component,components/data/DecisionAlert.jsx,data/DecisionAlert,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/EmptyState,component,components/data/EmptyState.jsx,data/EmptyState,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/KpiCard,component,components/data/KpiCard.jsx,data/KpiCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/NotificationItem,component,components/data/NotificationItem.jsx,data/NotificationItem,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/Pagination,component,components/data/Pagination.jsx,data/Pagination,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/ProgressBar,component,components/data/ProgressBar.jsx,data/ProgressBar,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/ProgressRing,component,components/data/ProgressRing.jsx,data/ProgressRing,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/Skeleton,component,components/data/Skeleton.jsx,data/Skeleton,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/StateBlock,component,components/data/StateBlock.jsx,data/StateBlock,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/Stepper,component,components/data/Stepper.jsx,data/Stepper,reusable,Typed design-system primitive available to launch compositions.,yes
+component:data/Table,component,components/data/Table.jsx,data/Table,reusable,Typed design-system primitive available to launch compositions.,yes
+component:decision/AnomalyFlag,component,components/decision/AnomalyFlag.jsx,decision/AnomalyFlag,reusable,Typed design-system primitive available to launch compositions.,yes
+component:decision/ApprovalGate,component,components/decision/ApprovalGate.jsx,decision/ApprovalGate,reusable,Typed design-system primitive available to launch compositions.,yes
+component:decision/DecisionFork,component,components/decision/DecisionFork.jsx,decision/DecisionFork,reusable,Typed design-system primitive available to launch compositions.,yes
+component:decision/GoalPacing,component,components/decision/GoalPacing.jsx,decision/GoalPacing,reusable,Typed design-system primitive available to launch compositions.,yes
+component:decision/ScenarioSimulator,component,components/decision/ScenarioSimulator.jsx,decision/ScenarioSimulator,reusable,Typed design-system primitive available to launch compositions.,yes
+component:feedback/Banner,component,components/feedback/Banner.jsx,feedback/Banner,reusable,Typed design-system primitive available to launch compositions.,yes
+component:feedback/Callout,component,components/feedback/Callout.jsx,feedback/Callout,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/AgentStatus,component,components/marketing/AgentStatus.jsx,marketing/AgentStatus,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/AnimatedCounter,component,components/marketing/AnimatedCounter.jsx,marketing/AnimatedCounter,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/AvatarStack,component,components/marketing/AvatarStack.jsx,marketing/AvatarStack,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/CapabilityTicker,component,components/marketing/CapabilityTicker.jsx,marketing/CapabilityTicker,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/CategoryCountBadge,component,components/marketing/CategoryCountBadge.jsx,marketing/CategoryCountBadge,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/Countdown,component,components/marketing/Countdown.jsx,marketing/Countdown,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/DashboardMock,component,components/marketing/DashboardMock.jsx,marketing/DashboardMock,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/DotMatrix,component,components/marketing/DotMatrix.jsx,marketing/DotMatrix,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/EyebrowBadge,component,components/marketing/EyebrowBadge.jsx,marketing/EyebrowBadge,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/FaqItem,component,components/marketing/FaqItem.jsx,marketing/FaqItem,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/IntegrationCard,component,components/marketing/IntegrationCard.jsx,marketing/IntegrationCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/JobListingRow,component,components/marketing/JobListingRow.jsx,marketing/JobListingRow,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/ModuleStatusCard,component,components/marketing/ModuleStatusCard.jsx,marketing/ModuleStatusCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/OfferSwitch,component,components/marketing/OfferSwitch.jsx,marketing/OfferSwitch,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/PriceCard,component,components/marketing/PriceCard.jsx,marketing/PriceCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/SignalCard,component,components/marketing/SignalCard.jsx,marketing/SignalCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/StatBand,component,components/marketing/StatBand.jsx,marketing/StatBand,reusable,Typed design-system primitive available to launch compositions.,yes
+component:marketing/StepFlow,component,components/marketing/StepFlow.jsx,marketing/StepFlow,reusable,Typed design-system primitive available to launch compositions.,yes
+component:overlay/Drawer,component,components/overlay/Drawer.jsx,overlay/Drawer,reusable,Typed design-system primitive available to launch compositions.,yes
+component:overlay/Menu,component,components/overlay/Menu.jsx,overlay/Menu,reusable,Typed design-system primitive available to launch compositions.,yes
+component:overlay/Modal,component,components/overlay/Modal.jsx,overlay/Modal,reusable,Typed design-system primitive available to launch compositions.,yes
+component:overlay/Popover,component,components/overlay/Popover.jsx,overlay/Popover,reusable,Typed design-system primitive available to launch compositions.,yes
+component:overlay/Toast,component,components/overlay/Toast.jsx,overlay/Toast,reusable,Typed design-system primitive available to launch compositions.,yes
+component:overlay/Tooltip,component,components/overlay/Tooltip.jsx,overlay/Tooltip,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/CausalChain,component,components/trust/CausalChain.jsx,trust/CausalChain,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/ConfidenceMeter,component,components/trust/ConfidenceMeter.jsx,trust/ConfidenceMeter,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/DataFreshness,component,components/trust/DataFreshness.jsx,trust/DataFreshness,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/DecisionLog,component,components/trust/DecisionLog.jsx,trust/DecisionLog,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/EvidenceLedger,component,components/trust/EvidenceLedger.jsx,trust/EvidenceLedger,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/InsightFeedback,component,components/trust/InsightFeedback.jsx,trust/InsightFeedback,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/MemoryCard,component,components/trust/MemoryCard.jsx,trust/MemoryCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/ProvenancePanel,component,components/trust/ProvenancePanel.jsx,trust/ProvenancePanel,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/RecommendationCard,component,components/trust/RecommendationCard.jsx,trust/RecommendationCard,reusable,Typed design-system primitive available to launch compositions.,yes
+component:trust/SourceTrace,component,components/trust/SourceTrace.jsx,trust/SourceTrace,reusable,Typed design-system primitive available to launch compositions.,yes
+deck export:Alfred AI Solutions Deck.pptx,deck export,templates/decks/Alfred AI Solutions Deck.pptx,Alfred AI Solutions Deck.pptx,campaign-specific,Tracked delivery artifact is not the reusable HTML master.,yes
+deck export:Alfred Corporate Deck.pptx,deck export,templates/decks/Alfred Corporate Deck.pptx,Alfred Corporate Deck.pptx,campaign-specific,Tracked delivery artifact is not the reusable HTML master.,yes
+deck master:marketing-alfred-for-marketing,deck master,templates/decks/marketing-alfred-for-marketing.html,marketing-alfred-for-marketing,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:marketing-brand-messaging-guide,deck master,templates/decks/marketing-brand-messaging-guide.html,marketing-brand-messaging-guide,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:marketing-category-decision-intelligence,deck master,templates/decks/marketing-category-decision-intelligence.html,marketing-category-decision-intelligence,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:marketing-platform-vision,deck master,templates/decks/marketing-platform-vision.html,marketing-platform-vision,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:marketing-webinar-dashboard-era,deck master,templates/decks/marketing-webinar-dashboard-era.html,marketing-webinar-dashboard-era,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:ops-customer-success-playbook,deck master,templates/decks/ops-customer-success-playbook.html,ops-customer-success-playbook,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:ops-integrations-runbook,deck master,templates/decks/ops-integrations-runbook.html,ops-integrations-runbook,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:ops-internal-all-hands,deck master,templates/decks/ops-internal-all-hands.html,ops-internal-all-hands,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:ops-onboarding-implementation,deck master,templates/decks/ops-onboarding-implementation.html,ops-onboarding-implementation,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:ops-quarterly-business-review,deck master,templates/decks/ops-quarterly-business-review.html,ops-quarterly-business-review,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:platform-alfred-overview,deck master,templates/decks/platform-alfred-overview.html,platform-alfred-overview,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:sales-business-case-roi,deck master,templates/decks/sales-business-case-roi.html,sales-business-case-roi,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:sales-competitive-why-alfred,deck master,templates/decks/sales-competitive-why-alfred.html,sales-competitive-why-alfred,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:sales-pitch,deck master,templates/decks/sales-pitch.html,sales-pitch,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:sales-pricing-packaging,deck master,templates/decks/sales-pricing-packaging.html,sales-pricing-packaging,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:sales-product-demo,deck master,templates/decks/sales-product-demo.html,sales-product-demo,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+deck master:sales-security-trust,deck master,templates/decks/sales-security-trust.html,sales-security-trust,needs revision,"Deck needs claim, citation, confidentiality, and current-positioning review.",yes
+email template:anomaly-alert,email template,templates/email/anomaly-alert.email.html,anomaly-alert,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:approval-pending,email template,templates/email/approval-pending.email.html,approval-pending,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:briefing,email template,templates/email/briefing.email.html,briefing,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:invite,email template,templates/email/invite.email.html,invite,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:launch-offer,email template,templates/email/launch-offer.email.html,launch-offer,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:magic-link,email template,templates/email/magic-link.email.html,magic-link,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:newsletter,email template,templates/email/newsletter.email.html,newsletter,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:nps,email template,templates/email/nps.email.html,nps,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:nurture-1-problem,email template,templates/email/nurture-1-problem.email.html,nurture-1-problem,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:onboarding-0-welcome,email template,templates/email/onboarding-0-welcome.email.html,onboarding-0-welcome,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:onboarding-1-connect,email template,templates/email/onboarding-1-connect.email.html,onboarding-1-connect,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:onboarding-2-first-brief,email template,templates/email/onboarding-2-first-brief.email.html,onboarding-2-first-brief,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:onboarding-3-week1,email template,templates/email/onboarding-3-week1.email.html,onboarding-3-week1,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:password-reset,email template,templates/email/password-reset.email.html,password-reset,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:payment-failed,email template,templates/email/payment-failed.email.html,payment-failed,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:reconnect,email template,templates/email/reconnect.email.html,reconnect,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:verify-email,email template,templates/email/verify-email.email.html,verify-email,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:waitlist-welcome,email template,templates/email/waitlist-welcome.email.html,waitlist-welcome,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+email template:weekly-digest,email template,templates/email/weekly-digest.email.html,weekly-digest,needs revision,Template needs campaign-content binding and launch positioning review.,yes
+icon:alert-warning,icon,assets/icons/alert-warning.svg,alert-warning,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:audit-log,icon,assets/icons/audit-log.svg,audit-log,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:bookmark,icon,assets/icons/bookmark.svg,bookmark,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:budget,icon,assets/icons/budget.svg,budget,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:channel-mix,icon,assets/icons/channel-mix.svg,channel-mix,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:close,icon,assets/icons/close.svg,close,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:cta-arrow,icon,assets/icons/cta-arrow.svg,cta-arrow,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:delete,icon,assets/icons/delete.svg,delete,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:demo-play,icon,assets/icons/demo-play.svg,demo-play,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:export,icon,assets/icons/export.svg,export,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:fullscreen,icon,assets/icons/fullscreen.svg,fullscreen,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:gdpr,icon,assets/icons/gdpr.svg,gdpr,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:integration-success,icon,assets/icons/integration-success.svg,integration-success,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:locked-feature,icon,assets/icons/locked-feature.svg,locked-feature,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:mql,icon,assets/icons/mql.svg,mql,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:pin,icon,assets/icons/pin.svg,pin,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:pricing-cross,icon,assets/icons/pricing-cross.svg,pricing-cross,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:read-only,icon,assets/icons/read-only.svg,read-only,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:refresh,icon,assets/icons/refresh.svg,refresh,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:security-lock,icon,assets/icons/security-lock.svg,security-lock,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:sort,icon,assets/icons/sort.svg,sort,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:step-locked,icon,assets/icons/step-locked.svg,step-locked,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:trend-down,icon,assets/icons/trend-down.svg,trend-down,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:trend-flat,icon,assets/icons/trend-flat.svg,trend-flat,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:trend-up,icon,assets/icons/trend-up.svg,trend-up,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:web-clarity,icon,assets/icons/web-clarity.svg,web-clarity,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:web-stack-connected,icon,assets/icons/web-stack-connected.svg,web-stack-connected,reusable,Canonical design-system icon available to launch compositions.,yes
+illustration:characters/alfred-butler-ink.svg,illustration,assets/illustrations/characters/alfred-butler-ink.svg,characters/alfred-butler-ink.svg,needs revision,Existing character art needs expansion-family consistency and crop review.,yes
+illustration:characters/alfred-butler.svg,illustration,assets/illustrations/characters/alfred-butler.svg,characters/alfred-butler.svg,needs revision,Existing character art needs expansion-family consistency and crop review.,yes
+illustration:characters/the-leader-male.svg,illustration,assets/illustrations/characters/the-leader-male.svg,characters/the-leader-male.svg,needs revision,Existing character art needs expansion-family consistency and crop review.,yes
+illustration:characters/the-leader.svg,illustration,assets/illustrations/characters/the-leader.svg,characters/the-leader.svg,needs revision,Existing character art needs expansion-family consistency and crop review.,yes
+legacy social template:og-card,legacy social template,templates/social/og-card.html,og-card,redundant,Superseded by the root social master and Open Graph system.,yes
+logo:alfred-favicon-black.svg,logo,assets/logos/alfred-favicon-black.svg,alfred-favicon-black.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-favicon-white.svg,logo,assets/logos/alfred-favicon-white.svg,alfred-favicon-white.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-icon-white.svg,logo,assets/logos/alfred-icon-white.svg,alfred-icon-white.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-icon.svg,logo,assets/logos/alfred-icon.svg,alfred-icon.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-logo-color-white.svg,logo,assets/logos/alfred-logo-color-white.svg,alfred-logo-color-white.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-logo-email.png,logo,assets/logos/alfred-logo-email.png,alfred-logo-email.png,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-logo-primary.svg,logo,assets/logos/alfred-logo-primary.svg,alfred-logo-primary.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-logo-white-variation.svg,logo,assets/logos/alfred-logo-white-variation.svg,alfred-logo-white-variation.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-logo-white.svg,logo,assets/logos/alfred-logo-white.svg,alfred-logo-white.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-wordmark-white.svg,logo,assets/logos/alfred-wordmark-white.svg,alfred-wordmark-white.svg,reusable,Canonical Alfred brand asset.,yes
+logo:alfred-wordmark.svg,logo,assets/logos/alfred-wordmark.svg,alfred-wordmark.svg,reusable,Canonical Alfred brand asset.,yes
+page template:404,page template,templates/pages/404.html,404,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:about,page template,templates/pages/about.html,about,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:alfred-core,page template,templates/pages/alfred-core.html,alfred-core,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:blog,page template,templates/pages/blog.html,blog,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:blog-article,page template,templates/pages/blog-article.html,blog-article,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:contact,page template,templates/pages/contact.html,contact,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:docs,page template,templates/pages/docs.html,docs,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:integrations,page template,templates/pages/integrations.html,integrations,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:legal,page template,templates/pages/legal.html,legal,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:module-in-development,page template,templates/pages/module-in-development.html,module-in-development,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:pricing,page template,templates/pages/pricing.html,pricing,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:product-marketing,page template,templates/pages/product-marketing.html,product-marketing,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+page template:waitlist,page template,templates/pages/waitlist.html,waitlist,needs revision,"Page needs launch narrative, content-source, and responsive-state review.",yes
+slide primitive:content,slide primitive,slides/content.slide.html,content,reusable,Reusable base slide composition.,yes
+slide primitive:cover,slide primitive,slides/cover.slide.html,cover,reusable,Reusable base slide composition.,yes
+slide primitive:index,slide primitive,slides/index.slide.html,index,reusable,Reusable base slide composition.,yes
+slide primitive:section,slide primitive,slides/section.slide.html,section,reusable,Reusable base slide composition.,yes
+social export:organisation-brain-01.png,social export,social/organisation-brain-01.png,organisation-brain-01.png,campaign-specific,Tracked shipped export is not a reusable source master.,yes
+social master:blog-hero,social master,social/blog-hero.html,blog-hero,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:blog-hero-light,social master,social/blog-hero-light.html,blog-hero-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:blog-promo,social master,social/blog-promo.html,blog-promo,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:blog-promo-light,social master,social/blog-promo-light.html,blog-promo-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:brief-of-the-day,social master,social/brief-of-the-day.html,brief-of-the-day,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:brief-of-the-day-light,social master,social/brief-of-the-day-light.html,brief-of-the-day-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-cover,social master,social/carousel-cover.html,carousel-cover,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-cover-light,social master,social/carousel-cover-light.html,carousel-cover-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-end,social master,social/carousel-end.html,carousel-end,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-end-light,social master,social/carousel-end-light.html,carousel-end-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-slide,social master,social/carousel-slide.html,carousel-slide,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-slide-checklist,social master,social/carousel-slide-checklist.html,carousel-slide-checklist,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-slide-checklist-light,social master,social/carousel-slide-checklist-light.html,carousel-slide-checklist-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-slide-light,social master,social/carousel-slide-light.html,carousel-slide-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-slide-stat,social master,social/carousel-slide-stat.html,carousel-slide-stat,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:carousel-slide-stat-light,social master,social/carousel-slide-stat-light.html,carousel-slide-stat-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:definition,social master,social/definition.html,definition,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:definition-light,social master,social/definition-light.html,definition-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-cover,social master,social/facebook-cover.html,facebook-cover,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-cover-light,social master,social/facebook-cover-light.html,facebook-cover-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-event-cover,social master,social/facebook-event-cover.html,facebook-event-cover,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-event-cover-light,social master,social/facebook-event-cover-light.html,facebook-event-cover-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-link,social master,social/facebook-link.html,facebook-link,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-link-light,social master,social/facebook-link-light.html,facebook-link-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-square,social master,social/facebook-square.html,facebook-square,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-square-light,social master,social/facebook-square-light.html,facebook-square-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-story,social master,social/facebook-story.html,facebook-story,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:facebook-story-light,social master,social/facebook-story-light.html,facebook-story-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-announcement,social master,social/instagram-announcement.html,instagram-announcement,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-announcement-light,social master,social/instagram-announcement-light.html,instagram-announcement-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-insight,social master,social/instagram-insight.html,instagram-insight,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-insight-light,social master,social/instagram-insight-light.html,instagram-insight-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-quote,social master,social/instagram-quote.html,instagram-quote,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-quote-light,social master,social/instagram-quote-light.html,instagram-quote-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-stat,social master,social/instagram-stat.html,instagram-stat,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-stat-light,social master,social/instagram-stat-light.html,instagram-stat-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story,social master,social/instagram-story.html,instagram-story,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story-countdown,social master,social/instagram-story-countdown.html,instagram-story-countdown,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story-countdown-light,social master,social/instagram-story-countdown-light.html,instagram-story-countdown-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story-light,social master,social/instagram-story-light.html,instagram-story-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story-poll,social master,social/instagram-story-poll.html,instagram-story-poll,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story-poll-light,social master,social/instagram-story-poll-light.html,instagram-story-poll-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story-stat,social master,social/instagram-story-stat.html,instagram-story-stat,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:instagram-story-stat-light,social master,social/instagram-story-stat-light.html,instagram-story-stat-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:integration-spotlight,social master,social/integration-spotlight.html,integration-spotlight,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:integration-spotlight-light,social master,social/integration-spotlight-light.html,integration-spotlight-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-announcement,social master,social/linkedin-announcement.html,linkedin-announcement,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-announcement-light,social master,social/linkedin-announcement-light.html,linkedin-announcement-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-checklist,social master,social/linkedin-checklist.html,linkedin-checklist,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-checklist-light,social master,social/linkedin-checklist-light.html,linkedin-checklist-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-comparison,social master,social/linkedin-comparison.html,linkedin-comparison,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-comparison-light,social master,social/linkedin-comparison-light.html,linkedin-comparison-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-feature-spotlight,social master,social/linkedin-feature-spotlight.html,linkedin-feature-spotlight,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-feature-spotlight-light,social master,social/linkedin-feature-spotlight-light.html,linkedin-feature-spotlight-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-hiring,social master,social/linkedin-hiring.html,linkedin-hiring,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-hiring-light,social master,social/linkedin-hiring-light.html,linkedin-hiring-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-hot-take,social master,social/linkedin-hot-take.html,linkedin-hot-take,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-hot-take-light,social master,social/linkedin-hot-take-light.html,linkedin-hot-take-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-insight,social master,social/linkedin-insight.html,linkedin-insight,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-insight-light,social master,social/linkedin-insight-light.html,linkedin-insight-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-myth-fact,social master,social/linkedin-myth-fact.html,linkedin-myth-fact,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-myth-fact-light,social master,social/linkedin-myth-fact-light.html,linkedin-myth-fact-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-product-update,social master,social/linkedin-product-update.html,linkedin-product-update,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-product-update-light,social master,social/linkedin-product-update-light.html,linkedin-product-update-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-question,social master,social/linkedin-question.html,linkedin-question,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-question-light,social master,social/linkedin-question-light.html,linkedin-question-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-quote,social master,social/linkedin-quote.html,linkedin-quote,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-quote-light,social master,social/linkedin-quote-light.html,linkedin-quote-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-stat,social master,social/linkedin-stat.html,linkedin-stat,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-stat-light,social master,social/linkedin-stat-light.html,linkedin-stat-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-tip,social master,social/linkedin-tip.html,linkedin-tip,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-tip-light,social master,social/linkedin-tip-light.html,linkedin-tip-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-webinar,social master,social/linkedin-webinar.html,linkedin-webinar,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-webinar-light,social master,social/linkedin-webinar-light.html,linkedin-webinar-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-weekly-recap,social master,social/linkedin-weekly-recap.html,linkedin-weekly-recap,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:linkedin-weekly-recap-light,social master,social/linkedin-weekly-recap-light.html,linkedin-weekly-recap-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:milestone,social master,social/milestone.html,milestone,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:milestone-light,social master,social/milestone-light.html,milestone-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:og-blog,social master,social/og-blog.html,og-blog,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:og-blog-light,social master,social/og-blog-light.html,og-blog-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:og-default,social master,social/og-default.html,og-default,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:og-default-light,social master,social/og-default-light.html,og-default-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:og-page,social master,social/og-page.html,og-page,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:og-page-light,social master,social/og-page-light.html,og-page-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:organisation-brain-01,social master,social/organisation-brain-01.html,organisation-brain-01,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:profile-avatar,social master,social/profile-avatar.html,profile-avatar,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:profile-banner-linkedin,social master,social/profile-banner-linkedin.html,profile-banner-linkedin,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:profile-banner-linkedin-light,social master,social/profile-banner-linkedin-light.html,profile-banner-linkedin-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:profile-banner-x,social master,social/profile-banner-x.html,profile-banner-x,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:profile-banner-x-light,social master,social/profile-banner-x-light.html,profile-banner-x-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:x-post,social master,social/x-post.html,x-post,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:x-post-light,social master,social/x-post-light.html,x-post-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-banner,social master,social/youtube-banner.html,youtube-banner,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-banner-light,social master,social/youtube-banner-light.html,youtube-banner-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-demo,social master,social/youtube-thumb-demo.html,youtube-thumb-demo,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-demo-light,social master,social/youtube-thumb-demo-light.html,youtube-thumb-demo-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-episode,social master,social/youtube-thumb-episode.html,youtube-thumb-episode,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-episode-light,social master,social/youtube-thumb-episode-light.html,youtube-thumb-episode-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-stat,social master,social/youtube-thumb-stat.html,youtube-thumb-stat,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-stat-light,social master,social/youtube-thumb-stat-light.html,youtube-thumb-stat-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-webinar,social master,social/youtube-thumb-webinar.html,youtube-thumb-webinar,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social master:youtube-thumb-webinar-light,social master,social/youtube-thumb-webinar-light.html,youtube-thumb-webinar-light,needs revision,"Existing master requires campaign manifest, approval state, and placement audit.",yes
+social variant:organisation-brain-01--v1.html,social variant,social/_variants/organisation-brain-01--v1.html,organisation-brain-01--v1.html,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+social variant:organisation-brain-01--v1.png,social variant,social/_variants/organisation-brain-01--v1.png,organisation-brain-01--v1.png,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+social variant:organisation-brain-01--v2.html,social variant,social/_variants/organisation-brain-01--v2.html,organisation-brain-01--v2.html,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+social variant:organisation-brain-01--v2.png,social variant,social/_variants/organisation-brain-01--v2.png,organisation-brain-01--v2.png,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+social variant:organisation-brain-01--v3.html,social variant,social/_variants/organisation-brain-01--v3.html,organisation-brain-01--v3.html,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+social variant:organisation-brain-01--v3.png,social variant,social/_variants/organisation-brain-01--v3.png,organisation-brain-01--v3.png,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+social variant:organisation-brain-01--v4.html,social variant,social/_variants/organisation-brain-01--v4.html,organisation-brain-01--v4.html,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+social variant:organisation-brain-01--v4.png,social variant,social/_variants/organisation-brain-01--v4.png,organisation-brain-01--v4.png,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+UI kit:app/AppShell,UI kit,ui_kits/app/AppShell.jsx,app/AppShell,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:app/AuthScreen,UI kit,ui_kits/app/AuthScreen.jsx,app/AuthScreen,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:app/Dashboard,UI kit,ui_kits/app/Dashboard.jsx,app/Dashboard,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:app/Screens,UI kit,ui_kits/app/Screens.jsx,app/Screens,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:app/Screens2,UI kit,ui_kits/app/Screens2.jsx,app/Screens2,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:app/Screens3,UI kit,ui_kits/app/Screens3.jsx,app/Screens3,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:app/Screens4,UI kit,ui_kits/app/Screens4.jsx,app/Screens4,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:onboarding/Onboarding,UI kit,ui_kits/onboarding/Onboarding.jsx,onboarding/Onboarding,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:website/SiteBottom,UI kit,ui_kits/website/SiteBottom.jsx,website/SiteBottom,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:website/SiteTop,UI kit,ui_kits/website/SiteTop.jsx,website/SiteTop,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+uploaded brand source:Alfed AI icon.svg,uploaded brand source,uploads/Alfed AI icon.svg,Alfed AI icon.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI Black Variation logo.png,uploaded brand source,uploads/Alfred AI Black Variation logo.png,Alfred AI Black Variation logo.png,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI Color + White Mix logo.svg,uploaded brand source,uploads/Alfred AI Color + White Mix logo.svg,Alfred AI Color + White Mix logo.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI Favicon Black.svg,uploaded brand source,uploads/Alfred AI Favicon Black.svg,Alfred AI Favicon Black.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI Favicon White.svg,uploaded brand source,uploads/Alfred AI Favicon White.svg,Alfred AI Favicon White.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI Icon White version.svg,uploaded brand source,uploads/Alfred AI Icon White version.svg,Alfred AI Icon White version.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI Logo with White background.svg,uploaded brand source,uploads/Alfred AI Logo with White background.svg,Alfred AI Logo with White background.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI Primary Logo.svg,uploaded brand source,uploads/Alfred AI Primary Logo.svg,Alfred AI Primary Logo.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred AI White logo with background.svg,uploaded brand source,uploads/Alfred AI White logo with background.svg,Alfred AI White logo with background.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred_ai_Icon.svg,uploaded brand source,uploads/Alfred_ai_Icon.svg,Alfred_ai_Icon.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred_ai_Logo_All_White.svg,uploaded brand source,uploads/Alfred_ai_Logo_All_White.svg,Alfred_ai_Logo_All_White.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred_ai_Logo_Primary.svg,uploaded brand source,uploads/Alfred_ai_Logo_Primary.svg,Alfred_ai_Logo_Primary.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred_ai_Logo_White_Variation.svg,uploaded brand source,uploads/Alfred_ai_Logo_White_Variation.svg,Alfred_ai_Logo_White_Variation.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+uploaded brand source:Alfred_ai_Wordmark_White.svg,uploaded brand source,uploads/Alfred_ai_Wordmark_White.svg,Alfred_ai_Wordmark_White.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
+website section:SecAgentShowcase,website section,templates/sections/SectionsF.jsx#SecAgentShowcase,SecAgentShowcase,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecBentoGrid,website section,templates/sections/SectionsA.jsx#SecBentoGrid,SecBentoGrid,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecBlogGrid,website section,templates/sections/SectionsC.jsx#SecBlogGrid,SecBlogGrid,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecCareers,website section,templates/sections/SectionsE.jsx#SecCareers,SecCareers,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecChangelog,website section,templates/sections/SectionsC.jsx#SecChangelog,SecChangelog,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecClosingCTA,website section,templates/sections/SectionsD.jsx#SecClosingCTA,SecClosingCTA,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecComparison,website section,templates/sections/SectionsA.jsx#SecComparison,SecComparison,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecContactSplit,website section,templates/sections/SectionsF.jsx#SecContactSplit,SecContactSplit,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecEnterpriseBand,website section,templates/sections/SectionsF.jsx#SecEnterpriseBand,SecEnterpriseBand,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecFaq,website section,templates/sections/SectionsD.jsx#SecFaq,SecFaq,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecFeatureSplit,website section,templates/sections/SectionsA.jsx#SecFeatureSplit,SecFeatureSplit,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecHero,website section,templates/sections/SectionsD.jsx#SecHero,SecHero,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecIndustryCards,website section,templates/sections/SectionsF.jsx#SecIndustryCards,SecIndustryCards,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecIntegrationsGrid,website section,templates/sections/SectionsB.jsx#SecIntegrationsGrid,SecIntegrationsGrid,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecLogoCloud,website section,templates/sections/SectionsA.jsx#SecLogoCloud,SecLogoCloud,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecPricingComparison,website section,templates/sections/SectionsC.jsx#SecPricingComparison,SecPricingComparison,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecPricingTiers,website section,templates/sections/SectionsB.jsx#SecPricingTiers,SecPricingTiers,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecSecurityGrid,website section,templates/sections/SectionsE.jsx#SecSecurityGrid,SecSecurityGrid,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecSourcedStats,website section,templates/sections/SectionsF.jsx#SecSourcedStats,SecSourcedStats,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecStackDiagram,website section,templates/sections/SectionsF.jsx#SecStackDiagram,SecStackDiagram,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecStatement,website section,templates/sections/SectionsD.jsx#SecStatement,SecStatement,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecStoryEditorial,website section,templates/sections/SectionsE.jsx#SecStoryEditorial,SecStoryEditorial,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecTeamGrid,website section,templates/sections/SectionsE.jsx#SecTeamGrid,SecTeamGrid,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecTestimonial,website section,templates/sections/SectionsB.jsx#SecTestimonial,SecTestimonial,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecTimeline,website section,templates/sections/SectionsF.jsx#SecTimeline,SecTimeline,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecValuesGrid,website section,templates/sections/SectionsE.jsx#SecValuesGrid,SecValuesGrid,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes
+website section:SecWaitlistCTA,website section,templates/sections/SectionsB.jsx#SecWaitlistCTA,SecWaitlistCTA,needs revision,Section needs decision-intelligence positioning and campaign-slot review.,yes

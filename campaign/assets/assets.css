@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { margin: 0; color: #f7f7f8; background: #08090b; font-family: var(--font-sans, Arial, sans-serif); }
+h1, h2, h3 { color: #f7f7f8; }
+body > header { padding: 7vw 5vw; border-bottom: 1px solid rgba(255,255,255,.12); }
+body > header p { color: #8b8cff; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+body > header h1 { max-width: 12ch; margin: 25px 0 0; font: 520 clamp(52px, 7vw, 110px)/.95 var(--font-display, Arial, sans-serif); letter-spacing: -.055em; }
+main > section { padding: 6vw 5vw; border-bottom: 1px solid rgba(255,255,255,.12); }
+.section-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 38px; }
+.section-head h2 { margin: 0; font: 540 clamp(32px, 4vw, 58px)/1 var(--font-display, Arial, sans-serif); }
+.section-head span { color: rgba(255,255,255,.5); font-size: 11px; }
+.product-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.product-gallery article, .illustration-gallery article { overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 20px; background: #111318; }
+.product-gallery iframe { width: 100%; aspect-ratio: 16/10; border: 0; pointer-events: none; }
+.product-gallery h3, .illustration-gallery h3 { margin: 22px 22px 10px; font-size: 17px; text-transform: capitalize; }
+.product-gallery p, .illustration-gallery p { min-height: 42px; margin: 0 22px; color: rgba(255,255,255,.5); font-size: 12px; line-height: 1.5; }
+.product-gallery span { display: block; margin: 18px 22px 22px; color: #8b8cff; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+.illustration-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.illustration-gallery img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: radial-gradient(circle, rgba(139,140,255,.12), transparent 58%); }
+.illustration-gallery p { margin-bottom: 24px; }
+@media (max-width: 1000px) { .product-gallery, .illustration-gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .product-gallery, .illustration-gallery { grid-template-columns: 1fr; } }

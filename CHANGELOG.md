@@ -3,6 +3,34 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-24: visual launch factory expansion
+
+Added a reusable launch production system anchored in Alfred's decision-intelligence positioning:
+
+- Campaign content and template-manifest schemas separate approved messaging from layout, with citation
+  validation, Northwind demo labels, lifecycle states, deterministic filenames, and embargo guards.
+- The generated campaign gallery includes 3,528 public-safe variants across 14 families, plus a
+  separately acknowledged restricted catalog with 3,780 variants across 15 families.
+- New website, investor, motion, press, email, operations, product-shot, and illustration systems provide
+  complete flagship launch surfaces with exact-size previews and static fallbacks.
+- Expansion audits, render checks, responsive checks, release manifests, and approval contact sheets make
+  the production system reproducible and reviewable.
+
+The public launch remains blocked until real company content, release timing, funding state, approval
+owners, and five-critic signoff are supplied. The generated release warnings preserve those blockers.
+
+## 2026-07-24: evidence and decision comparison primitives
+
+Added two product-specific components that extend Alfred's visual language for trustworthy decisions:
+
+- **`EvidenceLedger`** audits a claim in place. Supporting, contradicting, and contextual evidence remain
+  visible together, with source freshness and a compact evidence-confidence summary.
+- **`DecisionFork`** compares strategic paths through outcomes, confidence, reversibility, and explicit
+  tradeoffs. Alfred can recommend a path without making the alternatives feel fake.
+
+Both components ship with TypeScript declarations, prompt documentation, responsive defaults, theme-aware
+tokens, interactive preview coverage, and full keyboard semantics.
+
 ## 2026-07-23 — Harden verify-craft: JSX outline/z-index forms (Phase 1.5)
 
 Tightened two craft rules that only caught the CSS syntax, missing the JSX inline-style form:
