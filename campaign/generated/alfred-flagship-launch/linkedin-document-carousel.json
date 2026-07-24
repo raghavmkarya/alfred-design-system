@@ -1,0 +1,41 @@
+{
+  "campaignId": "alfred-flagship-launch",
+  "pages": [
+    {
+      "page": 1,
+      "role": "cover",
+      "assetId": "alfred-flagship-launch__category-definition__linkedin__portrait__editorial-led__short__dark",
+      "exportFilename": "alfred-flagship-launch__launch-carousel__01-cover__v0_1_0.png"
+    },
+    {
+      "page": 2,
+      "role": "narrative",
+      "assetId": "alfred-flagship-launch__decision-intelligence-education__linkedin__portrait__illustration-led__short__dark",
+      "exportFilename": "alfred-flagship-launch__launch-carousel__02-narrative__v0_1_0.png"
+    },
+    {
+      "page": 3,
+      "role": "proof",
+      "assetId": "alfred-flagship-launch__market-problem__linkedin__portrait__editorial-led__short__dark",
+      "exportFilename": "alfred-flagship-launch__launch-carousel__03-proof__v0_1_0.png"
+    },
+    {
+      "page": 4,
+      "role": "product",
+      "assetId": "alfred-flagship-launch__product-proof__linkedin__portrait__product-led__short__dark",
+      "exportFilename": "alfred-flagship-launch__launch-carousel__04-product__v0_1_0.png"
+    },
+    {
+      "page": 5,
+      "role": "quote",
+      "assetId": "alfred-flagship-launch__founder-pov__linkedin__portrait__editorial-led__short__dark",
+      "exportFilename": "alfred-flagship-launch__launch-carousel__05-quote__v0_1_0.png"
+    },
+    {
+      "page": 6,
+      "role": "cta",
+      "assetId": "alfred-flagship-launch__launch-countdown__linkedin__portrait__editorial-led__short__dark",
+      "exportFilename": "alfred-flagship-launch__launch-carousel__06-cta__v0_1_0.png"
+    }
+  ]
+}

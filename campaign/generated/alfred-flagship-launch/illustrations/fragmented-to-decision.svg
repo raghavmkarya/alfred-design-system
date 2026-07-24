@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Fragmented business signals converging into one evidence-backed decision"><defs>
+    <linearGradient id="alfred-surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#20222a"/>
+      <stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+    <pattern id="alfred-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#8b8cff" opacity=".34"/>
+    </pattern>
+  </defs>
+    <g fill="#20222a" stroke="#8b8cff" stroke-width="4"><rect x="90" y="130" width="150" height="120" rx="24"/><rect x="90" y="340" width="150" height="120" rx="24"/><rect x="90" y="550" width="150" height="120" rx="24"/><rect x="500" y="260" width="220" height="280" rx="44"/></g>
+    <g stroke="#8b8cff" stroke-width="5" fill="none"><path d="M240 190c150 0 150 160 260 160M240 400h260M240 610c150 0 150-160 260-160"/></g><circle cx="610" cy="400" r="42" fill="#ff8431"/>
+  </svg>

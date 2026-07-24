@@ -1,0 +1,62 @@
+master,family,asset_name,overall_status,category_status,decision_intelligence_count,retired_term_count,demo_status,proof_status,placeholder_count,placeholders,hardcoded_launch_offer,time_sensitive_state,funding_term_count,issues
+templates/collateral/_specimen.html,collateral,_specimen,aligned or neutral,aligned,1,0,canonical Northwind Labs,source or demo framing present,0,,no,no,0,
+templates/collateral/battle-card-agencies.html,collateral,battle-card-agencies,review required,neutral,0,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/collateral/battle-card-bi-tools.html,collateral,battle-card-bi-tools,review required,neutral,0,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/collateral/battle-card-generic-ai.html,collateral,battle-card-generic-ai,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/collateral/battle-card-template.html,collateral,battle-card-template,aligned or neutral,neutral,0,0,canonical Northwind Labs,source or demo framing present,0,,no,no,0,
+templates/collateral/case-study-template.html,collateral,case-study-template,review required,neutral,0,0,canonical Northwind Labs,source or demo framing present,13,[BASELINE]|[CUSTOMER INDUSTRY]|[CUSTOMER]|[DATE]|[METRIC 1]|[METRIC 2]|[METRIC 3]|[NAME]|[PERIOD]|[ROLE]|[SOURCES]|[SPEND/MO]|[TEAM SIZE],no,no,0,Contains unresolved rendered placeholders.
+templates/collateral/demo-leave-behind.html,collateral,demo-leave-behind,aligned or neutral,neutral,0,0,canonical Northwind Labs,source or demo framing present,0,,no,no,0,
+templates/collateral/one-pager.html,collateral,one-pager,aligned or neutral,aligned,2,0,canonical Northwind Labs,source or demo framing present,0,,no,no,0,
+templates/collateral/pilot-plan.html,collateral,pilot-plan,review required,neutral,0,0,canonical Northwind Labs,source or demo framing present,1,[CUSTOMER],no,no,0,Contains unresolved rendered placeholders.
+templates/collateral/pricing-one-pager.html,collateral,pricing-one-pager,review required,neutral,0,0,none,no high-risk outcome pattern,0,,yes,yes,0,Launch pricing or offer state is hardcoded instead of campaign-bound.
+templates/collateral/roi-calculator.html,collateral,roi-calculator,aligned or neutral,aligned,1,0,canonical Northwind Labs,no high-risk outcome pattern,0,,no,no,0,
+templates/collateral/security-pack.html,collateral,security-pack,review required,neutral,0,0,none,no high-risk outcome pattern,6,[CLOUD PROVIDER]|[EMAIL PROVIDER]|[MODEL PROVIDER]|[PAYMENTS PROVIDER]|[REGION]|[SIGNED / DATE],no,no,0,Contains unresolved rendered placeholders.
+templates/decks/marketing-alfred-for-marketing.html,deck,marketing-alfred-for-marketing,review required,aligned,1,0,none,unsupported outcome review,0,,no,yes,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/marketing-brand-messaging-guide.html,deck,marketing-brand-messaging-guide,review required,retired term documented as a guardrail,6,3,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/marketing-category-decision-intelligence.html,deck,marketing-category-decision-intelligence,aligned or neutral,aligned,7,0,none,source or demo framing present,0,,no,yes,0,
+templates/decks/marketing-platform-vision.html,deck,marketing-platform-vision,review required,aligned,2,0,noncanonical Northwind Co.,source or demo framing present,0,,no,yes,0,Uses Northwind Co. instead of the canonical Northwind Labs demo company.
+templates/decks/marketing-webinar-dashboard-era.html,deck,marketing-webinar-dashboard-era,review required,neutral,0,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/ops-customer-success-playbook.html,deck,ops-customer-success-playbook,review required,neutral,0,0,noncanonical Northwind Co.,unsupported outcome review,0,,no,no,0,Uses Northwind Co. instead of the canonical Northwind Labs demo company. Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/ops-integrations-runbook.html,deck,ops-integrations-runbook,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,yes,0,
+templates/decks/ops-internal-all-hands.html,deck,ops-internal-all-hands,review required,neutral,0,0,none,unsupported outcome review,0,,no,yes,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/ops-onboarding-implementation.html,deck,ops-onboarding-implementation,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/decks/ops-quarterly-business-review.html,deck,ops-quarterly-business-review,review required,neutral,0,0,noncanonical Northwind Co.,unsupported outcome review,0,,no,yes,0,Uses Northwind Co. instead of the canonical Northwind Labs demo company. Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/platform-alfred-overview.html,deck,platform-alfred-overview,review required,aligned,3,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/sales-business-case-roi.html,deck,sales-business-case-roi,review required,aligned,1,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/sales-competitive-why-alfred.html,deck,sales-competitive-why-alfred,review required,aligned,2,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/sales-pitch.html,deck,sales-pitch,review required,aligned,2,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/sales-pricing-packaging.html,deck,sales-pricing-packaging,review required,aligned,1,0,noncanonical Northwind Co.,unsupported outcome review,0,,no,no,0,Uses Northwind Co. instead of the canonical Northwind Labs demo company. Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/sales-product-demo.html,deck,sales-product-demo,review required,aligned,3,0,none,unsupported outcome review,0,,no,no,0,Contains an Alfred outcome pattern that is not approved public proof.
+templates/decks/sales-security-trust.html,deck,sales-security-trust,review required,neutral,0,0,noncanonical Northwind Co.,source or demo framing present,0,,no,no,0,Uses Northwind Co. instead of the canonical Northwind Labs demo company.
+templates/email/anomaly-alert.email.html,email,anomaly-alert,aligned or neutral,neutral,0,0,none,source or demo framing present,0,,no,no,0,
+templates/email/approval-pending.email.html,email,approval-pending,aligned or neutral,neutral,0,0,none,source or demo framing present,0,,no,no,0,
+templates/email/briefing.email.html,email,briefing,aligned or neutral,neutral,0,0,none,source or demo framing present,0,,no,no,0,
+templates/email/invite.email.html,email,invite,aligned or neutral,aligned,1,0,canonical Northwind Labs,no high-risk outcome pattern,0,,no,no,0,
+templates/email/launch-offer.email.html,email,launch-offer,review required,aligned,1,0,none,no high-risk outcome pattern,0,,yes,yes,0,Launch pricing or offer state is hardcoded instead of campaign-bound.
+templates/email/magic-link.email.html,email,magic-link,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/email/newsletter.email.html,email,newsletter,aligned or neutral,aligned,2,0,canonical Northwind Labs,source or demo framing present,0,,no,no,0,
+templates/email/nps.email.html,email,nps,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/email/nurture-1-problem.email.html,email,nurture-1-problem,aligned or neutral,aligned,3,0,none,source or demo framing present,0,,no,no,0,
+templates/email/onboarding-0-welcome.email.html,email,onboarding-0-welcome,aligned or neutral,neutral,0,0,canonical Northwind Labs,no high-risk outcome pattern,0,,no,no,0,
+templates/email/onboarding-1-connect.email.html,email,onboarding-1-connect,aligned or neutral,neutral,0,0,canonical Northwind Labs,no high-risk outcome pattern,0,,no,no,0,
+templates/email/onboarding-2-first-brief.email.html,email,onboarding-2-first-brief,aligned or neutral,neutral,0,0,canonical Northwind Labs,source or demo framing present,0,,no,no,0,
+templates/email/onboarding-3-week1.email.html,email,onboarding-3-week1,aligned or neutral,neutral,0,0,canonical Northwind Labs,source or demo framing present,0,,no,no,0,
+templates/email/password-reset.email.html,email,password-reset,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/email/payment-failed.email.html,email,payment-failed,aligned or neutral,neutral,0,0,canonical Northwind Labs,no high-risk outcome pattern,0,,no,no,0,
+templates/email/reconnect.email.html,email,reconnect,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/email/verify-email.email.html,email,verify-email,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/email/waitlist-welcome.email.html,email,waitlist-welcome,aligned or neutral,aligned,1,0,none,no high-risk outcome pattern,0,,no,yes,0,
+templates/email/weekly-digest.email.html,email,weekly-digest,aligned or neutral,neutral,0,0,none,source or demo framing present,0,,no,no,0,
+templates/pages/404.html,page,404,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/pages/about.html,page,about,aligned or neutral,aligned,4,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/pages/alfred-core.html,page,alfred-core,aligned or neutral,aligned,1,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/pages/blog-article.html,page,blog-article,review required,retired term context review,7,1,none,source or demo framing present,0,,no,yes,0,Retired chief-of-staff language appears outside an explicit naming guardrail.
+templates/pages/blog.html,page,blog,aligned or neutral,aligned,6,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/pages/contact.html,page,contact,review required,aligned,1,0,none,no high-risk outcome pattern,0,,yes,yes,0,Launch pricing or offer state is hardcoded instead of campaign-bound.
+templates/pages/docs.html,page,docs,aligned or neutral,aligned,2,0,none,no high-risk outcome pattern,0,,no,no,0,
+templates/pages/integrations.html,page,integrations,aligned or neutral,aligned,1,0,none,no high-risk outcome pattern,0,,no,yes,0,
+templates/pages/legal.html,page,legal,review required,neutral,0,0,none,no high-risk outcome pattern,1,[SECTION],no,no,0,Contains unresolved rendered placeholders.
+templates/pages/module-in-development.html,page,module-in-development,aligned or neutral,neutral,0,0,none,no high-risk outcome pattern,0,,no,yes,0,
+templates/pages/pricing.html,page,pricing,review required,neutral,0,0,none,no high-risk outcome pattern,0,,yes,yes,0,Launch pricing or offer state is hardcoded instead of campaign-bound.
+templates/pages/product-marketing.html,page,product-marketing,review required,neutral,0,0,canonical Northwind Labs,source or demo framing present,0,,yes,yes,0,Launch pricing or offer state is hardcoded instead of campaign-bound.
+templates/pages/waitlist.html,page,waitlist,review required,aligned,2,0,none,no high-risk outcome pattern,0,,yes,yes,0,Launch pricing or offer state is hardcoded instead of campaign-bound.

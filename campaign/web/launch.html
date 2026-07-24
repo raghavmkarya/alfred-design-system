@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Alfred turns signals into evidence-backed decisions and approved action." />
+  <title>Alfred | Decision intelligence</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../campaign.css" />
+  <link rel="stylesheet" href="./launch.css" />
+</head>
+<body>
+  <div class="site-state" id="site-state"></div>
+  <header class="site-nav">
+    <a href="#top" aria-label="Alfred home"><img src="../../assets/logos/alfred-logo-white.svg" alt="Alfred" /></a>
+    <nav aria-label="Launch page">
+      <a href="#category">Category</a>
+      <a href="#product">Product</a>
+      <a href="#core">Alfred Core</a>
+      <a href="#letter">Founder letter</a>
+    </nav>
+    <a class="nav-cta" href="https://seekalfred.ai/">Seek Alfred</a>
+  </header>
+
+  <main id="top">
+    <section class="web-hero">
+      <div class="web-hero__copy">
+        <p class="web-eyebrow">Decision intelligence</p>
+        <h1 id="hero-headline"></h1>
+        <p id="hero-support"></p>
+        <div class="hero-actions">
+          <a href="#product">See product proof</a>
+          <a href="https://seekalfred.ai/">Seek Alfred</a>
+        </div>
+      </div>
+      <div class="web-hero__visual" id="hero-visual"></div>
+    </section>
+
+    <section class="category-section" id="category">
+      <header>
+        <p class="web-eyebrow">A new operating category</p>
+        <h2>From dashboard interpretation to decision intelligence.</h2>
+      </header>
+      <div class="story-tabs" role="tablist" aria-label="Decision story">
+        <button role="tab" aria-selected="true" data-story="changed">What changed</button>
+        <button role="tab" aria-selected="false" data-story="why">Why it changed</button>
+        <button role="tab" aria-selected="false" data-story="next">What to do</button>
+      </div>
+      <article class="story-panel" id="story-panel" aria-live="polite"></article>
+    </section>
+
+    <section class="core-section" id="core">
+      <div>
+        <p class="web-eyebrow">Alfred Core</p>
+        <h2>Every decision makes the next decision better.</h2>
+        <p>Alfred preserves signals, evidence, approvals, actions, and outcomes as reusable organizational memory.</p>
+      </div>
+      <div class="core-map" aria-label="Alfred Core memory visualization">
+        <span class="core-node core-node-a">Marketing</span>
+        <span class="core-node core-node-b">Sales</span>
+        <span class="core-node core-node-c">Finance</span>
+        <span class="core-node core-node-d">Operations</span>
+        <strong>Alfred Core<small>Decision memory</small></strong>
+        <i></i><i></i><i></i>
+      </div>
+    </section>
+
+    <section class="product-section" id="product">
+      <header>
+        <p class="web-eyebrow">Product proof</p>
+        <h2>See the signal, inspect the evidence, approve the action.</h2>
+      </header>
+      <div class="product-tabs" role="tablist" aria-label="Product views"></div>
+      <div class="product-stage" id="product-stage"></div>
+    </section>
+
+    <section class="module-section">
+      <header>
+        <p class="web-eyebrow">Cross-function intelligence</p>
+        <h2>One decision layer across the business.</h2>
+      </header>
+      <div class="module-map">
+        <article><span>01</span><h3>Marketing</h3><p>Demand, spend, visibility, and creative signals.</p></article>
+        <article><span>02</span><h3>Sales</h3><p>Pipeline movement, conversion risk, and account context.</p></article>
+        <article><span>03</span><h3>Finance</h3><p>Plan variance, efficiency, and scenario evidence.</p></article>
+        <article><span>04</span><h3>Operations</h3><p>Capacity, delivery, and cross-team dependencies.</p></article>
+        <article><span>05</span><h3>Founder</h3><p>A daily brief across every operating function.</p></article>
+      </div>
+    </section>
+
+    <section class="recognition-section" id="recognition" hidden>
+      <p class="web-eyebrow">Company momentum</p>
+      <div id="recognition-content"></div>
+    </section>
+
+    <section class="letter-section" id="letter">
+      <aside>
+        <p class="web-eyebrow">Founder letter</p>
+        <span id="letter-status"></span>
+      </aside>
+      <article>
+        <h2>Why we are building Alfred.</h2>
+        <div id="founder-letter"></div>
+      </article>
+    </section>
+
+    <section class="press-section">
+      <header>
+        <p class="web-eyebrow">Press and media</p>
+        <h2>Approved public materials, in one place.</h2>
+      </header>
+      <div class="press-grid" id="press-grid"></div>
+    </section>
+
+    <section class="timeline-section">
+      <p class="web-eyebrow">Company timeline</p>
+      <ol id="launch-timeline"></ol>
+    </section>
+
+    <section class="hiring-section">
+      <p class="web-eyebrow">Build with us</p>
+      <h2>Help teams make fewer guesses and better decisions.</h2>
+      <a href="https://seekalfred.ai/">Explore Alfred</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="../../assets/logos/alfred-logo-white.svg" alt="Alfred" />
+    <span>Decision intelligence for every function.</span>
+    <a href="https://seekalfred.ai/">seekalfred.ai</a>
+  </footer>
+
+  <script src="../generated/alfred-flagship-launch/catalog.js"></script>
+  <script src="../primitives.js"></script>
+  <script src="./launch.js"></script>
+</body>
+</html>

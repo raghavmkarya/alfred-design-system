@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="alfred-surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#20222a"/>
+      <stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+    <pattern id="alfred-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#8b8cff" opacity=".34"/>
+    </pattern>
+  </defs>
+  <symbol id="illustration-connected-business-stack" viewBox="0 0 800 800">
+    <g fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="4"><rect x="170" y="120" width="460" height="120" rx="28"/><rect x="120" y="340" width="240" height="150" rx="28"/><rect x="440" y="340" width="240" height="150" rx="28"/><rect x="270" y="590" width="260" height="110" rx="28"/></g>
+    <g stroke="#ff8431" stroke-width="6" fill="none"><path d="M400 240v70M240 310v30M560 310v30M240 490v60h160M560 490v60H400M400 550v40"/></g>
+  </symbol>
+  <symbol id="illustration-fragmented-to-decision" viewBox="0 0 800 800">
+    <g fill="#20222a" stroke="#8b8cff" stroke-width="4"><rect x="90" y="130" width="150" height="120" rx="24"/><rect x="90" y="340" width="150" height="120" rx="24"/><rect x="90" y="550" width="150" height="120" rx="24"/><rect x="500" y="260" width="220" height="280" rx="44"/></g>
+    <g stroke="#8b8cff" stroke-width="5" fill="none"><path d="M240 190c150 0 150 160 260 160M240 400h260M240 610c150 0 150-160 260-160"/></g><circle cx="610" cy="400" r="42" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-alfred-core-memory" viewBox="0 0 800 800">
+    <g fill="none" stroke="#8b8cff" stroke-width="4"><ellipse cx="400" cy="400" rx="310" ry="165"/><ellipse cx="400" cy="400" rx="250" ry="300" transform="rotate(35 400 400)"/></g><rect x="280" y="280" width="240" height="240" rx="70" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="5" transform="rotate(8 400 400)"/><path d="M355 445V350h90v95M355 400h90" fill="none" stroke="#ff8431" stroke-width="18" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="illustration-signal-detection" viewBox="0 0 800 800">
+    <rect x="100" y="100" width="600" height="600" rx="50" fill="url(#alfred-dots)" stroke="#343743" stroke-width="4"/><g fill="#8b8cff" opacity=".38"><circle cx="230" cy="250" r="12"/><circle cx="350" cy="180" r="12"/><circle cx="570" cy="280" r="12"/><circle cx="270" cy="590" r="12"/><circle cx="600" cy="560" r="12"/></g><circle cx="440" cy="420" r="34" fill="#ff8431"/><circle cx="440" cy="420" r="100" fill="none" stroke="#ff8431" stroke-width="4" opacity=".5"/>
+  </symbol>
+  <symbol id="illustration-root-cause-tracing" viewBox="0 0 800 800">
+    <g fill="none" stroke="#8b8cff" stroke-width="5"><path d="M650 160H430c-90 0-70 120-160 120H130M650 400H470c-110 0-80-120-180-120M650 640H430c-90 0-70-240-160-240H130"/></g><g fill="#20222a" stroke="#8b8cff" stroke-width="4"><circle cx="650" cy="160" r="42"/><circle cx="650" cy="400" r="42"/><circle cx="650" cy="640" r="42"/></g><rect x="80" y="320" width="180" height="160" rx="34" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-cross-function-intelligence" viewBox="0 0 800 800">
+    <g fill="#20222a" stroke="#8b8cff" stroke-width="4"><rect x="70" y="90" width="180" height="120" rx="28"/><rect x="550" y="90" width="180" height="120" rx="28"/><rect x="70" y="590" width="180" height="120" rx="28"/><rect x="550" y="590" width="180" height="120" rx="28"/></g><g stroke="#8b8cff" stroke-width="5"><path d="M250 150 350 330M550 150 450 330M250 650 350 470M550 650 450 470"/></g><rect x="300" y="300" width="200" height="200" rx="60" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-compounding-knowledge" viewBox="0 0 800 800">
+    <g fill="none" stroke="#8b8cff" stroke-width="5"><path d="M110 650h580M150 590l130-100 100 30 130-180 140-140"/></g><g fill="#20222a" stroke="#8b8cff" stroke-width="4"><circle cx="150" cy="590" r="28"/><circle cx="280" cy="490" r="34"/><circle cx="380" cy="520" r="40"/><circle cx="510" cy="340" r="48"/></g><circle cx="650" cy="200" r="58" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-human-approval" viewBox="0 0 800 800">
+    <rect x="110" y="280" width="220" height="240" rx="42" fill="#20222a" stroke="#8b8cff" stroke-width="4"/><rect x="470" y="280" width="220" height="240" rx="42" fill="#20222a" stroke="#8b8cff" stroke-width="4"/><path d="M330 400h140" stroke="#8b8cff" stroke-width="6"/><circle cx="400" cy="400" r="72" fill="#ff8431"/><path d="m366 402 22 22 48-52" fill="none" stroke="#111318" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="illustration-reversible-action" viewBox="0 0 800 800">
+    <path d="M170 310c70-160 330-190 460-40" fill="none" stroke="#8b8cff" stroke-width="14" stroke-linecap="round"/><path d="m610 190 32 90-95 7" fill="none" stroke="#8b8cff" stroke-width="14" stroke-linecap="round"/><path d="M630 490c-70 160-330 190-460 40" fill="none" stroke="#ff8431" stroke-width="14" stroke-linecap="round"/><path d="m190 610-32-90 95-7" fill="none" stroke="#ff8431" stroke-width="14" stroke-linecap="round"/><rect x="310" y="310" width="180" height="180" rx="52" fill="#20222a" stroke="#8b8cff" stroke-width="4"/>
+  </symbol>
+  <symbol id="illustration-continuous-learning" viewBox="0 0 800 800">
+    <g fill="none" stroke="#8b8cff" stroke-width="5"><circle cx="400" cy="400" r="250"/><path d="M400 150c130 40 200 140 220 250M620 400l-42-28M620 400l-30 42"/></g><g fill="#20222a" stroke="#8b8cff" stroke-width="4"><rect x="180" y="330" width="150" height="140" rx="30"/><rect x="470" y="330" width="150" height="140" rx="30"/></g><circle cx="400" cy="400" r="46" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-security-trust" viewBox="0 0 800 800">
+    <path d="M400 100 650 190v190c0 160-100 260-250 320-150-60-250-160-250-320V190z" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="6"/><rect x="300" y="340" width="200" height="170" rx="34" fill="#20222a" stroke="#ff8431" stroke-width="5"/><path d="M340 340v-50a60 60 0 0 1 120 0v50" fill="none" stroke="#ff8431" stroke-width="18"/>
+  </symbol>
+  <symbol id="illustration-data-provenance" viewBox="0 0 800 800">
+    <g fill="#20222a" stroke="#8b8cff" stroke-width="4"><rect x="80" y="120" width="180" height="130" rx="28"/><rect x="310" y="335" width="180" height="130" rx="28"/><rect x="540" y="550" width="180" height="130" rx="28"/></g><path d="M260 185c100 0 40 215 150 215s50 215 130 215" fill="none" stroke="#ff8431" stroke-width="8" stroke-linecap="round"/><g fill="#ff8431"><circle cx="260" cy="185" r="12"/><circle cx="400" cy="400" r="12"/><circle cx="540" cy="615" r="12"/></g>
+  </symbol>
+  <symbol id="illustration-module-marketing" viewBox="0 0 800 800">
+    <rect x="120" y="130" width="560" height="540" rx="46" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="4"/><path d="M200 540V380M300 540V300M400 540V420M500 540V250M600 540V350" stroke="#8b8cff" stroke-width="42"/><circle cx="500" cy="250" r="28" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-module-sales" viewBox="0 0 800 800">
+    <path d="M150 160h500L540 310H260zM260 340h280L470 480H330zM330 510h140L420 650h-40z" fill="#20222a" stroke="#8b8cff" stroke-width="5"/><circle cx="400" cy="650" r="32" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-module-finance" viewBox="0 0 800 800">
+    <rect x="100" y="120" width="600" height="560" rx="44" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="4"/><path d="M160 560 280 430l100 60 150-230 110 90" fill="none" stroke="#8b8cff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><circle cx="530" cy="260" r="26" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-module-operations" viewBox="0 0 800 800">
+    <g fill="#20222a" stroke="#8b8cff" stroke-width="4"><rect x="120" y="130" width="200" height="160" rx="30"/><rect x="480" y="130" width="200" height="160" rx="30"/><rect x="120" y="510" width="200" height="160" rx="30"/><rect x="480" y="510" width="200" height="160" rx="30"/></g><path d="M320 210h160M220 290v220M580 290v220M320 590h160" stroke="#ff8431" stroke-width="8"/>
+  </symbol>
+  <symbol id="illustration-module-founder" viewBox="0 0 800 800">
+    <rect x="110" y="100" width="580" height="600" rx="50" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="4"/><circle cx="250" cy="240" r="70" fill="#ff8431"/><g stroke="#8b8cff" stroke-width="18" stroke-linecap="round"><path d="M370 200h210M370 250h160M190 390h390M190 470h320M190 550h360"/></g>
+  </symbol>
+  <symbol id="illustration-state-empty" viewBox="0 0 800 800">
+    <rect x="140" y="150" width="520" height="500" rx="48" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="4" stroke-dasharray="14 14"/><circle cx="400" cy="360" r="70" fill="none" stroke="#343743" stroke-width="10"/><path d="M320 500h160" stroke="#343743" stroke-width="12" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="illustration-state-waiting" viewBox="0 0 800 800">
+    <circle cx="400" cy="400" r="260" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="4"/><path d="M400 220v190l130 80" fill="none" stroke="#8b8cff" stroke-width="18" stroke-linecap="round"/><circle cx="400" cy="400" r="26" fill="#ff8431"/>
+  </symbol>
+  <symbol id="illustration-state-success" viewBox="0 0 800 800">
+    <rect x="140" y="140" width="520" height="520" rx="150" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="5"/><circle cx="400" cy="400" r="160" fill="#ff8431"/><path d="m310 405 60 60 125-140" fill="none" stroke="#111318" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="illustration-state-error" viewBox="0 0 800 800">
+    <rect x="140" y="140" width="520" height="520" rx="150" fill="url(#alfred-surface)" stroke="#8b8cff" stroke-width="5"/><circle cx="400" cy="400" r="160" fill="#20222a" stroke="#ff8431" stroke-width="8"/><path d="M400 300v150M400 510v5" stroke="#ff8431" stroke-width="28" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="illustration-launch-celebration" viewBox="0 0 800 800">
+    <rect x="280" y="280" width="240" height="240" rx="70" fill="#ff8431" transform="rotate(8 400 400)"/><g stroke="#8b8cff" stroke-width="12" stroke-linecap="round"><path d="M400 100v90M400 610v90M100 400h90M610 400h90M190 190l65 65M545 545l65 65M610 190l-65 65M255 545l-65 65"/></g>
+  </symbol>
+  <symbol id="illustration-background-texture" viewBox="0 0 800 800">
+    <rect width="800" height="800" fill="url(#alfred-dots)"/><path d="M70 620c180-300 310 100 660-420" fill="none" stroke="#8b8cff" stroke-width="4" opacity=".45"/><circle cx="570" cy="340" r="26" fill="#ff8431" opacity=".8"/>
+  </symbol>
+  <symbol id="illustration-transition-plate" viewBox="0 0 800 800">
+    <g fill="#20222a" stroke="#8b8cff" stroke-width="4"><rect x="60" y="320" width="170" height="160" rx="34"/><rect x="315" y="320" width="170" height="160" rx="34"/><rect x="570" y="320" width="170" height="160" rx="34"/></g><path d="M230 400h85M485 400h85" stroke="#ff8431" stroke-width="10" stroke-linecap="round"/><path d="m290 375 25 25-25 25M545 375l25 25-25 25" fill="none" stroke="#ff8431" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>

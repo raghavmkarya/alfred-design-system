@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seekalfred.ai/schemas/visual-template-manifest.schema.json",
+  "title": "Alfred visual template manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifestVersion",
+    "templateId",
+    "family",
+    "platform",
+    "placement",
+    "dimensions",
+    "safeZones",
+    "themes",
+    "output",
+    "slots",
+    "assets",
+    "filename"
+  ],
+  "properties": {
+    "manifestVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "templateId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "family": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "platform": {
+      "enum": ["linkedin", "meta", "facebook", "instagram", "web", "email", "deck", "press", "motion", "internal"]
+    },
+    "placement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "aspectRatio", "exportScales"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "aspectRatio": {
+          "type": "string",
+          "pattern": "^[0-9]+:[0-9]+$"
+        },
+        "exportScales": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "number", "enum": [1, 2, 3] }
+        }
+      }
+    },
+    "safeZones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["zoneId", "top", "right", "bottom", "left", "purpose"],
+        "properties": {
+          "zoneId": { "type": "string" },
+          "top": { "type": "integer", "minimum": 0 },
+          "right": { "type": "integer", "minimum": 0 },
+          "bottom": { "type": "integer", "minimum": 0 },
+          "left": { "type": "integer", "minimum": 0 },
+          "purpose": { "type": "string" }
+        }
+      }
+    },
+    "themes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["light", "dark", "transparent"] }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "format", "posterFrame"],
+      "properties": {
+        "type": { "enum": ["static", "motion"] },
+        "format": { "enum": ["png", "jpg", "webp", "pdf", "mp4", "webm", "html"] },
+        "posterFrame": { "type": "boolean" }
+      }
+    },
+    "slots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slotId", "required", "contentTypes", "limits", "fallback"],
+        "properties": {
+          "slotId": { "type": "string" },
+          "required": { "type": "boolean" },
+          "contentTypes": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "limits": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["characters", "words", "lines"],
+            "properties": {
+              "characters": { "type": "integer", "minimum": 1 },
+              "words": { "type": "integer", "minimum": 1 },
+              "lines": { "type": "integer", "minimum": 1 }
+            }
+          },
+          "fallback": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assetId", "required", "fallback"],
+        "properties": {
+          "assetId": { "type": "string" },
+          "required": { "type": "boolean" },
+          "fallback": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "filename": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pattern", "destination"],
+      "properties": {
+        "pattern": { "type": "string" },
+        "destination": { "type": "string" }
+      }
+    },
+    "cropBehavior": {
+      "enum": ["contain", "cover", "focal-point", "editorial-reflow"]
+    },
+    "approvalState": {
+      "enum": ["draft", "reviewed", "approved", "embargoed", "public"]
+    }
+  }
+}

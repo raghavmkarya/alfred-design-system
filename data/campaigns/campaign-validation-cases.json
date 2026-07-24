@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "baseFixture": "flagship-launch.example.json",
+  "cases": [
+    {
+      "caseId": "valid-draft",
+      "kind": "valid",
+      "expectedError": null
+    },
+    {
+      "caseId": "uncited-company-fact",
+      "kind": "invalid",
+      "expectedError": "requires at least one citation"
+    },
+    {
+      "caseId": "northwind-demo",
+      "kind": "demo",
+      "expectedError": null
+    },
+    {
+      "caseId": "restricted-confidential-funding",
+      "kind": "confidential",
+      "expectedError": null
+    },
+    {
+      "caseId": "embargoed-default-export",
+      "kind": "embargoed",
+      "expectedError": "must be false for restricted or embargoed funding"
+    },
+    {
+      "caseId": "public-campaign-restricted-funding",
+      "kind": "invalid",
+      "expectedError": "must be public when the campaign is public"
+    },
+    {
+      "caseId": "approved-placeholder",
+      "kind": "invalid",
+      "expectedError": "contains a placeholder outside draft state"
+    }
+  ]
+}

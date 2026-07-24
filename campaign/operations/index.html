@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred launch visual command center</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 4vw; color: #f7f7f8; background: #08090b; font-family: var(--font-sans, Arial, sans-serif); }
+    h1, h2, h3 { color: #f7f7f8; }
+    header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 50px; }
+    header img { width: 130px; }
+    header h1 { margin: 30px 0 0; font: 520 clamp(44px, 6vw, 86px)/.95 var(--font-display, Arial, sans-serif); letter-spacing: -.05em; }
+    header span { color: #ff8431; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
+    main { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    section { padding: 28px; border: 1px solid rgba(255,255,255,.14); border-radius: 20px; background: #15171c; }
+    section > p { color: #8b8cff; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    ol { margin: 30px 0 0; padding: 0; list-style: none; }
+    li { display: grid; grid-template-columns: 90px 1fr auto; gap: 18px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.12); }
+    li span, section > span { color: rgba(255,255,255,.5); font-size: 12px; }
+    li strong { color: #f7f7f8; }
+    li em { color: #ff8431; font-size: 11px; font-style: normal; text-transform: uppercase; }
+    .checks { display: grid; gap: 12px; }
+    .checks article { padding: 18px; border-radius: 14px; background: #0d0e11; }
+    .checks strong { display: block; margin-bottom: 7px; }
+    @media (max-width: 760px) { main { grid-template-columns: 1fr; } li { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header><div><img src="../../assets/logos/alfred-logo-white.svg" alt="Alfred" /><h1>Launch visual command center</h1></div><span>Draft visual operations only</span></header>
+  <main>
+    <section>
+      <p>Approval sequence</p>
+      <ol>
+        <li><span>Gate 01</span><strong>Campaign content</strong><em>Draft</em></li>
+        <li><span>Gate 02</span><strong>Product accuracy</strong><em>Pending</em></li>
+        <li><span>Gate 03</span><strong>Claims and citations</strong><em>Pending</em></li>
+        <li><span>Gate 04</span><strong>Accessibility and crop</strong><em>Ready for review</em></li>
+        <li><span>Gate 05</span><strong>Final visual signoff</strong><em>Blocked by content</em></li>
+      </ol>
+    </section>
+    <section>
+      <p>Visual pack state</p>
+      <div class="checks">
+        <article><strong>Public-safe catalog</strong><span>Generated and verified</span></article>
+        <article><strong>Restricted funding</strong><span>Excluded from default surfaces</span></article>
+        <article><strong>Contact sheet</strong><span>Ready for reviewers</span></article>
+        <article><strong>Distribution exports</strong><span>Blocked until approved</span></article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

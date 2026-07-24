@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "page": {
+    "source": "campaign/web/launch.html",
+    "contentSource": "flagship-launch.example.json",
+    "breakpoints": ["mobile", "tablet", "desktop", "wide"],
+    "reducedMotion": true,
+    "staticFallback": true
+  },
+  "openGraph": [
+    { "variant": "announcement", "family": "funding-announcement", "platform": "meta", "placement": "landscape" },
+    { "variant": "press", "family": "press-coverage", "platform": "meta", "placement": "landscape" },
+    { "variant": "product", "family": "product-proof", "platform": "meta", "placement": "landscape" },
+    { "variant": "investor", "family": "alfred-core-moat", "platform": "meta", "placement": "landscape" }
+  ]
+}

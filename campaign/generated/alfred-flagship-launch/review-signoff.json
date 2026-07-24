@@ -1,0 +1,41 @@
+{
+  "campaignId": "alfred-flagship-launch",
+  "requiredStatus": "approved",
+  "critics": [
+    {
+      "critic": "brand",
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "evidence": null
+    },
+    {
+      "critic": "editorial",
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "evidence": null
+    },
+    {
+      "critic": "product",
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "evidence": null
+    },
+    {
+      "critic": "accessibility",
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "evidence": null
+    },
+    {
+      "critic": "legal",
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "evidence": null
+    }
+  ]
+}

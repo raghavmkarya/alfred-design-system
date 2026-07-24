@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "compositions": ["editorial-led", "product-led", "illustration-led"],
+  "copyModes": ["short", "medium", "long"],
+  "themes": ["dark", "light"],
+  "families": [
+    { "family": "funding-announcement", "eyebrow": "Company announcement", "primitive": "funding-masthead", "headlineId": "headline-primary", "sensitive": true },
+    { "family": "category-definition", "eyebrow": "Decision intelligence", "primitive": "category-lockup", "headlineId": "category-definition", "sensitive": false },
+    { "family": "product-proof", "eyebrow": "Product proof", "primitive": "product-window", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "founder-pov", "eyebrow": "Founder perspective", "primitive": "founder-quote", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "market-problem", "eyebrow": "The operating problem", "primitive": "market-stat", "headlineId": "category-definition", "sensitive": false },
+    { "family": "decision-intelligence-education", "eyebrow": "How decisions move", "primitive": "decision-flow", "headlineId": "category-definition", "sensitive": false },
+    { "family": "alfred-core-moat", "eyebrow": "Alfred Core", "primitive": "memory-map", "headlineId": "category-definition", "sensitive": false },
+    { "family": "product-feature", "eyebrow": "Inside Alfred", "primitive": "annotation-rail", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "demo-scenario", "eyebrow": "Northwind Labs demo", "primitive": "comparison", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "press-coverage", "eyebrow": "In the press", "primitive": "press-quote", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "hiring-growth", "eyebrow": "Build with us", "primitive": "editorial-headline", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "launch-countdown", "eyebrow": "Launch sequence", "primitive": "countdown", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "post-launch-recap", "eyebrow": "Launch recap", "primitive": "metric-treatment", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "event-webinar", "eyebrow": "Live session", "primitive": "event-date", "headlineId": "headline-primary", "sensitive": false },
+    { "family": "retargeting-product-proof", "eyebrow": "See the evidence", "primitive": "product-window", "headlineId": "headline-primary", "sensitive": false }
+  ]
+}

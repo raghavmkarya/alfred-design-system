@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "filenamePattern": "{campaignId}__{family}__{platform}-{placement}__{composition}__{copyMode}__{theme}__v{campaignVersion}__{scale}x.{format}",
+  "placements": [
+    {
+      "platform": "linkedin",
+      "placement": "portrait",
+      "width": 1200,
+      "height": 1350,
+      "aspectRatio": "8:9",
+      "safeZones": [{ "zoneId": "feed", "top": 72, "right": 72, "bottom": 96, "left": 72, "purpose": "Keep identity, headline, proof, and CTA visible in feed." }]
+    },
+    {
+      "platform": "linkedin",
+      "placement": "square",
+      "width": 1200,
+      "height": 1200,
+      "aspectRatio": "1:1",
+      "safeZones": [{ "zoneId": "feed", "top": 72, "right": 72, "bottom": 72, "left": 72, "purpose": "Keep all required copy within the inset." }]
+    },
+    {
+      "platform": "meta",
+      "placement": "landscape",
+      "width": 1200,
+      "height": 628,
+      "aspectRatio": "191:100",
+      "safeZones": [{ "zoneId": "feed", "top": 48, "right": 72, "bottom": 48, "left": 72, "purpose": "Protect headline and CTA from thumbnail crops." }]
+    },
+    {
+      "platform": "facebook",
+      "placement": "square",
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": "1:1",
+      "safeZones": [{ "zoneId": "feed", "top": 64, "right": 64, "bottom": 64, "left": 64, "purpose": "Protect primary message from feed UI." }]
+    },
+    {
+      "platform": "facebook",
+      "placement": "portrait",
+      "width": 1080,
+      "height": 1350,
+      "aspectRatio": "4:5",
+      "safeZones": [{ "zoneId": "feed", "top": 72, "right": 64, "bottom": 96, "left": 64, "purpose": "Protect required content in mobile feeds." }]
+    },
+    {
+      "platform": "facebook",
+      "placement": "story",
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": "9:16",
+      "safeZones": [{ "zoneId": "story", "top": 250, "right": 80, "bottom": 310, "left": 80, "purpose": "Keep content clear of profile, reply, and action UI." }]
+    },
+    {
+      "platform": "instagram",
+      "placement": "square",
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": "1:1",
+      "safeZones": [{ "zoneId": "feed", "top": 64, "right": 64, "bottom": 64, "left": 64, "purpose": "Protect primary message from feed UI." }]
+    },
+    {
+      "platform": "instagram",
+      "placement": "portrait",
+      "width": 1080,
+      "height": 1350,
+      "aspectRatio": "4:5",
+      "safeZones": [{ "zoneId": "feed", "top": 72, "right": 64, "bottom": 96, "left": 64, "purpose": "Protect required content in mobile feeds." }]
+    },
+    {
+      "platform": "instagram",
+      "placement": "story",
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": "9:16",
+      "safeZones": [{ "zoneId": "story", "top": 250, "right": 80, "bottom": 310, "left": 80, "purpose": "Keep content clear of profile, reply, and action UI." }]
+    },
+    {
+      "platform": "instagram",
+      "placement": "reel-cover",
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": "9:16",
+      "safeZones": [
+        { "zoneId": "story", "top": 250, "right": 80, "bottom": 310, "left": 80, "purpose": "Protect title in the reel viewer." },
+        { "zoneId": "profile-grid", "top": 420, "right": 0, "bottom": 420, "left": 0, "purpose": "Keep the identifying center legible in the profile crop." }
+      ]
+    },
+    {
+      "platform": "linkedin",
+      "placement": "company-banner",
+      "width": 1128,
+      "height": 191,
+      "aspectRatio": "1128:191",
+      "safeZones": [{ "zoneId": "banner", "top": 24, "right": 48, "bottom": 24, "left": 220, "purpose": "Avoid the company avatar overlap." }]
+    },
+    {
+      "platform": "linkedin",
+      "placement": "founder-banner",
+      "width": 1584,
+      "height": 396,
+      "aspectRatio": "4:1",
+      "safeZones": [{ "zoneId": "banner", "top": 44, "right": 72, "bottom": 44, "left": 360, "purpose": "Avoid the personal profile portrait and preserve the message on mobile." }]
+    },
+    {
+      "platform": "facebook",
+      "placement": "cover",
+      "width": 1640,
+      "height": 924,
+      "aspectRatio": "410:231",
+      "safeZones": [{ "zoneId": "cover", "top": 110, "right": 180, "bottom": 110, "left": 180, "purpose": "Preserve the central message across desktop and mobile cover crops." }]
+    },
+    {
+      "platform": "facebook",
+      "placement": "event-cover",
+      "width": 1920,
+      "height": 1005,
+      "aspectRatio": "128:67",
+      "safeZones": [{ "zoneId": "event", "top": 100, "right": 150, "bottom": 100, "left": 150, "purpose": "Preserve message across desktop and mobile crops." }]
+    }
+  ]
+}

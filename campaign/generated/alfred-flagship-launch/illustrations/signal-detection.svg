@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="A highlighted signal emerging from a restrained field of business events"><defs>
+    <linearGradient id="alfred-surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#20222a"/>
+      <stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+    <pattern id="alfred-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#8b8cff" opacity=".34"/>
+    </pattern>
+  </defs>
+    <rect x="100" y="100" width="600" height="600" rx="50" fill="url(#alfred-dots)" stroke="#343743" stroke-width="4"/><g fill="#8b8cff" opacity=".38"><circle cx="230" cy="250" r="12"/><circle cx="350" cy="180" r="12"/><circle cx="570" cy="280" r="12"/><circle cx="270" cy="590" r="12"/><circle cx="600" cy="560" r="12"/></g><circle cx="440" cy="420" r="34" fill="#ff8431"/><circle cx="440" cy="420" r="100" fill="none" stroke="#ff8431" stroke-width="4" opacity=".5"/>
+  </svg>

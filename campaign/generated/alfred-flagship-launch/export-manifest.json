@@ -1,0 +1,416 @@
+{
+  "campaignId": "alfred-flagship-launch",
+  "campaignVersion": "0.1.0",
+  "campaignLifecycle": "draft",
+  "generatedAt": "2026-07-24T13:10:40.570Z",
+  "sourceFingerprint": "2ee1cc8ce182347fe25b017526800deceaa964edfa4ed87b46ebfd3d0feeb9b4",
+  "catalogAssets": 3528,
+  "files": [
+    {
+      "path": "asset-previews/connected-business-stack.png",
+      "bytes": 33646,
+      "sha256": "2f6cffd3a048eda24bb41a01104f8d806a9eed6a93e54e3a3d78ed617571dd9a",
+      "width": 311,
+      "height": 430
+    },
+    {
+      "path": "asset-previews/daily-brief-desktop.png",
+      "bytes": 113158,
+      "sha256": "434d1fb17dc31bf06d7051b702ea9c92fddbfe3968410d665ec7034b8f48057b",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "asset-previews/decision-fork-transparent.png",
+      "bytes": 71282,
+      "sha256": "87ac161413dada0da694b29d19bb42b9833d8f8221cbbe55d50561da5f74f295",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "path": "catalog.csv",
+      "bytes": 1069629,
+      "sha256": "93c1becef2309af34acedcfd59d38df4d0de6d8eda752c55d77db19d2c76bf5f",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "catalog.js",
+      "bytes": 9072436,
+      "sha256": "263fbffa4838c1250e7b82aeb7c32125fa7fddd8315c090f8e707ef6ce29c679",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 14538882,
+      "sha256": "744c0e1009a6ed6d77516aa1f7fb711aee2a76c12806102c5c2123a32c9c5faf",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "catalog.restricted.csv",
+      "bytes": 1149729,
+      "sha256": "87524eb444e0a115d22cdfb15b45fcac0a47d439f627673fbcca199d0c645f22",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "catalog.restricted.js",
+      "bytes": 9727634,
+      "sha256": "4a6424c8ade595974da93f479e85123c09ea94a9ee1b10b387371dae4c3a1ed0",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "catalog.restricted.json",
+      "bytes": 15584525,
+      "sha256": "b6774b31c334820eb4b6a1982c4844e337594e9e175534e84304392c9dd8f17c",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "contact-sheet.html",
+      "bytes": 13434,
+      "sha256": "44c880be34260d5d8ea80586d8af13f68f890e2486579a045ef0044f1b66f4ba",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "illustrations/alfred-core-memory.svg",
+      "bytes": 965,
+      "sha256": "cbc4c34d5c1ccd723eb1a12cd9faaaed48417f55384f0c841fe0b92af4b38fc8",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/background-texture.svg",
+      "bytes": 743,
+      "sha256": "27c84c37b68a0027110f88ec51f093acbf19cee600755852ac8b6d3692805033",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/compounding-knowledge.svg",
+      "bytes": 872,
+      "sha256": "1140945562aa108626a3e9feb634a528160b4554f5584c27ea5e1d14d6bacf74",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/connected-business-stack.svg",
+      "bytes": 953,
+      "sha256": "81584e66f016be6b82b826090d640960d924db981ccd4e4f8a2b2813fb7d32d3",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/continuous-learning.svg",
+      "bytes": 896,
+      "sha256": "07c5c0009607928c6d6b52c65ecce2c524baab808a1482f6b1b01ac3f5bd301c",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/cross-function-intelligence.svg",
+      "bytes": 991,
+      "sha256": "4cda9b34987c68896095e8bca45f1431644bd9b436b9896625c4406240ed73a3",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/data-provenance.svg",
+      "bytes": 991,
+      "sha256": "46efaf28225c8a1c8b3a9bad021c60943732df8a7f1852a4b2dbb2fa2f2326ef",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/fragmented-to-decision.svg",
+      "bytes": 996,
+      "sha256": "07095c69d8dd78a187ead8ceaaf370006dc95a779b17a60a38bf7720a305d06e",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/human-approval.svg",
+      "bytes": 954,
+      "sha256": "3dac2c6692703a726fb22df504103571c0b3de9e8c11e2801cc06e0e56ad680d",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/launch-celebration.svg",
+      "bytes": 800,
+      "sha256": "1b4bca60e77b22e0ac92ab0a210dcf9bf461c708eba210353fc0e7f077b2c8c7",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/module-finance.svg",
+      "bytes": 824,
+      "sha256": "5564eb55e392ce36a8452f90f22f09b54daeffe2d0fdc4979e0cebe36a186bbf",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/module-founder.svg",
+      "bytes": 810,
+      "sha256": "075eacc8dd6444836774f0afb6b870ab3685f64492388aeba46fe98d3a1ed9fc",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/module-marketing.svg",
+      "bytes": 780,
+      "sha256": "b341ea6bc94bcd36a7699d504048bcd3e19408543b426e85b9f50a236279cf0f",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/module-operations.svg",
+      "bytes": 885,
+      "sha256": "054c347b7c32d7f35d495aee834547bc4105d36bc6baf3501cda15a3761c7564",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/module-sales.svg",
+      "bytes": 696,
+      "sha256": "f3f442c52490e307b3c452de4065130035e88d2d47f4836a6bae5b552b65f4af",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/reversible-action.svg",
+      "bytes": 1033,
+      "sha256": "3c6383d8ba551112a43fb654aa615ea921ba9ad97e6ab68a2caf9d88e6beec52",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/root-cause-tracing.svg",
+      "bytes": 917,
+      "sha256": "bc71b7bf7a8e6503b4a41a05b3995f6e8ef6277dc677d825e35fe5e1f66767a4",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/security-trust.svg",
+      "bytes": 860,
+      "sha256": "7d0105f002df6de4953b6509790d5ef96c818b95896df4dbdc44110fd99d14aa",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/signal-detection.svg",
+      "bytes": 992,
+      "sha256": "76f311d22d06a08dfb13975fdb3a4816f42b3cce0ecd96b1407be6d4cbeda5a8",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/state-empty.svg",
+      "bytes": 820,
+      "sha256": "9d07ac3c854706e9a7a470a45411d6201458053726a60b68ee51f151a44a268d",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/state-error.svg",
+      "bytes": 812,
+      "sha256": "e02038370656204f904d807f73d23ee7db13877f6d07463ee9cef2ad58b69100",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/state-success.svg",
+      "bytes": 801,
+      "sha256": "e45e8c8d4128d6418fcb7af56bd1174b0753d346be59ec3a8d988c131c7b80ac",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/state-waiting.svg",
+      "bytes": 756,
+      "sha256": "1eda8af368e8bd3cd1053fa6f6f32cccf79b44a53c783ce14034c9cf9abdca69",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "illustrations/transition-plate.svg",
+      "bytes": 978,
+      "sha256": "0af90a8a172e0ac0f61ab8a48213f68f91be81dd43505b3fbceaa2f3d003809a",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "path": "investor-deck.js",
+      "bytes": 6493,
+      "sha256": "bb0ef65643d73fc693d5f7ee500528aecf3dcb46cbd5293cade64060d9f9f7b7",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "linkedin-document-carousel.json",
+      "bytes": 1579,
+      "sha256": "72a75bf17210c64b8c774b868c14a5ff1f5030ad5436e3e83adf1b91dfc226f3",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "media-kit.js",
+      "bytes": 1054,
+      "sha256": "07a6de7cc8f59724256d9f4f3759a0851063cbe903b2cb5f1375f33863ac6f9d",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "motion-posters/horizontal.png",
+      "bytes": 47103,
+      "sha256": "e32a1d3531794abefe0046874081878c6f52a834a682b8d56d50d32de01b0455",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "motion-posters/portrait.png",
+      "bytes": 40745,
+      "sha256": "979f94c6f7a97c8b97417eb88549001cb0e14300adf122177b02c7bf25fc6e80",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "motion-posters/square.png",
+      "bytes": 51526,
+      "sha256": "b8b8ee17e0746adfce6731b1f295aaf01e605b13d6738c20550d18b56026cd60",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "path": "motion-posters/vertical.png",
+      "bytes": 35786,
+      "sha256": "15d102255b1e83480a72283b9d328eefb064c215f1c7c5785ad3dc22cfafb6e1",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "path": "motion-timelines.js",
+      "bytes": 2496,
+      "sha256": "fb73476e49a242e4b5073d8ee087e632152b3d3b1d8f297a7b9a2159306c70f7",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "previews/alfred-flagship-launch__product-proof__linkedin-portrait__product-led__short__dark__v0_1_0__1x.png",
+      "bytes": 197563,
+      "sha256": "e8350b81e27cfa85508977dbe5852d05d654c2b4ef2728a2e30b89a7c76a2dc5",
+      "width": 1200,
+      "height": 1350
+    },
+    {
+      "path": "product-assets.js",
+      "bytes": 5137,
+      "sha256": "574acb2cc405aa0f7879a8c366f51fe27381ce6634843ce9d379b59d9ad89cc1",
+      "width": null,
+      "height": null
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__facebook__cover__editorial-led__short__dark.png",
+      "bytes": 319050,
+      "sha256": "3eae86d9d9300b518b6ba14757df14fb8cbada2f2c09668bf59d59c4757d722c",
+      "width": 1640,
+      "height": 924
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__facebook__event-cover__editorial-led__short__dark.png",
+      "bytes": 379284,
+      "sha256": "ddd18d3527d35ea348c1b3db1f3159edd6dd4a577c77fd289051a4fa163cbbc4",
+      "width": 1920,
+      "height": 1005
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__facebook__portrait__editorial-led__short__dark.png",
+      "bytes": 159115,
+      "sha256": "1ff018241baf7fe4c434a13ad5fbe0699786956db3858cdc0cc16e8ee7461c17",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__facebook__square__editorial-led__short__dark.png",
+      "bytes": 173063,
+      "sha256": "1398ccc3c9fb7132ca0122a2f17f476f22c81576cc3262d9ba6999ae3c6337a5",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__facebook__story__editorial-led__short__dark.png",
+      "bytes": 132474,
+      "sha256": "c831a39527a3957a6cd621ac351049255fc66e3f55e06bea77c0a83b923f279d",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__instagram__portrait__editorial-led__short__dark.png",
+      "bytes": 159244,
+      "sha256": "3e37eb14ad7780b6ab6d8da246d61a7267c4f23c6408873ae05327fd62699c2f",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__instagram__reel-cover__editorial-led__short__dark.png",
+      "bytes": 138573,
+      "sha256": "1dcd906f8a0789399b9784cf1329815837d20e62b899c662d7ef5ad71fa351b6",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__instagram__square__editorial-led__short__dark.png",
+      "bytes": 173193,
+      "sha256": "423f272d61dcfc1fd2a03abedb4113642018c3aaebebbeea18a3ff5260759d77",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__instagram__story__editorial-led__short__dark.png",
+      "bytes": 132018,
+      "sha256": "35f13371d3bc860d4c67b6a2d2d45694cfb0250289e509f2e84922bb47c36f38",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__linkedin__company-banner__editorial-led__short__dark.png",
+      "bytes": 74482,
+      "sha256": "d7c2b32faecdba54720cba6c1fb40899e3912747b1c65faa2bb06f28723d2a2a",
+      "width": 1128,
+      "height": 191
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__linkedin__founder-banner__editorial-led__short__dark.png",
+      "bytes": 164093,
+      "sha256": "4824fd6f3fb1b65f8b4643a045774ec38014b803b5cb31a1db9e86f358e116c3",
+      "width": 1584,
+      "height": 396
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__linkedin__portrait__editorial-led__short__dark.png",
+      "bytes": 190591,
+      "sha256": "057e2c5bfccf6265f0c6cc570680218d07fdc0f616032c5d1f87e73c51709c42",
+      "width": 1200,
+      "height": 1350
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__linkedin__square__editorial-led__short__dark.png",
+      "bytes": 199858,
+      "sha256": "e686e09154d77ae2a1e2ef43496a8d05c16d3dfec4e3b77db20edcdbbe0ff55b",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "path": "render-baselines/alfred-flagship-launch__category-definition__meta__landscape__editorial-led__short__dark.png",
+      "bytes": 201400,
+      "sha256": "c7ae5055c22af8fcf1692f998d28e53fecd7a2805ecb39d51beee4550f50a2c4",
+      "width": 1200,
+      "height": 628
+    }
+  ]
+}
