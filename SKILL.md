@@ -73,13 +73,13 @@ production code, depending on the need.
   (pitch, ROI, competitive, demo, security, pricing, onboarding, QBR, all-hands, runbook…);
   `index.html` is the gallery. Build new decks from `deck.css` classes.
 - `slides/` — presentation templates (cover, index, section divider, content+stat).
-- `guidelines/` — foundation specimen cards, `voice-and-naming.md`, and three **craft & taste**
-  guidelines (`motion-and-animation.md`, `anti-slop.md`, `craft-checklist.md`) — see "Craft &
-  taste" below.
+- `guidelines/` — foundation specimen cards, `voice-and-naming.md`, `density.md` (the
+  compact/comfortable/spacious scale), and three **craft & taste** guidelines
+  (`motion-and-animation.md`, `anti-slop.md`, `craft-checklist.md`) — see "Craft & taste" below.
 
 > Verify any kit edits with `node scripts/verify-render.mjs` — it server-renders every kit
 > component against the real bundle and fails on render errors or React warnings. Component
-> edits: `node scripts/verify-components.mjs` (render health, all 86) and
+> edits: `node scripts/verify-components.mjs` (render health, all 115) and
 > `node scripts/verify-a11y.mjs` (the ARIA/keyboard contracts). Any surface: `node
 > scripts/verify-craft.mjs` — the craft/anti-slop guard over the `guidelines/` rules.
 

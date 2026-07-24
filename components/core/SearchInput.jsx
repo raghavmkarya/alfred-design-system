@@ -82,7 +82,7 @@ export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
   return (
     <div style={{ position: "relative", width: "100%", fontFamily: "var(--font-sans)", ...style }}>
       <div style={{
-        display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 14px",
+        display: "flex", alignItems: "center", gap: 10, height: "var(--density-field-h-sm)", padding: "0 var(--density-field-pad-x)",
         background: wrapBg, border: `1.5px solid ${borderColor}`, borderRadius: "var(--radius-md)",
         boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",

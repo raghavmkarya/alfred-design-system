@@ -23,7 +23,7 @@
 <div id="root"></div>
 <script type="text/babel">
 const ns = window.AlfredAIDesignSystem_1ce241;
-const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination } = ns;
+const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination, Input } = ns;
 const { useState } = React;
 
 function StatefulSeg() {
@@ -78,6 +78,22 @@ function App() {
         <div className="row" style={{ gap: 20 }}>
           <div data-testid="btn"><Button variant="primary">Reallocate</Button></div>
           <StatefulSeg /><StatefulSwitch /><StatefulOffer />
+        </div>
+      </div>
+      <div id="density" data-testid="density">
+        <div className="lbl">Density</div>
+        {["compact", "comfortable", "spacious"].map((d) => (
+          <div key={d} data-density={d} data-testid={`density-${d}`} className="row" style={{ marginBottom: 10 }}>
+            <Button variant="primary">Reallocate</Button>
+            <div style={{ width: 220 }}><Input placeholder="Search" /></div>
+          </div>
+        ))}
+        {/* a comfortable island inside a compact region — proves each scope
+            re-declares the full token set instead of inheriting its parent's */}
+        <div data-density="compact">
+          <div data-density="comfortable" data-testid="density-island" className="row">
+            <Button variant="primary">Reallocate</Button>
+          </div>
         </div>
       </div>
       <div className="theme" data-testid="theme-light"><Gallery /></div>

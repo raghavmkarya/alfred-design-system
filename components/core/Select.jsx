@@ -32,14 +32,14 @@ export const Select = React.forwardRef(function Select(props, ref) {
     ? "var(--border-focus)"
     : fill === "plain" ? "var(--border-default)" : "transparent";
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%", ...style }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--density-field-gap)", width: "100%", ...style }}>
       {label && (
         <label htmlFor={selId} style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-medium)", color: "var(--text-primary)" }}>{label}</label>
       )}
       <div style={{
         position: "relative", display: "flex", alignItems: "center",
         background: disabled ? "var(--surface-sunken)" : bg, border: `1.5px solid ${border}`,
-        borderRadius: "var(--radius-md)", height: 52, opacity: disabled ? "var(--opacity-disabled)" : 1,
+        borderRadius: "var(--radius-md)", height: "var(--density-field-h)", opacity: disabled ? "var(--opacity-disabled)" : 1,
         boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
       }}>
@@ -49,7 +49,7 @@ export const Select = React.forwardRef(function Select(props, ref) {
           onFocus={() => setFocus(true)} onBlur={() => setFocus(false)}
           style={{
             appearance: "none", WebkitAppearance: "none", flex: 1, border: "none", outline: "none",
-            background: "transparent", height: "100%", padding: "0 40px 0 16px",
+            background: "transparent", height: "100%", padding: "0 40px 0 var(--density-field-pad-x)",
             fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
             color: value ? "var(--text-primary)" : "var(--text-placeholder)",
             cursor: disabled ? "not-allowed" : "pointer",

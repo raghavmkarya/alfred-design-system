@@ -3,6 +3,35 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 2.1 — density scale (compact / comfortable / spacious)
+
+The first of the Phase-2 cross-cutting token systems. One attribute now resizes controls, fields,
+table rows and app chrome across a whole subtree, so a dense operator table and a roomy onboarding
+form share the same components with **no per-component overrides and no size props threaded through
+the tree**.
+
+- **`tokens/density.css`** (new, imported by `styles.css`) — 20 `--density-*` tokens in four scopes:
+  `:root`, `[data-density="comfortable"]`, `[data-density="compact"]`, `[data-density="spacious"]`.
+  Groups: control heights/padding (sm/md/lg), form fields, table + list rows, app chrome (bars, nav
+  rail, nav items), plus generic `--density-gap` / `--density-surface-pad` and a `--density-scale`
+  multiplier (0.85 / 1 / 1.15) for consumer spacing math.
+- **`comfortable` is byte-identical to the pre-scale values**, so the migration is visually neutral:
+  the tri-theme visual baselines passed unchanged, with no re-bless.
+- **11 components migrated** onto the tokens: Button, Input, Select, Textarea, SearchInput, Combobox,
+  DataTable (cells + footer), Sidebar (rail + items), FilterBar. Two 2px consistency corrections fell
+  out of it — Textarea and SearchInput horizontal padding were 14px against every other field's 16px,
+  and now track `--density-field-pad-x`.
+- **New craft rule `density-contract`** (`verify-craft` → 11 rules): every scope must declare the
+  *same* token names. A scope that omits one silently inherits its parent's value, so a comfortable
+  island inside a compact page would render half-compact. Proven to bite on both forms (a dropped
+  token and a missing `@import`).
+- **3 new interaction tests**: compact < comfortable < spacious; `comfortable` measures the literal
+  pre-scale defaults (Button 46px, Input 52px); and a `comfortable` island nested inside a `compact`
+  region resets fully to 46px — the behaviour the contract rule protects.
+- `gen-tokens.mjs` exports the comfortable defaults as a `density` group in `tokens.json`.
+- Docs: `guidelines/density.md` (when to use each, authoring rules); stale component counts in
+  `readme.md` (113 → 115) and `SKILL.md` (86 → 115) corrected.
+
 ## 2026-07-24: visual launch factory expansion
 
 Added a reusable launch production system anchored in Alfred's decision-intelligence positioning:
