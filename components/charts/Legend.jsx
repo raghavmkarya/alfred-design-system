@@ -11,14 +11,16 @@ import React from "react";
 // (both wrap to --chart-1 on a 7th series). --chart-7/8 stay explicit-use only.
 const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 
-export function Legend({ items = [], direction = "row", style = {} }) {
+export function Legend({ items = [], direction = "row", ariaLabel = "Chart legend", style = {} }) {
   return (
-    <div style={{
+    // A legend is a key: a list of series names, not a graphic. `list`/`listitem`
+    // keeps each entry readable and countable; the swatch itself is decorative.
+    <div role="list" aria-label={ariaLabel} style={{
       display: "flex", flexDirection: direction === "column" ? "column" : "row",
       flexWrap: "wrap", gap: direction === "column" ? 8 : 18, ...style,
     }}>
       {items.map((it, i) => (
-        <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 8, minWidth: 0 }}>
+        <span key={i} role="listitem" style={{ display: "inline-flex", alignItems: "center", gap: 8, minWidth: 0 }}>
           <span style={{ width: 11, height: 11, borderRadius: 3, flex: "none", background: it.color || PALETTE[i % PALETTE.length] }} />
           <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)" }}>{it.label}</span>
           {it.value != null && (

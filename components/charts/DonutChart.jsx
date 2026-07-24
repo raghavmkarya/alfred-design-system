@@ -8,14 +8,18 @@ import React from "react";
  */
 const RAMP = ["var(--chart-1)", "var(--chart-2)", "var(--chart-7)", "var(--chart-4)", "var(--border-default)"];
 
-export function DonutChart({ segments = [], size = 180, thickness = 22, centerLabel, centerSub, style = {} }) {
+export function DonutChart({ segments = [], size = 180, thickness = 22, centerLabel, centerSub, ariaLabel, style = {} }) {
   const total = segments.reduce((s, x) => s + x.value, 0) || 1;
   const r = (size - thickness) / 2;
   const c = 2 * Math.PI * r;
   let offset = 0;
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (segments.length
+    ? `Donut chart: ${segments.map((s) => `${s.label} ${Math.round((s.value / total) * 100)}%`).join(", ")}`
+    : "Donut chart, no data");
   return (
     <div style={{ position: "relative", width: size, height: size, ...style }}>
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ transform: "rotate(-90deg)" }}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={aria} style={{ transform: "rotate(-90deg)" }}>
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--surface-sunken)" strokeWidth={thickness} />
         {segments.map((s, i) => {
           const len = (s.value / total) * c;

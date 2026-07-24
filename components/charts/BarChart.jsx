@@ -6,10 +6,13 @@ import React from "react";
  * default; pass a per-datum `color` to override. `data`: [{label, value, color?,
  * display?}] — `display` overrides the printed value (e.g. "$84K").
  */
-export function BarChart({ data = [], height = 200, max, showValues = true, style = {} }) {
+export function BarChart({ data = [], height = 200, max, showValues = true, ariaLabel, style = {} }) {
   const top = max || Math.max(...data.map((d) => d.value), 1);
+  // Every bar's label and value is already readable text, so the bars carry no
+  // extra information — the container just needs a name to group them under.
+  const aria = ariaLabel || (data.length ? `Bar chart, ${data.length} bars` : "Bar chart, no data");
   return (
-    <div style={{ width: "100%", ...style }}>
+    <div role="group" aria-label={aria} style={{ width: "100%", ...style }}>
       <div style={{ display: "flex", alignItems: "flex-end", gap: 14, height }}>
         {data.map((d, i) => (
           <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", height: "100%", gap: 6 }}>

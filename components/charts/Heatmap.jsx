@@ -13,7 +13,7 @@ import React from "react";
  */
 const ORANGE_RGB = "255, 132, 49"; // var(--orange-500) #FF8431
 
-export function Heatmap({ rows = [], cols = [], values = [], maxValue, valueFormat, legend = true, style = {} }) {
+export function Heatmap({ rows = [], cols = [], values = [], maxValue, valueFormat, legend = true, ariaLabel = "Intensity heatmap", style = {} }) {
   const nCols = cols.length;
   const fmt = typeof valueFormat === "function"
     ? valueFormat
@@ -55,7 +55,9 @@ export function Heatmap({ rows = [], cols = [], values = [], maxValue, valueForm
   const cellFg = (t) => (t >= 0.66 ? "var(--text-on-orange)" : "var(--text-primary)");
 
   return (
-    <div style={{ width: "100%", ...style }} role="figure" aria-label="Intensity heatmap">
+    // `group`, not `figure`: a figure without a caption gives AT nothing extra,
+    // and every cell value here is already readable text.
+    <div style={{ width: "100%", ...style }} role="group" aria-label={ariaLabel}>
       <div style={{ width: "100%", overflowX: "auto" }}>
         <div
           style={{

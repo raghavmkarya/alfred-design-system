@@ -6,6 +6,8 @@ export interface BarChartProps {
   /** Force the scale max; defaults to the largest value. */
   max?: number;
   showValues?: boolean;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** Vertical bars (brand gradient) for categorical comparisons. */

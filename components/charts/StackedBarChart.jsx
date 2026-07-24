@@ -36,7 +36,7 @@ const topRounded = (x, y, w, h, r) => {
   return `M${x},${y + h} L${x},${y + rr} Q${x},${y} ${x + rr},${y} L${x + w - rr},${y} Q${x + w},${y} ${x + w},${y + rr} L${x + w},${y + h} Z`;
 };
 
-export function StackedBarChart({ data = [], keys = [], colors, height = 220, stacked = true, valueFormat, style = {} }) {
+export function StackedBarChart({ data = [], keys = [], colors, height = 220, stacked = true, valueFormat, ariaLabel, style = {} }) {
   const uid = React.useId().replace(/:/g, "");
   const W = 660, padL = 46, padR = 14, padT = 14, padB = 30;
   const plotW = W - padL - padR, plotH = height - padT - padB;
@@ -62,9 +62,14 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
   const gGap = nKeys > 1 ? Math.min(6, innerW * 0.05) : 0;
   const gBarW = Math.max((innerW - gGap * (nKeys - 1)) / nKeys, 1);
 
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (data.length
+    ? `${grouped ? "Grouped" : "Stacked"} bar chart, ${data.length} bars across ${keys.length} series (${keys.join(", ")})`
+    : "Bar chart, no data");
+
   return (
     <div style={{ width: "100%", ...style }}>
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} style={{ display: "block" }}>
+      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           {/* Soft top sheen — a single light source from above, theme-neutral. */}
           <linearGradient id={`${uid}sheen`} x1="0" y1="0" x2="0" y2="1">

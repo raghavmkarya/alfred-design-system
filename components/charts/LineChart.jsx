@@ -5,7 +5,7 @@ import React from "react";
  * Labelled trend line (a sparkline with x-axis labels) for performance over
  * time. Gradient stroke + soft area fill. Pass `points` and matching `labels`.
  */
-export function LineChart({ points = [], labels = [], height = 200, style = {} }) {
+export function LineChart({ points = [], labels = [], height = 200, ariaLabel, style = {} }) {
   const uid = React.useId().replace(/[:]/g, "");
   const w = 640;
   const max = Math.max(...points), min = Math.min(...points);
@@ -13,9 +13,14 @@ export function LineChart({ points = [], labels = [], height = 200, style = {} }
   const ny = (v) => height - ((v - min) / ((max - min) || 1)) * (height - 30) - 15;
   const line = points.map((v, i) => `${i === 0 ? "M" : "L"} ${nx(i).toFixed(1)} ${ny(v).toFixed(1)}`).join(" ");
   const area = `${line} L ${w} ${height} L 0 ${height} Z`;
+  // Non-text content needs a text alternative (WCAG 1.1.1). The SVG carries the
+  // summary; the label row below stays readable text.
+  const aria = ariaLabel || (points.length
+    ? `Line chart, ${points.length} points, from ${points[0]} to ${points[points.length - 1]}`
+    : "Line chart, no data");
   return (
     <div style={{ width: "100%", ...style }}>
-      <svg viewBox={`0 0 ${w} ${height}`} width="100%" height={height} preserveAspectRatio="none" style={{ display: "block" }}>
+      <svg viewBox={`0 0 ${w} ${height}`} width="100%" height={height} preserveAspectRatio="none" role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           <linearGradient id={`${uid}l`} x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="var(--chart-2)" /><stop offset="100%" stopColor="var(--chart-1)" /></linearGradient>
           {/* rgba(255,132,49,…) mirrors --orange-500 — alpha ramps can't be composed from a CSS var. */}

@@ -191,6 +191,46 @@ const CASES = [
     [/aria-label="Evidence ledger"/, /role="meter"/, /aria-valuenow="82"/, /role="list"/, /role="listitem"/, /<button type="button"/]],
   ["DecisionFork", "DecisionFork", { onSelect: noop },
     [/role="radiogroup"/, /aria-label="Decision options"/, /role="radio"/, /aria-checked="true"/, /<button type="button"/]],
+
+  /* —— chart a11y contract ——————————————————————————————————————————————
+     Every chart must expose a text alternative (WCAG 1.1.1). A bare <svg>
+     announces nothing at all, which is how 10 of these shipped. Two shapes:
+       role="img"   — the graphic carries the data (SVG charts, gauge tracks)
+       role="group" — the values are already readable text; the container
+                      only needs a name to group them under
+     Each also takes an `ariaLabel` prop so a caller can say it better. */
+  ["LineChart", "LineChart", { points: [12, 18, 15, 24], labels: ["W1", "W2", "W3", "W4"] },
+    [/role="img"/, /aria-label="Line chart, 4 points, from 12 to 24"/]],
+  ["LineChart (empty)", "LineChart", { points: [] },
+    [/aria-label="Line chart, no data"/]],
+  ["LineChart (ariaLabel override)", "LineChart", { points: [1, 2], ariaLabel: "Blended ROAS by week" },
+    [/aria-label="Blended ROAS by week"/]],
+  ["Sparkline", "Sparkline", { points: [4, 9, 6, 11] },
+    [/role="img"/, /aria-label="Sparkline, 4 points, from 4 to 11"/]],
+  ["AreaChart", "AreaChart", { series: [{ name: "Paid", points: [3, 6, 9] }], labels: ["Jan", "Feb", "Mar"] },
+    [/role="img"/, /aria-label="Area chart, 1 series \(Paid\), 3 points"/]],
+  ["DonutChart", "DonutChart", { segments: [{ label: "Search", value: 60 }, { label: "Social", value: 40 }] },
+    [/role="img"/, /aria-label="Donut chart: Search 60%, Social 40%"/]],
+  ["ScatterChart", "ScatterChart", { points: [{ x: 1, y: 2 }], xLabel: "Spend", yLabel: "ROAS" },
+    [/role="img"/, /aria-label="Scatter chart, 1 points, Spend against ROAS"/]],
+  ["StackedBarChart", "StackedBarChart", { data: [{ m: "Jan", a: 3, b: 4 }], keys: ["a", "b"] },
+    [/role="img"/, /aria-label="Stacked bar chart, 1 bars across 2 series \(a, b\)"/]],
+  ["SankeyChart", "SankeyChart", { nodes: [{ id: "a", col: 0 }, { id: "b", col: 1 }], links: [{ source: "a", target: "b", value: 5 }] },
+    [/role="img"/, /aria-label="Sankey flow diagram, 2 nodes and 1 flows"/]],
+  ["GaugeChart", "GaugeChart", { value: 72, max: 100, label: "Pacing" },
+    [/role="img"/, /aria-label="Pacing: 72 of 100"/]],
+  ["WaterfallChart", "WaterfallChart", { items: [{ label: "Start", value: 100 }, { label: "Search", value: -20 }] },
+    [/role="img"/, /aria-label="/]],
+  ["BulletChart", "BulletChart", { items: [{ label: "Search", value: 80, target: 100 }] },
+    [/role="img"/, /aria-label="/]],
+  ["BarChart", "BarChart", { data: [{ label: "Search", value: 40 }, { label: "Social", value: 25 }] },
+    [/role="group"/, /aria-label="Bar chart, 2 bars"/]],
+  ["FunnelChart", "FunnelChart", { steps: [{ label: "Visitors", value: 1000 }, { label: "MQL", value: 240 }] },
+    [/role="group"/, /aria-label="Conversion funnel, 2 steps"/]],
+  ["Heatmap", "Heatmap", { rows: ["Mon"], cols: ["9am"], values: [[4]] },
+    [/role="group"/, /aria-label="Intensity heatmap"/]],
+  ["Legend", "Legend", { items: [{ label: "Search" }, { label: "Social" }] },
+    [/role="list"/, /role="listitem"/, /aria-label="Chart legend"/]],
 ];
 
 let fail = 0;
