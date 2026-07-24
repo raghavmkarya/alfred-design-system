@@ -74,7 +74,7 @@ export function SourceTrace({
                   }}>{src.detail}</span>
                 )}
                 <span style={{
-                  marginLeft: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)",
+                  marginInlineStart: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)",
                   fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase",
                   color: s.color,
                 }}>{s.label}</span>
@@ -89,7 +89,7 @@ export function SourceTrace({
             return (
               <span key={`${src.name}-${i}`} title={`${src.name} — ${s.label}`} style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
-                padding: "6px 12px 6px 9px",
+                paddingBlock: "6px", paddingInline: "9px 12px",
                 background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
                 borderRadius: "var(--radius-pill)",
               }}>

@@ -70,7 +70,7 @@ export function GoalPacing({
         </div>
         {/* On-pace marker */}
         <span aria-hidden="true" style={{
-          position: "absolute", top: 0, bottom: 0, left: `${pace}%`, transform: "translateX(-50%)",
+          position: "absolute", top: 0, bottom: 0, left: `${pace}%`, transform: "translateX(-50%)",   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
           display: "flex", flexDirection: "column", alignItems: "center",
         }}>
           <span style={{ width: 2, height: 20, background: "var(--text-primary)", borderRadius: "var(--radius-pill)", opacity: 0.55 }} />
@@ -79,7 +79,7 @@ export function GoalPacing({
 
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <span style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{period}</span>
-        <span style={{ marginLeft: "auto", fontSize: "var(--text-xs)", color: "var(--text-secondary)" }}>
+        <span style={{ marginInlineStart: "auto", fontSize: "var(--text-xs)", color: "var(--text-secondary)" }}>
           {Math.round(pct)}% to goal · on-pace {Math.round(pace)}%
         </span>
       </div>

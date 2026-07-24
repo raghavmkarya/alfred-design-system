@@ -21,8 +21,8 @@ export function SyncStatusBadge({ status = "fresh", label, size = "md", style = 
   const word = label != null ? label : s.word;
 
   const SIZES = {
-    sm: { font: "var(--text-2xs)", dot: 6, gap: 6, padding: "3px 9px 3px 8px" },
-    md: { font: "var(--text-xs)", dot: 8, gap: 7, padding: "5px 11px 5px 9px" },
+    sm: { font: "var(--text-2xs)", dot: 6, gap: 6, paddingBlock: "3px", paddingInline: "8px 9px" },
+    md: { font: "var(--text-xs)", dot: 8, gap: 7, paddingBlock: "5px", paddingInline: "9px 11px" },
   };
   const z = SIZES[size] || SIZES.md;
 
@@ -30,7 +30,7 @@ export function SyncStatusBadge({ status = "fresh", label, size = "md", style = 
   const cls = `ssb-${uid}`;
 
   const dotBase = {
-    position: "absolute", left: "50%", top: "50%",
+    position: "absolute", left: "50%", top: "50%",   /* rtl-ok: 50% centring is direction-neutral */
     width: z.dot, height: z.dot, borderRadius: "var(--radius-circle)",
     background: s.dot, transform: "translate(-50%, -50%)",
   };

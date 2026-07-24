@@ -84,7 +84,7 @@ export function PriceCard({
           style={{
             position: "absolute",
             top: -13,
-            left: "50%",
+            left: "50%",   /* rtl-ok: 50% centring is direction-neutral */
             transform: "translateX(-50%)",
             display: "inline-flex",
             alignItems: "center",

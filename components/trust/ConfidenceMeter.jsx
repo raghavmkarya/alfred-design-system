@@ -112,8 +112,8 @@ export function ConfidenceMeter({
               position: "absolute",
               top: 0,
               bottom: 0,
-              left: `${pct}%`,
-              right: 0,
+              left: `${pct}%`,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
+              right: 0,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
               background: "var(--surface-card)",
               opacity: 0.55,
             }}
@@ -127,7 +127,7 @@ export function ConfidenceMeter({
             position: "absolute",
             top: -s.poke,
             bottom: -s.poke,
-            left: `${pct}%`,
+            left: `${pct}%`,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
             transform: `translateX(${-pct}%)`,
             width: s.notch,
             borderRadius: "var(--radius-pill)",

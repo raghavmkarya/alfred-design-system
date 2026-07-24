@@ -57,7 +57,7 @@ export function PromptSuggestions({
             onMouseUp={() => setPress((p) => (p === i ? -1 : p))}
             style={{
               display: "inline-flex", alignItems: "center", gap: 9,
-              width: isList ? "100%" : "auto", textAlign: "left",
+              width: isList ? "100%" : "auto", textAlign: "start",
               padding: isList ? "12px 14px" : "9px 14px",
               borderRadius: isList ? "var(--radius-md)" : "var(--radius-pill)",
               background: hoverable && hover === i ? "var(--surface-hover)" : "var(--surface-card)",

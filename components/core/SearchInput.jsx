@@ -129,7 +129,7 @@ export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
 
       {showResults && (
         <div id={listboxId} role="listbox" aria-label="Search results" style={{
-          position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0, zIndex: "var(--z-dropdown)",
+          position: "absolute", top: "calc(100% + 8px)", insetInline: 0, zIndex: "var(--z-dropdown)",
           background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
           borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-overlay)", overflow: "hidden", padding: 6,
         }}>
@@ -148,7 +148,7 @@ export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
                 onMouseLeave={() => setActiveIndex((cur) => (cur === i ? -1 : cur))}
                 onClick={() => pick(item.label)}
                 style={{
-                  display: "flex", alignItems: "center", gap: 10, width: "100%", textAlign: "left",
+                  display: "flex", alignItems: "center", gap: 10, width: "100%", textAlign: "start",
                   padding: "10px 12px", border: "none", borderRadius: "var(--radius-sm)", cursor: "pointer",
                   background: isActive ? "var(--surface-sunken)" : "transparent", fontFamily: "var(--font-sans)",
                 }}

@@ -106,7 +106,7 @@ export function TeamMemberRow({
             outline: "none",
             background: "transparent",
             height: "100%",
-            padding: "0 32px 0 12px",
+            paddingBlock: "0", paddingInline: "12px 32px",
             fontFamily: "var(--font-sans)",
             fontSize: "var(--text-sm)",
             fontWeight: "var(--fw-medium)",
@@ -121,7 +121,7 @@ export function TeamMemberRow({
         <svg
           width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
-          style={{ position: "absolute", right: 10, pointerEvents: "none", color: "var(--text-muted)" }}
+          style={{ position: "absolute", insetInlineEnd: 10, pointerEvents: "none", color: "var(--text-muted)" }}
         >
           <path d="M6 9l6 6 6-6" />
         </svg>

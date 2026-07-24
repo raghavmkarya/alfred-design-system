@@ -28,12 +28,12 @@ export function DecisionAlert({
     <div style={{
       display: "flex", gap: 14, alignItems: "flex-start",
       background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-      borderRadius: "var(--radius-xl)", padding: "16px 18px 16px 14px",
+      borderRadius: "var(--radius-xl)", paddingBlock: "16px", paddingInline: "14px 18px",
       boxShadow: "var(--elevation-surface)", position: "relative", overflow: "hidden", ...style,
     }}>
-      <span style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: p.rail }} />
+      <span aria-hidden="true" style={{ position: "absolute", insetInlineStart: 0, top: 0, bottom: 0, width: 4, background: p.rail }} />
       <span style={{
-        width: 38, height: 38, borderRadius: "var(--radius-md)", flex: "none", marginLeft: 6,
+        width: 38, height: 38, borderRadius: "var(--radius-md)", flex: "none", marginInlineStart: 6,
         background: p.soft, display: "inline-flex", alignItems: "center", justifyContent: "center",
       }}>
         <Icon name={p.icon} size={18} color={p.rail} root={iconRoot} />
@@ -42,7 +42,7 @@ export function DecisionAlert({
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
           <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{title}</span>
           <Badge tone={p.badge} dot>{p.label}</Badge>
-          {time && <span style={{ marginLeft: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{time}</span>}
+          {time && <span style={{ marginInlineStart: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>{time}</span>}
         </div>
         <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)" }}>{insight}</p>
         {action && (

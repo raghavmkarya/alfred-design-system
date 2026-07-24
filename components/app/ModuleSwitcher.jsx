@@ -137,7 +137,7 @@ export function ModuleSwitcher({
         onBlur={() => setFocusVisible(false)}
         style={{
           display: "flex", alignItems: "center", gap: 12, width: "100%",
-          padding: "9px 12px", textAlign: "left", cursor: "pointer",
+          padding: "9px 12px", textAlign: "start", cursor: "pointer",
           background: hover || open ? "var(--surface-sunken)" : "var(--surface-card)",
           border: `1px solid ${open ? "var(--border-focus)" : "var(--border-default)"}`,
           borderRadius: "var(--radius-md)",
@@ -196,7 +196,7 @@ export function ModuleSwitcher({
           aria-labelledby={triggerId}
           onKeyDown={onMenuKeyDown}
           style={{
-            position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0,
+            position: "absolute", top: "calc(100% + 8px)", insetInline: 0,
             zIndex: "var(--z-dropdown)",
             background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
             borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-floating)", padding: 6,
@@ -218,7 +218,7 @@ export function ModuleSwitcher({
                 onFocus={() => setActiveIdx(i)}
                 style={{
                   display: "flex", alignItems: "center", gap: 10, width: "100%",
-                  padding: "10px 10px", border: "none", textAlign: "left", cursor: "pointer",
+                  padding: "10px 10px", border: "none", textAlign: "start", cursor: "pointer",
                   borderRadius: "var(--radius-sm)",
                   background: i === activeIdx ? "var(--accent-soft)" : "transparent",
                   fontFamily: "var(--font-sans)",

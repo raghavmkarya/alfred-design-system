@@ -114,7 +114,7 @@ export function CausalChain({ steps = [], confidence = null, title = "", style =
         {/* kind accent rail */}
         <span
           aria-hidden="true"
-          style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 3, background: meta.accent }}
+          style={{ position: "absolute", insetInlineStart: 0, top: 0, bottom: 0, width: 3, background: meta.accent }}
         />
 
         {/* header: glyph badge + kind eyebrow + ordinal */}
@@ -154,7 +154,7 @@ export function CausalChain({ steps = [], confidence = null, title = "", style =
           </span>
           <span
             style={{
-              marginLeft: "auto",
+              marginInlineStart: "auto",
               fontFamily: "var(--font-sans)",
               fontSize: "var(--text-2xs)",
               fontWeight: "var(--fw-bold)",

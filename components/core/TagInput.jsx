@@ -125,7 +125,7 @@ export const TagInput = React.forwardRef(function TagInput({
 
         {showSuggestions && (
           <div role="listbox" aria-label="Suggestions" style={{
-            position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0, zIndex: "var(--z-dropdown)",
+            position: "absolute", top: "calc(100% + 8px)", insetInline: 0, zIndex: "var(--z-dropdown)",
             background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
             borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-overlay)", overflow: "hidden", padding: 6,
           }}>
@@ -141,7 +141,7 @@ export const TagInput = React.forwardRef(function TagInput({
                 onFocus={() => setActive(i)}
                 onBlur={() => setActive(-1)}
                 style={{
-                  display: "flex", alignItems: "center", width: "100%", textAlign: "left",
+                  display: "flex", alignItems: "center", width: "100%", textAlign: "start",
                   padding: "9px 12px", border: "none", borderRadius: "var(--radius-sm)", cursor: "pointer",
                   background: i === active ? "var(--accent-soft)" : "transparent",
                   transition: "background var(--dur-fast) var(--ease-standard)",

@@ -212,8 +212,8 @@ export function AuditLogRow({
               <p
                 style={{
                   margin: 0,
-                  paddingLeft: 12,
-                  borderLeft: "2px solid var(--border-default)",
+                  paddingInlineStart: 12,
+                  borderInlineStart: "2px solid var(--border-default)",
                   fontSize: "var(--text-sm)",
                   color: "var(--text-secondary)",
                   lineHeight: "var(--lh-normal)",

@@ -57,7 +57,7 @@ export function RecommendationCard({
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
         boxShadow: "var(--elevation-floating)",
-        padding: "20px 22px 20px 24px",
+        paddingBlock: "20px", paddingInline: "24px 22px",
         display: "flex",
         flexDirection: "column",
         gap: 16,
@@ -66,7 +66,7 @@ export function RecommendationCard({
       }}
     >
       {/* Priority rail */}
-      <span aria-hidden="true" style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 5, background: p.rail }} />
+      <span aria-hidden="true" style={{ position: "absolute", insetInlineStart: 0, top: 0, bottom: 0, width: 5, background: p.rail }} />
 
       {/* Header: Alfred mark + eyebrow, priority badge */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>

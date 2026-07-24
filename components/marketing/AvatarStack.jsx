@@ -27,7 +27,7 @@ export function AvatarStack({ names = [], max = 4, label, size = 36, style = {} 
             size={size}
             tone={toneFor(i)}
             style={{
-              marginLeft: i === 0 ? 0 : overlap,
+              marginInlineStart: i === 0 ? 0 : overlap,
               position: "relative",
               zIndex: shown.length - i + 1,
               boxShadow: ring,
@@ -40,7 +40,7 @@ export function AvatarStack({ names = [], max = 4, label, size = 36, style = {} 
               width: size,
               height: size,
               borderRadius: "50%",
-              marginLeft: shown.length > 0 ? overlap : 0,
+              marginInlineStart: shown.length > 0 ? overlap : 0,
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",

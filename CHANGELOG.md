@@ -3,6 +3,39 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 2.3 — RTL / logical properties
+
+The third Phase-2 cross-cutting system. Components now describe space by **reading direction**
+(start / end) rather than by screen (left / right), so a surface mirrors under `dir="rtl"` with no
+per-component override.
+
+- **~110 physical declarations migrated** across 40+ components: `margin`/`padding`/`border`
+  `Left`/`Right` → `InlineStart`/`InlineEnd` (29) · `textAlign: "left"/"right"` → `"start"/"end"` (15) ·
+  **13 asymmetric 4-value shorthands** → `paddingBlock` + `paddingInline` · directional insets →
+  `insetInline*`: 4 leading accent rails, 2 trailing affordances (Select chevron, TeamMemberRow),
+  5 full-width dropdown stretches, and the Popover placement map.
+- **Three categories deliberately stay physical**, each carrying an inline `rtl-ok` marker with its
+  reason: 50% centring (direction-neutral, and breaks if only half the pair is converted) · chart
+  coordinate space (Bullet/Gauge/ConfidenceMeter/GoalPacing — a data-viz decision owned by 4.4) ·
+  physical placement APIs (`Tooltip placement="left"` means left).
+- **A subtlety worth recording: three sites were *over*-converted and then repaired.** A logical
+  margin paired with a physical `left: 50%` offset (ActivityTimeline, ThinkingTrace) or with
+  Tooltip's physical placement mirrors only half the pair, which is worse than not migrating. If one
+  half of a positioning pair is physical, both must be.
+- **New craft rule `physical-inline-prop`** (`verify-craft` → 14 rules), proven to bite on both the
+  margin and the `textAlign` forms, with an `rtl-ok` escape for the documented exceptions.
+- **New RTL interaction test.** Logical properties are **invisible in LTR** — they resolve to exactly
+  the physical values they replaced, so every static check and every LTR screenshot passes whether or
+  not the migration is correct. The test renders `DecisionAlert` in an LTR and an RTL container and
+  asserts its leading rail sits the same distance from the *leading* edge in both. Reverting that one
+  property to `left: 0` fails it (315px vs 1px), so the check is real rather than decorative.
+- Small consistency fix found on the way: `DecisionAlert`'s decorative rail was missing
+  `aria-hidden="true"`, unlike the identical rails in ApprovalGate / RecommendationCard / CausalChain.
+- Docs: `guidelines/rtl.md`.
+
+All three tri-theme visual baselines pass unchanged — which proves the migration was *safe*, and
+(per the note above) proves nothing about whether it *worked*. That is what the RTL test is for.
+
 ## 2026-07-25: Phase 2.2 — elevation system (+ marketing-dark shipped flat)
 
 The second Phase-2 cross-cutting token system. Components now name the elevation **role** rather than

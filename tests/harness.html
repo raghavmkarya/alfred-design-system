@@ -24,6 +24,7 @@
 <script type="text/babel">
 const ns = window.AlfredAIDesignSystem_1ce241;
 const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination, Input } = ns;
+const RTL_ALERT = { priority: "high", title: "Pause overspend", insight: "Meta is 40% over CPA.", time: "2m", action: "Review" };
 const { useState } = React;
 
 function StatefulSeg() {
@@ -94,6 +95,15 @@ function App() {
           <div data-density="comfortable" data-testid="density-island" className="row">
             <Button variant="primary">Reallocate</Button>
           </div>
+        </div>
+      </div>
+      {/* Phase 2.3: the same component in both writing directions. Its leading
+          accent rail must sit on the start edge, which mirrors under RTL. */}
+      <div id="rtl" data-testid="rtl-probe">
+        <div className="lbl">Direction</div>
+        <div style={{ display: "flex", gap: 16 }}>
+          <div dir="ltr" data-testid="dir-ltr" style={{ width: 320 }}><DecisionAlert {...RTL_ALERT} /></div>
+          <div dir="rtl" data-testid="dir-rtl" style={{ width: 320 }}><DecisionAlert {...RTL_ALERT} /></div>
         </div>
       </div>
       <div className="theme" data-testid="theme-light"><Gallery /></div>

@@ -54,7 +54,7 @@ export function DecisionLog({ entries = [], title = "", style = {} }) {
           </span>
           <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{title}</span>
           {entries.length > 0 && (
-            <span style={{ marginLeft: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-semibold)", color: "var(--text-muted)" }}>
+            <span style={{ marginInlineStart: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-semibold)", color: "var(--text-muted)" }}>
               {entries.length} {entries.length === 1 ? "change" : "changes"}
             </span>
           )}
@@ -92,7 +92,7 @@ export function DecisionLog({ entries = [], title = "", style = {} }) {
                 <div style={{ position: "relative", width: 30, flex: "none", display: "flex", justifyContent: "center" }}>
                   {!isLast && (
                     <span aria-hidden="true" style={{
-                      position: "absolute", top: 32, bottom: -GAP, left: "50%", transform: "translateX(-50%)",
+                      position: "absolute", top: 32, bottom: -GAP, left: "50%", transform: "translateX(-50%)",   /* rtl-ok: 50% centring is direction-neutral */
                       width: 2, borderRadius: "var(--radius-pill)", background: "var(--border-default)",
                     }} />
                   )}

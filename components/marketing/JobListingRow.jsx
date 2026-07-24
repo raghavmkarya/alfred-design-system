@@ -40,7 +40,7 @@ export function JobListingRow({
         : "var(--elevation-raised)",
     transform: hover ? "translateY(-2px)" : "translateY(0)",
     fontFamily: "var(--font-sans)",
-    textAlign: "left",
+    textAlign: "start",
     textDecoration: "none",
     cursor: "pointer",
     outline: "none",

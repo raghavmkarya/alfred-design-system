@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"dbed2d8a8ea0","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"b91e4e323f25","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"dc4f74b6865a","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"684ede444e12","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"ec2fdbdbb305","components/core/TagInput.jsx":"c1a47a73e86e","components/core/Textarea.jsx":"2261a61f2e2b","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"72560f8121bf","components/core/FileDropzone.jsx":"8b7e2e13d7a9","components/core/SegmentedControl.jsx":"a9d84cea4a4e","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9e8d1510da4d","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"d8cc7c0ecdb0","components/data/ActivityTimeline.jsx":"c8da20ec904f","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"31dd68a45534","components/charts/Heatmap.jsx":"1b0378532285","components/charts/BarChart.jsx":"ed6dfff8dc0f","components/charts/AreaChart.jsx":"220f585db386","components/charts/LineChart.jsx":"896be1148bdf","components/charts/Sparkline.jsx":"710bf16b0f9d","components/charts/DonutChart.jsx":"e2e4ed193988","components/charts/GaugeChart.jsx":"f93e7aa86727","components/charts/BulletChart.jsx":"96d3ac15f627","components/charts/FunnelChart.jsx":"cf9037847a3f","components/charts/SankeyChart.jsx":"72397aeeb94a","components/charts/ScatterChart.jsx":"59ab85c9ab62","components/charts/WaterfallChart.jsx":"3a9f0130e079","components/charts/StackedBarChart.jsx":"f873434b8122","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"1cd4175015cc","components/overlay/Toast.jsx":"9898014849dc","components/overlay/Drawer.jsx":"bf9425d870ac","components/overlay/Popover.jsx":"f77c4258fd3d","components/overlay/Tooltip.jsx":"8770e51da40b","components/feedback/Banner.jsx":"ff051db36967","components/feedback/Callout.jsx":"97ae150912b5","components/marketing/FaqItem.jsx":"87aca3f979e1","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"8b4cbdd2c651","components/marketing/SignalCard.jsx":"ca4772dbd10f","components/marketing/AgentStatus.jsx":"7a428152b19b","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"0157655f8209","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"95e2d5dbe6df","components/marketing/JobListingRow.jsx":"6b6572c07b03","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"7780e8ed534d","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"11edac06e1c5","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"7d0c1ceb3e41","components/trust/CausalChain.jsx":"a2c95c3322a8","components/trust/DecisionLog.jsx":"c25ff7731cb1","components/trust/SourceTrace.jsx":"c8b966e63d26","components/trust/DataFreshness.jsx":"121880c88024","components/trust/EvidenceLedger.jsx":"14070ba9985c","components/trust/ConfidenceMeter.jsx":"6b13bca8ac56","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"a045d31ced9a","components/trust/RecommendationCard.jsx":"bbe4d2df7fd9","components/app/Sidebar.jsx":"40b3447ac962","components/app/StatTile.jsx":"fce552fe284f","components/app/DataTable.jsx":"241fa7841e24","components/app/FilterBar.jsx":"eacb0723a532","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"48a65a8461c7","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"193680a192f3","components/app/CommandPalette.jsx":"0a85aebf3e6c","components/app/ModuleSwitcher.jsx":"6bb945d61864","components/app/BillingPlanCard.jsx":"4d7c62bbf837","components/app/DateRangePicker.jsx":"f62453e5ef44","components/app/SyncStatusBadge.jsx":"8700ec363e2d","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"0c509695eddd","components/conversation/SeekComposer.jsx":"722eaa71f6b0","components/conversation/AlfredMessage.jsx":"70ecbe0e17e7","components/conversation/ThinkingTrace.jsx":"00c46ff1681d","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"efebe14f2475","components/decision/GoalPacing.jsx":"7dcb26bcd90c","components/decision/AnomalyFlag.jsx":"9fbd7458312c","components/decision/ApprovalGate.jsx":"7b3ed5c1a168","components/decision/DecisionFork.jsx":"51d5197ebc3e","components/decision/ScenarioSimulator.jsx":"2fd220149b21"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress"]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"dbed2d8a8ea0","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"070d9a567848","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"842e26cc0966","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"684ede444e12","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"b441a6e9a259","components/core/TagInput.jsx":"c77a297ccc17","components/core/Textarea.jsx":"167b5bcc7207","components/core/Accordion.jsx":"70aa7488fb0d","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"9e7f63c4a423","components/core/FileDropzone.jsx":"8b7e2e13d7a9","components/core/SegmentedControl.jsx":"a9d84cea4a4e","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9e8d1510da4d","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"ef6e94ac0f1b","components/data/ActivityTimeline.jsx":"8817b99169f5","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"31dd68a45534","components/charts/Heatmap.jsx":"0cbe502604f1","components/charts/BarChart.jsx":"ed6dfff8dc0f","components/charts/AreaChart.jsx":"ab5d30555148","components/charts/LineChart.jsx":"896be1148bdf","components/charts/Sparkline.jsx":"710bf16b0f9d","components/charts/DonutChart.jsx":"e2e4ed193988","components/charts/GaugeChart.jsx":"7cfe77fa90d3","components/charts/BulletChart.jsx":"2f1683cea38c","components/charts/FunnelChart.jsx":"cf9037847a3f","components/charts/SankeyChart.jsx":"72397aeeb94a","components/charts/ScatterChart.jsx":"59ab85c9ab62","components/charts/WaterfallChart.jsx":"a8b2de54c5df","components/charts/StackedBarChart.jsx":"f873434b8122","components/overlay/Menu.jsx":"bbcb7af7e846","components/overlay/Modal.jsx":"1cd4175015cc","components/overlay/Toast.jsx":"9898014849dc","components/overlay/Drawer.jsx":"90ff337cd0fd","components/overlay/Popover.jsx":"ae940f2c5460","components/overlay/Tooltip.jsx":"83229cc61a82","components/feedback/Banner.jsx":"37a05b48534f","components/feedback/Callout.jsx":"5a1e093a3c29","components/marketing/FaqItem.jsx":"e2a875432360","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"ca53bd101e55","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"2b84e00acd01","components/marketing/SignalCard.jsx":"ca4772dbd10f","components/marketing/AgentStatus.jsx":"7a428152b19b","components/marketing/AvatarStack.jsx":"2dce6d47bd41","components/marketing/OfferSwitch.jsx":"b3fa8135ff93","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"95e2d5dbe6df","components/marketing/JobListingRow.jsx":"a8e51d5185b9","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"7780e8ed534d","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"11edac06e1c5","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"db5b43f0e9d0","components/trust/CausalChain.jsx":"b8c3de247ea1","components/trust/DecisionLog.jsx":"e74435a8cf44","components/trust/SourceTrace.jsx":"4a2817cf88e9","components/trust/DataFreshness.jsx":"fad8d3395842","components/trust/EvidenceLedger.jsx":"14070ba9985c","components/trust/ConfidenceMeter.jsx":"594981e42aa1","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"c60c470ef27e","components/trust/RecommendationCard.jsx":"fad8183a7f50","components/app/Sidebar.jsx":"4e65a9b42987","components/app/StatTile.jsx":"fce552fe284f","components/app/DataTable.jsx":"241fa7841e24","components/app/FilterBar.jsx":"e4f6a290594e","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"e08ef822f9ae","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"10d9b56757a4","components/app/CommandPalette.jsx":"433a38b5695f","components/app/ModuleSwitcher.jsx":"5446c458df5d","components/app/BillingPlanCard.jsx":"4d7c62bbf837","components/app/DateRangePicker.jsx":"f62453e5ef44","components/app/SyncStatusBadge.jsx":"6c435fb514fb","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"0c509695eddd","components/conversation/SeekComposer.jsx":"722eaa71f6b0","components/conversation/AlfredMessage.jsx":"812447cb49c1","components/conversation/ThinkingTrace.jsx":"9d3c06a34c5b","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"60b7da06eb49","components/decision/GoalPacing.jsx":"d445d5ca31cd","components/decision/AnomalyFlag.jsx":"b2f990f9aee1","components/decision/ApprovalGate.jsx":"9595062094c9","components/decision/DecisionFork.jsx":"51d5197ebc3e","components/decision/ScenarioSimulator.jsx":"e0d54edb0992"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress"]} */
 
 (() => {
 
@@ -448,8 +448,7 @@ function Tabs({
       "aria-hidden": "true",
       style: {
         position: "absolute",
-        left: 0,
-        right: 0,
+        insetInline: 0,
         bottom: -1,
         height: 3,
         borderRadius: "3px 3px 0 0",
@@ -922,7 +921,8 @@ const Select = React.forwardRef(function Select(props, ref) {
       outline: "none",
       background: "transparent",
       height: "100%",
-      padding: "0 40px 0 var(--density-field-pad-x)",
+      paddingBlock: "0",
+      paddingInline: "var(--density-field-pad-x) 40px",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-base)",
       color: value ? "var(--text-primary)" : "var(--text-placeholder)",
@@ -948,7 +948,7 @@ const Select = React.forwardRef(function Select(props, ref) {
     "aria-hidden": "true",
     style: {
       position: "absolute",
-      right: 14,
+      insetInlineEnd: 14,
       pointerEvents: "none"
     }
   }, /*#__PURE__*/React.createElement("path", {
@@ -1493,7 +1493,8 @@ const Combobox = React.forwardRef(function Combobox({
       alignItems: "center",
       gap: 8,
       height: "var(--density-field-h)",
-      padding: "0 14px 0 var(--density-field-pad-x)",
+      paddingBlock: "0",
+      paddingInline: "var(--density-field-pad-x) 14px",
       background: disabled ? "var(--surface-sunken)" : "var(--surface-input-plain)",
       border: `1px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
       borderRadius: "var(--radius-md)",
@@ -1560,8 +1561,7 @@ const Combobox = React.forwardRef(function Combobox({
     style: {
       position: "absolute",
       top: "calc(100% + 6px)",
-      left: 0,
-      right: 0,
+      insetInline: 0,
       zIndex: "var(--z-dropdown)",
       background: "var(--surface-raised)",
       border: "1px solid var(--border-subtle)",
@@ -1773,8 +1773,7 @@ const TagInput = React.forwardRef(function TagInput({
     style: {
       position: "absolute",
       top: "calc(100% + 8px)",
-      left: 0,
-      right: 0,
+      insetInline: 0,
       zIndex: "var(--z-dropdown)",
       background: "var(--surface-raised)",
       border: "1px solid var(--border-subtle)",
@@ -1800,7 +1799,7 @@ const TagInput = React.forwardRef(function TagInput({
       display: "flex",
       alignItems: "center",
       width: "100%",
-      textAlign: "left",
+      textAlign: "start",
       padding: "9px 12px",
       border: "none",
       borderRadius: "var(--radius-sm)",
@@ -1946,7 +1945,7 @@ const Textarea = React.forwardRef(function Textarea(props, ref) {
     }
   }, error), showCount && maxLength && /*#__PURE__*/React.createElement("span", {
     style: {
-      marginLeft: "auto",
+      marginInlineStart: "auto",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-xs)",
       color: count >= maxLength ? "var(--danger-500)" : "var(--text-muted)",
@@ -2023,7 +2022,7 @@ function Accordion({
         width: "100%",
         padding: `16px ${padX}px`,
         border: "none",
-        textAlign: "left",
+        textAlign: "start",
         background: !item.disabled && hoverId === item.id ? "var(--surface-sunken)" : "transparent",
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-base)",
@@ -2711,8 +2710,7 @@ const SearchInput = React.forwardRef(function SearchInput(props, ref) {
     style: {
       position: "absolute",
       top: "calc(100% + 8px)",
-      left: 0,
-      right: 0,
+      insetInline: 0,
       zIndex: "var(--z-dropdown)",
       background: "var(--surface-raised)",
       border: "1px solid var(--border-subtle)",
@@ -2739,7 +2737,7 @@ const SearchInput = React.forwardRef(function SearchInput(props, ref) {
         alignItems: "center",
         gap: 10,
         width: "100%",
-        textAlign: "left",
+        textAlign: "start",
         padding: "10px 12px",
         border: "none",
         borderRadius: "var(--radius-sm)",
@@ -4069,16 +4067,18 @@ function DecisionAlert({
       background: "var(--surface-card)",
       border: "1px solid var(--border-subtle)",
       borderRadius: "var(--radius-xl)",
-      padding: "16px 18px 16px 14px",
+      paddingBlock: "16px",
+      paddingInline: "14px 18px",
       boxShadow: "var(--elevation-surface)",
       position: "relative",
       overflow: "hidden",
       ...style
     }
   }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
     style: {
       position: "absolute",
-      left: 0,
+      insetInlineStart: 0,
       top: 0,
       bottom: 0,
       width: 4,
@@ -4090,7 +4090,7 @@ function DecisionAlert({
       height: 38,
       borderRadius: "var(--radius-md)",
       flex: "none",
-      marginLeft: 6,
+      marginInlineStart: 6,
       background: p.soft,
       display: "inline-flex",
       alignItems: "center",
@@ -4125,7 +4125,7 @@ function DecisionAlert({
     dot: true
   }, p.label), time && /*#__PURE__*/React.createElement("span", {
     style: {
-      marginLeft: "auto",
+      marginInlineStart: "auto",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-xs)",
       color: "var(--text-muted)"
@@ -4213,7 +4213,7 @@ function ActivityTimeline({
         left: "50%",
         width: 2,
         marginLeft: -1,
-        background: "var(--border-default)"
+        /* rtl-ok: half-width nudge that centres on `left: 50%`; both must stay physical */background: "var(--border-default)"
       }
     }), /*#__PURE__*/React.createElement("span", {
       "aria-hidden": "true",
@@ -4643,7 +4643,7 @@ function Heatmap({
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
-        paddingRight: 10,
+        paddingInlineEnd: 10,
         whiteSpace: "nowrap"
       }
     }, rLabel), cols.map((cLabel, c) => {
@@ -4699,7 +4699,7 @@ function Heatmap({
     }, fmt(top)), /*#__PURE__*/React.createElement("span", {
       style: {
         ...labelStyle,
-        marginLeft: 4,
+        marginInlineStart: 4,
         fontSize: "var(--text-2xs)",
         fontWeight: "var(--fw-bold)",
         textTransform: "uppercase",
@@ -4927,7 +4927,7 @@ function AreaChart({
       flexWrap: "wrap",
       gap: 18,
       marginTop: 10,
-      paddingLeft: padL
+      paddingInlineStart: padL
     }
   }, series.map((s, si) => /*#__PURE__*/React.createElement("span", {
     key: si,
@@ -5356,6 +5356,7 @@ function GaugeChart({
       position: "absolute",
       top: 0,
       left: 0,
+      /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
       width: size,
       height: size,
       display: "flex",
@@ -5487,6 +5488,7 @@ function BulletChart({
         top: 0,
         bottom: 0,
         left: 0,
+        /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
         width: `${poorPct}%`,
         background: "var(--border-default)"
       }
@@ -5496,6 +5498,7 @@ function BulletChart({
         top: 0,
         bottom: 0,
         left: `${poorPct}%`,
+        /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
         width: `${Math.max(okPct - poorPct, 0)}%`,
         background: "var(--border-subtle)"
       }
@@ -5504,6 +5507,7 @@ function BulletChart({
         position: "absolute",
         top: "50%",
         left: 0,
+        /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
         transform: "translateY(-50%)",
         width: `${valuePct}%`,
         height: 14,
@@ -5517,6 +5521,7 @@ function BulletChart({
         top: 5,
         bottom: 5,
         left: `${targetPct}%`,
+        /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
         width: 3,
         transform: "translateX(-50%)",
         borderRadius: "var(--radius-pill)",
@@ -5527,7 +5532,7 @@ function BulletChart({
       style: {
         flex: "none",
         minWidth: 52,
-        textAlign: "right",
+        textAlign: "end",
         fontFamily: "var(--font-display)",
         fontSize: "var(--text-base)",
         fontWeight: "var(--fw-semibold)",
@@ -6283,7 +6288,7 @@ function WaterfallChart({
       flexWrap: "wrap",
       gap: 18,
       marginTop: 12,
-      paddingLeft: padL
+      paddingInlineStart: padL
     }
   }, legend.map(l => /*#__PURE__*/React.createElement("span", {
     key: l.k,
@@ -6607,7 +6612,7 @@ function Menu({
       alignItems: "center",
       gap: 10,
       width: "100%",
-      textAlign: "left",
+      textAlign: "start",
       border: "none",
       background: i === activeIndex ? "var(--surface-hover)" : "transparent",
       transition: "background var(--dur-fast) var(--ease-standard)",
@@ -7041,8 +7046,8 @@ function Drawer({
       boxShadow: "var(--elevation-modal)",
       display: "flex",
       flexDirection: "column",
-      borderLeft: side === "right" ? "1px solid var(--border-subtle)" : "none",
-      borderRight: side === "left" ? "1px solid var(--border-subtle)" : "none",
+      borderInlineStart: side === "right" ? "1px solid var(--border-subtle)" : "none",
+      borderInlineEnd: side === "left" ? "1px solid var(--border-subtle)" : "none",
       transform: atRest ? "translateX(0)" : `translateX(${offset})`,
       transition: `transform var(${exiting ? "--dur-fast" : "--dur-base"}) var(--ease-standard)`,
       willChange: "transform",
@@ -7161,20 +7166,22 @@ function Popover({
       document.removeEventListener("mousedown", onPointerDown);
     };
   }, [open]);
+
+  // Anchored to the inline start/end edge, so the placements mirror under RTL.
   const pos = {
     bottom: {
       top: "100%",
-      left: 0,
+      insetInlineStart: 0,
       marginTop: 8
     },
     "bottom-end": {
       top: "100%",
-      right: 0,
+      insetInlineEnd: 0,
       marginTop: 8
     },
     top: {
       bottom: "100%",
-      left: 0,
+      insetInlineStart: 0,
       marginBottom: 8
     }
   };
@@ -7313,6 +7320,11 @@ function Tooltip({
       }
     };
   }, [clearTimer]);
+
+  /* `placement` is a PHYSICAL API on this component ("left" means left), so every offset,
+     gap and origin below stays physical: mirroring them would put the tip on the opposite
+     side of the trigger from the one the caller asked for. The 50% centring on top/bottom
+     is direction-neutral. See guidelines/rtl.md. */
   const pos = {
     top: {
       bottom: "100%",
@@ -7320,31 +7332,35 @@ function Tooltip({
       transform: "translateX(-50%)",
       marginBottom: 8
     },
+    // rtl-ok
     bottom: {
       top: "100%",
       left: "50%",
       transform: "translateX(-50%)",
       marginTop: 8
     },
+    // rtl-ok
     left: {
       right: "100%",
       top: "50%",
       transform: "translateY(-50%)",
       marginRight: 8
     },
+    // rtl-ok
     right: {
       left: "100%",
       top: "50%",
       transform: "translateY(-50%)",
       marginLeft: 8
-    }
+    } // rtl-ok
   };
   // Grow the tip from the edge nearest its trigger.
   const origin = {
     top: "bottom center",
     bottom: "top center",
     left: "right center",
-    right: "left center"
+    // rtl-ok: pairs with the physical placement above
+    right: "left center" // rtl-ok: pairs with the physical placement above
   };
   return /*#__PURE__*/React.createElement("span", {
     "aria-describedby": show ? tipId : undefined,
@@ -7446,7 +7462,7 @@ function Banner({
       background: bg,
       borderRadius: "var(--radius-lg)",
       padding: "14px 16px",
-      borderLeft: `3px solid ${fg}`,
+      borderInlineStart: `3px solid ${fg}`,
       ...style
     }
   }, /*#__PURE__*/React.createElement("span", {
@@ -7618,7 +7634,7 @@ function Callout({
       padding: compact ? "10px 12px" : "14px 16px",
       background: t.bg,
       borderRadius: "var(--radius-lg)",
-      borderLeft: `3px solid ${t.accent}`,
+      borderInlineStart: `3px solid ${t.accent}`,
       fontFamily: "var(--font-sans)",
       ...style
     }
@@ -7712,7 +7728,7 @@ function FaqItem({
       background: "transparent",
       border: "none",
       cursor: "pointer",
-      textAlign: "left",
+      textAlign: "start",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-lg)",
       fontWeight: "var(--fw-bold)",
@@ -7853,7 +7869,7 @@ function StepFlow({
       position: "absolute",
       top: 19,
       left: "calc(50% + 24px)",
-      right: "calc(-50% + 24px)",
+      right: "calc(-50% + 24px)" /* rtl-ok: symmetric connector geometry */,
       height: 2,
       background: "var(--border-default)"
     }
@@ -8399,6 +8415,7 @@ function PriceCard({
       position: "absolute",
       top: -13,
       left: "50%",
+      /* rtl-ok: 50% centring is direction-neutral */
       transform: "translateX(-50%)",
       display: "inline-flex",
       alignItems: "center",
@@ -8749,7 +8766,7 @@ function AvatarStack({
     size: size,
     tone: toneFor(i),
     style: {
-      marginLeft: i === 0 ? 0 : overlap,
+      marginInlineStart: i === 0 ? 0 : overlap,
       position: "relative",
       zIndex: shown.length - i + 1,
       boxShadow: ring
@@ -8759,7 +8776,7 @@ function AvatarStack({
       width: size,
       height: size,
       borderRadius: "50%",
-      marginLeft: shown.length > 0 ? overlap : 0,
+      marginInlineStart: shown.length > 0 ? overlap : 0,
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
@@ -8832,7 +8849,8 @@ function OfferSwitch({
       alignItems: "center",
       gap: 14,
       margin: 0,
-      padding: "10px 12px 10px 16px",
+      paddingBlock: "10px",
+      paddingInline: "16px 12px",
       background: "var(--surface-card)",
       border: "1px solid " + (checked ? "var(--border-focus)" : "var(--border-default)"),
       borderRadius: "var(--radius-pill)",
@@ -8841,7 +8859,7 @@ function OfferSwitch({
       boxShadow: focusRing ? "var(--shadow-focus)" : "none",
       transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
       fontFamily: "var(--font-sans)",
-      textAlign: "left",
+      textAlign: "start",
       userSelect: "none",
       ...style
     }
@@ -9487,7 +9505,7 @@ function JobListingRow({
     boxShadow: focusRing ? "var(--shadow-focus), var(--elevation-raised)" : hover ? "var(--elevation-floating)" : "var(--elevation-raised)",
     transform: hover ? "translateY(-2px)" : "translateY(0)",
     fontFamily: "var(--font-sans)",
-    textAlign: "left",
+    textAlign: "start",
     textDecoration: "none",
     cursor: "pointer",
     outline: "none",
@@ -10458,7 +10476,7 @@ function MemoryCard({
       alignItems: "center",
       gap: 6,
       flex: "none",
-      marginLeft: "auto",
+      marginInlineStart: "auto",
       padding: "3px 10px",
       background: "var(--surface-sunken)",
       border: "1px solid var(--border-subtle)",
@@ -10548,7 +10566,7 @@ function MemoryCard({
         hoverColor: "var(--danger-500)",
         weight: "var(--fw-medium)"
       }),
-      marginLeft: "auto"
+      marginInlineStart: "auto"
     }
   }, "Remove") : null) : null, /*#__PURE__*/React.createElement("span", {
     "aria-live": "polite",
@@ -10683,7 +10701,7 @@ function CausalChain({
       "aria-hidden": "true",
       style: {
         position: "absolute",
-        left: 0,
+        insetInlineStart: 0,
         top: 0,
         bottom: 0,
         width: 3,
@@ -10734,7 +10752,7 @@ function CausalChain({
       }
     }, meta.label), /*#__PURE__*/React.createElement("span", {
       style: {
-        marginLeft: "auto",
+        marginInlineStart: "auto",
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-2xs)",
         fontWeight: "var(--fw-bold)",
@@ -11001,7 +11019,7 @@ function DecisionLog({
     }
   }, title), entries.length > 0 && /*#__PURE__*/React.createElement("span", {
     style: {
-      marginLeft: "auto",
+      marginInlineStart: "auto",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-xs)",
       fontWeight: "var(--fw-semibold)",
@@ -11078,6 +11096,7 @@ function DecisionLog({
         bottom: -GAP,
         left: "50%",
         transform: "translateX(-50%)",
+        /* rtl-ok: 50% centring is direction-neutral */
         width: 2,
         borderRadius: "var(--radius-pill)",
         background: "var(--border-default)"
@@ -11421,7 +11440,7 @@ function SourceTrace({
       }
     }, src.detail), /*#__PURE__*/React.createElement("span", {
       style: {
-        marginLeft: "auto",
+        marginInlineStart: "auto",
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-2xs)",
         fontWeight: "var(--fw-bold)",
@@ -11445,7 +11464,8 @@ function SourceTrace({
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        padding: "6px 12px 6px 9px",
+        paddingBlock: "6px",
+        paddingInline: "9px 12px",
         background: "var(--surface-sunken)",
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-pill)"
@@ -11555,6 +11575,7 @@ function DataFreshness({
     position: "absolute",
     left: "50%",
     top: "50%",
+    /* rtl-ok: 50% centring is direction-neutral */
     width: 8,
     height: 8,
     borderRadius: "var(--radius-circle)",
@@ -11566,7 +11587,8 @@ function DataFreshness({
       display: "inline-flex",
       alignItems: "center",
       gap: 7,
-      padding: "5px 11px 5px 9px",
+      paddingBlock: "5px",
+      paddingInline: "9px 11px",
       background: "var(--surface-card)",
       border: "1px solid var(--border-subtle)",
       borderRadius: "var(--radius-pill)",
@@ -12113,7 +12135,9 @@ function ConfidenceMeter({
       top: 0,
       bottom: 0,
       left: `${pct}%`,
+      /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
       right: 0,
+      /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
       background: "var(--surface-card)",
       opacity: 0.55
     }
@@ -12124,6 +12148,7 @@ function ConfidenceMeter({
       top: -s.poke,
       bottom: -s.poke,
       left: `${pct}%`,
+      /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
       transform: `translateX(${-pct}%)`,
       width: s.notch,
       borderRadius: "var(--radius-pill)",
@@ -12474,7 +12499,7 @@ function ProvenancePanel({
       width: "100%",
       padding: "14px 18px",
       border: "none",
-      textAlign: "left",
+      textAlign: "start",
       background: hover ? "var(--surface-sunken)" : "transparent",
       cursor: "pointer",
       fontFamily: "var(--font-sans)",
@@ -12698,7 +12723,8 @@ function RecommendationCard({
       border: "1px solid var(--border-subtle)",
       borderRadius: "var(--radius-2xl)",
       boxShadow: "var(--elevation-floating)",
-      padding: "20px 22px 20px 24px",
+      paddingBlock: "20px",
+      paddingInline: "24px 22px",
       display: "flex",
       flexDirection: "column",
       gap: 16,
@@ -12709,7 +12735,7 @@ function RecommendationCard({
     "aria-hidden": "true",
     style: {
       position: "absolute",
-      left: 0,
+      insetInlineStart: 0,
       top: 0,
       bottom: 0,
       width: 5,
@@ -12909,7 +12935,7 @@ function Sidebar({
       display: "flex",
       flexDirection: "column",
       background: "var(--surface-card)",
-      borderRight: "1px solid var(--border-subtle)",
+      borderInlineEnd: "1px solid var(--border-subtle)",
       padding: "var(--density-nav-pad-y) var(--density-nav-item-pad-x)",
       fontFamily: "var(--font-sans)",
       ...style
@@ -12961,7 +12987,7 @@ function SidebarItem({
       alignItems: "center",
       gap: 12,
       width: "100%",
-      textAlign: "left",
+      textAlign: "start",
       border: "1px solid transparent",
       cursor: "pointer",
       padding: "var(--density-nav-item-pad-y) var(--density-nav-item-pad-x)",
@@ -13692,7 +13718,7 @@ function FilterBar({
     }, f.label), renderControl(f));
   }), right != null && /*#__PURE__*/React.createElement("div", {
     style: {
-      marginLeft: "auto",
+      marginInlineStart: "auto",
       display: "inline-flex",
       alignItems: "center",
       flex: "none"
@@ -14146,8 +14172,8 @@ function AuditLogRow({
   }, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0,
-      paddingLeft: 12,
-      borderLeft: "2px solid var(--border-default)",
+      paddingInlineStart: 12,
+      borderInlineStart: "2px solid var(--border-default)",
       fontSize: "var(--text-sm)",
       color: "var(--text-secondary)",
       lineHeight: "var(--lh-normal)"
@@ -14466,7 +14492,8 @@ function TeamMemberRow({
       outline: "none",
       background: "transparent",
       height: "100%",
-      padding: "0 32px 0 12px",
+      paddingBlock: "0",
+      paddingInline: "12px 32px",
       fontFamily: "var(--font-sans)",
       fontSize: "var(--text-sm)",
       fontWeight: "var(--fw-medium)",
@@ -14488,7 +14515,7 @@ function TeamMemberRow({
     "aria-hidden": "true",
     style: {
       position: "absolute",
-      right: 10,
+      insetInlineEnd: 10,
       pointerEvents: "none",
       color: "var(--text-muted)"
     }
@@ -14677,7 +14704,7 @@ function CommandPalette({
     alignItems: "center",
     gap: 12,
     width: "100%",
-    textAlign: "left",
+    textAlign: "start",
     border: "none",
     cursor: "pointer",
     padding: "10px 10px",
@@ -14855,7 +14882,8 @@ function CommandPalette({
       display: "flex",
       alignItems: "center",
       gap: 10,
-      padding: "8px 8px 8px 10px",
+      paddingBlock: "8px",
+      paddingInline: "10px 8px",
       background: "var(--surface-card)",
       borderRadius: "var(--radius-lg)",
       border: `1.5px solid ${focused ? "var(--border-focus)" : "var(--border-default)"}`,
@@ -15091,7 +15119,7 @@ function ModuleSwitcher({
       gap: 12,
       width: "100%",
       padding: "9px 12px",
-      textAlign: "left",
+      textAlign: "start",
       cursor: "pointer",
       background: hover || open ? "var(--surface-sunken)" : "var(--surface-card)",
       border: `1px solid ${open ? "var(--border-focus)" : "var(--border-default)"}`,
@@ -15212,8 +15240,7 @@ function ModuleSwitcher({
     style: {
       position: "absolute",
       top: "calc(100% + 8px)",
-      left: 0,
-      right: 0,
+      insetInline: 0,
       zIndex: "var(--z-dropdown)",
       background: "var(--surface-raised)",
       border: "1px solid var(--border-subtle)",
@@ -15243,7 +15270,7 @@ function ModuleSwitcher({
         width: "100%",
         padding: "10px 10px",
         border: "none",
-        textAlign: "left",
+        textAlign: "start",
         cursor: "pointer",
         borderRadius: "var(--radius-sm)",
         background: i === activeIdx ? "var(--accent-soft)" : "transparent",
@@ -15730,13 +15757,15 @@ function SyncStatusBadge({
       font: "var(--text-2xs)",
       dot: 6,
       gap: 6,
-      padding: "3px 9px 3px 8px"
+      paddingBlock: "3px",
+      paddingInline: "8px 9px"
     },
     md: {
       font: "var(--text-xs)",
       dot: 8,
       gap: 7,
-      padding: "5px 11px 5px 9px"
+      paddingBlock: "5px",
+      paddingInline: "9px 11px"
     }
   };
   const z = SIZES[size] || SIZES.md;
@@ -15746,6 +15775,7 @@ function SyncStatusBadge({
     position: "absolute",
     left: "50%",
     top: "50%",
+    /* rtl-ok: 50% centring is direction-neutral */
     width: z.dot,
     height: z.dot,
     borderRadius: "var(--radius-circle)",
@@ -16634,7 +16664,7 @@ function renderWithCitations(text) {
         minWidth: 16,
         height: 16,
         padding: "0 4px",
-        marginLeft: 2,
+        marginInlineStart: 2,
         borderRadius: "var(--radius-xs)",
         background: "var(--accent-soft)",
         color: "var(--text-on-tint-brand)",
@@ -16707,7 +16737,7 @@ function ThinkingTrace({
       border: "none",
       padding: 0,
       cursor: "pointer",
-      textAlign: "left"
+      textAlign: "start"
     }
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
@@ -16811,6 +16841,7 @@ function ThinkingTrace({
         left: "50%",
         width: 2,
         marginLeft: -1,
+        /* rtl-ok: half-width nudge that centres on `left: 50%`; both must stay physical */
         background: "var(--border-default)"
       }
     }), /*#__PURE__*/React.createElement("span", {
@@ -17118,7 +17149,7 @@ function PromptSuggestions({
       alignItems: "center",
       gap: 9,
       width: isList ? "100%" : "auto",
-      textAlign: "left",
+      textAlign: "start",
       padding: isList ? "12px 14px" : "9px 14px",
       borderRadius: isList ? "var(--radius-md)" : "var(--radius-pill)",
       background: hoverable && hover === i ? "var(--surface-hover)" : "var(--surface-card)",
@@ -17317,6 +17348,7 @@ function GoalPacing({
       bottom: 0,
       left: `${pace}%`,
       transform: "translateX(-50%)",
+      /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
       display: "flex",
       flexDirection: "column",
       alignItems: "center"
@@ -17342,7 +17374,7 @@ function GoalPacing({
     }
   }, period), /*#__PURE__*/React.createElement("span", {
     style: {
-      marginLeft: "auto",
+      marginInlineStart: "auto",
       fontSize: "var(--text-xs)",
       color: "var(--text-secondary)"
     }
@@ -17475,7 +17507,8 @@ function AnomalyFlag({
         display: "inline-flex",
         alignItems: "center",
         gap: 7,
-        padding: "4px 11px 4px 9px",
+        paddingBlock: "4px",
+        paddingInline: "9px 11px",
         borderRadius: "var(--radius-pill)",
         background: t.bg,
         color: t.color,
@@ -17606,7 +17639,8 @@ function ApprovalGate({
       border: "1px solid var(--border-subtle)",
       borderRadius: "var(--radius-2xl)",
       boxShadow: "var(--elevation-floating)",
-      padding: "20px 22px 20px 24px",
+      paddingBlock: "20px",
+      paddingInline: "24px 22px",
       display: "flex",
       flexDirection: "column",
       gap: 16,
@@ -17617,7 +17651,7 @@ function ApprovalGate({
     "aria-hidden": "true",
     style: {
       position: "absolute",
-      left: 0,
+      insetInlineStart: 0,
       top: 0,
       bottom: 0,
       width: 5,
@@ -18313,7 +18347,7 @@ function ScenarioSimulator({
     }
   }, baselineValue), out.caption && /*#__PURE__*/React.createElement("span", {
     style: {
-      marginLeft: "auto"
+      marginInlineStart: "auto"
     }
   }, out.caption)), out.confidence != null && /*#__PURE__*/React.createElement(ConfidenceMeter, {
     value: out.confidence,
