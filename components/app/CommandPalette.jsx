@@ -111,7 +111,7 @@ export function CommandPalette({
   };
 
   const rowBase = {
-    display: "flex", alignItems: "center", gap: 12, width: "100%", textAlign: "left",
+    display: "flex", alignItems: "center", gap: 12, width: "100%", textAlign: "start",
     border: "none", cursor: "pointer", padding: "10px 10px", borderRadius: "var(--radius-md)",
     background: "transparent", font: "inherit",
     transition: "background var(--dur-fast) var(--ease-standard)",
@@ -220,7 +220,7 @@ export function CommandPalette({
       {/* Ask / search field */}
       <div style={{ padding: "16px 16px 12px", borderBottom: "1px solid var(--border-subtle)" }}>
         <div style={{
-          display: "flex", alignItems: "center", gap: 10, padding: "8px 8px 8px 10px",
+          display: "flex", alignItems: "center", gap: 10, paddingBlock: "8px", paddingInline: "10px 8px",
           background: "var(--surface-card)", borderRadius: "var(--radius-lg)",
           border: `1.5px solid ${focused ? "var(--border-focus)" : "var(--border-default)"}`,
           boxShadow: focused ? "var(--shadow-focus)" : "var(--elevation-surface)",

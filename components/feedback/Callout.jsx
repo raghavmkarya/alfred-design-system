@@ -49,7 +49,7 @@ export function Callout({
         display: "flex", alignItems: "flex-start", gap: compact ? 8 : 12,
         padding: compact ? "10px 12px" : "14px 16px",
         background: t.bg, borderRadius: "var(--radius-lg)",
-        borderLeft: `3px solid ${t.accent}`,
+        borderInlineStart: `3px solid ${t.accent}`,
         fontFamily: "var(--font-sans)",
         ...style,
       }}

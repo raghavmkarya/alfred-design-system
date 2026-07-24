@@ -109,7 +109,7 @@ export function ScenarioSimulator({
         <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "var(--text-xs)", color: "var(--text-muted)" }}>
           <span>{baselineLabel}</span>
           <span style={{ fontWeight: "var(--fw-semibold)", color: "var(--text-secondary)" }}>{baselineValue}</span>
-          {out.caption && <span style={{ marginLeft: "auto" }}>{out.caption}</span>}
+          {out.caption && <span style={{ marginInlineStart: "auto" }}>{out.caption}</span>}
         </div>
 
         {out.confidence != null && <ConfidenceMeter value={out.confidence} label="Alfred's confidence" size="sm" />}

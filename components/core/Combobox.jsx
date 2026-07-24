@@ -82,7 +82,7 @@ export const Combobox = React.forwardRef(function Combobox({
       )}
       <div style={{ position: "relative" }}>
         <div style={{
-          display: "flex", alignItems: "center", gap: 8, height: "var(--density-field-h)", padding: "0 14px 0 var(--density-field-pad-x)",
+          display: "flex", alignItems: "center", gap: 8, height: "var(--density-field-h)", paddingBlock: "0", paddingInline: "var(--density-field-pad-x) 14px",
           background: disabled ? "var(--surface-sunken)" : "var(--surface-input-plain)",
           border: `1px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
           borderRadius: "var(--radius-md)",
@@ -131,7 +131,7 @@ export const Combobox = React.forwardRef(function Combobox({
             id={listId}
             aria-label={typeof label === "string" ? label : "Options"}
             style={{
-              position: "absolute", top: "calc(100% + 6px)", left: 0, right: 0,
+              position: "absolute", top: "calc(100% + 6px)", insetInline: 0,
               zIndex: "var(--z-dropdown)",
               background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
               borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-floating)",

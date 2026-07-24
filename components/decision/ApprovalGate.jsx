@@ -39,11 +39,11 @@ export function ApprovalGate({
       style={{
         position: "relative", overflow: "hidden", boxSizing: "border-box", width: "100%", maxWidth: 460,
         background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-        borderRadius: "var(--radius-2xl)", boxShadow: "var(--elevation-floating)", padding: "20px 22px 20px 24px",
+        borderRadius: "var(--radius-2xl)", boxShadow: "var(--elevation-floating)", paddingBlock: "20px", paddingInline: "24px 22px",
         display: "flex", flexDirection: "column", gap: 16, fontFamily: "var(--font-sans)", ...style,
       }}
     >
-      <span aria-hidden="true" style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 5, background: pr.rail }} />
+      <span aria-hidden="true" style={{ position: "absolute", insetInlineStart: 0, top: 0, bottom: 0, width: 5, background: pr.rail }} />
 
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>

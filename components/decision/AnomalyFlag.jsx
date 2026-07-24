@@ -38,7 +38,7 @@ export function AnomalyFlag({
       <span
         role="status"
         style={{
-          display: "inline-flex", alignItems: "center", gap: 7, padding: "4px 11px 4px 9px",
+          display: "inline-flex", alignItems: "center", gap: 7, paddingBlock: "4px", paddingInline: "9px 11px",
           borderRadius: "var(--radius-pill)", background: t.bg, color: t.color,
           fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)",
           lineHeight: 1, whiteSpace: "nowrap", ...style,

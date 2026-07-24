@@ -43,10 +43,11 @@ export function Popover({ open, onOpenChange, trigger, children, placement = "bo
     };
   }, [open]);
 
+  // Anchored to the inline start/end edge, so the placements mirror under RTL.
   const pos = {
-    bottom: { top: "100%", left: 0, marginTop: 8 },
-    "bottom-end": { top: "100%", right: 0, marginTop: 8 },
-    top: { bottom: "100%", left: 0, marginBottom: 8 },
+    bottom: { top: "100%", insetInlineStart: 0, marginTop: 8 },
+    "bottom-end": { top: "100%", insetInlineEnd: 0, marginTop: 8 },
+    top: { bottom: "100%", insetInlineStart: 0, marginBottom: 8 },
   };
   // Grow out of the anchored edge, not the panel's centre.
   const origin = {

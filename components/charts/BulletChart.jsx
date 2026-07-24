@@ -89,7 +89,7 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
                     position: "absolute",
                     top: 0,
                     bottom: 0,
-                    left: 0,
+                    left: 0,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
                     width: `${poorPct}%`,
                     background: "var(--border-default)",
                   }}
@@ -101,7 +101,7 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
                     position: "absolute",
                     top: 0,
                     bottom: 0,
-                    left: `${poorPct}%`,
+                    left: `${poorPct}%`,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
                     width: `${Math.max(okPct - poorPct, 0)}%`,
                     background: "var(--border-subtle)",
                   }}
@@ -113,7 +113,7 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
                 style={{
                   position: "absolute",
                   top: "50%",
-                  left: 0,
+                  left: 0,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
                   transform: "translateY(-50%)",
                   width: `${valuePct}%`,
                   height: 14,
@@ -130,7 +130,7 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
                     position: "absolute",
                     top: 5,
                     bottom: 5,
-                    left: `${targetPct}%`,
+                    left: `${targetPct}%`,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
                     width: 3,
                     transform: "translateX(-50%)",
                     borderRadius: "var(--radius-pill)",
@@ -146,7 +146,7 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
               style={{
                 flex: "none",
                 minWidth: 52,
-                textAlign: "right",
+                textAlign: "end",
                 fontFamily: "var(--font-display)",
                 fontSize: "var(--text-base)",
                 fontWeight: "var(--fw-semibold)",

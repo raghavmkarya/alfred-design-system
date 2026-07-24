@@ -79,7 +79,7 @@ export function AreaChart({ series = [], labels = [], height = 220, yTicks = 4, 
       </svg>
 
       {series.length > 1 && series.some((s) => s.name) && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 18, marginTop: 10, paddingLeft: padL }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 18, marginTop: 10, paddingInlineStart: padL }}>
           {series.map((s, si) => (
             <span key={si} style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
               <span style={{ width: 11, height: 11, borderRadius: 3, flex: "none", background: s.color || PALETTE[si % PALETTE.length] }} />

@@ -90,7 +90,7 @@ export function Heatmap({ rows = [], cols = [], values = [], maxValue, valueForm
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-end",
-                  paddingRight: 10,
+                  paddingInlineEnd: 10,
                   whiteSpace: "nowrap",
                 }}
               >
@@ -147,7 +147,7 @@ export function Heatmap({ rows = [], cols = [], values = [], maxValue, valueForm
           <span
             style={{
               ...labelStyle,
-              marginLeft: 4,
+              marginInlineStart: 4,
               fontSize: "var(--text-2xs)",
               fontWeight: "var(--fw-bold)",
               textTransform: "uppercase",

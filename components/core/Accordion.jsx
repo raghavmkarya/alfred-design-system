@@ -59,7 +59,7 @@ export function Accordion({
               onMouseLeave={() => setHoverId(null)}
               style={{
                 display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12,
-                width: "100%", padding: `16px ${padX}px`, border: "none", textAlign: "left",
+                width: "100%", padding: `16px ${padX}px`, border: "none", textAlign: "start",
                 background: !item.disabled && hoverId === item.id ? "var(--surface-sunken)" : "transparent",
                 fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
                 fontWeight: "var(--fw-semibold)", color: "var(--text-primary)",

@@ -67,7 +67,7 @@ export function ProvenancePanel({
           width: "100%",
           padding: "14px 18px",
           border: "none",
-          textAlign: "left",
+          textAlign: "start",
           background: hover ? "var(--surface-sunken)" : "transparent",
           cursor: "pointer",
           fontFamily: "var(--font-sans)",

@@ -27,7 +27,7 @@ export function DataFreshness({
   const cls = `df-${uid}`;
 
   const dotBase = {
-    position: "absolute", left: "50%", top: "50%",
+    position: "absolute", left: "50%", top: "50%",   /* rtl-ok: 50% centring is direction-neutral */
     width: 8, height: 8, borderRadius: "var(--radius-circle)",
     background: s.color, transform: "translate(-50%, -50%)",
   };
@@ -38,7 +38,7 @@ export function DataFreshness({
         display: "inline-flex",
         alignItems: "center",
         gap: 7,
-        padding: "5px 11px 5px 9px",
+        paddingBlock: "5px", paddingInline: "9px 11px",
         background: "var(--surface-card)",
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-pill)",

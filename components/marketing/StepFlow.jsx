@@ -13,7 +13,7 @@ export function StepFlow({ steps = [], style = {} }) {
         <div key={i} style={{ position: "relative", padding: "0 22px", display: "flex", flexDirection: "column", gap: 12 }}>
           {/* connector rail */}
           {i < steps.length - 1 && (
-            <span style={{ position: "absolute", top: 19, left: "calc(50% + 24px)", right: "calc(-50% + 24px)", height: 2, background: "var(--border-default)" }} />
+            <span style={{ position: "absolute", top: 19, left: "calc(50% + 24px)", right: "calc(-50% + 24px)" /* rtl-ok: symmetric connector geometry */, height: 2, background: "var(--border-default)" }} />
           )}
           <span style={{
             width: 40, height: 40, borderRadius: "var(--radius-md)", flex: "none", position: "relative", zIndex: 1,

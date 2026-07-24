@@ -77,7 +77,7 @@ export const Textarea = React.forwardRef(function Textarea(props, ref) {
           {error && <span id={errId} role="alert" style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--danger-500)" }}>{error}</span>}
           {showCount && maxLength && (
             <span style={{
-              marginLeft: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)",
+              marginInlineStart: "auto", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)",
               color: count >= maxLength ? "var(--danger-500)" : "var(--text-muted)", fontVariantNumeric: "tabular-nums",
             }}>{count} / {maxLength}</span>
           )}

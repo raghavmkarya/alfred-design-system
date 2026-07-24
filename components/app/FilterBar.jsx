@@ -120,7 +120,7 @@ export function FilterBar({ filters = [], onChange, right, style = {} }) {
       })}
 
       {right != null && (
-        <div style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", flex: "none" }}>
+        <div style={{ marginInlineStart: "auto", display: "inline-flex", alignItems: "center", flex: "none" }}>
           {right}
         </div>
       )}

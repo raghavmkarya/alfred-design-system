@@ -54,7 +54,7 @@ export function Menu({ items = [], style = {} }) {
           tabIndex={i === activeIndex ? 0 : -1}
           onFocus={() => setActiveIndex(i)}
           onMouseEnter={() => { if (!it.disabled) setActiveIndex(i); }}
-          style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", textAlign: "left", border: "none", background: i === activeIndex ? "var(--surface-hover)" : "transparent", transition: "background var(--dur-fast) var(--ease-standard)", cursor: it.disabled ? "not-allowed" : "pointer", opacity: it.disabled ? "var(--opacity-disabled)" : 1, padding: "9px 12px", borderRadius: "var(--radius-sm)", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: it.danger ? "var(--danger-500)" : "var(--text-primary)" }}
+          style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", textAlign: "start", border: "none", background: i === activeIndex ? "var(--surface-hover)" : "transparent", transition: "background var(--dur-fast) var(--ease-standard)", cursor: it.disabled ? "not-allowed" : "pointer", opacity: it.disabled ? "var(--opacity-disabled)" : 1, padding: "9px 12px", borderRadius: "var(--radius-sm)", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: it.danger ? "var(--danger-500)" : "var(--text-primary)" }}
         >
           {it.icon && <span style={{ display: "inline-flex", color: it.danger ? "var(--danger-500)" : "var(--text-muted)" }}>{it.icon}</span>}
           {it.label}

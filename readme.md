@@ -136,7 +136,7 @@ tokens/               ← colors, typography, spacing/radius/shadow/motion, dens
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
 components/           ← 115 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
 data/                 ← demo-data.json — the canonical Northwind Labs demo dataset (no fabricated proof)
-guidelines/           ← foundation specimen cards (color / type / spacing / brand) + voice-and-naming + density + elevation + chart-contract + craft & taste guidelines (motion-and-animation · anti-slop · craft-checklist)
+guidelines/           ← foundation specimen cards (color / type / spacing / brand) + voice-and-naming + density + elevation + rtl + chart-contract + craft & taste guidelines (motion-and-animation · anti-slop · craft-checklist)
 ui_kits/app/          ← 22-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility, connections, notifications, Alfred Core memory, team, billing, audit log…
 ui_kits/app-dark/     ← the same workspace under [data-theme="app-dark"]: warm ink surfaces, Clash kept (reuses the light kit's screens)
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief

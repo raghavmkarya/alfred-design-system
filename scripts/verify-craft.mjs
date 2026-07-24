@@ -71,6 +71,10 @@ const RULES = [
     suppressIf: (t) => /:focus(?:-visible|-within)?\b|--shadow-focus|--border-focus|isFocusVisible|usePress|focusVisible/.test(t) },
   { id: "emoji-in-source", why: "no emoji in Alfred surfaces — use the custom single-color SVG icon set (assets/icons/)",
     re: /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F1E6}-\u{1F1FF}]/u },
+  { id: "physical-inline-prop", why: "use a logical property so the component mirrors under RTL — marginInlineStart/End, paddingInlineStart/End, borderInlineStart/End, textAlign start/end, insetInlineStart/End. A deliberately physical line (50% centring, chart coordinate space, a physical placement API) carries an `rtl-ok` marker",
+    re: /\b(?:margin|padding|border)(?:Left|Right)[A-Za-z]*\s*:|textAlign\s*:\s*["'](?:left|right)["']|(?:^|[{,\s])(?:left|right)\s*:/,
+    skipFile: (r) => !(r.startsWith("components/") && r.endsWith(".jsx")),
+    skipLine: (line) => { const t = line.trim(); return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /rtl-ok/.test(line); } },
   { id: "raw-shadow-token", why: "name the elevation ROLE, not the shadow size — use --elevation-{surface,raised,floating,overlay,modal}. (--shadow-brand / --shadow-focus are state, not elevation, and stay direct.)",
     re: /var\(\s*--shadow-(?:xs|sm|md|lg|xl)\s*\)/,
     // component .jsx source only; individual legit lines carry a `raw-shadow-ok` marker

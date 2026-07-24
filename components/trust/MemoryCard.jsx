@@ -173,7 +173,7 @@ export function MemoryCard({
               alignItems: "center",
               gap: 6,
               flex: "none",
-              marginLeft: "auto",
+              marginInlineStart: "auto",
               padding: "3px 10px",
               background: "var(--surface-sunken)",
               border: "1px solid var(--border-subtle)",
@@ -298,7 +298,7 @@ export function MemoryCard({
                   hoverColor: "var(--danger-500)",
                   weight: "var(--fw-medium)",
                 }),
-                marginLeft: "auto",
+                marginInlineStart: "auto",
               }}
             >
               Remove

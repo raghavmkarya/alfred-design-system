@@ -176,7 +176,7 @@ export function WaterfallChart({ items = [], height = 240, valueFormat, ariaLabe
       </svg>
 
       {legend.length > 0 && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 18, marginTop: 12, paddingLeft: padL }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 18, marginTop: 12, paddingInlineStart: padL }}>
           {legend.map((l) => (
             <span key={l.k} style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
               <span style={{ width: 11, height: 11, borderRadius: 3, flex: "none", background: l.color }} />

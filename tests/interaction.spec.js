@@ -65,6 +65,26 @@ test("density: a comfortable island inside a compact region resets fully", async
   expect(await boxH(page, "density-island", "button")).toBe(46);
 });
 
+/* RTL (Phase 2.3). Logical properties are invisible in LTR — they resolve to exactly
+   the physical values they replaced — so the only way to prove the migration did
+   anything is to render the same component in both directions and watch it mirror. */
+test("rtl: the leading accent rail mirrors to the other edge", async ({ page }) => {
+  const railOffset = async (dir) => {
+    const box = page.locator(`[data-testid='dir-${dir}'] > *`).first();
+    const rail = page.locator(`[data-testid='dir-${dir}'] [aria-hidden='true']`).first();
+    const [b, r] = await Promise.all([box.boundingBox(), rail.boundingBox()]);
+    return { fromStart: Math.round(r.x - b.x), fromEnd: Math.round(b.x + b.width - (r.x + r.width)) };
+  };
+  const ltr = await railOffset("ltr");
+  const rtl = await railOffset("rtl");
+  // the rail sits the same distance from the LEADING edge in both directions...
+  expect(rtl.fromEnd).toBe(ltr.fromStart);
+  // ...which means it is nowhere near the left edge under RTL. Before the logical
+  // migration this was `left: 0` and both directions measured identically.
+  expect(rtl.fromStart).toBeGreaterThan(100);
+  expect(ltr.fromEnd).toBeGreaterThan(100);
+});
+
 test("Button: hover changes the background (usePress hover state)", async ({ page }) => {
   const btn = page.locator("[data-testid='btn'] button");
   const before = await btn.evaluate((el) => getComputedStyle(el).backgroundColor);

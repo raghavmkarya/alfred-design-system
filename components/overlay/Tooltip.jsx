@@ -90,18 +90,22 @@ export function Tooltip({ label, placement = "top", children, style = {} }) {
     };
   }, [clearTimer]);
 
+  /* `placement` is a PHYSICAL API on this component ("left" means left), so every offset,
+     gap and origin below stays physical: mirroring them would put the tip on the opposite
+     side of the trigger from the one the caller asked for. The 50% centring on top/bottom
+     is direction-neutral. See guidelines/rtl.md. */
   const pos = {
-    top: { bottom: "100%", left: "50%", transform: "translateX(-50%)", marginBottom: 8 },
-    bottom: { top: "100%", left: "50%", transform: "translateX(-50%)", marginTop: 8 },
-    left: { right: "100%", top: "50%", transform: "translateY(-50%)", marginRight: 8 },
-    right: { left: "100%", top: "50%", transform: "translateY(-50%)", marginLeft: 8 },
+    top: { bottom: "100%", left: "50%", transform: "translateX(-50%)", marginBottom: 8 },       // rtl-ok
+    bottom: { top: "100%", left: "50%", transform: "translateX(-50%)", marginTop: 8 },          // rtl-ok
+    left: { right: "100%", top: "50%", transform: "translateY(-50%)", marginRight: 8 },         // rtl-ok
+    right: { left: "100%", top: "50%", transform: "translateY(-50%)", marginLeft: 8 },          // rtl-ok
   };
   // Grow the tip from the edge nearest its trigger.
   const origin = {
     top: "bottom center",
     bottom: "top center",
-    left: "right center",
-    right: "left center",
+    left: "right center",   // rtl-ok: pairs with the physical placement above
+    right: "left center",   // rtl-ok: pairs with the physical placement above
   };
 
   return (

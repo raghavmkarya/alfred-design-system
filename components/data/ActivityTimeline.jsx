@@ -27,7 +27,7 @@ export function ActivityTimeline({ items = [], style = {} }) {
             <span style={{ position: "relative", width: 18, flex: "none", display: "flex", justifyContent: "center" }}>
               {!last && (
                 <span aria-hidden="true" style={{
-                  position: "absolute", top: 20, bottom: -20, left: "50%", width: 2, marginLeft: -1, background: "var(--border-default)",
+                  position: "absolute", top: 20, bottom: -20, left: "50%", width: 2, marginLeft: -1,   /* rtl-ok: half-width nudge that centres on `left: 50%`; both must stay physical */ background: "var(--border-default)",
                 }} />
               )}
               <span aria-hidden="true" style={{

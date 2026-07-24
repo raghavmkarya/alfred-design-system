@@ -33,7 +33,7 @@ export function OfferSwitch({
       {...bind}
       style={{
         display: "inline-flex", alignItems: "center", gap: 14,
-        margin: 0, padding: "10px 12px 10px 16px",
+        margin: 0, paddingBlock: "10px", paddingInline: "16px 12px",
         background: "var(--surface-card)",
         border: "1px solid " + (checked ? "var(--border-focus)" : "var(--border-default)"),
         borderRadius: "var(--radius-pill)",
@@ -41,7 +41,7 @@ export function OfferSwitch({
         opacity: disabled ? "var(--opacity-disabled)" : 1,
         boxShadow: focusRing ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
-        fontFamily: "var(--font-sans)", textAlign: "left", userSelect: "none",
+        fontFamily: "var(--font-sans)", textAlign: "start", userSelect: "none",
         ...style,
       }}
     >

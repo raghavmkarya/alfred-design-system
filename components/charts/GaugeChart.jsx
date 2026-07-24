@@ -111,7 +111,7 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
         style={{
           position: "absolute",
           top: 0,
-          left: 0,
+          left: 0,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
           width: size,
           height: size,
           display: "flex",

@@ -46,7 +46,7 @@ export function ThinkingTrace({
         aria-expanded={open}
         style={{
           display: "flex", alignItems: "center", gap: 10, width: "100%",
-          background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left",
+          background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "start",
         }}
       >
         <span aria-hidden="true" style={{
@@ -94,7 +94,7 @@ export function ThinkingTrace({
                 <span style={{ position: "relative", width: 16, flex: "none", display: "flex", justifyContent: "center" }}>
                   {!last && (
                     <span aria-hidden="true" style={{
-                      position: "absolute", top: 18, bottom: -14, left: "50%", width: 2, marginLeft: -1,
+                      position: "absolute", top: 18, bottom: -14, left: "50%", width: 2, marginLeft: -1,   /* rtl-ok: half-width nudge that centres on `left: 50%`; both must stay physical */
                       background: "var(--border-default)",
                     }} />
                   )}
