@@ -28,7 +28,7 @@ export function Sidebar({
         flexDirection: "column",
         background: "var(--surface-card)",
         borderRight: "1px solid var(--border-subtle)",
-        padding: "16px 12px",
+        padding: "var(--density-nav-pad-y) var(--density-nav-item-pad-x)",
         fontFamily: "var(--font-sans)",
         ...style,
       }}
@@ -87,7 +87,7 @@ function SidebarItem({ item = {}, active = false, onSelect = () => {} }) {
         textAlign: "left",
         border: "1px solid transparent",
         cursor: "pointer",
-        padding: "9px 12px",
+        padding: "var(--density-nav-item-pad-y) var(--density-nav-item-pad-x)",
         borderRadius: "var(--radius-md)",
         background: active ? "var(--accent-soft)" : hover ? "var(--surface-sunken)" : "transparent",
         color: labelColor,

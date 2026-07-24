@@ -82,7 +82,7 @@ export const Combobox = React.forwardRef(function Combobox({
       )}
       <div style={{ position: "relative" }}>
         <div style={{
-          display: "flex", alignItems: "center", gap: 8, height: 52, padding: "0 14px 0 16px",
+          display: "flex", alignItems: "center", gap: 8, height: "var(--density-field-h)", padding: "0 14px 0 var(--density-field-pad-x)",
           background: disabled ? "var(--surface-sunken)" : "var(--surface-input-plain)",
           border: `1px solid ${focus ? "var(--border-focus)" : "var(--border-default)"}`,
           borderRadius: "var(--radius-md)",

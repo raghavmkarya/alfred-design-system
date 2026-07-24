@@ -38,7 +38,7 @@ export const Textarea = React.forwardRef(function Textarea(props, ref) {
   const count = (text == null ? "" : String(text)).length;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%", ...style }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--density-field-gap)", width: "100%", ...style }}>
       {label && (
         <label htmlFor={fieldId} style={{
           fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-medium)", color: "var(--text-primary)",
@@ -47,7 +47,7 @@ export const Textarea = React.forwardRef(function Textarea(props, ref) {
       <div style={{
         background: disabled ? "var(--surface-sunken)" : wrapBg,
         border: `1.5px solid ${borderColor}`, borderRadius: "var(--radius-md)",
-        padding: "10px 14px", boxShadow: focus ? "var(--shadow-focus)" : "none",
+        padding: "var(--density-field-pad-y) var(--density-field-pad-x)", boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
         opacity: disabled ? "var(--opacity-disabled)" : 1,
       }}>

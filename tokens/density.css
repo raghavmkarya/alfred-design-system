@@ -1,0 +1,151 @@
+/* ============================================================
+   Alfred AI — Density Scale
+   ============================================================
+   One switch that resizes controls, fields, rows and chrome so a
+   dense operator table and a roomy marketing form can share the
+   same components with no per-component overrides.
+
+   Apply it anywhere; custom properties inherit, so the attribute
+   scopes a whole subtree:
+
+     <html data-density="compact">        whole app
+     <section data-density="spacious">    one region
+     <div data-density="comfortable">     an island inside a compact app
+
+   `comfortable` is the default and its values are exactly what the
+   components shipped before this scale existed, so adopting the
+   tokens changes nothing until a consumer opts in.
+
+   Every scope MUST define the same token names (verify-craft's
+   `density-contract` rule enforces this) or a nested scope would
+   silently inherit a mismatched value from its parent.
+   ============================================================ */
+:root {
+  /* ---- Multiplier, for consumer spacing math ------------------
+     e.g. padding: calc(var(--space-4) * var(--density-scale)); */
+  --density-scale: 1;                /* @kind other */
+
+  /* ---- Controls (buttons, icon buttons, pills) ---------------- */
+  --density-control-h-sm: 36px;
+  --density-control-h-md: 46px;
+  --density-control-h-lg: 56px;
+  --density-control-pad-sm: 16px;
+  --density-control-pad-md: 22px;
+  --density-control-pad-lg: 30px;
+
+  /* ---- Form fields (input, select, combobox, search) ---------- */
+  --density-field-h: 52px;
+  --density-field-h-sm: 48px;        /* search-style compact field */
+  --density-field-pad-x: 16px;
+  --density-field-pad-y: 10px;       /* multi-line fields (textarea) */
+  --density-field-gap: 8px;          /* label / field / error stack */
+
+  /* ---- Table + list rows -------------------------------------- */
+  --density-row-pad-y: 13px;
+  --density-row-pad-x: 18px;
+
+  /* ---- App chrome (bars, nav rails, nav items) ---------------- */
+  --density-bar-pad-y: 12px;
+  --density-bar-pad-x: 16px;
+  --density-nav-pad-y: 16px;         /* the rail's own vertical inset */
+  --density-nav-item-pad-y: 9px;
+  --density-nav-item-pad-x: 12px;
+
+  /* ---- Generic ------------------------------------------------ */
+  --density-gap: 12px;
+  --density-surface-pad: 24px;
+}
+
+/* Explicit `comfortable` restores the defaults, so a comfortable
+   island can sit inside a compact or spacious region. */
+[data-density="comfortable"] {
+  --density-scale: 1;
+
+  --density-control-h-sm: 36px;
+  --density-control-h-md: 46px;
+  --density-control-h-lg: 56px;
+  --density-control-pad-sm: 16px;
+  --density-control-pad-md: 22px;
+  --density-control-pad-lg: 30px;
+
+  --density-field-h: 52px;
+  --density-field-h-sm: 48px;
+  --density-field-pad-x: 16px;
+  --density-field-pad-y: 10px;
+  --density-field-gap: 8px;
+
+  --density-row-pad-y: 13px;
+  --density-row-pad-x: 18px;
+
+  --density-bar-pad-y: 12px;
+  --density-bar-pad-x: 16px;
+  --density-nav-pad-y: 16px;
+  --density-nav-item-pad-y: 9px;
+  --density-nav-item-pad-x: 12px;
+
+  --density-gap: 12px;
+  --density-surface-pad: 24px;
+}
+
+/* Compact: operator surfaces. More rows on screen without shrinking
+   type. Touch targets stay at or above 30px, so keep this for
+   pointer-first views (dense tables, admin consoles). */
+[data-density="compact"] {
+  --density-scale: 0.85;
+
+  --density-control-h-sm: 30px;
+  --density-control-h-md: 38px;
+  --density-control-h-lg: 46px;
+  --density-control-pad-sm: 12px;
+  --density-control-pad-md: 16px;
+  --density-control-pad-lg: 22px;
+
+  --density-field-h: 44px;
+  --density-field-h-sm: 40px;
+  --density-field-pad-x: 12px;
+  --density-field-pad-y: 7px;
+  --density-field-gap: 6px;
+
+  --density-row-pad-y: 7px;
+  --density-row-pad-x: 14px;
+
+  --density-bar-pad-y: 8px;
+  --density-bar-pad-x: 12px;
+  --density-nav-pad-y: 10px;
+  --density-nav-item-pad-y: 6px;
+  --density-nav-item-pad-x: 10px;
+
+  --density-gap: 8px;
+  --density-surface-pad: 16px;
+}
+
+/* Spacious: marketing forms, onboarding, touch. Larger targets and
+   more air around every control. */
+[data-density="spacious"] {
+  --density-scale: 1.15;
+
+  --density-control-h-sm: 42px;
+  --density-control-h-md: 54px;
+  --density-control-h-lg: 64px;
+  --density-control-pad-sm: 20px;
+  --density-control-pad-md: 28px;
+  --density-control-pad-lg: 36px;
+
+  --density-field-h: 60px;
+  --density-field-h-sm: 56px;
+  --density-field-pad-x: 20px;
+  --density-field-pad-y: 14px;
+  --density-field-gap: 10px;
+
+  --density-row-pad-y: 18px;
+  --density-row-pad-x: 24px;
+
+  --density-bar-pad-y: 16px;
+  --density-bar-pad-x: 22px;
+  --density-nav-pad-y: 22px;
+  --density-nav-item-pad-y: 12px;
+  --density-nav-item-pad-x: 16px;
+
+  --density-gap: 16px;
+  --density-surface-pad: 32px;
+}

@@ -14,11 +14,12 @@ const m = JSON.parse(fs.readFileSync(path.join(ROOT, "_ds_manifest.json"), "utf8
 
 // —— parse tokens/*.css → { name, value, kind, definedIn, annotation?, scope? } ——
 // Kind comes from a trailing `/* @kind … */` comment when present, else by name.
-const TOKEN_FILES = ["tokens/colors.css", "tokens/typography.css", "tokens/spacing.css"];
+const TOKEN_FILES = ["tokens/colors.css", "tokens/typography.css", "tokens/spacing.css", "tokens/density.css"];
 const KIND_RULES = [
   [/^--(orange|periwinkle|ink|slate|gray|white|black|success|warning|danger|info|gradient|glow|bg-|surface|border|accent|chart-|overlay-)/, "color"],
   [/^--(text-|font-|fw-|lh-|ls-)/, "font"],
   [/^--space-/, "spacing"],
+  [/^--density-/, "spacing"],
   [/^--radius-/, "radius"],
   [/^--shadow-/, "shadow"],
 ];
@@ -65,6 +66,7 @@ const tokens = {
   lineHeight: byName(pick(base, /^--lh-/)),
   letterSpacing: byName(pick(base, /^--ls-/)),
   spacing: byName(pick(base, /^--space-/)),
+  density: byName(pick(base, /^--density-/)),   // `comfortable` defaults; compact/spacious live in tokens/density.css
   radius: byName(pick(base, /^--radius-/)),
   shadow: byName(pick(base, /^--shadow-/)),
   motion: byName(pick(base, /^--(dur|ease)-/)),

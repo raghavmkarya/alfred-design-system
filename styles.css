@@ -6,5 +6,6 @@
 @import "tokens/colors.css";
 @import "tokens/typography.css";
 @import "tokens/spacing.css";
+@import "tokens/density.css";
 @import "tokens/base.css";
 @import "tokens/forced-colors.css";

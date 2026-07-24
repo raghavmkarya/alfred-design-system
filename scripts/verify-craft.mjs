@@ -114,12 +114,42 @@ if (!fcOk) {
   findings.push({ rule: "forced-colors-contract", why: "styles.css must @import tokens/forced-colors.css, which must ship a `@media (forced-colors: active)` block restoring :focus-visible + floating-surface (role) borders", file: "tokens/forced-colors.css", line: 0, snippet: "(missing or incomplete)" });
 }
 
+/* the density scale must ship, and every scope must define the SAME token names — a scope that
+   omits one silently inherits its parent's value, so a compact table nested in a spacious page
+   would render half-compact. Comparing the name sets is the only mechanical guard against that. */
+let denCss = "";
+try { denCss = fs.readFileSync(path.join(ROOT, "tokens/density.css"), "utf8"); } catch { /* missing → fail below */ }
+const DENSITY_SCOPES = [":root", '[data-density="comfortable"]', '[data-density="compact"]', '[data-density="spacious"]'];
+const scopeTokens = (sel) => {
+  const esc = sel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const block = denCss.match(new RegExp(`(?:^|\\n)\\s*${esc}\\s*\\{([\\s\\S]*?)\\n\\}`));
+  return block ? new Set([...block[1].matchAll(/^\s*(--density-[\w-]+)\s*:/gm)].map((x) => x[1])) : null;
+};
+if (!/@import\s+["']tokens\/density\.css["']/.test(stylesCss)) {
+  findings.push({ rule: "density-contract", why: "styles.css must @import tokens/density.css", file: "styles.css", line: 0, snippet: "(missing import)" });
+} else {
+  const sets = DENSITY_SCOPES.map((s) => [s, scopeTokens(s)]);
+  const missingScope = sets.find(([, set]) => !set || set.size === 0);
+  if (missingScope) {
+    findings.push({ rule: "density-contract", why: `tokens/density.css must define a \`${missingScope[0]}\` block of --density-* tokens`, file: "tokens/density.css", line: 0, snippet: "(missing or empty scope)" });
+  } else {
+    const [, ref] = sets[0];
+    for (const [sel, set] of sets.slice(1)) {
+      const missing = [...ref].filter((t) => !set.has(t));
+      const extra = [...set].filter((t) => !ref.has(t));
+      for (const t of missing) findings.push({ rule: "density-contract", why: "every density scope must define the same --density-* token set (an omitted token inherits the parent scope's value)", file: "tokens/density.css", line: 0, snippet: `${sel} is missing ${t}` });
+      for (const t of extra) findings.push({ rule: "density-contract", why: "every density scope must define the same --density-* token set (an omitted token inherits the parent scope's value)", file: "tokens/density.css", line: 0, snippet: `${sel} defines ${t}, absent from :root` });
+    }
+  }
+}
+
 /* report */
 if (findings.length === 0) {
   for (const r of RULES) console.log(`OK   ${r.id}`);
   console.log(`OK   reduced-motion-contract`);
   console.log(`OK   forced-colors-contract`);
-  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 2} rules)`);
+  console.log(`OK   density-contract`);
+  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 3} rules)`);
   process.exit(0);
 }
 

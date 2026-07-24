@@ -19,9 +19,9 @@ export function Button({
   ...rest
 }) {
   const sizes = {
-    sm: { height: 36, padding: "0 16px", font: "var(--text-sm)", radius: "var(--radius-md)", gap: 8 },
-    md: { height: 46, padding: "0 22px", font: "var(--text-base)", radius: "var(--radius-md)", gap: 10 },
-    lg: { height: 56, padding: "0 30px", font: "var(--text-lg)", radius: "var(--radius-lg)", gap: 12 },
+    sm: { height: "var(--density-control-h-sm)", padding: "0 var(--density-control-pad-sm)", font: "var(--text-sm)", radius: "var(--radius-md)", gap: 8 },
+    md: { height: "var(--density-control-h-md)", padding: "0 var(--density-control-pad-md)", font: "var(--text-base)", radius: "var(--radius-md)", gap: 10 },
+    lg: { height: "var(--density-control-h-lg)", padding: "0 var(--density-control-pad-lg)", font: "var(--text-lg)", radius: "var(--radius-lg)", gap: 12 },
   };
   const s = sizes[size] || sizes.md;
 

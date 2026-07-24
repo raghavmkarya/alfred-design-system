@@ -34,7 +34,7 @@ export const Input = React.forwardRef(function Input(props, ref) {
     : (fill === "plain" ? "var(--border-default)" : "transparent");
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%", ...style }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--density-field-gap)", width: "100%", ...style }}>
       {label && (
         <label htmlFor={inputId} style={{
           fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
@@ -46,7 +46,7 @@ export const Input = React.forwardRef(function Input(props, ref) {
         background: disabled ? "var(--surface-sunken)" : wrapBg,
         border: `1.5px solid ${borderColor}`,
         borderRadius: "var(--radius-md)",
-        padding: "0 16px", height: 52,
+        padding: "0 var(--density-field-pad-x)", height: "var(--density-field-h)",
         boxShadow: focus ? "var(--shadow-focus)" : "none",
         transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
         opacity: disabled ? "var(--opacity-disabled)" : 1,

@@ -185,7 +185,7 @@ export function DataTable({
     });
 
   const align = (col) => (col && (col.align === "right" || col.align === "center") ? col.align : "left");
-  const cellPad = "13px 18px";
+  const cellPad = "var(--density-row-pad-y) var(--density-row-pad-x)";
 
   // Label-ish value from the first column, so each row checkbox announces what it selects.
   const firstKey = columns.length && columns[0] ? columns[0].key : null;
@@ -376,8 +376,8 @@ export function DataTable({
             flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: 12,
-            padding: "12px 18px",
+            gap: "var(--density-gap)",
+            padding: "var(--density-row-pad-y) var(--density-row-pad-x)",
             borderTop: "1px solid var(--border-subtle)",
           }}
         >
