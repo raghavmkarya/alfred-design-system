@@ -12,6 +12,8 @@ export interface HeatmapProps {
   valueFormat?: (value: number) => React.ReactNode;
   /** Show the intensity legend strip. @default true */
   legend?: boolean;
+  /** Accessible name for the heatmap. @default "Intensity heatmap" */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** A matrix heatmap tinting cells from faint peach (low) to full brand orange (high). */

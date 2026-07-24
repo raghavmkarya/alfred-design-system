@@ -20,6 +20,8 @@ export interface StackedBarChartProps {
   stacked?: boolean;
   /** Formats the y-axis ticks. */
   valueFormat?: (value: number) => React.ReactNode;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** Vertical stacked or grouped bars for comparing several series across categories. */

@@ -17,7 +17,7 @@ const niceRound = (v) => {
   return Math.round(v * 100) / 100;
 };
 
-export function AreaChart({ series = [], labels = [], height = 220, yTicks = 4, valueFormat, fill = true, style = {} }) {
+export function AreaChart({ series = [], labels = [], height = 220, yTicks = 4, valueFormat, fill = true, ariaLabel, style = {} }) {
   const uid = React.useId().replace(/:/g, "");
   const W = 660, padL = 46, padR = 10, padT = 12, padB = 26;
   const plotW = W - padL - padR, plotH = height - padT - padB;
@@ -31,10 +31,14 @@ export function AreaChart({ series = [], labels = [], height = 220, yTicks = 4, 
   const fmt = valueFormat || ((v) => niceRound(v));
   const ticks = Array.from({ length: yTicks + 1 }, (_, i) => min + (span * i) / yTicks);
   const every = Math.ceil(n / 8) || 1;
+  // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
+  const aria = ariaLabel || (series.length
+    ? `Area chart, ${series.length} series (${series.map((s) => s.name).filter(Boolean).join(", ")}), ${n} points`
+    : "Area chart, no data");
 
   return (
     <div style={{ width: "100%", ...style }}>
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} style={{ display: "block" }}>
+      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           {series.map((s, si) => {
             const c = s.color || PALETTE[si % PALETTE.length];

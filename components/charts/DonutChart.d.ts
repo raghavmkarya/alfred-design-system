@@ -6,6 +6,8 @@ export interface DonutChartProps {
   thickness?: number;
   centerLabel?: React.ReactNode;
   centerSub?: React.ReactNode;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** Ring chart for share-of-total (channel mix, budget split). */

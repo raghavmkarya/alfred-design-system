@@ -27,6 +27,8 @@ export interface ScatterChartProps {
   valueFormatX?: (value: number) => React.ReactNode;
   /** Formats y-axis tick labels. */
   valueFormatY?: (value: number) => React.ReactNode;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** An x/y scatter for two-variable comparison (e.g. spend vs ROAS by campaign). */

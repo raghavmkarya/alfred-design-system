@@ -25,6 +25,8 @@ export interface SankeyChartProps {
   nodeWidth?: number;
   /** Formats the throughput printed next to each node. @default v => Math.round(v) */
   valueFormat?: (value: number) => React.ReactNode;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** Simplified left→right Sankey for attribution / cross-module signal routing. */

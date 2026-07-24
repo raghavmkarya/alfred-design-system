@@ -6,10 +6,13 @@ import React from "react";
  * Won). `steps`: [{label, value, color?, display?}]. Bars are scaled to the
  * largest step; the track reads the theme so it works on light + dark.
  */
-export function FunnelChart({ steps = [], style = {} }) {
+export function FunnelChart({ steps = [], ariaLabel, style = {} }) {
   const top = Math.max(...steps.map((s) => s.value), 1);
+  // Every step's label and value is already readable text, so the bars carry no
+  // extra information — the container just needs a name to group them under.
+  const aria = ariaLabel || (steps.length ? `Conversion funnel, ${steps.length} steps` : "Conversion funnel, no data");
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%", ...style }}>
+    <div role="group" aria-label={aria} style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%", ...style }}>
       {steps.map((s, i) => {
         const pct = Math.round((s.value / top) * 100);
         return (

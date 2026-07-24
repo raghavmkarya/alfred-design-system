@@ -27,7 +27,7 @@ const niceCeil = (x) => {
   return nf * Math.pow(10, exp);
 };
 
-export function WaterfallChart({ items = [], height = 240, valueFormat, style = {} }) {
+export function WaterfallChart({ items = [], height = 240, valueFormat, ariaLabel, style = {} }) {
   const W = 680, padL = 50, padR = 14, padT = 16, padB = 30;
   const plotW = W - padL - padR, plotH = height - padT - padB;
   const yTicks = 4;
@@ -85,7 +85,7 @@ export function WaterfallChart({ items = [], height = 240, valueFormat, style = 
     bars.some((b) => !b.isTotal && b.value < 0) && { k: "dec", label: "Decrease", color: "var(--danger-500)" },
   ].filter(Boolean);
 
-  const aria = items.length
+  const aria = ariaLabel || items.length
     ? `Waterfall from ${bars[0].label ?? "start"} to ${bars[bars.length - 1].label ?? "end"}`
     : "Waterfall chart";
 

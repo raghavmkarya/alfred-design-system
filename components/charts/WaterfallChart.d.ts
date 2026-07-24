@@ -17,6 +17,8 @@ export interface WaterfallChartProps {
   height?: number;
   /** Formats y-axis ticks and value labels (e.g. v => "$" + v + "K"). */
   valueFormat?: (value: number) => React.ReactNode;
+  /** Overrides the auto-derived text alternative (WCAG 1.1.1). */
+  ariaLabel?: string;
   style?: React.CSSProperties;
 }
 /** Shows how a total is built from running increments / decrements. */
