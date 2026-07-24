@@ -90,7 +90,7 @@ export function Drawer({ open, onClose, side = "right", title, children, width =
       <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "var(--overlay-scrim)", opacity: atRest ? 1 : 0, transition: `opacity var(${exiting ? "--dur-fast" : "--dur-base"}) var(--ease-standard)` }} />
       <div ref={panelRef} tabIndex={-1} onTransitionEnd={(e) => { if (exiting && e.target === panelRef.current && e.propertyName === "transform") setExiting(false); }} style={{
         position: "absolute", top: 0, bottom: 0, [side]: 0, width, maxWidth: "90vw",
-        background: "var(--surface-card)", boxShadow: "var(--shadow-xl)", display: "flex", flexDirection: "column",
+        background: "var(--surface-card)", boxShadow: "var(--elevation-modal)", display: "flex", flexDirection: "column",
         borderLeft: side === "right" ? "1px solid var(--border-subtle)" : "none",
         borderRight: side === "left" ? "1px solid var(--border-subtle)" : "none",
         transform: atRest ? "translateX(0)" : `translateX(${offset})`,

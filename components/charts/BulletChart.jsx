@@ -119,7 +119,7 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
                   height: 14,
                   borderRadius: "var(--radius-pill)",
                   background: "var(--gradient-brand)",
-                  boxShadow: "var(--shadow-xs)",
+                  boxShadow: "var(--elevation-surface)",
                 }}
               />
 

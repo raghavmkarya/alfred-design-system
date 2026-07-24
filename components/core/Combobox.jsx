@@ -134,7 +134,7 @@ export const Combobox = React.forwardRef(function Combobox({
               position: "absolute", top: "calc(100% + 6px)", left: 0, right: 0,
               zIndex: "var(--z-dropdown)",
               background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
-              borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-md)",
+              borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-floating)",
               padding: 6, maxHeight: maxVisible * 38 + 12, overflowY: "auto",
             }}
           >

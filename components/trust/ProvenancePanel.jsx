@@ -47,7 +47,7 @@ export function ProvenancePanel({
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
         overflow: "hidden",
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--elevation-surface)",
         ...style,
       }}
     >

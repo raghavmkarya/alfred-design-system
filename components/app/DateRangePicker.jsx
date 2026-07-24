@@ -33,7 +33,7 @@ export function DateRangePicker({ value = "30d", presets = DEFAULT_PRESETS, onCh
       <div role="group" aria-label="Date range" style={{
         display: "inline-flex", alignItems: "center",
         background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
-        borderRadius: "var(--radius-pill)", padding: 4, boxShadow: "var(--shadow-xs)",
+        borderRadius: "var(--radius-pill)", padding: 4, boxShadow: "var(--elevation-surface)",
       }}>
         {items.map((p, i) => {
           const active = value === p.value;
@@ -63,7 +63,7 @@ export function DateRangePicker({ value = "30d", presets = DEFAULT_PRESETS, onCh
                   fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
                   color: active ? "var(--text-on-orange)" : (hot ? "var(--text-on-tint-brand)" : "var(--text-secondary)"),
                   background: active ? "var(--accent)" : (hot ? "var(--accent-soft)" : "transparent"),
-                  boxShadow: active ? "var(--shadow-sm)" : "none",
+                  boxShadow: active ? "var(--elevation-raised)" : "none",
                   transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard)",
                 }}
               >
@@ -78,7 +78,7 @@ export function DateRangePicker({ value = "30d", presets = DEFAULT_PRESETS, onCh
         <span style={{
           display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 14px",
           borderRadius: "var(--radius-pill)", border: "1px solid var(--border-subtle)",
-          background: "var(--surface-card)", boxShadow: "var(--shadow-xs)", whiteSpace: "nowrap",
+          background: "var(--surface-card)", boxShadow: "var(--elevation-surface)", whiteSpace: "nowrap",
         }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"

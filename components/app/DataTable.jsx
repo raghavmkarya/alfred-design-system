@@ -204,7 +204,7 @@ export function DataTable({
         background: "var(--surface-card)",
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--elevation-surface)",
         overflow: "hidden",
         fontFamily: "var(--font-sans)",
         ...style,

@@ -127,7 +127,7 @@ export const TagInput = React.forwardRef(function TagInput({
           <div role="listbox" aria-label="Suggestions" style={{
             position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0, zIndex: "var(--z-dropdown)",
             background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
-            borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", overflow: "hidden", padding: 6,
+            borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-overlay)", overflow: "hidden", padding: 6,
           }}>
             {matches.map((s, i) => (
               <button

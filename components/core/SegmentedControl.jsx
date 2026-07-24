@@ -56,8 +56,8 @@ export function SegmentedControl({ options = [], value, onChange, size = "md", s
               fontFamily: "var(--font-sans)", fontSize: fs, fontWeight: active ? "var(--fw-bold)" : "var(--fw-medium)",
               color: active ? "var(--text-on-orange)" : "var(--text-secondary)", background: active ? "var(--accent)" : "transparent",
               boxShadow: ring
-                ? (active ? "var(--shadow-sm), var(--shadow-focus)" : "var(--shadow-focus)")
-                : (active ? "var(--shadow-sm)" : "none"),
+                ? (active ? "var(--elevation-raised), var(--shadow-focus)" : "var(--shadow-focus)")
+                : (active ? "var(--elevation-raised)" : "none"),
               transition: "background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
             }}
           >{o.label}</button>

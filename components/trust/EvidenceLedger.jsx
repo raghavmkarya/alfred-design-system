@@ -29,7 +29,7 @@ export function EvidenceLedger({
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
         background: "var(--surface-card)",
-        boxShadow: "var(--shadow-md)",
+        boxShadow: "var(--elevation-floating)",
         fontFamily: "var(--font-sans)",
         ...style,
       }}
@@ -177,7 +177,7 @@ function LedgerMark() {
     <span aria-hidden="true" style={{
       width: 28, height: 28, display: "inline-flex", alignItems: "center", justifyContent: "center",
       borderRadius: "var(--radius-md)", background: "var(--gradient-brand)", color: "var(--text-on-brand)",
-      boxShadow: "var(--shadow-xs)",
+      boxShadow: "var(--elevation-surface)",
     }}>
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <path d="M6 5h12M6 12h12M6 19h7" />

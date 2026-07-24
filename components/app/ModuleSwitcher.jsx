@@ -141,7 +141,7 @@ export function ModuleSwitcher({
           background: hover || open ? "var(--surface-sunken)" : "var(--surface-card)",
           border: `1px solid ${open ? "var(--border-focus)" : "var(--border-default)"}`,
           borderRadius: "var(--radius-md)",
-          boxShadow: focusVisible ? "var(--shadow-focus)" : "var(--shadow-xs)",
+          boxShadow: focusVisible ? "var(--shadow-focus)" : "var(--elevation-surface)",
           transition: "background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
         }}
       >
@@ -199,7 +199,7 @@ export function ModuleSwitcher({
             position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0,
             zIndex: "var(--z-dropdown)",
             background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
-            borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-md)", padding: 6,
+            borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-floating)", padding: 6,
           }}
         >
           {items.map((m, i) => {

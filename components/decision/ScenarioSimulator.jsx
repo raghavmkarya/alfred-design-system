@@ -37,7 +37,7 @@ export function ScenarioSimulator({
       style={{
         boxSizing: "border-box", width: "100%", maxWidth: 460,
         background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-        borderRadius: "var(--radius-2xl)", boxShadow: "var(--shadow-md)", padding: 22,
+        borderRadius: "var(--radius-2xl)", boxShadow: "var(--elevation-floating)", padding: 22,
         display: "flex", flexDirection: "column", gap: 18, fontFamily: "var(--font-sans)", ...style,
       }}
     >

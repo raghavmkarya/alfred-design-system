@@ -42,7 +42,7 @@ export function DataFreshness({
         background: "var(--surface-card)",
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-pill)",
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--elevation-surface)",
         fontFamily: "var(--font-sans)",
         fontSize: "var(--text-xs)",
         lineHeight: 1,

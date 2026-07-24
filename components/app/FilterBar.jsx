@@ -94,7 +94,7 @@ export function FilterBar({ filters = [], onChange, right, style = {} }) {
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-xl)",
         padding: "var(--density-bar-pad-y) var(--density-bar-pad-x)",
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--elevation-surface)",
         ...style,
       }}
     >

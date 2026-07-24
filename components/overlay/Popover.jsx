@@ -65,7 +65,7 @@ export function Popover({ open, onOpenChange, trigger, children, placement = "bo
         <div role="dialog" id={panelId} style={{
           position: "absolute", zIndex: "var(--z-popover)", minWidth: 200, background: "var(--surface-card)",
           border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)",
-          boxShadow: "var(--shadow-lg)", padding: 8, ...(pos[placement] || pos.bottom),
+          boxShadow: "var(--elevation-overlay)", padding: 8, ...(pos[placement] || pos.bottom),
           transformOrigin: origin[placement] || origin.bottom,
           opacity: entered ? 1 : 0,
           transform: entered ? "scale(1)" : "scale(0.98)",

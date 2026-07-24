@@ -71,7 +71,7 @@ export function ConnectionHealthCard({
         background: "var(--surface-card)",
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
-        boxShadow: "var(--shadow-sm)",
+        boxShadow: "var(--elevation-raised)",
         fontFamily: "var(--font-sans)",
         ...style,
       }}

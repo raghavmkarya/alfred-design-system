@@ -41,7 +41,7 @@ export function StatTile({
     <div style={{
       display: "flex", flexDirection: "column", gap: 12, minWidth: 200,
       background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-      borderRadius: "var(--radius-2xl)", padding: pad, boxShadow: "var(--shadow-sm)",
+      borderRadius: "var(--radius-2xl)", padding: pad, boxShadow: "var(--elevation-raised)",
       overflow: "hidden", ...style,
     }}>
       {/* Top row — accented label + delta pill (valence colour, direction arrow) */}

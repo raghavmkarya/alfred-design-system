@@ -212,7 +212,7 @@ export function CommandPalette({
     <div style={{
       width: "100%", maxWidth: 600, fontFamily: "var(--font-sans)",
       background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-      borderRadius: "var(--radius-2xl)", boxShadow: "var(--shadow-lg)", overflow: "hidden",
+      borderRadius: "var(--radius-2xl)", boxShadow: "var(--elevation-overlay)", overflow: "hidden",
       ...style,
     }}>
       <style>{`.cp-input-${uid}::placeholder{color:var(--text-placeholder);opacity:1;}`}</style>
@@ -223,12 +223,12 @@ export function CommandPalette({
           display: "flex", alignItems: "center", gap: 10, padding: "8px 8px 8px 10px",
           background: "var(--surface-card)", borderRadius: "var(--radius-lg)",
           border: `1.5px solid ${focused ? "var(--border-focus)" : "var(--border-default)"}`,
-          boxShadow: focused ? "var(--shadow-focus)" : "var(--shadow-xs)",
+          boxShadow: focused ? "var(--shadow-focus)" : "var(--elevation-surface)",
           transition: "border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard)",
         }}>
           <span style={{
             width: 38, height: 38, flex: "none", borderRadius: "var(--radius-md)",
-            background: "var(--gradient-brand)", boxShadow: "var(--shadow-xs)",
+            background: "var(--gradient-brand)", boxShadow: "var(--elevation-surface)",
             display: "inline-flex", alignItems: "center", justifyContent: "center",
           }}>
             <SparkleIcon size={20} color="var(--text-on-brand)" />

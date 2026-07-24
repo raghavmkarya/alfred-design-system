@@ -56,7 +56,7 @@ export function RecommendationCard({
         background: "var(--surface-card)",
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
-        boxShadow: "var(--shadow-md)",
+        boxShadow: "var(--elevation-floating)",
         padding: "20px 22px 20px 24px",
         display: "flex",
         flexDirection: "column",
@@ -77,7 +77,7 @@ export function RecommendationCard({
               width: 24, height: 24, flex: "none",
               borderRadius: "var(--radius-sm)",
               background: "var(--gradient-brand)",
-              boxShadow: "var(--shadow-xs)",
+              boxShadow: "var(--elevation-surface)",
               color: "var(--text-on-brand)",
               display: "inline-flex", alignItems: "center", justifyContent: "center",
             }}

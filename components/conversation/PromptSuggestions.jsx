@@ -62,7 +62,7 @@ export function PromptSuggestions({
               borderRadius: isList ? "var(--radius-md)" : "var(--radius-pill)",
               background: hoverable && hover === i ? "var(--surface-hover)" : "var(--surface-card)",
               border: `1px solid ${hoverable && hover === i ? "var(--border-default)" : "var(--border-subtle)"}`,
-              boxShadow: "var(--shadow-xs)", cursor: "pointer",
+              boxShadow: "var(--elevation-surface)", cursor: "pointer",
               fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
               fontWeight: "var(--fw-medium)", color: "var(--text-primary)",
               transition: "transform var(--dur-fast) var(--ease-standard), background var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard)",

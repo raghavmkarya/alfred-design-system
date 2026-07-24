@@ -17,7 +17,7 @@ export function SignalCard({ label, statement, trace, tone = "signal", style = {
   return (
     <div style={{
       background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-      borderRadius: "var(--radius-xl)", padding: "18px 20px", boxShadow: "var(--shadow-sm)",
+      borderRadius: "var(--radius-xl)", padding: "18px 20px", boxShadow: "var(--elevation-raised)",
       display: "flex", flexDirection: "column", gap: 10, ...style,
     }}>
       <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>

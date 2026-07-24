@@ -1,0 +1,34 @@
+/* ============================================================
+   Alfred AI — Elevation Scale
+   ============================================================
+   The semantic layer over the raw `--shadow-*` ramp, in the same
+   relationship as `--surface-card` to `--gray-50`: components name
+   the ROLE ("this floats above the page"), never the size ("md").
+
+   Five steps, ordered to mirror the z-index contract in spacing.css
+   (sticky < nav < dropdown < overlay < popover < toast < tooltip):
+
+     flat      no elevation; flush with its parent
+     surface   resting inline surfaces: table rows, bars, inline cards
+     raised    cards that sit above the canvas
+     floating  hover-lifted cards, tooltips, inline menus
+     overlay   popovers, toasts, dropdown results, command palette
+     modal     modals and drawers, the top of the stack
+
+   These ALIAS the ramp rather than restating its values, so the
+   per-theme `--shadow-*` overrides in colors.css flow through for
+   free: `var()` resolves late, in the element's own theme context.
+
+   Elevation is depth only. `--shadow-brand` (the warm primary-button
+   glow) and `--shadow-focus` (the focus ring) are NOT elevation and
+   are intentionally absent — they are state, and components should
+   keep naming them directly.
+   ============================================================ */
+:root {
+  --elevation-flat: none;                  /* @kind shadow */
+  --elevation-surface: var(--shadow-xs);   /* @kind shadow */
+  --elevation-raised: var(--shadow-sm);    /* @kind shadow */
+  --elevation-floating: var(--shadow-md);  /* @kind shadow */
+  --elevation-overlay: var(--shadow-lg);   /* @kind shadow */
+  --elevation-modal: var(--shadow-xl);     /* @kind shadow */
+}

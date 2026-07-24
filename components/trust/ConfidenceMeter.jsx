@@ -133,7 +133,7 @@ export function ConfidenceMeter({
             borderRadius: "var(--radius-pill)",
             background: "var(--surface-card)",
             border: "1px solid var(--border-default)",
-            boxShadow: "var(--shadow-sm)",
+            boxShadow: "var(--elevation-raised)",
           }}
         />
       </div>

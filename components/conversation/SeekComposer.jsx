@@ -52,7 +52,7 @@ export function SeekComposer({
         borderRadius: "var(--radius-2xl)",
         padding: 1.5,
         background: "var(--border-default)",
-        boxShadow: focus ? "var(--shadow-focus)" : "var(--shadow-sm)",
+        boxShadow: focus ? "var(--shadow-focus)" : "var(--elevation-raised)",
         transition: "box-shadow var(--dur-base) var(--ease-standard)",
         opacity: disabled ? 0.6 : 1,
       }}>

@@ -46,7 +46,7 @@ export function AlfredMessage({
       {/* Alfred spark mark */}
       <span aria-hidden="true" style={{
         width: 32, height: 32, flex: "none", borderRadius: "var(--radius-md)",
-        background: "var(--gradient-brand)", color: "var(--text-on-brand)", boxShadow: "var(--shadow-xs)",
+        background: "var(--gradient-brand)", color: "var(--text-on-brand)", boxShadow: "var(--elevation-surface)",
         display: "inline-flex", alignItems: "center", justifyContent: "center",
       }}>
         <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">

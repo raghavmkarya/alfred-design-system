@@ -34,7 +34,7 @@ export function DecisionLog({ entries = [], title = "", style = {} }) {
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
         padding: 22,
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--elevation-surface)",
         ...style,
       }}
     >
@@ -169,7 +169,7 @@ function StatusNode({ status = "pending", pulse = "" }) {
     return (
       <span style={{
         position: "relative", width: size, height: size, flex: "none", borderRadius: "var(--radius-circle)",
-        background: "var(--success-500)", boxShadow: "var(--shadow-xs)",
+        background: "var(--success-500)", boxShadow: "var(--elevation-surface)",
         display: "inline-flex", alignItems: "center", justifyContent: "center",
       }}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-on-brand)"
