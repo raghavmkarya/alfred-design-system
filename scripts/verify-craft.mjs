@@ -121,6 +121,23 @@ const fcOk = /@import\s+["']tokens\/forced-colors\.css["']/.test(stylesCss)
   && /\[role="dialog"\]/.test(fcCss);
 if (!fcOk) {
   findings.push({ rule: "forced-colors-contract", why: "styles.css must @import tokens/forced-colors.css, which must ship a `@media (forced-colors: active)` block restoring :focus-visible + floating-surface (role) borders", file: "tokens/forced-colors.css", line: 0, snippet: "(missing or incomplete)" });
+} else {
+  /* Phase 2.4: HCM flattens author backgrounds, so selection conveyed by a FILL
+     vanishes and a selected tab/segment/option becomes identical to its siblings.
+     Require the selection layer and the chart opt-out to stay present. */
+  const deep = [
+    [/aria-selected="true"\]/, "a selected-state rule keyed on [aria-selected]"],
+    [/aria-checked="true"\]/, "a checked-state rule keyed on [aria-checked]"],
+    [/aria-current=/, "an current-state rule keyed on [aria-current]"],
+    [/Highlight(?:Text)?\b/, "the system Highlight/HighlightText selection pair"],
+    [/forced-color-adjust:\s*none/, "`forced-color-adjust: none` (Highlight and chart colour need it to survive)"],
+    [/role="img"\]|role="group"\]/, "the chart colour opt-out keyed on the chart roles"],
+  ];
+  for (const [re, what] of deep) {
+    if (!re.test(fcCss)) {
+      findings.push({ rule: "forced-colors-contract", why: `tokens/forced-colors.css must keep the Phase-2.4 deep layer — missing ${what}. Without it a selected tab/segment/option renders identically to an unselected one under Windows High Contrast`, file: "tokens/forced-colors.css", line: 0, snippet: `(missing: ${what})` });
+    }
+  }
 }
 
 /* the density scale must ship, and every scope must define the SAME token names — a scope that

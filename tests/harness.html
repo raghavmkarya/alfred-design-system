@@ -24,8 +24,15 @@
 <script type="text/babel">
 const ns = window.AlfredAIDesignSystem_1ce241;
 const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination, Input } = ns;
-const RTL_ALERT = { priority: "high", title: "Pause overspend", insight: "Meta is 40% over CPA.", time: "2m", action: "Review" };
+const { Tabs, LineChart } = ns;
 const { useState } = React;
+const RTL_ALERT = { priority: "high", title: "Pause overspend", insight: "Meta is 40% over CPA.", time: "2m", action: "Review" };
+
+function StatefulTabs() {
+  const [v, setV] = useState("a");
+  return <div data-testid="hcm-tabs"><Tabs value={v} onChange={setV}
+    tabs={[{ id: "a", label: "Overview" }, { id: "b", label: "Channels" }]} /></div>;
+}
 
 function StatefulSeg() {
   const [v, setV] = useState("a");
@@ -109,6 +116,15 @@ function App() {
       <div className="theme" data-testid="theme-light"><Gallery /></div>
       <div className="theme" data-theme="app-dark" data-testid="theme-app-dark"><Gallery /></div>
       <div className="theme" data-theme="dark" data-testid="theme-dark"><Gallery /></div>
+      {/* Phase 2.4: surfaces whose meaning is carried by colour, checked under
+          Windows High Contrast emulation in tests/forced-colors.spec.js. */}
+      <div id="hcm" data-testid="hcm-probe">
+        <div className="lbl">High contrast</div>
+        <div className="row" style={{ gap: 24 }}>
+          <StatefulTabs />
+          <div data-testid="hcm-chart" style={{ width: 260 }}><LineChart points={[12, 18, 15, 24]} labels={["W1", "W2", "W3", "W4"]} /></div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -37,7 +37,7 @@ jobs:
 
       - name: verify-render (kit render health)
         run: node scripts/verify-render.mjs
-      - name: verify-components (all 113 render clean)
+      - name: verify-components (all 115 render clean)
         run: node scripts/verify-components.mjs
       - name: verify-a11y (ARIA/keyboard contracts)
         run: node scripts/verify-a11y.mjs
@@ -63,6 +63,12 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Playwright interaction tests
         run: npx playwright test --project=interaction
+      # Windows High Contrast emulation. Chromium substitutes the system palette,
+      # so this asserts real computed colors: selection that survives the fill
+      # being flattened, focus rings that survive box-shadows being dropped, and
+      # chart colour that is deliberately opted out of forcing.
+      - name: Playwright forced-colors (high contrast) tests
+        run: npx playwright test --project=forced-colors
 
   # Tri-theme visual regression (light / app-dark / marketing-dark) — the harness
   # that caught the marketing-dark Banner bug, now a standing gate. Runs in the

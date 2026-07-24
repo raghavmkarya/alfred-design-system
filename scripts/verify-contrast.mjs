@@ -131,6 +131,14 @@ for (const bg of ["--bg-canvas", "--surface-card"]) {
   add("--text-muted", bg, { under, note: "muted/supplementary" });
 }
 
+// (A2) display/KPI type — --text-display aliases --text-primary in :root and is only
+// re-pointed on app-dark. The alias is what keeps it correct on marketing-dark (which
+// overrides --text-primary but not --text-display); this pins that so a future literal
+// value there can't silently strand ink-on-black. Display sizes → the 3:1 large floor.
+for (const bg of ["--bg-canvas", "--surface-card"]) {
+  add("--text-display", bg, { kind: "large", under: bg === "--surface-card" ? "--bg-canvas" : undefined, note: "display/KPI type" });
+}
+
 // (B) Banner / Callout copy — text-primary + text-body on tone tints (the #26 case)
 for (const tint of ["--info-100", "--success-100", "--warning-100", "--danger-100"]) {
   add("--text-primary", tint, { under: "--surface-card", note: "banner copy" });

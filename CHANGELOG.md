@@ -3,6 +3,40 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 2.4 — deep forced-colors (+ Phase 2 complete)
+
+The last Phase-2 item, and the one with a demonstrable bug behind it. Windows High Contrast flattens
+every author background to `Canvas` and drops every `box-shadow`, so anything Alfred communicated
+with a **fill** or a **shadow** did not degrade under HCM: it disappeared. Measured under Chromium's
+forced-colors emulation, **a selected segment and an unselected one computed to identical colors**
+(`rgb(255,255,255)` on `rgb(0,0,0)` for both). The selection state was simply gone.
+
+- **Selection restored** via the system `Highlight` / `HighlightText` pair, keyed on the ARIA hooks
+  components already emit (`[role=radio][aria-checked]`, `[role=tab][aria-selected]`,
+  `[role=option][aria-selected]`, `[role=switch]`, `[aria-current=page|step]`). Descendants are
+  pulled onto the highlight too, or the label keeps `CanvasText` and vanishes into the fill.
+  `forced-color-adjust: none` is required for any of it to survive the forcing pass.
+- **Chart colour opted out of forcing.** Forcing collapses six series into one `CanvasText`
+  silhouette. Chart graphics keep the categorical palette — **defensible only because every chart
+  also carries a text alternative** from the chart a11y contract, so nothing is colour-only.
+- **Still zero per-component high-contrast overrides.** Everything keys off semantic hooks, which is
+  the whole reason the chart roles added in #40 could be reused here as a styling hook.
+- **New `forced-colors` Playwright project + 5 tests**, wired into CI as a fourth job. Chromium
+  substitutes the real system palette, so these assert **computed colors**, not just that the media
+  query fires. The suite first asserts the emulation is actually on — without that guard, every
+  other assertion would pass vacuously against light-theme colors and the gate would look green
+  while checking nothing. Removing the selection layer fails two of them.
+- **`forced-colors-contract` deepened** to require the 2.4 layer (selection rules, the Highlight
+  pair, `forced-color-adjust`, the chart opt-out), proven to bite on two separate injected removals.
+- **`--text-display` closed out.** A long-standing open note worried it could strand ink-on-black in
+  marketing-dark. It cannot: it is an *alias* (`var(--text-primary)`), which every theme overrides,
+  so it resolves to 21:1 white-on-black there. Now pinned by 6 new `verify-contrast` pairs
+  (**66 → 72**) at the 3:1 large-text floor, so a future literal value there would fail the gate.
+- Docs: `guidelines/forced-colors.md`.
+
+**Phase 2 (systematize the tokens) is COMPLETE**: 2.1 density · 2.2 elevation · 2.3 RTL · 2.4
+forced-colors.
+
 ## 2026-07-25: Phase 2.3 — RTL / logical properties
 
 The third Phase-2 cross-cutting system. Components now describe space by **reading direction**

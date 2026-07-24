@@ -74,7 +74,7 @@ production code, depending on the need.
   `index.html` is the gallery. Build new decks from `deck.css` classes.
 - `slides/` — presentation templates (cover, index, section divider, content+stat).
 - `guidelines/` — foundation specimen cards, `voice-and-naming.md`, the token-system guides
-  (`density.md` = compact/comfortable/spacious · `elevation.md` = the semantic depth scale · `rtl.md` = logical properties ·
+  (`density.md` = compact/comfortable/spacious · `elevation.md` = the semantic depth scale · `rtl.md` = logical properties · `forced-colors.md` = Windows High Contrast ·
   `chart-contract.md` = the chart a11y contract), and three **craft & taste** guidelines
   (`motion-and-animation.md`, `anti-slop.md`, `craft-checklist.md`) — see "Craft & taste" below.
 
