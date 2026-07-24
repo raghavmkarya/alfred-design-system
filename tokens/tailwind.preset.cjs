@@ -131,7 +131,13 @@ module.exports = {
             "xl": "var(--shadow-xl)",
             "brand": "var(--shadow-brand)",
             "focus": "var(--shadow-focus)",
-            "focus-info": "var(--shadow-focus-info)"
+            "focus-info": "var(--shadow-focus-info)",
+            "elevation-flat": "var(--elevation-flat)",
+            "elevation-surface": "var(--elevation-surface)",
+            "elevation-raised": "var(--elevation-raised)",
+            "elevation-floating": "var(--elevation-floating)",
+            "elevation-overlay": "var(--elevation-overlay)",
+            "elevation-modal": "var(--elevation-modal)"
       },
       spacing: {
             "0": "0",

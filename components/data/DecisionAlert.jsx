@@ -29,7 +29,7 @@ export function DecisionAlert({
       display: "flex", gap: 14, alignItems: "flex-start",
       background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
       borderRadius: "var(--radius-xl)", padding: "16px 18px 16px 14px",
-      boxShadow: "var(--shadow-xs)", position: "relative", overflow: "hidden", ...style,
+      boxShadow: "var(--elevation-surface)", position: "relative", overflow: "hidden", ...style,
     }}>
       <span style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: p.rail }} />
       <span style={{

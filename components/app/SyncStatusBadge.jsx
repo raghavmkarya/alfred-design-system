@@ -46,7 +46,7 @@ export function SyncStatusBadge({ status = "fresh", label, size = "md", style = 
         background: "var(--surface-card)",
         border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-pill)",
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--elevation-surface)",
         fontFamily: "var(--font-sans)",
         fontSize: z.font,
         lineHeight: 1,

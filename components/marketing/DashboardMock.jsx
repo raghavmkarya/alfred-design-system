@@ -87,7 +87,7 @@ export function DashboardMock({
         background: "var(--ink-950)",
         border: `1px solid ${whiteA(11)}`,
         borderRadius: "var(--radius-2xl)",
-        boxShadow: "var(--shadow-xl)",
+        boxShadow: "var(--elevation-modal)",
         overflow: "hidden",
         ...style,
       }}

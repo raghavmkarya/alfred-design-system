@@ -34,7 +34,7 @@ export function GoalPacing({
       style={{
         boxSizing: "border-box", width: "100%", maxWidth: 460,
         background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-        borderRadius: "var(--radius-2xl)", boxShadow: "var(--shadow-sm)", padding: 22,
+        borderRadius: "var(--radius-2xl)", boxShadow: "var(--elevation-raised)", padding: 22,
         display: "flex", flexDirection: "column", gap: 16, fontFamily: "var(--font-sans)", ...style,
       }}
     >

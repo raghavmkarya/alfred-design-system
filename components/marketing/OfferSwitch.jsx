@@ -75,7 +75,7 @@ export function OfferSwitch({
       }}>
         <span style={{
           width: 18, height: 18, borderRadius: "50%", background: "var(--white)",
-          boxShadow: "var(--shadow-sm)", pointerEvents: "none",
+          boxShadow: "var(--elevation-raised)", pointerEvents: "none",
           transform: checked ? "translateX(16px)" : "translateX(0)",
           transition: "transform var(--dur-base) var(--ease-emphasized)",
         }} />

@@ -73,8 +73,9 @@ production code, depending on the need.
   (pitch, ROI, competitive, demo, security, pricing, onboarding, QBR, all-hands, runbook…);
   `index.html` is the gallery. Build new decks from `deck.css` classes.
 - `slides/` — presentation templates (cover, index, section divider, content+stat).
-- `guidelines/` — foundation specimen cards, `voice-and-naming.md`, `density.md` (the
-  compact/comfortable/spacious scale), and three **craft & taste** guidelines
+- `guidelines/` — foundation specimen cards, `voice-and-naming.md`, the token-system guides
+  (`density.md` = compact/comfortable/spacious · `elevation.md` = the semantic depth scale ·
+  `chart-contract.md` = the chart a11y contract), and three **craft & taste** guidelines
   (`motion-and-animation.md`, `anti-slop.md`, `craft-checklist.md`) — see "Craft & taste" below.
 
 > Verify any kit edits with `node scripts/verify-render.mjs` — it server-renders every kit

@@ -121,7 +121,7 @@ export function Tooltip({ label, placement = "top", children, style = {} }) {
           <span role="tooltip" id={tipId} className={cls} style={{
             position: "absolute", zIndex: "var(--z-tooltip)", whiteSpace: "nowrap", background: "var(--surface-tooltip)", color: "var(--text-on-tooltip)",
             fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-medium)",
-            padding: "6px 10px", borderRadius: "var(--radius-sm)", boxShadow: "var(--shadow-md)", pointerEvents: "none",
+            padding: "6px 10px", borderRadius: "var(--radius-sm)", boxShadow: "var(--elevation-floating)", pointerEvents: "none",
             transformOrigin: origin[placement],
             ...pos[placement],
           }}>{label}</span>

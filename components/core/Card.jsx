@@ -29,7 +29,7 @@ export function Card({
     gradient: { background: "var(--gradient-brand)", color: "#fff", border: "none" },
     ink: { background: "var(--surface-ink)", color: "#fff", border: "1px solid rgba(255,255,255,0.10)" },
   };
-  const shadows = { none: "none", sm: "var(--shadow-sm)", md: "var(--shadow-md)", lg: "var(--shadow-lg)" };
+  const shadows = { none: "none", sm: "var(--elevation-raised)", md: "var(--elevation-floating)", lg: "var(--elevation-overlay)" };
   const { className, ...others } = rest;
   return (
     <div
@@ -39,7 +39,7 @@ export function Card({
       style={{
         borderRadius: radius,
         padding,
-        boxShadow: interactive && hover ? "var(--shadow-lg)" : shadows[shadow],
+        boxShadow: interactive && hover ? "var(--elevation-overlay)" : shadows[shadow],
         transform: interactive && hover && canHover ? "translateY(-2px)" : "none",
         transition: "box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard)",
         cursor: interactive ? "pointer" : "default",

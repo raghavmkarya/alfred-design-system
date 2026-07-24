@@ -31,7 +31,7 @@ export function DecisionFork({
         boxSizing: "border-box", width: "100%", maxWidth: 820, minWidth: 0,
         padding: 22, border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)", background: "var(--surface-card)",
-        boxShadow: "var(--shadow-md)", fontFamily: "var(--font-sans)", ...style,
+        boxShadow: "var(--elevation-floating)", fontFamily: "var(--font-sans)", ...style,
       }}
     >
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, marginBlockEnd: 18 }}>
@@ -81,7 +81,7 @@ function Option({ option, checked, actionLabel, onChoose }) {
       position: "relative", overflow: "hidden", display: "flex", flexDirection: "column",
       minWidth: 0, padding: 17, border: `1px solid ${checked ? "var(--border-focus)" : "var(--border-subtle)"}`,
       borderRadius: "var(--radius-xl)", background: checked ? "var(--accent-soft)" : "var(--surface-sunken)",
-      boxShadow: checked ? "var(--shadow-sm)" : "none",
+      boxShadow: checked ? "var(--elevation-raised)" : "none",
       transition: "border-color var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard)",
     }}>
       {option.recommended ? (
@@ -170,7 +170,7 @@ function ForkGlyph() {
     <span aria-hidden="true" style={{
       width: 40, height: 40, flex: "none", display: "inline-flex", alignItems: "center", justifyContent: "center",
       borderRadius: "var(--radius-lg)", background: "var(--gradient-brand)", color: "var(--text-on-brand)",
-      boxShadow: "var(--shadow-sm)",
+      boxShadow: "var(--elevation-raised)",
     }}>
       <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 3v5c0 2.2 1.8 4 4 4h8" />

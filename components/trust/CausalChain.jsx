@@ -106,7 +106,7 @@ export function CausalChain({ steps = [], confidence = null, title = "", style =
           border: "1px solid var(--border-subtle)",
           borderRadius: "var(--radius-lg)",
           padding: 15,
-          boxShadow: "var(--shadow-xs)",
+          boxShadow: "var(--elevation-surface)",
           position: "relative",
           overflow: "hidden",
         }}
@@ -217,7 +217,7 @@ export function CausalChain({ steps = [], confidence = null, title = "", style =
           borderRadius: "var(--radius-pill)",
           background: "var(--surface-card)",
           border: "1px solid var(--border-subtle)",
-          boxShadow: "var(--shadow-xs)",
+          boxShadow: "var(--elevation-surface)",
         }}
       >
         <span

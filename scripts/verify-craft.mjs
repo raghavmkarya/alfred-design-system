@@ -71,6 +71,11 @@ const RULES = [
     suppressIf: (t) => /:focus(?:-visible|-within)?\b|--shadow-focus|--border-focus|isFocusVisible|usePress|focusVisible/.test(t) },
   { id: "emoji-in-source", why: "no emoji in Alfred surfaces — use the custom single-color SVG icon set (assets/icons/)",
     re: /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F1E6}-\u{1F1FF}]/u },
+  { id: "raw-shadow-token", why: "name the elevation ROLE, not the shadow size — use --elevation-{surface,raised,floating,overlay,modal}. (--shadow-brand / --shadow-focus are state, not elevation, and stay direct.)",
+    re: /var\(\s*--shadow-(?:xs|sm|md|lg|xl)\s*\)/,
+    // component .jsx source only; individual legit lines carry a `raw-shadow-ok` marker
+    skipFile: (r) => !(r.startsWith("components/") && r.endsWith(".jsx")),
+    skipLine: (line) => { const t = line.trim(); return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /raw-shadow-ok/.test(line); } },
   { id: "raw-ramp-token", why: "use a theme-aware semantic token (--accent / --accent-soft / --border-focus / --text-link / --info-500 / --surface-* / --text-on-tint-*) — raw ramps don't re-theme across light / dark / app-dark",
     re: /var\(\s*--(?:gray|orange|periwinkle|ink)-\d/,
     // component .jsx source only (not the .card.html preview pages); skip the reviewed gradient/mock
@@ -143,13 +148,43 @@ if (!/@import\s+["']tokens\/density\.css["']/.test(stylesCss)) {
   }
 }
 
+/* the elevation scale must ship and must alias the ramp (not restate its values), so the
+   per-theme --shadow-* overrides in colors.css flow through. Restated literals would freeze
+   light-theme shadows into every theme — the exact bug marketing-dark had. */
+let elCss = "";
+try { elCss = fs.readFileSync(path.join(ROOT, "tokens/elevation.css"), "utf8"); } catch { /* missing → fail below */ }
+const ELEVATION_STEPS = ["flat", "surface", "raised", "floating", "overlay", "modal"];
+if (!/@import\s+["']tokens\/elevation\.css["']/.test(stylesCss)) {
+  findings.push({ rule: "elevation-contract", why: "styles.css must @import tokens/elevation.css", file: "styles.css", line: 0, snippet: "(missing import)" });
+} else {
+  for (const step of ELEVATION_STEPS) {
+    const m = elCss.match(new RegExp(`--elevation-${step}\\s*:\\s*([^;]+);`));
+    if (!m) {
+      findings.push({ rule: "elevation-contract", why: `tokens/elevation.css must define --elevation-${step}`, file: "tokens/elevation.css", line: 0, snippet: "(missing step)" });
+    } else if (step !== "flat" && !/var\(\s*--shadow-/.test(m[1])) {
+      findings.push({ rule: "elevation-contract", why: "each --elevation-* step must ALIAS the --shadow-* ramp (`var(--shadow-…)`), never restate literal values — a literal freezes the light-theme shadow into every theme", file: "tokens/elevation.css", line: 0, snippet: `--elevation-${step}: ${m[1].trim()}` });
+    }
+  }
+  /* every theme that darkens the canvas must supply real shadows: the light ink-tinted ramp
+     (rgba(2,2,30,…)) is invisible on a dark page, which is how marketing-dark shipped flat. */
+  const colorsCss = fs.readFileSync(path.join(ROOT, "tokens/colors.css"), "utf8");
+  for (const theme of ["dark", "app-dark"]) {
+    const block = colorsCss.match(new RegExp(`\\[data-theme="${theme}"\\]\\s*\\{([\\s\\S]*?)\\n\\}`));
+    const missing = block ? ["xs", "sm", "md", "lg", "xl"].filter((s) => !new RegExp(`--shadow-${s}\\s*:`).test(block[1])) : ["(block missing)"];
+    if (missing.length) {
+      findings.push({ rule: "elevation-contract", why: `[data-theme="${theme}"] must override the whole --shadow-* ramp — the light ink-tinted values do not register on a dark canvas`, file: "tokens/colors.css", line: 0, snippet: `missing: ${missing.join(", ")}` });
+    }
+  }
+}
+
 /* report */
 if (findings.length === 0) {
   for (const r of RULES) console.log(`OK   ${r.id}`);
   console.log(`OK   reduced-motion-contract`);
   console.log(`OK   forced-colors-contract`);
   console.log(`OK   density-contract`);
-  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 3} rules)`);
+  console.log(`OK   elevation-contract`);
+  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 4} rules)`);
   process.exit(0);
 }
 

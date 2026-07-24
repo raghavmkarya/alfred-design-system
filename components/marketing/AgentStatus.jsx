@@ -25,7 +25,7 @@ export function AgentStatus({
   return (
     <div style={{
       background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-      borderRadius: "var(--radius-2xl)", padding: 20, boxShadow: "var(--shadow-md)",
+      borderRadius: "var(--radius-2xl)", padding: 20, boxShadow: "var(--elevation-floating)",
       display: "flex", flexDirection: "column", gap: 16, ...style,
     }}>
       {query && (

@@ -29,7 +29,7 @@ export function KpiCard({
   return (
     <div style={{
       background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-      borderRadius: "var(--radius-2xl)", padding: 22, boxShadow: "var(--shadow-sm)",
+      borderRadius: "var(--radius-2xl)", padding: 22, boxShadow: "var(--elevation-raised)",
       display: "flex", flexDirection: "column", gap: 14, minWidth: 200, ...style,
     }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>

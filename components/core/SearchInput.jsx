@@ -131,7 +131,7 @@ export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
         <div id={listboxId} role="listbox" aria-label="Search results" style={{
           position: "absolute", top: "calc(100% + 8px)", left: 0, right: 0, zIndex: "var(--z-dropdown)",
           background: "var(--surface-raised)", border: "1px solid var(--border-subtle)",
-          borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", overflow: "hidden", padding: 6,
+          borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-overlay)", overflow: "hidden", padding: 6,
         }}>
           {items.map((item, i) => {
             const isActive = i === activeIndex;

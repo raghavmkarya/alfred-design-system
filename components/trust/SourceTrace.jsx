@@ -54,7 +54,7 @@ export function SourceTrace({
         <div style={{
           display: "flex", flexDirection: "column",
           background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-          borderRadius: "var(--radius-lg)", overflow: "hidden", boxShadow: "var(--shadow-xs)",
+          borderRadius: "var(--radius-lg)", overflow: "hidden", boxShadow: "var(--elevation-surface)",
         }}>
           {sources.map((src, i) => {
             const s = resolve(src.status);

@@ -32,7 +32,7 @@ export function ActivityTimeline({ items = [], style = {} }) {
               )}
               <span aria-hidden="true" style={{
                 position: "relative", marginTop: 3, width: 14, height: 14, flex: "none", borderRadius: "var(--radius-circle)",
-                background: "var(--surface-card)", border: `3px solid ${color}`, boxShadow: "var(--shadow-xs)",
+                background: "var(--surface-card)", border: `3px solid ${color}`, boxShadow: "var(--elevation-surface)",
               }} />
             </span>
 

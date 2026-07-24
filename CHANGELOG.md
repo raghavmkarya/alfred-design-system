@@ -3,6 +3,34 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 2.2 — elevation system (+ marketing-dark shipped flat)
+
+The second Phase-2 cross-cutting token system. Components now name the elevation **role** rather than
+the shadow **size**, in the same relationship `--surface-card` has to `--gray-50`.
+
+- **`tokens/elevation.css`** (new, imported by `styles.css`) — a six-step semantic scale ordered to
+  mirror the z-index contract: `flat` · `surface` · `raised` · `floating` · `overlay` · `modal`.
+- **The steps alias the ramp (`var(--shadow-…)`) rather than restating its values.** `var()` resolves
+  late, in the element's own theme context, so the per-theme `--shadow-*` overrides flow through for
+  free. A restated literal would freeze the light-theme shadow into every theme.
+- **Real bug found and fixed: marketing-dark never overrode `--shadow-*`.** `[data-theme="dark"]`
+  inherited the light ink-tinted ramp (`rgba(2,2,30,0.05–0.12)`) on a pure-black page, so **every
+  elevated surface on the marketing theme rendered flat**. `app-dark` got real shadows long ago;
+  marketing-dark was missed. It now has the same treatment at slightly higher alpha.
+- **49 components migrated**, 66 raw `--shadow-{xs,sm,md,lg,xl}` uses swapped to `--elevation-*`.
+  Value-identical by construction (the aliases resolve to the same ramp), so this is visually neutral:
+  all three tri-theme baselines pass unchanged, no re-bless.
+- **Three new craft guards** (`verify-craft` → 13 rules), each proven to bite on an injected violation:
+  `raw-shadow-token` blocks raw ramp sizes in component JSX (`raw-shadow-ok` escape hatch) ·
+  `elevation-contract` requires all six steps, requires each to alias rather than restate, and
+  requires **both** dark themes to override the whole ramp so the marketing-dark bug cannot recur.
+- `--shadow-brand` and `--shadow-focus` are deliberately **not** in the scale: they are state, not
+  depth, and components keep naming them directly.
+- `gen-tokens.mjs` exports an `elevation` group in `tokens.json` and adds the steps to the Tailwind
+  preset's `boxShadow`.
+- Docs: `guidelines/elevation.md`, including the honest caveat that no drop shadow registers against
+  marketing-dark's pure `#000` page background — depth there comes from surface lift + hairline border.
+
 ## 2026-07-25: chart accessibility contract (10 charts had no text alternative)
 
 An audit for gaps the six verifiers miss found a real one: **10 of the 14 charts exposed nothing at

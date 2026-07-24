@@ -34,10 +34,10 @@ export function JobListingRow({
     border: "1px solid " + (active ? "var(--border-default)" : "var(--border-subtle)"),
     borderRadius: "var(--radius-2xl)",
     boxShadow: focusRing
-      ? "var(--shadow-focus), var(--shadow-sm)"
+      ? "var(--shadow-focus), var(--elevation-raised)"
       : hover
-        ? "var(--shadow-md)"
-        : "var(--shadow-sm)",
+        ? "var(--elevation-floating)"
+        : "var(--elevation-raised)",
     transform: hover ? "translateY(-2px)" : "translateY(0)",
     fontFamily: "var(--font-sans)",
     textAlign: "left",

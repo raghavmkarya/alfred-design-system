@@ -43,7 +43,7 @@ export function Switch({ checked = false, onChange, disabled = false, label, sty
         />
         <span aria-hidden="true" style={{
           width: 20, height: 20, borderRadius: "50%", background: "var(--white)",
-          boxShadow: "var(--shadow-sm)", pointerEvents: "none",
+          boxShadow: "var(--elevation-raised)", pointerEvents: "none",
           transform: checked ? "translateX(18px)" : "translateX(0)",
           transition: "transform var(--dur-base) var(--ease-emphasized)",
         }} />

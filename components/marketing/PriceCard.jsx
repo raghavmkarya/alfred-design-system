@@ -73,7 +73,7 @@ export function PriceCard({
         background: "var(--surface-card)",
         border: highlighted ? "1px solid var(--border-focus)" : "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-2xl)",
-        boxShadow: highlighted ? "var(--shadow-brand)" : "var(--shadow-sm)",
+        boxShadow: highlighted ? "var(--shadow-brand)" : "var(--elevation-raised)",
         padding: "32px 28px 28px",
         fontFamily: "var(--font-sans)",
         ...style,

@@ -46,7 +46,7 @@ export function FileDropzone({
       >
         <span aria-hidden="true" style={{
           width: 44, height: 44, borderRadius: "var(--radius-md)", background: "var(--surface-card)",
-          border: "1px solid var(--border-subtle)", boxShadow: "var(--shadow-xs)",
+          border: "1px solid var(--border-subtle)", boxShadow: "var(--elevation-surface)",
           display: "inline-flex", alignItems: "center", justifyContent: "center",
         }}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
