@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="760x1240" name="Decision — scenarios, pacing, approvals & flags" subtitle="Decision-intelligence primitives: simulate, pace, gate and flag" -->
+<!-- @dsCard group="Components" viewport="760x1880" name="Decision: compare, simulate, pace and approve" subtitle="Decision intelligence primitives for choosing and acting with clarity" -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,17 +13,21 @@
   body { margin: 0; background: var(--gray-50); padding: 28px; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 704px; align-items: start; }
   .lbl { font-family: var(--font-sans); font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
-  .panel { background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
+  .panel { min-width: 0; background:#fff; border:1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 22px; box-shadow: var(--shadow-sm); }
   .span2 { grid-column: span 2; }
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { ScenarioSimulator, GoalPacing, ApprovalGate, AnomalyFlag } = window.AlfredAIDesignSystem_1ce241;
+const { DecisionFork, ScenarioSimulator, GoalPacing, ApprovalGate, AnomalyFlag } = window.AlfredAIDesignSystem_1ce241;
 function Demo() {
   return (
     <div className="grid">
+      <div className="panel span2">
+        <div className="lbl">DecisionFork: compare paths without hiding the tradeoffs</div>
+        <DecisionFork />
+      </div>
       <div className="panel">
         <div className="lbl">ScenarioSimulator — drag to re-project</div>
         <ScenarioSimulator />

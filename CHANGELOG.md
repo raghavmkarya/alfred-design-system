@@ -3,6 +3,18 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-24: evidence and decision comparison primitives
+
+Added two product-specific components that extend Alfred's visual language for trustworthy decisions:
+
+- **`EvidenceLedger`** audits a claim in place. Supporting, contradicting, and contextual evidence remain
+  visible together, with source freshness and a compact evidence-confidence summary.
+- **`DecisionFork`** compares strategic paths through outcomes, confidence, reversibility, and explicit
+  tradeoffs. Alfred can recommend a path without making the alternatives feel fake.
+
+Both components ship with TypeScript declarations, prompt documentation, responsive defaults, theme-aware
+tokens, interactive preview coverage, and full keyboard semantics.
+
 ## 2026-07-23 — Harden verify-craft: JSX outline/z-index forms (Phase 1.5)
 
 Tightened two craft rules that only caught the CSS syntax, missing the JSX inline-style form:

@@ -89,6 +89,7 @@ const PROPS = {
   DecisionLog: { entries: [{ time: "Today, 8:02 AM", title: "Reallocated $18K to Performance Max", outcome: "+6% coverage", status: "acted" }, { time: "Yesterday", title: "Scaled LinkedIn +30%", status: "acted" }] },
   DataFreshness: { updatedAgo: "6m ago", count: 6, status: "fresh" },
   CausalChain: { steps: [{ label: "Ops resourcing cut", kind: "cause" }, { label: "2 deals stalled", kind: "effect" }, { label: "$380K downgrade", kind: "impact" }], confidence: 74 },
+  EvidenceLedger: { claim: "LinkedIn ABM is the most efficient place to add budget.", evidence: [{ source: "LinkedIn Ads", stance: "supports", finding: "Pipeline per dollar improved 24%." }, { source: "Finance plan", stance: "contradicts", finding: "Search would fall below its floor." }], confidence: 82, onSourceOpen: noop },
   // —— Tier 1: app ——
   Sidebar: { items: [{ id: "home", label: "Home" }, { id: "spend", label: "Spend & ROI", badge: "3" }], active: "home" },
   PageHeader: { title: "Spend & ROI", subtitle: "Where every dollar is working", breadcrumb: [{ label: "Home" }, { label: "Marketing" }] },
@@ -104,6 +105,7 @@ const PROPS = {
   PromptSuggestions: { onSelect: noop, suggestions: ["Where should I move budget this week?", { label: "Forecast Q3 pipeline", hint: "forecast" }] },
   // —— Decision intelligence ——
   ScenarioSimulator: { onApply: noop },
+  DecisionFork: { onSelect: noop },
   GoalPacing: { label: "Q3 pipeline", value: 1.84, target: 3.2, elapsed: 0.62, period: "Q3 · 62% elapsed" },
   ApprovalGate: { steps: ["Move $18K of daily budget", "Cap Search at $12K/day"], approver: "Priya Menon", onApprove: noop, onModify: noop, onDecline: noop },
   AnomalyFlag: { tone: "anomaly", label: "Lead quality down 14%", detail: "New paid-social audience", value: "−14%" },

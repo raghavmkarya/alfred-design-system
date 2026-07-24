@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"b91e4e323f25","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"f81ce2865f60","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"57c7070e8826","components/core/Select.jsx":"f28d8bd6bc02","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"c6f11d2de789","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"8ec24fac33bc","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"6bb4d1554b80","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"7e79c7f3aba6","components/core/FileDropzone.jsx":"9ed80010c187","components/core/SegmentedControl.jsx":"c074209d84a1","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"06a68d799d75","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"766a8ca76a30","components/data/ActivityTimeline.jsx":"954051bfc61f","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"514e76d2fcac","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"9acf1f90dd4f","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"0c92800b3175","components/charts/GaugeChart.jsx":"d002c9e548c7","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"0322060ea5f5","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"4f98b60bb2c6","components/overlay/Drawer.jsx":"7720e725a960","components/overlay/Popover.jsx":"ebb9e12a3a12","components/overlay/Tooltip.jsx":"65bf54ffa004","components/feedback/Banner.jsx":"ff051db36967","components/feedback/Callout.jsx":"97ae150912b5","components/marketing/FaqItem.jsx":"87aca3f979e1","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"10d72a624588","components/marketing/SignalCard.jsx":"216e0d9e2766","components/marketing/AgentStatus.jsx":"bd6f98f9f0a9","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"667614f2f797","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"046279df3844","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"14e1c4b68435","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"560f659fa5fc","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"5dcfa05b6c04","components/trust/CausalChain.jsx":"5a1d9ba8a6fa","components/trust/DecisionLog.jsx":"a15180f3241d","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"3585fc7965c5","components/app/Sidebar.jsx":"4701a98a3a71","components/app/StatTile.jsx":"31b14ba88aa1","components/app/DataTable.jsx":"795c3529c7d5","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"48a65a8461c7","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"193680a192f3","components/app/CommandPalette.jsx":"1238003d0233","components/app/ModuleSwitcher.jsx":"c5c53ef694f8","components/app/BillingPlanCard.jsx":"0502fa06234c","components/app/DateRangePicker.jsx":"11dc5142703e","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"1a04b3a6d16b","components/conversation/SeekComposer.jsx":"5f4f9973acac","components/conversation/AlfredMessage.jsx":"db4a7874f30e","components/conversation/ThinkingTrace.jsx":"00c46ff1681d","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"796cd1cb6dde","components/decision/GoalPacing.jsx":"631138a96e39","components/decision/AnomalyFlag.jsx":"9fbd7458312c","components/decision/ApprovalGate.jsx":"b8286f191caf","components/decision/ScenarioSimulator.jsx":"7f275b3018bc"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress"]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"1c4095747dd7","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"b91e4e323f25","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"f81ce2865f60","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"57c7070e8826","components/core/Select.jsx":"f28d8bd6bc02","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"c6f11d2de789","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"8ec24fac33bc","components/core/TagInput.jsx":"2b246eef5414","components/core/Textarea.jsx":"6bb4d1554b80","components/core/Accordion.jsx":"f39315ac668c","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"7e79c7f3aba6","components/core/FileDropzone.jsx":"9ed80010c187","components/core/SegmentedControl.jsx":"c074209d84a1","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"06a68d799d75","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"766a8ca76a30","components/data/ActivityTimeline.jsx":"954051bfc61f","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"cd399e6c3403","components/charts/Heatmap.jsx":"514e76d2fcac","components/charts/BarChart.jsx":"6ee50f241430","components/charts/AreaChart.jsx":"b2ac79496611","components/charts/LineChart.jsx":"9acf1f90dd4f","components/charts/Sparkline.jsx":"6b6ffb975fc4","components/charts/DonutChart.jsx":"0c92800b3175","components/charts/GaugeChart.jsx":"d002c9e548c7","components/charts/BulletChart.jsx":"c28becc5913c","components/charts/FunnelChart.jsx":"1ba58409ed7d","components/charts/SankeyChart.jsx":"0322060ea5f5","components/charts/ScatterChart.jsx":"7651487b09a7","components/charts/WaterfallChart.jsx":"2330186fa238","components/charts/StackedBarChart.jsx":"149392174bc3","components/overlay/Menu.jsx":"2f31387ab3ba","components/overlay/Modal.jsx":"2403df3619da","components/overlay/Toast.jsx":"4f98b60bb2c6","components/overlay/Drawer.jsx":"7720e725a960","components/overlay/Popover.jsx":"ebb9e12a3a12","components/overlay/Tooltip.jsx":"65bf54ffa004","components/feedback/Banner.jsx":"ff051db36967","components/feedback/Callout.jsx":"97ae150912b5","components/marketing/FaqItem.jsx":"87aca3f979e1","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"b941909f964a","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"10d72a624588","components/marketing/SignalCard.jsx":"216e0d9e2766","components/marketing/AgentStatus.jsx":"bd6f98f9f0a9","components/marketing/AvatarStack.jsx":"49b3857dffa1","components/marketing/OfferSwitch.jsx":"667614f2f797","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"cd21efb9f3de","components/marketing/JobListingRow.jsx":"046279df3844","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"14e1c4b68435","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"560f659fa5fc","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"5dcfa05b6c04","components/trust/CausalChain.jsx":"5a1d9ba8a6fa","components/trust/DecisionLog.jsx":"a15180f3241d","components/trust/SourceTrace.jsx":"ac03ff346457","components/trust/DataFreshness.jsx":"49bd189f211c","components/trust/EvidenceLedger.jsx":"81bac62d94c1","components/trust/ConfidenceMeter.jsx":"6e52697b8b2b","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"3cd4276dad4c","components/trust/RecommendationCard.jsx":"3585fc7965c5","components/app/Sidebar.jsx":"4701a98a3a71","components/app/StatTile.jsx":"31b14ba88aa1","components/app/DataTable.jsx":"795c3529c7d5","components/app/FilterBar.jsx":"9a8c1808ffdb","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"48a65a8461c7","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"193680a192f3","components/app/CommandPalette.jsx":"1238003d0233","components/app/ModuleSwitcher.jsx":"c5c53ef694f8","components/app/BillingPlanCard.jsx":"0502fa06234c","components/app/DateRangePicker.jsx":"11dc5142703e","components/app/SyncStatusBadge.jsx":"c9db2fb61245","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"1a04b3a6d16b","components/conversation/SeekComposer.jsx":"5f4f9973acac","components/conversation/AlfredMessage.jsx":"db4a7874f30e","components/conversation/ThinkingTrace.jsx":"00c46ff1681d","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"796cd1cb6dde","components/decision/GoalPacing.jsx":"631138a96e39","components/decision/AnomalyFlag.jsx":"9fbd7458312c","components/decision/ApprovalGate.jsx":"b8286f191caf","components/decision/DecisionFork.jsx":"229c87ffe226","components/decision/ScenarioSimulator.jsx":"7f275b3018bc"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress"]} */
 
 (() => {
 
@@ -11554,6 +11554,337 @@ function DataFreshness({
 __ds_scope.DataFreshness = DataFreshness;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/DataFreshness.jsx", error: String((e && e.message) || e) }); }
 
+// components/trust/EvidenceLedger.jsx
+try { (() => {
+/**
+ * Alfred AI EvidenceLedger
+ * A compact claim audit that separates evidence which supports, weakens, or
+ * merely contextualizes a conclusion. It makes uncertainty visible without
+ * forcing the user into a full provenance view.
+ */
+function EvidenceLedger({
+  claim = "LinkedIn ABM is now the most efficient place to add budget.",
+  evidence = DEFAULT_EVIDENCE,
+  confidence = 82,
+  updated = "6 min ago",
+  onSourceOpen,
+  style = {}
+}) {
+  const score = Math.max(0, Math.min(100, Math.round(Number(confidence) || 0)));
+  const supporting = evidence.filter(item => item.stance === "supports").length;
+  const contradicting = evidence.filter(item => item.stance === "contradicts").length;
+  return /*#__PURE__*/React.createElement("section", {
+    "aria-label": "Evidence ledger",
+    style: {
+      boxSizing: "border-box",
+      width: "100%",
+      maxWidth: 620,
+      overflow: "hidden",
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      background: "var(--surface-card)",
+      boxShadow: "var(--shadow-md)",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: 20,
+      borderBlockEnd: "1px solid var(--border-subtle)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 16
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 9
+    }
+  }, /*#__PURE__*/React.createElement(LedgerMark, null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, "Evidence ledger")), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      whiteSpace: "nowrap"
+    }
+  }, "Updated ", updated)), /*#__PURE__*/React.createElement("h3", {
+    style: {
+      marginBlock: "15px 13px",
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      fontWeight: "var(--fw-semibold)",
+      lineHeight: "var(--lh-snug)",
+      letterSpacing: "var(--ls-tight)",
+      color: "var(--text-primary)"
+    }
+  }, claim), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr auto",
+      alignItems: "center",
+      gap: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    role: "meter",
+    "aria-label": `Evidence confidence: ${score}%`,
+    "aria-valuemin": 0,
+    "aria-valuemax": 100,
+    "aria-valuenow": score,
+    style: {
+      height: 7,
+      overflow: "hidden",
+      borderRadius: "var(--radius-pill)",
+      background: "var(--surface-sunken)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "block",
+      width: `${score}%`,
+      height: "100%",
+      borderRadius: "inherit",
+      background: "var(--gradient-brand)",
+      transition: "width var(--dur-base) var(--ease-out)"
+    }
+  })), /*#__PURE__*/React.createElement("strong", {
+    style: {
+      fontSize: "var(--text-sm)",
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, score, "%")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 8,
+      marginBlockStart: 13
+    }
+  }, /*#__PURE__*/React.createElement(SummaryChip, {
+    tone: "support"
+  }, supporting, " support"), /*#__PURE__*/React.createElement(SummaryChip, {
+    tone: contradicting ? "contradict" : "context"
+  }, contradicting, " contradict"), /*#__PURE__*/React.createElement(SummaryChip, {
+    tone: "context"
+  }, evidence.length, " sources"))), /*#__PURE__*/React.createElement("div", {
+    role: "list",
+    style: {
+      display: "flex",
+      flexDirection: "column"
+    }
+  }, evidence.map((item, index) => /*#__PURE__*/React.createElement(EvidenceRow, {
+    key: item.id || `${item.source}-${index}`,
+    item: item,
+    isLast: index === evidence.length - 1,
+    onOpen: onSourceOpen
+  }))));
+}
+function EvidenceRow({
+  item,
+  isLast,
+  onOpen
+}) {
+  const tones = {
+    supports: {
+      label: "Supports",
+      color: "var(--success-500)",
+      bg: "var(--success-100)",
+      symbol: "+"
+    },
+    contradicts: {
+      label: "Contradicts",
+      color: "var(--danger-500)",
+      bg: "var(--danger-100)",
+      symbol: "−"
+    },
+    context: {
+      label: "Context",
+      color: "var(--info-500)",
+      bg: "var(--info-100)",
+      symbol: "·"
+    }
+  };
+  const tone = tones[item.stance] || tones.context;
+  const content = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 28,
+      height: 28,
+      flex: "none",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "var(--radius-md)",
+      color: tone.color,
+      background: tone.bg,
+      fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-bold)"
+    }
+  }, tone.symbol), /*#__PURE__*/React.createElement("span", {
+    style: {
+      minWidth: 0,
+      display: "flex",
+      flex: 1,
+      flexDirection: "column",
+      gap: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "flex",
+      alignItems: "baseline",
+      justifyContent: "space-between",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    style: {
+      fontSize: "var(--text-sm)",
+      color: "var(--text-primary)"
+    }
+  }, item.source), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: "none",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: tone.color
+    }
+  }, tone.label)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-sm)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-secondary)"
+    }
+  }, item.finding), item.freshness ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)"
+    }
+  }, item.freshness) : null), onOpen ? /*#__PURE__*/React.createElement(Arrow, null) : null);
+  const shared = {
+    boxSizing: "border-box",
+    width: "100%",
+    display: "flex",
+    alignItems: "flex-start",
+    gap: 12,
+    padding: "14px 20px",
+    border: 0,
+    borderBlockEnd: isLast ? 0 : "1px solid var(--border-subtle)",
+    background: "transparent",
+    color: "inherit",
+    textAlign: "start",
+    font: "inherit"
+  };
+  return onOpen ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "listitem",
+    onClick: () => onOpen(item),
+    style: {
+      ...shared,
+      cursor: "pointer"
+    }
+  }, content) : /*#__PURE__*/React.createElement("div", {
+    role: "listitem",
+    style: shared
+  }, content);
+}
+function SummaryChip({
+  tone,
+  children
+}) {
+  const map = {
+    support: ["var(--success-100)", "var(--success-500)"],
+    contradict: ["var(--danger-100)", "var(--danger-500)"],
+    context: ["var(--surface-sunken)", "var(--text-muted)"]
+  };
+  const [background, color] = map[tone] || map.context;
+  return /*#__PURE__*/React.createElement("span", {
+    style: {
+      padding: "4px 9px",
+      borderRadius: "var(--radius-pill)",
+      background,
+      color,
+      fontSize: "var(--text-xs)",
+      fontWeight: "var(--fw-semibold)"
+    }
+  }, children);
+}
+function LedgerMark() {
+  return /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 28,
+      height: 28,
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "var(--radius-md)",
+      background: "var(--gradient-brand)",
+      color: "var(--text-on-brand)",
+      boxShadow: "var(--shadow-xs)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "15",
+    height: "15",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 5h12M6 12h12M6 19h7"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "m16 18 2 2 4-5"
+  })));
+}
+function Arrow() {
+  return /*#__PURE__*/React.createElement("svg", {
+    "aria-hidden": "true",
+    width: "15",
+    height: "15",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "var(--text-muted)",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      flex: "none",
+      marginBlockStart: 6
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "m9 18 6-6-6-6"
+  }));
+}
+const DEFAULT_EVIDENCE = [{
+  source: "LinkedIn Ads",
+  stance: "supports",
+  finding: "Qualified pipeline per dollar improved 24% over the last 28 days.",
+  freshness: "Live data · 2 min ago"
+}, {
+  source: "HubSpot",
+  stance: "supports",
+  finding: "ABM opportunities are progressing 1.4 times faster than paid search.",
+  freshness: "Synced · 8 min ago"
+}, {
+  source: "Finance plan",
+  stance: "contradicts",
+  finding: "The proposed shift leaves paid search 6% below its monthly floor.",
+  freshness: "Plan version 12 · today"
+}];
+__ds_scope.EvidenceLedger = EvidenceLedger;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/trust/EvidenceLedger.jsx", error: String((e && e.message) || e) }); }
+
 // components/trust/ConfidenceMeter.jsx
 try { (() => {
 /**
@@ -17417,6 +17748,316 @@ function ApprovalGate({
 __ds_scope.ApprovalGate = ApprovalGate;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/decision/ApprovalGate.jsx", error: String((e && e.message) || e) }); }
 
+// components/decision/DecisionFork.jsx
+try { (() => {
+/**
+ * Alfred AI DecisionFork
+ * A side by side strategic choice with recommendation, tradeoffs, confidence,
+ * reversibility, and explicit selection.
+ */
+function DecisionFork({
+  title = "Where should the next $30K go?",
+  context = "Both options clear the pipeline goal. The difference is speed versus certainty.",
+  options = DEFAULT_OPTIONS,
+  selected,
+  defaultSelected,
+  onSelect,
+  actionLabel = "Choose this path",
+  style = {}
+}) {
+  const initial = defaultSelected || options.find(option => option.recommended)?.id || options[0]?.id;
+  const [internal, setInternal] = React.useState(initial);
+  const active = selected === undefined ? internal : selected;
+  function choose(id) {
+    if (selected === undefined) setInternal(id);
+    if (onSelect) onSelect(id);
+  }
+  return /*#__PURE__*/React.createElement("section", {
+    "aria-label": title,
+    style: {
+      boxSizing: "border-box",
+      width: "100%",
+      maxWidth: 820,
+      minWidth: 0,
+      padding: 22,
+      border: "1px solid var(--border-subtle)",
+      borderRadius: "var(--radius-2xl)",
+      background: "var(--surface-card)",
+      boxShadow: "var(--shadow-md)",
+      fontFamily: "var(--font-sans)",
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "space-between",
+      gap: 24,
+      marginBlockEnd: 18
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBlockEnd: 7,
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)"
+    }
+  }, "Decision fork"), /*#__PURE__*/React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h3)",
+      fontWeight: "var(--fw-semibold)",
+      lineHeight: "var(--lh-snug)",
+      letterSpacing: "var(--ls-tight)",
+      color: "var(--text-primary)"
+    }
+  }, title), context ? /*#__PURE__*/React.createElement("p", {
+    style: {
+      marginBlock: "7px 0",
+      maxWidth: 600,
+      fontSize: "var(--text-sm)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-secondary)"
+    }
+  }, context) : null), /*#__PURE__*/React.createElement(ForkGlyph, null)), /*#__PURE__*/React.createElement("div", {
+    role: "radiogroup",
+    "aria-label": "Decision options",
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
+      gap: 12
+    }
+  }, options.map(option => /*#__PURE__*/React.createElement(Option, {
+    key: option.id,
+    option: option,
+    checked: active === option.id,
+    actionLabel: actionLabel,
+    onChoose: () => choose(option.id)
+  }))));
+}
+function Option({
+  option,
+  checked,
+  actionLabel,
+  onChoose
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      overflow: "hidden",
+      display: "flex",
+      flexDirection: "column",
+      minWidth: 0,
+      padding: 17,
+      border: `1px solid ${checked ? "var(--border-focus)" : "var(--border-subtle)"}`,
+      borderRadius: "var(--radius-xl)",
+      background: checked ? "var(--accent-soft)" : "var(--surface-sunken)",
+      boxShadow: checked ? "var(--shadow-sm)" : "none",
+      transition: "border-color var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard)"
+    }
+  }, option.recommended ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      alignSelf: "flex-start",
+      marginBlockEnd: 14,
+      padding: "4px 9px",
+      borderRadius: "var(--radius-pill)",
+      background: "var(--accent)",
+      color: "var(--text-on-brand)",
+      fontSize: "var(--text-2xs)",
+      fontWeight: "var(--fw-bold)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase"
+    }
+  }, "Alfred's pick") : /*#__PURE__*/React.createElement("span", {
+    style: {
+      height: 22,
+      marginBlockEnd: 14
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "space-between",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "var(--text-xs)",
+      color: "var(--text-muted)",
+      marginBlockEnd: 4
+    }
+  }, option.eyebrow), /*#__PURE__*/React.createElement("strong", {
+    style: {
+      display: "block",
+      fontFamily: "var(--font-display)",
+      fontSize: "var(--text-h4)",
+      lineHeight: "var(--lh-snug)",
+      color: "var(--text-primary)"
+    }
+  }, option.label)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "var(--font-display)",
+      fontSize: 30,
+      fontWeight: "var(--fw-semibold)",
+      lineHeight: 1,
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, option.outcome)), option.description ? /*#__PURE__*/React.createElement("p", {
+    style: {
+      marginBlock: "13px 15px",
+      fontSize: "var(--text-sm)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-secondary)"
+    }
+  }, option.description) : null, /*#__PURE__*/React.createElement("dl", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 10,
+      margin: 0
+    }
+  }, /*#__PURE__*/React.createElement(Metric, {
+    label: "Confidence",
+    value: `${option.confidence}%`
+  }), /*#__PURE__*/React.createElement(Metric, {
+    label: "Reversibility",
+    value: option.reversibility
+  })), option.tradeoffs?.length ? /*#__PURE__*/React.createElement("ul", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+      marginBlock: "15px 18px",
+      padding: 0,
+      listStyle: "none"
+    }
+  }, option.tradeoffs.map((tradeoff, index) => /*#__PURE__*/React.createElement("li", {
+    key: index,
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 8,
+      fontSize: "var(--text-xs)",
+      lineHeight: "var(--lh-normal)",
+      color: "var(--text-secondary)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      color: index === 0 ? "var(--success-500)" : "var(--warning-500)",
+      fontWeight: "var(--fw-bold)"
+    }
+  }, index === 0 ? "+" : "−"), tradeoff))) : null, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "radio",
+    "aria-checked": checked,
+    onClick: onChoose,
+    style: {
+      width: "100%",
+      marginBlockStart: "auto",
+      minHeight: 40,
+      border: checked ? 0 : "1px solid var(--border-strong)",
+      borderRadius: "var(--radius-md)",
+      background: checked ? "var(--text-primary)" : "var(--surface-card)",
+      color: checked ? "var(--surface-card)" : "var(--text-primary)",
+      font: "inherit",
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-bold)",
+      cursor: "pointer",
+      transition: "transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-standard)"
+    }
+  }, checked ? "Selected" : actionLabel));
+}
+function Metric({
+  label,
+  value
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: 10,
+      borderRadius: "var(--radius-md)",
+      background: "var(--surface-card)",
+      border: "1px solid var(--border-subtle)"
+    }
+  }, /*#__PURE__*/React.createElement("dt", {
+    style: {
+      marginBlockEnd: 3,
+      fontSize: "var(--text-2xs)",
+      color: "var(--text-muted)"
+    }
+  }, label), /*#__PURE__*/React.createElement("dd", {
+    style: {
+      margin: 0,
+      fontSize: "var(--text-sm)",
+      fontWeight: "var(--fw-bold)",
+      color: "var(--text-primary)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, value));
+}
+function ForkGlyph() {
+  return /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      width: 40,
+      height: 40,
+      flex: "none",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "var(--radius-lg)",
+      background: "var(--gradient-brand)",
+      color: "var(--text-on-brand)",
+      boxShadow: "var(--shadow-sm)"
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "21",
+    height: "21",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 3v5c0 2.2 1.8 4 4 4h8"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "m15 9 3 3-3 3"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 21v-5c0-2.2 1.8-4 4-4"
+  })));
+}
+const DEFAULT_OPTIONS = [{
+  id: "abm",
+  eyebrow: "Option A",
+  label: "Scale LinkedIn ABM",
+  outcome: "+$54K",
+  description: "Captures the strongest current efficiency signal while the audience is still under-saturated.",
+  confidence: 82,
+  reversibility: "High",
+  recommended: true,
+  tradeoffs: ["Fastest projected pipeline gain", "Higher creative fatigue risk in 3 weeks"]
+}, {
+  id: "search",
+  eyebrow: "Option B",
+  label: "Protect paid search",
+  outcome: "+$38K",
+  description: "Keeps the proven acquisition floor intact and gives the ABM signal another cycle to mature.",
+  confidence: 91,
+  reversibility: "Medium",
+  tradeoffs: ["Most predictable conversion volume", "Leaves an estimated $16K of pipeline unrealized"]
+}];
+__ds_scope.DecisionFork = DecisionFork;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/decision/DecisionFork.jsx", error: String((e && e.message) || e) }); }
+
 // components/decision/ScenarioSimulator.jsx
 try { (() => {
 const { Slider, ConfidenceMeter, Button } = __ds_scope;
@@ -17811,6 +18452,8 @@ __ds_ns.SourceTrace = __ds_scope.SourceTrace;
 
 __ds_ns.DataFreshness = __ds_scope.DataFreshness;
 
+__ds_ns.EvidenceLedger = __ds_scope.EvidenceLedger;
+
 __ds_ns.ConfidenceMeter = __ds_scope.ConfidenceMeter;
 
 __ds_ns.InsightFeedback = __ds_scope.InsightFeedback;
@@ -17866,6 +18509,8 @@ __ds_ns.GoalPacing = __ds_scope.GoalPacing;
 __ds_ns.AnomalyFlag = __ds_scope.AnomalyFlag;
 
 __ds_ns.ApprovalGate = __ds_scope.ApprovalGate;
+
+__ds_ns.DecisionFork = __ds_scope.DecisionFork;
 
 __ds_ns.ScenarioSimulator = __ds_scope.ScenarioSimulator;
 
