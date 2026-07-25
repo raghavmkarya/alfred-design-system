@@ -11,8 +11,12 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("boots, lists every component, and renders one live", async ({ page }) => {
+  // derived, not hardcoded: the count has gone stale three times, and props.json
+  // is generated from the same manifest the playground renders
+  const expected = await page.evaluate(async () => (await (await fetch("props.json")).json()).components.length);
   const listed = await page.locator(".pg-item[type=button]").count();
-  expect(listed).toBe(115);
+  expect(listed).toBe(expected);
+  expect(expected).toBeGreaterThan(100);
   // the default selection is a real component rendered from the real bundle
   await expect(page.locator(".pg-canvas button")).toHaveCount(1);
   await expect(page.locator(".pg-err")).toHaveCount(0);

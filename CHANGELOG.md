@@ -3,6 +3,40 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 4.1 — scene illustrations (`Illustration`, component 116)
+
+The illustration system had a documented house style and two characters, but nothing for the moments
+the design system actually has components for. `EmptyState` and `StateBlock` fell back to a small
+glyph.
+
+- **`Illustration`** — six scenes: `empty` · `no-results` · `error` · `success` · `connecting` ·
+  `first-run`. Flat, geometric, one shared stroke weight and corner radius so they read as one set.
+- **Drawn inline in the component, not as files.** An SVG loaded through `<img src>` is an isolated
+  document and cannot see the page's custom properties, so it can never follow the theme. `Icon` gets
+  away with a CSS mask because its glyphs are single-colour; these are not. Inlining is what lets one
+  composition read correctly on light, app-dark **and** marketing-dark instead of three exports each.
+- **No new props needed anywhere.** `EmptyState` and `StateBlock` already take an `icon` node, so
+  `icon={<Illustration name="empty" />}` composes today. Adding API for something composition already
+  handles would have been surface for nothing.
+- **New craft rule `illustration-theme-safe`** (verify-craft → 16 rules): no literal colour in the
+  scene art, and the structure must be drawn in semantic tokens. A hex there silently throws away the
+  only reason the art is inline, and would look right on light and wrong on both darks with no static
+  check noticing. Proven to bite.
+- `verify-a11y` 105 → 107 (role, label, `<title>`, custom title).
+
+**Two things came out of rendering the art rather than reasoning about it**, and both are now house
+rules in `assets/illustrations/README.md`:
+
+- **The gradient needs area.** Below roughly 40px the periwinkle→orange ramp stops reading as the
+  brand gradient and starts looking like a dull brown dot. Small accents are solid `--accent`; the
+  gradient goes on the one large shape the scene is about. My first pass had gradient dots at r=9.
+- **Four of the six scenes did not read** on first render — a tray that looked like a notched box, a
+  translucent lens that muddied what was behind it, an "offset" row that was not offset enough to look
+  broken. Redrawn after looking at them.
+
+Also: the playground test now **derives** the component count from `props.json` instead of hardcoding
+it. That number has gone stale three times.
+
 ## 2026-07-25: Phase 4.4 (part 2) — the chart cursor
 
 Charts had **no hover or keyboard interaction at all** beyond SankeyChart's hover state and Heatmap's

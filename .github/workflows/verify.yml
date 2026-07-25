@@ -37,7 +37,7 @@ jobs:
 
       - name: verify-render (kit render health)
         run: node scripts/verify-render.mjs
-      - name: verify-components (all 115 render clean)
+      - name: verify-components (all 116 render clean)
         run: node scripts/verify-components.mjs
       - name: verify-a11y (ARIA/keyboard contracts)
         run: node scripts/verify-a11y.mjs
@@ -50,7 +50,7 @@ jobs:
       - name: verify-playground (docs schema fresh + covers every component)
         run: node scripts/verify-playground.mjs
       # Builds the publishable package and imports it as a consumer would,
-      # server-rendering all 115 through the ESM entry. dist/ is generated and
+      # server-rendering all 116 through the ESM entry. dist/ is generated and
       # not committed, so nothing else would notice if it stopped building.
       - name: verify-npm (package builds, exports, renders, types)
         run: node scripts/verify-npm.mjs
@@ -76,7 +76,7 @@ jobs:
       # chart colour that is deliberately opted out of forcing.
       - name: Playwright forced-colors (high contrast) tests
         run: npx playwright test --project=forced-colors
-      # Boots the live docs playground and clicks through all 115 components.
+      # Boots the live docs playground and clicks through all 116 components.
       # It renders from the real bundle, so a component whose sample props no
       # longer match its API throws here and nowhere else.
       - name: Playwright playground tests
