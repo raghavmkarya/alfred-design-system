@@ -196,20 +196,55 @@ if (!/@import\s+["']tokens\/elevation\.css["']/.test(stylesCss)) {
       findings.push({ rule: "elevation-contract", why: `[data-theme="${theme}"] must override the whole --shadow-* ramp — the light ink-tinted values do not register on a dark canvas`, file: "tokens/colors.css", line: 0, snippet: `missing: ${missing.join(", ")}` });
     }
   }
-  /* …and must RE-DECLARE the semantic steps. A custom property's var() is substituted where the
-     declaration sits, so the `:root` aliases compute against the LIGHT ramp and inherit that value
-     down. Overriding --shadow-* alone changes nothing for a component reading --elevation-*: every
-     dark surface silently keeps the light shadow. Only a browser computes this, which is why it
-     survived six static verifiers — this rule is the static half of that gate. */
-  for (const theme of ["dark", "app-dark"]) {
-    const declared = ELEVATION_STEPS.filter((s) => {
-      const re = new RegExp(`\\[data-theme="${theme}"\\][^{]*\\{[^}]*--elevation-${s}\\s*:`, "s");
-      return re.test(elCss) || new RegExp(`--elevation-${s}\\s*:`).test(
-        (elCss.match(new RegExp(`(?:^|\\n)[^{]*\\[data-theme="${theme}"\\][^{]*\\{([\\s\\S]*?)\\n\\}`)) || ["", ""])[1]);
-    });
-    const gap = ELEVATION_STEPS.filter((s) => !declared.includes(s));
-    if (gap.length) {
-      findings.push({ rule: "elevation-contract", why: `tokens/elevation.css must re-declare the --elevation-* steps inside [data-theme="${theme}"] — a :root alias is substituted against the light ramp and inherits that value, so overriding --shadow-* alone leaves every dark surface on the light shadow`, file: "tokens/elevation.css", line: 0, snippet: `[data-theme="${theme}"] missing: ${gap.join(", ")}` });
+}
+
+/* —— theme-alias-freeze ————————————————————————————————————————————————
+   The generalised form of the bug that shipped twice. CSS substitutes a custom
+   property's var() at computed-value time on the element where the DECLARATION
+   sits, and the substituted result inherits. So a `:root` alias never picks up a
+   [data-theme] override of what it points at — the theme must RE-DECLARE it.
+
+   This shipped as --elevation-* frozen at the light ramp across both dark themes
+   (worse than useless: 49 components had just been migrated onto it) and as
+   --text-display computing to ink on marketing-dark's black page at 1.02:1.
+   Neither was visible to any static check, because none of them computes CSS.
+
+   Rule: for every `:root` token whose value contains var(), if a theme overrides
+   any token it references, that theme must also declare the alias. */
+{
+  const TOKEN_FILES = ["tokens/colors.css", "tokens/typography.css", "tokens/spacing.css", "tokens/density.css", "tokens/elevation.css"];
+  const scopes = {};
+  for (const rel of TOKEN_FILES) {
+    let css = "";
+    try { css = fs.readFileSync(path.join(ROOT, rel), "utf8"); } catch { continue; }
+    for (const m of css.matchAll(/(?:^|\n)([^{}\n][^{}]*?)\{([\s\S]*?)\n\}/g)) {
+      const sel = m[1].replace(/\/\*[\s\S]*?\*\//g, "").trim().replace(/\s+/g, " ");
+      const decls = {};
+      for (const line of m[2].split("\n")) {
+        const d = line.match(/^\s*(--[\w-]+)\s*:\s*([^;]+);/);
+        if (d) decls[d[1]] = d[2].trim();
+      }
+      if (!Object.keys(decls).length) continue;
+      for (const s of sel.split(",").map((x) => x.trim())) Object.assign((scopes[s] ||= {}), decls);
+    }
+  }
+  const rootDecls = scopes[":root"] || {};
+  const themeSels = Object.keys(scopes).filter((s) => /^\[data-theme=/.test(s));
+  for (const [tok, val] of Object.entries(rootDecls)) {
+    const refs = [...val.matchAll(/var\(\s*(--[\w-]+)/g)].map((x) => x[1]);
+    if (!refs.length) continue;
+    for (const sel of themeSels) {
+      const own = scopes[sel];
+      if (own[tok] !== undefined) continue;              // re-declared → correct
+      const hit = refs.filter((r) => own[r] !== undefined);
+      if (hit.length) {
+        findings.push({
+          rule: "theme-alias-freeze",
+          why: "a `:root` alias is substituted where it is DECLARED, so it keeps the root value even when a theme overrides what it points at — the theme must re-declare the alias (this shipped as dark elevation frozen on the light ramp, and display type at 1.02:1)",
+          file: "tokens/*.css", line: 0,
+          snippet: `${sel} overrides ${hit.join(", ")} but not ${tok}: ${val}`,
+        });
+      }
     }
   }
 }
@@ -221,7 +256,8 @@ if (findings.length === 0) {
   console.log(`OK   forced-colors-contract`);
   console.log(`OK   density-contract`);
   console.log(`OK   elevation-contract`);
-  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 4} rules)`);
+  console.log(`OK   theme-alias-freeze`);
+  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 5} rules)`);
   process.exit(0);
 }
 

@@ -3,6 +3,18 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: generalise the alias-freeze check across every token
+
+The two frozen-alias bugs were fixed individually; this sweeps the rest and turns the check into a
+rule that covers the whole token surface rather than the two places it happened to bite.
+
+- **Swept all 27 `:root` aliases** against both themes: **no remaining frozen aliases.** That result
+  is only worth stating because the detector was validated first — reverting the two fixes makes it
+  report all 11 instances, and the clean tree reports 0.
+- **New craft rule `theme-alias-freeze`** (`verify-craft` → 15 rules), replacing the elevation-specific
+  re-declaration check it subsumes: for every `:root` token whose value contains `var()`, any theme
+  overriding a token it references must also declare the alias. Proven against both shipped bugs.
+
 ## 2026-07-25: fix — theme aliases were frozen at their light values
 
 Building the playground surfaced a bug that **six static verifiers, a contrast checker and a
