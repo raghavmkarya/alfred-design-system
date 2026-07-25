@@ -3,6 +3,34 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 3.2 — npm package (`@alfredai/design-system` v1.0.0)
+
+The design system was consumable three ways, all of which meant "get the files": a synced folder, a
+GitHub Pages URL, or an Agent Skill. None of them is `npm i`. The global `_ds_bundle.js` cannot be
+imported — it is an IIFE that assigns to `window` and expects React as a global.
+
+- **`scripts/build-npm.mjs`** emits `dist/`: real ESM (`import { Button } from "@alfredai/design-system"`),
+  the authored `.d.ts` shipped alongside, plus `styles.css`, the token CSS and the `@font-face` assets
+  (without them the type system silently falls back to system fonts). **732 kB packed, 188 files.**
+- **`scripts/compile-components.mjs`** (extracted) — the bundle and the package are now built from
+  **one** parse and dependency order, so the published package cannot drift from the bundle every
+  verifier tests. The refactor was proven safe: `_ds_bundle.js` came out **byte-identical**.
+- Each component is wrapped in its own IIFE returning its exports, because component files declare
+  top-level helpers and two of them both declare `PALETTE` — concatenating at module scope would be a
+  redeclaration error.
+- **React is a `peerDependency`**, never bundled: two copies of React in one app breaks hooks. The
+  package ships with **zero runtime dependencies**.
+- **`scripts/verify-npm.mjs`** — the **8th verifier**. Rather than inspecting text it *becomes a
+  consumer*: builds the package, `import`s it as ESM, and server-renders **all 115** through it, then
+  checks the exports match the manifest exactly, the manifest is publishable (exports map, peer React,
+  no runtime deps, semver, not private), and the shipped types type-check against the shipped entry.
+  Proven to bite on a dropped export and on React demoted to a real dependency.
+- `dist/` is generated, not committed (gitignored). Releasing is a human step: bump `dsVersion`, run
+  `npm run verify:npm`, then `npm publish dist`.
+
+**Not published.** Publishing to a public registry is outward-facing and effectively irreversible, so
+the package is built, verified and documented, and the actual `npm publish` is left to a human.
+
 ## 2026-07-25: generalise the alias-freeze check across every token
 
 The two frozen-alias bugs were fixed individually; this sweeps the rest and turns the check into a
