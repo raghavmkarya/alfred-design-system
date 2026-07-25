@@ -3,6 +3,32 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 3.4 — scheduled sync-drift check
+
+The design system ships through three channels and two of them can silently fall behind `main`: the
+claude.ai/design project (pushed by hand) and GitHub Pages (automatic, but a build can fail). The
+first one **drifted through six merges before anyone noticed**, because a stale project looks exactly
+like a current one from the repo side. There is nothing to see unless you go looking, so this makes
+something look, weekly.
+
+- **`scripts/check-sync-drift.mjs`** (dependency-free ESM, like the six verifiers). Checks both
+  channels and exits non-zero on drift. `--json` for machine output, `--no-remote` to skip the Pages
+  API call when offline.
+- **The key move: detecting drift does not require reading the remote project.**
+  `.design-sync/config.json` records `lastSyncCommit`, so the delta is a filtered `git diff` — which
+  means the check runs in CI with **no design authentication at all**.
+- **The exclude list does real work.** Between the last sync point and now, 266 files changed but only
+  **160** are design surface; the other 106 are dev/CI infra and generated output. Without the filter
+  the check would cry drift over `EXPANSION_*.md` and `.github/` edits forever.
+- **`.github/workflows/sync-drift.yml`** — Mondays 08:17 UTC plus `workflow_dispatch`. Files a single
+  tracking issue on drift, comments on it if it is already open, and **closes it automatically** once
+  every channel is current, so it cannot become background noise.
+- Four detection cases verified against injected state: design-surface drift (160 files across 7
+  commits) · a `lastSyncCommit` that is not an ancestor of HEAD (stale pin or rewritten branch) · a
+  missing `lastSyncCommit` (sync state unknown) · a failed or behind Pages build. A probe failure
+  (no token, API error) reports `unchecked` rather than a false positive.
+- Current state reads correctly as **no drift**: 1 commit behind, but both changed files are excluded.
+
 ## 2026-07-25: Phase 2.4 — deep forced-colors (+ Phase 2 complete)
 
 The last Phase-2 item, and the one with a demonstrable bug behind it. Windows High Contrast flattens
