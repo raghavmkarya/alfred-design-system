@@ -3,13 +3,13 @@
    shipping something a consumer cannot import.
 
    The strongest available check is simply to be a consumer: build the package,
-   `import` it as ESM, and server-render all 116 components through it. That
+   `import` it as ESM, and server-render all 117 components through it. That
    exercises the real module graph rather than inspecting text.
 
    Checks:
      1. dist/ builds
      2. every manifest component is exported, and nothing extra
-     3. all 116 render through the ESM entry (same sample props verify-components
+     3. all 117 render through the ESM entry (same sample props verify-components
         uses, so a component can't pass there and fail here)
      4. dist/package.json is publishable: exports map, peer React, no stray deps
      5. the shipped types type-check against the shipped entry

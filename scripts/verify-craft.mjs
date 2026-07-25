@@ -57,17 +57,25 @@ function walk(dir, out = []) {
 /* Each rule: id, why (short fix), a per-line `re`, and optional guards:
    skipFile(rel) — don't run the rule in these files;
    suppressIf(text) — skip the rule for a whole file when it matches (e.g. a custom focus style). */
+/* Comment lines are not code. The motion rules in particular fire on prose that
+   merely NAMES the thing they forbid — a doc comment reading "never `scale(0)`"
+   tripped scale-zero-entry, which is the rule catching its own documentation.
+   The token rules already skipped comments; these now do too. Emoji is
+   deliberately NOT in this set: "no emoji in Alfred surfaces" means none
+   anywhere, comments included. */
+const isComment = (line) => { const t = line.trim(); return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*"); };
+
 const RULES = [
   { id: "transition-all", why: "name the properties, e.g. `transition: transform var(--dur-base) var(--ease-standard)`",
-    re: /transition(?:-property)?:\s*["']?\s*all\b/ },   // tolerates the JSX inline-style form: transition: "all …"
+    re: /transition(?:-property)?:\s*["']?\s*all\b/, skipLine: isComment },   // tolerates the JSX inline-style form: transition: "all …"
   { id: "ease-in-ui", why: "`ease-in` feels sluggish on UI — use `var(--ease-standard)` (ease-out)",
-    re: /(?<![-\w])ease-in\b(?!-out)/ },
+    re: /(?<![-\w])ease-in\b(?!-out)/, skipLine: isComment },
   { id: "scale-zero-entry", why: "nothing appears from nothing — start from `scale(0.95)` + `opacity: 0`",
-    re: /\bscale(?:3d|X|Y)?\(\s*0\s*[,)]/ },
+    re: /\bscale(?:3d|X|Y)?\(\s*0\s*[,)]/, skipLine: isComment },
   { id: "hardcoded-easing", why: "use the motion tokens `var(--ease-standard)` / `var(--ease-emphasized)`, not raw curves",
-    re: /cubic-bezier\(/, skipFile: (r) => r.startsWith("tokens/") },
+    re: /cubic-bezier\(/, skipFile: (r) => r.startsWith("tokens/"), skipLine: isComment },
   { id: "arbitrary-z-index", why: "use a semantic z-index (`--z-*`), never 999 / 9999",
-    re: /(?:z-index|zIndex):\s*["']?9{3,}\b/ },   // CSS z-index and the JSX camelCase zIndex form
+    re: /(?:z-index|zIndex):\s*["']?9{3,}\b/, skipLine: isComment },   // CSS z-index and the JSX camelCase zIndex form
   { id: "outline-none-no-focus", why: "removing the outline needs a visible focus replacement (:focus-visible, a --shadow-focus/--border-focus ring, or usePress/isFocusVisible)",
     // catches both CSS `outline: none` and the JSX quoted form `outline: "none"` / `outlineStyle: "none"`
     re: /(?:outline|outline-style|outlineStyle):\s*["']?(?:none|0)\b/,

@@ -3,6 +3,32 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 4.2 — the signature brand moment (`BrandMoment`, component 117)
+
+The brand had a mark, a wordmark and a motion system, but no **arrival** — every splash, first run or
+film open would have been choreographed from scratch.
+
+- **`BrandMoment`**: the mark settles, a glow blooms and recedes behind it, the wordmark resolves, an
+  optional line rises last. Built entirely from the motion tokens, because the point of a signature
+  moment is that it is the *same beat* everywhere.
+- `--ease-emphasized` is reserved by `guidelines/motion-and-animation.md` for "a rare moment that
+  wants a touch of life". This is that moment, and nothing else in the product is.
+- **Restraint is the brief.** Nothing spins, bounces or flies in. The mark starts at `scale(0.94)` and
+  settles — never from nothing, which the craft rules forbid.
+- No `prefers-reduced-motion` handling of its own: the global block collapses every duration, so the
+  sequence resolves instantly to its final state. That is the correct degradation for a reveal.
+
+**A token built for one scale does not transfer to another.** The first version reused
+`--glow-periwinkle` / `--glow-orange` for the bloom. Those are *page-hero* glows anchored at 22%/18%
+and 88%/92% of their box, so at this size they landed as a lopsided smudge off one corner rather than a
+bloom behind the mark. Rebuilt as centred radials; the lesson is now in the motion guideline.
+
+**The craft rules caught their own documentation.** A doc comment reading "never `scale(0)`" tripped
+`scale-zero-entry`, because the motion rules had no comment-skipping while the token rules did. Fixed
+at the checker rather than by rewording the comment — and all three motion rules were re-proven to
+still bite on real code. `emoji-in-source` is deliberately excluded from the exemption: "no emoji in
+Alfred surfaces" means none anywhere, comments included.
+
 ## 2026-07-25: Phase 4.1 — scene illustrations (`Illustration`, component 116)
 
 The illustration system had a documented house style and two characters, but nothing for the moments

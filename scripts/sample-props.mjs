@@ -9,7 +9,7 @@
    `h` is React.createElement and `noop` a no-op handler; both are injected so
    this module stays environment-free. */
 export const sampleProps = (h, noop) => ({
-  Icon: { name: "trend-up" }, Logo: {}, Illustration: { name: "empty" }, Avatar: { name: "Priya Menon" },
+  Icon: { name: "trend-up" }, Logo: {}, Illustration: { name: "empty" }, BrandMoment: { caption: "Decision intelligence for business leaders" }, Avatar: { name: "Priya Menon" },
   Badge: { children: "New", tone: "brand" }, Button: { children: "Reallocate" },
   Card: { children: "x" }, Checkbox: { checked: true, label: "Remember me" },
   IconButton: { name: "refresh" }, Input: { label: "Email", value: "", onChange: noop },

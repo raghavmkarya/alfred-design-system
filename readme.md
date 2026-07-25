@@ -7,7 +7,7 @@ preview cards are committed ready-to-use.
 
 **Live site:** [raghavmkarya.github.io/alfred-design-system](https://raghavmkarya.github.io/alfred-design-system/)
 — the **[component playground](https://raghavmkarya.github.io/alfred-design-system/playground/)**
-(all 116 live, with prop controls), the component gallery, both workspace kits ([light](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app/)
+(all 117 live, with prop controls), the component gallery, both workspace kits ([light](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app/)
 · [dark](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app-dark/)), the
 [marketing site](https://raghavmkarya.github.io/alfred-design-system/ui_kits/website/), the
 [social gallery](https://raghavmkarya.github.io/alfred-design-system/social/) and the
@@ -154,7 +154,7 @@ _ds_bundle.js         ← compiled React components → window.AlfredAIDesignSys
 _ds_manifest.json     ← component manifest for claude.ai/design
 tokens/               ← colors, typography, spacing/radius/shadow/motion, density + elevation scales, fonts, base defaults
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
-components/           ← 116 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
+components/           ← 117 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
 data/                 ← demo-data.json — the canonical Northwind Labs demo dataset (no fabricated proof)
 guidelines/           ← foundation specimen cards (color / type / spacing / brand) + voice-and-naming + density + elevation + rtl + forced-colors + chart-contract + craft & taste guidelines (motion-and-animation · anti-slop · craft-checklist)
 ui_kits/app/          ← 22-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility, connections, notifications, Alfred Core memory, team, billing, audit log…

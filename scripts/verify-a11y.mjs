@@ -235,6 +235,10 @@ const CASES = [
   ["Legend", "Legend", { items: [{ label: "Search" }, { label: "Social" }] },
     [/role="list"/, /role="listitem"/, /aria-label="Chart legend"/]],
 
+  ["BrandMoment", "BrandMoment", { size: 48, caption: "Decision intelligence" },
+    [/aria-hidden="true"/, /@keyframes/, /var\(--ease-emphasized\)/, /Decision intelligence/],
+    [/tabindex/i]],
+
   ["Illustration", "Illustration", { name: "success" },
     [/role="img"/, /aria-label="success"/, /<title>success<\/title>/, /<svg/]],
   ["Illustration (custom title)", "Illustration", { name: "empty", title: "Nothing here yet" },
