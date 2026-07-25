@@ -99,11 +99,25 @@ if (NO_REMOTE) {
     const b = await res.json();
     const built = (b.commit || "").slice(0, 7);
     const current = b.commit === head;
-    report.channels.pages = { status: b.status !== "built" ? "build-failed" : current ? "current" : "behind", builtCommit: built, buildStatus: b.status };
-    if (b.status !== "built") {
+    // Pages republishes on every merge and takes ~30s, so a run that fires just
+    // after one will legitimately see `building`, or `built` at the previous
+    // commit. Neither is drift — reporting them as such would train everyone to
+    // ignore this check, which is the one failure mode it cannot afford.
+    const headAgeSec = Math.floor(Date.now() / 1000) - Number(git("log", "-1", "--format=%ct", "HEAD"));
+    const GRACE_SEC = 15 * 60;
+    const inFlight = b.status === "building" || b.status === "queued";
+    const justMerged = headAgeSec < GRACE_SEC;
+
+    if (inFlight || (!current && justMerged)) {
+      report.channels.pages = { status: "pending", builtCommit: built, buildStatus: b.status, headAgeSec };
+    } else if (b.status !== "built") {
+      report.channels.pages = { status: "build-failed", builtCommit: built, buildStatus: b.status };
       findings.push({ channel: "GitHub Pages", why: `the latest Pages build is \`${b.status}\`, not \`built\``, fix: "check the pages-build-deployment run" });
     } else if (!current) {
-      findings.push({ channel: "GitHub Pages", why: `Pages is published from \`${built}\`, but HEAD is \`${headShort}\``, fix: "usually transient (a build in flight); if it persists, re-run the pages-build-deployment workflow" });
+      report.channels.pages = { status: "behind", builtCommit: built, buildStatus: b.status, headAgeSec };
+      findings.push({ channel: "GitHub Pages", why: `Pages is published from \`${built}\`, but HEAD is \`${headShort}\` (committed ${Math.round(headAgeSec / 60)} min ago, past the ${GRACE_SEC / 60}-min build grace)`, fix: "re-run the pages-build-deployment workflow" });
+    } else {
+      report.channels.pages = { status: "current", builtCommit: built, buildStatus: b.status };
     }
   } catch (err) {
     // a probe failure is not drift — say so rather than reporting a false positive
@@ -130,6 +144,7 @@ if (d.status === "current") {
     : `OK   claude.ai/design — current (${d.commitsBehind} commit(s) behind, but all ${d.changedFiles} changed file(s) are excluded)`);
 }
 if (p.status === "current") console.log(`OK   GitHub Pages     — published from ${p.builtCommit}`);
+if (p.status === "pending") console.log(`--   GitHub Pages     — build ${p.buildStatus} at ${p.builtCommit}; HEAD is ${Math.round(p.headAgeSec / 60)} min old, still inside the build grace`);
 if (p.status === "unchecked") console.log(`--   GitHub Pages     — not checked (${p.reason})`);
 if (p.status === "skipped") console.log(`--   GitHub Pages     — skipped (--no-remote)`);
 

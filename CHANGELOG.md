@@ -28,6 +28,11 @@ something look, weekly.
   missing `lastSyncCommit` (sync state unknown) · a failed or behind Pages build. A probe failure
   (no token, API error) reports `unchecked` rather than a false positive.
 - Current state reads correctly as **no drift**: 1 commit behind, but both changed files are excluded.
+- **Follow-up, found by running it:** Pages republishes on every merge and takes ~30s, so a run firing
+  just after one legitimately sees `building`, or `built` at the previous commit. The first version
+  called that drift and filed an issue. Both are now `pending` inside a 15-minute build grace measured
+  from the HEAD commit's own timestamp. A check that cries wolf gets muted, which is the one failure
+  mode this cannot afford.
 
 ## 2026-07-25: Phase 2.4 — deep forced-colors (+ Phase 2 complete)
 
