@@ -6,7 +6,8 @@ Code** and **Claude design (claude.ai/design)**. Nothing to build: the bundle, t
 preview cards are committed ready-to-use.
 
 **Live site:** [raghavmkarya.github.io/alfred-design-system](https://raghavmkarya.github.io/alfred-design-system/)
-— the component gallery, both workspace kits ([light](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app/)
+— the **[component playground](https://raghavmkarya.github.io/alfred-design-system/playground/)**
+(all 115 live, with prop controls), the component gallery, both workspace kits ([light](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app/)
 · [dark](https://raghavmkarya.github.io/alfred-design-system/ui_kits/app-dark/)), the
 [marketing site](https://raghavmkarya.github.io/alfred-design-system/ui_kits/website/), the
 [social gallery](https://raghavmkarya.github.io/alfred-design-system/social/) and the
@@ -149,7 +150,8 @@ templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout libra
 templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
 social/               ← 102-frame social system: OG images · LinkedIn/Facebook/Instagram/X cards, stories & covers · daily-content archetypes (tips, checklists, myth/fact, questions, definitions, spotlights, recaps, milestones) · YouTube thumbnails & banner · 5-part carousel kit · profile kits — every feed/OG frame in dark + white twins (*-light.html) (+ gallery index.html, daily cadence map in social/README.md, batch export via scripts/capture-social.mjs)
 slides/               ← presentation templates (cover, index, section, content)
-scripts/              ← tooling: the 6 verifiers (verify-render · components · a11y · craft · types · contrast) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
+playground/           ← live component playground (prop controls from the .d.ts) + generated props.json
+scripts/              ← tooling: the 7 verifiers (verify-render · components · a11y · craft · types · contrast · playground) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes (projectId, lastSyncCommit, exclude list — check-sync-drift.mjs reads this)
 ```

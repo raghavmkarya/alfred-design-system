@@ -73,6 +73,10 @@ production code, depending on the need.
   (pitch, ROI, competitive, demo, security, pricing, onboarding, QBR, all-hands, runbook…);
   `index.html` is the gallery. Build new decks from `deck.css` classes.
 - `slides/` — presentation templates (cover, index, section divider, content+stat).
+- `playground/` — the **live component playground**: every component rendered from the real bundle
+  with prop controls derived from its `.d.ts`, across all three themes, the three densities and
+  LTR/RTL, with a copy-paste snippet. Open `playground/index.html` to see what a component actually
+  does before reaching for it.
 - `guidelines/` — foundation specimen cards, `voice-and-naming.md`, the token-system guides
   (`density.md` = compact/comfortable/spacious · `elevation.md` = the semantic depth scale · `rtl.md` = logical properties · `forced-colors.md` = Windows High Contrast ·
   `chart-contract.md` = the chart a11y contract), and three **craft & taste** guidelines

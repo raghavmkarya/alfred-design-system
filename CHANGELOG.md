@@ -3,6 +3,42 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 3.1 — live component playground
+
+Static preview cards show one frozen arrangement of a component. The playground shows **any** of them:
+all 115 rendered live from the real `_ds_bundle.js`, with prop controls generated from each
+component's own `.d.ts`, across all three themes, the three densities and both writing directions.
+
+**Storybook was considered and rejected.** It needs a bundler, `node_modules` and a build step, and
+that would break the property this repo is built on: committed artifacts served straight from `main`
+with no build, which is exactly what lets the same files publish to GitHub Pages *and* sync to
+claude.ai/design unchanged. The playground is instead plain `React.createElement` over the existing
+bundle — no compiler at runtime either, so it drops the Babel dependency the preview cards carry.
+
+- **`scripts/gen-playground.mjs`** parses all 115 `.d.ts` files into `playground/props.json`:
+  **447 editable props**, with string-literal unions becoming selects, per-prop JSDoc becoming help
+  text, and everything else (handlers, element slots, `CSSProperties`) listed as documented-but-not-
+  editable rather than faked. Same generate-and-commit shape as `gen-tokens.mjs`.
+- **`scripts/sample-props.mjs`** (new, extracted) — the representative props for all 115 components
+  now live in one module shared by `verify-components.mjs` and the playground, so a component added
+  to one is added to both. Each component opens with real data in it, not an empty shell.
+- **`scripts/verify-playground.mjs`** — the **7th verifier**: `props.json` is a deterministic rebuild,
+  every manifest component is present, every emitted default matches its prop's type, and the page
+  files stay wired. Proven to bite on a stale artifact and on a removed CSS containment rule.
+- **5 Playwright tests** in a new `playground` project, including one that **clicks through all 115
+  components** and fails if any throws.
+
+Two real bugs the tests caught, both in the new code:
+
+- **Documented defaults are prose, not values.** `@default` says things like `niceRound`, `[]` and
+  `${n}M` — a function name, an empty array and a template. Injecting them as literals fed components
+  a string where they expected a function and **broke 7 of them** (PageHeader, TeamMemberRow, Area/
+  Bullet/Gauge/Sankey charts, GoalPacing). The generator now only emits a default it can validate
+  against the prop's own type, and shows the rest as read-only `documentedDefault` text.
+- **Overlays escaped the preview.** Modal, Drawer and Toast are `position: fixed`, so previewing one
+  covered the entire playground and made the component list unclickable. The canvas now establishes a
+  containing block (`contain: layout paint`), and the verifier keeps it there.
+
 ## 2026-07-25: Phase 3.4 — scheduled sync-drift check
 
 The design system ships through three channels and two of them can silently fall behind `main`: the
