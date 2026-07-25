@@ -122,7 +122,13 @@ if (AS_JSON) {
 const d = report.channels.design || {};
 const p = report.channels.pages || {};
 console.log(`HEAD ${headShort}`);
-if (d.status === "current") console.log(`OK   claude.ai/design — current (${d.commitsBehind} commit(s) behind, but all ${d.changedFiles} changed file(s) are excluded)`);
+if (d.status === "current") {
+  // distinguish "nothing has happened" from "things happened but none of it ships",
+  // because the second is the case a naive commit-count check gets wrong
+  console.log(d.commitsBehind === 0
+    ? `OK   claude.ai/design — current (synced at HEAD)`
+    : `OK   claude.ai/design — current (${d.commitsBehind} commit(s) behind, but all ${d.changedFiles} changed file(s) are excluded)`);
+}
 if (p.status === "current") console.log(`OK   GitHub Pages     — published from ${p.builtCommit}`);
 if (p.status === "unchecked") console.log(`--   GitHub Pages     — not checked (${p.reason})`);
 if (p.status === "skipped") console.log(`--   GitHub Pages     — skipped (--no-remote)`);
