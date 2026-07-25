@@ -23,6 +23,29 @@ them to this house style, add them here, and reuse.
 - **Type** in art follows the brand: Satoshi for captions/labels, Clash Display for display,
   a heavy face for comic SFX. No emoji.
 
+## Scenes are a component, not files
+
+The **character art** here (Alfred, the Leader) is fixed brand art with its own grounds — files, used
+via `<img>`.
+
+The **scene art** for state moments (`empty`, `no-results`, `error`, `success`, `connecting`,
+`first-run`) is different: it has to sit inside a card on light, app-dark *and* marketing-dark. An SVG
+loaded through `<img src>` is an isolated document and can never see the page's custom properties, so
+it cannot follow the theme. That art therefore lives **inline in the `Illustration` component**
+(`components/brand/Illustration.jsx`), drawn in semantic tokens.
+
+```jsx
+<EmptyState title="No campaigns yet" icon={<Illustration name="empty" />} />
+<StateBlock kind="error" icon={<Illustration name="error" />} />
+```
+
+No new props were needed: `EmptyState` and `StateBlock` already take an `icon` node.
+
+**The gradient needs area.** Learned by rendering rather than reasoning: below roughly 40px the
+periwinkle→orange ramp stops reading as the brand gradient and starts looking like a dull brown dot.
+Small accents are solid `--accent`; the gradient goes on the one large shape the scene is about.
+`verify-craft`'s `illustration-theme-safe` rule fails on any literal colour in that file.
+
 ## The cast
 
 ### Alfred — the chief of staff  (`characters/alfred-butler*.svg`)

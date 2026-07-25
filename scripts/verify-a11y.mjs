@@ -235,6 +235,11 @@ const CASES = [
   ["Legend", "Legend", { items: [{ label: "Search" }, { label: "Social" }] },
     [/role="list"/, /role="listitem"/, /aria-label="Chart legend"/]],
 
+  ["Illustration", "Illustration", { name: "success" },
+    [/role="img"/, /aria-label="success"/, /<title>success<\/title>/, /<svg/]],
+  ["Illustration (custom title)", "Illustration", { name: "empty", title: "Nothing here yet" },
+    [/aria-label="Nothing here yet"/]],
+
   /* —— chart data tables (4.4) ——————————————————————————————————————————
      A summary label says "Line chart, 4 points, from 12 to 24"; it does not let
      anyone read the values. Charts whose data lives ONLY in the graphic ship a

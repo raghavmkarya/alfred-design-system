@@ -201,6 +201,33 @@ if (!/@import\s+["']tokens\/elevation\.css["']/.test(stylesCss)) {
   }
 }
 
+/* —— illustration-theme-safe ————————————————————————————————————————————
+   Scene art is drawn INLINE precisely so it can follow the theme — an SVG behind
+   `<img src>` is an isolated document and never sees the page's custom
+   properties. A hardcoded hex in that art silently throws the benefit away: it
+   would look right on light and wrong on both darks, and no static check would
+   notice. The only allowed literals are the brand gradient's own stops, which
+   are fixed in every theme by definition. */
+{
+  const rel = "components/brand/Illustration.jsx";
+  let src = "";
+  try { src = fs.readFileSync(path.join(ROOT, rel), "utf8"); } catch { src = ""; }
+  if (!src) {
+    findings.push({ rule: "illustration-theme-safe", why: `${rel} is missing`, file: rel, line: 0, snippet: "(missing)" });
+  } else {
+    src.split("\n").forEach((line, i) => {
+      if (/^\s*(\/\/|\*|\/\*)/.test(line)) return;
+      const hex = line.match(/#[0-9a-fA-F]{3,8}\b/);
+      if (hex) {
+        findings.push({ rule: "illustration-theme-safe", why: "scene art must draw in tokens, never literal colour — inline SVG is the only reason it can follow the theme at all, and a hex throws that away on both dark themes", file: rel, line: i + 1, snippet: line.trim().slice(0, 100) });
+      }
+    });
+    if (!/var\(--border-default\)/.test(src) || !/var\(--surface-sunken\)/.test(src)) {
+      findings.push({ rule: "illustration-theme-safe", why: "scene art must draw its structure in semantic tokens (--border-default / --surface-sunken) so it re-themes", file: rel, line: 0, snippet: "(structure tokens missing)" });
+    }
+  }
+}
+
 /* —— theme-alias-freeze ————————————————————————————————————————————————
    The generalised form of the bug that shipped twice. CSS substitutes a custom
    property's var() at computed-value time on the element where the DECLARATION
@@ -260,7 +287,8 @@ if (findings.length === 0) {
   console.log(`OK   density-contract`);
   console.log(`OK   elevation-contract`);
   console.log(`OK   theme-alias-freeze`);
-  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 5} rules)`);
+  console.log(`OK   illustration-theme-safe`);
+  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 6} rules)`);
   process.exit(0);
 }
 
