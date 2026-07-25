@@ -215,3 +215,20 @@ duration alone don't resolve it. Fold this pass into the five-critic screenshot 
 Kowalski, [animations.dev](https://animations.dev/)). Reach for that skill directly when you
 need the deeper "why", gesture/drag physics, `clip-path` techniques, or its Before/After review
 table — but translate every value through Alfred's tokens as above.
+
+## The signature moment
+
+`BrandMoment` is the one place `--ease-emphasized` earns its keep at full length: the mark settles, a
+glow blooms and recedes, the wordmark resolves. It exists so the brand's arrival is the **same beat**
+everywhere — a first run, a splash, the open of a film — instead of being re-choreographed each time.
+
+Restraint is the brief. Nothing spins, nothing bounces, nothing flies in from off-screen. The mark
+starts at `scale(0.94)` and settles; it never appears from nothing.
+
+It needs no `prefers-reduced-motion` handling of its own — the global block collapses every duration,
+so the sequence resolves instantly to its final state, which is the right degradation for a reveal.
+
+**A token built for one scale does not transfer to another.** The first version reused
+`--glow-periwinkle` / `--glow-orange` for the bloom. Those are *page-hero* glows, anchored at 22%/18%
+and 88%/92% of their box, so on an element this size they landed as a lopsided smudge off one corner
+instead of a bloom behind the mark. Check a token's geometry before borrowing it.
