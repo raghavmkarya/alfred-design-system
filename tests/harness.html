@@ -125,6 +125,13 @@ function App() {
           <div data-testid="hcm-chart" style={{ width: 260 }}><LineChart points={[12, 18, 15, 24]} labels={["W1", "W2", "W3", "W4"]} /></div>
         </div>
       </div>
+      {/* Phase 4.4: chart cursor — hover or focus-and-arrow, one model. */}
+      <div id="chart" data-testid="chart-probe">
+        <div className="lbl">Chart cursor</div>
+        <div style={{ width: 420 }} data-testid="cursor-line">
+          <LineChart points={[12, 18, 15, 24]} labels={["W1", "W2", "W3", "W4"]} />
+        </div>
+      </div>
     </div>
   );
 }

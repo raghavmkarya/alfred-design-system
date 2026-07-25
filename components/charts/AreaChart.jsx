@@ -1,5 +1,6 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
+import { useChartCursor, ChartLive, ChartTooltip } from "../hooks/chartCursor.jsx";
 
 /**
  * Alfred AI — AreaChart
@@ -32,19 +33,31 @@ export function AreaChart({ series = [], labels = [], height = 220, yTicks = 4, 
   const fmt = valueFormat || ((v) => niceRound(v));
   const ticks = Array.from({ length: yTicks + 1 }, (_, i) => min + (span * i) / yTicks);
   const every = Math.ceil(n / 8) || 1;
+
+  const cursor = useChartCursor(n);
+  const at = cursor.index;
+  const pointLabel = (i) => `${labels[i] != null ? labels[i] : `Point ${i + 1}`}: ${series.map((s) => `${s.name || "series"} ${fmt(s.points[i] ?? 0)}`).join(", ")}`;
+
   // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
   const aria = ariaLabel || (series.length
     ? `Area chart, ${series.length} series (${series.map((s) => s.name).filter(Boolean).join(", ")}), ${n} points`
     : "Area chart, no data");
 
   return (
-    <div style={{ width: "100%", ...style }}>
+    /* Interactive chart: the NAME lives on the focusable group and the graphic is
+       aria-hidden — see the note in LineChart and guidelines/chart-contract.md. */
+    <div style={{ width: "100%", position: "relative", ...style }} {...cursor.bind}
+      role="group" aria-label={aria}>
+      <ChartLive text={cursor.keyboard && at != null ? pointLabel(at) : ""} />
+      <ChartTooltip x={n > 1 ? at / (n - 1) : 0} visible={at != null}>
+        {at != null ? pointLabel(at) : null}
+      </ChartTooltip>
       <ChartTable caption={aria}
         columns={["Point"].concat(series.map((s, i) => String(s.name || `Series ${i + 1}`)))}
         rows={Array.from({ length: n }, (_, i) => [
           labels[i] != null ? String(labels[i]) : `#${i + 1}`,
         ].concat(series.map((s) => String(s.points[i] ?? ""))))} />
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
+      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} aria-hidden="true" style={{ display: "block" }}>
         <defs>
           {series.map((s, si) => {
             const c = s.color || PALETTE[si % PALETTE.length];

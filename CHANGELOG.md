@@ -3,6 +3,36 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 4.4 (part 2) — the chart cursor
+
+Charts had **no hover or keyboard interaction at all** beyond SankeyChart's hover state and Heatmap's
+native `title` attributes. You could see a trend but never read a value off it.
+
+- **`useChartCursor` + `ChartLive` + `ChartTooltip`** (internal): hover with a pointer, or focus the
+  chart **once** and walk it with `←` `→` `↑` `↓`, `Home` / `End`, `Esc`. Both drive the same active
+  index, so there is one code path and one visual result.
+- **One tab stop per chart, not one per point.** A 40-point chart would otherwise put 40 stops between
+  the user and the rest of the page — and focusable children inside a `role="img"` element are
+  contradictory markup that assistive tech may ignore.
+- **Interactive charts move their name to the focusable group and hide the graphic.** Carrying both
+  `role="group"` on the wrapper and `role="img"` on the `<svg>` would announce the chart twice. Static
+  charts keep the old shape; `verify-a11y` asserts each shape *and* the absence of the other.
+- The active point is announced through a **polite live region** rather than by moving focus, which is
+  what stops it double-announcing against the hidden data table from part 1.
+- **Applied to the four x-indexed SVG charts**: Line, Area, StackedBar, Waterfall. **Sparkline is
+  deliberately excluded** — a glanceable micro-chart, often several to a row in KPI cards, where a tab
+  stop each would be hostile.
+- **5 new browser tests** (`tests/chart-cursor.spec.js`): one tab stop, arrows walk and announce,
+  `Esc` dismisses, hover tracks across the chart, and the readout stays `aria-hidden`.
+
+Two things the gates caught in this change, both real:
+
+- The tooltip's `left: %` tripped `physical-inline-prop`. Correct: it tracks the chart's own
+  coordinate space, which `guidelines/rtl.md` keeps physical — mirroring the readout while the plot
+  stays put would point it at the wrong data. Marked `rtl-ok` with that reason.
+- The forced-colors test asserted the text alternative on the `<svg>`, which had just moved to the
+  group. Generalised to assert the alternative **exists** rather than where it happens to live.
+
 ## 2026-07-25: Phase 4.4 (part 1) — the data behind every chart
 
 The chart a11y contract gave every chart a one-line summary. A summary says *"Line chart, 4 points,

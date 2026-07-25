@@ -69,12 +69,50 @@ Adding a chart? Give it a table if the data is only in the graphic, and skip it 
 already text. That is the same distinction as the role table above, so the two decisions are really
 one decision.
 
+## Interactive charts: one cursor, one tab stop
+
+An x-indexed chart is **focusable once** and walked with the keyboard, or hovered with a pointer.
+Both drive the same active index, so there is one code path and one visual result.
+
+| | |
+|---|---|
+| Pointer | move across the chart; the nearest point activates |
+| Arrows | `←` `→` `↑` `↓` step, `Home` / `End` jump to the ends |
+| `Esc` | dismiss |
+
+**Not one tab stop per data point.** A 40-point chart would otherwise put 40 stops between the user
+and the rest of the page. And focusable children inside a `role="img"` element are contradictory
+markup that assistive tech is entitled to ignore.
+
+**An interactive chart moves its name to the focusable group and hides the graphic:**
+
+```jsx
+<div role="group" aria-label={aria} tabIndex={0}>   {/* the name lives here */}
+  <ChartLive … />                                    {/* polite announcements  */}
+  <ChartTooltip … aria-hidden />                     {/* the visible readout   */}
+  <ChartTable … />                                   {/* the full data         */}
+  <svg aria-hidden="true"> … </svg>                  {/* now decorative        */}
+</div>
+```
+
+A **static** chart keeps `role="img"` + `aria-label` on its `<svg>`, as above. Carrying both would
+announce the chart twice. `verify-a11y` asserts each shape and asserts the *absence* of the other.
+
+The active point is announced through a polite live region rather than by moving focus — that is what
+stops it double-announcing against the hidden data table.
+
+**Interactive today:** LineChart, AreaChart, StackedBarChart, WaterfallChart (the x-indexed SVG
+charts). **Sparkline is deliberately excluded**: it is a glanceable micro-chart, often several to a
+row inside KPI cards, and making each one a tab stop would be hostile.
+
 ## What is not settled yet
 
-Roadmap **4.4** still owns the *pointer* half: one hover/focus interaction model, a shared tooltip,
-and legend interaction (toggle a series). Those need per-chart geometry work — hit-testing an SVG
-path is a different problem in each chart — so they are deliberately not half-built here. Charts
-today have **no hover or keyboard interaction at all** except SankeyChart's hover state and Heatmap's
-native `title` attributes. Until that lands, do not invent per-chart interaction patterns.
+**Legend interaction** (click a series to toggle it) is still open. It changes both the `Legend` API
+and each chart's state model, so it is a separate piece rather than something to bolt on.
+
+The non-x-indexed charts — Donut, Gauge, Bullet, Sankey, Scatter — have no cursor yet. Each needs its
+own hit-testing (arcs, tracks, scattered points), which is why they were not swept in with the
+x-indexed four. They remain static `role="img"` charts with a summary and a data table, which is a
+complete if less rich experience.
 
 Related: [`craft-checklist.md`](./craft-checklist.md) (the pre-ship gate).
