@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — ScatterChart
@@ -56,6 +57,8 @@ export function ScatterChart({ points = [], xLabel, yLabel, height = 260, xMax, 
 
   return (
     <div style={{ width: "100%", ...style }}>
+      <ChartTable caption={aria} columns={[String(xLabel || "x"), String(yLabel || "y")]}
+        rows={points.map((pt) => [String(pt.x), String(pt.y)])} />
       <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block", overflow: "visible" }}>
         <defs>
           {points.map((p, i) => {

@@ -231,18 +231,65 @@ const CASES = [
     [/role="group"/, /aria-label="Intensity heatmap"/]],
   ["Legend", "Legend", { items: [{ label: "Search" }, { label: "Social" }] },
     [/role="list"/, /role="listitem"/, /aria-label="Chart legend"/]],
+
+  /* —— chart data tables (4.4) ——————————————————————————————————————————
+     A summary label says "Line chart, 4 points, from 12 to 24"; it does not let
+     anyone read the values. Charts whose data lives ONLY in the graphic ship a
+     visually-hidden <table> so the numbers are reachable. Clip-rect, not
+     display:none — the latter would remove it from the accessibility tree.
+     The role="group" charts deliberately have NO table: their labels and values
+     are already readable text, so one would double-announce everything. */
+  ["LineChart (data table)", "LineChart", { points: [12, 18], labels: ["W1", "W2"] },
+    [/<table/, /<caption>Line chart, 2 points/, /<th scope="col">Point<\/th>/, /<th scope="row">W1<\/th>/, /<td>18<\/td>/, /clip:rect\(0, 0, 0, 0\)/]],
+  ["AreaChart (data table)", "AreaChart", { series: [{ name: "Paid", points: [3, 6] }], labels: ["Jan", "Feb"] },
+    [/<table/, /<th scope="col">Paid<\/th>/, /<th scope="row">Jan<\/th>/]],
+  ["DonutChart (data table)", "DonutChart", { segments: [{ label: "Search", value: 60 }, { label: "Social", value: 40 }] },
+    [/<table/, /<th scope="col">Share<\/th>/, /<th scope="row">Search<\/th>/, /<td>60%<\/td>/]],
+  ["ScatterChart (data table)", "ScatterChart", { points: [{ x: 1, y: 2 }], xLabel: "Spend", yLabel: "ROAS" },
+    [/<table/, /<th scope="col">Spend<\/th>/, /<th scope="col">ROAS<\/th>/]],
+  ["StackedBarChart (data table)", "StackedBarChart", { data: [{ label: "Q1", a: 3, b: 4 }], keys: ["a", "b"] },
+    [/<table/, /<th scope="row">Q1<\/th>/, /<td>3<\/td>/, /<td>4<\/td>/]],
+  ["SankeyChart (data table)", "SankeyChart", { nodes: [{ id: "a", col: 0 }, { id: "b", col: 1 }], links: [{ source: "a", target: "b", value: 5 }] },
+    [/<table/, /<th scope="col">From<\/th>/, /<th scope="row">a<\/th>/]],
+  ["WaterfallChart (data table)", "WaterfallChart", { items: [{ label: "Start", value: 100 }] },
+    [/<table/, /<th scope="row">Start<\/th>/, /<td>100<\/td>/]],
+  ["Sparkline (data table)", "Sparkline", { points: [4, 9] },
+    [/<table/, /<th scope="row">#1<\/th>/, /<td>9<\/td>/]],
+  ["GaugeChart (data table)", "GaugeChart", { value: 72, max: 100, label: "Pacing" },
+    [/<table/, /<th scope="row">Pacing<\/th>/, /<th scope="row">Maximum<\/th>/]],
+  ["BulletChart (data table)", "BulletChart", { items: [{ label: "Search", value: 80, target: 100 }] },
+    [/<table/, /<th scope="col">Target<\/th>/, /<th scope="row">Search<\/th>/]],
+
+  /* the other half of the rule: these render their values as readable text, so a
+     hidden table would make a screen reader announce every number twice */
+  ["BarChart (no duplicate table)", "BarChart", { data: [{ label: "Search", value: 40 }] },
+    [/role="group"/], [/<table/]],
+  ["FunnelChart (no duplicate table)", "FunnelChart", { steps: [{ label: "Visitors", value: 1000 }] },
+    [/role="group"/], [/<table/]],
+  ["Heatmap (no duplicate table)", "Heatmap", { rows: ["Mon"], cols: ["9am"], values: [[4]] },
+    [/role="group"/], [/<table/]],
 ];
 
+/* A case may add a 5th entry: patterns the output must NOT contain. Some
+   contracts are about absence — a chart whose values are already readable text
+   must not ALSO ship a hidden table, or a screen reader announces everything
+   twice. Asserting only presence would let that regress silently. */
 let fail = 0;
-for (const [label, name, props, patterns] of CASES) {
+for (const [label, name, props, patterns, forbidden = []] of CASES) {
   const C = ns[name];
   if (!C) { fail++; console.log("FAIL", label, "- component missing from bundle"); continue; }
   try {
     const stream = await Server.renderToReadableStream(h(C, props));
     const html = await new Response(stream).text();
     const missed = patterns.filter((re) => !re.test(html));
-    if (missed.length) { fail++; console.log("FAIL", label, "- missing", missed.map(String).join(" ")); }
-    else console.log("OK  ", label);
+    const present = forbidden.filter((re) => re.test(html));
+    if (missed.length || present.length) {
+      fail++;
+      const bits = [];
+      if (missed.length) bits.push("missing " + missed.map(String).join(" "));
+      if (present.length) bits.push("must not contain " + present.map(String).join(" "));
+      console.log("FAIL", label, "-", bits.join("; "));
+    } else console.log("OK  ", label);
   } catch (e) { fail++; console.log("FAIL", label, "-", String(e.message).split("\n")[0]); }
 }
 console.log(fail ? `\n${fail} CONTRACT(S) BROKEN` : `\nALL ${CASES.length} ACCESSIBILITY CONTRACTS HOLD`);

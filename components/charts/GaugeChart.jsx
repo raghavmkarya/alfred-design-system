@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — GaugeChart
@@ -57,6 +58,9 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
 
   return (
     <div style={{ position: "relative", width: size, ...style }}>
+      <ChartTable caption={aria} columns={["Measure", "Value"]}
+        rows={[[label || "Value", fmt(value)], ["Maximum", fmt(m)]]
+          .concat(segments.map((s, i) => [String(s.label || `Band ${i + 1}`), fmt(s.to ?? s.value ?? "")]))} />
       <svg
         width={size}
         height={H}

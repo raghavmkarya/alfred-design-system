@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — WaterfallChart
@@ -111,6 +112,8 @@ export function WaterfallChart({ items = [], height = 240, valueFormat, ariaLabe
 
   return (
     <div style={{ width: "100%", ...style }}>
+      <ChartTable caption={aria} columns={["Step", "Value"]}
+        rows={items.map((it) => [String(it.label), String(it.value)])} />
       <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} style={{ display: "block" }} role="img" aria-label={aria}>
         {/* gridlines + y-axis ticks */}
         {ticks.map((t, i) => (

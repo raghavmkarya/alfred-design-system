@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — BulletChart
@@ -30,6 +31,12 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16, width: "100%", ...style }}>
+      <ChartTable caption="Bullet chart" columns={["Measure", "Value", "Target"]}
+        rows={items.map((it) => [
+          String(it.label ?? ""),
+          String(it.value ?? ""),
+          typeof it.target === "number" ? String(it.target) : "—",
+        ])} />
       {items.map((it, i) => {
         const value = Number(it.value) || 0;
         const target = typeof it.target === "number" ? it.target : null;

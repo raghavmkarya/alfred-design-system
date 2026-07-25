@@ -47,10 +47,34 @@ a screen reader user needs.
 3. Add a case to `scripts/verify-a11y.mjs` asserting the role and the derived label. Charts are
    gated there (92 contracts) — a chart with no case is a chart that can silently lose its label.
 
+## The data behind the chart — required for `role="img"` charts
+
+A summary label says *"Line chart, 4 points, from 12 to 24"*. It does not let anyone **read the
+values**. For a chart whose data lives only in the graphic, that leaves the numbers unreachable.
+
+So every `role="img"` chart also renders a **visually-hidden `<table>`** of its data, via the
+internal `ChartTable` primitive: a `<caption>` (the chart's own summary), `<th scope="col">` headers
+and `<th scope="row">` row labels.
+
+- **Visually hidden, not toggleable.** It changes nothing on screen, so it needs no per-chart layout
+  decision and cannot move a visual baseline.
+- **Clip-rect, not `display: none`.** The latter removes the table from the accessibility tree, which
+  would defeat the whole point.
+- **The `role="group"` charts deliberately have NO table.** Bar, Funnel and Heatmap already render
+  their labels and values as readable text; adding one would make a screen reader announce every
+  number twice. `verify-a11y` asserts **both** halves — the ten that must have a table, and the three
+  that must not.
+
+Adding a chart? Give it a table if the data is only in the graphic, and skip it if the values are
+already text. That is the same distinction as the role table above, so the two decisions are really
+one decision.
+
 ## What is not settled yet
 
-Roadmap **4.4** still owns: one keyboard/hover interaction model, a shared tooltip, legend
-interaction (toggle series), and whether charts should expose an optional data table for full
-detail rather than a summary sentence. Until then, do not invent per-chart interaction patterns.
+Roadmap **4.4** still owns the *pointer* half: one hover/focus interaction model, a shared tooltip,
+and legend interaction (toggle a series). Those need per-chart geometry work — hit-testing an SVG
+path is a different problem in each chart — so they are deliberately not half-built here. Charts
+today have **no hover or keyboard interaction at all** except SankeyChart's hover state and Heatmap's
+native `title` attributes. Until that lands, do not invent per-chart interaction patterns.
 
 Related: [`craft-checklist.md`](./craft-checklist.md) (the pre-ship gate).
