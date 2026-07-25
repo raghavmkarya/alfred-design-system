@@ -62,19 +62,44 @@ for (const { selector, body } of blocks(css)) {
 }
 const THEMES = {
   light: root,
-  dark: { ...root, ...dark },        // dark inherits root, overrides on top
+  dark: { ...root, ...dark },        // for membership/iteration only — see resolve()
   "app-dark": { ...root, ...appDark },
 };
+// the declarations each scope actually writes, kept separate from the merged view
+const OWN = { light: root, dark, "app-dark": appDark };
+const themeOf = (map) => (map === THEMES.dark ? "dark" : map === THEMES["app-dark"] ? "app-dark" : "light");
 
-/* ── color: resolve var() → parse #hex / rgb(a) → composite → luminance ───── */
+/* ── color: resolve var() → parse #hex / rgb(a) → composite → luminance ─────
+   CSS substitutes a custom property's var() refs at computed-value time on the
+   element where THAT DECLARATION sits, and the substituted result inherits. So
+   an alias written only in :root — `--text-display: var(--text-primary)` — is
+   computed against :root's values and does NOT pick up a theme's override of
+   the thing it points at. Only a scope that RE-DECLARES the alias gets the
+   theme's value.
+
+   Modelling this matters: the naive merge-then-substitute gave --text-display a
+   clean pass on marketing-dark while the browser was really rendering it ink
+   #02021E on a black page. Resolve each ref in the scope that declared it. */
 function resolve(name, map) {
-  let v = name.startsWith("--") ? map[name] : name;
-  let guard = 0;
-  while (v && /var\(/.test(v) && guard++ < 20) {
-    v = v.replace(/var\(\s*(--[\w-]+)\s*(?:,\s*([^)]+))?\)/, (_, ref, fb) =>
-      map[ref] != null ? map[ref] : (fb || "").trim());
-  }
-  return v && v.trim();
+  const theme = themeOf(map);
+  const scopeOf = (n) => (theme !== "light" && OWN[theme][n] != null ? theme : "light");
+  const read = (n, scope) => OWN[scope][n];
+  const expand = (value, scope, guard) => {
+    let v = value;
+    while (v && /var\(/.test(v) && guard.n++ < 40) {
+      v = v.replace(/var\(\s*(--[\w-]+)\s*(?:,\s*([^)]+))?\)/, (_, ref, fb) => {
+        // the ref is looked up from the scope holding the declaration we're expanding
+        const rv = read(ref, scope) != null ? read(ref, scope) : read(ref, "light");
+        return rv != null ? rv : (fb || "").trim();
+      });
+    }
+    return v;
+  };
+  if (!name.startsWith("--")) return expand(name, theme, { n: 0 }).trim();
+  const scope = scopeOf(name);
+  const raw = read(name, scope);
+  const out = expand(raw, scope, { n: 0 });
+  return out && out.trim();
 }
 function parse(str) {
   if (!str) return null;

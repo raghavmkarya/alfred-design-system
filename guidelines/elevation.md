@@ -40,12 +40,38 @@ A genuinely exceptional line can carry a `raw-shadow-ok` marker.
 elevation and are deliberately absent from the scale. They are state, and components should keep
 naming them directly.
 
-## Why the steps alias instead of restating values
+## Why the steps alias — and why every theme must re-declare them
 
-Each step is `var(--shadow-…)`, never a literal. That matters because `var()` resolves late, in the
-element's own theme context, so the per-theme `--shadow-*` overrides in `tokens/colors.css` flow
-through for free. **A literal value would freeze the light-theme shadow into every theme** — which
-is precisely the bug this system was built to fix. `verify-craft` fails on a restated literal.
+Each step is `var(--shadow-…)`, never a literal, so a shadow value changes in exactly one place.
+
+**But aliasing alone is not enough, and getting this wrong shipped a real bug.** CSS substitutes a
+custom property's `var()` at computed-value time **on the element where the declaration sits**, and
+the *substituted result* is what inherits. So this:
+
+```css
+:root { --elevation-surface: var(--shadow-xs); }          /* computes against the LIGHT ramp */
+[data-theme="dark"] { --shadow-xs: 0 1px 2px rgba(0,0,0,0.55); }
+```
+
+does **not** give dark surfaces a dark shadow. `--elevation-surface` was already resolved on `:root`
+and inherits that light value down; overriding `--shadow-xs` afterwards changes nothing for any
+component reading `--elevation-*`. Every dark surface silently kept a shadow that is invisible on a
+dark canvas — and because the migration moved all 49 components off `--shadow-*` onto
+`--elevation-*`, it made dark elevation *worse* than before it existed.
+
+So **every theme that overrides the ramp re-declares the steps**, with identical text. The point is
+*where* the declaration sits, not what it says.
+
+The same trap caught `--text-display`, which aliased `--text-primary` in `:root` only: marketing-dark
+overrode `--text-primary` to white, but display copy still computed to ink `#02021E` on a black page
+(1.02:1, effectively invisible).
+
+Two gates, because one is not enough:
+- `verify-craft`'s `elevation-contract` requires the per-theme re-declaration (static).
+- `tests/theme-tokens.spec.js` asserts the **computed** values actually differ per theme. Only a
+  browser resolves custom properties, so only a browser can catch this class of bug — six static
+  verifiers and a contrast checker all passed while it was live. See
+  [`../guidelines/rtl.md`](./rtl.md) for the same lesson in a different shape.
 
 ## Dark themes need real shadows
 

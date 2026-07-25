@@ -196,6 +196,22 @@ if (!/@import\s+["']tokens\/elevation\.css["']/.test(stylesCss)) {
       findings.push({ rule: "elevation-contract", why: `[data-theme="${theme}"] must override the whole --shadow-* ramp — the light ink-tinted values do not register on a dark canvas`, file: "tokens/colors.css", line: 0, snippet: `missing: ${missing.join(", ")}` });
     }
   }
+  /* …and must RE-DECLARE the semantic steps. A custom property's var() is substituted where the
+     declaration sits, so the `:root` aliases compute against the LIGHT ramp and inherit that value
+     down. Overriding --shadow-* alone changes nothing for a component reading --elevation-*: every
+     dark surface silently keeps the light shadow. Only a browser computes this, which is why it
+     survived six static verifiers — this rule is the static half of that gate. */
+  for (const theme of ["dark", "app-dark"]) {
+    const declared = ELEVATION_STEPS.filter((s) => {
+      const re = new RegExp(`\\[data-theme="${theme}"\\][^{]*\\{[^}]*--elevation-${s}\\s*:`, "s");
+      return re.test(elCss) || new RegExp(`--elevation-${s}\\s*:`).test(
+        (elCss.match(new RegExp(`(?:^|\\n)[^{]*\\[data-theme="${theme}"\\][^{]*\\{([\\s\\S]*?)\\n\\}`)) || ["", ""])[1]);
+    });
+    const gap = ELEVATION_STEPS.filter((s) => !declared.includes(s));
+    if (gap.length) {
+      findings.push({ rule: "elevation-contract", why: `tokens/elevation.css must re-declare the --elevation-* steps inside [data-theme="${theme}"] — a :root alias is substituted against the light ramp and inherits that value, so overriding --shadow-* alone leaves every dark surface on the light shadow`, file: "tokens/elevation.css", line: 0, snippet: `[data-theme="${theme}"] missing: ${gap.join(", ")}` });
+    }
+  }
 }
 
 /* report */

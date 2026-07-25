@@ -3,6 +3,39 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: fix — theme aliases were frozen at their light values
+
+Building the playground surfaced a bug that **six static verifiers, a contrast checker and a
+tri-theme screenshot suite all missed**, because none of them computes CSS.
+
+CSS substitutes a custom property's `var()` at computed-value time **on the element where the
+declaration sits**, and the substituted result is what inherits. An alias written only in `:root`
+therefore resolves against `:root`'s values, and a `[data-theme]` scope overriding the thing it
+points at changes nothing. Two tokens were built on the opposite assumption:
+
+- **`--elevation-*` never re-resolved per theme.** Both dark themes kept the *light* shadow
+  (`rgba(2,2,30,0.05)`), invisible on a dark canvas. Worse, because the Phase 2.2 migration moved all
+  49 components off `--shadow-*` onto `--elevation-*`, it made dark elevation **worse than before the
+  elevation system existed** — the real dark shadows were being computed and then never reaching
+  anything.
+- **`--text-display` computed to ink `#02021E` on marketing-dark**, a black page: **1.02:1**. It
+  aliased `--text-primary`, which marketing-dark does override to white — but on `:root`, so the
+  alias had already resolved to ink. KpiCard and PriceCard display values were effectively invisible.
+  This was previously recorded as investigated-and-fine; that conclusion was wrong.
+
+Fixes, and the gates so neither can recur:
+
+- `tokens/elevation.css` re-declares all six steps inside `[data-theme="dark"]` and
+  `[data-theme="app-dark"]`; `tokens/colors.css` re-declares `--text-display` on marketing-dark.
+- **`verify-contrast`'s resolver was modelling this incorrectly** — it merged root+theme into one map
+  and substituted late, which is not how CSS computes. Corrected to resolve each reference in the
+  scope that declared it, which immediately failed on `--text-display` at 1.02:1. The false pass was
+  the reason the bug survived.
+- `verify-craft`'s `elevation-contract` now requires the per-theme re-declaration.
+- **`tests/theme-tokens.spec.js`** (new) asserts the **computed** values differ per theme and track
+  their own ramp. Only a browser resolves custom properties, so only a browser can gate this.
+- `guidelines/elevation.md` corrected: it had claimed the overrides "flow through for free".
+
 ## 2026-07-25: Phase 3.1 — live component playground
 
 Static preview cards show one frozen arrangement of a component. The playground shows **any** of them:
