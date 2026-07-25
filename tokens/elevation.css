@@ -15,9 +15,20 @@
      overlay   popovers, toasts, dropdown results, command palette
      modal     modals and drawers, the top of the stack
 
-   These ALIAS the ramp rather than restating its values, so the
-   per-theme `--shadow-*` overrides in colors.css flow through for
-   free: `var()` resolves late, in the element's own theme context.
+   These ALIAS the ramp rather than restating its values, so a change
+   to a shadow value flows through in one place.
+
+   IMPORTANT — every theme that overrides `--shadow-*` MUST re-declare
+   these steps. A custom property's `var()` is substituted at
+   computed-value time on the element where the DECLARATION sits, and
+   the substituted result is what inherits. So the `:root` block below
+   computes against the LIGHT ramp; a `[data-theme]` scope overriding
+   `--shadow-xs` does not retroactively change `--elevation-surface`.
+   Shipping without the theme blocks froze every dark surface at the
+   light shadow, which is invisible on a dark canvas. `verify-craft`'s
+   `elevation-contract` now requires them, and a Playwright test asserts
+   the computed values actually differ per theme — only a browser can
+   see this, which is why it survived six static verifiers.
 
    Elevation is depth only. `--shadow-brand` (the warm primary-button
    glow) and `--shadow-focus` (the focus ring) are NOT elevation and
@@ -25,6 +36,19 @@
    keep naming them directly.
    ============================================================ */
 :root {
+  --elevation-flat: none;                  /* @kind shadow */
+  --elevation-surface: var(--shadow-xs);   /* @kind shadow */
+  --elevation-raised: var(--shadow-sm);    /* @kind shadow */
+  --elevation-floating: var(--shadow-md);  /* @kind shadow */
+  --elevation-overlay: var(--shadow-lg);   /* @kind shadow */
+  --elevation-modal: var(--shadow-xl);     /* @kind shadow */
+}
+
+/* Re-declared per theme so each picks up its own `--shadow-*` ramp.
+   Identical text to `:root` on purpose: the point is WHERE it is declared,
+   not what it says. */
+[data-theme="dark"],
+[data-theme="app-dark"] {
   --elevation-flat: none;                  /* @kind shadow */
   --elevation-surface: var(--shadow-xs);   /* @kind shadow */
   --elevation-raised: var(--shadow-sm);    /* @kind shadow */

@@ -147,6 +147,11 @@
   --surface-veil: rgba(0,0,0,0.72);
 
   --text-primary: #FFFFFF;
+  /* Must be re-declared here, not left to the :root alias. A custom property's
+     var() is substituted where the DECLARATION sits, so `:root { --text-display:
+     var(--text-primary) }` computes to the LIGHT ink and inherits down — display
+     copy was rendering #02021E on a black page (1.02:1). */
+  --text-display: #FFFFFF;
   --text-secondary: rgba(255,255,255,0.78); /* live tiers: 0.70 / 0.82 / #B8B8B8 */
   --text-body: rgba(255,255,255,0.82);
   --text-muted: rgba(255,255,255,0.55);
