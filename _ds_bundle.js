@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/hooks/chartTable.jsx":"51881d6ffdba","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"dbed2d8a8ea0","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"070d9a567848","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"842e26cc0966","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"684ede444e12","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"b441a6e9a259","components/core/TagInput.jsx":"c77a297ccc17","components/core/Textarea.jsx":"167b5bcc7207","components/core/Accordion.jsx":"70aa7488fb0d","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"9e7f63c4a423","components/core/FileDropzone.jsx":"8b7e2e13d7a9","components/core/SegmentedControl.jsx":"a9d84cea4a4e","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9e8d1510da4d","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"ef6e94ac0f1b","components/data/ActivityTimeline.jsx":"8817b99169f5","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"31dd68a45534","components/charts/Heatmap.jsx":"0cbe502604f1","components/charts/BarChart.jsx":"ed6dfff8dc0f","components/charts/AreaChart.jsx":"c08d915d0927","components/charts/LineChart.jsx":"fff7996e54dd","components/charts/Sparkline.jsx":"c01061bff142","components/charts/DonutChart.jsx":"7e4f6220a083","components/charts/GaugeChart.jsx":"de598810be04","components/charts/BulletChart.jsx":"7ed2a738e092","components/charts/FunnelChart.jsx":"cf9037847a3f","components/charts/SankeyChart.jsx":"e575ec57c16e","components/charts/ScatterChart.jsx":"dc52a9adf565","components/charts/WaterfallChart.jsx":"2dee829ec637","components/charts/StackedBarChart.jsx":"66c8af970928","components/overlay/Menu.jsx":"bbcb7af7e846","components/overlay/Modal.jsx":"1cd4175015cc","components/overlay/Toast.jsx":"9898014849dc","components/overlay/Drawer.jsx":"90ff337cd0fd","components/overlay/Popover.jsx":"ae940f2c5460","components/overlay/Tooltip.jsx":"83229cc61a82","components/feedback/Banner.jsx":"37a05b48534f","components/feedback/Callout.jsx":"5a1e093a3c29","components/marketing/FaqItem.jsx":"e2a875432360","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"ca53bd101e55","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"2b84e00acd01","components/marketing/SignalCard.jsx":"ca4772dbd10f","components/marketing/AgentStatus.jsx":"7a428152b19b","components/marketing/AvatarStack.jsx":"2dce6d47bd41","components/marketing/OfferSwitch.jsx":"b3fa8135ff93","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"95e2d5dbe6df","components/marketing/JobListingRow.jsx":"a8e51d5185b9","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"7780e8ed534d","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"11edac06e1c5","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"db5b43f0e9d0","components/trust/CausalChain.jsx":"b8c3de247ea1","components/trust/DecisionLog.jsx":"e74435a8cf44","components/trust/SourceTrace.jsx":"4a2817cf88e9","components/trust/DataFreshness.jsx":"fad8d3395842","components/trust/EvidenceLedger.jsx":"14070ba9985c","components/trust/ConfidenceMeter.jsx":"594981e42aa1","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"c60c470ef27e","components/trust/RecommendationCard.jsx":"fad8183a7f50","components/app/Sidebar.jsx":"4e65a9b42987","components/app/StatTile.jsx":"fce552fe284f","components/app/DataTable.jsx":"241fa7841e24","components/app/FilterBar.jsx":"e4f6a290594e","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"e08ef822f9ae","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"10d9b56757a4","components/app/CommandPalette.jsx":"433a38b5695f","components/app/ModuleSwitcher.jsx":"5446c458df5d","components/app/BillingPlanCard.jsx":"4d7c62bbf837","components/app/DateRangePicker.jsx":"f62453e5ef44","components/app/SyncStatusBadge.jsx":"6c435fb514fb","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"0c509695eddd","components/conversation/SeekComposer.jsx":"722eaa71f6b0","components/conversation/AlfredMessage.jsx":"812447cb49c1","components/conversation/ThinkingTrace.jsx":"9d3c06a34c5b","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"60b7da06eb49","components/decision/GoalPacing.jsx":"d445d5ca31cd","components/decision/AnomalyFlag.jsx":"b2f990f9aee1","components/decision/ApprovalGate.jsx":"9595062094c9","components/decision/DecisionFork.jsx":"51d5197ebc3e","components/decision/ScenarioSimulator.jsx":"e0d54edb0992"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress","ChartTable"]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/usePress.jsx":"db14f90109d8","components/hooks/chartTable.jsx":"51881d6ffdba","components/hooks/chartCursor.jsx":"424278e7b210","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"dbed2d8a8ea0","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"070d9a567848","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"842e26cc0966","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"684ede444e12","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"b441a6e9a259","components/core/TagInput.jsx":"c77a297ccc17","components/core/Textarea.jsx":"167b5bcc7207","components/core/Accordion.jsx":"70aa7488fb0d","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"9e7f63c4a423","components/core/FileDropzone.jsx":"8b7e2e13d7a9","components/core/SegmentedControl.jsx":"a9d84cea4a4e","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9e8d1510da4d","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"ef6e94ac0f1b","components/data/ActivityTimeline.jsx":"8817b99169f5","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"31dd68a45534","components/charts/Heatmap.jsx":"0cbe502604f1","components/charts/BarChart.jsx":"ed6dfff8dc0f","components/charts/AreaChart.jsx":"00c9a89fdd05","components/charts/LineChart.jsx":"794c962a4ef1","components/charts/Sparkline.jsx":"c01061bff142","components/charts/DonutChart.jsx":"7e4f6220a083","components/charts/GaugeChart.jsx":"de598810be04","components/charts/BulletChart.jsx":"7ed2a738e092","components/charts/FunnelChart.jsx":"cf9037847a3f","components/charts/SankeyChart.jsx":"e575ec57c16e","components/charts/ScatterChart.jsx":"dc52a9adf565","components/charts/WaterfallChart.jsx":"531e60776548","components/charts/StackedBarChart.jsx":"7b8567922037","components/overlay/Menu.jsx":"bbcb7af7e846","components/overlay/Modal.jsx":"1cd4175015cc","components/overlay/Toast.jsx":"9898014849dc","components/overlay/Drawer.jsx":"90ff337cd0fd","components/overlay/Popover.jsx":"ae940f2c5460","components/overlay/Tooltip.jsx":"83229cc61a82","components/feedback/Banner.jsx":"37a05b48534f","components/feedback/Callout.jsx":"5a1e093a3c29","components/marketing/FaqItem.jsx":"e2a875432360","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"ca53bd101e55","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"2b84e00acd01","components/marketing/SignalCard.jsx":"ca4772dbd10f","components/marketing/AgentStatus.jsx":"7a428152b19b","components/marketing/AvatarStack.jsx":"2dce6d47bd41","components/marketing/OfferSwitch.jsx":"b3fa8135ff93","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"95e2d5dbe6df","components/marketing/JobListingRow.jsx":"a8e51d5185b9","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"7780e8ed534d","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"11edac06e1c5","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"db5b43f0e9d0","components/trust/CausalChain.jsx":"b8c3de247ea1","components/trust/DecisionLog.jsx":"e74435a8cf44","components/trust/SourceTrace.jsx":"4a2817cf88e9","components/trust/DataFreshness.jsx":"fad8d3395842","components/trust/EvidenceLedger.jsx":"14070ba9985c","components/trust/ConfidenceMeter.jsx":"594981e42aa1","components/trust/InsightFeedback.jsx":"66a672a3e80a","components/trust/ProvenancePanel.jsx":"c60c470ef27e","components/trust/RecommendationCard.jsx":"fad8183a7f50","components/app/Sidebar.jsx":"4e65a9b42987","components/app/StatTile.jsx":"fce552fe284f","components/app/DataTable.jsx":"241fa7841e24","components/app/FilterBar.jsx":"e4f6a290594e","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"e08ef822f9ae","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"10d9b56757a4","components/app/CommandPalette.jsx":"433a38b5695f","components/app/ModuleSwitcher.jsx":"5446c458df5d","components/app/BillingPlanCard.jsx":"4d7c62bbf837","components/app/DateRangePicker.jsx":"f62453e5ef44","components/app/SyncStatusBadge.jsx":"6c435fb514fb","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"0c509695eddd","components/conversation/SeekComposer.jsx":"722eaa71f6b0","components/conversation/AlfredMessage.jsx":"812447cb49c1","components/conversation/ThinkingTrace.jsx":"9d3c06a34c5b","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"60b7da06eb49","components/decision/GoalPacing.jsx":"d445d5ca31cd","components/decision/AnomalyFlag.jsx":"b2f990f9aee1","components/decision/ApprovalGate.jsx":"9595062094c9","components/decision/DecisionFork.jsx":"51d5197ebc3e","components/decision/ScenarioSimulator.jsx":"e0d54edb0992"},"inlinedExternals":[],"unexposedExports":["isFocusVisible","usePress","ChartTable","useChartCursor","ChartLive","ChartTooltip"]} */
 
 (() => {
 
@@ -121,6 +121,160 @@ function ChartTable({
 }
 __ds_scope.ChartTable = ChartTable;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/hooks/chartTable.jsx", error: String((e && e.message) || e) }); }
+
+// components/hooks/chartCursor.jsx
+try { (() => {
+/**
+ * Alfred AI — chart cursor (internal)
+ *
+ * One interaction model for every x-indexed chart: hover with a pointer, or
+ * focus the chart once and walk it with the arrow keys. Both drive the same
+ * "active index", so there is one code path and one visual result.
+ *
+ * Why a single tab stop rather than a focusable element per data point:
+ * the `<svg>` carries `role="img"` (the chart a11y contract), which makes its
+ * descendants presentational — focusable children inside it would be
+ * contradictory markup that assistive tech is entitled to ignore. And a chart
+ * with 40 points would otherwise be 40 tab stops between the user and the rest
+ * of the page.
+ *
+ * So the chart is one stop. Arrow keys move the cursor, Home/End jump to the
+ * ends, Escape dismisses. The active point is announced through a polite live
+ * region rather than by moving focus, which is what keeps it from
+ * double-announcing against the hidden data table.
+ *
+ * Internal: components/hooks/ is kept off the public namespace by the bundle.
+ */
+function useChartCursor(count) {
+  const [index, setIndex] = React.useState(null);
+  const [keyboard, setKeyboard] = React.useState(false);
+  const clamp = i => Math.max(0, Math.min(count - 1, i));
+  const move = (next, viaKey) => {
+    setKeyboard(!!viaKey);
+    setIndex(count ? clamp(next) : null);
+  };
+  const clear = () => setIndex(null);
+  const onKeyDown = e => {
+    if (!count) return;
+    const cur = index == null ? -1 : index;
+    switch (e.key) {
+      case "ArrowRight":
+      case "ArrowDown":
+        move(cur + 1, true);
+        break;
+      case "ArrowLeft":
+      case "ArrowUp":
+        move(cur <= 0 ? 0 : cur - 1, true);
+        break;
+      case "Home":
+        move(0, true);
+        break;
+      case "End":
+        move(count - 1, true);
+        break;
+      case "Escape":
+        clear();
+        return;
+      // let Escape bubble too
+      default:
+        return;
+      // don't swallow Tab et al
+    }
+    e.preventDefault();
+  };
+
+  // Pointer position → nearest index. The chart is drawn in viewBox units and
+  // stretched to the container, so work in fractions of the box rather than px.
+  const onPointerMove = e => {
+    if (!count) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    if (!r.width) return;
+    const frac = (e.clientX - r.left) / r.width;
+    move(Math.round(frac * (count - 1)), false);
+  };
+  return {
+    index,
+    keyboard,
+    clear,
+    /* spread onto the chart's outer element */
+    bind: {
+      tabIndex: count ? 0 : -1,
+      onKeyDown,
+      onPointerMove,
+      onPointerLeave: clear,
+      onBlur: clear,
+      style: {
+        outlineOffset: 2
+      }
+    }
+  };
+}
+
+/**
+ * The announcement channel for keyboard navigation. Polite, and only ever holds
+ * the currently-focused point, so it says one thing at a time.
+ */
+function ChartLive({
+  text
+}) {
+  return /*#__PURE__*/React.createElement("span", {
+    "aria-live": "polite",
+    style: {
+      position: "absolute",
+      width: 1,
+      height: 1,
+      padding: 0,
+      margin: -1,
+      overflow: "hidden",
+      clip: "rect(0, 0, 0, 0)",
+      whiteSpace: "nowrap",
+      borderWidth: 0
+    }
+  }, text || "");
+}
+
+/**
+ * The visible readout. Positioned as a percentage of the chart's width so it
+ * tracks the point through any container size, and flipped near the right edge
+ * so it never runs off. `aria-hidden` because ChartLive already announces it —
+ * showing the same string twice to a screen reader helps nobody.
+ */
+function ChartTooltip({
+  x,
+  children,
+  visible
+}) {
+  if (!visible || children == null) return null;
+  const past = x > 0.6;
+  return /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      /* This tracks a point in the chart's own coordinate space, which
+         guidelines/rtl.md keeps physical. Mirroring the readout while the plot
+         stays put would point it at the wrong data. */
+      position: "absolute",
+      top: 0,
+      left: `${x * 100}%`,
+      /* rtl-ok: chart coordinate space */
+      transform: `translate(${past ? "calc(-100% - 10px)" : "10px"}, 0)`,
+      pointerEvents: "none",
+      zIndex: "var(--z-tooltip)",
+      background: "var(--surface-tooltip)",
+      color: "var(--text-on-brand)",
+      borderRadius: "var(--radius-md)",
+      boxShadow: "var(--elevation-floating)",
+      padding: "6px 10px",
+      whiteSpace: "nowrap",
+      fontFamily: "var(--font-sans)",
+      fontSize: "var(--text-xs)",
+      fontVariantNumeric: "tabular-nums"
+    }
+  }, children);
+}
+__ds_scope.useChartCursor = useChartCursor;
+__ds_scope.ChartLive = ChartLive;
+__ds_scope.ChartTooltip = ChartTooltip;
+})(); } catch (e) { (__ds_ns.__errors).push({ source: "components/hooks/chartCursor.jsx", error: String((e && e.message) || e) }); }
 
 // components/brand/Icon.jsx
 try { (() => {
@@ -4852,7 +5006,8 @@ __ds_scope.BarChart = BarChart;
 
 // components/charts/AreaChart.jsx
 try { (() => {
-const { ChartTable } = __ds_scope;
+const { ChartTable, useChartCursor, ChartLive, ChartTooltip } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — AreaChart
  * Multi-series area/line trend with a real plot frame: y-axis gridlines + ticks,
@@ -4901,128 +5056,146 @@ function AreaChart({
     length: yTicks + 1
   }, (_, i) => min + span * i / yTicks);
   const every = Math.ceil(n / 8) || 1;
+  const cursor = useChartCursor(n);
+  const at = cursor.index;
+  const pointLabel = i => `${labels[i] != null ? labels[i] : `Point ${i + 1}`}: ${series.map(s => `${s.name || "series"} ${fmt(s.points[i] ?? 0)}`).join(", ")}`;
+
   // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
   const aria = ariaLabel || (series.length ? `Area chart, ${series.length} series (${series.map(s => s.name).filter(Boolean).join(", ")}), ${n} points` : "Area chart, no data");
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
+  return (
+    /*#__PURE__*/
+    /* Interactive chart: the NAME lives on the focusable group and the graphic is
+       aria-hidden — see the note in LineChart and guidelines/chart-contract.md. */
+    React.createElement("div", _extends({
+      style: {
+        width: "100%",
+        position: "relative",
+        ...style
+      }
+    }, cursor.bind, {
+      role: "group",
+      "aria-label": aria
+    }), /*#__PURE__*/React.createElement(ChartLive, {
+      text: cursor.keyboard && at != null ? pointLabel(at) : ""
+    }), /*#__PURE__*/React.createElement(ChartTooltip, {
+      x: n > 1 ? at / (n - 1) : 0,
+      visible: at != null
+    }, at != null ? pointLabel(at) : null), /*#__PURE__*/React.createElement(ChartTable, {
+      caption: aria,
+      columns: ["Point"].concat(series.map((s, i) => String(s.name || `Series ${i + 1}`))),
+      rows: Array.from({
+        length: n
+      }, (_, i) => [labels[i] != null ? String(labels[i]) : `#${i + 1}`].concat(series.map(s => String(s.points[i] ?? ""))))
+    }), /*#__PURE__*/React.createElement("svg", {
+      viewBox: `0 0 ${W} ${height}`,
       width: "100%",
-      ...style
-    }
-  }, /*#__PURE__*/React.createElement(ChartTable, {
-    caption: aria,
-    columns: ["Point"].concat(series.map((s, i) => String(s.name || `Series ${i + 1}`))),
-    rows: Array.from({
-      length: n
-    }, (_, i) => [labels[i] != null ? String(labels[i]) : `#${i + 1}`].concat(series.map(s => String(s.points[i] ?? ""))))
-  }), /*#__PURE__*/React.createElement("svg", {
-    viewBox: `0 0 ${W} ${height}`,
-    width: "100%",
-    height: height,
-    role: "img",
-    "aria-label": aria,
-    style: {
-      display: "block"
-    }
-  }, /*#__PURE__*/React.createElement("defs", null, series.map((s, si) => {
-    const c = s.color || PALETTE[si % PALETTE.length];
-    return /*#__PURE__*/React.createElement("linearGradient", {
-      key: si,
-      id: `${uid}f${si}`,
-      x1: "0",
-      y1: "0",
-      x2: "0",
-      y2: "1"
-    }, /*#__PURE__*/React.createElement("stop", {
-      offset: "0%",
+      height: height,
+      "aria-hidden": "true",
       style: {
-        stopColor: c,
-        stopOpacity: 0.22
+        display: "block"
       }
-    }), /*#__PURE__*/React.createElement("stop", {
-      offset: "100%",
-      style: {
-        stopColor: c,
-        stopOpacity: 0
-      }
-    }));
-  })), ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
-    key: i
-  }, /*#__PURE__*/React.createElement("line", {
-    x1: padL,
-    x2: W - padR,
-    y1: y(t),
-    y2: y(t),
-    stroke: "var(--border-subtle)",
-    strokeWidth: "1"
-  }), /*#__PURE__*/React.createElement("text", {
-    x: padL - 8,
-    y: y(t) + 4,
-    textAnchor: "end",
-    fontFamily: "var(--font-sans)",
-    fontSize: "11",
-    fill: "var(--text-muted)"
-  }, fmt(t)))), series.map((s, si) => {
-    const c = s.color || PALETTE[si % PALETTE.length];
-    const line = s.points.map((v, i) => `${i ? "L" : "M"} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(" ");
-    const area = `${line} L ${x(s.points.length - 1).toFixed(1)} ${y(min).toFixed(1)} L ${x(0).toFixed(1)} ${y(min).toFixed(1)} Z`;
-    return /*#__PURE__*/React.createElement("g", {
-      key: si
-    }, fill && /*#__PURE__*/React.createElement("path", {
-      d: area,
-      fill: `url(#${uid}f${si})`
-    }), /*#__PURE__*/React.createElement("path", {
-      d: line,
-      fill: "none",
-      stroke: c,
-      strokeWidth: "2.5",
-      strokeLinecap: "round",
-      strokeLinejoin: "round"
-    }));
-  }), labels.map((l, i) => i % every === 0 ? /*#__PURE__*/React.createElement("text", {
-    key: i,
-    x: x(i),
-    y: height - 7,
-    textAnchor: "middle",
-    fontFamily: "var(--font-sans)",
-    fontSize: "11",
-    fill: "var(--text-muted)"
-  }, l) : null)), series.length > 1 && series.some(s => s.name) && /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: 18,
-      marginTop: 10,
-      paddingInlineStart: padL
-    }
-  }, series.map((s, si) => /*#__PURE__*/React.createElement("span", {
-    key: si,
-    style: {
-      display: "inline-flex",
-      alignItems: "center",
-      gap: 8
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      width: 11,
-      height: 11,
-      borderRadius: 3,
-      flex: "none",
-      background: s.color || PALETTE[si % PALETTE.length]
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
+    }, /*#__PURE__*/React.createElement("defs", null, series.map((s, si) => {
+      const c = s.color || PALETTE[si % PALETTE.length];
+      return /*#__PURE__*/React.createElement("linearGradient", {
+        key: si,
+        id: `${uid}f${si}`,
+        x1: "0",
+        y1: "0",
+        x2: "0",
+        y2: "1"
+      }, /*#__PURE__*/React.createElement("stop", {
+        offset: "0%",
+        style: {
+          stopColor: c,
+          stopOpacity: 0.22
+        }
+      }), /*#__PURE__*/React.createElement("stop", {
+        offset: "100%",
+        style: {
+          stopColor: c,
+          stopOpacity: 0
+        }
+      }));
+    })), ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
+      key: i
+    }, /*#__PURE__*/React.createElement("line", {
+      x1: padL,
+      x2: W - padR,
+      y1: y(t),
+      y2: y(t),
+      stroke: "var(--border-subtle)",
+      strokeWidth: "1"
+    }), /*#__PURE__*/React.createElement("text", {
+      x: padL - 8,
+      y: y(t) + 4,
+      textAnchor: "end",
       fontFamily: "var(--font-sans)",
-      fontSize: "var(--text-sm)",
-      color: "var(--text-secondary)"
-    }
-  }, s.name)))));
+      fontSize: "11",
+      fill: "var(--text-muted)"
+    }, fmt(t)))), series.map((s, si) => {
+      const c = s.color || PALETTE[si % PALETTE.length];
+      const line = s.points.map((v, i) => `${i ? "L" : "M"} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(" ");
+      const area = `${line} L ${x(s.points.length - 1).toFixed(1)} ${y(min).toFixed(1)} L ${x(0).toFixed(1)} ${y(min).toFixed(1)} Z`;
+      return /*#__PURE__*/React.createElement("g", {
+        key: si
+      }, fill && /*#__PURE__*/React.createElement("path", {
+        d: area,
+        fill: `url(#${uid}f${si})`
+      }), /*#__PURE__*/React.createElement("path", {
+        d: line,
+        fill: "none",
+        stroke: c,
+        strokeWidth: "2.5",
+        strokeLinecap: "round",
+        strokeLinejoin: "round"
+      }));
+    }), labels.map((l, i) => i % every === 0 ? /*#__PURE__*/React.createElement("text", {
+      key: i,
+      x: x(i),
+      y: height - 7,
+      textAnchor: "middle",
+      fontFamily: "var(--font-sans)",
+      fontSize: "11",
+      fill: "var(--text-muted)"
+    }, l) : null)), series.length > 1 && series.some(s => s.name) && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 18,
+        marginTop: 10,
+        paddingInlineStart: padL
+      }
+    }, series.map((s, si) => /*#__PURE__*/React.createElement("span", {
+      key: si,
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        width: 11,
+        height: 11,
+        borderRadius: 3,
+        flex: "none",
+        background: s.color || PALETTE[si % PALETTE.length]
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-sm)",
+        color: "var(--text-secondary)"
+      }
+    }, s.name)))))
+  );
 }
 __ds_scope.AreaChart = AreaChart;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/AreaChart.jsx", error: String((e && e.message) || e) }); }
 
 // components/charts/LineChart.jsx
 try { (() => {
-const { ChartTable } = __ds_scope;
+const { ChartTable, useChartCursor, ChartLive, ChartTooltip } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — LineChart
  * Labelled trend line (a sparkline with x-axis labels) for performance over
@@ -5046,75 +5219,112 @@ function LineChart({
   // Non-text content needs a text alternative (WCAG 1.1.1). The SVG carries the
   // summary; the label row below stays readable text.
   const aria = ariaLabel || (points.length ? `Line chart, ${points.length} points, from ${points[0]} to ${points[points.length - 1]}` : "Line chart, no data");
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
+
+  // one interaction model: hover, or focus once and walk it with the arrows
+  const cursor = useChartCursor(points.length);
+  const at = cursor.index;
+  const pointLabel = i => `${labels[i] != null ? labels[i] : `Point ${i + 1}`}: ${points[i]}`;
+  return (
+    /*#__PURE__*/
+    /* Interactive chart: the NAME lives on the focusable group, and the graphic
+       below is aria-hidden. A static chart keeps role="img" on its <svg>; once a
+       chart can be focused and walked, having both would announce it twice.
+       See guidelines/chart-contract.md. */
+    React.createElement("div", _extends({
+      style: {
+        width: "100%",
+        position: "relative",
+        ...style
+      }
+    }, cursor.bind, {
+      role: "group",
+      "aria-label": aria
+    }), /*#__PURE__*/React.createElement(ChartLive, {
+      text: cursor.keyboard && at != null ? pointLabel(at) : ""
+    }), /*#__PURE__*/React.createElement(ChartTooltip, {
+      x: points.length > 1 ? at / (points.length - 1) : 0,
+      visible: at != null
+    }, at != null ? pointLabel(at) : null), /*#__PURE__*/React.createElement(ChartTable, {
+      caption: aria,
+      columns: [labels.length ? "Point" : "Index", "Value"],
+      rows: points.map((v, i) => [labels[i] != null ? String(labels[i]) : `#${i + 1}`, String(v)])
+    }), /*#__PURE__*/React.createElement("svg", {
+      viewBox: `0 0 ${w} ${height}`,
       width: "100%",
-      position: "relative",
-      ...style
-    }
-  }, /*#__PURE__*/React.createElement(ChartTable, {
-    caption: aria,
-    columns: [labels.length ? "Point" : "Index", "Value"],
-    rows: points.map((v, i) => [labels[i] != null ? String(labels[i]) : `#${i + 1}`, String(v)])
-  }), /*#__PURE__*/React.createElement("svg", {
-    viewBox: `0 0 ${w} ${height}`,
-    width: "100%",
-    height: height,
-    preserveAspectRatio: "none",
-    role: "img",
-    "aria-label": aria,
-    style: {
-      display: "block"
-    }
-  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: `${uid}l`,
-    x1: "0",
-    y1: "0",
-    x2: "1",
-    y2: "0"
-  }, /*#__PURE__*/React.createElement("stop", {
-    offset: "0%",
-    stopColor: "var(--chart-2)"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: "100%",
-    stopColor: "var(--chart-1)"
-  })), /*#__PURE__*/React.createElement("linearGradient", {
-    id: `${uid}f`,
-    x1: "0",
-    y1: "0",
-    x2: "0",
-    y2: "1"
-  }, /*#__PURE__*/React.createElement("stop", {
-    offset: "0%",
-    stopColor: "rgba(255,132,49,0.20)"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: "100%",
-    stopColor: "rgba(255,132,49,0)"
-  }))), /*#__PURE__*/React.createElement("path", {
-    d: area,
-    fill: `url(#${uid}f)`
-  }), /*#__PURE__*/React.createElement("path", {
-    d: line,
-    fill: "none",
-    stroke: `url(#${uid}l)`,
-    strokeWidth: "3",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    vectorEffect: "non-scaling-stroke"
-  })), labels.length > 0 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      marginTop: 6
-    }
-  }, labels.map((l, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    style: {
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--text-xs)",
-      color: "var(--text-muted)"
-    }
-  }, l))));
+      height: height,
+      preserveAspectRatio: "none",
+      "aria-hidden": "true",
+      style: {
+        display: "block"
+      }
+    }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+      id: `${uid}l`,
+      x1: "0",
+      y1: "0",
+      x2: "1",
+      y2: "0"
+    }, /*#__PURE__*/React.createElement("stop", {
+      offset: "0%",
+      stopColor: "var(--chart-2)"
+    }), /*#__PURE__*/React.createElement("stop", {
+      offset: "100%",
+      stopColor: "var(--chart-1)"
+    })), /*#__PURE__*/React.createElement("linearGradient", {
+      id: `${uid}f`,
+      x1: "0",
+      y1: "0",
+      x2: "0",
+      y2: "1"
+    }, /*#__PURE__*/React.createElement("stop", {
+      offset: "0%",
+      stopColor: "rgba(255,132,49,0.20)"
+    }), /*#__PURE__*/React.createElement("stop", {
+      offset: "100%",
+      stopColor: "rgba(255,132,49,0)"
+    }))), /*#__PURE__*/React.createElement("path", {
+      d: area,
+      fill: `url(#${uid}f)`
+    }), /*#__PURE__*/React.createElement("path", {
+      d: line,
+      fill: "none",
+      stroke: `url(#${uid}l)`,
+      strokeWidth: "3",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      vectorEffect: "non-scaling-stroke"
+    }), at != null && /*#__PURE__*/React.createElement("g", {
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("line", {
+      x1: nx(at),
+      x2: nx(at),
+      y1: "0",
+      y2: height,
+      stroke: "var(--border-default)",
+      strokeWidth: "1",
+      vectorEffect: "non-scaling-stroke"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: nx(at),
+      cy: ny(points[at]),
+      r: "5",
+      fill: "var(--accent)",
+      stroke: "var(--surface-card)",
+      strokeWidth: "2",
+      vectorEffect: "non-scaling-stroke"
+    }))), labels.length > 0 && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop: 6
+      }
+    }, labels.map((l, i) => /*#__PURE__*/React.createElement("span", {
+      key: i,
+      style: {
+        fontFamily: "var(--font-sans)",
+        fontSize: "var(--text-xs)",
+        color: "var(--text-muted)"
+      }
+    }, l))))
+  );
 }
 __ds_scope.LineChart = LineChart;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/LineChart.jsx", error: String((e && e.message) || e) }); }
@@ -6171,7 +6381,8 @@ __ds_scope.ScatterChart = ScatterChart;
 
 // components/charts/WaterfallChart.jsx
 try { (() => {
-const { ChartTable } = __ds_scope;
+const { ChartTable, useChartCursor, ChartLive, ChartTooltip } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — WaterfallChart
  * Shows how a total is built from running increments / decrements (e.g. starting
@@ -6300,12 +6511,27 @@ function WaterfallChart({
       }
     }, "I don't have any steps to chart yet.");
   }
-  return /*#__PURE__*/React.createElement("div", {
+  const cursor = useChartCursor(items.length);
+  const at = cursor.index;
+  const pointLabel = i => `${items[i].label}: ${fmt(items[i].value)}`;
+
+  /* Interactive chart: the NAME lives on the focusable group and the graphic is
+     aria-hidden — see the note in LineChart and guidelines/chart-contract.md. */
+  return /*#__PURE__*/React.createElement("div", _extends({
     style: {
       width: "100%",
+      position: "relative",
       ...style
     }
-  }, /*#__PURE__*/React.createElement(ChartTable, {
+  }, cursor.bind, {
+    role: "group",
+    "aria-label": aria
+  }), /*#__PURE__*/React.createElement(ChartLive, {
+    text: cursor.keyboard && at != null ? pointLabel(at) : ""
+  }), /*#__PURE__*/React.createElement(ChartTooltip, {
+    x: items.length > 1 ? at / (items.length - 1) : 0,
+    visible: at != null
+  }, at != null ? pointLabel(at) : null), /*#__PURE__*/React.createElement(ChartTable, {
     caption: aria,
     columns: ["Step", "Value"],
     rows: items.map(it => [String(it.label), String(it.value)])
@@ -6316,8 +6542,7 @@ function WaterfallChart({
     style: {
       display: "block"
     },
-    role: "img",
-    "aria-label": aria
+    "aria-hidden": "true"
   }, ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
     key: `t${i}`
   }, /*#__PURE__*/React.createElement("line", {
@@ -6424,7 +6649,8 @@ __ds_scope.WaterfallChart = WaterfallChart;
 
 // components/charts/StackedBarChart.jsx
 try { (() => {
-const { ChartTable, Legend } = __ds_scope;
+const { ChartTable, useChartCursor, ChartLive, ChartTooltip, Legend } = __ds_scope;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — StackedBarChart
  * Vertical bars for comparing several series across categories, with a real plot
@@ -6495,135 +6721,151 @@ function StackedBarChart({
   const nKeys = keys.length || 1;
   const gGap = nKeys > 1 ? Math.min(6, innerW * 0.05) : 0;
   const gBarW = Math.max((innerW - gGap * (nKeys - 1)) / nKeys, 1);
+  const cursor = useChartCursor(data.length);
+  const at = cursor.index;
+  const pointLabel = i => `${(data[i] && data[i].label) ?? `Group ${i + 1}`}: ${keys.map(k => `${k} ${fmt(num(data[i] && data[i][k]))}`).join(", ")}`;
 
   // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
   const aria = ariaLabel || (data.length ? `${grouped ? "Grouped" : "Stacked"} bar chart, ${data.length} bars across ${keys.length} series (${keys.join(", ")})` : "Bar chart, no data");
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
+  return (
+    /*#__PURE__*/
+    /* Interactive chart: the NAME lives on the focusable group and the graphic is
+       aria-hidden — see the note in LineChart and guidelines/chart-contract.md. */
+    React.createElement("div", _extends({
+      style: {
+        width: "100%",
+        position: "relative",
+        ...style
+      }
+    }, cursor.bind, {
+      role: "group",
+      "aria-label": aria
+    }), /*#__PURE__*/React.createElement(ChartLive, {
+      text: cursor.keyboard && at != null ? pointLabel(at) : ""
+    }), /*#__PURE__*/React.createElement(ChartTooltip, {
+      x: data.length > 1 ? at / (data.length - 1) : 0,
+      visible: at != null
+    }, at != null ? pointLabel(at) : null), /*#__PURE__*/React.createElement(ChartTable, {
+      caption: aria,
+      columns: ["Group"].concat(keys.map(String)),
+      rows: data.map(d => [String((d && d.label) ?? "")].concat(keys.map(k => String(num(d && d[k])))))
+    }), /*#__PURE__*/React.createElement("svg", {
+      viewBox: `0 0 ${W} ${height}`,
       width: "100%",
-      ...style
-    }
-  }, /*#__PURE__*/React.createElement(ChartTable, {
-    caption: aria,
-    columns: ["Group"].concat(keys.map(String)),
-    rows: data.map(d => [String((d && d.label) ?? "")].concat(keys.map(k => String(num(d && d[k])))))
-  }), /*#__PURE__*/React.createElement("svg", {
-    viewBox: `0 0 ${W} ${height}`,
-    width: "100%",
-    height: height,
-    role: "img",
-    "aria-label": aria,
-    style: {
-      display: "block"
-    }
-  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: `${uid}sheen`,
-    x1: "0",
-    y1: "0",
-    x2: "0",
-    y2: "1"
-  }, /*#__PURE__*/React.createElement("stop", {
-    offset: "0%",
-    style: {
-      stopColor: "var(--white)",
-      stopOpacity: 0.16
-    }
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: "58%",
-    style: {
-      stopColor: "var(--white)",
-      stopOpacity: 0
-    }
-  }))), ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
-    key: `grid${i}`
-  }, /*#__PURE__*/React.createElement("line", {
-    x1: padL,
-    x2: W - padR,
-    y1: yScale(t),
-    y2: yScale(t),
-    stroke: i === 0 ? "var(--border-default)" : "var(--border-subtle)",
-    strokeWidth: "1"
-  }), /*#__PURE__*/React.createElement("text", {
-    x: padL - 8,
-    y: yScale(t) + 4,
-    textAnchor: "end",
-    fontFamily: "var(--font-sans)",
-    fontSize: "11",
-    fill: "var(--text-muted)"
-  }, fmt(t)))), data.map((d, i) => {
-    const xc = padL + bandW * (i + 0.5);
-    if (grouped) {
-      const start = xc - innerW / 2;
+      height: height,
+      "aria-hidden": "true",
+      style: {
+        display: "block"
+      }
+    }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+      id: `${uid}sheen`,
+      x1: "0",
+      y1: "0",
+      x2: "0",
+      y2: "1"
+    }, /*#__PURE__*/React.createElement("stop", {
+      offset: "0%",
+      style: {
+        stopColor: "var(--white)",
+        stopOpacity: 0.16
+      }
+    }), /*#__PURE__*/React.createElement("stop", {
+      offset: "58%",
+      style: {
+        stopColor: "var(--white)",
+        stopOpacity: 0
+      }
+    }))), ticks.map((t, i) => /*#__PURE__*/React.createElement("g", {
+      key: `grid${i}`
+    }, /*#__PURE__*/React.createElement("line", {
+      x1: padL,
+      x2: W - padR,
+      y1: yScale(t),
+      y2: yScale(t),
+      stroke: i === 0 ? "var(--border-default)" : "var(--border-subtle)",
+      strokeWidth: "1"
+    }), /*#__PURE__*/React.createElement("text", {
+      x: padL - 8,
+      y: yScale(t) + 4,
+      textAnchor: "end",
+      fontFamily: "var(--font-sans)",
+      fontSize: "11",
+      fill: "var(--text-muted)"
+    }, fmt(t)))), data.map((d, i) => {
+      const xc = padL + bandW * (i + 0.5);
+      if (grouped) {
+        const start = xc - innerW / 2;
+        return /*#__PURE__*/React.createElement("g", {
+          key: `bar${i}`
+        }, keys.map((k, j) => {
+          const v = num(d && d[k]);
+          if (v <= 0) return null;
+          const bx = start + j * (gBarW + gGap);
+          const by = yScale(v);
+          const bh = Math.max(yScale(0) - by, 2);
+          const dPath = topRounded(bx, by, gBarW, bh, Math.min(BAR_RADIUS, gBarW / 2));
+          return /*#__PURE__*/React.createElement("g", {
+            key: `seg${i}-${j}`
+          }, /*#__PURE__*/React.createElement("path", {
+            d: dPath,
+            fill: palAt(j)
+          }), /*#__PURE__*/React.createElement("path", {
+            d: dPath,
+            fill: `url(#${uid}sheen)`
+          }));
+        }));
+      }
+
+      // stacked
+      const bx = xc - barW / 2;
+      let acc = 0;
+      let lastIdx = -1;
+      keys.forEach((k, j) => {
+        if (num(d && d[k]) > 0) lastIdx = j;
+      });
       return /*#__PURE__*/React.createElement("g", {
         key: `bar${i}`
       }, keys.map((k, j) => {
         const v = num(d && d[k]);
         if (v <= 0) return null;
-        const bx = start + j * (gBarW + gGap);
-        const by = yScale(v);
-        const bh = Math.max(yScale(0) - by, 2);
-        const dPath = topRounded(bx, by, gBarW, bh, Math.min(BAR_RADIUS, gBarW / 2));
-        return /*#__PURE__*/React.createElement("g", {
-          key: `seg${i}-${j}`
-        }, /*#__PURE__*/React.createElement("path", {
-          d: dPath,
+        const y0 = yScale(acc);
+        acc += v;
+        const y1 = yScale(acc);
+        const h = y0 - y1;
+        return j === lastIdx ? /*#__PURE__*/React.createElement("path", {
+          key: `seg${i}-${j}`,
+          d: topRounded(bx, y1, barW, h, Math.min(BAR_RADIUS, barW / 2)),
           fill: palAt(j)
-        }), /*#__PURE__*/React.createElement("path", {
-          d: dPath,
-          fill: `url(#${uid}sheen)`
-        }));
+        }) : /*#__PURE__*/React.createElement("rect", {
+          key: `seg${i}-${j}`,
+          x: bx,
+          y: y1,
+          width: barW,
+          height: h,
+          fill: palAt(j)
+        });
+      }), totals[i] > 0 && /*#__PURE__*/React.createElement("path", {
+        d: topRounded(bx, yScale(totals[i]), barW, yScale(0) - yScale(totals[i]), Math.min(BAR_RADIUS, barW / 2)),
+        fill: `url(#${uid}sheen)`
       }));
-    }
-
-    // stacked
-    const bx = xc - barW / 2;
-    let acc = 0;
-    let lastIdx = -1;
-    keys.forEach((k, j) => {
-      if (num(d && d[k]) > 0) lastIdx = j;
-    });
-    return /*#__PURE__*/React.createElement("g", {
-      key: `bar${i}`
-    }, keys.map((k, j) => {
-      const v = num(d && d[k]);
-      if (v <= 0) return null;
-      const y0 = yScale(acc);
-      acc += v;
-      const y1 = yScale(acc);
-      const h = y0 - y1;
-      return j === lastIdx ? /*#__PURE__*/React.createElement("path", {
-        key: `seg${i}-${j}`,
-        d: topRounded(bx, y1, barW, h, Math.min(BAR_RADIUS, barW / 2)),
-        fill: palAt(j)
-      }) : /*#__PURE__*/React.createElement("rect", {
-        key: `seg${i}-${j}`,
-        x: bx,
-        y: y1,
-        width: barW,
-        height: h,
-        fill: palAt(j)
-      });
-    }), totals[i] > 0 && /*#__PURE__*/React.createElement("path", {
-      d: topRounded(bx, yScale(totals[i]), barW, yScale(0) - yScale(totals[i]), Math.min(BAR_RADIUS, barW / 2)),
-      fill: `url(#${uid}sheen)`
-    }));
-  }), data.map((d, i) => /*#__PURE__*/React.createElement("text", {
-    key: `lbl${i}`,
-    x: padL + bandW * (i + 0.5),
-    y: height - 9,
-    textAnchor: "middle",
-    fontFamily: "var(--font-sans)",
-    fontSize: "11",
-    fill: "var(--text-muted)"
-  }, d && d.label))), keys.length > 0 && /*#__PURE__*/React.createElement(Legend, {
-    items: keys.map((k, i) => ({
-      label: k,
-      color: palAt(i)
-    })),
-    style: {
-      marginTop: 14
-    }
-  }));
+    }), data.map((d, i) => /*#__PURE__*/React.createElement("text", {
+      key: `lbl${i}`,
+      x: padL + bandW * (i + 0.5),
+      y: height - 9,
+      textAnchor: "middle",
+      fontFamily: "var(--font-sans)",
+      fontSize: "11",
+      fill: "var(--text-muted)"
+    }, d && d.label))), keys.length > 0 && /*#__PURE__*/React.createElement(Legend, {
+      items: keys.map((k, i) => ({
+        label: k,
+        color: palAt(i)
+      })),
+      style: {
+        marginTop: 14
+      }
+    }))
+  );
 }
 __ds_scope.StackedBarChart = StackedBarChart;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/charts/StackedBarChart.jsx", error: String((e && e.message) || e) }); }

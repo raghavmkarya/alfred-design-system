@@ -1,5 +1,6 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
+import { useChartCursor, ChartLive, ChartTooltip } from "../hooks/chartCursor.jsx";
 
 /**
  * Alfred AI — WaterfallChart
@@ -110,11 +111,22 @@ export function WaterfallChart({ items = [], height = 240, valueFormat, ariaLabe
     );
   }
 
+  const cursor = useChartCursor(items.length);
+  const at = cursor.index;
+  const pointLabel = (i) => `${items[i].label}: ${fmt(items[i].value)}`;
+
+  /* Interactive chart: the NAME lives on the focusable group and the graphic is
+     aria-hidden — see the note in LineChart and guidelines/chart-contract.md. */
   return (
-    <div style={{ width: "100%", ...style }}>
+    <div style={{ width: "100%", position: "relative", ...style }} {...cursor.bind}
+      role="group" aria-label={aria}>
+      <ChartLive text={cursor.keyboard && at != null ? pointLabel(at) : ""} />
+      <ChartTooltip x={items.length > 1 ? at / (items.length - 1) : 0} visible={at != null}>
+        {at != null ? pointLabel(at) : null}
+      </ChartTooltip>
       <ChartTable caption={aria} columns={["Step", "Value"]}
         rows={items.map((it) => [String(it.label), String(it.value)])} />
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} style={{ display: "block" }} role="img" aria-label={aria}>
+      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} style={{ display: "block" }} aria-hidden="true">
         {/* gridlines + y-axis ticks */}
         {ticks.map((t, i) => (
           <g key={`t${i}`}>

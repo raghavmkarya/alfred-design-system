@@ -1,5 +1,6 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
+import { useChartCursor, ChartLive, ChartTooltip } from "../hooks/chartCursor.jsx";
 import { Legend } from "../charts/Legend.jsx";
 
 /**
@@ -63,16 +64,28 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
   const gGap = nKeys > 1 ? Math.min(6, innerW * 0.05) : 0;
   const gBarW = Math.max((innerW - gGap * (nKeys - 1)) / nKeys, 1);
 
+  const cursor = useChartCursor(data.length);
+  const at = cursor.index;
+  const pointLabel = (i) => `${(data[i] && data[i].label) ?? `Group ${i + 1}`}: ${keys.map((k) => `${k} ${fmt(num(data[i] && data[i][k]))}`).join(", ")}`;
+
+
   // WCAG 1.1.1 — a bare <svg> exposes nothing to a screen reader.
   const aria = ariaLabel || (data.length
     ? `${grouped ? "Grouped" : "Stacked"} bar chart, ${data.length} bars across ${keys.length} series (${keys.join(", ")})`
     : "Bar chart, no data");
 
   return (
-    <div style={{ width: "100%", ...style }}>
+    /* Interactive chart: the NAME lives on the focusable group and the graphic is
+       aria-hidden — see the note in LineChart and guidelines/chart-contract.md. */
+    <div style={{ width: "100%", position: "relative", ...style }} {...cursor.bind}
+      role="group" aria-label={aria}>
+      <ChartLive text={cursor.keyboard && at != null ? pointLabel(at) : ""} />
+      <ChartTooltip x={data.length > 1 ? at / (data.length - 1) : 0} visible={at != null}>
+        {at != null ? pointLabel(at) : null}
+      </ChartTooltip>
       <ChartTable caption={aria} columns={["Group"].concat(keys.map(String))}
         rows={data.map((d) => [String((d && d.label) ?? "")].concat(keys.map((k) => String(num(d && d[k])))))} />
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
+      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} aria-hidden="true" style={{ display: "block" }}>
         <defs>
           {/* Soft top sheen — a single light source from above, theme-neutral. */}
           <linearGradient id={`${uid}sheen`} x1="0" y1="0" x2="0" y2="1">

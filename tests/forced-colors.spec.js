@@ -57,6 +57,10 @@ test("chart colour is preserved so series stay distinguishable", async ({ page }
   // forcing the palette would collapse every series to one CanvasText silhouette.
   // Defensible only because every chart also carries a text alternative (PR #40).
   expect(await styleOf(page, "[data-testid='hcm-chart'] svg", "forcedColorAdjust")).toBe("none");
-  const label = await page.locator("[data-testid='hcm-chart'] svg").first().getAttribute("aria-label");
-  expect(label).toBeTruthy();
+  // the text alternative sits on whichever element carries the chart's semantics:
+  // role="img" on a static chart, or the focusable role="group" once it is
+  // interactive (Phase 4.4). Assert it exists, not where it happens to live.
+  const named = page.locator("[data-testid='hcm-chart'] [role='img'][aria-label], [data-testid='hcm-chart'] [role='group'][aria-label]");
+  expect(await named.count()).toBeGreaterThan(0);
+  expect(await named.first().getAttribute("aria-label")).toBeTruthy();
 });

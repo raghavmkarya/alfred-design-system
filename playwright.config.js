@@ -24,7 +24,7 @@ export default defineConfig({
     viewport: { width: 1240, height: 900 },
   },
   projects: [
-    { name: "interaction", testMatch: /interaction\.spec\.js|theme-tokens\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
+    { name: "interaction", testMatch: /interaction\.spec\.js|theme-tokens\.spec\.js|chart-cursor\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
     { name: "visual", testMatch: /visual\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
     // forced-colors: Windows High Contrast emulation. Chromium substitutes the system
     // palette, so this asserts real computed colors, not just that the media query fires.
