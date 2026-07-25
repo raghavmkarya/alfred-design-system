@@ -1,0 +1,74 @@
+name: sync-drift
+
+# The design system ships through three channels. Two can silently fall behind
+# `main`: the claude.ai/design project (pushed by hand) and GitHub Pages (auto,
+# but a build can fail). Channel 1 drifted through six merges before anyone
+# noticed, because a stale project looks exactly like a current one from the
+# repo side — there is nothing to see unless you go looking.
+#
+# This runs the check weekly and files (or updates) a single tracking issue when
+# a channel has drifted, closing it again once everything is current. The check
+# needs no design auth: `.design-sync/config.json` records `lastSyncCommit`, so
+# the delta is a filtered `git diff`.
+on:
+  schedule:
+    - cron: "17 8 * * 1"   # Mondays 08:17 UTC — off the hour, so not queued behind the rush
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pages: read
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # lastSyncCommit may be many commits back
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check sync drift
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          node scripts/check-sync-drift.mjs > drift.txt 2>&1
+          echo "drifted=$?" >> "$GITHUB_OUTPUT"
+          cat drift.txt
+
+      - name: Open or update the drift issue
+        if: steps.check.outputs.drifted != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Sync drift: a distribution channel is behind main"
+          BODY=$(printf '%s\n\n```\n%s\n```\n\n_Filed automatically by `.github/workflows/sync-drift.yml`. Closes itself once every channel is current._\n' \
+            "One or more distribution channels have fallen behind \`main\` (\`${GITHUB_SHA:0:7}\`)." "$(cat drift.txt)")
+          EXISTING=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+            echo "Updated issue #$EXISTING"
+          else
+            gh issue create --title "$TITLE" --body "$BODY" --label "needs-triage" || \
+            gh issue create --title "$TITLE" --body "$BODY"   # label may not exist yet
+          fi
+
+      - name: Close the drift issue when everything is current
+        if: steps.check.outputs.drifted == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Sync drift: a distribution channel is behind main"
+          EXISTING=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue close "$EXISTING" --comment "All channels are current with \`${GITHUB_SHA:0:7}\`. Closing."
+            echo "Closed issue #$EXISTING"
+          else
+            echo "No drift, no open issue — nothing to do."
+          fi

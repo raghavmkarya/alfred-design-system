@@ -149,9 +149,9 @@ templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout libra
 templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
 social/               ← 102-frame social system: OG images · LinkedIn/Facebook/Instagram/X cards, stories & covers · daily-content archetypes (tips, checklists, myth/fact, questions, definitions, spotlights, recaps, milestones) · YouTube thumbnails & banner · 5-part carousel kit · profile kits — every feed/OG frame in dark + white twins (*-light.html) (+ gallery index.html, daily cadence map in social/README.md, batch export via scripts/capture-social.mjs)
 slides/               ← presentation templates (cover, index, section, content)
-scripts/              ← tooling, incl. verify-render.mjs · verify-components.mjs · verify-a11y.mjs · verify-craft.mjs
+scripts/              ← tooling: the 6 verifiers (verify-render · components · a11y · craft · types · contrast) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
-.design-sync/         ← claude.ai/design project link + sync notes
+.design-sync/         ← claude.ai/design project link + sync notes (projectId, lastSyncCommit, exclude list — check-sync-drift.mjs reads this)
 ```
 
 **Components** (113, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`; **core**
