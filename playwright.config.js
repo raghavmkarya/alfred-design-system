@@ -29,6 +29,8 @@ export default defineConfig({
     // forced-colors: Windows High Contrast emulation. Chromium substitutes the system
     // palette, so this asserts real computed colors, not just that the media query fires.
     { name: "forced-colors", testMatch: /forced-colors\.spec\.js/, use: { ...devices["Desktop Chrome"], forcedColors: "active" } },
+    // playground: boots the live docs page and clicks through all 115 components
+    { name: "playground", testMatch: /playground\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
   ],
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.02, animations: "disabled" } },
 });

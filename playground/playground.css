@@ -1,0 +1,130 @@
+/* The playground is itself an Alfred surface, so it uses the tokens rather than
+   its own values. Three panes: pick a component, see it live, tune its props. */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-sans); color: var(--text-primary); background: var(--bg-canvas); }
+
+.pg {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 340px;
+  height: 100vh;
+}
+@media (max-width: 1100px) {
+  .pg { grid-template-columns: 1fr; height: auto; }
+  .pg-rail, .pg-panel { height: auto; max-height: none; border: none; border-block-end: 1px solid var(--border-subtle); }
+}
+
+/* ---- left rail: the component index ---- */
+.pg-rail {
+  border-inline-end: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  overflow-y: auto;
+  padding: var(--density-bar-pad-y) var(--density-bar-pad-x);
+}
+.pg-brand { display: flex; align-items: center; gap: 10px; margin-block-end: 14px; }
+.pg-brand img { height: 22px; }
+.pg-brand span {
+  font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps);
+  text-transform: uppercase; color: var(--text-muted);
+}
+.pg-group {
+  font-size: var(--text-2xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps);
+  text-transform: uppercase; color: var(--text-muted);
+  margin: 16px 0 6px;
+}
+.pg-item {
+  display: block; width: 100%; text-align: start; cursor: pointer;
+  border: 1px solid transparent; background: transparent;
+  padding: var(--density-nav-item-pad-y) var(--density-nav-item-pad-x);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-body);
+  transition: background var(--dur-fast) var(--ease-standard);
+}
+.pg-item:hover { background: var(--surface-hover); }
+/* the copy affordance borrows the item's shape but is not a list item */
+.pg-copy {
+  cursor: pointer; background: transparent; border-radius: var(--radius-md);
+  padding: var(--density-nav-item-pad-y) var(--density-nav-item-pad-x);
+  font-family: var(--font-sans); color: var(--text-body);
+}
+.pg-copy:hover { background: var(--surface-hover); }
+.pg-item[aria-current="true"] { background: var(--accent-soft); color: var(--text-on-tint-brand); font-weight: var(--fw-bold); }
+
+/* ---- centre: the live preview ---- */
+.pg-main { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+.pg-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  padding: var(--density-bar-pad-y) var(--density-bar-pad-x);
+  border-block-end: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+}
+.pg-bar h1 { font-family: var(--font-display); font-size: var(--text-xl); margin: 0; letter-spacing: -0.02em; }
+.pg-bar .sub { font-size: var(--text-sm); color: var(--text-muted); flex: 1; min-width: 0; }
+.pg-seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--surface-sunken); border-radius: var(--radius-md); }
+.pg-seg button {
+  border: none; background: transparent; cursor: pointer; border-radius: var(--radius-sm);
+  padding: 5px 10px; font-family: var(--font-sans); font-size: var(--text-2xs); color: var(--text-secondary);
+}
+.pg-seg button[aria-pressed="true"] { background: var(--surface-card); color: var(--text-primary); font-weight: var(--fw-bold); box-shadow: var(--elevation-surface); }
+
+.pg-stage { flex: 1; overflow: auto; padding: 32px; background: var(--bg-canvas); }
+.pg-canvas {
+  min-height: 220px; display: flex; align-items: center; justify-content: center;
+  padding: var(--density-surface-pad);
+  background: var(--bg-canvas); color: var(--text-primary);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-2xl);
+  /* Overlays (Modal, Drawer, Toast) are position:fixed and would otherwise
+     escape to the viewport and cover the whole playground, making the rail
+     unclickable. `contain` establishes a containing block for fixed
+     descendants, so an overlay previews inside its own canvas. */
+  position: relative;
+  contain: layout paint;
+}
+.pg-canvas > * { max-width: 100%; }
+.pg-err {
+  font-family: var(--font-sans); font-size: var(--text-sm); color: var(--danger-600);
+  background: var(--danger-100); border-radius: var(--radius-md); padding: 14px 16px;
+}
+
+.pg-code { margin-block-start: 22px; }
+.pg-code-head { display: flex; align-items: center; justify-content: space-between; margin-block-end: 8px; }
+.pg-code pre {
+  margin: 0; padding: 16px; overflow-x: auto;
+  background: var(--surface-sunken); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--text-xs);
+  color: var(--text-body); line-height: var(--lh-relaxed);
+}
+
+/* ---- right: prop controls + API ---- */
+.pg-panel {
+  border-inline-start: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  overflow-y: auto;
+  padding: var(--density-bar-pad-y) var(--density-bar-pad-x);
+}
+.pg-field { margin-block-end: 14px; }
+.pg-field label { display: block; font-size: var(--text-xs); font-weight: var(--fw-bold); margin-block-end: 4px; }
+.pg-field .doc { font-size: var(--text-2xs); color: var(--text-muted); margin-block-end: 6px; line-height: var(--lh-normal); }
+.pg-field input[type="text"], .pg-field input[type="number"], .pg-field select {
+  width: 100%; height: var(--density-field-h-sm);
+  padding: 0 var(--density-field-pad-x);
+  font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-primary);
+  background: var(--surface-input-plain); border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-md);
+}
+.pg-field input:focus-visible, .pg-field select:focus-visible {
+  outline: none; border-color: var(--border-focus); box-shadow: var(--shadow-focus);
+}
+.pg-check { display: flex; align-items: center; gap: 8px; }
+.pg-check input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+.pg-readonly {
+  font-size: var(--text-2xs); color: var(--text-muted);
+  padding: 6px 0; border-block-end: 1px solid var(--border-subtle);
+  display: flex; justify-content: space-between; gap: 10px;
+}
+.pg-readonly code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--text-secondary); }
+.pg-note {
+  font-size: var(--text-2xs); color: var(--text-muted); line-height: var(--lh-normal);
+  background: var(--surface-sunken); border-radius: var(--radius-md); padding: 10px 12px; margin-block-end: 14px;
+}

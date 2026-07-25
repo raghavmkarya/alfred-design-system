@@ -1,6 +1,6 @@
 name: verify
 
-# Gates every PR (and pushes to main) on the design system's six verifiers, and
+# Gates every PR (and pushes to main) on the design system's seven verifiers, and
 # fails if the committed bundle is stale. Locks in what the verifiers guarantee:
 # component render health, ARIA/keyboard contracts, craft rules, type contracts,
 # and WCAG-AA color contrast across all three themes.
@@ -47,6 +47,8 @@ jobs:
         run: node scripts/verify-types.mjs
       - name: verify-contrast (WCAG AA over color tokens, all themes)
         run: node scripts/verify-contrast.mjs
+      - name: verify-playground (docs schema fresh + covers every component)
+        run: node scripts/verify-playground.mjs
 
   # OS-independent interaction/behaviour tests (Playwright). These assert DOM
   # state, not pixels, so a bare runner + a Chromium install is enough.
@@ -69,6 +71,11 @@ jobs:
       # chart colour that is deliberately opted out of forcing.
       - name: Playwright forced-colors (high contrast) tests
         run: npx playwright test --project=forced-colors
+      # Boots the live docs playground and clicks through all 115 components.
+      # It renders from the real bundle, so a component whose sample props no
+      # longer match its API throws here and nowhere else.
+      - name: Playwright playground tests
+        run: npx playwright test --project=playground
 
   # Tri-theme visual regression (light / app-dark / marketing-dark) — the harness
   # that caught the marketing-dark Banner bug, now a standing gate. Runs in the
