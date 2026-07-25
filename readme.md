@@ -94,6 +94,25 @@ git clone https://github.com/raghavmkarya/alfred-design-system
 
 ---
 
+## Install from npm
+
+```bash
+npm i @alfredai/design-system react react-dom
+```
+
+```jsx
+import { Button, KpiCard } from "@alfredai/design-system";
+import "@alfredai/design-system/styles.css";   // tokens + @font-face closure, import once
+
+<KpiCard label="Blended ROAS" value="4.8x" delta="+12.4%" direction="up" />
+```
+
+Real ESM with the authored `.d.ts` shipped alongside; React is a **peer** dependency (two copies of
+React in one app breaks hooks). The package is built by `npm run build:npm` from the same compile
+pipeline as `_ds_bundle.js`, so it cannot drift from the bundle the verifiers test. `dist/` is
+generated, not committed. To cut a release: bump `dsVersion` in `package.json`, run
+`npm run verify:npm`, then `npm publish dist`.
+
 ## Use it directly (HTML / React)
 
 If you're not going through a Claude surface, consume it like any static design system:

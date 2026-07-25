@@ -2,6 +2,7 @@
   "name": "designsystem",
   "private": true,
   "description": "Alfred AI design system: build, verifiers, and type-check tooling",
+  "dsVersion": "1.0.0",
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "verify:types": "node scripts/verify-types.mjs",
@@ -33,11 +34,15 @@
     "verify:all": "npm run build && npm run typecheck && npm run verify:types && npm run verify:components && npm run verify:render && npm run verify:a11y && npm run verify:craft && npm run verify:contrast && npm run verify:expansion-inventory && npm run verify:expansion-social && npm run verify:expansion-positioning && npm run verify:campaign",
     "build": "node scripts/build-bundle.mjs",
     "test": "playwright test --project=interaction",
-    "test:visual": "playwright test --project=visual"
+    "test:visual": "playwright test --project=visual",
+    "build:npm": "node scripts/build-npm.mjs",
+    "verify:npm": "node scripts/verify-npm.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/react": "^18.3.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "typescript": "^5.6.3"
   }
 }

@@ -1,6 +1,6 @@
 name: verify
 
-# Gates every PR (and pushes to main) on the design system's seven verifiers, and
+# Gates every PR (and pushes to main) on the design system's eight verifiers, and
 # fails if the committed bundle is stale. Locks in what the verifiers guarantee:
 # component render health, ARIA/keyboard contracts, craft rules, type contracts,
 # and WCAG-AA color contrast across all three themes.
@@ -49,6 +49,11 @@ jobs:
         run: node scripts/verify-contrast.mjs
       - name: verify-playground (docs schema fresh + covers every component)
         run: node scripts/verify-playground.mjs
+      # Builds the publishable package and imports it as a consumer would,
+      # server-rendering all 115 through the ESM entry. dist/ is generated and
+      # not committed, so nothing else would notice if it stopped building.
+      - name: verify-npm (package builds, exports, renders, types)
+        run: node scripts/verify-npm.mjs
 
   # OS-independent interaction/behaviour tests (Playwright). These assert DOM
   # state, not pixels, so a bare runner + a Chromium install is enough.

@@ -17,7 +17,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = new URL("..", import.meta.url).pathname;
-const SKIP_DIRS = new Set(["scripts", "uploads", "node_modules", ".git", ".design-sync", ".design_sync", "mocks"]);
+// "dist" is the generated npm package — linting a copy of the authored tokens
+// would re-report the very file that legitimately DEFINES the motion tokens.
+// Same reasoning for the Playwright output directories.
+const SKIP_DIRS = new Set(["scripts", "uploads", "node_modules", ".git", ".design-sync", ".design_sync", "mocks", "dist", "test-results", "playwright-report"]);
 const EXTS = new Set([".html", ".css", ".jsx"]);
 
 /* Files where raw ramp tokens are a legitimate, reviewed brand device — gradient <stop>s that
