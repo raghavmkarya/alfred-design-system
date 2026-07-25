@@ -3,6 +3,31 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-25: Phase 4.4 (part 1) — the data behind every chart
+
+The chart a11y contract gave every chart a one-line summary. A summary says *"Line chart, 4 points,
+from 12 to 24"* — it does not let anyone **read the values**. For the ten charts whose data lives only
+inside the graphic, the numbers were simply unreachable.
+
+- **`ChartTable`** (internal, `components/hooks/chartTable.jsx`) — a visually-hidden `<table>` with a
+  `<caption>`, `<th scope="col">` headers and `<th scope="row">` row labels. Clip-rect rather than
+  `display: none`, which would remove it from the accessibility tree.
+- **Applied to all 10 `role="img"` charts**: Line, Sparkline, Area, Donut, Scatter, StackedBar, Sankey,
+  Gauge, Waterfall, Bullet — each with a small adapter for its own data shape (points / series /
+  segments / links / items).
+- **Deliberately NOT applied to the 3 `role="group"` charts.** Bar, Funnel and Heatmap already render
+  their labels and values as readable text; a table there would make a screen reader announce every
+  number twice. That is the same distinction the role split already encodes.
+- **`verify-a11y` 92 → 105 contracts**, and now supports **negative patterns** — a case can assert what
+  the output must *not* contain. Some contracts are about absence, and asserting only presence would
+  let the double-announce regress silently. Proven by adding a table to BarChart and watching it fail.
+- Visually hidden, so all three tri-theme baselines pass unchanged.
+
+The *pointer* half of 4.4 — hover/focus model, shared tooltip, legend toggling — is deliberately left
+open rather than half-built: hit-testing an SVG path is a different problem in each chart. Charts today
+still have no hover or keyboard interaction beyond SankeyChart's hover state and Heatmap's native
+`title` attributes. `guidelines/chart-contract.md` says so explicitly.
+
 ## 2026-07-25: Phase 3.2 — npm package (`@alfredai/design-system` v1.0.0)
 
 The design system was consumable three ways, all of which meant "get the files": a synced folder, a

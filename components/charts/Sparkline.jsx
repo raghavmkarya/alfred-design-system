@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — Sparkline
@@ -18,6 +19,9 @@ export function Sparkline({ points = [], width = 640, height = 160, stroke = 3, 
     ? `Sparkline, ${points.length} points, from ${points[0]} to ${points[points.length - 1]}`
     : "Sparkline, no data");
   return (
+    <>
+    <ChartTable caption={aria} columns={["Index", "Value"]}
+      rows={points.map((v, i) => [`#${i + 1}`, String(v)])} />
     <svg viewBox={`0 0 ${width} ${height}`} width="100%" height={height} preserveAspectRatio="none" role="img" aria-label={aria} style={{ display: "block", ...style }}>
       <defs>
         <linearGradient id={`${uid}l`} x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="var(--chart-2)" /><stop offset="100%" stopColor="var(--chart-1)" /></linearGradient>
@@ -27,5 +31,6 @@ export function Sparkline({ points = [], width = 640, height = 160, stroke = 3, 
       {fill && <path d={area} fill={`url(#${uid}f)`} />}
       <path d={line} fill="none" stroke={`url(#${uid}l)`} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" />
     </svg>
+    </>
   );
 }

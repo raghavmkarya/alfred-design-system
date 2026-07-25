@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — AreaChart
@@ -38,6 +39,11 @@ export function AreaChart({ series = [], labels = [], height = 220, yTicks = 4, 
 
   return (
     <div style={{ width: "100%", ...style }}>
+      <ChartTable caption={aria}
+        columns={["Point"].concat(series.map((s, i) => String(s.name || `Series ${i + 1}`)))}
+        rows={Array.from({ length: n }, (_, i) => [
+          labels[i] != null ? String(labels[i]) : `#${i + 1}`,
+        ].concat(series.map((s) => String(s.points[i] ?? ""))))} />
       <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           {series.map((s, si) => {

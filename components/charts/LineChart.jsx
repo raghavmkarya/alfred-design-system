@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — LineChart
@@ -19,7 +20,12 @@ export function LineChart({ points = [], labels = [], height = 200, ariaLabel, s
     ? `Line chart, ${points.length} points, from ${points[0]} to ${points[points.length - 1]}`
     : "Line chart, no data");
   return (
-    <div style={{ width: "100%", ...style }}>
+    <div style={{ width: "100%", position: "relative", ...style }}>
+      <ChartTable
+        caption={aria}
+        columns={[labels.length ? "Point" : "Index", "Value"]}
+        rows={points.map((v, i) => [labels[i] != null ? String(labels[i]) : `#${i + 1}`, String(v)])}
+      />
       <svg viewBox={`0 0 ${w} ${height}`} width="100%" height={height} preserveAspectRatio="none" role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           <linearGradient id={`${uid}l`} x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="var(--chart-2)" /><stop offset="100%" stopColor="var(--chart-1)" /></linearGradient>

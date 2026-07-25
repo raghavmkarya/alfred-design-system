@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — DonutChart
@@ -19,6 +20,8 @@ export function DonutChart({ segments = [], size = 180, thickness = 22, centerLa
     : "Donut chart, no data");
   return (
     <div style={{ position: "relative", width: size, height: size, ...style }}>
+      <ChartTable caption={aria} columns={["Segment", "Value", "Share"]}
+        rows={segments.map((s) => [String(s.label), String(s.value), `${Math.round((s.value / total) * 100)}%`])} />
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={aria} style={{ transform: "rotate(-90deg)" }}>
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--surface-sunken)" strokeWidth={thickness} />
         {segments.map((s, i) => {

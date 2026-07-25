@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 import { Legend } from "../charts/Legend.jsx";
 
 /**
@@ -69,6 +70,8 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
 
   return (
     <div style={{ width: "100%", ...style }}>
+      <ChartTable caption={aria} columns={["Group"].concat(keys.map(String))}
+        rows={data.map((d) => [String((d && d.label) ?? "")].concat(keys.map((k) => String(num(d && d[k])))))} />
       <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           {/* Soft top sheen — a single light source from above, theme-neutral. */}

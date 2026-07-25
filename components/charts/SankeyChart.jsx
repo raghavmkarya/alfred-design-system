@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartTable } from "../hooks/chartTable.jsx";
 
 /**
  * Alfred AI — SankeyChart
@@ -114,6 +115,8 @@ export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 
 
   return (
     <div style={{ width: "100%", ...style }}>
+      <ChartTable caption={aria} columns={["From", "To", "Value"]}
+        rows={links.map((l) => [String(l.source), String(l.target), String(fmt(l.value || 0))])} />
       <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
         <defs>
           {nodes.map((n, i) => (
