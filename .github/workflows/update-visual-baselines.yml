@@ -52,5 +52,10 @@ jobs:
             echo "Baselines already up to date — nothing to commit."
             exit 0
           fi
-          git commit -m "Update Linux visual baselines [skip ci]"
+          # No `[skip ci]`. This commit is normally the LAST one on a PR branch,
+          # and GitHub skips a push whose head commit carries that marker — which
+          # leaves the PR with no checks at all, unmergeable, and not fixable by
+          # reopening it. Suppressing the run that would prove the re-blessed
+          # baselines pass also defeats the point of re-blessing them.
+          git commit -m "Update Linux visual baselines"
           git push origin "HEAD:${GITHUB_REF_NAME}"
