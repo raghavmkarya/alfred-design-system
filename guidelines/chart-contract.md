@@ -107,8 +107,20 @@ row inside KPI cards, and making each one a tab stop would be hostile.
 
 ## What is not settled yet
 
-**Legend interaction** (click a series to toggle it) is still open. It changes both the `Legend` API
-and each chart's state model, so it is a separate piece rather than something to bolt on.
+**Legend interaction is done.** A legend becomes interactive **only** when given `onToggle` — a static
+key stays plain text, because making every legend a row of buttons would add tab stops to charts where
+nothing can be toggled.
+
+Two things it has to get right:
+
+- **Hiding a series rescales the chart.** Otherwise the y-axis keeps its old ceiling and the remaining
+  bars look mysteriously short. The test asserts the axis ticks themselves (100 → 20), not bar
+  geometry, because bars can look plausible either way.
+- **A hidden series is not signalled by colour alone.** The swatch becomes an outline and the label is
+  struck through, so the state survives for a colour-blind user.
+
+A series keeps its palette colour when others are hidden — the colour is keyed to its original index,
+not its position among the visible ones, or the chart appears to recolour itself as you toggle.
 
 The non-x-indexed charts — Donut, Gauge, Bullet, Sankey, Scatter — have no cursor yet. Each needs its
 own hit-testing (arcs, tracks, scattered points), which is why they were not swept in with the
