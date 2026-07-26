@@ -1,6 +1,7 @@
 import React from "react";
 import { ConfidenceMeter } from "../trust/ConfidenceMeter.jsx";
 import { SourceTrace } from "../trust/SourceTrace.jsx";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — ProvenancePanel
@@ -151,7 +152,7 @@ export function ProvenancePanel({
             transition: "transform var(--dur-base) var(--ease-standard)",
           }}
         >
-          <path d="M6 9l6 6 6-6" />
+          <path d={GLYPH.chevronDown} />
         </svg>
       </button>
 

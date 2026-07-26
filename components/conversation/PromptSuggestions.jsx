@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — PromptSuggestions
@@ -24,7 +25,7 @@ export function PromptSuggestions({
 
   const spark = (
     <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style={{ flex: "none" }}>
-      <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
+      <path d={GLYPH.sparkle}
         fill="var(--info-500)" />
     </svg>
   );
@@ -81,7 +82,7 @@ export function PromptSuggestions({
             {isList && (
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)"
                 strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flex: "none" }}>
-                <path d="M9 6l6 6-6 6" />
+                <path d={GLYPH.chevronRight} />
               </svg>
             )}
           </button>

@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — AuditLogRow
@@ -181,7 +182,7 @@ export function AuditLogRow({
                 transition: "transform var(--dur-base) var(--ease-standard)",
               }}
             >
-              <path d="M6 9l6 6 6-6" />
+              <path d={GLYPH.chevronDown} />
             </svg>
           </button>
         )}

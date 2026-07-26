@@ -62,7 +62,7 @@ export function ThinkingTrace({
             }} />
           )}
           <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style={{ position: "relative" }}>
-            <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
+            <path d={GLYPH.sparkle}
               fill="var(--text-on-brand)" />
           </svg>
         </span>
@@ -79,7 +79,7 @@ export function ThinkingTrace({
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)"
           strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
           style={{ flex: "none", transform: open ? "rotate(180deg)" : "none", transition: "transform var(--dur-base) var(--ease-standard)" }}>
-          <path d="M6 9l6 6 6-6" />
+          <path d={GLYPH.chevronDown} />
         </svg>
       </button>
 

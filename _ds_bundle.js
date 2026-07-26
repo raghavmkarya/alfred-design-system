@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"BrandMoment","sourcePath":"components/brand/BrandMoment.jsx"},{"name":"Illustration","sourcePath":"components/brand/Illustration.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/glyphs.jsx":"11494ef46fb9","components/hooks/usePress.jsx":"db14f90109d8","components/hooks/chartTable.jsx":"51881d6ffdba","components/hooks/chartCursor.jsx":"424278e7b210","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/brand/BrandMoment.jsx":"32e0a912d6c9","components/brand/Illustration.jsx":"b8d9361c1a5a","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"dbed2d8a8ea0","components/core/Chip.jsx":"35bb041fdf95","components/core/Tabs.jsx":"070d9a567848","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"842e26cc0966","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"684ede444e12","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"b441a6e9a259","components/core/TagInput.jsx":"c77a297ccc17","components/core/Textarea.jsx":"167b5bcc7207","components/core/Accordion.jsx":"70aa7488fb0d","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"a15152291e31","components/core/SearchInput.jsx":"9e7f63c4a423","components/core/FileDropzone.jsx":"8b7e2e13d7a9","components/core/SegmentedControl.jsx":"a9d84cea4a4e","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9e8d1510da4d","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"13760e0deb81","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"ef6e94ac0f1b","components/data/ActivityTimeline.jsx":"8817b99169f5","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"16094c6c06d3","components/charts/Heatmap.jsx":"0cbe502604f1","components/charts/BarChart.jsx":"ed6dfff8dc0f","components/charts/AreaChart.jsx":"00c9a89fdd05","components/charts/LineChart.jsx":"794c962a4ef1","components/charts/Sparkline.jsx":"c01061bff142","components/charts/DonutChart.jsx":"7e4f6220a083","components/charts/GaugeChart.jsx":"de598810be04","components/charts/BulletChart.jsx":"7ed2a738e092","components/charts/FunnelChart.jsx":"cf9037847a3f","components/charts/SankeyChart.jsx":"e575ec57c16e","components/charts/ScatterChart.jsx":"dc52a9adf565","components/charts/WaterfallChart.jsx":"531e60776548","components/charts/StackedBarChart.jsx":"780be4302604","components/overlay/Menu.jsx":"bbcb7af7e846","components/overlay/Modal.jsx":"1cd4175015cc","components/overlay/Toast.jsx":"9898014849dc","components/overlay/Drawer.jsx":"90ff337cd0fd","components/overlay/Popover.jsx":"ae940f2c5460","components/overlay/Tooltip.jsx":"83229cc61a82","components/feedback/Banner.jsx":"37a05b48534f","components/feedback/Callout.jsx":"5a1e093a3c29","components/marketing/FaqItem.jsx":"e2a875432360","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"ca53bd101e55","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"2b84e00acd01","components/marketing/SignalCard.jsx":"ca4772dbd10f","components/marketing/AgentStatus.jsx":"7a428152b19b","components/marketing/AvatarStack.jsx":"2dce6d47bd41","components/marketing/OfferSwitch.jsx":"b3fa8135ff93","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"95e2d5dbe6df","components/marketing/JobListingRow.jsx":"a8e51d5185b9","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"7780e8ed534d","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"11edac06e1c5","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"550925a37ed3","components/trust/CausalChain.jsx":"b8c3de247ea1","components/trust/DecisionLog.jsx":"e74435a8cf44","components/trust/SourceTrace.jsx":"4a2817cf88e9","components/trust/DataFreshness.jsx":"fad8d3395842","components/trust/EvidenceLedger.jsx":"14070ba9985c","components/trust/ConfidenceMeter.jsx":"594981e42aa1","components/trust/InsightFeedback.jsx":"a649ad015fcd","components/trust/ProvenancePanel.jsx":"c60c470ef27e","components/trust/RecommendationCard.jsx":"876bd724416f","components/app/Sidebar.jsx":"4e65a9b42987","components/app/StatTile.jsx":"fce552fe284f","components/app/DataTable.jsx":"241fa7841e24","components/app/FilterBar.jsx":"e4f6a290594e","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"e08ef822f9ae","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"10d9b56757a4","components/app/CommandPalette.jsx":"433a38b5695f","components/app/ModuleSwitcher.jsx":"5446c458df5d","components/app/BillingPlanCard.jsx":"4d7c62bbf837","components/app/DateRangePicker.jsx":"f62453e5ef44","components/app/SyncStatusBadge.jsx":"6c435fb514fb","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"0c509695eddd","components/conversation/SeekComposer.jsx":"722eaa71f6b0","components/conversation/AlfredMessage.jsx":"812447cb49c1","components/conversation/ThinkingTrace.jsx":"a8c4e89346f8","components/conversation/ReasoningState.jsx":"13c87800d1f5","components/conversation/PromptSuggestions.jsx":"60b7da06eb49","components/decision/GoalPacing.jsx":"d445d5ca31cd","components/decision/AnomalyFlag.jsx":"b2f990f9aee1","components/decision/ApprovalGate.jsx":"fe615da398c3","components/decision/DecisionFork.jsx":"51d5197ebc3e","components/decision/ScenarioSimulator.jsx":"e0d54edb0992"},"inlinedExternals":[],"unexposedExports":["GLYPH","isFocusVisible","usePress","ChartTable","useChartCursor","ChartLive","ChartTooltip"]} */
+/* @ds-bundle: {"format":3,"namespace":"AlfredAIDesignSystem_1ce241","components":[{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"BrandMoment","sourcePath":"components/brand/BrandMoment.jsx"},{"name":"Illustration","sourcePath":"components/brand/Illustration.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Chip","sourcePath":"components/core/Chip.jsx"},{"name":"Tabs","sourcePath":"components/core/Tabs.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"Avatar","sourcePath":"components/core/Avatar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Select","sourcePath":"components/core/Select.jsx"},{"name":"Slider","sourcePath":"components/core/Slider.jsx"},{"name":"Switch","sourcePath":"components/core/Switch.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"Spinner","sourcePath":"components/core/Spinner.jsx"},{"name":"Checkbox","sourcePath":"components/core/Checkbox.jsx"},{"name":"Combobox","sourcePath":"components/core/Combobox.jsx"},{"name":"TagInput","sourcePath":"components/core/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/core/Textarea.jsx"},{"name":"Accordion","sourcePath":"components/core/Accordion.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"RadioGroup","sourcePath":"components/core/RadioGroup.jsx"},{"name":"NumberInput","sourcePath":"components/core/NumberInput.jsx"},{"name":"SearchInput","sourcePath":"components/core/SearchInput.jsx"},{"name":"FileDropzone","sourcePath":"components/core/FileDropzone.jsx"},{"name":"SegmentedControl","sourcePath":"components/core/SegmentedControl.jsx"},{"name":"Table","sourcePath":"components/data/Table.jsx"},{"name":"KpiCard","sourcePath":"components/data/KpiCard.jsx"},{"name":"Stepper","sourcePath":"components/data/Stepper.jsx"},{"name":"Skeleton","sourcePath":"components/data/Skeleton.jsx"},{"name":"Breadcrumb","sourcePath":"components/data/Breadcrumb.jsx"},{"name":"EmptyState","sourcePath":"components/data/EmptyState.jsx"},{"name":"Pagination","sourcePath":"components/data/Pagination.jsx"},{"name":"StateBlock","sourcePath":"components/data/StateBlock.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ProgressRing","sourcePath":"components/data/ProgressRing.jsx"},{"name":"DecisionAlert","sourcePath":"components/data/DecisionAlert.jsx"},{"name":"ActivityTimeline","sourcePath":"components/data/ActivityTimeline.jsx"},{"name":"NotificationItem","sourcePath":"components/data/NotificationItem.jsx"},{"name":"Legend","sourcePath":"components/charts/Legend.jsx"},{"name":"Heatmap","sourcePath":"components/charts/Heatmap.jsx"},{"name":"BarChart","sourcePath":"components/charts/BarChart.jsx"},{"name":"AreaChart","sourcePath":"components/charts/AreaChart.jsx"},{"name":"LineChart","sourcePath":"components/charts/LineChart.jsx"},{"name":"Sparkline","sourcePath":"components/charts/Sparkline.jsx"},{"name":"DonutChart","sourcePath":"components/charts/DonutChart.jsx"},{"name":"GaugeChart","sourcePath":"components/charts/GaugeChart.jsx"},{"name":"BulletChart","sourcePath":"components/charts/BulletChart.jsx"},{"name":"FunnelChart","sourcePath":"components/charts/FunnelChart.jsx"},{"name":"SankeyChart","sourcePath":"components/charts/SankeyChart.jsx"},{"name":"ScatterChart","sourcePath":"components/charts/ScatterChart.jsx"},{"name":"WaterfallChart","sourcePath":"components/charts/WaterfallChart.jsx"},{"name":"StackedBarChart","sourcePath":"components/charts/StackedBarChart.jsx"},{"name":"Menu","sourcePath":"components/overlay/Menu.jsx"},{"name":"Modal","sourcePath":"components/overlay/Modal.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Drawer","sourcePath":"components/overlay/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlay/Popover.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"},{"name":"Banner","sourcePath":"components/feedback/Banner.jsx"},{"name":"Callout","sourcePath":"components/feedback/Callout.jsx"},{"name":"FaqItem","sourcePath":"components/marketing/FaqItem.jsx"},{"name":"StatBand","sourcePath":"components/marketing/StatBand.jsx"},{"name":"StepFlow","sourcePath":"components/marketing/StepFlow.jsx"},{"name":"Countdown","sourcePath":"components/marketing/Countdown.jsx"},{"name":"DotMatrix","sourcePath":"components/marketing/DotMatrix.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"SignalCard","sourcePath":"components/marketing/SignalCard.jsx"},{"name":"AgentStatus","sourcePath":"components/marketing/AgentStatus.jsx"},{"name":"AvatarStack","sourcePath":"components/marketing/AvatarStack.jsx"},{"name":"OfferSwitch","sourcePath":"components/marketing/OfferSwitch.jsx"},{"name":"EyebrowBadge","sourcePath":"components/marketing/EyebrowBadge.jsx"},{"name":"DashboardMock","sourcePath":"components/marketing/DashboardMock.jsx"},{"name":"JobListingRow","sourcePath":"components/marketing/JobListingRow.jsx"},{"name":"AnimatedCounter","sourcePath":"components/marketing/AnimatedCounter.jsx"},{"name":"IntegrationCard","sourcePath":"components/marketing/IntegrationCard.jsx"},{"name":"CapabilityTicker","sourcePath":"components/marketing/CapabilityTicker.jsx"},{"name":"ModuleStatusCard","sourcePath":"components/marketing/ModuleStatusCard.jsx"},{"name":"CategoryCountBadge","sourcePath":"components/marketing/CategoryCountBadge.jsx"},{"name":"MemoryCard","sourcePath":"components/trust/MemoryCard.jsx"},{"name":"CausalChain","sourcePath":"components/trust/CausalChain.jsx"},{"name":"DecisionLog","sourcePath":"components/trust/DecisionLog.jsx"},{"name":"SourceTrace","sourcePath":"components/trust/SourceTrace.jsx"},{"name":"DataFreshness","sourcePath":"components/trust/DataFreshness.jsx"},{"name":"EvidenceLedger","sourcePath":"components/trust/EvidenceLedger.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/trust/ConfidenceMeter.jsx"},{"name":"InsightFeedback","sourcePath":"components/trust/InsightFeedback.jsx"},{"name":"ProvenancePanel","sourcePath":"components/trust/ProvenancePanel.jsx"},{"name":"RecommendationCard","sourcePath":"components/trust/RecommendationCard.jsx"},{"name":"Sidebar","sourcePath":"components/app/Sidebar.jsx"},{"name":"StatTile","sourcePath":"components/app/StatTile.jsx"},{"name":"DataTable","sourcePath":"components/app/DataTable.jsx"},{"name":"FilterBar","sourcePath":"components/app/FilterBar.jsx"},{"name":"PageHeader","sourcePath":"components/app/PageHeader.jsx"},{"name":"UsageMeter","sourcePath":"components/app/UsageMeter.jsx"},{"name":"AuditLogRow","sourcePath":"components/app/AuditLogRow.jsx"},{"name":"UpgradeModal","sourcePath":"components/app/UpgradeModal.jsx"},{"name":"TeamMemberRow","sourcePath":"components/app/TeamMemberRow.jsx"},{"name":"CommandPalette","sourcePath":"components/app/CommandPalette.jsx"},{"name":"ModuleSwitcher","sourcePath":"components/app/ModuleSwitcher.jsx"},{"name":"BillingPlanCard","sourcePath":"components/app/BillingPlanCard.jsx"},{"name":"DateRangePicker","sourcePath":"components/app/DateRangePicker.jsx"},{"name":"SyncStatusBadge","sourcePath":"components/app/SyncStatusBadge.jsx"},{"name":"NotificationPref","sourcePath":"components/app/NotificationPref.jsx"},{"name":"ConnectionHealthCard","sourcePath":"components/app/ConnectionHealthCard.jsx"},{"name":"SeekComposer","sourcePath":"components/conversation/SeekComposer.jsx"},{"name":"AlfredMessage","sourcePath":"components/conversation/AlfredMessage.jsx"},{"name":"ThinkingTrace","sourcePath":"components/conversation/ThinkingTrace.jsx"},{"name":"ReasoningState","sourcePath":"components/conversation/ReasoningState.jsx"},{"name":"PromptSuggestions","sourcePath":"components/conversation/PromptSuggestions.jsx"},{"name":"GoalPacing","sourcePath":"components/decision/GoalPacing.jsx"},{"name":"AnomalyFlag","sourcePath":"components/decision/AnomalyFlag.jsx"},{"name":"ApprovalGate","sourcePath":"components/decision/ApprovalGate.jsx"},{"name":"DecisionFork","sourcePath":"components/decision/DecisionFork.jsx"},{"name":"ScenarioSimulator","sourcePath":"components/decision/ScenarioSimulator.jsx"}],"sourceHashes":{"components/hooks/glyphs.jsx":"b692ff76a149","components/hooks/usePress.jsx":"db14f90109d8","components/hooks/chartTable.jsx":"51881d6ffdba","components/hooks/chartCursor.jsx":"424278e7b210","components/brand/Icon.jsx":"dc67b23ac4ae","components/brand/Logo.jsx":"dc3210fe59f6","components/brand/BrandMoment.jsx":"32e0a912d6c9","components/brand/Illustration.jsx":"b8d9361c1a5a","components/core/Kbd.jsx":"e2be351bcfdd","components/core/Card.jsx":"dbed2d8a8ea0","components/core/Chip.jsx":"b4a6bec1e284","components/core/Tabs.jsx":"070d9a567848","components/core/Badge.jsx":"3cde3f4b9abf","components/core/Input.jsx":"235450825136","components/core/Avatar.jsx":"04c06e9bdf8d","components/core/Button.jsx":"e7f7b3d0e0f5","components/core/Select.jsx":"5b4a7b7eaa80","components/core/Slider.jsx":"efdb0eaad900","components/core/Switch.jsx":"684ede444e12","components/core/Divider.jsx":"39db73088504","components/core/Spinner.jsx":"1f9fb9207789","components/core/Checkbox.jsx":"e1e4719ba2a8","components/core/Combobox.jsx":"fac1a31f6fd3","components/core/TagInput.jsx":"c77a297ccc17","components/core/Textarea.jsx":"167b5bcc7207","components/core/Accordion.jsx":"17d8fc539c86","components/core/IconButton.jsx":"d00192faa70d","components/core/RadioGroup.jsx":"5f325fa10625","components/core/NumberInput.jsx":"533a6b113ed8","components/core/SearchInput.jsx":"07e81f0923f4","components/core/FileDropzone.jsx":"8b7e2e13d7a9","components/core/SegmentedControl.jsx":"a9d84cea4a4e","components/data/Table.jsx":"61c0586e95dc","components/data/KpiCard.jsx":"9e8d1510da4d","components/data/Stepper.jsx":"9af25a3243d3","components/data/Skeleton.jsx":"d9ad20a82864","components/data/Breadcrumb.jsx":"93746ed4fddc","components/data/EmptyState.jsx":"1b7050c03fed","components/data/Pagination.jsx":"42a6bd3a2977","components/data/StateBlock.jsx":"ce48f7ca934d","components/data/ProgressBar.jsx":"44c84117b067","components/data/ProgressRing.jsx":"12d7606a6c19","components/data/DecisionAlert.jsx":"ef6e94ac0f1b","components/data/ActivityTimeline.jsx":"8817b99169f5","components/data/NotificationItem.jsx":"106dd1366317","components/charts/Legend.jsx":"16094c6c06d3","components/charts/Heatmap.jsx":"0cbe502604f1","components/charts/BarChart.jsx":"ed6dfff8dc0f","components/charts/AreaChart.jsx":"00c9a89fdd05","components/charts/LineChart.jsx":"794c962a4ef1","components/charts/Sparkline.jsx":"c01061bff142","components/charts/DonutChart.jsx":"7e4f6220a083","components/charts/GaugeChart.jsx":"de598810be04","components/charts/BulletChart.jsx":"7ed2a738e092","components/charts/FunnelChart.jsx":"cf9037847a3f","components/charts/SankeyChart.jsx":"e575ec57c16e","components/charts/ScatterChart.jsx":"dc52a9adf565","components/charts/WaterfallChart.jsx":"531e60776548","components/charts/StackedBarChart.jsx":"780be4302604","components/overlay/Menu.jsx":"bbcb7af7e846","components/overlay/Modal.jsx":"662408142b82","components/overlay/Toast.jsx":"3de4988b561a","components/overlay/Drawer.jsx":"f88fc19ddcbf","components/overlay/Popover.jsx":"ae940f2c5460","components/overlay/Tooltip.jsx":"83229cc61a82","components/feedback/Banner.jsx":"ec9fab6809db","components/feedback/Callout.jsx":"5a1e093a3c29","components/marketing/FaqItem.jsx":"e2a875432360","components/marketing/StatBand.jsx":"7286939da0ec","components/marketing/StepFlow.jsx":"ca53bd101e55","components/marketing/Countdown.jsx":"85674be717a0","components/marketing/DotMatrix.jsx":"1ccefd3d62cc","components/marketing/PriceCard.jsx":"2b84e00acd01","components/marketing/SignalCard.jsx":"ca4772dbd10f","components/marketing/AgentStatus.jsx":"7a428152b19b","components/marketing/AvatarStack.jsx":"2dce6d47bd41","components/marketing/OfferSwitch.jsx":"b3fa8135ff93","components/marketing/EyebrowBadge.jsx":"d3a162468775","components/marketing/DashboardMock.jsx":"95e2d5dbe6df","components/marketing/JobListingRow.jsx":"4d0a1e45b2f1","components/marketing/AnimatedCounter.jsx":"2064d35b5910","components/marketing/IntegrationCard.jsx":"e88295e65103","components/marketing/CapabilityTicker.jsx":"c86b4819c5d4","components/marketing/ModuleStatusCard.jsx":"9be5a1dd5e49","components/marketing/CategoryCountBadge.jsx":"3892e982d587","components/trust/MemoryCard.jsx":"550925a37ed3","components/trust/CausalChain.jsx":"b8c3de247ea1","components/trust/DecisionLog.jsx":"e74435a8cf44","components/trust/SourceTrace.jsx":"4a2817cf88e9","components/trust/DataFreshness.jsx":"fad8d3395842","components/trust/EvidenceLedger.jsx":"14070ba9985c","components/trust/ConfidenceMeter.jsx":"594981e42aa1","components/trust/InsightFeedback.jsx":"a649ad015fcd","components/trust/ProvenancePanel.jsx":"4745dda8df79","components/trust/RecommendationCard.jsx":"6022f29cdaad","components/app/Sidebar.jsx":"4e65a9b42987","components/app/StatTile.jsx":"fce552fe284f","components/app/DataTable.jsx":"241fa7841e24","components/app/FilterBar.jsx":"e4f6a290594e","components/app/PageHeader.jsx":"55d3ed4d4d32","components/app/UsageMeter.jsx":"3783b88ca032","components/app/AuditLogRow.jsx":"edbac3a627a1","components/app/UpgradeModal.jsx":"94eea4ae4ed5","components/app/TeamMemberRow.jsx":"e7870b48b3bc","components/app/CommandPalette.jsx":"433a38b5695f","components/app/ModuleSwitcher.jsx":"8550c10335db","components/app/BillingPlanCard.jsx":"4d7c62bbf837","components/app/DateRangePicker.jsx":"f62453e5ef44","components/app/SyncStatusBadge.jsx":"6c435fb514fb","components/app/NotificationPref.jsx":"20d9464d534d","components/app/ConnectionHealthCard.jsx":"0c509695eddd","components/conversation/SeekComposer.jsx":"816c6266a4d6","components/conversation/AlfredMessage.jsx":"ea46264a285b","components/conversation/ThinkingTrace.jsx":"2c1da647ee3e","components/conversation/ReasoningState.jsx":"170943d656df","components/conversation/PromptSuggestions.jsx":"33fe5a031ea4","components/decision/GoalPacing.jsx":"d445d5ca31cd","components/decision/AnomalyFlag.jsx":"b2f990f9aee1","components/decision/ApprovalGate.jsx":"5163b1869c4c","components/decision/DecisionFork.jsx":"51d5197ebc3e","components/decision/ScenarioSimulator.jsx":"e0d54edb0992"},"inlinedExternals":[],"unexposedExports":["GLYPH","isFocusVisible","usePress","ChartTable","useChartCursor","ChartLive","ChartTooltip"]} */
 
 (() => {
 
@@ -43,7 +43,13 @@ const GLYPH = {
   chevronRight: "M9 6 l6 6 l-6 6",
   chevronLeft: "M15 6 l-6 6 l6 6",
   plus: "M12 5 v14 M5 12 h14",
-  minus: "M5 12 h14"
+  minus: "M5 12 h14",
+  /** shaft + head as ONE path; it was drawn as two <path> elements in three
+      marketing components, which read as a stray minus and a stray chevron */
+  arrowRight: "M5 12 h14 M13 6 l6 6 l-6 6",
+  /** the Alfred mark. FILLED, not stroked — the only one here that is, so it
+      wants `fill="currentColor"` and no stroke on its <svg>. */
+  sparkle: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
 };
 __ds_scope.GLYPH = GLYPH;
 })(); } catch (e) { (__ds_ns.__errors).push({ source: "components/hooks/glyphs.jsx", error: String((e && e.message) || e) }); }
@@ -975,6 +981,7 @@ __ds_scope.Card = Card;
 
 // components/core/Chip.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — Chip
  * Compact filter / tag pill. Tonal by default, solid orange when `selected`,
@@ -1040,7 +1047,7 @@ function Chip({
     strokeWidth: "2.4",
     strokeLinecap: "round"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
+    d: GLYPH.close
   }))));
 }
 __ds_scope.Chip = Chip;
@@ -1525,6 +1532,7 @@ __ds_scope.Button = Button;
 
 // components/core/Select.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — Select
@@ -1628,7 +1636,7 @@ const Select = React.forwardRef(function Select(props, ref) {
       pointerEvents: "none"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
+    d: GLYPH.chevronDown
   }))), error && /*#__PURE__*/React.createElement("span", {
     id: errId,
     role: "alert",
@@ -2066,6 +2074,7 @@ __ds_scope.Checkbox = Checkbox;
 
 // components/core/Combobox.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — Combobox
@@ -2229,7 +2238,7 @@ const Combobox = React.forwardRef(function Combobox({
       transition: "transform var(--dur-base) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
+    d: GLYPH.chevronDown
   }))), showList && /*#__PURE__*/React.createElement("div", {
     role: "listbox",
     id: listId,
@@ -2634,6 +2643,7 @@ __ds_scope.Textarea = Textarea;
 
 // components/core/Accordion.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — Accordion
  * Disclosure list of expandable rows — each header is a real button with a
@@ -2730,7 +2740,7 @@ function Accordion({
         transition: "transform var(--dur-base) var(--ease-standard)"
       }
     }, /*#__PURE__*/React.createElement("path", {
-      d: "M6 9l6 6 6-6"
+      d: GLYPH.chevronDown
     }))), /*#__PURE__*/React.createElement("div", {
       style: {
         display: "grid",
@@ -2963,6 +2973,7 @@ __ds_scope.RadioGroup = RadioGroup;
 
 // components/core/NumberInput.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — NumberInput
  * Stepper numeric field for budget caps, thresholds and targets. − / + buttons
@@ -3106,7 +3117,7 @@ const NumberInput = React.forwardRef(function NumberInput({
     strokeLinecap: "round",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M5 12h14"
+    d: GLYPH.minus
   }))), /*#__PURE__*/React.createElement("span", {
     style: {
       display: "flex",
@@ -3181,7 +3192,7 @@ const NumberInput = React.forwardRef(function NumberInput({
     strokeLinecap: "round",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 5v14M5 12h14"
+    d: GLYPH.plus
   })))));
 });
 __ds_scope.NumberInput = NumberInput;
@@ -3189,7 +3200,7 @@ __ds_scope.NumberInput = NumberInput;
 
 // components/core/SearchInput.jsx
 try { (() => {
-const { Spinner } = __ds_scope;
+const { Spinner, GLYPH } = __ds_scope;
 /**
  * Alfred AI — SearchInput
  * A search field with a leading magnifier, a clear button, an optional loading spinner,
@@ -3378,7 +3389,7 @@ const SearchInput = React.forwardRef(function SearchInput(props, ref) {
     strokeLinejoin: "round",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6 L18 18 M18 6 L6 18"
+    d: GLYPH.close
   }))) : null), showResults && /*#__PURE__*/React.createElement("div", {
     id: listboxId,
     role: "listbox",
@@ -4096,6 +4107,7 @@ __ds_scope.Skeleton = Skeleton;
 
 // components/data/Breadcrumb.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — Breadcrumb
  * Path trail with chevron separators; the final crumb is the bold current page.
@@ -4143,7 +4155,7 @@ function Breadcrumb({
       strokeLinecap: "round",
       strokeLinejoin: "round"
     }, /*#__PURE__*/React.createElement("path", {
-      d: "M9 6l6 6-6 6"
+      d: GLYPH.chevronRight
     })));
   }));
 }
@@ -7493,6 +7505,7 @@ __ds_scope.Menu = Menu;
 
 // components/overlay/Modal.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — Modal
  * Centered dialog over a dimmed, blurred backdrop. Controlled via `open`;
@@ -7639,7 +7652,7 @@ function Modal({
     strokeWidth: "2.2",
     strokeLinecap: "round"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
+    d: GLYPH.close
   })))), /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
@@ -7668,6 +7681,7 @@ __ds_scope.Modal = Modal;
 
 // components/overlay/Toast.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — Toast
  * A single transient notification card with a tonal status dot. Render one (or
@@ -7754,7 +7768,7 @@ function Toast({
     strokeWidth: "2.4",
     strokeLinecap: "round"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
+    d: GLYPH.close
   }))));
 }
 __ds_scope.Toast = Toast;
@@ -7762,6 +7776,7 @@ __ds_scope.Toast = Toast;
 
 // components/overlay/Drawer.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — Drawer
  * Side panel that slides in from the right (default) or left over a dimmed
@@ -7946,7 +7961,7 @@ function Drawer({
     strokeWidth: "2.2",
     strokeLinecap: "round"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
+    d: GLYPH.close
   })))), /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
@@ -8259,6 +8274,7 @@ __ds_scope.Tooltip = Tooltip;
 
 // components/feedback/Banner.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — Banner
  * Inline, tonal message bar with a leading icon and a colored rail. Use for
@@ -8384,7 +8400,7 @@ function Banner({
     strokeLinecap: "round",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
+    d: GLYPH.close
   }))));
 }
 __ds_scope.Banner = Banner;
@@ -10319,7 +10335,7 @@ __ds_scope.DashboardMock = DashboardMock;
 
 // components/marketing/JobListingRow.jsx
 try { (() => {
-const { usePress } = __ds_scope;
+const { usePress, GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — JobListingRow
@@ -10404,9 +10420,7 @@ function JobListingRow({
       transition: "transform var(--dur-fast) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M5 12h14"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M13 6l6 6-6 6"
+    d: GLYPH.arrowRight
   })));
   const content = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -10593,6 +10607,7 @@ __ds_scope.AnimatedCounter = AnimatedCounter;
 
 // components/marketing/IntegrationCard.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — IntegrationCard
@@ -10657,9 +10672,7 @@ function IntegrationCard({
       transition: "transform var(--dur-fast) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M5 12h14"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M13 6l6 6-6 6"
+    d: GLYPH.arrowRight
   }));
   const linkStyle = {
     display: "inline-flex",
@@ -10916,6 +10929,7 @@ __ds_scope.CapabilityTicker = CapabilityTicker;
 
 // components/marketing/ModuleStatusCard.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — ModuleStatusCard
@@ -10975,9 +10989,7 @@ function ModuleStatusCard({
       transition: "transform var(--dur-fast) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M5 12h14"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M13 6l6 6-6 6"
+    d: GLYPH.arrowRight
   }));
   const linkStyle = {
     display: "inline-flex",
@@ -13299,7 +13311,7 @@ __ds_scope.InsightFeedback = InsightFeedback;
 
 // components/trust/ProvenancePanel.jsx
 try { (() => {
-const { ConfidenceMeter, SourceTrace } = __ds_scope;
+const { ConfidenceMeter, SourceTrace, GLYPH } = __ds_scope;
 /**
  * Alfred AI — ProvenancePanel
  * The glass-box primitive: a "How I know this" disclosure that ships with any
@@ -13446,7 +13458,7 @@ function ProvenancePanel({
       transition: "transform var(--dur-base) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
+    d: GLYPH.chevronDown
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
@@ -13566,7 +13578,7 @@ function RecommendationCard({
     strokeLinejoin: "round",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6 L18 18 M18 6 L6 18"
+    d: GLYPH.close
   }));
   return /*#__PURE__*/React.createElement("div", {
     role: "group",
@@ -13634,7 +13646,7 @@ function RecommendationCard({
     fill: "none",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    d: GLYPH.sparkle,
     fill: "currentColor"
   }))), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -14850,6 +14862,7 @@ __ds_scope.UsageMeter = UsageMeter;
 
 // components/app/AuditLogRow.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — AuditLogRow
@@ -15006,7 +15019,7 @@ function AuditLogRow({
       transition: "transform var(--dur-base) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
+    d: GLYPH.chevronDown
   })))), detail && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
@@ -15254,7 +15267,7 @@ __ds_scope.UpgradeModal = UpgradeModal;
 
 // components/app/TeamMemberRow.jsx
 try { (() => {
-const { Avatar, Badge } = __ds_scope;
+const { Avatar, Badge, GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — TeamMemberRow
@@ -15378,7 +15391,7 @@ function TeamMemberRow({
       color: "var(--text-muted)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
+    d: GLYPH.chevronDown
   }))), /*#__PURE__*/React.createElement("button", {
     type: "button",
     "aria-label": `Remove ${name}`,
@@ -15818,6 +15831,7 @@ __ds_scope.CommandPalette = CommandPalette;
 
 // components/app/ModuleSwitcher.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /**
  * Alfred AI — ModuleSwitcher
@@ -16089,7 +16103,7 @@ function ModuleSwitcher({
       transition: "transform var(--dur-base) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
+    d: GLYPH.chevronDown
   }))), open && /*#__PURE__*/React.createElement("div", {
     role: "menu",
     id: menuId,
@@ -17086,6 +17100,7 @@ __ds_scope.ConnectionHealthCard = ConnectionHealthCard;
 
 // components/conversation/SeekComposer.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — SeekComposer
  * The "Seek Alfred" prompt box — the product's primary conversational surface.
@@ -17220,7 +17235,7 @@ function SeekComposer({
     strokeLinejoin: "round",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 5v14M5 12h14"
+    d: GLYPH.plus
   }))), /*#__PURE__*/React.createElement("span", {
     style: {
       display: "inline-flex",
@@ -17241,7 +17256,7 @@ function SeekComposer({
     viewBox: "0 0 24 24",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    d: GLYPH.sparkle,
     fill: "var(--accent)"
   })), model), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -17334,7 +17349,7 @@ function SeekComposer({
       flex: "none"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    d: GLYPH.sparkle,
     fill: "var(--info-500)"
   })), s))));
 }
@@ -17370,7 +17385,7 @@ __ds_scope.SeekComposer = SeekComposer;
 
 // components/conversation/AlfredMessage.jsx
 try { (() => {
-const { Avatar, SourceTrace } = __ds_scope;
+const { Avatar, SourceTrace, GLYPH } = __ds_scope;
 /**
  * Alfred AI — AlfredMessage
  * One turn in a Seek Alfred conversation. Alfred's turns lead with the gradient
@@ -17458,7 +17473,7 @@ function AlfredMessage({
     viewBox: "0 0 24 24",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    d: GLYPH.sparkle,
     fill: "currentColor"
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -17629,7 +17644,7 @@ function ThinkingTrace({
       position: "relative"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    d: GLYPH.sparkle,
     fill: "var(--text-on-brand)"
   }))), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -17663,7 +17678,7 @@ function ThinkingTrace({
       transition: "transform var(--dur-base) var(--ease-standard)"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
+    d: GLYPH.chevronDown
   }))), open && Array.isArray(steps) && steps.length > 0 && /*#__PURE__*/React.createElement("ol", {
     style: {
       listStyle: "none",
@@ -17788,7 +17803,7 @@ __ds_scope.ThinkingTrace = ThinkingTrace;
 
 // components/conversation/ReasoningState.jsx
 try { (() => {
-const { Spinner } = __ds_scope;
+const { Spinner, GLYPH } = __ds_scope;
 /**
  * Alfred AI — ReasoningState
  * Branded "Alfred is reasoning" loading treatment for Seek Alfred surfaces.
@@ -17910,7 +17925,7 @@ function ReasoningState({
     viewBox: "0 0 24 24",
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    d: GLYPH.sparkle,
     fill: "currentColor"
   }))), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -17936,6 +17951,7 @@ __ds_scope.ReasoningState = ReasoningState;
 
 // components/conversation/PromptSuggestions.jsx
 try { (() => {
+const { GLYPH } = __ds_scope;
 /**
  * Alfred AI — PromptSuggestions
  * Tappable starter prompts in Alfred's first-person voice — the empty-state nudge
@@ -17967,7 +17983,7 @@ function PromptSuggestions({
       flex: "none"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+    d: GLYPH.sparkle,
     fill: "var(--info-500)"
   }));
   return /*#__PURE__*/React.createElement("div", {
@@ -18056,7 +18072,7 @@ function PromptSuggestions({
       flex: "none"
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M9 6l6 6-6 6"
+    d: GLYPH.chevronRight
   }))))));
 }
 __ds_scope.PromptSuggestions = PromptSuggestions;
@@ -18700,7 +18716,7 @@ function ApprovalGate({
       strokeLinejoin: "round",
       "aria-hidden": "true"
     }, /*#__PURE__*/React.createElement("path", {
-      d: "M6 6 L18 18 M18 6 L6 18"
+      d: GLYPH.close
     }))
   }, declineLabel)));
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — Chip
@@ -30,7 +31,7 @@ export function Chip({ children, tone = "neutral", selected = false, onRemove, o
       {onRemove && (
         <button onClick={(e) => { e.stopPropagation(); onRemove(); }} aria-label="Remove"
           style={{ border: "none", background: "transparent", cursor: "pointer", display: "inline-flex", padding: 0, color: "inherit", opacity: 0.7 }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d={GLYPH.close} /></svg>
         </button>
       )}
     </span>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar } from "../core/Avatar.jsx";
 import { Badge } from "../core/Badge.jsx";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — TeamMemberRow
@@ -123,7 +124,7 @@ export function TeamMemberRow({
           strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
           style={{ position: "absolute", insetInlineEnd: 10, pointerEvents: "none", color: "var(--text-muted)" }}
         >
-          <path d="M6 9l6 6 6-6" />
+          <path d={GLYPH.chevronDown} />
         </svg>
       </span>
 

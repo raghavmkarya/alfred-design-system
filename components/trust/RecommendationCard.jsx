@@ -40,7 +40,7 @@ export function RecommendationCard({
   );
   const cross = (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M6 6 L18 18 M18 6 L6 18" />
+      <path d={GLYPH.close} />
     </svg>
   );
 
@@ -84,7 +84,7 @@ export function RecommendationCard({
             }}
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z" fill="currentColor" />
+              <path d={GLYPH.sparkle} fill="currentColor" />
             </svg>
           </span>
           <span style={{

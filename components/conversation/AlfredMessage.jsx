@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar } from "../core/Avatar.jsx";
 import { SourceTrace } from "../trust/SourceTrace.jsx";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — AlfredMessage
@@ -50,7 +51,7 @@ export function AlfredMessage({
         display: "inline-flex", alignItems: "center", justifyContent: "center",
       }}>
         <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z" fill="currentColor" />
+          <path d={GLYPH.sparkle} fill="currentColor" />
         </svg>
       </span>
 

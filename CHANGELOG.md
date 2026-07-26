@@ -3,6 +3,32 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-26: icon backlog — 8 of the 20 duplicated inline glyphs single-sourced
+
+`verify-icons` shipped with a ratchet listing 20 glyphs that were already drawn inline in two or more
+components. Eight of them are gone, across 25 files. **Nothing here changes a single pixel** — every one
+of the eight was geometrically identical to a glyph `GLYPH` already defines, or identical to itself
+across every site. The 31 browser tests and all three visual baselines pass untouched.
+
+- **Six were spelling drift, not shape drift.** `M6 9l6 6 6-6` and `GLYPH.chevronDown`'s `M6 9 l6 6 l6 -6`
+  are the same three points written two ways, which is exactly why the duplication was invisible to
+  review. Same for both close crosses (`M6 6 L18 18 M18 6 L6 18` and `M6 6l12 12M18 6L6 18`), the
+  chevron-right, the plus and the minus.
+- **`GLYPH.arrowRight` is new, and it fixes a misreading.** `IntegrationCard`, `JobListingRow` and
+  `ModuleStatusCard` each drew their "Learn more →" as **two** `<path>` elements, a shaft and a head.
+  Counted as path data that read as a stray minus plus a stray chevron, so the shaft collided with
+  `NumberInput`'s genuine minus. They are one glyph and are now one path.
+- **`GLYPH.sparkle` is new** — the Alfred mark, previously repeated verbatim in six conversation and
+  trust components. It is the only filled entry in the file, so it is commented as such; the rest are
+  stroked and would render as a blob if filled.
+- **The ratchet cleaned itself, as designed.** After the swap it failed with eight "still lists a glyph
+  that is no longer duplicated" errors and named each one. The backlog count could not silently drift.
+
+**12 remain**, and they are the ones that need actual drawing rather than a rename: the warning/info bang
+and its triangle (`Banner`/`Callout`), the four-path plug (`ConnectionHealthCard`/`IntegrationCard`), and
+two checkmarks on 12×12 and 16×16 viewBoxes that need rescaling onto the 24 grid. Each of those is a real
+visual change and wants looking at.
+
 ## 2026-07-26: published — `@alfredai/design-system@1.0.0` is live
 
 ```bash

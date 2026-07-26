@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — Modal
@@ -52,7 +53,7 @@ export function Modal({ open, onClose, title, children, footer, size = "md", sty
         <div style={{ flex: "none", display: "flex", alignItems: "flex-start", gap: 12, padding: "24px 24px 0" }}>
           {title && <h3 id={titleId} style={{ flex: 1, fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: "var(--text-h3)", color: "var(--text-primary)", letterSpacing: "var(--ls-tight)", margin: 0 }}>{title}</h3>}
           <button onClick={onClose} aria-label="Close" style={{ border: "none", background: "transparent", cursor: "pointer", color: "var(--text-placeholder)", padding: 4, display: "inline-flex" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d={GLYPH.close} /></svg>
           </button>
         </div>
         <div style={{ flex: 1, minHeight: 0, overflow: "auto", padding: "12px 24px 24px", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)" }}>{children}</div>

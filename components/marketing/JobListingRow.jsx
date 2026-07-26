@@ -1,5 +1,6 @@
 import React from "react";
 import { usePress } from "../hooks/usePress.jsx";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — JobListingRow
@@ -87,8 +88,7 @@ export function JobListingRow({
           transition: "transform var(--dur-fast) var(--ease-standard)",
         }}
       >
-        <path d="M5 12h14" />
-        <path d="M13 6l6 6-6 6" />
+        <path d={GLYPH.arrowRight} />
       </svg>
     </span>
   );

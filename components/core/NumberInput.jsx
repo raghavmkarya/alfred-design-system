@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — NumberInput
@@ -105,7 +106,7 @@ export const NumberInput = React.forwardRef(function NumberInput({
           onMouseLeave={() => setHoverBtn(null)}
           style={btnStyle("dec", disabled || atMin)}
         >
-          <svg width={s.icon} height={s.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M5 12h14" /></svg>
+          <svg width={s.icon} height={s.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d={GLYPH.minus} /></svg>
         </button>
 
         <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 5, flex: 1, minWidth: 0, height: "100%" }}>
@@ -149,7 +150,7 @@ export const NumberInput = React.forwardRef(function NumberInput({
           onMouseLeave={() => setHoverBtn(null)}
           style={btnStyle("inc", disabled || atMax)}
         >
-          <svg width={s.icon} height={s.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+          <svg width={s.icon} height={s.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d={GLYPH.plus} /></svg>
         </button>
       </div>
     </div>
