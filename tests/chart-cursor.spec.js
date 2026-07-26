@@ -59,3 +59,37 @@ test("the readout is hidden from assistive tech (the live region already says it
   const t = page.locator("[data-testid='cursor-line'] [role='group'] > div[aria-hidden='true']").first();
   await expect(t).toHaveAttribute("aria-hidden", "true");
 });
+
+/* Legend toggling (4.4). Hiding a series must also RESCALE the chart — the
+   failure mode is a y-axis that keeps its old ceiling, leaving the remaining
+   bars mysteriously short. Only a browser can show that. */
+const legend = (page) => page.locator("[data-testid='legend-chart'] [role='list']");
+
+test("legend series toggle off and on, and announce their state", async ({ page }) => {
+  const btn = legend(page).getByRole("button", { name: /search/ });
+  await expect(btn).toHaveAttribute("aria-pressed", "true");
+  await btn.click();
+  await expect(btn).toHaveAttribute("aria-pressed", "false");
+  await btn.click();
+  await expect(btn).toHaveAttribute("aria-pressed", "true");
+});
+
+test("hiding a series rescales the chart instead of leaving a gap", async ({ page }) => {
+  // the y-axis ticks are the chart's own statement of its scale, so they are the
+  // unambiguous assertion — bar geometry alone can look plausible either way
+  const ticks = async () =>
+    (await page.locator("[data-testid='legend-chart'] svg text").allTextContents())
+      .map(Number).filter((n) => !Number.isNaN(n));
+  const before = Math.max(...(await ticks()));
+  await legend(page).getByRole("button", { name: /search/ }).click();
+  const after = Math.max(...(await ticks()));
+  expect(before).toBe(100);   // search 40 + social 20, rounded up
+  expect(after).toBe(20);     // social alone — the axis followed it down
+  expect(after).toBeLessThan(before);
+});
+
+test("the hidden state is not signalled by colour alone", async ({ page }) => {
+  const btn = legend(page).getByRole("button", { name: /social/ });
+  await btn.click();
+  await expect(btn.locator("span").nth(1)).toHaveCSS("text-decoration-line", "line-through");
+});

@@ -47,9 +47,16 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
   const palAt = (i) => (Array.isArray(colors) && colors[i]) || PALETTE[i % PALETTE.length];
   const fmt = valueFormat || niceRound;
 
-  const totals = data.map((d) => keys.reduce((s, k) => s + num(d && d[k]), 0));
+  /* Toggling a series off has to RESCALE the chart, not just stop drawing it —
+     otherwise the y-axis keeps its old ceiling and the remaining bars look
+     mysteriously short. Everything below works off `visible`, never `keys`. */
+  const [hidden, setHidden] = React.useState([]);
+  const visible = keys.filter((k) => !hidden.includes(k));
+  const toggle = (k) => setHidden((h) => (h.includes(k) ? h.filter((x) => x !== k) : h.concat(k)));
+
+  const totals = data.map((d) => visible.reduce((s, k) => s + num(d && d[k]), 0));
   const rawMax = grouped
-    ? Math.max(0, ...data.flatMap((d) => keys.map((k) => num(d && d[k]))))
+    ? Math.max(0, ...data.flatMap((d) => visible.map((k) => num(d && d[k]))))
     : Math.max(0, ...totals);
   const top = niceCeil(rawMax);
 
@@ -60,7 +67,7 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
 
   const barW = Math.min(bandW * 0.5, 56);            // single stacked bar
   const innerW = bandW * 0.74;                       // grouped cluster footprint
-  const nKeys = keys.length || 1;
+  const nKeys = visible.length || 1;
   const gGap = nKeys > 1 ? Math.min(6, innerW * 0.05) : 0;
   const gBarW = Math.max((innerW - gGap * (nKeys - 1)) / nKeys, 1);
 
@@ -83,8 +90,8 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
       <ChartTooltip x={data.length > 1 ? at / (data.length - 1) : 0} visible={at != null}>
         {at != null ? pointLabel(at) : null}
       </ChartTooltip>
-      <ChartTable caption={aria} columns={["Group"].concat(keys.map(String))}
-        rows={data.map((d) => [String((d && d.label) ?? "")].concat(keys.map((k) => String(num(d && d[k])))))} />
+      <ChartTable caption={aria} columns={["Group"].concat(visible.map(String))}
+        rows={data.map((d) => [String((d && d.label) ?? "")].concat(visible.map((k) => String(num(d && d[k])))))} />
       <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} aria-hidden="true" style={{ display: "block" }}>
         <defs>
           {/* Soft top sheen — a single light source from above, theme-neutral. */}
@@ -110,7 +117,7 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
             const start = xc - innerW / 2;
             return (
               <g key={`bar${i}`}>
-                {keys.map((k, j) => {
+                {visible.map((k, j) => {
                   const v = num(d && d[k]);
                   if (v <= 0) return null;
                   const bx = start + j * (gBarW + gGap);
@@ -119,7 +126,7 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
                   const dPath = topRounded(bx, by, gBarW, bh, Math.min(BAR_RADIUS, gBarW / 2));
                   return (
                     <g key={`seg${i}-${j}`}>
-                      <path d={dPath} fill={palAt(j)} />
+                      <path d={dPath} fill={palAt(keys.indexOf(k))} />
                       <path d={dPath} fill={`url(#${uid}sheen)`} />
                     </g>
                   );
@@ -132,17 +139,17 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
           const bx = xc - barW / 2;
           let acc = 0;
           let lastIdx = -1;
-          keys.forEach((k, j) => { if (num(d && d[k]) > 0) lastIdx = j; });
+          visible.forEach((k, j) => { if (num(d && d[k]) > 0) lastIdx = j; });
           return (
             <g key={`bar${i}`}>
-              {keys.map((k, j) => {
+              {visible.map((k, j) => {
                 const v = num(d && d[k]);
                 if (v <= 0) return null;
                 const y0 = yScale(acc); acc += v; const y1 = yScale(acc);
                 const h = y0 - y1;
                 return j === lastIdx
-                  ? <path key={`seg${i}-${j}`} d={topRounded(bx, y1, barW, h, Math.min(BAR_RADIUS, barW / 2))} fill={palAt(j)} />
-                  : <rect key={`seg${i}-${j}`} x={bx} y={y1} width={barW} height={h} fill={palAt(j)} />;
+                  ? <path key={`seg${i}-${j}`} d={topRounded(bx, y1, barW, h, Math.min(BAR_RADIUS, barW / 2))} fill={palAt(keys.indexOf(k))} />
+                  : <rect key={`seg${i}-${j}`} x={bx} y={y1} width={barW} height={h} fill={palAt(keys.indexOf(k))} />;
               })}
               {totals[i] > 0 && (
                 <path d={topRounded(bx, yScale(totals[i]), barW, yScale(0) - yScale(totals[i]), Math.min(BAR_RADIUS, barW / 2))} fill={`url(#${uid}sheen)`} />
@@ -158,7 +165,12 @@ export function StackedBarChart({ data = [], keys = [], colors, height = 220, st
       </svg>
 
       {keys.length > 0 && (
-        <Legend items={keys.map((k, i) => ({ label: k, color: palAt(i) }))} style={{ marginTop: 14 }} />
+        <Legend
+          items={keys.map((k, i) => ({ key: k, label: k, color: palAt(i) }))}
+          hidden={hidden}
+          onToggle={toggle}
+          style={{ marginTop: 14 }}
+        />
       )}
     </div>
   );

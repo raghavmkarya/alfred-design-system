@@ -3,6 +3,28 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-26: Phase 4.4 complete — legend toggling
+
+The last open piece of the chart contract. Clicking a series in the legend hides it and rescales the
+chart; clicking again brings it back.
+
+- **`Legend` becomes interactive only when given `onToggle`.** A static key stays plain text — making
+  every legend a row of buttons would add tab stops to charts where nothing can be toggled.
+- **Hiding a series rescales the chart.** The failure mode this avoids is a y-axis that keeps its old
+  ceiling, leaving the remaining bars mysteriously short. Everything downstream — bars, the data table,
+  the summary — works off the visible set, not the full key list.
+- **A hidden series is not signalled by colour alone**: the swatch becomes an outline and the label is
+  struck through, so the state survives for a colour-blind user.
+- **A series keeps its colour when others are hidden.** The palette is keyed to the original index, not
+  the position among visible keys, or the chart appears to recolour itself as you toggle.
+- **3 new browser tests.** The rescaling one asserts the **axis ticks** (100 → 20) rather than bar
+  geometry: bars can look plausible at either scale, the axis cannot. My first version asserted only
+  that the tallest bar was still non-zero, which proved essentially nothing — replaced.
+
+`verify-a11y` 107 → 108. Phase 4.4 is complete: text alternatives, data tables, the cursor, and now
+legend interaction. What remains is a cursor for the non-x-indexed charts, which each need their own
+hit-testing.
+
 ## 2026-07-26: icon backlog — the drift was the path data, not the delivery
 
 First bite of the 22-glyph backlog, and it changed the plan. The intended fix was "migrate every inline

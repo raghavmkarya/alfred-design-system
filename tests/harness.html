@@ -24,7 +24,7 @@
 <script type="text/babel">
 const ns = window.AlfredAIDesignSystem_1ce241;
 const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination, Input } = ns;
-const { Tabs, LineChart } = ns;
+const { Tabs, LineChart, StackedBarChart } = ns;
 const { useState } = React;
 const RTL_ALERT = { priority: "high", title: "Pause overspend", insight: "Meta is 40% over CPA.", time: "2m", action: "Review" };
 
@@ -130,6 +130,11 @@ function App() {
         <div className="lbl">Chart cursor</div>
         <div style={{ width: 420 }} data-testid="cursor-line">
           <LineChart points={[12, 18, 15, 24]} labels={["W1", "W2", "W3", "W4"]} />
+        </div>
+        <div style={{ width: 460, marginTop: 18 }} data-testid="legend-chart">
+          <StackedBarChart
+            data={[{ label: "Q1", search: 40, social: 20 }, { label: "Q2", search: 30, social: 10 }]}
+            keys={["search", "social"]} />
         </div>
       </div>
     </div>
