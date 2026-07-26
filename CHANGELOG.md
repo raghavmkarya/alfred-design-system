@@ -3,6 +3,41 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-26: icon backlog cleared — the alert family, and one warning triangle (6 → 0)
+
+`KNOWN_INLINE_DUPES` started at 20 and is now **empty**. Every glyph a component draws for itself comes
+from `GLYPH`.
+
+**There were three warning triangles**, and the check could only see one of them as a duplicate:
+
+- Two were the *same* rounded triangle at different decimal precision (`M10.3 3.9 1.9 18…` vs
+  `M10.29 3.86 1.82 18…`). Byte-different strings, identical drawing. A path-data comparison cannot
+  catch that, which is the honest limit of this gate and is now written into it.
+- The third was a separate sharp-cornered triangle in `Banner` and `Callout`.
+
+**The rounded one wins and the sharp one is retired.** Every other glyph in the set is drawn with round
+caps and joins; a hard apex was the odd one out, and against a brand whose whole form language is soft
+corners it read as borrowed. `Banner` and `Callout` change visibly. `ConnectionHealthCard` and
+`StateBlock` keep the look they already had.
+
+**The exclamation bang had four spellings for two glyphs.** A bang inside a circle and a bang inside a
+triangle genuinely differ (a triangle's visual centroid sits lower, so the same bang reads bottom-heavy
+in one of them) — but `Banner`'s info bang and its danger bang differed from each other by half a unit
+of stem and dot position, which is drift, not intent. Now `GLYPH.bang` for the circle, folded into
+`GLYPH.warningTriangle` for the triangle. `GLYPH.infoBang` (the inverted "i") and `GLYPH.checkInCircle`
+join them: neither was duplicated yet, but they are the rest of that family and would have been next.
+
+`checkInCircle` exists rather than reusing `check` because `check` is full-bleed: its `(20,6)` corner is
+10 units from centre and pokes through an `r=9` ring.
+
+**The ratchet's meaning changes with this.** An empty set turns it from a shrinking budget into a plain
+no-duplication rule, and the comment now says to keep it empty rather than append to it.
+
+Not changed, but found: `Callout`'s `insight` tone draws a **second Alfred spark** — same four-point
+star as `GLYPH.sparkle`, but stroked and inset rather than filled and full-bleed. It is drawn once, so
+no duplication check will ever flag it. Unifying it changes optical weight in a stroked context and is a
+design call, not a cleanup.
+
 ## 2026-07-26: icon backlog — the plug, and the checkmark's three scales (12 → 6)
 
 Second batch. Six more entries off the `verify-icons` ratchet.

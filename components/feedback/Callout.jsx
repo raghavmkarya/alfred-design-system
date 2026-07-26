@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — Callout
@@ -28,10 +29,10 @@ export function Callout({
 
   const glyphs = {
     insight: <path d="M12 3l1.9 5.6 5.6 1.9-5.6 1.9L12 18l-1.9-5.6-5.6-1.9 5.6-1.9L12 3z" />,
-    success: <><circle cx="12" cy="12" r="9" /><path d="M8.5 12.2l2.4 2.4 4.6-5" /></>,
-    warning: <><path d="M12 4l9 15H3l9-15z" /><path d="M12 10v4M12 17h.01" /></>,
-    danger: <><circle cx="12" cy="12" r="9" /><path d="M12 8v5M12 16.5h.01" /></>,
-    neutral: <><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></>,
+    success: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.checkInCircle} /></>,
+    warning: <path d={GLYPH.warningTriangle} />,
+    danger: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.bang} /></>,
+    neutral: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.infoBang} /></>,
   };
   const glyphSize = compact ? 14 : 16;
   const defaultIcon = (
