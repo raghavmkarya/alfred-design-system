@@ -3,6 +3,59 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-27: chart cursors for Donut and Scatter — and the bug they uncovered
+
+`useChartCursor` now takes an optional `hitTest`, so a chart can replace *only* the step that finds
+what is under the pointer. Everything else — keyboard walking, Home/End, Escape, the polite live
+region, the single tab stop — is unchanged and shared.
+
+- **Donut hit-tests by ANGLE**, and only on the ring. The hole returns `null`, so the centre is not a
+  dead zone that keeps the last segment lit while you read the total.
+- **Scatter hit-tests by nearest point WITHIN A RADIUS**, not simply nearest. Without the radius a
+  pointer anywhere in empty plot space keeps some far-off point selected.
+
+Both move to the interactive contract (`role="group"` + `tabindex` on the wrapper, `<svg>`
+`aria-hidden`), and `verify-a11y` was updated to assert that, including the negative pattern that
+`role="img"` must *not* come back.
+
+**Two things had to be fixed to make any of it land correctly.**
+
+**1. Every cursor chart's wrapper was losing its entire `style`.** Each was written as
+`<div style={{ position: "relative", ...style }} {...cursor.bind}>`, and `cursor.bind` carried a
+`style` of its own — so the spread overwrote the prop, and all four x-indexed charts shipped with a
+wrapper whose only style was `outline-offset: 2px`. Consequences: no `position: relative`, so the
+absolutely-positioned readout was anchoring to some ancestor rather than to the chart; and the
+documented `style` passthrough silently did nothing on `LineChart`, `AreaChart`, `StackedBarChart` and
+`WaterfallChart`. **Every existing cursor test passed throughout**, because they all assert the
+readout's text and none its position. Fixed at the root: binds carry behaviour, never style
+(`CHART_FOCUS_STYLE`), plus two tests that pin it.
+
+**2. An `<svg>` with the default `preserveAspectRatio` letterboxes.** A 660×260 viewBox in a 566px box
+draws at **0.858** with ~19px of empty gutter — so hit-testing or positioning from container fractions
+lands off the data. `useSvgBox` reports the live scale and centring offsets (`boxFrac` / `boxPoint`
+convert), and `cursor.plotBind` / `cursor.groupBind` split the pointer half onto the plot and the focus
+half onto the labelled group.
+
+**The donut's readout goes in the hole**, not in a pill on the ring. Anchored to the arc, *inward*
+covers the segment being described and *outward* runs off — the donut's box is exactly the donut, so a
+left-hand segment lands at a negative offset and disappears off the page. Both were built and looked
+at before the hole won: it is empty by construction, already the slot the component reserves for a
+label, and the same distance from every segment. The scatter has room and keeps a pill, centred on the
+point via the tooltip's new optional `y`.
+
+`DonutChart`'s −90° turn also moved from a CSS transform on the `<svg>` to a `<g>` around the ring.
+Identical geometry, but it keeps the rotation out of the element's screen matrix, where it had been
+rotating overlays and any coordinate read back out of it.
+
+**7 new browser tests** (31 → 38), including the two regression tests for the style bug. Nothing
+visual changed at rest: all three baselines pass untouched.
+
+**Not done, deliberately.** `SankeyChart` still has no cursor: ribbons and nodes are a third hit-test
+shape, and it already carries a pointer-only `hover` state that wants folding into the shared model.
+`Gauge` and `Bullet` are recorded in `chart-contract.md` as a **decision rather than an omission** — a
+gauge is one value already printed large in its own centre, and a bullet row prints label, value and
+target as real text, so a cursor there would add a tab stop that announces what is already on screen.
+
 ## 2026-07-26: icon backlog cleared — the alert family, and one warning triangle (6 → 0)
 
 `KNOWN_INLINE_DUPES` started at 20 and is now **empty**. Every glyph a component draws for itself comes

@@ -14,8 +14,9 @@ Two shapes, chosen by where the information actually lives:
 
 | Shape | Use when | Charts |
 |---|---|---|
-| `role="img"` + `aria-label` | the **graphic** carries the data, with no readable text equivalent | Line, Sparkline, Area, Donut, Scatter, StackedBar, Sankey, Gauge, Waterfall, Bullet (per track) |
+| `role="img"` + `aria-label` | the **graphic** carries the data, with no readable text equivalent | Sparkline, Sankey, Gauge, Bullet (per track) |
 | `role="group"` + `aria-label` | every value is **already readable text**; the container just needs a name to group it under | Bar, Funnel, Heatmap |
+| `role="group"` + `aria-label`, `<svg>` hidden | the graphic carries the data **and** the chart is focusable — see "Interactive charts" below | Line, Area, StackedBar, Waterfall, Donut, Scatter |
 | `role="list"` + `role="listitem"` | it is a key, not a graphic | Legend |
 
 Do **not** put `role="img"` on a container whose labels and values are real text: that role makes
@@ -102,8 +103,42 @@ The active point is announced through a polite live region rather than by moving
 stops it double-announcing against the hidden data table.
 
 **Interactive today:** LineChart, AreaChart, StackedBarChart, WaterfallChart (the x-indexed SVG
-charts). **Sparkline is deliberately excluded**: it is a glanceable micro-chart, often several to a
-row inside KPI cards, and making each one a tab stop would be hostile.
+charts), plus **DonutChart** and **ScatterChart**. **Sparkline is deliberately excluded**: it is a
+glanceable micro-chart, often several to a row inside KPI cards, and making each one a tab stop would
+be hostile.
+
+### Hit-testing is per-chart; the rest of the model is not
+
+`useChartCursor(count)` defaults to rounding the pointer's x fraction to the nearest column, which is
+right for anything indexed along x and wrong for everything else. Pass `{ hitTest }` to replace just
+that step — keyboard walking, the live region, the readout and the single tab stop stay identical.
+
+A hit-test returns `null` for "nothing here", and that case matters as much as a hit:
+
+- **Donut** finds the segment whose **arc** contains the pointer's angle, and only when the pointer is
+  on the ring. The hole returns `null`, so the centre is not a dead zone that keeps the last segment
+  lit while you read the total.
+- **Scatter** finds the **nearest point within a radius**, not simply the nearest point. Without the
+  radius, a pointer anywhere in empty plot space keeps some far-off point selected.
+
+Two things bite when the plot is an `<svg>` that is not the focusable element:
+
+- **The default `preserveAspectRatio` letterboxes.** A 660×260 viewBox in a 566px box draws at 0.858
+  with ~19px of empty gutter. Hit-testing or positioning from container fractions therefore misses.
+  `useSvgBox` reports the live scale and centring offsets; `boxFrac` / `boxPoint` convert.
+- **Split the binds.** `cursor.plotBind` (pointer) goes on the plot, `cursor.groupBind` (focus) on the
+  labelled group. `cursor.bind` is the union, for charts where they are the same element.
+
+**Binds carry behaviour, never style** — see `CHART_FOCUS_STYLE` in `chartCursor.jsx` for why.
+
+### Where a readout can go
+
+The default readout is pinned to the top of the plot, where it cannot cover the line it describes. A
+donut has no such safe row, and neither placement anchored to the arc works: **inward** covers the very
+segment being read, **outward** runs off, because the donut's box is exactly the donut and a left-hand
+segment lands at a negative offset. Both were built and looked at. It uses **the hole** instead —
+empty by construction, already the slot the component reserves for a label, and equidistant from every
+segment. A scatter has room, so it keeps a pill, centred on the point via the tooltip's optional `y`.
 
 ## What is not settled yet
 
@@ -122,9 +157,13 @@ Two things it has to get right:
 A series keeps its palette colour when others are hidden — the colour is keyed to its original index,
 not its position among the visible ones, or the chart appears to recolour itself as you toggle.
 
-The non-x-indexed charts — Donut, Gauge, Bullet, Sankey, Scatter — have no cursor yet. Each needs its
-own hit-testing (arcs, tracks, scattered points), which is why they were not swept in with the
-x-indexed four. They remain static `role="img"` charts with a summary and a data table, which is a
-complete if less rich experience.
+**SankeyChart still has no cursor.** Its hit-test is a third shape again — ribbons and nodes, not
+points — and it already carries a pointer-only `hover` state that needs folding into the shared model
+rather than sitting beside it.
+
+**Gauge and Bullet are not obviously missing one.** A gauge is a single value already printed large in
+its own centre; a bullet row prints its label, value and target as real text. In both, a cursor would
+add a tab stop that announces what is already on screen and in the data table. They are listed here as
+a decision, not an omission — if they get one, it should be for consistency, argued as such.
 
 Related: [`craft-checklist.md`](./craft-checklist.md) (the pre-ship gate).
