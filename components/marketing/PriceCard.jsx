@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 import { usePress } from "../hooks/usePress.jsx";
 
 /**
@@ -24,9 +25,10 @@ export function PriceCard({
 }) {
   const { hover, press, focusVisible: focusRing, bind } = usePress({ press: true, focus: true });
 
+  // 24 grid + strokeWidth 2.55 == the old 16 grid + 1.7, same rendered weight
   const check = (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M2.8 8.6l3.2 3.2 7.2-7.6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d={GLYPH.check} stroke="currentColor" strokeWidth="2.55" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 

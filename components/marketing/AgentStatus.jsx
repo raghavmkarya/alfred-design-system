@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — AgentStatus
@@ -50,8 +51,9 @@ export function AgentStatus({
                 display: "inline-flex", alignItems: "center", justifyContent: "center",
                 animation: on ? "alfredPulse 1.1s var(--ease-standard) infinite" : "none",
               }}>
+                {/* 24 grid + strokeWidth 3.6 == the old 12 grid + 1.8, same rendered weight */}
                 {done && (
-                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d={GLYPH.check} stroke="#fff" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 )}
               </span>
               <span style={{

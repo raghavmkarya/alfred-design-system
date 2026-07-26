@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — Checkbox. Square check with the brand orange when selected.
@@ -39,9 +40,14 @@ export function Checkbox({ checked = false, onChange, label, disabled = false, i
             margin: 0, opacity: 0, cursor: "inherit",
           }}
         />
+        {/* the tick is on the 24 grid so it is GLYPH.check, not a fourth spelling
+            of it. strokeWidth is 3.6, not the icon-grid 2, because the viewBox
+            doubled: 1.8 on a 12 box is the same rendered weight. A checkbox tick
+            is deliberately heavier than a body icon, being 12px and still needing
+            to read. */}
         {checked && (
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style={{ pointerEvents: "none" }}>
-            <path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="var(--text-on-orange)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ pointerEvents: "none" }}>
+            <path d={GLYPH.check} stroke="var(--text-on-orange)" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )}
       </span>
