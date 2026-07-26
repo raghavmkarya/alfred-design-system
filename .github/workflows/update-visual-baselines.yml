@@ -31,8 +31,15 @@ jobs:
       # Browsers are preinstalled in the image; npm ci brings @playwright/test itself.
       - run: npm ci
 
+      # `=all`, not the bare flag. The bare flag means `--update-snapshots=changed`,
+      # which only rewrites a baseline the comparison actually FAILED on — so an
+      # intentional visual change that lands under the 2% tolerance is silently
+      # skipped here while a developer's local `--update-snapshots=all` rewrites
+      # the darwin copy, leaving the two platforms showing different pictures.
+      # `=all` regenerates unconditionally; if nothing really moved the PNG bytes
+      # are identical and the commit step below still no-ops.
       - name: Regenerate Linux visual baselines
-        run: npx playwright test --project=visual --update-snapshots
+        run: npx playwright test --project=visual --update-snapshots=all
 
       - name: Commit updated baselines back to the branch
         run: |
