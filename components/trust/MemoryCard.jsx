@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /* Category → chip dot color. "Compounding" earns the brand gradient —
    memories whose value compounds are the signature accent of the view. */
@@ -46,7 +47,7 @@ function CheckIcon({ size = 13, color = "currentColor" }) {
       focusable="false"
       style={{ flex: "none" }}
     >
-      <path d="M20 6 9 17l-5-5" />
+      <path d={GLYPH.check} />
     </svg>
   );
 }

@@ -50,8 +50,6 @@ const KNOWN_INLINE_DUPES = new Set([
   "M15 3v5",
   "M2.5 6.2L4.8 8.5L9.5 3.5",
   "M2.8 8.6l3.2 3.2 7.2-7.6",
-  "M20 6 9 17l-5-5",
-  "M20 6 L9 17 L4 12",
   "M5 12h14",
   "M6 6 L18 18 M18 6 L6 18",
   "M6 6l12 12M18 6L6 18",
@@ -115,9 +113,17 @@ const newDupes = [...counts.entries()].filter(([d, n]) => n >= 2 && !KNOWN_INLIN
 for (const [d, n] of newDupes) {
   fails.push(`a new glyph is duplicated across ${n} components — add it to assets/icons/ and use <Icon>: "${d.slice(0, 70)}" (${(seenIn.get(d) || []).slice(0, 4).join(", ")})`);
 }
-if (!newDupes.length) {
-  const backlog = [...counts.entries()].filter(([d, n]) => n >= 2).length;
-  console.log(`OK   no new drift  — ${backlog} known duplicated inline glyph(s), none added`);
+/* A baseline that keeps entries for glyphs nobody draws any more is fiction: the
+   backlog number stops meaning anything and the list slowly stops being read.
+   Fixing a duplicate must therefore REMOVE it from the list, and the check says
+   so — the ratchet cleans itself. */
+const stillDuped = new Set([...counts.entries()].filter(([, n]) => n >= 2).map(([d]) => d));
+const stale = [...KNOWN_INLINE_DUPES].filter((d) => !stillDuped.has(d));
+for (const d of stale) {
+  fails.push(`KNOWN_INLINE_DUPES still lists a glyph that is no longer duplicated — delete the entry so the backlog stays honest: "${d.slice(0, 70)}"`);
+}
+if (!newDupes.length && !stale.length) {
+  console.log(`OK   no new drift  — ${stillDuped.size} known duplicated inline glyph(s), none added, none stale`);
 }
 
 /* —— report ——————————————————————————————————————————————————————————— */

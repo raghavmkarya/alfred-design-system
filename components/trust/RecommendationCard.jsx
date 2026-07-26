@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 import { Button } from "../core/Button.jsx";
 import { Badge } from "../core/Badge.jsx";
 import { ConfidenceMeter } from "../trust/ConfidenceMeter.jsx";
@@ -34,7 +35,7 @@ export function RecommendationCard({
 
   const check = (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M20 6 L9 17 L4 12" />
+      <path d={GLYPH.check} />
     </svg>
   );
   const cross = (

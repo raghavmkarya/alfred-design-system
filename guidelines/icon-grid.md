@@ -42,8 +42,25 @@ glyph that wants to be in the set, and the check fails on any *new* one. The 22 
 recorded as a baseline — a gate that fails on day one gets deleted, so this one starts where the code
 actually is and only tightens.
 
-**Working through that backlog of 22 is the remaining task.** Each one is a small migration: add the
-glyph here, swap the inline `<svg>` for `<Icon>`, remove its entry from `KNOWN_INLINE_DUPES`.
+**Working through that backlog is the remaining task** (20 left). But note there are *two* right
+answers, and `<Icon>` is not always the one:
+
+| Situation | Use |
+|---|---|
+| the **caller** chooses the glyph | `<Icon name="chevron-down" />` |
+| the **component** draws its own glyph inline | `d={GLYPH.check}` from `components/hooks/glyphs.jsx` |
+
+`Icon` renders a CSS mask over a file in `assets/icons`, so it needs a correct `root` path for the page
+loading it — which means threading an `iconRoot` prop through every component that draws a tick. An
+inline `<svg>` has no such dependency and works at any depth. For a glyph a component draws in its own
+markup, inline is the better trade; it just has to come from **one definition**.
+
+That is what `GLYPH` is for, and it is what actually fixes drift: `M20 6 L9 17 L4 12` and
+`M20 6 9 17l-5-5` were the *same* checkmark written two ways. The problem was the path data, not the
+delivery mechanism.
+
+The ratchet is **self-cleaning**: once a glyph is no longer duplicated, its baseline entry must be
+deleted or the check fails. A backlog that keeps entries for glyphs nobody draws any more is fiction.
 
 ## Adding a glyph
 

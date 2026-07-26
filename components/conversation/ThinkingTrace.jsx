@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — ThinkingTrace
@@ -106,7 +107,7 @@ export function ThinkingTrace({
                   }}>
                     {s.status === "done" ? (
                       <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M20 6 L9 17 L4 12" />
+                        <path d={GLYPH.check} />
                       </svg>
                     ) : s.status === "active" ? (
                       <span style={{ position: "relative", width: 7, height: 7 }}>

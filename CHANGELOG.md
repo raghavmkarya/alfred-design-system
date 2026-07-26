@@ -3,6 +3,27 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-26: icon backlog — the drift was the path data, not the delivery
+
+First bite of the 22-glyph backlog, and it changed the plan. The intended fix was "migrate every inline
+glyph to `<Icon>`". Looking at the actual call sites says otherwise:
+
+- `Icon` renders a CSS **mask over a file** in `assets/icons`, so it needs a correct `root` path for
+  whatever page loads it — migrating means threading an `iconRoot` prop through every component that
+  happens to draw a tick. An inline `<svg>` has no such dependency and works at any depth.
+- And the two 24×24 checkmarks, `M20 6 L9 17 L4 12` and `M20 6 9 17l-5-5`, turn out to be **the same
+  geometry written two ways**. The drift was in the *path data*, not the delivery mechanism.
+
+So: **`<Icon>` when the caller chooses the glyph; `GLYPH` constants when the component draws its own.**
+
+- **`components/hooks/glyphs.jsx`** (internal) — canonical path data on the 24×24 grid. Six sites
+  across ApprovalGate, RecommendationCard, ThinkingTrace, InsightFeedback and MemoryCard now draw from
+  one definition. Zero visual change: identical geometry, and all three tri-theme baselines pass.
+- Backlog **22 → 20**.
+- **The ratchet is now self-cleaning**: once a glyph stops being duplicated, its baseline entry must be
+  deleted or `verify-icons` fails. A backlog that keeps entries for glyphs nobody draws any more is
+  fiction, and stops being read.
+
 ## 2026-07-26: Phase 4.3 — the icon grid, and the drift it exposed
 
 An icon set exists so a glyph is drawn **once**. Alfred's was not holding that. Counting the inline

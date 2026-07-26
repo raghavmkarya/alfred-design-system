@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 import { Button } from "../core/Button.jsx";
 import { Badge } from "../core/Badge.jsx";
 import { Avatar } from "../core/Avatar.jsx";
@@ -96,7 +97,7 @@ export function ApprovalGate({
             <span key={i} style={{ display: "flex", alignItems: "flex-start", gap: 9 }}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flex: "none", marginTop: 2 }}>
-                <path d="M20 6 L9 17 L4 12" />
+                <path d={GLYPH.check} />
               </svg>
               <span style={{ fontSize: "var(--text-sm)", color: "var(--text-primary)", lineHeight: "var(--lh-normal)" }}>{s}</span>
             </span>
@@ -117,7 +118,7 @@ export function ApprovalGate({
       {/* Actions */}
       <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, marginTop: 2 }}>
         <Button size="sm" variant="primary" onClick={onApprove} iconLeft={
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 L9 17 L4 12" /></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={GLYPH.check} /></svg>
         }>{approveLabel}</Button>
         <Button size="sm" variant="outline" onClick={onModify}>{modifyLabel}</Button>
         <Button size="sm" variant="ghost" onClick={onDecline} style={ghostFix} iconLeft={
