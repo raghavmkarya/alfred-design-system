@@ -3,6 +3,29 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-26: published — `@alfredai/design-system@1.0.0` is live
+
+```bash
+npm i @alfredai/design-system react react-dom
+```
+
+117 exports, 200 files, 1.51 MB unpacked, React as a peer, **zero runtime dependencies**. The published
+shasum matches the local build byte-for-byte, and a clean install from the registry renders components,
+ships `styles.css`, the token CSS, all 19 font files and the type entry.
+
+Two things about publishing this account that cost several attempts and are now in the readme and a
+`npm run publish:npm` script, so the next release does not rediscover them:
+
+- **npm 11+ is required, because the account's 2FA is a passkey.** npm 10's `publish` only accepts a
+  typed `--otp` code, which a passkey cannot produce; npm 11 replaces that with a browser handoff Touch
+  ID can satisfy. Hence `npx --yes npm@11 publish` rather than the global npm.
+- **It needs a real terminal.** The browser approval and the waiting CLI must overlap — approving after
+  the command has exited does nothing, and with no TTY npm prints the URL and gives up immediately.
+
+Also worth knowing: after a successful `PUT 200`, the **public read endpoint 404s for a minute or two**
+while npm replicates. `npm access list packages @alfredai` reports the truth immediately. A 404 there
+means "not yet replicated", not "not published" — read the wrong way, it looks like a failed publish.
+
 ## 2026-07-26: Phase 4.4 complete — legend toggling
 
 The last open piece of the chart contract. Clicking a series in the legend hides it and rescales the
