@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 function ThumbIcon({ down = false, size = 15 }) {
   return (
@@ -261,7 +262,7 @@ export function InsightFeedback({
             focusable="false"
             style={{ flex: "none" }}
           >
-            <path d="M20 6 9 17l-5-5" />
+            <path d={GLYPH.check} />
           </svg>
           <span style={{ ...font, color: "var(--text-secondary)" }}>{thanks}</span>
         </div>
