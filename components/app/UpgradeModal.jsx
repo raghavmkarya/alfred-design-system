@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 import { Modal } from "../overlay/Modal.jsx";
 import { Button } from "../core/Button.jsx";
 
@@ -28,9 +29,10 @@ export function UpgradeModal({
   const list = Array.isArray(plans) ? plans : [];
   const cols = Math.max(1, Math.min(list.length, 3));
 
+  // 24 grid + strokeWidth 2.55 == the old 16 grid + 1.7, same rendered weight
   const check = (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" style={{ flex: "none", marginTop: 2 }}>
-      <path d="M2.8 8.6l3.2 3.2 7.2-7.6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ flex: "none", marginTop: 2 }}>
+      <path d={GLYPH.check} stroke="currentColor" strokeWidth="2.55" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 

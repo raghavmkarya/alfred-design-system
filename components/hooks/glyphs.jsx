@@ -38,4 +38,7 @@ export const GLYPH = {
   /** the Alfred mark. FILLED, not stroked — the only one here that is, so it
       wants `fill="currentColor"` and no stroke on its <svg>. */
   sparkle: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
+  /** the "integration" plug: two pins, a body, a lead. Four subpaths, one glyph
+      — it was four separate <path> elements in two components. */
+  plug: "M9 3v5 M15 3v5 M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8z M12 17v4",
 };

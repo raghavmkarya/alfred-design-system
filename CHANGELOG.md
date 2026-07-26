@@ -3,6 +3,34 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-26: icon backlog — the plug, and the checkmark's three scales (12 → 6)
+
+Second batch. Six more entries off the `verify-icons` ratchet.
+
+- **`GLYPH.plug` is new.** `ConnectionHealthCard` and `IntegrationCard` both drew the integration plug
+  as **four** `<path>` elements (two pins, a body, a lead), so it occupied four ratchet entries for one
+  glyph. Four subpaths in one `d` now. No pixel changes.
+- **The checkmark existed at three scales and three spellings.** `GLYPH.check` is on the 24 grid;
+  `Checkbox` and `AgentStatus` drew their own on a **12×12** viewBox, `PriceCard` and `UpgradeModal`
+  theirs on **16×16**. Normalised to the unit square all three are the same tick at slightly different
+  insets, which is why nobody noticed. All four now use `GLYPH.check` on a 24 viewBox.
+
+**Stroke weight was deliberately preserved, not "corrected".** Doubling a viewBox halves the rendered
+stroke, so `strokeWidth` was rescaled with it: 1.8 → 3.6 on the 12-grid pair, 1.7 → 2.55 on the 16-grid
+pair. Those numbers look wrong next to the icon grid's `stroke-width: 2` and carry a comment saying why.
+A checkbox tick is deliberately heavier than a body icon: it renders at 12px and still has to read.
+Harmonising icon weights is a design decision and does not belong in a deduplication change, where it
+would have been impossible to tell a geometry regression from an intended restyle.
+
+Rendering an overlay of old and new at 180px confirmed the two: stroke weights coincide exactly, and the
+geometry moves by well under a pixel at the sizes these actually ship at. None of the four is in the
+harness gallery, so the visual baselines could not have caught a mistake here — they were rendered and
+looked at through the playground instead.
+
+**6 remain**, all in the alert family: three different warning triangles (two of which differ only in
+decimal precision, so the ratchet cannot even see them as duplicates) and four spellings of the
+exclamation bang across `Banner`, `Callout`, `StateBlock` and `ConnectionHealthCard`.
+
 ## 2026-07-26: icon backlog — 8 of the 20 duplicated inline glyphs single-sourced
 
 `verify-icons` shipped with a ratchet listing 20 glyphs that were already drawn inline in two or more

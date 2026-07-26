@@ -27,10 +27,7 @@ export function IntegrationCard({
 
   const defaultIcon = (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M9 3v5" />
-      <path d="M15 3v5" />
-      <path d="M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8z" />
-      <path d="M12 17v4" />
+      <path d={GLYPH.plug} />
     </svg>
   );
 
