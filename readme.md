@@ -156,7 +156,7 @@ tokens/               ← colors, typography, spacing/radius/shadow/motion, dens
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
 components/           ← 117 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
 data/                 ← demo-data.json — the canonical Northwind Labs demo dataset (no fabricated proof)
-guidelines/           ← foundation specimen cards (color / type / spacing / brand) + voice-and-naming + density + elevation + rtl + forced-colors + chart-contract + craft & taste guidelines (motion-and-animation · anti-slop · craft-checklist)
+guidelines/           ← foundation specimen cards (color / type / spacing / brand) + voice-and-naming + density + elevation + rtl + forced-colors + chart-contract + icon-grid + craft & taste guidelines (motion-and-animation · anti-slop · craft-checklist)
 ui_kits/app/          ← 22-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility, connections, notifications, Alfred Core memory, team, billing, audit log…
 ui_kits/app-dark/     ← the same workspace under [data-theme="app-dark"]: warm ink surfaces, Clash kept (reuses the light kit's screens)
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
@@ -170,7 +170,7 @@ templates/decks/      ← 16 ready-to-present decks (marketing · sales · opera
 social/               ← 102-frame social system: OG images · LinkedIn/Facebook/Instagram/X cards, stories & covers · daily-content archetypes (tips, checklists, myth/fact, questions, definitions, spotlights, recaps, milestones) · YouTube thumbnails & banner · 5-part carousel kit · profile kits — every feed/OG frame in dark + white twins (*-light.html) (+ gallery index.html, daily cadence map in social/README.md, batch export via scripts/capture-social.mjs)
 slides/               ← presentation templates (cover, index, section, content)
 playground/           ← live component playground (prop controls from the .d.ts) + generated props.json
-scripts/              ← tooling: the 7 verifiers (verify-render · components · a11y · craft · types · contrast · playground) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
+scripts/              ← tooling: the 9 verifiers (verify-render · components · a11y · craft · types · contrast · playground · npm · icons) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes (projectId, lastSyncCommit, exclude list — check-sync-drift.mjs reads this)
 ```

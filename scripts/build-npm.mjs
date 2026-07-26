@@ -113,6 +113,10 @@ const pkg = {
     "./package.json": "./package.json",
   },
   sideEffects: ["*.css"],
+  /* Scoped packages default to RESTRICTED on npm, so a scoped publish without
+     this silently ships private and every `npm i` 404s for everyone else.
+     Baked in rather than relying on remembering `--access public`. */
+  publishConfig: { access: "public" },
   peerDependencies: { react: ">=18", "react-dom": ">=18" },
   repository: { type: "git", url: "git+https://github.com/raghavmkarya/alfred-design-system.git" },
   homepage: "https://raghavmkarya.github.io/alfred-design-system/",
