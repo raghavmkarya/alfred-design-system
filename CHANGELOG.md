@@ -3,6 +3,31 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-26: Phase 4.3 — the icon grid, and the drift it exposed
+
+An icon set exists so a glyph is drawn **once**. Alfred's was not holding that. Counting the inline
+`<path>` shapes across components turned up **four different checkmarks, two different close crosses
+and two different chevron-rights** — all hand-drawn, all slightly different, none of them in the set.
+27 icons existed; components were quietly maintaining a second, inconsistent set of ~22 more.
+
+- **10 new UI glyphs** on a documented **24×24 stroked grid** (weight 2, round caps and joins):
+  `chevron-down/up/left/right`, `check`, `close-x`, `plus`, `minus`, `search`, `spark` — chosen by
+  counting what components actually hand-roll, not by guessing.
+- **`guidelines/icon-grid.md`** — the construction spec, and an honest account of the **two families**:
+  the new stroked UI glyphs, and the 27 legacy *filled* icons on arbitrary viewBoxes exported from a
+  design tool. They read differently at the same size. That inconsistency is recorded as backlog
+  rather than papered over; the legacy list is grandfathered **by name** so it can only shrink.
+- **`scripts/verify-icons.mjs`** — the **9th verifier**. Construction is enforced for anything new, and
+  duplication is a **ratchet**: a path repeated across two or more components fails the build, with the
+  22 existing ones recorded as a baseline. A gate that fails on day one gets deleted, so this one
+  starts where the code is and only tightens. Both halves proven to bite.
+- `close.svg` turns out to be a *circled* X while components draw a bare one — so `close-x` is a
+  genuinely different glyph, not a duplicate.
+
+**The remaining task is the backlog of 22**: each is a small migration — add the glyph, swap the inline
+`<svg>` for `<Icon>`, drop its entry from `KNOWN_INLINE_DUPES`. Not swept in one pass because each
+swap is a visual change to a shipped component and deserves to be looked at.
+
 ## 2026-07-25: Phase 4.2 — the signature brand moment (`BrandMoment`, component 117)
 
 The brand had a mark, a wordmark and a motion system, but no **arrival** — every splash, first run or

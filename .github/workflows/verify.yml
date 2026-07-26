@@ -1,6 +1,6 @@
 name: verify
 
-# Gates every PR (and pushes to main) on the design system's eight verifiers, and
+# Gates every PR (and pushes to main) on the design system's nine verifiers, and
 # fails if the committed bundle is stale. Locks in what the verifiers guarantee:
 # component render health, ARIA/keyboard contracts, craft rules, type contracts,
 # and WCAG-AA color contrast across all three themes.
@@ -54,6 +54,10 @@ jobs:
       # not committed, so nothing else would notice if it stopped building.
       - name: verify-npm (package builds, exports, renders, types)
         run: node scripts/verify-npm.mjs
+      # The icon grid, plus a ratchet: a glyph duplicated across components is one
+      # that wants to be in the set. Fails on any NEW duplicate, not the backlog.
+      - name: verify-icons (glyph grid + drift ratchet)
+        run: node scripts/verify-icons.mjs
 
   # OS-independent interaction/behaviour tests (Playwright). These assert DOM
   # state, not pixels, so a bare runner + a Chromium install is enough.
