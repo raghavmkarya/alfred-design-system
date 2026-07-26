@@ -110,8 +110,19 @@ import "@alfredai/design-system/styles.css";   // tokens + @font-face closure, i
 Real ESM with the authored `.d.ts` shipped alongside; React is a **peer** dependency (two copies of
 React in one app breaks hooks). The package is built by `npm run build:npm` from the same compile
 pipeline as `_ds_bundle.js`, so it cannot drift from the bundle the verifiers test. `dist/` is
-generated, not committed. To cut a release: bump `dsVersion` in `package.json`, run
-`npm run verify:npm`, then `npm publish dist`.
+generated, not committed. To cut a release: bump `dsVersion` in `package.json`, then run `npm run publish:npm` **from a real
+terminal** (not an editor's shell).
+
+Two constraints that cost several attempts the first time, both worth knowing:
+
+- **It must be npm 11+**, hence the `npx npm@11` in the script. npm 10's `publish` only accepts a typed
+  `--otp` code, and this account's 2FA is a **passkey**, which cannot produce one. npm 11 replaces that
+  with a browser handoff Touch ID can satisfy.
+- **It needs a real TTY.** The browser approval and the waiting CLI must overlap: approving after the
+  command has exited does nothing, and without a terminal npm prints the URL and gives up immediately.
+
+After publishing, expect the public registry to 404 for a minute or two — npm replicates the write and
+public-read endpoints separately. `npm access list packages @alfredai` shows the truth immediately.
 
 ## Use it directly (HTML / React)
 

@@ -36,7 +36,8 @@
     "test": "playwright test --project=interaction",
     "test:visual": "playwright test --project=visual",
     "build:npm": "node scripts/build-npm.mjs",
-    "verify:npm": "node scripts/verify-npm.mjs"
+    "verify:npm": "node scripts/verify-npm.mjs",
+    "publish:npm": "npm run verify:npm && cd dist && npx --yes npm@11 publish"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
