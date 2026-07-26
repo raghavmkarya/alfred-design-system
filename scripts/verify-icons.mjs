@@ -35,16 +35,19 @@ const LEGACY_FILLED = new Set([
 ]);
 
 /* Inline glyphs already duplicated across components when this check was added.
-   Each is a candidate to migrate onto `Icon`; the list is the backlog, and
-   nothing may be added to it. */
-const KNOWN_INLINE_DUPES = new Set([
-  "M12 10v4M12 17h.01",
-  "M12 17h.01",
-  "M12 4l9 15H3l9-15z",
-  "M12 8v5M12 16.5h.01",
-  "M12 9v4",
-  "M8.5 12.2l2.4 2.4 4.6-5",
-]);
+   It started at 20 and is now EMPTY: the backlog is cleared, and every glyph a
+   component draws itself comes from `GLYPH` in components/hooks/glyphs.jsx.
+
+   Leave it empty. An entry here is a licence to draw the same shape twice, and
+   the ratchet below is now a plain "no duplication" rule rather than a budget.
+   If a future change genuinely needs one, it must justify the entry in review
+   rather than append quietly.
+
+   Worth knowing about the limit of this check: it compares path-data STRINGS,
+   so it never saw the two rounded warning triangles that differed only in
+   decimal precision (`1.9 18` vs `1.82 18`). Byte-identical duplication is what
+   it catches; same-shape-different-spelling still needs a human. */
+const KNOWN_INLINE_DUPES = new Set([]);
 
 /* —— 1. construction —————————————————————————————————————————————————— */
 const files = fs.readdirSync(ICONS).filter((f) => f.endsWith(".svg"));

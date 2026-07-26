@@ -41,4 +41,30 @@ export const GLYPH = {
   /** the "integration" plug: two pins, a body, a lead. Four subpaths, one glyph
       — it was four separate <path> elements in two components. */
   plug: "M9 3v5 M15 3v5 M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8z M12 17v4",
+
+  /* —— the alert family ————————————————————————————————————————————————
+     There were THREE warning triangles. Two differed only in decimal
+     precision (`1.9 18` vs `1.82 18`), which is why no duplication check
+     could see them as the same glyph — they are byte-different strings for
+     the same drawing. The third was a separate sharp-cornered triangle.
+     The rounded one is canonical: every other glyph in the set is drawn with
+     round caps and joins, and a hard apex was the odd one out.
+
+     Triangle and bang ship together at every call site, so they are one
+     glyph, like `plug`. The two circle-inscribed bangs below cannot fold in
+     their <circle> the same way, so they stay bare paths. */
+
+  /** rounded warning triangle WITH its exclamation. Symmetric about x=12. */
+  warningTriangle:
+    "M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01",
+  /** exclamation for a `<circle cx=12 cy=12 r=9>`. Sits ~1 unit higher than
+      the triangle's, because a triangle's visual centroid is lower than a
+      circle's — the same bang in both containers looks bottom-heavy in one. */
+  bang: "M12 8v5 M12 16.5h.01",
+  /** the inverted bang: an "i". Not currently duplicated, but it is the third
+      member of this family and would have been the next thing to drift. */
+  infoBang: "M12 11v5 M12 8h.01",
+  /** tick inset for a `<circle r=9>`. `check` is full-bleed and its (20,6)
+      corner sits 10 units from centre, so it pokes through the ring. */
+  checkInCircle: "M8.5 12.2 l2.4 2.4 l4.6 -5",
 };

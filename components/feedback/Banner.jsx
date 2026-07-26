@@ -16,10 +16,10 @@ export function Banner({ tone = "info", title, children, action, onDismiss, styl
   };
   const [bg, fg] = tones[tone] || tones.info;
   const glyphs = {
-    info: <><circle cx="12" cy="12" r="9" /><path d="M12 8v4M12 16h.01" /></>,
-    success: <><circle cx="12" cy="12" r="9" /><path d="M8.5 12.2l2.4 2.4 4.6-5" /></>,
-    warning: <><path d="M12 4l9 15H3l9-15z" /><path d="M12 10v4M12 17h.01" /></>,
-    danger: <><circle cx="12" cy="12" r="9" /><path d="M12 8v5M12 16.5h.01" /></>,
+    info: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.bang} /></>,
+    success: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.checkInCircle} /></>,
+    warning: <path d={GLYPH.warningTriangle} />,
+    danger: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.bang} /></>,
   };
   return (
     <div role={tone === "danger" ? "alert" : "status"} aria-live={tone === "danger" ? "assertive" : "polite"} style={{ display: "flex", alignItems: "flex-start", gap: 12, background: bg, borderRadius: "var(--radius-lg)", padding: "14px 16px", borderInlineStart: `3px solid ${fg}`, ...style }}>

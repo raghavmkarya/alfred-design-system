@@ -48,9 +48,7 @@ export function ConnectionHealthCard({
 
   const alertIcon = (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flex: "none", marginTop: 1 }}>
-      <path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
-      <path d="M12 9v4" />
-      <path d="M12 17h.01" />
+      <path d={GLYPH.warningTriangle} />
     </svg>
   );
 
