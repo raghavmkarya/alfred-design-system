@@ -1,5 +1,6 @@
 import React from "react";
 import { Spinner } from "./Spinner.jsx";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — SearchInput
@@ -121,7 +122,7 @@ export const SearchInput = React.forwardRef(function SearchInput(props, ref) {
               background: "var(--surface-sunken)", color: "var(--text-muted)",
             }}>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M6 6 L18 18 M18 6 L6 18" />
+              <path d={GLYPH.close} />
             </svg>
           </button>
         ) : null}

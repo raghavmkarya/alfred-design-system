@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — Toast
@@ -19,7 +20,7 @@ export function Toast({ tone = "info", title, children, onClose, style = {} }) {
       </div>
       {onClose && (
         <button onClick={onClose} aria-label="Dismiss" style={{ border: "none", background: "transparent", cursor: "pointer", color: "var(--text-placeholder)", display: "inline-flex", padding: 0 }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d={GLYPH.close} /></svg>
         </button>
       )}
     </div>

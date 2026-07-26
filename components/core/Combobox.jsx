@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — Combobox
@@ -121,7 +122,7 @@ export const Combobox = React.forwardRef(function Combobox({
               transform: showList ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform var(--dur-base) var(--ease-standard)",
             }}>
-            <path d="M6 9l6 6 6-6" />
+            <path d={GLYPH.chevronDown} />
           </svg>
         </div>
 

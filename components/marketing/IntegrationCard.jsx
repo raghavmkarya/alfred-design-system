@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — IntegrationCard
@@ -44,8 +45,7 @@ export function IntegrationCard({
         transition: "transform var(--dur-fast) var(--ease-standard)",
       }}
     >
-      <path d="M5 12h14" />
-      <path d="M13 6l6 6-6 6" />
+      <path d={GLYPH.arrowRight} />
     </svg>
   );
 

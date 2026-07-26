@@ -32,4 +32,10 @@ export const GLYPH = {
   chevronLeft: "M15 6 l-6 6 l6 6",
   plus: "M12 5 v14 M5 12 h14",
   minus: "M5 12 h14",
+  /** shaft + head as ONE path; it was drawn as two <path> elements in three
+      marketing components, which read as a stray minus and a stray chevron */
+  arrowRight: "M5 12 h14 M13 6 l6 6 l-6 6",
+  /** the Alfred mark. FILLED, not stroked — the only one here that is, so it
+      wants `fill="currentColor"` and no stroke on its <svg>. */
+  sparkle: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
 };

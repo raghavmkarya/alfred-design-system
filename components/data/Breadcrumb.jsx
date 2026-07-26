@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — Breadcrumb
@@ -20,7 +21,7 @@ export function Breadcrumb({ items = [], style = {} }) {
             ) : (
               <span style={crumbStyle}>{it.label}</span>
             )}
-            {!last && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-placeholder)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>}
+            {!last && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-placeholder)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={GLYPH.chevronRight} /></svg>}
           </React.Fragment>
         );
       })}

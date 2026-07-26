@@ -1,4 +1,5 @@
 import React from "react";
+import { GLYPH } from "../hooks/glyphs.jsx";
 
 /**
  * Alfred AI — SeekComposer
@@ -95,7 +96,7 @@ export function SeekComposer({
             <SeekToolButton title="Add context" disabled={disabled}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 5v14M5 12h14" />
+                <path d={GLYPH.plus} />
               </svg>
             </SeekToolButton>
 
@@ -106,7 +107,7 @@ export function SeekComposer({
               fontSize: "var(--text-xs)", fontWeight: "var(--fw-semibold)", color: "var(--text-secondary)",
             }}>
               <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
+                <path d={GLYPH.sparkle}
                   fill="var(--accent)" />
               </svg>
               {model}
@@ -166,7 +167,7 @@ export function SeekComposer({
               }}
             >
               <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true" style={{ flex: "none" }}>
-                <path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"
+                <path d={GLYPH.sparkle}
                   fill="var(--info-500)" />
               </svg>
               {s}
