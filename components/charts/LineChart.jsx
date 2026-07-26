@@ -1,6 +1,6 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
-import { useChartCursor, ChartLive, ChartTooltip } from "../hooks/chartCursor.jsx";
+import { useChartCursor, ChartLive, ChartTooltip, CHART_FOCUS_STYLE } from "../hooks/chartCursor.jsx";
 
 /**
  * Alfred AI — LineChart
@@ -31,7 +31,7 @@ export function LineChart({ points = [], labels = [], height = 200, ariaLabel, s
        below is aria-hidden. A static chart keeps role="img" on its <svg>; once a
        chart can be focused and walked, having both would announce it twice.
        See guidelines/chart-contract.md. */
-    <div style={{ width: "100%", position: "relative", ...style }} {...cursor.bind}
+    <div {...cursor.bind} style={{ width: "100%", position: "relative", ...CHART_FOCUS_STYLE, ...style }}
       role="group" aria-label={aria}>
       <ChartLive text={cursor.keyboard && at != null ? pointLabel(at) : ""} />
       <ChartTooltip x={points.length > 1 ? at / (points.length - 1) : 0} visible={at != null}>

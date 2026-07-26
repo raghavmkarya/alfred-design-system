@@ -1,5 +1,6 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
+import { useChartCursor, useSvgBox, boxFrac, ChartLive, ChartTooltip, CHART_FOCUS_STYLE } from "../hooks/chartCursor.jsx";
 
 /**
  * Alfred AI — ScatterChart
@@ -55,11 +56,54 @@ export function ScatterChart({ points = [], xLabel, yLabel, height = 260, xMax, 
     ? `Scatter chart, ${points.length} points${xLabel && yLabel ? `, ${xLabel} against ${yLabel}` : ""}`
     : "Scatter chart, no data");
 
+  const svgRef = React.useRef(null);
+  const box = useSvgBox(svgRef, W, height);
+
+  /* Nearest-point hit-testing, in viewBox units. Two things this is not:
+     it is not an x-fraction (a scatter has no columns), and it is not
+     "whatever is closest" (a pointer in empty plot space would then keep some
+     far-off point lit). Outside HIT_R it returns null and the cursor clears. */
+  const HIT_R = 30;
+  const at2 = points.map((p) => [xPx(Number(p.x) || 0), yPx(Number(p.y) || 0)]);
+  const hitTest = (px, py, rect) => {
+    if (!points.length) return null;
+    // the svg letterboxes under the default preserveAspectRatio, so undo the
+    // meet transform rather than assuming the drawing fills its box
+    const s = Math.min(rect.width / W, rect.height / height);
+    if (!s) return null;
+    const vx = (px - (rect.width - W * s) / 2) / s;
+    const vy = (py - (rect.height - height * s) / 2) / s;
+    let best = null, bestD = HIT_R;
+    at2.forEach(([cx, cy], i) => {
+      const d = Math.hypot(cx - vx, cy - vy);
+      if (d <= bestD) { bestD = d; best = i; }
+    });
+    return best;
+  };
+
+  const cursor = useChartCursor(points.length, { hitTest });
+  const at = cursor.index;
+  const ptLabel = (i) => {
+    const p = points[i];
+    const name = p.label != null && p.label !== "" ? `${p.label}: ` : `Point ${i + 1}: `;
+    return `${name}${xLabel ? `${xLabel} ` : ""}${fmtX(Number(p.x) || 0)}, ${yLabel ? `${yLabel} ` : ""}${fmtY(Number(p.y) || 0)}`;
+  };
+  const anchor = at != null ? boxFrac(box, at2[at][0], at2[at][1]) : null;
+
   return (
-    <div style={{ width: "100%", ...style }}>
+    /* Interactive chart: the name moves to the focusable group and the graphic
+       goes aria-hidden. See guidelines/chart-contract.md. */
+    <div {...cursor.groupBind} role="group" aria-label={aria}
+      style={{ width: "100%", position: "relative", ...CHART_FOCUS_STYLE, ...style }}>
+      <ChartLive text={cursor.keyboard && at != null ? ptLabel(at) : ""} />
       <ChartTable caption={aria} columns={[String(xLabel || "x"), String(yLabel || "y")]}
         rows={points.map((pt) => [String(pt.x), String(pt.y)])} />
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block", overflow: "visible" }}>
+      {anchor && <ChartTooltip x={anchor.fx} y={anchor.fy} visible>{ptLabel(at)}</ChartTooltip>}
+      {/* pointer half on the plot, focus half on the group: the svg scales
+          independently of the container, so its box is the one that maps to
+          data coordinates */}
+      <svg ref={svgRef} {...cursor.plotBind}
+        viewBox={`0 0 ${W} ${height}`} width="100%" height={height} aria-hidden="true" style={{ display: "block", overflow: "visible" }}>
         <defs>
           {points.map((p, i) => {
             const c = p.color || PALETTE[i % PALETTE.length];
@@ -101,6 +145,11 @@ export function ScatterChart({ points = [], xLabel, yLabel, height = 260, xMax, 
           return (
             <g key={i}>
               <circle cx={cx} cy={cy} r={r + 7} fill={`url(#${uid}h${i})`} />
+              {/* the active point gets a ring rather than a colour change: the
+                  colour is the series identity and must not move under a cursor */}
+              {i === at && (
+                <circle cx={cx} cy={cy} r={r + 4} fill="none" stroke="var(--accent)" strokeWidth="2" />
+              )}
               <circle cx={cx} cy={cy} r={r} fill={c} fillOpacity="0.92" stroke="var(--surface-card)" strokeWidth="1.5" />
               {p.label != null && p.label !== "" && (
                 <text x={cx + r + 7} y={cy + 4} fontFamily="var(--font-sans)" fontSize="11" fontWeight="var(--fw-medium)" fill="var(--text-secondary)">{p.label}</text>

@@ -24,7 +24,7 @@
 <script type="text/babel">
 const ns = window.AlfredAIDesignSystem_1ce241;
 const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination, Input } = ns;
-const { Tabs, LineChart, StackedBarChart } = ns;
+const { Tabs, LineChart, StackedBarChart, DonutChart, ScatterChart } = ns;
 const { useState } = React;
 const RTL_ALERT = { priority: "high", title: "Pause overspend", insight: "Meta is 40% over CPA.", time: "2m", action: "Review" };
 
@@ -135,6 +135,18 @@ function App() {
           <StackedBarChart
             data={[{ label: "Q1", search: 40, social: 20 }, { label: "Q2", search: 30, social: 10 }]}
             keys={["search", "social"]} />
+        </div>
+        {/* Non-x-indexed cursors: a donut is found by ANGLE and a scatter by 2D
+            distance, so each needs its own hit-test proved in a browser. Two
+            equal donut segments make the expected arc unambiguous — the first
+            owns 12 o'clock to 6, the second 6 back round to 12. */}
+        <div style={{ marginTop: 18 }} data-testid="cursor-donut">
+          <DonutChart segments={[{ label: "Search", value: 60 }, { label: "Social", value: 60 }]} size={180} />
+        </div>
+        <div style={{ width: 520, marginTop: 18 }} data-testid="cursor-scatter">
+          <ScatterChart
+            points={[{ x: 20, y: 20, label: "A" }, { x: 80, y: 80, label: "B" }]}
+            xMax={100} yMax={100} xLabel="Spend" yLabel="ROAS" height={260} />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
-import { useChartCursor, ChartLive, ChartTooltip } from "../hooks/chartCursor.jsx";
+import { useChartCursor, ChartLive, ChartTooltip, CHART_FOCUS_STYLE } from "../hooks/chartCursor.jsx";
 
 /**
  * Alfred AI — AreaChart
@@ -46,7 +46,7 @@ export function AreaChart({ series = [], labels = [], height = 220, yTicks = 4, 
   return (
     /* Interactive chart: the NAME lives on the focusable group and the graphic is
        aria-hidden — see the note in LineChart and guidelines/chart-contract.md. */
-    <div style={{ width: "100%", position: "relative", ...style }} {...cursor.bind}
+    <div {...cursor.bind} style={{ width: "100%", position: "relative", ...CHART_FOCUS_STYLE, ...style }}
       role="group" aria-label={aria}>
       <ChartLive text={cursor.keyboard && at != null ? pointLabel(at) : ""} />
       <ChartTooltip x={n > 1 ? at / (n - 1) : 0} visible={at != null}>

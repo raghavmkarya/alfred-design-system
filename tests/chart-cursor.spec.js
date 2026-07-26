@@ -93,3 +93,100 @@ test("the hidden state is not signalled by colour alone", async ({ page }) => {
   await btn.click();
   await expect(btn.locator("span").nth(1)).toHaveCSS("text-decoration-line", "line-through");
 });
+
+/* Non-x-indexed cursors. The x-indexed charts share one hit-test (round the x
+   fraction to a column); these two do not, and a hit-test is precisely the kind
+   of geometry that looks right in source and lands in the wrong place. */
+
+const donut = (page) => page.locator("[data-testid='cursor-donut'] [role='group']");
+// the donut's readout lives in the hole, not in a floating pill
+const donutTip = (page) => page.locator("[data-testid='cursor-donut'] div[aria-hidden='true']");
+
+test("donut: hover finds the segment by angle, and the hole selects nothing", async ({ page }) => {
+  const d = donut(page);
+  await d.scrollIntoViewIfNeeded();
+  const box = await d.boundingBox();
+  const cx = box.x + box.width / 2, cy = box.y + box.height / 2;
+  // two equal segments: the first owns 12→6 o'clock (right half), the second 6→12
+  const ringR = box.width * 0.4;   // between inner and outer edge of the ring
+  await page.mouse.move(cx + ringR, cy);          // 3 o'clock — first segment
+  await expect(donutTip(page)).toContainText("Search · 50%");
+  await page.mouse.move(cx - ringR, cy);          // 9 o'clock — second segment
+  await expect(donutTip(page)).toContainText("Social · 50%");
+  // the centre is a hole, not a segment: it must clear rather than keep the last
+  // one lit, or the centre label becomes a dead zone that lies about the data
+  await page.mouse.move(cx, cy);
+  await expect(donutTip(page)).toHaveCount(0);
+});
+
+test("donut: arrows walk segments and announce them", async ({ page }) => {
+  const d = donut(page);
+  await d.focus();
+  const live = page.locator("[data-testid='cursor-donut'] [aria-live='polite']");
+  await page.keyboard.press("ArrowRight");
+  await expect(live).toHaveText("Search: 60 (50%)");
+  await page.keyboard.press("End");
+  await expect(live).toHaveText("Social: 60 (50%)");
+  await page.keyboard.press("Escape");
+  await expect(live).toHaveText("");
+});
+
+const scatter = (page) => page.locator("[data-testid='cursor-scatter'] [role='group']");
+const scatterTip = (page) => page.locator("[data-testid='cursor-scatter'] [aria-hidden='true']").filter({ hasText: ":" });
+
+test("scatter: hover finds the nearest point, and empty plot space selects nothing", async ({ page }) => {
+  const s = scatter(page);
+  await s.scrollIntoViewIfNeeded();
+  const svg = page.locator("[data-testid='cursor-scatter'] svg");
+  const box = await svg.boundingBox();
+  // The svg letterboxes under the default preserveAspectRatio, so a naive
+  // container-fraction would miss. Ask the page where the point actually is.
+  const at = async (i) => svg.evaluate((el, idx) => {
+    const c = el.querySelectorAll("g > circle:nth-child(2)")[idx];
+    const r = c.getBoundingClientRect();
+    return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
+  }, i);
+  const a = await at(0);
+  await page.mouse.move(a.x, a.y);
+  await expect(scatterTip(page)).toContainText("A:");
+  const b = await at(1);
+  await page.mouse.move(b.x, b.y);
+  await expect(scatterTip(page)).toContainText("B:");
+  // far from every point, still inside the plot — nothing should be lit
+  await page.mouse.move(box.x + box.width * 0.5, box.y + box.height * 0.08);
+  await expect(scatterTip(page)).toHaveCount(0);
+});
+
+test("scatter: arrows walk points and announce them", async ({ page }) => {
+  await scatter(page).focus();
+  const live = page.locator("[data-testid='cursor-scatter'] [aria-live='polite']");
+  await page.keyboard.press("ArrowRight");
+  await expect(live).toContainText("A:");
+  await page.keyboard.press("End");
+  await expect(live).toContainText("B:");
+});
+
+test("both are one tab stop each, not one per segment or point", async ({ page }) => {
+  await expect(page.locator("[data-testid='cursor-donut'] [tabindex='0']")).toHaveCount(1);
+  await expect(page.locator("[data-testid='cursor-scatter'] [tabindex='0']")).toHaveCount(1);
+});
+
+/* The readout is positioned absolutely against its chart, so the wrapper must
+   BE a containing block. All four x-indexed charts shipped without one: the
+   binds carried a `style` that clobbered the element's own, leaving the wrapper
+   with nothing but `outline-offset`. Every cursor test still passed, because
+   they all asserted the readout's text and none its position. */
+test("every cursor chart's wrapper is a containing block for its readout", async ({ page }) => {
+  for (const id of ["cursor-line", "legend-chart", "cursor-donut", "cursor-scatter"]) {
+    const pos = await page.locator(`[data-testid='${id}'] [role='group']`).first()
+      .evaluate((el) => getComputedStyle(el).position);
+    expect(pos, `${id} wrapper must be positioned`).toBe("relative");
+  }
+});
+
+test("the style prop reaches the chart wrapper instead of being swallowed", async ({ page }) => {
+  // the donut sizes its own wrapper, so a wrapper that ignores style is visible
+  const w = await page.locator("[data-testid='cursor-donut'] [role='group']")
+    .evaluate((el) => el.getBoundingClientRect().width);
+  expect(w).toBe(180);
+});
