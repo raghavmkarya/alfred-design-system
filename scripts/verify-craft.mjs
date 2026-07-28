@@ -287,6 +287,85 @@ if (!/@import\s+["']tokens\/elevation\.css["']/.test(stylesCss)) {
   }
 }
 
+/* —— spread-clobbers-prop ————————————————————————————————————————————————
+   A JSX element that has BOTH a spread and an explicit prop of the same name.
+   Later wins and replaces the value outright — it does not merge — so one of
+   the two contributions is silently destroyed, and which one depends purely on
+   the order they happen to be written in.
+
+   This shipped. All four x-indexed chart components were written as
+   `<div style={{ position: "relative", ...style }} {...cursor.bind}>` where
+   `cursor.bind` carried a `style` of its own, so every one of them rendered
+   with a wrapper whose entire style was `outline-offset: 2px`: no containing
+   block for the absolutely-positioned readout, and a `style` passthrough that
+   did nothing. Nothing failed, because the tests asserted the readout's text
+   and never its position.
+
+   Detection is deliberately narrow, to stay in this verifier's "unambiguous and
+   mechanically checkable" scope: it only fires when the spread's source object
+   is one this file can see the shape of — a `const X = { ... }` in the same
+   file, or a known bind-shaped local — AND that shape really does contain the
+   clashing key. `{...rest}` after a destructured `style` is the correct, common
+   pattern and must never be flagged: `style` was pulled out of `rest`. */
+{
+  for (const rel of files.filter((r) => r.endsWith(".jsx"))) {
+    const src = fs.readFileSync(path.join(ROOT, rel), "utf8");
+    if (!/\{\s*\.\.\./.test(src)) continue;
+
+    /* Object shapes declared in this file or imported from a sibling, so a
+       spread of one can actually be checked rather than guessed at. */
+    const shapes = {};
+    const learn = (text) => {
+      for (const m of text.matchAll(/(?:const|let)\s+([A-Za-z_$][\w$]*)\s*=\s*\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}/g)) {
+        shapes[m[1]] = [...m[2].matchAll(/(?:^|[{,\s])([A-Za-z_$][\w$]*)\s*:/g)].map((k) => k[1]);
+      }
+      /* Also object PROPERTIES that are object literals, resolving any spreads
+         inside them against what is already known. Without this the check has a
+         hole exactly where the bug lived: `bind` is assembled as
+         `return { …, bind: { ...groupBind, ...plotBind } }`, so it is not a
+         `const`, and `{...cursor.bind}` — the precise form all four charts
+         shipped — would sail straight through. Verified by re-injecting it. */
+      for (const m of text.matchAll(/([A-Za-z_$][\w$]*)\s*:\s*\{([^{}]*)\}/g)) {
+        const own = [...m[2].matchAll(/(?:^|[{,\s])([A-Za-z_$][\w$]*)\s*:/g)].map((k) => k[1]);
+        const inherited = [...m[2].matchAll(/\.\.\.\s*([A-Za-z_$][\w$]*)/g)].flatMap((k) => shapes[k[1]] || []);
+        const all = [...new Set([...(shapes[m[1]] || []), ...own, ...inherited])];
+        if (all.length) shapes[m[1]] = all;
+      }
+    };
+    learn(src);
+    for (const im of src.matchAll(/from\s+"(\.[^"]+\.jsx)"/g)) {
+      try { learn(fs.readFileSync(path.join(path.dirname(path.join(ROOT, rel)), im[1]), "utf8")); } catch { /* not resolvable → stay quiet */ }
+    }
+
+    for (const el of src.matchAll(/<[a-zA-Z][\w.]*\s[^>]*?\/?>/g)) {
+      const tag = el[0];
+      // a doc comment that SHOWS the bad pattern is not the bad pattern — this
+      // rule's own write-up in chartCursor.jsx tripped it first time out
+      const lineStart = src.lastIndexOf("\n", el.index) + 1;
+      if (isComment(src.slice(lineStart, src.indexOf("\n", el.index)))) continue;
+      const spreads = [...tag.matchAll(/\{\s*\.\.\.\s*([A-Za-z_$][\w$.]*)\s*\}/g)].map((m) => m[1]);
+      if (!spreads.length) continue;
+      const explicit = [...tag.matchAll(/(?:^|\s)([a-zA-Z][\w]*)\s*=\s*[{"]/g)].map((m) => m[1]);
+      for (const from of spreads) {
+        // `{...rest}` and friends have no visible shape — the correct pattern
+        // pulls the clashing prop OUT of rest, so silence is right here.
+        const keys = shapes[from] || shapes[from.split(".").pop()];
+        if (!keys) continue;
+        for (const k of explicit) {
+          if (!keys.includes(k)) continue;
+          findings.push({
+            rule: "spread-clobbers-prop",
+            why: `\`{...${from}}\` and an explicit \`${k}\` on one element: the later one REPLACES the other rather than merging, so one contribution is silently lost. Merge them explicitly, or keep the clashing key out of the spread object (see CHART_FOCUS_STYLE in components/hooks/chartCursor.jsx)`,
+            file: rel,
+            line: src.slice(0, el.index).split("\n").length,
+            snippet: tag.replace(/\s+/g, " ").slice(0, 100),
+          });
+        }
+      }
+    }
+  }
+}
+
 /* report */
 if (findings.length === 0) {
   for (const r of RULES) console.log(`OK   ${r.id}`);
@@ -296,7 +375,8 @@ if (findings.length === 0) {
   console.log(`OK   elevation-contract`);
   console.log(`OK   theme-alias-freeze`);
   console.log(`OK   illustration-theme-safe`);
-  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 6} rules)`);
+  console.log(`OK   spread-clobbers-prop`);
+  console.log(`\nALL CRAFT CHECKS PASS (${files.length} files, ${RULES.length + 7} rules)`);
   process.exit(0);
 }
 

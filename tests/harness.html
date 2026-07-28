@@ -24,7 +24,7 @@
 <script type="text/babel">
 const ns = window.AlfredAIDesignSystem_1ce241;
 const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination, Input } = ns;
-const { Tabs, LineChart, StackedBarChart, DonutChart, ScatterChart } = ns;
+const { Tabs, LineChart, StackedBarChart, DonutChart, ScatterChart, SankeyChart } = ns;
 const { useState } = React;
 const RTL_ALERT = { priority: "high", title: "Pause overspend", insight: "Meta is 40% over CPA.", time: "2m", action: "Review" };
 
@@ -142,6 +142,14 @@ function App() {
             owns 12 o'clock to 6, the second 6 back round to 12. */}
         <div style={{ marginTop: 18 }} data-testid="cursor-donut">
           <DonutChart segments={[{ label: "Search", value: 60 }, { label: "Social", value: 60 }]} size={180} />
+        </div>
+        {/* Sankey's cursor walks LINKS: a node already prints its own value as
+            text, a ribbon's value appears nowhere but the data table. */}
+        <div style={{ width: 520, marginTop: 18 }} data-testid="cursor-sankey">
+          <SankeyChart
+            nodes={[{ id: "paid", label: "Paid", col: 0 }, { id: "mql", label: "MQL", col: 1 }, { id: "won", label: "Won", col: 2 }]}
+            links={[{ source: "paid", target: "mql", value: 120 }, { source: "mql", target: "won", value: 45 }]}
+            height={220} />
         </div>
         <div style={{ width: 520, marginTop: 18 }} data-testid="cursor-scatter">
           <ScatterChart

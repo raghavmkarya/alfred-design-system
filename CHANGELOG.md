@@ -3,6 +3,52 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-29: SankeyChart cursor — every chart is now covered, and the style bug is a gate
+
+The last chart without a cursor has one, and the bug the previous batch found by accident is now
+mechanically prevented.
+
+**The cursor walks LINKS, not nodes.** Every Sankey node already prints its label and throughput as
+real text beside it; a *link's* value appears nowhere but the hidden data table. Indexing nodes would
+have added a tab stop that announces what is already on screen — the same test that keeps `Gauge` and
+`Bullet` out of this entirely.
+
+**It does not use `hitTest`.** The other two non-x-indexed charts needed geometry (angle, 2D distance);
+Sankey's ribbons are cubic beziers drawn one `<path>` per link, and **an SVG path already hit-tests its
+own filled shape exactly and for free**. Re-deriving bezier containment would have been a second,
+worse implementation of something the browser is already doing. So `useChartCursor` gained
+`cursor.point(i)`: each shape sets the cursor on `onPointerEnter`, and **the plot as a whole** clears
+on `onPointerLeave`. Clearing per-shape would let two touching ribbons clear *after* the next one had
+already set.
+
+**Its pointer-only `hover` state is gone**, folded into the shared cursor. It had been a second state
+sitting beside the model, which meant arrowing through the chart announced flows while the graphic
+showed nothing at all. One highlight now, driven by one index, so the keyboard lights a ribbon exactly
+as the pointer does — with a test that asserts the ribbon's `stroke-opacity`, not just the live region.
+
+### `spread-clobbers-prop` — the 17th craft rule
+
+Last time, all four x-indexed charts shipped with their wrapper's entire `style` destroyed, because a
+spread and an explicit prop of the same name were on one element and the later simply replaced the
+earlier. It was found by accident. It is now a gate.
+
+Two things were needed to make it worth having:
+
+- **It resolves object shapes**, including properties assembled from other spreads. Without that it had
+  a hole exactly where the bug lived: `bind` is built as `return { …, bind: { ...groupBind,
+  ...plotBind } }`, so it is not a `const`, and `{...cursor.bind}` — the precise form all four charts
+  shipped — sailed straight through. The first version of this rule caught the `groupBind` variants
+  and **missed every real one**.
+- **It stays silent when it cannot see a shape.** `{...rest}` after a destructured `style` is the
+  correct, common pattern and must never be flagged, because `style` was pulled *out* of `rest`.
+
+Verified by re-injecting the original bug: the rule fires on all seven call sites, including
+`LineChart`'s exact original spelling, and it ignores the doc comment in `chartCursor.jsx` that
+*demonstrates* the bad pattern (which it flagged on the first run — a rule catching its own
+documentation, same failure the motion rules hit once).
+
+**4 new browser tests** (38 → 42). 9/9 verifiers, 17 craft rules, all three visual baselines untouched.
+
 ## 2026-07-27: chart cursors for Donut and Scatter — and the bug they uncovered
 
 `useChartCursor` now takes an optional `hitTest`, so a chart can replace *only* the step that finds

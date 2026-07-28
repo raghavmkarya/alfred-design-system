@@ -177,7 +177,7 @@ test("both are one tab stop each, not one per segment or point", async ({ page }
    with nothing but `outline-offset`. Every cursor test still passed, because
    they all asserted the readout's text and none its position. */
 test("every cursor chart's wrapper is a containing block for its readout", async ({ page }) => {
-  for (const id of ["cursor-line", "legend-chart", "cursor-donut", "cursor-scatter"]) {
+  for (const id of ["cursor-line", "legend-chart", "cursor-donut", "cursor-scatter", "cursor-sankey"]) {
     const pos = await page.locator(`[data-testid='${id}'] [role='group']`).first()
       .evaluate((el) => getComputedStyle(el).position);
     expect(pos, `${id} wrapper must be positioned`).toBe("relative");
@@ -189,4 +189,55 @@ test("the style prop reaches the chart wrapper instead of being swallowed", asyn
   const w = await page.locator("[data-testid='cursor-donut'] [role='group']")
     .evaluate((el) => el.getBoundingClientRect().width);
   expect(w).toBe(180);
+});
+
+/* Sankey's cursor walks LINKS, not nodes: every node already prints its label
+   and throughput as text, while a ribbon's value appears nowhere but the hidden
+   data table. Its ribbons are cubic beziers, so the pointer half is driven by
+   each <path>'s own hit-testing rather than by re-deriving containment. */
+const sankey = (page) => page.locator("[data-testid='cursor-sankey'] [role='group']");
+const sankeyTip = (page) => page.locator("[data-testid='cursor-sankey'] div[aria-hidden='true']").filter({ hasText: ":" });
+
+test("sankey: hovering a ribbon reads out the flow's value", async ({ page }) => {
+  const s = sankey(page);
+  await s.scrollIntoViewIfNeeded();
+  const ribbon = async (i) => page.locator("[data-testid='cursor-sankey'] svg path").nth(i)
+    .evaluate((el) => { const r = el.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+  const a = await ribbon(0);
+  await page.mouse.move(a.x, a.y);
+  await expect(sankeyTip(page)).toContainText("Paid to MQL: 120");
+  const b = await ribbon(1);
+  await page.mouse.move(b.x, b.y);
+  await expect(sankeyTip(page)).toContainText("MQL to Won: 45");
+});
+
+test("sankey: leaving the plot clears, and the readout is one tab stop away", async ({ page }) => {
+  await expect(page.locator("[data-testid='cursor-sankey'] [tabindex='0']")).toHaveCount(1);
+  const s = sankey(page);
+  await s.scrollIntoViewIfNeeded();
+  const box = await page.locator("[data-testid='cursor-sankey'] svg").boundingBox();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.move(box.x + box.width / 2, box.y - 40);
+  await expect(sankeyTip(page)).toHaveCount(0);
+});
+
+test("sankey: arrows walk the flows and announce them", async ({ page }) => {
+  await sankey(page).focus();
+  const live = page.locator("[data-testid='cursor-sankey'] [aria-live='polite']");
+  await page.keyboard.press("ArrowRight");
+  await expect(live).toHaveText("Paid to MQL: 120");
+  await page.keyboard.press("End");
+  await expect(live).toHaveText("MQL to Won: 45");
+  await page.keyboard.press("Escape");
+  await expect(live).toHaveText("");
+});
+
+test("sankey: the keyboard lights a ribbon, not just the live region", async ({ page }) => {
+  // the pointer-only `hover` state used to sit beside the cursor, so arrowing
+  // through announced flows while the chart showed nothing at all
+  await sankey(page).focus();
+  await page.keyboard.press("ArrowRight");
+  const op = await page.locator("[data-testid='cursor-sankey'] svg path").first()
+    .evaluate((el) => getComputedStyle(el).strokeOpacity);
+  expect(Number(op)).toBeGreaterThan(0);
 });
