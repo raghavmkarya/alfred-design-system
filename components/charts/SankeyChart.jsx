@@ -1,5 +1,6 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
+import { useChartCursor, useSvgBox, boxFrac, ChartLive, ChartTooltip, CHART_FOCUS_STYLE } from "../hooks/chartCursor.jsx";
 
 /**
  * Alfred AI — SankeyChart
@@ -17,7 +18,6 @@ const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--ch
 
 export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 14, valueFormat = (v) => Math.round(v), ariaLabel, style = {} }) {
   const uid = React.useId().replace(/:/g, "");
-  const [hover, setHover] = React.useState(null);
 
   const W = 720, padL = 82, padR = 82, padT = 22, padB = 22;
   const plotW = W - padL - padR;
@@ -113,11 +113,42 @@ export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 
     });
   });
 
+  /* The cursor walks LINKS, not nodes. Every node already prints its own label
+     and throughput as real text beside it; a link's value appears nowhere but
+     the hidden data table, so the ribbons are the part a sighted user cannot
+     read and a keyboard user could not reach. */
+  const cursor = useChartCursor(links.length);
+  const at = cursor.index;
+  const nameOf = (id) => (pos[id] && pos[id].label != null ? pos[id].label : id);
+  // "to", not an arrow: this string is read aloud by the live region
+  const linkLabel = (i) => `${nameOf(links[i].source)} to ${nameOf(links[i].target)}: ${fmt(links[i].value || 0)}`;
+
+  const svgRef = React.useRef(null);
+  const box = useSvgBox(svgRef, W, height);
+  // A cubic whose control points share the endpoints' y has its midpoint at
+  // ((sx+tx)/2, (sTop+tTop)/2) — so the ribbon's centre is just that, plus half
+  // its thickness.
+  const anchor = (() => {
+    if (at == null || !links[at]) return null;
+    const l = links[at], s = pos[l.source], t = pos[l.target];
+    if (!s || !t || sTopY[at] == null || tTopY[at] == null) return null;
+    const th = Math.max((l.value || 0) * scale, 1);
+    return boxFrac(box, (s.x + nodeWidth + t.x) / 2, (sTopY[at] + tTopY[at]) / 2 + th / 2);
+  })();
+
   return (
-    <div style={{ width: "100%", ...style }}>
+    /* Interactive chart: the name moves to the focusable group and the graphic
+       goes aria-hidden. See guidelines/chart-contract.md. */
+    <div {...cursor.groupBind} role="group" aria-label={aria}
+      style={{ width: "100%", position: "relative", ...CHART_FOCUS_STYLE, ...style }}>
+      <ChartLive text={cursor.keyboard && at != null ? linkLabel(at) : ""} />
       <ChartTable caption={aria} columns={["From", "To", "Value"]}
         rows={links.map((l) => [String(l.source), String(l.target), String(fmt(l.value || 0))])} />
-      <svg viewBox={`0 0 ${W} ${height}`} width="100%" height={height} role="img" aria-label={aria} style={{ display: "block" }}>
+      {anchor && <ChartTooltip x={anchor.fx} y={anchor.fy} visible>{linkLabel(at)}</ChartTooltip>}
+      {/* leaving the PLOT clears; leaving one ribbon does not, or moving between
+          two touching ribbons could clear after the next one has already set */}
+      <svg ref={svgRef} onPointerLeave={cursor.clear}
+        viewBox={`0 0 ${W} ${height}`} width="100%" height={height} aria-hidden="true" style={{ display: "block" }}>
         <defs>
           {nodes.map((n, i) => (
             <linearGradient key={n.id} id={`${uid}g${i}`} x1="0" y1="0" x2="1" y2="0">
@@ -140,7 +171,10 @@ export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 
             + ` C ${mx.toFixed(1)} ${sTop.toFixed(1)} ${mx.toFixed(1)} ${tTop.toFixed(1)} ${tx.toFixed(1)} ${tTop.toFixed(1)}`
             + ` L ${tx.toFixed(1)} ${(tTop + th).toFixed(1)}`
             + ` C ${mx.toFixed(1)} ${(tTop + th).toFixed(1)} ${mx.toFixed(1)} ${(sTop + th).toFixed(1)} ${sx.toFixed(1)} ${(sTop + th).toFixed(1)} Z`;
-          const active = hover === i;
+          // one highlight, driven by the shared cursor, so the keyboard lights a
+          // ribbon exactly as the pointer does. It used to be a second,
+          // pointer-only `hover` state sitting beside the model.
+          const active = at === i;
           return (
             <path
               key={i}
@@ -150,8 +184,7 @@ export function SankeyChart({ nodes = [], links = [], height = 300, nodeWidth = 
               stroke={s.color}
               strokeOpacity={active ? 0.6 : 0}
               strokeWidth="1.25"
-              onMouseEnter={() => setHover(i)}
-              onMouseLeave={() => setHover(null)}
+              onPointerEnter={() => cursor.point(i)}
               style={{ transition: "fill-opacity var(--dur-fast) var(--ease-standard), stroke-opacity var(--dur-fast) var(--ease-standard)" }}
             />
           );

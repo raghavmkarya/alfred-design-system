@@ -14,9 +14,9 @@ Two shapes, chosen by where the information actually lives:
 
 | Shape | Use when | Charts |
 |---|---|---|
-| `role="img"` + `aria-label` | the **graphic** carries the data, with no readable text equivalent | Sparkline, Sankey, Gauge, Bullet (per track) |
+| `role="img"` + `aria-label` | the **graphic** carries the data, with no readable text equivalent | Sparkline, Gauge, Bullet (per track) |
 | `role="group"` + `aria-label` | every value is **already readable text**; the container just needs a name to group it under | Bar, Funnel, Heatmap |
-| `role="group"` + `aria-label`, `<svg>` hidden | the graphic carries the data **and** the chart is focusable — see "Interactive charts" below | Line, Area, StackedBar, Waterfall, Donut, Scatter |
+| `role="group"` + `aria-label`, `<svg>` hidden | the graphic carries the data **and** the chart is focusable — see "Interactive charts" below | Line, Area, StackedBar, Waterfall, Donut, Scatter, Sankey |
 | `role="list"` + `role="listitem"` | it is a key, not a graphic | Legend |
 
 Do **not** put `role="img"` on a container whose labels and values are real text: that role makes
@@ -103,7 +103,7 @@ The active point is announced through a polite live region rather than by moving
 stops it double-announcing against the hidden data table.
 
 **Interactive today:** LineChart, AreaChart, StackedBarChart, WaterfallChart (the x-indexed SVG
-charts), plus **DonutChart** and **ScatterChart**. **Sparkline is deliberately excluded**: it is a
+charts), plus **DonutChart**, **ScatterChart** and **SankeyChart**. **Sparkline is deliberately excluded**: it is a
 glanceable micro-chart, often several to a row inside KPI cards, and making each one a tab stop would
 be hostile.
 
@@ -120,6 +120,16 @@ A hit-test returns `null` for "nothing here", and that case matters as much as a
   lit while you read the total.
 - **Scatter** finds the **nearest point within a radius**, not simply the nearest point. Without the
   radius, a pointer anywhere in empty plot space keeps some far-off point selected.
+- **Sankey does not use `hitTest` at all.** Its ribbons are cubic beziers drawn one `<path>` per link,
+  and an SVG path already hit-tests its own filled shape exactly and for free — re-deriving
+  containment would be a second, worse implementation of that. Each shape calls
+  `cursor.point(i)` on `onPointerEnter`, and **the plot as a whole** clears on `onPointerLeave`.
+  Clearing per-shape instead would let two touching ribbons clear *after* the next has already set.
+
+**Index what the reader cannot already see.** Sankey's cursor walks **links, not nodes**: every node
+prints its own label and throughput as text beside it, while a link's value appears nowhere but the
+hidden data table. Choosing nodes would have been a tab stop that announces what is already on screen
+— which is the same test that keeps Gauge and Bullet out entirely.
 
 Two things bite when the plot is an `<svg>` that is not the focusable element:
 
@@ -156,10 +166,6 @@ Two things it has to get right:
 
 A series keeps its palette colour when others are hidden — the colour is keyed to its original index,
 not its position among the visible ones, or the chart appears to recolour itself as you toggle.
-
-**SankeyChart still has no cursor.** Its hit-test is a third shape again — ribbons and nodes, not
-points — and it already carries a pointer-only `hover` state that needs folding into the shared model
-rather than sitting beside it.
 
 **Gauge and Bullet are not obviously missing one.** A gauge is a single value already printed large in
 its own centre; a bullet row prints its label, value and target as real text. In both, a cursor would

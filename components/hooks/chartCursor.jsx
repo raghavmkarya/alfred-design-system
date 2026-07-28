@@ -72,7 +72,18 @@ export function useChartCursor(count, options = {}) {
   const groupBind = { tabIndex: count ? 0 : -1, onKeyDown, onBlur: clear };
   const plotBind = { onPointerMove, onPointerLeave: clear };
 
-  return { index, keyboard, clear, groupBind, plotBind, bind: { ...groupBind, ...plotBind } };
+  /* Set the cursor from outside, as a pointer would.
+     Some plots are drawn as one element per datum, and an SVG `<path>` already
+     hit-tests its own filled shape exactly and for free. A sankey's ribbons are
+     cubic beziers; re-deriving containment for those in a `hitTest` would be a
+     second, worse implementation of something the browser is already doing. So
+     those charts put `onPointerEnter={() => cursor.point(i)}` on each shape and
+     `onPointerLeave={cursor.clear}` on the plot as a whole — leaving the plot is
+     what clears, not leaving one shape, or moving between two touching ribbons
+     could clear and re-set in the wrong order. */
+  const point = (i) => move(i, false);
+
+  return { index, keyboard, clear, point, groupBind, plotBind, bind: { ...groupBind, ...plotBind } };
 }
 
 /**
