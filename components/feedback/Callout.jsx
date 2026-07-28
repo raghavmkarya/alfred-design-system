@@ -28,7 +28,7 @@ export function Callout({
   const [hoverAction, setHoverAction] = React.useState(false);
 
   const glyphs = {
-    insight: <path d="M12 3l1.9 5.6 5.6 1.9-5.6 1.9L12 18l-1.9-5.6-5.6-1.9 5.6-1.9L12 3z" />,
+    insight: <path d={GLYPH.sparkle} />,
     success: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.checkInCircle} /></>,
     warning: <path d={GLYPH.warningTriangle} />,
     danger: <><circle cx="12" cy="12" r="9" /><path d={GLYPH.bang} /></>,
