@@ -237,7 +237,10 @@ test("sankey: the keyboard lights a ribbon, not just the live region", async ({ 
   // through announced flows while the chart showed nothing at all
   await sankey(page).focus();
   await page.keyboard.press("ArrowRight");
-  const op = await page.locator("[data-testid='cursor-sankey'] svg path").first()
-    .evaluate((el) => getComputedStyle(el).strokeOpacity);
-  expect(Number(op)).toBeGreaterThan(0);
+  // the highlight transitions over var(--dur-fast), so sampling once races it —
+  // this read exactly 0 mid-transition on CI while passing locally
+  await expect
+    .poll(async () => Number(await page.locator("[data-testid='cursor-sankey'] svg path").first()
+      .evaluate((el) => getComputedStyle(el).strokeOpacity)))
+    .toBeGreaterThan(0);
 });
