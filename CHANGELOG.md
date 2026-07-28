@@ -3,6 +3,33 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-29: the last glyph drift, and the CDN out of the test gates
+
+Three small things, each closing a known loose end.
+
+**`Callout`'s insight tone drew a second Alfred spark.** The same four-point star as `GLYPH.sparkle`,
+but rounder-armed and more inset, and **drawn exactly once** — so no duplication check could ever have
+flagged it; it was found by eye. Rendered side by side at 140px the two are plainly the same glyph at
+two slightly different weights, and at the 16px they ship at they are nearly indistinguishable. Callout
+now uses `GLYPH.sparkle`, stroked. The constant's comment no longer claims it is filled-only: it is one
+shape with two treatments, filled in the conversation and trust components, stroked here where it sits
+in a row of stroked tone glyphs and would read as a blob otherwise.
+
+**`tests/harness.html` no longer loads React and Babel from unpkg.com.** It is test-only and never
+published, so it can point at the packages `npm ci` has already installed — `../node_modules/react/umd/…`
+and friends, served by `serve-tests.mjs` from the repo root. That takes a CDN outage out of the
+`visual` and `interaction` gates at a cost of **zero committed bytes**; `@babel/standalone` joins the
+devDependencies to make it complete. `playground/index.html` is a **published** page and cannot do
+this, so it stays on the CDN with its SRI hashes — that one is a real remaining dependency, not a
+solved one.
+
+**A pre-existing playground flake, correctly attributed.** "every component renders without throwing"
+started timing out. It is 117 clicks in a single test, each a full React re-render, and it had crept up
+against the 30s default until a loaded machine pushed it over. Confirmed pre-existing by stashing the
+day's changes and watching it fail identically on a clean tree, rather than assuming. Marked
+`test.slow()` rather than trimmed: the value of that test is that it clicks **every** component, and
+capping coverage to save wall-clock would quietly stop testing the tail.
+
 ## 2026-07-29: SankeyChart cursor — every chart is now covered, and the style bug is a gate
 
 The last chart without a cursor has one, and the bug the previous batch found by accident is now

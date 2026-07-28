@@ -35,8 +35,12 @@ export const GLYPH = {
   /** shaft + head as ONE path; it was drawn as two <path> elements in three
       marketing components, which read as a stray minus and a stray chevron */
   arrowRight: "M5 12 h14 M13 6 l6 6 l-6 6",
-  /** the Alfred mark. FILLED, not stroked — the only one here that is, so it
-      wants `fill="currentColor"` and no stroke on its <svg>. */
+  /** the Alfred mark. Drawn BOTH ways: filled (`fill="currentColor"`, no stroke)
+      in the conversation and trust components, and stroked in `Callout`'s
+      insight tone, which sits in a row of stroked tone glyphs and would read as
+      a blob if filled. One shape, two treatments — Callout used to carry its own
+      slightly rounder, more inset four-point star, which no duplication check
+      could ever have flagged because it was drawn exactly once. */
   sparkle: "M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z",
   /** the "integration" plug: two pins, a body, a lead. Four subpaths, one glyph
       — it was four separate <path> elements in two components. */

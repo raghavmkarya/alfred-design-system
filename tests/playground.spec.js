@@ -50,6 +50,13 @@ test("theme, density and direction chrome all apply to the canvas", async ({ pag
 });
 
 test("every component renders without throwing", async ({ page }) => {
+  // 117 clicks, each a full React re-render, in ONE test. That is legitimately
+  // slow rather than stuck, and it had crept up against the 30s default until it
+  // began timing out on a loaded machine while asserting nothing was wrong.
+  // Marking it slow (3x) instead of trimming what it covers: the value here is
+  // that it clicks EVERY component, and a coverage cap to save wall-clock would
+  // quietly stop testing the tail.
+  test.slow();
   // the whole point of a playground is that you can click anything; a component
   // whose sample props no longer match its API would blow up here and nowhere else
   const names = await page.locator(".pg-item[type=button]").allTextContents();
