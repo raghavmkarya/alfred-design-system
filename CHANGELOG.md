@@ -3,6 +3,32 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: the icon set is one family — `LEGACY_FILLED` is empty
+
+`integration-success`, `locked-feature`, `web-clarity` and `web-stack-connected` are redrawn, and
+with them **all 27** design-tool exports are gone. **37 glyphs, one construction**: 24×24, stroked,
+`stroke-width="2"`, round caps and joins. `guidelines/icon-grid.md` no longer opens with "two
+families, honestly".
+
+Three decisions in this last batch, none of them a trace of the original:
+
+- **`locked-feature` was a padlock welded to a gear with an up-arrow inside it.** Three ideas in
+  16px. It is a padlock and `GLYPH.sparkle` now: locked, and premium, which is what the call sites
+  mean. A stroked gear at this size is a dark ring with bumps.
+- **The globe in `web-stack-connected` had to lose its meridian.** At r=4.6 with a 2px stroke, a
+  circle plus equator plus meridian leaves about a unit and a half of white and renders as a dot.
+  Circle, equator, one vertical line. The bigger globe in `web-clarity` keeps its curved meridian
+  because it has the radius to spend.
+- **`integration-success` keeps its three nodes on a ring**, which was the one original composition
+  that translated directly: three arcs, three node circles, a check in the middle.
+
+**What the conversion was actually worth.** Thirteen of the twenty-seven were wrong in a way nobody
+had noticed, and every one of them was found by the act of redrawing rather than by a check:
+`trend-down` was a byte-for-byte copy of `trend-up`, `security-lock` was a shield, `cta-arrow` pointed
+backwards on a "Continue" button, `mql` was three letters of type shipping at 17px. A name and a
+filled blob agree with each other far too easily. `LEGACY_FILLED` stays empty; the comment above it
+now records why.
+
 ## 2026-07-30: four illustrations redrawn, and one of them stopped pretending to be text
 
 Fourth batch: **`mql`, `gdpr`, `budget`, `channel-mix`**. **4 legacy, 33 modern.**

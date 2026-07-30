@@ -5,22 +5,29 @@ their own paths, and the same glyph drifted into several shapes. Before this was
 contained **four different checkmarks**, **two different close crosses** and **two different
 chevron-rights** — all hand-drawn, all slightly different, none of them in the set.
 
-## Two families, honestly
+## One family
 
-The set is not uniform, and pretending otherwise would be worse than saying so.
+**All 37 glyphs** are 24×24, **stroked**, `stroke-width="2"`, round caps and joins, `fill="none"`.
 
-| | Construction | Count | Use for |
-|---|---|---|---|
-| **UI glyphs** | 24×24, **stroked**, `stroke-width="2"`, round caps + joins, `fill="none"` | 33 | everything except the four below |
-| **Domain icons** (legacy) | **filled** paths, arbitrary viewBoxes, exported from a design tool | 4 | `integration-success`, `locked-feature`, `web-clarity`, `web-stack-connected` — the four small illustrations |
+For most of this system's life that was not true. The set was two families: these UI glyphs, and 27
+**filled** domain icons on fractional viewBoxes (`0 0 15.193 14.021`) exported from a design tool,
+grandfathered by name in `scripts/verify-icons.mjs` because pretending they matched would have been
+worse than saying so. They were optically heavier at the same size, and they never mixed cleanly.
 
-They read differently at the same size: the filled family is optically heavier. That is a real
-inconsistency and it is being worked off a few at a time, not resolved. Grandfathering is recorded by
-**name** in `scripts/verify-icons.mjs`, so the legacy list can only shrink.
+They were converted in five batches on 2026-07-30. `LEGACY_FILLED` is now empty and must stay empty.
 
-**Converting one is a redraw, not a transform.** Each legacy icon is a single outline-traced *fill* on
-a fractional viewBox, so there is no mechanical way to turn it into a *stroke* — the shape has to be
-drawn again on the 24 grid and then looked at beside the original. Budget a handful per pass.
+**Converting one was a redraw, not a transform.** An outline-traced *fill* cannot become a *stroke*:
+each shape had to be drawn again on the 24 grid, rendered at 88px, and compared to the original by
+eye. What that surfaced is the argument for never taking the shortcut again — a name and a filled
+blob agree with each other far too easily:
+
+- **`trend-down.svg` was a byte-for-byte copy of `trend-up.svg`**, so every `KpiCard` showing a
+  decline drew a rising arrow.
+- **`security-lock` was a shield.** **`cta-arrow` pointed backwards** on a "Continue" button.
+- **`mql` was the letters "MQL"** drawn as paths, shipping at 17px, where type is texture.
+
+**Everything new goes on the same grid** (that is the whole rule now), and `verify-icons` also fails
+if two files render the same set of shapes.
 
 **Everything new goes on the 24×24 stroked grid.** `verify-icons` fails on anything else.
 
@@ -77,7 +84,9 @@ deleted or the check fails. A backlog that keeps entries for glyphs nobody draws
 ## Don't
 
 - Don't put colour in a glyph — `Icon` tints it, and a masked SVG's own fills are discarded anyway.
-- Don't add to the legacy filled family; it is closed.
+- Don't ship a filled glyph, and don't re-add a name to `LEGACY_FILLED`. That list exists only as an
+  empty ratchet now.
+- Don't draw a word. Type at 17px is texture, not language — that is what `mql` was.
 - Don't name a glyph after a component. The next component to need it will not be that one.
 
 Related: [`../assets/illustrations/README.md`](../assets/illustrations/README.md) (the scene art, which
