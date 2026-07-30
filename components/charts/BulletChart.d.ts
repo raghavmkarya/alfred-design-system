@@ -15,5 +15,9 @@ export interface BulletChartProps {
   valueFormat?: (value: number) => React.ReactNode;
   style?: React.CSSProperties;
 }
-/** Horizontal actual-vs-target bullet bars for KPI-vs-goal reads. */
+/**
+ * Horizontal actual-vs-target bullet bars for KPI-vs-goal reads. One tab stop
+ * for the set; hover or arrow through the rows to read each target and its
+ * percentage, neither of which is printed on the row.
+ */
 export function BulletChart(props: BulletChartProps): JSX.Element;

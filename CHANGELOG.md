@@ -3,6 +3,44 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: Gauge and Bullet cursors — the last two charts, and what the old decision got wrong
+
+`chart-contract.md` recorded Gauge and Bullet as a **decision not to**: "a gauge is a single value
+already printed large in its own centre; a bullet row prints its label, value and target as real
+text." Revisiting it for uniformity, the first half held and the second half turned out to be wrong
+about the component.
+
+**A bullet row does not print its target.** It draws it as an **unlabelled tick**, and the ratio
+between value and target — the only number anyone reads a bullet chart for — appears nowhere on
+screen. The old argument had been made from the prop names, where `target` looks like something the
+row prints. Reading the render is what settled it. So the cursor walks rows and announces
+`Search: 80, target 100, 80% of target`, with the visible readout anchored to **the tick** rather than
+to the bar, because the bar's value is already printed at the end of the row.
+
+**The gauge's cursor walks BANDS, not the value** — the first half of the old decision, kept. A band
+is a tinted arc carrying no name and no bounds anywhere in the graphic; the value is 26% of the
+gauge's diameter in the middle of it. And a gauge given **no** `segments` has nothing to walk, so it
+has no cursor and no tab stop at all, staying the static `role="img"` shape. That is the `Legend`
+precedent: a legend becomes interactive only when given `onToggle`, and a chart earns a tab stop by
+having something to say, not by being a chart.
+
+Three smaller things that came out of building it:
+
+- **A gauge is not a closed ring.** Its sweep is 270° with a 90° gap at the bottom, so a pointer below
+  it is inside the radius and on nothing. That case has to return null; clamping to the nearest end
+  would make the rail appear to wrap around through the gap.
+- **The gauge's hidden data table printed empty bands.** It read `s.to ?? s.value` for each segment's
+  value, and a segment has neither — it has `upTo`. Every band row had been rendering blank since the
+  table was added. The rows now read the same `zones` the arcs are drawn from, so the two cannot
+  disagree, and `verify-a11y` asserts the printed range (`Behind` → `0 to 60`).
+- **Both active states thicken as well as recolour.** In forced-colors mode the tint and the accent
+  border are both overridden, so geometry is the only signal that survives: the active gauge band
+  gains 4px of stroke, the active bullet bar goes 14px → 18px.
+
+Nine of the fourteen now carry a cursor. Of the rest, `Legend` is interactive on its own terms (given
+`onToggle`), `Bar`, `Funnel` and `Heatmap` render every value as readable text, and `Sparkline` stays
+out deliberately: it is glanceable, and often several to a KPI row.
+
 ## 2026-07-30: the product glossary is tracked, and the component list is honest again
 
 **`CONTEXT.md` is now `docs/context.md`, committed.** It had sat untracked in the repo root for four

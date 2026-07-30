@@ -30,7 +30,7 @@
 <script type="text/babel">
 const ns = window.AlfredAIDesignSystem_1ce241;
 const { Button, Chip, Badge, Switch, SegmentedControl, OfferSwitch, Banner, Callout, DecisionAlert, KpiCard, Pagination, Input } = ns;
-const { Tabs, LineChart, StackedBarChart, DonutChart, ScatterChart, SankeyChart } = ns;
+const { Tabs, LineChart, StackedBarChart, DonutChart, ScatterChart, SankeyChart, GaugeChart, BulletChart } = ns;
 const { useState } = React;
 const RTL_ALERT = { priority: "high", title: "Pause overspend", insight: "Meta is 40% over CPA.", time: "2m", action: "Review" };
 
@@ -161,6 +161,24 @@ function App() {
           <ScatterChart
             points={[{ x: 20, y: 20, label: "A" }, { x: 80, y: 80, label: "B" }]}
             xMax={100} yMax={100} xLabel="Spend" yLabel="ROAS" height={260} />
+        </div>
+        {/* The gauge cursor walks BANDS, so two of them, splitting the rail in
+            half: the first covers 0 to 50, the second 50 to 100, which puts the
+            boundary exactly at 12 o'clock and makes the expected hit clear. */}
+        <div style={{ marginTop: 18 }} data-testid="cursor-gauge">
+          <GaugeChart value={72} max={100} label="Pacing" sub="out of 100" size={200}
+            segments={[{ upTo: 50, color: "var(--chart-4)", label: "Behind" }, { upTo: 100, color: "var(--chart-1)", label: "On pace" }]} />
+        </div>
+        {/* A gauge with no bands must NOT be a tab stop — the value is already
+            printed in its centre. Asserted, not assumed. */}
+        <div style={{ marginTop: 18 }} data-testid="gauge-plain">
+          <GaugeChart value={72} max={100} label="Pacing" size={160} />
+        </div>
+        <div style={{ width: 460, marginTop: 18 }} data-testid="cursor-bullet">
+          <BulletChart items={[
+            { label: "Search", value: 80, target: 100, max: 120 },
+            { label: "Social", value: 45, target: 60, max: 120 },
+          ]} />
         </div>
       </div>
     </div>

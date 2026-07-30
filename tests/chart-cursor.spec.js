@@ -177,7 +177,10 @@ test("both are one tab stop each, not one per segment or point", async ({ page }
    with nothing but `outline-offset`. Every cursor test still passed, because
    they all asserted the readout's text and none its position. */
 test("every cursor chart's wrapper is a containing block for its readout", async ({ page }) => {
-  for (const id of ["cursor-line", "legend-chart", "cursor-donut", "cursor-scatter", "cursor-sankey"]) {
+  /* Bullet is deliberately absent: its readout is anchored to a row's target
+     tick, so the containing block is that row's track wrapper, not the group
+     that holds every row. */
+  for (const id of ["cursor-line", "legend-chart", "cursor-donut", "cursor-scatter", "cursor-sankey", "cursor-gauge"]) {
     const pos = await page.locator(`[data-testid='${id}'] [role='group']`).first()
       .evaluate((el) => getComputedStyle(el).position);
     expect(pos, `${id} wrapper must be positioned`).toBe("relative");
@@ -243,4 +246,103 @@ test("sankey: the keyboard lights a ribbon, not just the live region", async ({ 
     .poll(async () => Number(await page.locator("[data-testid='cursor-sankey'] svg path").first()
       .evaluate((el) => getComputedStyle(el).strokeOpacity)))
     .toBeGreaterThan(0);
+});
+
+/* The gauge cursor walks BANDS. Its value is printed large in the centre and
+   needs no cursor; a band is a tinted arc carrying no name and no bounds
+   anywhere in the graphic, which is the case the cursor exists for. A gauge
+   given no bands therefore has nothing to walk and is not a tab stop at all. */
+const gauge = (page) => page.locator("[data-testid='cursor-gauge'] [role='group']");
+const gaugeLive = (page) => page.locator("[data-testid='cursor-gauge'] [aria-live='polite']");
+
+test("gauge: arrows walk the bands and announce their bounds", async ({ page }) => {
+  await gauge(page).focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(gaugeLive(page)).toHaveText("Behind: 0 to 50");
+  await page.keyboard.press("End");
+  // the value 72 sits in the second band, and the announcement says so — the
+  // whole point of walking bands is learning where the score falls
+  await expect(gaugeLive(page)).toHaveText("On pace: 50 to 100, holds the current 72");
+  await page.keyboard.press("Escape");
+  await expect(gaugeLive(page)).toHaveText("");
+});
+
+test("gauge: hover finds the band by angle, and the gap and the hole find nothing", async ({ page }) => {
+  const g = gauge(page);
+  await g.scrollIntoViewIfNeeded();
+  const box = await g.boundingBox();
+  // the gauge is 200px wide and its rail is centred on (100, 100) in its own
+  // coordinates, so the wrapper's own top-left plus 100 is the axis
+  const cx = box.x + 100, cy = box.y + 100;
+  const railR = 100 - (Math.round(200 * 0.085) / 2 + 2);   // r = size/2 - (sw/2 + 2)
+  const onRail = (deg) => [cx + railR * Math.cos((deg * Math.PI) / 180), cy + railR * Math.sin((deg * Math.PI) / 180)];
+  const readout = page.locator("[data-testid='cursor-gauge'] span[aria-hidden='true']");
+  // the sweep runs 135° → 405°, so 180° is an eighth of the way in: first band
+  await page.mouse.move(...onRail(180));
+  await expect(readout).toHaveText("Behind: 0 to 50");
+  await page.mouse.move(...onRail(0));             // 3 o'clock, five sixths in
+  await expect(readout).toHaveText("On pace: 50 to 100");
+  // 110° is inside the 90° gap at the bottom: on the rail's radius and on no
+  // band at all. Clamping to the nearest end here would make the rail look like
+  // it wraps around through the gap. (Not a straight 90°: that lands within a
+  // pixel of the cropped viewBox's bottom edge.)
+  await page.mouse.move(...onRail(110));
+  await expect(readout).toHaveCount(0);
+  await page.mouse.move(cx, cy);                   // the middle, off the rail
+  await expect(readout).toHaveCount(0);
+});
+
+test("gauge: a gauge with no bands is not a tab stop", async ({ page }) => {
+  await expect(page.locator("[data-testid='gauge-plain'] [tabindex='0']")).toHaveCount(0);
+  // and it keeps the static contract instead of a half-applied interactive one
+  await expect(page.locator("[data-testid='gauge-plain'] svg[role='img']")).toHaveCount(1);
+});
+
+/* The bullet cursor walks ROWS, and reads out the half of the row that is not
+   written down: the value is printed at the right of every row, the target is
+   only a tick mark and the ratio between them appears nowhere. */
+const bullet = (page) => page.locator("[data-testid='cursor-bullet'] [role='group']");
+const bulletTip = (page) => page.locator("[data-testid='cursor-bullet'] div[aria-hidden='true']").filter({ hasText: "target" });
+
+test("bullet: hovering a row reads out its target and percentage", async ({ page }) => {
+  const b = bullet(page);
+  await b.scrollIntoViewIfNeeded();
+  // the group's only element children are ChartLive's span, the hidden table and
+  // the rows, so `> div` is the rows
+  const row = async (i) => page.locator("[data-testid='cursor-bullet'] [role='group'] > div").nth(i)
+    .evaluate((el) => { const r = el.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+  const a = await row(0);
+  await page.mouse.move(a.x, a.y);
+  await expect(bulletTip(page)).toHaveText("target 100 · 80%");
+  const c = await row(1);
+  await page.mouse.move(c.x, c.y);
+  await expect(bulletTip(page)).toHaveText("target 60 · 75%");
+  // leaving the whole chart clears — leaving one row does not, or moving between
+  // two rows could clear after the next has already set
+  await page.mouse.move(a.x, a.y - 120);
+  await expect(bulletTip(page)).toHaveCount(0);
+});
+
+test("bullet: arrows walk the rows, and it is one tab stop for all of them", async ({ page }) => {
+  await expect(page.locator("[data-testid='cursor-bullet'] [tabindex='0']")).toHaveCount(1);
+  await bullet(page).focus();
+  const live = page.locator("[data-testid='cursor-bullet'] [aria-live='polite']");
+  await page.keyboard.press("ArrowDown");
+  await expect(live).toHaveText("Search: 80, target 100, 80% of target");
+  await page.keyboard.press("End");
+  await expect(live).toHaveText("Social: 45, target 60, 75% of target");
+  await page.keyboard.press("Escape");
+  await expect(live).toHaveText("");
+});
+
+test("bullet: the keyboard thickens the active row's bar, not just the live region", async ({ page }) => {
+  await bullet(page).focus();
+  // row → the track's wrapper → the track → the measure bar (these rows pass no
+  // `ranges`, so the bar is the track's first child)
+  const bar = page.locator("[data-testid='cursor-bullet'] [role='group'] > div").nth(0)
+    .locator("> div").nth(1).locator("> div > div").first();
+  const before = await bar.evaluate((el) => el.getBoundingClientRect().height);
+  await page.keyboard.press("ArrowDown");
+  await expect.poll(async () => bar.evaluate((el) => el.getBoundingClientRect().height))
+    .toBeGreaterThan(before);
 });

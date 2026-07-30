@@ -225,10 +225,20 @@ const CASES = [
   ["SankeyChart (interactive group)", "SankeyChart", { nodes: [{ id: "a", col: 0 }, { id: "b", col: 1 }], links: [{ source: "a", target: "b", value: 5 }] },
     [/role="group"/, /aria-label="Sankey flow diagram, 2 nodes and 1 flows"/, /tabindex="0"/i, /aria-live="polite"/],
     [/role="img"/]],
-  ["GaugeChart", "GaugeChart", { value: 72, max: 100, label: "Pacing" },
-    [/role="img"/, /aria-label="Pacing: 72 of 100"/]],
-  ["BulletChart", "BulletChart", { items: [{ label: "Search", value: 80, target: 100 }] },
-    [/role="img"/, /aria-label="/]],
+  /* A gauge with no bands has nothing to walk, so it stays a static image —
+     its value is already printed large in its own centre. */
+  ["GaugeChart (no bands, static)", "GaugeChart", { value: 72, max: 100, label: "Pacing" },
+    [/role="img"/, /aria-label="Pacing: 72 of 100"/], [/role="group"/, /tabindex="0"/i]],
+  ["GaugeChart (bands, interactive group)", "GaugeChart",
+    { value: 72, max: 100, label: "Pacing", segments: [{ upTo: 60, color: "#c00", label: "Behind" }, { upTo: 100, color: "#0a0", label: "On pace" }] },
+    [/role="group"/, /aria-label="Pacing: 72 of 100"/, /tabindex="0"/i, /aria-live="polite"/, /aria-hidden="true"/],
+    [/role="img"/]],
+  ["BulletChart (interactive group)", "BulletChart", { items: [{ label: "Search", value: 80, target: 100 }] },
+    [/role="group"/, /aria-label="Bullet chart, 1 measure"/, /tabindex="0"/i, /aria-live="polite"/],
+    [/role="img"/]],
+  ["BulletChart (plural in the group name)", "BulletChart",
+    { items: [{ label: "Search", value: 80, target: 100 }, { label: "Social", value: 40, target: 60 }] },
+    [/aria-label="Bullet chart, 2 measures"/]],
   ["BarChart", "BarChart", { data: [{ label: "Search", value: 40 }, { label: "Social", value: 25 }] },
     [/role="group"/, /aria-label="Bar chart, 2 bars"/]],
   ["FunnelChart", "FunnelChart", { steps: [{ label: "Visitors", value: 1000 }, { label: "MQL", value: 240 }] },
@@ -272,6 +282,12 @@ const CASES = [
     [/<table/, /<th scope="row">#1<\/th>/, /<td>9<\/td>/]],
   ["GaugeChart (data table)", "GaugeChart", { value: 72, max: 100, label: "Pacing" },
     [/<table/, /<th scope="row">Pacing<\/th>/, /<th scope="row">Maximum<\/th>/]],
+  /* Each band prints the range it actually covers. This row used to read
+     `s.to ?? s.value`, which a segment has neither of, so every band shipped
+     with an empty value. */
+  ["GaugeChart (bands print their range)", "GaugeChart",
+    { value: 72, max: 100, label: "Pacing", segments: [{ upTo: 60, color: "#c00", label: "Behind" }, { upTo: 100, color: "#0a0", label: "On pace" }] },
+    [/<th scope="row">Behind<\/th><td>0 to 60<\/td>/, /<th scope="row">On pace<\/th><td>60 to 100<\/td>/]],
   ["BulletChart (data table)", "BulletChart", { items: [{ label: "Search", value: 80, target: 100 }] },
     [/<table/, /<th scope="col">Target<\/th>/, /<th scope="row">Search<\/th>/]],
 
