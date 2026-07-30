@@ -3,6 +3,22 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: two components had no prompt file, and nothing was looking
+
+`.prompt.md` is what an agent reads for a component it has not met, so a component without one is
+invisible to the surface this whole system exists to serve. **`BrandMoment` and `Illustration` had
+been missing theirs since they were added.**
+
+The reason is a one-directional generator: `gen-prompts.mjs` writes only files that **do not exist**,
+which is right (the prose is hand-edited afterwards and must not be clobbered), but nothing ever
+checked the other direction. `verify-playground` does now — every component in the manifest must have
+a `.prompt.md` — and it was checked against a hidden file before being trusted.
+
+The same run also wanted to generate prompt files for **`components/hooks/`**, which is internal and
+deliberately off the public namespace: `useChartCursor`, `ChartTable`, `usePress` and `GLYPH` have no
+prop table and no call site anyone would write. The generator skips that directory now rather than
+relying on someone noticing and deleting four files.
+
 ## 2026-07-30: six more icons, and a file glyph finally shares a definition with an inline one
 
 Second batch: **`alert-warning`, `security-lock`, `bookmark`, `pin`, `fullscreen`, `refresh`**.

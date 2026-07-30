@@ -124,9 +124,15 @@ const EXAMPLES = {
   action={{ label: "Review yesterday's decisions", onClick: () => {} }} />`,
 };
 
+/* components/hooks/ is INTERNAL — the bundle keeps it off the public namespace,
+   so `useChartCursor`, `ChartTable`, `usePress` and `GLYPH` have no prop table,
+   no call site a designer would write, and nothing a prompt file could say. It
+   generated four of them once; they were deleted rather than committed. */
+const INTERNAL = new Set(["hooks"]);
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
   const p = path.join(dir, e.name);
-  return e.isDirectory() ? walk(p) : p.endsWith(".jsx") ? [p] : [];
+  if (e.isDirectory()) return INTERNAL.has(e.name) ? [] : walk(p);
+  return p.endsWith(".jsx") ? [p] : [];
 });
 
 const jsdocOf = (jsx) => {

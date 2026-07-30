@@ -75,6 +75,22 @@ if (!/contain:\s*layout paint/.test(rd("playground/playground.css"))) {
 }
 if (!fails.some((f) => f.startsWith("playground/"))) console.log("OK   page        — index/js/css present and wired");
 
+/* 4b — every public component has a prompt file
+
+   `.prompt.md` is what an agent reads for a component it has not seen, so a
+   component without one is invisible to the surface this system exists to
+   serve. Two (BrandMoment, Illustration) had been missing since they were
+   added, because gen-prompts.mjs only writes files that do not exist and
+   nothing ever checked the other direction. */
+const missingPrompts = manifest.components
+  .map((c) => [c.name, c.sourcePath.replace(/\.jsx$/, ".prompt.md")])
+  .filter(([, p]) => !fs.existsSync(path.join(ROOT, p)));
+if (missingPrompts.length) {
+  fails.push(`no .prompt.md for: ${missingPrompts.map(([n]) => n).join(", ")} — run \`node scripts/gen-prompts.mjs\``);
+} else {
+  console.log(`OK   prompts     — all ${manifest.components.length} components have a .prompt.md`);
+}
+
 /* 5 — the vendored React
 
    This page is published, so it cannot load React from node_modules the way
