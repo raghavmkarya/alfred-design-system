@@ -11,8 +11,8 @@ The set is not uniform, and pretending otherwise would be worse than saying so.
 
 | | Construction | Count | Use for |
 |---|---|---|---|
-| **UI glyphs** | 24×24, **stroked**, `stroke-width="2"`, round caps + joins, `fill="none"` | 29 | chevrons, check, close, plus, minus, search, spark, `trend-*`, `refresh`, `sort`, `delete`, `export` — the furniture |
-| **Domain icons** (legacy) | **filled** paths, arbitrary viewBoxes, exported from a design tool | 8 | `mql`, `gdpr`, `budget`, `channel-mix` — the ones that mean something specific to Alfred, and the most illustrative of the set |
+| **UI glyphs** | 24×24, **stroked**, `stroke-width="2"`, round caps + joins, `fill="none"` | 33 | everything except the four below |
+| **Domain icons** (legacy) | **filled** paths, arbitrary viewBoxes, exported from a design tool | 4 | `integration-success`, `locked-feature`, `web-clarity`, `web-stack-connected` — the four small illustrations |
 
 They read differently at the same size: the filled family is optically heavier. That is a real
 inconsistency and it is being worked off a few at a time, not resolved. Grandfathering is recorded by

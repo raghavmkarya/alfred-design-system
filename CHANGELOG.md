@@ -3,6 +3,25 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: four illustrations redrawn, and one of them stopped pretending to be text
+
+Fourth batch: **`mql`, `gdpr`, `budget`, `channel-mix`**. **4 legacy, 33 modern.**
+
+**`mql` was a document with the letters "MQL" drawn as paths.** Lettering does not survive an icon
+grid: it ships at 17px inside a `KpiCard`, where three glyphs of type are a grey smudge that reads as
+texture, not as a word. Redrawn as **a person with a check** — a qualified lead, which is what the
+label beside it already says. Converting it was the only way to notice; the filled original had been
+"a document with something written on it" to every eye that passed it.
+
+**`gdpr` is a document with a padlock, not a shield.** The obvious redraw was a shield with a
+keyhole, and it was drawn and rejected: the set already has `security-lock` (a shield) and
+`step-locked` (a padlock), so a third shield silhouette would have been the fourth checkmark problem
+in a new costume. A padlock **on a document** is the thing GDPR actually names.
+
+Each was rendered at 88px beside the glyphs it sits near before being kept — `mql`'s first cut had
+the check tangled in the shoulder line, and `budget`'s pie read as a blob until the wedge became two
+radius strokes on a full circle.
+
 ## 2026-07-30: six more icons — the legacy family is down to its eight illustrations
 
 Third batch: **`sort`, `delete`, `export`, `read-only`, `step-locked`, `audit-log`**. **8 legacy, 29
