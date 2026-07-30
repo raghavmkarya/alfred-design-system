@@ -6,12 +6,13 @@ import vm from "node:vm";
 import { TextEncoder, TextDecoder } from "node:util";
 
 const ROOT = new URL("..", import.meta.url).pathname;
-const get = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error(u + " " + r.status); return r.text(); };
+/* React comes from node_modules, not a CDN: it is a devDependency pinned by
+   package-lock, and a verifier that needs the network is a verifier that fails
+   for reasons that have nothing to do with the code it is checking. */
+const dep = (f) => fs.readFileSync(ROOT + "node_modules/" + f, "utf8");
 
-const [reactSrc, serverSrc] = await Promise.all([
-  get("https://unpkg.com/react@18.3.1/umd/react.development.js"),
-  get("https://unpkg.com/react-dom@18.3.1/umd/react-dom-server.browser.development.js"),
-]);
+const reactSrc = dep("react/umd/react.development.js");
+const serverSrc = dep("react-dom/umd/react-dom-server.browser.development.js");
 
 const warnings = [];
 const mkdoc = () => new Proxy(function () {}, { get: () => mkdoc(), apply: () => mkdoc() });

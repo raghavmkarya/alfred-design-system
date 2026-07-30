@@ -1,5 +1,5 @@
 /* Render-verify the design-system JSX kits against the real _ds_bundle.js.
-   Loads React + the browser server build + Babel standalone from unpkg,
+   Loads React + the browser server build + Babel standalone from node_modules,
    evaluates the bundle, then server-renders each named component, failing on
    any render error or React warning. Run: `node scripts/verify-render.mjs` */
 import fs from "node:fs";
@@ -8,7 +8,8 @@ import { TextEncoder, TextDecoder } from "node:util";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const read = (f) => fs.readFileSync(ROOT + f, "utf8");
-const get = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error(u + " " + r.status); return r.text(); };
+// from node_modules, not a CDN — see the note in verify-components.mjs
+const dep = (f) => fs.readFileSync(ROOT + "node_modules/" + f, "utf8");
 
 // Each entry: [jsxFile, [exported window globals to render]]
 const KITS = [
@@ -27,11 +28,9 @@ const KITS = [
   ["ui_kits/app/Screens4.jsx", ["SettingsProfile", "TeamPermissions", "BillingPlans", "MemoryCore", "AuditLog"]],
 ];
 
-const [reactSrc, serverSrc, babelSrc] = await Promise.all([
-  get("https://unpkg.com/react@18.3.1/umd/react.development.js"),
-  get("https://unpkg.com/react-dom@18.3.1/umd/react-dom-server.browser.development.js"),
-  get("https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"),
-]);
+const reactSrc = dep("react/umd/react.development.js");
+const serverSrc = dep("react-dom/umd/react-dom-server.browser.development.js");
+const babelSrc = dep("@babel/standalone/babel.min.js");
 
 const warnings = [];
 const mkdoc = () => new Proxy(function () {}, { get: () => mkdoc(), apply: () => mkdoc() });

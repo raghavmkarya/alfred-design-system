@@ -17,8 +17,13 @@ export const GROUP_ORDER = ["hooks", "brand", "core", "data", "charts", "overlay
 
 export async function compileComponents(ROOT) {
   const COMPONENTS_DIR = path.join(ROOT, "components");
-  // —— load Babel standalone (same build the previews use) ——
-  const babelSrc = await (await fetch("https://unpkg.com/@babel/standalone@7.29.0/babel.min.js")).text();
+  /* —— load Babel standalone from node_modules, not the CDN ——
+     This is the shared build pipeline: `_ds_bundle.js`, the npm package and
+     three verifiers all come through here, so a `fetch` at this line made a
+     CDN reachable a hard requirement of building the design system at all.
+     `@babel/standalone` is a devDependency; `npm ci` has already put it on
+     disk. Same file the CDN was serving, pinned by package-lock instead. */
+  const babelSrc = fs.readFileSync(path.join(ROOT, "node_modules/@babel/standalone/babel.min.js"), "utf8");
   const bctx = {}; bctx.window = bctx; bctx.self = bctx; vm.createContext(bctx);
   vm.runInContext(babelSrc, bctx);
   const Babel = bctx.Babel;
