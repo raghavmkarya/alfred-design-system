@@ -183,7 +183,7 @@ social/               ← 102-frame social system: OG images · LinkedIn/Faceboo
 slides/               ← presentation templates (cover, index, section, content)
 playground/           ← live component playground (prop controls from the .d.ts) + generated props.json
 vendor/               ← committed production React + ReactDOM, shared by the playground and the four UI kits. No published page loads a third-party script, and no kit compiles JSX in the browser (scripts/build-kits.mjs precompiles it)
-scripts/              ← tooling: the 9 verifiers (verify-render · components · a11y · craft · types · contrast · playground · npm · icons) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
+scripts/              ← tooling: the 10 verifiers (verify-render · components · a11y · craft · types · contrast · playground · npm · icons · consumer — the last installs the packed tarball on the LATEST React, since the other nine run on the peer range's lower bound) + build-kits.mjs (precompiles the UI-kit JSX) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes (projectId, lastSyncCommit, exclude list — check-sync-drift.mjs reads this)
 ```

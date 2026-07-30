@@ -54,6 +54,14 @@ jobs:
       # not committed, so nothing else would notice if it stopped building.
       - name: verify-npm (package builds, exports, renders, types)
         run: node scripts/verify-npm.mjs
+      # Everything above runs on the repo's react@18.3.1 — the LOWER BOUND of the
+      # peer range. This installs the packed tarball with the latest React into a
+      # scratch project and renders it there, which is the only check that sees
+      # what a consumer sees. It caught `inert=""` rendering on 18 and being
+      # dropped by 19, i.e. a closed FaqItem panel that was not inert for anyone
+      # on the current major. Needs the network, deliberately.
+      - name: verify-consumer (installs the tarball on the latest React)
+        run: node scripts/verify-consumer.mjs
       # The icon grid, plus a ratchet: a glyph duplicated across components is one
       # that wants to be in the set. Fails on any NEW duplicate, not the backlog.
       - name: verify-icons (glyph grid + drift ratchet)
