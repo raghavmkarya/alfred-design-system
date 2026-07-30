@@ -3,6 +3,32 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: seven icons onto the stroked grid, and trend-down was drawing an up arrow
+
+First batch off the legacy filled family: **`trend-up`, `trend-down`, `trend-flat`, `close`,
+`cta-arrow`, `demo-play` and `pricing-cross`** are redrawn on the 24×24 stroked grid, and out of
+`LEGACY_FILLED`. **20 legacy, 17 modern**, from 27 and 10.
+
+**`trend-down.svg` was a byte-for-byte copy of `trend-up.svg`.** Every `KpiCard` with
+`direction="down"` has been drawing a *rising* arrow, in the one component whose job is to say which
+way a number moved. It is now an actual descent. Nothing could see it: `verify-icons` read
+**components** for duplicated inline paths and never read the icon set against itself.
+
+**So that gate exists now.** Two icon files that render the same set of shapes fail the check, and it
+was confirmed against an injected copy before being trusted. This is the thirteenth time a new gate
+has found a real bug on its first run.
+
+Three things worth writing down about the redraws:
+
+- **An outline-traced fill cannot be transformed into a stroke.** Each of these was a single filled
+  path on a fractional viewBox (`0 0 13.100 7.370`), so every one is a hand redraw on the 24 grid and
+  then a look at the two side by side. Seven is about the right batch; 20 remain.
+- **`cta-arrow` now points up-right.** It pointed up-**left** — visible only once it was rendered at
+  88px, and it ships as the trailing icon on a "Continue" button. A back-arrow on a forward action.
+- **`demo-play` and `pricing-cross` change weight, deliberately.** A solid triangle becomes an
+  outlined one and a filled ring becomes a stroked one; that lighter read is the entire point of the
+  family they are joining, and it is why this cannot be done invisibly in bulk.
+
 ## 2026-07-30: the playground carries its own React
 
 The docs page loaded React and ReactDOM from unpkg.com with SRI hashes. It is a **published** page,

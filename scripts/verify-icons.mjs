@@ -28,10 +28,10 @@ const fails = [];
 /* The 27 originals: filled paths, arbitrary viewBoxes. Grandfathered explicitly
    so the list can only shrink, never quietly grow. */
 const LEGACY_FILLED = new Set([
-  "alert-warning", "audit-log", "bookmark", "budget", "channel-mix", "close", "cta-arrow",
-  "delete", "demo-play", "export", "fullscreen", "gdpr", "integration-success", "locked-feature",
-  "mql", "pin", "pricing-cross", "read-only", "refresh", "security-lock", "sort", "step-locked",
-  "trend-down", "trend-flat", "trend-up", "web-clarity", "web-stack-connected",
+  "alert-warning", "audit-log", "bookmark", "budget", "channel-mix",
+  "delete", "export", "fullscreen", "gdpr", "integration-success", "locked-feature",
+  "mql", "pin", "read-only", "refresh", "security-lock", "sort", "step-locked",
+  "web-clarity", "web-stack-connected",
 ]);
 
 /* Inline glyphs already duplicated across components when this check was added.
@@ -70,6 +70,27 @@ if (!fails.length) console.log(`OK   construction — ${modern} glyph(s) on the 
 /* a legacy name that no longer exists should leave the list */
 for (const name of LEGACY_FILLED) {
   if (!files.includes(`${name}.svg`)) fails.push(`LEGACY_FILLED lists "${name}" but assets/icons/${name}.svg is gone — remove it from the list`);
+}
+
+/* —— 1b. two files, one drawing ————————————————————————————————————————
+   The duplication ratchet below reads COMPONENTS. Nothing read the icon set
+   against itself, and `trend-down.svg` was a byte-for-byte copy of
+   `trend-up.svg` — so every KpiCard with `direction="down"` had been drawing a
+   rising arrow, in a component whose whole job is to say which way a number
+   moved. A name that means the opposite of what it draws is worse than a
+   missing icon, and nothing here could see it. */
+const byShape = new Map();
+for (const f of files.sort()) {
+  const src = fs.readFileSync(path.join(ICONS, f), "utf8");
+  const shape = [...src.matchAll(/<(?:path|circle|rect|line|polyline|polygon)\b[^>]*>/g)]
+    .map((m) => m[0].replace(/\s+/g, " "))
+    .join("");
+  if (!shape) continue;
+  if (!byShape.has(shape)) byShape.set(shape, []);
+  byShape.get(shape).push(f.replace(/\.svg$/, ""));
+}
+for (const names of byShape.values()) {
+  if (names.length > 1) fails.push(`assets/icons — ${names.join(" and ")} are the same drawing; one of them is mislabelled or redundant`);
 }
 
 /* —— 2. the duplication ratchet ———————————————————————————————————————— */
