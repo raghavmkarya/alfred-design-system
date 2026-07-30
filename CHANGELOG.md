@@ -17,7 +17,22 @@ Two new glyphs on the same grid, and the button now also carries a real accessib
 it went in the way the guideline now describes: drawn on the 24 grid, rendered at 88px beside
 `check.svg` to compare weight, added to the gallery card.
 
-## 2026-07-30: unpkg.com is gone from the repo — the build, the verifiers and every published page
+## 2026-07-30 (correction): the `@dsCard` previews still use the CDN, on purpose
+
+The entry below is titled "gone from the repo". That is **overstated**: the **20 `@dsCard` preview
+pages** (`components/**/*.card.html`, `guidelines/*.card.html`) still load React and
+`@babel/standalone` from unpkg, and they are linked from the published gallery.
+
+They are staying, and the reason is that they are not only ours. A card is consumed by
+**claude.ai/design**, whose runtime decides how the file is fetched and executed; a card that depends
+on a sibling `.js` is a bet on behaviour this repo does not control and cannot test. The kits could be
+precompiled precisely because they are only ever served as static files from a path we own.
+
+So the accurate statement is: **unpkg is out of the build, out of every verifier, out of the
+playground and out of the four UI kits.** It remains in the 20 preview cards by decision. If that
+changes, the check in `verify-playground` is where the new paths go.
+
+## 2026-07-30: unpkg.com out of the build, the verifiers and the published app surfaces
 
 The playground stopped loading React from a CDN this morning. Following the same thread through the
 rest of the system turned up something worse than a slow docs page: **the build itself fetched Babel
