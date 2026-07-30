@@ -17,6 +17,24 @@ Two new glyphs on the same grid, and the button now also carries a real accessib
 it went in the way the guideline now describes: drawn on the 24 grid, rendered at 88px beside
 `check.svg` to compare weight, added to the gallery card.
 
+## 2026-07-30: the consumer check tests the whole peer range, not one point in it
+
+`verify-consumer` landed testing whatever `react` resolved to — `latest`, in practice. That is one
+point on a range the package declares as **`>=18`**, and picking the newest point has the same shape
+of blind spot as picking the oldest: the nine source verifiers run on 18 and missed a React 19 bug,
+so a check that only runs on 19 would miss the mirror image.
+
+It now runs the matrix **18 · 19 · latest**, reporting per version, and `latest` says so when it
+resolves to a major already covered rather than repeating itself. Re-injecting the `inert` bug shows
+the point exactly: 18 passes, 19 fails, which is precisely how the bug behaved in the wild.
+
+**`latest` floats on purpose**, which means CI can turn red without a commit the day React 20 ships.
+That is the correct signal rather than a flaw: `>=18` already promises that version works, so the
+day it stops working is the day to either support it or narrow the range. A promise you decline to
+test is not a smaller promise, only a quieter one.
+
+Cost: the whole check runs in about 7 seconds, since the two installs share one scratch project.
+
 ## 2026-07-30: a tenth verifier, which installs the package the way a user does
 
 The `inert` bug below existed because **every check here runs on `react@18.3.1`** — the *lower bound*
