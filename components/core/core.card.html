@@ -55,7 +55,7 @@ function Demo() {
           </div>
           <div style={{flex:'1 1 280px'}}>
             <Input label="Password" type={pw?'text':'password'} placeholder="••••••••" fill="tint"
-              trailing={<IconButton name={pw?'fullscreen':'read-only'} iconRoot={R} variant="ghost" size={28} iconSize={16} onClick={()=>setPw(!pw)} />} />
+              trailing={<IconButton name={pw?'eye-off':'eye'} iconRoot={R} variant="ghost" size={28} iconSize={16} label={pw?'Hide password':'Show password'} onClick={()=>setPw(!pw)} />} />
           </div>
         </div>
       </div>

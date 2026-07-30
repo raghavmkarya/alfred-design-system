@@ -21,7 +21,8 @@
 <script>
   const names = ["trend-up","trend-down","trend-flat","budget","mql","channel-mix","refresh","sort","export",
   "delete","close","bookmark","pin","fullscreen","cta-arrow","alert-warning","locked-feature","step-locked",
-  "integration-success","security-lock","gdpr","read-only","audit-log","pricing-cross","web-clarity","web-stack-connected","demo-play"];
+  "integration-success","security-lock","gdpr","read-only","audit-log","pricing-cross","web-clarity","web-stack-connected","demo-play",
+  "eye","eye-off"];
   document.getElementById('g').innerHTML = names.map(n=>
     `<div class="ic"><span class="gl" style="-webkit-mask-image:url(../assets/icons/${n}.svg);mask-image:url(../assets/icons/${n}.svg)"></span><span class="nm">${n}</span></div>`
   ).join('');
