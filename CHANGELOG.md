@@ -3,6 +3,26 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: six more icons, and a file glyph finally shares a definition with an inline one
+
+Second batch: **`alert-warning`, `security-lock`, `bookmark`, `pin`, `fullscreen`, `refresh`**.
+**14 legacy, 23 modern**, from 20 and 17 this morning and 27 and 10 yesterday.
+
+**`alert-warning.svg` is now `GLYPH.warningTriangle`, character for character.** That is the first
+time a file icon and an inline glyph have shared one definition rather than two drawings of the same
+idea, and it is the whole point of having both delivery mechanisms single-sourced. It also gains the
+exclamation the file version never had: the inline triangle has always shipped triangle-plus-bang as
+one glyph, and a bare triangle beside it read as a different mark.
+
+Two of the six were **not what their name says**, which only becomes visible at 88px:
+
+- **`security-lock` is a shield**, not a lock. Redrawn as a shield, because that is what every call
+  site has been rendering and what the trust surfaces expect.
+- **`refresh` needed three attempts.** A chevron head tangent to the arc reads as a stem on a
+  balloon; the shape only became a refresh once the head was a corner bracket sitting *inside* the
+  circle's silhouette. Rendered and looked at each time — a path that is geometrically correct can
+  still draw the wrong picture.
+
 ## 2026-07-30: seven icons onto the stroked grid, and trend-down was drawing an up arrow
 
 First batch off the legacy filled family: **`trend-up`, `trend-down`, `trend-flat`, `close`,
