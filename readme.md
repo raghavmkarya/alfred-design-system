@@ -181,7 +181,8 @@ templates/deck/       ← 16:9 deck runtime + shared deck.css slide-layout libra
 templates/decks/      ← 16 ready-to-present decks (marketing · sales · operations) + index gallery
 social/               ← 102-frame social system: OG images · LinkedIn/Facebook/Instagram/X cards, stories & covers · daily-content archetypes (tips, checklists, myth/fact, questions, definitions, spotlights, recaps, milestones) · YouTube thumbnails & banner · 5-part carousel kit · profile kits — every feed/OG frame in dark + white twins (*-light.html) (+ gallery index.html, daily cadence map in social/README.md, batch export via scripts/capture-social.mjs)
 slides/               ← presentation templates (cover, index, section, content)
-playground/           ← live component playground (prop controls from the .d.ts) + generated props.json + vendor/ (committed production React — the published page loads no third-party script)
+playground/           ← live component playground (prop controls from the .d.ts) + generated props.json
+vendor/               ← committed production React + ReactDOM, shared by the playground and the four UI kits. No published page loads a third-party script, and no kit compiles JSX in the browser (scripts/build-kits.mjs precompiles it)
 scripts/              ← tooling: the 9 verifiers (verify-render · components · a11y · craft · types · contrast · playground · npm · icons) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes (projectId, lastSyncCommit, exclude list — check-sync-drift.mjs reads this)

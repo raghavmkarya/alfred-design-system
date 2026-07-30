@@ -3,6 +3,45 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: unpkg.com is gone from the repo — the build, the verifiers and every published page
+
+The playground stopped loading React from a CDN this morning. Following the same thread through the
+rest of the system turned up something worse than a slow docs page: **the build itself fetched Babel
+over the network**, and so did three verifiers.
+
+**`compile-components.mjs` was fetching `@babel/standalone` from unpkg on every run.** That is the
+shared pipeline behind `_ds_bundle.js`, the npm package and three gates, so a CDN outage did not
+degrade the design system, it made it **unbuildable**. `verify-render`, `verify-components` and
+`verify-a11y` each fetched React the same way. All four now read from `node_modules` — every one of
+those packages was already a devDependency pinned by `package-lock`, so this costs nothing and pins
+what the CDN was serving loosely. The `verify` gate is now offline-clean; the rebuilt bundle is
+byte-identical, which is the evidence that the CDN and the local copies were the same files.
+
+### The four UI kits are precompiled, not vendored
+
+The kits loaded React, ReactDOM **and `@babel/standalone`** and transformed their JSX in the browser.
+Vendoring Babel the way the playground vendored React was the obvious move and the wrong one: it is
+**3.1MB**, twenty times the React commit, to ship a compiler to every visitor of a static demo page.
+
+So `scripts/build-kits.mjs` compiles each kit `.jsx` to a committed `.js` twin, and the pages load
+those. No Babel anywhere, no CDN, and the pages get faster. Freshness is gated exactly like the
+bundle: a deterministic rebuild must produce no diff.
+
+**One thing this had to get right, and got wrong first.** `<script type="text/babel">` ran each block
+through an indirect eval, where a top-level `function` declaration lands on the global object but a
+top-level `const` does **not**. That is why every kit file could privately write
+`const { Badge } = window.AlfredAIDesignSystem_1ce241` while still seeing the others' components.
+Plain `<script>` tags share one lexical scope, so the first compile threw
+`Identifier 'Badge' has already been declared` and rendered nothing at all. Each file is wrapped in an
+IIFE now, with its top-level function declarations re-exported to `window` — the old semantics,
+stated explicitly instead of inherited from a compiler's eval strategy.
+
+A new `kits-boot` test loads all four pages in a browser and asserts three things: `#root` is not
+empty, the console is clean, and **no request leaves localhost**. The last one is the only assertion
+that can catch a CDN creeping back in.
+
+`vendor/` moved to the repo root, since the playground and the kits now share it.
+
 ## 2026-07-30: the icon set is one family — `LEGACY_FILLED` is empty
 
 `integration-success`, `locked-feature`, `web-clarity` and `web-stack-connected` are redrawn, and

@@ -100,15 +100,30 @@ if (missingPrompts.length) {
    the exact drift a CDN pin was there to prevent. */
 const reactVersion = JSON.parse(rd("node_modules/react/package.json")).version;
 const vendored = [
-  [`playground/vendor/react-${reactVersion}.production.min.js`, "node_modules/react/umd/react.production.min.js"],
-  [`playground/vendor/react-dom-${reactVersion}.production.min.js`, "node_modules/react-dom/umd/react-dom.production.min.js"],
+  [`vendor/react-${reactVersion}.production.min.js`, "node_modules/react/umd/react.production.min.js"],
+  [`vendor/react-dom-${reactVersion}.production.min.js`, "node_modules/react-dom/umd/react-dom.production.min.js"],
 ];
 let vendorOk = true;
-const page = (() => { try { return rd("playground/index.html"); } catch { return ""; } })();
-if (/unpkg\.com|cdn\.jsdelivr|cdnjs\./.test(page)) {
-  fails.push("playground/index.html loads a script from a CDN — it is a published page and must be self-contained");
-  vendorOk = false;
+
+/* Every published page, not just the playground. `vendor/` is shared because
+   the four UI kits now load the same two files. */
+const PUBLISHED = [
+  "playground/index.html",
+  "ui_kits/app/index.html", "ui_kits/app-dark/index.html",
+  "ui_kits/website/index.html", "ui_kits/onboarding/index.html",
+];
+for (const f of PUBLISHED) {
+  const src = (() => { try { return rd(f); } catch { return ""; } })();
+  if (/unpkg\.com|cdn\.jsdelivr|cdnjs\./.test(src)) {
+    fails.push(`${f} loads a script from a CDN — it is a published page and must be self-contained`);
+    vendorOk = false;
+  }
+  if (/type="text\/babel"/.test(src)) {
+    fails.push(`${f} still compiles JSX in the browser — run \`node scripts/build-kits.mjs\` and point the page at the .js output`);
+    vendorOk = false;
+  }
 }
+const page = (() => { try { return rd("playground/index.html"); } catch { return ""; } })();
 for (const [committed, installed] of vendored) {
   let a, b;
   try { a = fs.readFileSync(committed); } catch {
@@ -125,7 +140,18 @@ for (const [committed, installed] of vendored) {
     vendorOk = false;
   }
 }
-if (vendorOk) console.log(`OK   vendor      — React ${reactVersion} committed and byte-identical to the installed copy`);
+if (vendorOk) console.log(`OK   vendor      — React ${reactVersion} committed, byte-identical, and every published page self-contained`);
+
+/* 6 — the compiled kit JS is a deterministic rebuild of its .jsx
+   Same contract `_ds_bundle.js` has. Without it, editing a kit's JSX and
+   forgetting to recompile ships a page that silently runs the old code. */
+try {
+  execFileSync("node", ["scripts/build-kits.mjs", "--check"], { cwd: ROOT, stdio: "pipe" });
+  console.log("OK   kits        — compiled UI-kit JS matches a clean rebuild");
+} catch (e) {
+  // the child prints its own "FAIL " prefix; the reporter below adds one too
+  fails.push(String(e.stdout || "").trim().replace(/^FAIL\s+/, "") || "compiled UI-kit JS is stale — run `node scripts/build-kits.mjs`");
+}
 
 if (fails.length) {
   console.log("");
