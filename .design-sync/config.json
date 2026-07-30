@@ -26,5 +26,5 @@
     ".nojekyll"
   ],
   "notes": "Hand-authored static design system, already in upload format (prebuilt _ds_bundle.js + @dsCard preview cards + manifest + styles.css token closure). No converter/build; render-verified via scripts/verify-render.mjs. Project recreated 2026-07-25: the previous pin ffaac5ec belonged to a different Claude account and 404s here. Excludes are the dev/CI infra plus two generated-output trees (campaign/generated, templates/decks/pptx-export).",
-  "lastSyncCommit": "f96d13f"
+  "lastSyncCommit": "4d3ebae"
 }
