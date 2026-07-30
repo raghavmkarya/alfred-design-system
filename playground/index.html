@@ -6,11 +6,16 @@
 <title>Alfred AI — Component playground</title>
 <link rel="icon" href="../assets/logos/alfred-favicon-black.svg" />
 <link rel="stylesheet" href="../styles.css" />
-<!-- Same pinned, SRI-checked CDN as the @dsCard preview pages. No Babel: the
-     playground is authored in plain React.createElement, so there is nothing to
-     compile at runtime and one fewer 300KB dependency to load. -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<!-- React is committed under vendor/, not loaded from a CDN. This page is
+     published to GitHub Pages, so it cannot point at node_modules the way
+     tests/harness.html does, and an SRI hash only proves the CDN served the
+     right bytes — it does not help when the CDN is down. 142KB of production
+     React, byte-identical to the installed 18.3.1 (verify-playground checks
+     that), buys a docs page with no third-party runtime dependency at all.
+     No Babel: the playground is authored in plain React.createElement, so
+     there is nothing to compile at runtime. -->
+<script src="vendor/react-18.3.1.production.min.js"></script>
+<script src="vendor/react-dom-18.3.1.production.min.js"></script>
 <script src="../_ds_bundle.js"></script>
 <link rel="stylesheet" href="playground.css" />
 </head>
