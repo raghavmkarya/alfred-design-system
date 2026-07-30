@@ -5,11 +5,11 @@
 
    Two things are enforced:
 
-     1. Construction. Every glyph added from now on is 24×24, stroked,
-        stroke-width 2, round caps and joins — the grid components were already
-        drawing on. The original 27 are filled paths on arbitrary viewBoxes,
-        exported from a design tool; they are grandfathered by name, not by
-        pretending they match.
+     1. Construction. EVERY glyph is 24×24, stroked, stroke-width 2, round caps
+        and joins — the grid components were already drawing on. The 27
+        design-tool exports (filled paths on fractional viewBoxes) were
+        grandfathered by name while they were converted, five batches over one
+        day; that list is now EMPTY and the set is one family.
 
      2. A ratchet on duplication. An inline `<path d>` repeated across two or
         more components is a glyph that wants to be in the set. The ones that
@@ -25,11 +25,15 @@ const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
 const ICONS = path.join(ROOT, "assets/icons");
 const fails = [];
 
-/* The 27 originals: filled paths, arbitrary viewBoxes. Grandfathered explicitly
-   so the list can only shrink, never quietly grow. */
-const LEGACY_FILLED = new Set([
-  "integration-success", "locked-feature", "web-clarity", "web-stack-connected",
-]);
+/* The 27 design-tool exports: filled paths on fractional viewBoxes, grandfathered
+   by name while they were redrawn. The list is now EMPTY and must stay that way.
+
+   An entry here is a licence to ship a glyph that does not match the set, and
+   the conversion proved the cost of that licence: it hid `trend-down.svg` being
+   a byte-for-byte copy of `trend-up.svg`, `security-lock` being a shield,
+   `cta-arrow` pointing backwards, and `mql` being three letters of type at 17px.
+   Every one of those was invisible until someone had to redraw the thing. */
+const LEGACY_FILLED = new Set([]);
 
 /* Inline glyphs already duplicated across components when this check was added.
    It started at 20 and is now EMPTY: the backlog is cleared, and every glyph a
