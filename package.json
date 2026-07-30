@@ -2,7 +2,7 @@
   "name": "designsystem",
   "private": true,
   "description": "Alfred AI design system: build, verifiers, and type-check tooling",
-  "dsVersion": "1.0.0",
+  "dsVersion": "1.1.0",
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "verify:types": "node scripts/verify-types.mjs",

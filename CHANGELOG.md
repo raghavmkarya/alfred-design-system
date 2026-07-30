@@ -3,6 +3,20 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: `@alfredai/design-system` 1.0.0 → 1.1.0
+
+npm was the one distribution channel left behind `main`. 1.0.0 predates everything shipped today, so
+anyone installing from npm got charts without cursors and the filled icon family.
+
+**Minor, not patch.** Two components gained behaviour: `BulletChart` is now a focusable group whose
+cursor walks its rows, and `GaugeChart` becomes one when given `segments`. Both are additive, no prop
+was removed or renamed, and a gauge with no bands renders exactly as it did — so it is a feature
+release rather than a breaking one. Thirteen icons also changed shape, which is visible but not an
+API change.
+
+The publish itself has to run from a real terminal: `npm run publish:npm` needs npm 11 and an
+overlapping TTY for the passkey browser handoff. See the *Releasing to npm* notes.
+
 ## 2026-07-30: two components had no prompt file, and nothing was looking
 
 `.prompt.md` is what an agent reads for a component it has not met, so a component without one is
