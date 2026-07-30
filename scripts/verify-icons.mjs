@@ -28,8 +28,7 @@ const fails = [];
 /* The 27 originals: filled paths, arbitrary viewBoxes. Grandfathered explicitly
    so the list can only shrink, never quietly grow. */
 const LEGACY_FILLED = new Set([
-  "budget", "channel-mix", "gdpr", "integration-success", "locked-feature", "mql",
-  "web-clarity", "web-stack-connected",
+  "integration-success", "locked-feature", "web-clarity", "web-stack-connected",
 ]);
 
 /* Inline glyphs already duplicated across components when this check was added.
