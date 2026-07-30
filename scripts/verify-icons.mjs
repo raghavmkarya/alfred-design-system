@@ -28,8 +28,7 @@ const fails = [];
 /* The 27 originals: filled paths, arbitrary viewBoxes. Grandfathered explicitly
    so the list can only shrink, never quietly grow. */
 const LEGACY_FILLED = new Set([
-  "audit-log", "budget", "channel-mix", "delete", "export", "gdpr",
-  "integration-success", "locked-feature", "mql", "read-only", "sort", "step-locked",
+  "budget", "channel-mix", "gdpr", "integration-success", "locked-feature", "mql",
   "web-clarity", "web-stack-connected",
 ]);
 

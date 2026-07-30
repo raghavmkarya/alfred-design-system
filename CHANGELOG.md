@@ -3,6 +3,22 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: six more icons — the legacy family is down to its eight illustrations
+
+Third batch: **`sort`, `delete`, `export`, `read-only`, `step-locked`, `audit-log`**. **8 legacy, 29
+modern**, from 27 and 10 at the start of the day.
+
+What is left is qualitatively different from what has gone: `mql`, `gdpr`, `budget`, `channel-mix`,
+`integration-success`, `locked-feature`, `web-clarity` and `web-stack-connected` are small
+**illustrations** (a stacked-server globe, a document with a lock and a shield), not glyphs. Their
+path data runs 2,265 to 6,479 characters. Budget four or five per pass, not seven.
+
+**`read-only` is a crossed-out pencil**, which is what the filled original always drew and what the
+name means everywhere it is used — except in `core.card.html`, where it is wired to a password field's
+show/hide toggle opposite `fullscreen`. That call site wants an eye and an eye-off; it is borrowing
+two unrelated glyphs and now borrows them at a lighter weight. Left alone deliberately: adding an eye
+pair is a set decision, not part of a conversion pass.
+
 ## 2026-07-30: `@alfredai/design-system` 1.0.0 → 1.1.0
 
 npm was the one distribution channel left behind `main`. 1.0.0 predates everything shipped today, so
