@@ -1,15 +1,23 @@
 import React from "react";
 import { ChartTable } from "../hooks/chartTable.jsx";
+import { useChartCursor, ChartLive, CHART_FOCUS_STYLE } from "../hooks/chartCursor.jsx";
 
 /**
  * Alfred AI — GaugeChart
  * A 270° radial gauge for a single score (AI Visibility Score, account health).
  * A sunken background rail carries a brand-gradient value arc that sweeps
  * clockwise from the 7-o'clock start, proportional to value/max. Optional
- * `segments` ([{ upTo, color }]) tint threshold zones (red/amber/green) along
- * the rail so you can read where the score sits. `valueFormat` formats the big
- * center readout; `label` sits above it and `sub` below. Theme-aware: surfaces
- * and text invert on dark, while the brand gradient stays identical.
+ * `segments` ([{ upTo, color, label }]) tint threshold zones (red/amber/green)
+ * along the rail so you can read where the score sits. `valueFormat` formats the
+ * big center readout; `label` sits above it and `sub` below. Theme-aware:
+ * surfaces and text invert on dark, while the brand gradient stays identical.
+ *
+ * The cursor walks the BANDS, and only exists when there are bands. The value is
+ * already printed large in the middle, so a cursor over it would be a tab stop
+ * announcing what is on screen — but a band is a tinted arc with no label, no
+ * bounds and no name anywhere in the graphic, which is exactly the case the
+ * cursor is for. A gauge with no `segments` therefore has no tab stop, the same
+ * way a `Legend` with no `onToggle` stays plain text.
  */
 export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segments = [], size = 200, valueFormat = (v) => `${Math.round(v)}`, ariaLabel, style = {} }) {
   const uid = React.useId().replace(/:/g, "");
@@ -41,11 +49,14 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
   const valueAngle = START + ratio * SWEEP;
   const [knobX, knobY] = polar(valueAngle);
 
-  // threshold zones across the full rail (sorted, clamped)
+  // threshold zones across the full rail (sorted, clamped), each carrying the
+  // value range it covers so the cursor and the data table read the same bounds
+  // the arc is drawn from
   const zones = (segments || [])
     .filter((z) => z && typeof z.upTo === "number")
-    .map((z) => ({ upTo: Math.max(0, Math.min(m, z.upTo)), color: z.color }))
-    .sort((a, b) => a.upTo - b.upTo);
+    .map((z) => ({ upTo: Math.max(0, Math.min(m, z.upTo)), color: z.color, label: z.label }))
+    .sort((a, b) => a.upTo - b.upTo)
+    .map((z, i, all) => ({ ...z, from: i === 0 ? 0 : all[i - 1].upTo, name: z.label || `Band ${i + 1}` }));
 
   // bottom-end labels + cropped viewBox height
   const bottomArc = cy + r * Math.sin((135 * Math.PI) / 180) + sw / 2;
@@ -56,17 +67,59 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
   const valueFont = Math.round(size * 0.26);
   const aria = ariaLabel || `${label ? `${label}: ` : ""}${fmt(value)} of ${fmt(m)}`;
 
+  /* Angular hit-testing, as on the donut, with one extra case: the gauge is not
+     a closed ring. Its sweep is 270° with a 90° gap at the bottom, so a pointer
+     below the gauge is inside the circle's radius and still on nothing — that
+     has to return null rather than clamp to the nearest end, or the rail would
+     appear to wrap around through the gap. */
+  const hitTest = React.useCallback((px, py, rect) => {
+    if (!zones.length) return null;
+    const scale = rect.width / size || 1;
+    const dx = px / scale - cx;
+    const dy = py / scale - cy;
+    const dist = Math.hypot(dx, dy);
+    if (Math.abs(dist - r) > sw / 2 + 2) return null;                 // off the rail
+    let rel = (Math.atan2(dy, dx) * 180) / Math.PI - START;           // same convention as polar()
+    while (rel < 0) rel += 360;
+    if (rel > SWEEP) return null;                                     // the bottom gap
+    const v = (rel / SWEEP) * m;
+    const i = zones.findIndex((z) => v >= z.from && v < z.upTo);
+    return i === -1 ? null : i;
+  }, [zones.length, size, cx, cy, r, sw, m]);
+
+  const cursor = useChartCursor(zones.length, { hitTest });
+  const at = cursor.index;
+  const band = at != null ? zones[at] : null;
+  const bandText = band ? `${band.name}: ${fmt(band.from)} to ${fmt(band.upTo)}` : "";
+  const bandLive = band
+    ? `${bandText}${value >= band.from && value < band.upTo ? `, holds the current ${fmt(value)}` : ""}`
+    : "";
+
   return (
-    <div style={{ position: "relative", width: size, ...style }}>
+    /* With bands the gauge is interactive, so the name moves to the focusable
+       group and the graphic goes aria-hidden — carrying role="img" as well would
+       announce the chart twice. Without bands there is nothing to walk, so it
+       stays the static shape. See guidelines/chart-contract.md. */
+    <div
+      {...(zones.length ? cursor.bind : null)}
+      role={zones.length ? "group" : undefined}
+      aria-label={zones.length ? aria : undefined}
+      style={{ position: "relative", width: size, ...(zones.length ? CHART_FOCUS_STYLE : null), ...style }}
+    >
+      {zones.length > 0 && <ChartLive text={cursor.keyboard && band ? bandLive : ""} />}
       <ChartTable caption={aria} columns={["Measure", "Value"]}
         rows={[[label || "Value", fmt(value)], ["Maximum", fmt(m)]]
-          .concat(segments.map((s, i) => [String(s.label || `Band ${i + 1}`), fmt(s.to ?? s.value ?? "")]))} />
+          /* the bands read their bounds off `zones`, which is what the arcs are
+             drawn from. This row used to read `s.to ?? s.value`, neither of which
+             a segment has — every band printed an empty value. */
+          .concat(zones.map((z) => [z.name, `${fmt(z.from)} to ${fmt(z.upTo)}`]))} />
       <svg
         width={size}
         height={H}
         viewBox={`0 0 ${size} ${H}`}
-        role="img"
-        aria-label={aria}
+        role={zones.length ? undefined : "img"}
+        aria-label={zones.length ? undefined : aria}
+        aria-hidden={zones.length ? "true" : undefined}
         style={{ display: "block", overflow: "visible" }}
       >
         <defs>
@@ -81,17 +134,20 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
 
         {/* threshold zones tint the rail */}
         {zones.map((z, i) => {
-          const startFrac = (i === 0 ? 0 : zones[i - 1].upTo) / m;
+          const startFrac = z.from / m;
           const endFrac = z.upTo / m;
           if (endFrac <= startFrac) return null;
+          /* The active band thickens as well as brightening: opacity alone would
+             be the only signal in forced-colors mode, where the tint is gone. */
+          const on = i === at;
           return (
             <path
               key={`z${i}`}
               d={arc(START + startFrac * SWEEP, START + endFrac * SWEEP)}
               fill="none"
               stroke={z.color}
-              strokeWidth={sw}
-              strokeOpacity="0.5"
+              strokeWidth={on ? sw + 4 : sw}
+              strokeOpacity={on ? "0.95" : "0.5"}
               strokeLinecap="butt"
             />
           );
@@ -145,8 +201,19 @@ export function GaugeChart({ value = 0, max = 100, label = "", sub = "", segment
         >
           {fmt(value)}
         </span>
-        {sub && (
-          <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", lineHeight: 1.2, marginTop: 4 }}>{sub}</span>
+        {/* The band readout takes the `sub` slot rather than floating over the
+            rail. A pill anchored to an arc has the donut's problem — inward it
+            covers the band it describes, outward it leaves the box — and the
+            centre is empty by construction, already the slot this component
+            reserves for a caption, and the same distance from every band.
+            aria-hidden only while the cursor owns it: ChartLive is saying it. */}
+        {(band || sub) && (
+          <span
+            aria-hidden={band ? "true" : undefined}
+            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: band ? "var(--text-secondary)" : "var(--text-muted)", lineHeight: 1.2, marginTop: 4, textAlign: "center" }}
+          >
+            {band ? bandText : sub}
+          </span>
         )}
       </div>
     </div>

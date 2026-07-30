@@ -14,9 +14,9 @@ Two shapes, chosen by where the information actually lives:
 
 | Shape | Use when | Charts |
 |---|---|---|
-| `role="img"` + `aria-label` | the **graphic** carries the data, with no readable text equivalent | Sparkline, Gauge, Bullet (per track) |
+| `role="img"` + `aria-label` | the **graphic** carries the data, with no readable text equivalent | Sparkline, Gauge (with no bands) |
 | `role="group"` + `aria-label` | every value is **already readable text**; the container just needs a name to group it under | Bar, Funnel, Heatmap |
-| `role="group"` + `aria-label`, `<svg>` hidden | the graphic carries the data **and** the chart is focusable — see "Interactive charts" below | Line, Area, StackedBar, Waterfall, Donut, Scatter, Sankey |
+| `role="group"` + `aria-label`, graphic hidden | the graphic carries the data **and** the chart is focusable — see "Interactive charts" below | Line, Area, StackedBar, Waterfall, Donut, Scatter, Sankey, Bullet, Gauge (with bands) |
 | `role="list"` + `role="listitem"` | it is a key, not a graphic | Legend |
 
 Do **not** put `role="img"` on a container whose labels and values are real text: that role makes
@@ -103,9 +103,9 @@ The active point is announced through a polite live region rather than by moving
 stops it double-announcing against the hidden data table.
 
 **Interactive today:** LineChart, AreaChart, StackedBarChart, WaterfallChart (the x-indexed SVG
-charts), plus **DonutChart**, **ScatterChart** and **SankeyChart**. **Sparkline is deliberately excluded**: it is a
-glanceable micro-chart, often several to a row inside KPI cards, and making each one a tab stop would
-be hostile.
+charts), plus **DonutChart**, **ScatterChart**, **SankeyChart**, **BulletChart** and **GaugeChart when it is
+given bands**. **Sparkline is deliberately excluded**: it is a glanceable micro-chart, often several to
+a row inside KPI cards, and making each one a tab stop would be hostile.
 
 ### Hit-testing is per-chart; the rest of the model is not
 
@@ -120,16 +120,35 @@ A hit-test returns `null` for "nothing here", and that case matters as much as a
   lit while you read the total.
 - **Scatter** finds the **nearest point within a radius**, not simply the nearest point. Without the
   radius, a pointer anywhere in empty plot space keeps some far-off point selected.
+- **Gauge** finds the band whose arc contains the pointer's angle, like the donut, with one case a
+  closed ring does not have: its sweep is 270° with a **90° gap at the bottom**, so a pointer below
+  the gauge is inside the radius and on nothing. Returning the nearest end there would make the rail
+  look like it wraps around through the gap.
+- **Bullet does not use `hitTest`**, for the same reason Sankey does not: its rows are separate
+  elements that already hit-test themselves. Each row sets the cursor on `onPointerEnter`; **the group
+  as a whole** clears on `onPointerLeave`, so moving between two rows cannot clear after the next has
+  already set.
 - **Sankey does not use `hitTest` at all.** Its ribbons are cubic beziers drawn one `<path>` per link,
   and an SVG path already hit-tests its own filled shape exactly and for free — re-deriving
   containment would be a second, worse implementation of that. Each shape calls
   `cursor.point(i)` on `onPointerEnter`, and **the plot as a whole** clears on `onPointerLeave`.
   Clearing per-shape instead would let two touching ribbons clear *after* the next has already set.
 
-**Index what the reader cannot already see.** Sankey's cursor walks **links, not nodes**: every node
-prints its own label and throughput as text beside it, while a link's value appears nowhere but the
-hidden data table. Choosing nodes would have been a tab stop that announces what is already on screen
-— which is the same test that keeps Gauge and Bullet out entirely.
+**Index what the reader cannot already see.** This is the rule that decides *what* a cursor walks, and
+it is the same test in every chart:
+
+- **Sankey walks links, not nodes.** Every node prints its own label and throughput as text beside it;
+  a link's value appears nowhere but the hidden data table.
+- **Gauge walks bands, not the value.** The value is printed large in the gauge's own centre. A band
+  is a tinted arc with no name and no bounds drawn anywhere, so it is the part of a gauge a sighted
+  reader also has to guess at. A gauge given **no** `segments` therefore has no cursor and no tab stop
+  at all: it stays the static `role="img"` shape, the same way a `Legend` with no `onToggle` stays
+  plain text rather than becoming a row of buttons.
+- **Bullet walks rows, and announces the target.** Each row prints its value at the right, but the
+  target is only a tick mark and the percentage between them appears nowhere.
+
+In all three the discarded option (nodes, the gauge's own value, a bullet row's printed value) would
+have produced a tab stop that announces what is already on screen.
 
 Two things bite when the plot is an `<svg>` that is not the focusable element:
 
@@ -150,6 +169,13 @@ segment lands at a negative offset. Both were built and looked at. It uses **the
 empty by construction, already the slot the component reserves for a label, and equidistant from every
 segment. A scatter has room, so it keeps a pill, centred on the point via the tooltip's optional `y`.
 
+A **gauge** has the donut's problem and takes the donut's answer: the band readout goes in the centre,
+in the slot `sub` occupies, because an arc-anchored pill covers the band it describes. A **bullet**
+keeps the pill but anchors it to the **target tick** rather than to the bar — the bar's value is
+printed at the end of the row already, and the tick is the one mark on that chart carrying no label.
+It needs a wrapper to hang in: the track itself sets `overflow: hidden` (that is what keeps its
+corners round while the bands are drawn to its edges), so a readout inside the track would be clipped.
+
 ## What is not settled yet
 
 **Legend interaction is done.** A legend becomes interactive **only** when given `onToggle` — a static
@@ -167,9 +193,12 @@ Two things it has to get right:
 A series keeps its palette colour when others are hidden — the colour is keyed to its original index,
 not its position among the visible ones, or the chart appears to recolour itself as you toggle.
 
-**Gauge and Bullet are not obviously missing one.** A gauge is a single value already printed large in
-its own centre; a bullet row prints its label, value and target as real text. In both, a cursor would
-add a tab stop that announces what is already on screen and in the data table. They are listed here as
-a decision, not an omission — if they get one, it should be for consistency, argued as such.
+**Gauge and Bullet now have cursors, and the earlier decision against them was half right.** It read:
+"a gauge is a single value already printed large in its own centre; a bullet row prints its label,
+value and target as real text." The first half holds and is why the gauge's cursor walks *bands*
+instead of the value, and why a gauge with no bands still has no cursor. The second half was simply
+wrong about the component: a bullet row prints its label and value, and draws the target as an
+**unlabelled tick**. Re-reading the render was what settled it — the argument had been made from the
+prop names, where `target` looks like something the row prints.
 
 Related: [`craft-checklist.md`](./craft-checklist.md) (the pre-ship gate).

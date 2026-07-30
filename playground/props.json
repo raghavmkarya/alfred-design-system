@@ -1894,7 +1894,7 @@
           "name": "segments",
           "type": "GaugeSegment[]",
           "required": false,
-          "doc": "Threshold zones tinting the rail (e.g. red/amber/green).",
+          "doc": "Threshold zones tinting the rail (e.g. red/amber/green). Passing these also makes the gauge interactive: it becomes one tab stop whose cursor walks the bands, since a band's name and bounds appear nowhere in the graphic. Without them the gauge stays a static image.",
           "documentedDefault": "[]",
           "control": null
         },
