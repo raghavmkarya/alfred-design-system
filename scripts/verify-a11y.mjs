@@ -176,8 +176,13 @@ const CASES = [
     [/role="button"/, /tabindex="0"/, /aria-label="Unread"/, /<button type="button"[^>]*>Review<\/button>/]],
   ["FaqItem (open)", "FaqItem", { question: "How does Alfred decide what to reallocate?", defaultOpen: true, children: "I compare pacing against outcomes." },
     [/type="button"/, /aria-expanded="true"/, /aria-controls="([^"]+)"[\s\S]*?id="\1" aria-hidden="false"/]],
+  /* `inert="inert"`, not `inert=""`. This runs on React 18, where the empty
+     string renders as `inert=""` — which is why the old assertion passed while
+     the published package rendered NO inert at all on React 19, the version a
+     consumer installs today. The spelling that survives both is the literal
+     string "inert"; see the matrix in components/marketing/FaqItem.jsx. */
   ["FaqItem (closed)", "FaqItem", { question: "Can I override a move?", children: "Yes — every decision is reversible." },
-    [/type="button"/, /aria-expanded="false"/, /aria-controls="([^"]+)"[\s\S]*?id="\1" aria-hidden="true"/, /inert=""/]],
+    [/type="button"/, /aria-expanded="false"/, /aria-controls="([^"]+)"[\s\S]*?id="\1" aria-hidden="true"/, /inert="inert"/]],
   ["ConfidenceMeter", "ConfidenceMeter", { value: 82, label: "Causal confidence" },
     [/role="meter"/, /aria-valuenow="82"/, /aria-valuemin="0"/, /aria-valuemax="100"/, /aria-label="Causal confidence: 82% confident, high confidence"/]],
   ["Sidebar", "Sidebar", { active: "spend", onSelect: noop, items: [{ id: "home", label: "Home" }, { id: "spend", label: "Spend", badge: 3 }, { id: "team", label: "Team" }] },
