@@ -17,6 +17,25 @@ Two new glyphs on the same grid, and the button now also carries a real accessib
 it went in the way the guideline now describes: drawn on the 24 grid, rendered at 88px beside
 `check.svg` to compare weight, added to the gallery card.
 
+## 2026-07-30: a tenth verifier, which installs the package the way a user does
+
+The `inert` bug below existed because **every check here runs on `react@18.3.1`** — the *lower bound*
+of the peer range — while consumers install React 19. Nine verifiers and 52 browser tests passed on a
+package that was missing an accessibility attribute in the wild.
+
+`verify-consumer` closes that. It packs `dist/`, installs the tarball **plus the latest React** into a
+scratch project, server-renders all 117 exports there, and fails on any React warning — the signal
+that exposed the bug in the first place — plus explicit assertions for attributes that differ across
+majors. Confirmed by re-injecting the original `inert=""` and watching it fail with two errors, then
+pass again on the fix.
+
+**It is the only check that needs the network**, and that is deliberate: an offline stand-in would be
+testing something other than what a consumer runs. Everything else stayed offline-clean.
+
+The generalisation worth keeping: a peer-dependency range is a **promise about versions you do not
+test**. Testing the source is not testing the package, and testing the package on your own dev
+dependency is not testing it on the version people install.
+
 ## 2026-07-30: 1.1.1 — a closed FAQ panel was not inert on React 19
 
 Smoke-testing the freshly published 1.1.0 in a scratch project found a bug no gate here could have

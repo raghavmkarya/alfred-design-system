@@ -37,6 +37,7 @@
     "test:visual": "playwright test --project=visual",
     "build:npm": "node scripts/build-npm.mjs",
     "verify:npm": "node scripts/verify-npm.mjs",
+    "verify:consumer": "node scripts/verify-consumer.mjs",
     "publish:npm": "npm run verify:npm && cd dist && npx --yes npm@11 publish"
   },
   "devDependencies": {
