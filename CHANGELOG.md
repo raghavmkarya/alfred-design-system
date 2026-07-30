@@ -3,6 +3,20 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: `eye` and `eye-off`, because a password toggle was borrowing two unrelated glyphs
+
+`components/core/core.card.html` wired the password field's show/hide button to
+`read-only` and `fullscreen`: a crossed-out pencil and a set of corner brackets, standing in for an
+eye that did not exist. The icon conversion surfaced it — while redrawing `read-only` it became
+obvious that nothing about "no editing" says "hide this password".
+
+Two new glyphs on the same grid, and the button now also carries a real accessible name
+(`Show password` / `Hide password`), which an icon-only control needs and this one never had.
+
+**39 glyphs, still one family.** This is the first *addition* to the set since it became uniform, and
+it went in the way the guideline now describes: drawn on the 24 grid, rendered at 88px beside
+`check.svg` to compare weight, added to the gallery card.
+
 ## 2026-07-30: unpkg.com is gone from the repo — the build, the verifiers and every published page
 
 The playground stopped loading React from a CDN this morning. Following the same thread through the
