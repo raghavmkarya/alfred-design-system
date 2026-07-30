@@ -3,6 +3,22 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: the product glossary is tracked, and the component list is honest again
+
+**`CONTEXT.md` is now `docs/context.md`, committed.** It had sat untracked in the repo root for four
+sessions, deliberately excluded from every PR, which made it the one file here that could rot without
+anything noticing. It defines the platform / product / release-status language the copy in this system
+is written against, so it is design surface: it ships with the folder and syncs to claude.ai/design
+like everything else. `guidelines/voice-and-naming.md` now points at it, with the split stated —
+voice is how the copy sounds, the glossary is which nouns are true. Calling a launch-ready product
+"live" is a factual error, not a tone one.
+
+**The readme claimed 113 components and listed 113 while the system has 117.** `BrandMoment`,
+`Illustration`, `EvidenceLedger` and `DecisionFork` were missing from the inline list, and the count
+in front of it had been carried forward unchanged. Both fixed against `_ds_manifest.json` rather than
+by recount. This is the third time a hardcoded count in prose has drifted; the standing preference is
+to derive counts, as the playground test now does.
+
 ## 2026-07-29: the last glyph drift, and the CDN out of the test gates
 
 Three small things, each closing a known loose end.

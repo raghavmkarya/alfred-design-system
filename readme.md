@@ -167,6 +167,7 @@ tokens/               ← colors, typography, spacing/radius/shadow/motion, dens
 assets/               ← fonts/, logos/ (color + white), icons/ (single-color brand glyphs)
 components/           ← 117 components (brand · core · data · charts · trust · app · overlay · feedback · marketing · conversation · decision) + @dsCard previews
 data/                 ← demo-data.json — the canonical Northwind Labs demo dataset (no fabricated proof)
+docs/                 ← context.md, the product + release-status glossary the copy in this system is written against
 guidelines/           ← foundation specimen cards (color / type / spacing / brand) + voice-and-naming + density + elevation + rtl + forced-colors + chart-contract + icon-grid + craft & taste guidelines (motion-and-animation · anti-slop · craft-checklist)
 ui_kits/app/          ← 22-screen product workspace (light): briefing, Seek Alfred, cockpit, spend, alerts, creative, AI visibility, connections, notifications, Alfred Core memory, team, billing, audit log…
 ui_kits/app-dark/     ← the same workspace under [data-theme="app-dark"]: warm ink surfaces, Clash kept (reuses the light kit's screens)
@@ -186,7 +187,8 @@ SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes (projectId, lastSyncCommit, exclude list — check-sync-drift.mjs reads this)
 ```
 
-**Components** (113, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`; **core**
+**Components** (117, on `window.AlfredAIDesignSystem_1ce241`) — **brand** `Logo`, `Icon`,
+`BrandMoment`, `Illustration`; **core**
 `Button`, `IconButton`, `Input`, `Textarea`, `SearchInput`, `FileDropzone`, `Select`, `Checkbox`,
 `Switch`, `Slider`, `RadioGroup`, `SegmentedControl`, `Chip`, `Card`, `Badge`, `Avatar`, `Tabs`,
 `Accordion`, `Combobox`, `TagInput`, `NumberInput`, `Kbd`, `Divider`, `Spinner`;
@@ -195,7 +197,8 @@ SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 **charts** `Sparkline`, `LineChart`, `AreaChart`, `BarChart`, `StackedBarChart`, `DonutChart`,
 `FunnelChart`, `GaugeChart`, `WaterfallChart`, `BulletChart`, `ScatterChart`, `Heatmap`,
 `SankeyChart`, `Legend`; **trust** `ConfidenceMeter`, `SourceTrace`, `RecommendationCard`,
-`DecisionLog`, `DataFreshness`, `CausalChain`, `ProvenancePanel`, `InsightFeedback`, `MemoryCard`;
+`DecisionLog`, `DataFreshness`, `CausalChain`, `ProvenancePanel`, `InsightFeedback`, `MemoryCard`,
+`EvidenceLedger`;
 **app** `Sidebar`, `PageHeader`, `DataTable`, `FilterBar`, `DateRangePicker`, `CommandPalette`,
 `StatTile`, `ConnectionHealthCard`, `SyncStatusBadge`, `UsageMeter`, `UpgradeModal`, `AuditLogRow`,
 `ModuleSwitcher`, `TeamMemberRow`, `BillingPlanCard`, `NotificationPref`; **overlay** `Menu`,
@@ -204,7 +207,8 @@ SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 `OfferSwitch`, `PriceCard`, `IntegrationCard`, `CategoryCountBadge`, `Countdown`, `AvatarStack`,
 `CapabilityTicker`, `AnimatedCounter`, `JobListingRow`, `ModuleStatusCard`, `DashboardMock`;
 **conversation** `SeekComposer`, `AlfredMessage`, `ThinkingTrace`, `PromptSuggestions`,
-`ReasoningState`; **decision** `ScenarioSimulator`, `GoalPacing`, `ApprovalGate`, `AnomalyFlag`.
+`ReasoningState`; **decision** `ScenarioSimulator`, `GoalPacing`, `ApprovalGate`, `AnomalyFlag`,
+`DecisionFork`.
 
 Interactive components ship with their accessibility contracts built in — focus traps and focus
 restore in `Modal`/`Drawer`, roving-tabindex keyboard navigation (arrows, Home/End, typeahead)
