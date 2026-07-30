@@ -17,6 +17,34 @@ Two new glyphs on the same grid, and the button now also carries a real accessib
 it went in the way the guideline now describes: drawn on the 24 grid, rendered at 88px beside
 `check.svg` to compare weight, added to the gallery card.
 
+## 2026-07-30: 1.1.1 — a closed FAQ panel was not inert on React 19
+
+Smoke-testing the freshly published 1.1.0 in a scratch project found a bug no gate here could have
+caught: **`FaqItem`'s collapsed panel shipped without its `inert` attribute for anyone on React 19.**
+
+The component wrote `inert={!isOpen ? "" : undefined}`. The two React majors disagree about every
+spelling of that attribute:
+
+| value | React 18.3.1 | React 19.2.8 |
+|---|---|---|
+| `true` | **dropped**, warns | `inert=""` |
+| `""` (what shipped) | `inert=""` | **dropped**, warns |
+| `"inert"` | `inert="inert"` | `inert=""` |
+
+So the attribute that keeps a collapsed panel out of the tab order and away from a screen reader was
+**silently absent on the version consumers install today**, and present in every test we run, because
+the repo develops against the peer range's lower bound. `"inert"` is the one spelling that is correct
+and warning-free on both, and it is a valid HTML boolean attribute either way — presence is what
+counts, the value is ignored.
+
+**The gate asserted the bug.** `verify-a11y` required `/inert=""/`, which is exactly the React 18
+rendering of the broken input, so the check confirmed the very thing that failed elsewhere. It now
+asserts `/inert="inert"/`, and the matrix above lives in the component next to the prop.
+
+Worth stating plainly: this was found by **installing the published tarball and rendering it**, not by
+any of the nine verifiers, 52 browser tests, or the npm contract check. Testing a package as its
+consumers get it is a different act from testing the source it was built from.
+
 ## 2026-07-30 (correction): the `@dsCard` previews still use the CDN, on purpose
 
 The entry below is titled "gone from the repo". That is **overstated**: the **20 `@dsCard` preview

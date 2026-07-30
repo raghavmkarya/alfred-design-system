@@ -24,7 +24,24 @@ export function FaqItem({ question, children, open, defaultOpen = false, onToggl
           fontSize: 18, fontWeight: "var(--fw-medium)", transition: "background var(--dur-base) var(--ease-standard)",
         }}>{isOpen ? "–" : "+"}</span>
       </button>
-      <div id={panelId} aria-hidden={!isOpen} inert={!isOpen ? "" : undefined} style={{
+      {/* `inert="inert"`, and it has to be that exact spelling: React 18 and
+          React 19 disagree about every other form, and this component is
+          published to npm with `react: >=18` as a peer.
+
+            value      React 18.3.1              React 19.2.8
+            true       DROPPED + warns           inert=""
+            ""         inert=""                  DROPPED + warns
+            "inert"    inert="inert"             inert=""
+
+          It shipped as `""`, which is why a closed panel lost its `inert`
+          entirely for anyone on React 19 — the attribute the panel needs most,
+          silently absent, on the version most consumers install today. Found by
+          smoke-testing the published package rather than by a gate: the repo
+          develops against 18, where the old form worked.
+
+          `inert="inert"` is a valid HTML boolean attribute (presence is what
+          counts, the value is ignored) and warns on neither version. */}
+      <div id={panelId} aria-hidden={!isOpen} inert={!isOpen ? "inert" : undefined} style={{
         display: "grid", gridTemplateRows: isOpen ? "1fr" : "0fr",
         transition: "grid-template-rows var(--dur-slow) var(--ease-standard)",
       }}>
