@@ -11,12 +11,16 @@ The set is not uniform, and pretending otherwise would be worse than saying so.
 
 | | Construction | Count | Use for |
 |---|---|---|---|
-| **UI glyphs** | 24×24, **stroked**, `stroke-width="2"`, round caps + joins, `fill="none"` | 10 | chevrons, check, close, plus, minus, search, spark — the furniture |
-| **Domain icons** (legacy) | **filled** paths, arbitrary viewBoxes, exported from a design tool | 27 | `mql`, `gdpr`, `budget`, `audit-log`, `trend-*` — the ones that mean something specific to Alfred |
+| **UI glyphs** | 24×24, **stroked**, `stroke-width="2"`, round caps + joins, `fill="none"` | 17 | chevrons, check, close, plus, minus, search, spark, `trend-*`, `demo-play` — the furniture |
+| **Domain icons** (legacy) | **filled** paths, arbitrary viewBoxes, exported from a design tool | 20 | `mql`, `gdpr`, `budget`, `audit-log` — the ones that mean something specific to Alfred |
 
 They read differently at the same size: the filled family is optically heavier. That is a real
-inconsistency and it is on the backlog, not resolved. Grandfathering is recorded by **name** in
-`scripts/verify-icons.mjs`, so the legacy list can only shrink.
+inconsistency and it is being worked off a few at a time, not resolved. Grandfathering is recorded by
+**name** in `scripts/verify-icons.mjs`, so the legacy list can only shrink.
+
+**Converting one is a redraw, not a transform.** Each legacy icon is a single outline-traced *fill* on
+a fractional viewBox, so there is no mechanical way to turn it into a *stroke* — the shape has to be
+drawn again on the 24 grid and then looked at beside the original. Budget a handful per pass.
 
 **Everything new goes on the 24×24 stroked grid.** `verify-icons` fails on anything else.
 
