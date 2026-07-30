@@ -38,10 +38,23 @@ try {
   const packed = run("npm", ["pack", "--pack-destination", tmp], path.join(ROOT, "dist")).trim().split("\n").pop();
   console.log(`OK   pack        — ${packed}`);
 
+  /* THE MATRIX, and why it has three entries.
+
+     The package declares `react: ">=18"`. That is a promise about every major
+     from 18 upward, so the gate tests both ends of what exists plus whatever is
+     current:
+
+       18      the peer range's lower bound, and what this repo develops against
+       19      the major consumers install today — the one that broke
+       latest   floats on purpose
+
+     `latest` means CI can turn red without a commit, the day a new React major
+     ships. That is the correct signal, not a flaw: `>=18` already promises that
+     version works. When it happens the choice is to support the new major or to
+     narrow the range — either way the promise and the evidence stay in step. */
+  const MATRIX = ["18", "19", "latest"];
+
   fs.writeFileSync(path.join(tmp, "package.json"), JSON.stringify({ name: "ds-consumer", private: true, type: "module" }));
-  run("npm", ["i", "--no-audit", "--no-fund", path.join(tmp, packed), "react", "react-dom"], tmp);
-  const reactVersion = JSON.parse(fs.readFileSync(path.join(tmp, "node_modules/react/package.json"), "utf8")).version;
-  console.log(`OK   install     — resolved react@${reactVersion} from the peer range`);
 
   /* The probe runs INSIDE the scratch project, so `react` resolves to what a
      consumer just installed rather than to the repo's devDependency. */
@@ -66,24 +79,35 @@ const html = {
 console.error = orig;
 process.stdout.write(JSON.stringify({ react: React.version, exports: Object.keys(DS).length, warnings, threw, html }));
 `);
-  const out = JSON.parse(run("node", ["probe.mjs"], tmp));
+  const seen = new Set();
+  for (const spec of MATRIX) {
+    run("npm", ["i", "--no-audit", "--no-fund", path.join(tmp, packed), `react@${spec}`, `react-dom@${spec}`], tmp);
+    const out = JSON.parse(run("node", ["probe.mjs"], tmp));
+    const at = `react@${out.react}`;
 
-  if (out.threw.length) fails.push(`components threw on the installed React: ${out.threw.slice(0, 3).join("; ")}`);
-  else console.log(`OK   render      — all ${out.exports} exports render on react@${out.react}`);
+    /* `latest` usually resolves to a major already in the list. Say so rather
+       than printing the same six lines twice. */
+    if (seen.has(out.react)) { console.log(`OK   ${spec.padEnd(11)} — resolved to ${out.react}, already covered above`); continue; }
+    seen.add(out.react);
+    console.log(`\n     ── ${at} (requested ${spec}) ──`);
 
-  /* A React warning here is the signal that caught the inert bug. Treat it the
-     same way the source verifiers treat one: as a failure. */
-  if (out.warnings.length) fails.push(`React ${out.react} warnings from the published package: ${[...new Set(out.warnings)].slice(0, 3).join(" | ")}`);
-  else console.log(`OK   quiet       — no React warnings on react@${out.react}`);
+    if (out.threw.length) fails.push(`components threw on ${at}: ${out.threw.slice(0, 3).join("; ")}`);
+    else console.log(`OK   render      — all ${out.exports} exports render`);
 
-  /* Explicit, because a dropped attribute is silent: no warning, no throw, and
-     the markup simply lacks it. `inert` renders as `inert=""` on React 19 and
-     `inert="inert"` on React 18 — both are the attribute being present. */
-  if (!/\binert=/.test(out.html.faqClosed)) fails.push(`a closed FaqItem has no inert attribute on react@${out.react} — see the matrix in components/marketing/FaqItem.jsx`);
-  else console.log("OK   inert       — a closed FaqItem panel is inert");
+    /* A React warning here is the signal that caught the inert bug. Treat it the
+       same way the source verifiers treat one: as a failure. */
+    if (out.warnings.length) fails.push(`${at} warnings from the published package: ${[...new Set(out.warnings)].slice(0, 3).join(" | ")}`);
+    else console.log("OK   quiet       — no React warnings");
 
-  if (!/role="group"/.test(out.html.gauge)) fails.push("a banded GaugeChart is not an interactive group in the published build");
-  else console.log("OK   contracts   — the chart a11y shapes survive the build");
+    /* Explicit, because a dropped attribute is silent: no warning, no throw, and
+       the markup simply lacks it. `inert` renders as `inert=""` on React 19 and
+       `inert="inert"` on React 18 — both are the attribute being present. */
+    if (!/\binert=/.test(out.html.faqClosed)) fails.push(`a closed FaqItem has no inert attribute on ${at} — see the matrix in components/marketing/FaqItem.jsx`);
+    else console.log("OK   inert       — a closed FaqItem panel is inert");
+
+    if (!/role="group"/.test(out.html.gauge)) fails.push(`a banded GaugeChart is not an interactive group on ${at}`);
+    else console.log("OK   contracts   — the chart a11y shapes survive the build");
+  }
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });
 }
