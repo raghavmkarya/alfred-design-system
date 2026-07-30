@@ -12,6 +12,11 @@ node_modules/
 # Social frame exports (regenerate with scripts/capture-social.mjs)
 social/_exports/
 
+# Session scratch, deliberately untracked and not synced. Listing them here
+# because `git add -A` has staged them by accident before.
+HANDOFF.md
+mocks/
+
 # Playwright
 test-results/
 playwright-report/

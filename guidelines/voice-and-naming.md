@@ -48,3 +48,8 @@ asset built from this design system. Deeper canon: the product-marketing repo.
   band is a documented placeholder — never reuse those numbers as real proof.
 - Best-in-class copy pattern (from the live product mocks): concrete, quantified, actionable —
   "Campaign burning $4.8K with zero conversions", "$55.1K/mo in recoverable waste".
+
+**Which nouns are allowed** is a separate question from how they sound, and it is answered in
+[`../docs/context.md`](../docs/context.md): the platform / product / release-status glossary, each
+term with the wordings to avoid. Calling a launch-ready product "live", or Alfred a "copilot",
+is a factual error rather than a tone one, so it belongs there and not here.
