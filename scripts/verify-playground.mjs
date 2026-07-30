@@ -75,6 +75,42 @@ if (!/contain:\s*layout paint/.test(rd("playground/playground.css"))) {
 }
 if (!fails.some((f) => f.startsWith("playground/"))) console.log("OK   page        — index/js/css present and wired");
 
+/* 5 — the vendored React
+
+   This page is published, so it cannot load React from node_modules the way
+   tests/harness.html does, and it no longer loads it from a CDN either. The
+   committed copies must therefore stay byte-identical to the installed version,
+   or the docs page silently runs a different React from everything else here —
+   the exact drift a CDN pin was there to prevent. */
+const reactVersion = JSON.parse(rd("node_modules/react/package.json")).version;
+const vendored = [
+  [`playground/vendor/react-${reactVersion}.production.min.js`, "node_modules/react/umd/react.production.min.js"],
+  [`playground/vendor/react-dom-${reactVersion}.production.min.js`, "node_modules/react-dom/umd/react-dom.production.min.js"],
+];
+let vendorOk = true;
+const page = (() => { try { return rd("playground/index.html"); } catch { return ""; } })();
+if (/unpkg\.com|cdn\.jsdelivr|cdnjs\./.test(page)) {
+  fails.push("playground/index.html loads a script from a CDN — it is a published page and must be self-contained");
+  vendorOk = false;
+}
+for (const [committed, installed] of vendored) {
+  let a, b;
+  try { a = fs.readFileSync(committed); } catch {
+    fails.push(`${committed} is missing — copy it from ${installed} (the filename carries the version, so a React bump renames it)`);
+    vendorOk = false; continue;
+  }
+  b = fs.readFileSync(installed);
+  if (!a.equals(b)) {
+    fails.push(`${committed} differs from the installed ${installed} — re-copy it`);
+    vendorOk = false;
+  }
+  if (!page.includes(path.basename(committed))) {
+    fails.push(`playground/index.html does not load ${path.basename(committed)}`);
+    vendorOk = false;
+  }
+}
+if (vendorOk) console.log(`OK   vendor      — React ${reactVersion} committed and byte-identical to the installed copy`);
+
 if (fails.length) {
   console.log("");
   for (const f of fails) console.log("FAIL " + f);

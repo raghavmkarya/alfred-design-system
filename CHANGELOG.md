@@ -3,6 +3,27 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-07-30: the playground carries its own React
+
+The docs page loaded React and ReactDOM from unpkg.com with SRI hashes. It is a **published** page,
+so it could not take the fix the test harness took (pointing at `node_modules`), and it was left as
+the one real third-party runtime dependency in the system.
+
+**142KB of production React is now committed under `playground/vendor/`** and the CDN tags are gone.
+Two things this buys beyond surviving a CDN outage: an SRI hash only proves the CDN served the right
+bytes, it does nothing when the CDN is unreachable; and the page now ships the **production** build,
+which is what a docs page should have been serving rather than the development one with its warning
+machinery.
+
+**`verify-playground` gained a tenth check** so the copies cannot drift: each vendored file must be
+**byte-identical** to the installed `react@18.3.1`, the filename carries the version (so a React bump
+renames it and cannot pass silently), `index.html` must load both, and the page must reference **no**
+CDN host at all. Checked against an injected violation before being trusted.
+
+The five `ui_kits/*/index.html` pages and the `@dsCard` previews still load React **and Babel** from
+unpkg. They compile JSX in the browser, so making them self-contained means committing
+`@babel/standalone` too, which is a bigger call than this one.
+
 ## 2026-07-30: Gauge and Bullet cursors — the last two charts, and what the old decision got wrong
 
 `chart-contract.md` recorded Gauge and Bullet as a **decision not to**: "a gauge is a single value
