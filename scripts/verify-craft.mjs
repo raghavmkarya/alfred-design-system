@@ -87,6 +87,33 @@ const translateXArgs = (line) => {
    (50% from the start is 50% from the end). Anything else has a handedness. */
 const directionNeutral = (arg) => /^-?0(?:px|%|r?em)?$/.test(arg) || /^-?50%$/.test(arg);
 
+/* Split a CSS value on top-level whitespace, so `var(--a) 4px` is two values and
+   `calc(1px + 2px)` stays one. */
+const splitValues = (v) => {
+  const out = []; let depth = 0, cur = "";
+  for (const ch of v) {
+    if (ch === "(") depth++;
+    else if (ch === ")") depth--;
+    if (/\s/.test(ch) && depth === 0) { if (cur) out.push(cur); cur = ""; }
+    else cur += ch;
+  }
+  if (cur) out.push(cur);
+  return out;
+};
+/* The FOUR-value box shorthands are the only handed ones: two values are
+   block/inline and three are top / inline / bottom, both symmetric across the
+   reading direction. Four is top-right-bottom-left, so it is handed exactly when
+   right and left differ. `borderRadius` counts corners (TL TR BR BL) instead, so
+   it is handed when either edge's pair differs. */
+const HANDED_SHORTHAND = /\b(?:padding|margin|inset|borderWidth|border-width|borderRadius|border-radius):\s*([`"'])([^`"']*)\1/;
+const isHandedShorthand = (line) => {
+  const m = HANDED_SHORTHAND.exec(line);
+  if (!m) return false;
+  const v = splitValues(m[2].trim());
+  if (v.length !== 4) return false;
+  return /[Rr]adius/.test(m[0]) ? (v[0] !== v[1] || v[3] !== v[2]) : v[1] !== v[3];
+};
+
 const RULES = [
   { id: "transition-all", why: "name the properties, e.g. `transition: transform var(--dur-base) var(--ease-standard)`",
     re: /transition(?:-property)?:\s*["']?\s*all\b/, skipLine: isComment },   // tolerates the JSX inline-style form: transition: "all …"
@@ -122,6 +149,20 @@ const RULES = [
       if (t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /rtl-ok/.test(line)) return true;
       if (/var\(\s*--flip\s*\)/.test(line)) return true;   // already direction-aware
       return translateXArgs(line).every(directionNeutral);
+    } },
+  /* The sibling blind spot to `physical-translate`. `physical-inline-prop` finds
+     a wrong property NAME — `paddingLeft` — and a four-value shorthand never
+     spells one: `padding: "0 16px 14px 54px"` is top-right-bottom-left, all
+     inside a property whose name is perfectly neutral. AuditLogRow indented its
+     expanded detail 54px to align under the row icon, and under RTL that indent
+     stayed on the left while the icon moved to the right. */
+  { id: "handed-shorthand", why: "a four-value box shorthand is top-right-bottom-left, which is physical — split it into `paddingBlock` / `paddingInline` (start THEN end, the opposite order to the shorthand's right-then-left). A deliberately physical line carries an `rtl-ok` marker",
+    re: HANDED_SHORTHAND,
+    skipFile: (r) => !(r.startsWith("components/") && r.endsWith(".jsx")),
+    skipLine: (line) => {
+      const t = line.trim();
+      if (t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /rtl-ok/.test(line)) return true;
+      return !isHandedShorthand(line);
     } },
   { id: "raw-shadow-token", why: "name the elevation ROLE, not the shadow size — use --elevation-{surface,raised,floating,overlay,modal}. (--shadow-brand / --shadow-focus are state, not elevation, and stay direct.)",
     re: /var\(\s*--shadow-(?:xs|sm|md|lg|xl)\s*\)/,
