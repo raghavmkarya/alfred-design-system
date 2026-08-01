@@ -182,7 +182,7 @@ export function ChartTooltip({ x, y = null, children, visible }) {
            guidelines/rtl.md keeps physical. Mirroring the readout while the plot
            stays put would point it at the wrong data. */
         position: "absolute", top: vert.top, left: `${x * 100}%`,   /* rtl-ok: chart coordinate space */
-        transform: `translate(${past ? "calc(-100% - 10px)" : "10px"}, ${vert.dy})`,
+        transform: `translate(${past ? "calc(-100% - 10px)" : "10px"}, ${vert.dy})`,   /* rtl-ok: chart coordinate space — the readout flips on available room, not on reading direction */
         pointerEvents: "none", zIndex: "var(--z-tooltip)",
         background: "var(--surface-tooltip)", color: "var(--text-on-brand)",
         borderRadius: "var(--radius-md)", boxShadow: "var(--elevation-floating)",

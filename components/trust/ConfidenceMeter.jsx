@@ -128,7 +128,7 @@ export function ConfidenceMeter({
             top: -s.poke,
             bottom: -s.poke,
             left: `${pct}%`,   /* rtl-ok: chart coordinate space, see guidelines/rtl.md */
-            transform: `translateX(${-pct}%)`,
+            transform: `translateX(${-pct}%)`,   /* rtl-ok: the other half of the physical `left` above — see guidelines/rtl.md */
             width: s.notch,
             borderRadius: "var(--radius-pill)",
             background: "var(--surface-card)",

@@ -94,7 +94,7 @@ export function Drawer({ open, onClose, side = "right", title, children, width =
         background: "var(--surface-card)", boxShadow: "var(--elevation-modal)", display: "flex", flexDirection: "column",
         borderInlineStart: side === "right" ? "1px solid var(--border-subtle)" : "none",
         borderInlineEnd: side === "left" ? "1px solid var(--border-subtle)" : "none",
-        transform: atRest ? "translateX(0)" : `translateX(${offset})`,
+        transform: atRest ? "translateX(0)" : `translateX(${offset})`,   /* rtl-ok: `side` is a physical placement API — side="right" means right */
         transition: `transform var(${exiting ? "--dur-fast" : "--dur-base"}) var(--ease-standard)`,
         willChange: "transform", ...style,
       }}>

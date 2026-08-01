@@ -26,6 +26,35 @@ backwards is the easiest mistake to make here, and it is invisible in LTR.
 
 `verify-craft`'s `physical-inline-prop` rule blocks the physical forms in component JSX.
 
+## `transform` has no logical form — use `--flip`
+
+The table above covers every property CSS gave a logical twin. **`transform` is not one of them.**
+`translateX(18px)` is eighteen physical pixels to the right in every writing direction, so a switch
+knob, a hover nudge or a trailing arrow all travel **backwards** under `dir="rtl"` while every
+logical property around them mirrors correctly.
+
+`--flip` is the direction sign: `1` in LTR, `-1` under `[dir="rtl"]`, and `[dir="ltr"]` resets it so
+an LTR island inside an RTL page stays upright. It lives in `tokens/base.css` and inherits.
+
+```jsx
+// a knob that travels toward the trailing end in both directions
+transform: checked ? "translateX(calc(18px * var(--flip)))" : "translateX(0)"
+
+// a directional glyph AND its hover nudge, flipped together: the translate rides
+// in the scaled space, so +3px is always toward the reading end
+transform: hover ? "scaleX(var(--flip)) translateX(3px)" : "scaleX(var(--flip))"
+```
+
+`verify-craft`'s `physical-translate` rule blocks any other horizontal translate distance. Zero and
+±50% pass (both are direction-neutral); a deliberately physical line carries an `rtl-ok` marker on
+**the line itself** — `Drawer`'s `side` prop, `ConfidenceMeter`'s thumb and the chart cursor's
+readout are the three that do.
+
+**This is the class of bug no static check can find.** `physical-inline-prop` works by spotting a
+wrong property *name*; here the property name is right and only the value has a handedness. A
+checked `Switch` mirrored its track correctly and drove its knob 15px **past** the leading edge, and
+the only thing that ever showed it was measuring both directions in a browser.
+
 ## When physical is correct
 
 Not everything should mirror, and forcing it makes things worse. Three cases are deliberately
@@ -54,6 +83,10 @@ The only real evidence is rendering the same component in both directions and wa
 an LTR and an RTL container and asserts it sits the same distance from the *leading* edge in both.
 Reverting that one property to `left: 0` fails the test (the rail measures 315px from the start
 instead of 1px), which is the check being meaningful rather than decorative.
+
+The same file measures the `Switch` and `OfferSwitch` knobs the same way. Reverting either to a bare
+`translateX(18px)` fails it at **-15px from the leading edge**, i.e. the knob is outside its own
+track.
 
 Related: [`density.md`](./density.md) · [`elevation.md`](./elevation.md) ·
 [`craft-checklist.md`](./craft-checklist.md).

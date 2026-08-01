@@ -8,6 +8,20 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
+/* Direction sign. CSS has logical properties for margin, padding, border and
+   inset, but NONE for `transform` — `translateX(18px)` means eighteen pixels to
+   the physical right in every direction, so a switch knob, a hover nudge or a
+   trailing arrow all travel the wrong way under `dir="rtl"`. Multiply the
+   distance by this instead: `translateX(calc(18px * var(--flip)))`, or flip a
+   directional glyph and its nudge in one go with
+   `scaleX(var(--flip)) translateX(3px)`.
+
+   It inherits, and `[dir="ltr"]` resets it, so an LTR island inside an RTL page
+   (a code sample, an English quote) stays upright. */
+:root { --flip: 1; }
+[dir="rtl"] { --flip: -1; }
+[dir="ltr"] { --flip: 1; }
+
 body {
   margin: 0;
   font-family: var(--font-sans);
