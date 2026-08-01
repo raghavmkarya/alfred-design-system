@@ -65,6 +65,28 @@ function walk(dir, out = []) {
    anywhere, comments included. */
 const isComment = (line) => { const t = line.trim(); return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*"); };
 
+/* Every horizontal translate distance written on a line, in source form.
+   Balanced-paren scan rather than /\(([^)]*)\)/, because the direction-aware
+   spelling this rule wants — `translateX(calc(16px * var(--flip)))` — nests two
+   levels deep and a lazy character class stops at the first `)`. */
+const translateXArgs = (line) => {
+  const out = [];
+  for (const m of line.matchAll(/\btranslate(X)?\(/g)) {
+    let i = m.index + m[0].length, depth = 1;
+    const start = i;
+    for (; i < line.length && depth > 0; i++) {
+      if (line[i] === "(") depth++;
+      else if (line[i] === ")") depth--;
+    }
+    const inner = line.slice(start, i - 1);
+    out.push((m[1] ? inner : inner.split(",")[0]).trim());
+  }
+  return out;
+};
+/* Zero moves nowhere; ±50% is the centring idiom, which is direction-neutral
+   (50% from the start is 50% from the end). Anything else has a handedness. */
+const directionNeutral = (arg) => /^-?0(?:px|%|r?em)?$/.test(arg) || /^-?50%$/.test(arg);
+
 const RULES = [
   { id: "transition-all", why: "name the properties, e.g. `transition: transform var(--dur-base) var(--ease-standard)`",
     re: /transition(?:-property)?:\s*["']?\s*all\b/, skipLine: isComment },   // tolerates the JSX inline-style form: transition: "all …"
@@ -86,6 +108,21 @@ const RULES = [
     re: /\b(?:margin|padding|border)(?:Left|Right)[A-Za-z]*\s*:|textAlign\s*:\s*["'](?:left|right)["']|(?:^|[{,\s])(?:left|right)\s*:/,
     skipFile: (r) => !(r.startsWith("components/") && r.endsWith(".jsx")),
     skipLine: (line) => { const t = line.trim(); return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /rtl-ok/.test(line); } },
+  /* CSS gives margin, padding, border and inset a logical form. It gives
+     `transform` none: `translateX(18px)` is eighteen physical pixels to the
+     right in every writing direction, so a switch knob, a hover nudge or a
+     trailing arrow all travel BACKWARDS under `dir="rtl"` — and no static
+     property check can see it, because there is no wrong property name to find.
+     Multiply by `var(--flip)`, or mark the line `rtl-ok` and say why. */
+  { id: "physical-translate", why: "a horizontal translate is physical in every direction — scale it by `var(--flip)` (`translateX(calc(18px * var(--flip)))`, or `scaleX(var(--flip)) translateX(3px)` to flip a directional glyph and its nudge together). A deliberately physical line (chart coordinate space, a physical placement API) carries an `rtl-ok` marker",
+    re: /\btranslate(?:X)?\(/,
+    skipFile: (r) => !(r.startsWith("components/") && r.endsWith(".jsx")),
+    skipLine: (line) => {
+      const t = line.trim();
+      if (t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /rtl-ok/.test(line)) return true;
+      if (/var\(\s*--flip\s*\)/.test(line)) return true;   // already direction-aware
+      return translateXArgs(line).every(directionNeutral);
+    } },
   { id: "raw-shadow-token", why: "name the elevation ROLE, not the shadow size — use --elevation-{surface,raised,floating,overlay,modal}. (--shadow-brand / --shadow-focus are state, not elevation, and stay direct.)",
     re: /var\(\s*--shadow-(?:xs|sm|md|lg|xl)\s*\)/,
     // component .jsx source only; individual legit lines carry a `raw-shadow-ok` marker

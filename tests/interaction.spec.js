@@ -85,6 +85,37 @@ test("rtl: the leading accent rail mirrors to the other edge", async ({ page }) 
   expect(ltr.fromEnd).toBeGreaterThan(100);
 });
 
+/* The other half of the RTL story, and the half logical properties cannot reach.
+   `transform` has no logical form: `translateX(18px)` is eighteen physical pixels
+   to the right in every writing direction. A checked Switch therefore mirrored
+   its TRACK correctly and drove its KNOB the wrong way, landing it back at the
+   start edge — the one place it must never be when the switch reads as on.
+   Reverting either component to a bare `translateX(18px)` fails this. */
+test("rtl: a checked knob travels toward the leading end, not the physical right", async ({ page }) => {
+  const knobOffsets = async (dir, sel) => {
+    const track = page.locator(`[data-testid='flip-${dir}'] ${sel.track}`).first();
+    const knob = track.locator(sel.knob).first();
+    const [t, k] = await Promise.all([track.boundingBox(), knob.boundingBox()]);
+    return {
+      fromStart: Math.round(dir === "rtl" ? t.x + t.width - (k.x + k.width) : k.x - t.x),
+      fromEnd: Math.round(dir === "rtl" ? k.x - t.x : t.x + t.width - (k.x + k.width)),
+    };
+  };
+  const SWITCHES = [
+    { track: ".ds-switch-track", knob: "span[aria-hidden='true']" },              // Switch
+    { track: "button[role='switch'] > span:last-child", knob: "span" },           // OfferSwitch
+  ];
+  for (const sel of SWITCHES) {
+    const ltr = await knobOffsets("ltr", sel);
+    const rtl = await knobOffsets("rtl", sel);
+    // measured from the LEADING edge, the knob sits in the same place in both
+    expect(rtl.fromStart).toBe(ltr.fromStart);
+    // and it is at the trailing end, not the leading one — the bug put it at 3px
+    expect(rtl.fromStart).toBeGreaterThan(rtl.fromEnd);
+    expect(ltr.fromStart).toBeGreaterThan(ltr.fromEnd);
+  }
+});
+
 test("Button: hover changes the background (usePress hover state)", async ({ page }) => {
   const btn = page.locator("[data-testid='btn'] button");
   const before = await btn.evaluate((el) => getComputedStyle(el).backgroundColor);

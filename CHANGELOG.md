@@ -3,6 +3,46 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-01: `--flip`, because `transform` never got a logical form
+
+Every RTL rule in this system says the same thing: use the logical property. That advice covers
+margin, padding, border and inset, and it silently does not cover **`transform`**, which has no
+logical twin at all. `translateX(18px)` is eighteen physical pixels to the right in every writing
+direction.
+
+So five components mirrored their layout correctly and then moved something the wrong way inside it:
+
+| component | what moved backwards |
+|---|---|
+| `Switch` | the knob, by 18px |
+| `OfferSwitch` | the knob, by 16px |
+| `ModuleStatusCard` · `IntegrationCard` | the "learn more" arrow's 3px hover nudge |
+| `JobListingRow` | the arrow's 2px active nudge |
+
+**The switch is the sharp one.** Its track mirrors, so under `dir="rtl"` the checked knob starts from
+the right edge and then travels a further 18px right — **15px outside its own track**, at the one end
+that reads as *off*. A control whose entire job is to show a binary state showed the wrong one.
+
+`--flip` is the fix and it is one line of CSS: `1` at `:root`, `-1` under `[dir="rtl"]`, and `1` again
+under `[dir="ltr"]` so an LTR island inside an RTL page stays upright. Distances multiply by it.
+The three arrows use `scaleX(var(--flip)) translateX(3px)`, which mirrors the arrowhead *and* puts
+the nudge in the flipped space, so one expression fixes both the direction the glyph points and the
+direction it moves. LTR renders byte-identically — all three visual baselines passed untouched.
+
+**An eighteenth craft rule, `physical-translate`**, blocks any other horizontal translate distance in
+component JSX. Zero and ±50% pass, being direction-neutral; three deliberate cases carry an `rtl-ok`
+marker (`Drawer`'s `side` is a physical placement API, `ConfidenceMeter`'s thumb and the chart
+cursor's readout are chart coordinate space). It needed a balanced-paren scan rather than a lazy
+character class, because the spelling it is asking for — `translateX(calc(16px * var(--flip)))` —
+nests two levels deep.
+
+**Why nothing caught this for four phases.** `physical-inline-prop` works by spotting a wrong
+property *name*. Here the property name is correct and only the *value* has a handedness, so there
+was nothing for a static rule to see, and an LTR screenshot cannot see it either. The bug was found
+by rendering all 117 components in both directions and comparing each element's distance from the
+**leading** edge — 32 differed, and this was what survived triage. `tests/interaction.spec.js` now
+measures both knobs that way; reverting either fails at -15px.
+
 ## 2026-07-30: `eye` and `eye-off`, because a password toggle was borrowing two unrelated glyphs
 
 `components/core/core.card.html` wired the password field's show/hide button to

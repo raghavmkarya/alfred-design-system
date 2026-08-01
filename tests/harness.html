@@ -181,6 +181,26 @@ function App() {
           ]} />
         </div>
       </div>
+      {/* Direction sign (--flip). CSS has no logical `transform`, so a knob that
+          travels with `translateX(18px)` moves toward the START edge under RTL,
+          i.e. backwards, while every logical property around it mirrors
+          correctly. Nothing static can see that — there is no wrong property
+          name to find — so it has to be measured in both directions.
+          NOTE: this sits BELOW the theme galleries on purpose; content above
+          them shifts layout rounding and fails all three visual baselines. */}
+      <div id="flip" data-testid="flip-probe">
+        <div className="lbl">Direction sign</div>
+        <div style={{ display: "flex", gap: 16 }}>
+          <div dir="ltr" data-testid="flip-ltr" style={{ width: 320 }}>
+            <Switch checked onChange={() => {}} label="Alerts" />
+            <OfferSwitch checked onChange={() => {}} label="Launch offer" />
+          </div>
+          <div dir="rtl" data-testid="flip-rtl" style={{ width: 320 }}>
+            <Switch checked onChange={() => {}} label="Alerts" />
+            <OfferSwitch checked onChange={() => {}} label="Launch offer" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

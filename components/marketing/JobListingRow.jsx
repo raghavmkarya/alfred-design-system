@@ -84,7 +84,9 @@ export function JobListingRow({
         strokeLinecap="round"
         strokeLinejoin="round"
         style={{
-          transform: active ? "translateX(2px)" : "translateX(0)",
+          // scaleX flips the arrowhead under RTL; the nudge then rides in the
+          // flipped space, so it travels toward the reading end either way.
+          transform: active ? "scaleX(var(--flip)) translateX(2px)" : "scaleX(var(--flip))",
           transition: "transform var(--dur-fast) var(--ease-standard)",
         }}
       >

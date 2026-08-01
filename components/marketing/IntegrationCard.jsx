@@ -38,7 +38,9 @@ export function IntegrationCard({
       aria-hidden="true"
       style={{
         flex: "none",
-        transform: linkHover ? "translateX(3px)" : "translateX(0)",
+        // scaleX flips the arrowhead under RTL; the nudge then rides in the
+        // flipped space, so it travels toward the reading end either way.
+        transform: linkHover ? "scaleX(var(--flip)) translateX(3px)" : "scaleX(var(--flip))",
         transition: "transform var(--dur-fast) var(--ease-standard)",
       }}
     >
