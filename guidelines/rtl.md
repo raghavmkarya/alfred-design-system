@@ -71,6 +71,49 @@ physical and carry an inline `rtl-ok` marker explaining why:
    would put the tip on the opposite side from the one the caller asked for. When a prop value is
    physical, everything derived from it stays physical.
 
+## The four-value shorthand is physical too
+
+`physical-inline-prop` works by finding a wrong property *name*. A box shorthand never spells one:
+
+```jsx
+padding: `0 16px 14px ${INDENT}px`   // top RIGHT bottom LEFT — handed, and the name says nothing
+```
+
+Two values (`block inline`) and three (`top inline bottom`) are symmetric across the reading
+direction and are fine. **Four is handed** whenever right and left differ, and `AuditLogRow` shipped
+exactly that: its expanded detail was indented 54px to line up under the row's actor mark, and under
+RTL the mark moved to the other edge while the indent stayed put.
+
+`verify-craft`'s `handed-shorthand` rule blocks it. Mind the order when splitting one:
+
+```jsx
+paddingBlock: "0 14px", paddingInline: `${INDENT}px 16px`   // START then end
+```
+
+The shorthand reads right-then-left and `padding-inline` reads start-then-end, so a mechanical
+transcription puts them **backwards** — and, per the section below, LTR looks perfect either way.
+
+## Sweeping for what the static rules cannot see
+
+Both rules above exist because something was found by *looking*, and the method is worth repeating
+when a new layout primitive lands. Render every component in both directions and compare each
+element's distance from the **leading** edge (`rect.left - box.left` in LTR,
+`box.right - rect.right` in RTL); a correct mirror gives the same number twice. The playground has a
+Direction toggle already, so a throwaway Playwright spec can drive all 117 in a couple of minutes.
+Write it to the scratchpad, not the repo.
+
+**Read the output knowing two thirds of it is noise**, or it will bury the real finding:
+
+- **Anything inside `<svg>`.** The `<svg>` box mirrors; the glyph inside it does not, and should not.
+  A magnifier is not a mirrored magnifier. Stop the walk at the `<svg>` element.
+- **Inline content inside text.** Bidi reordering moves a citation pill or a price fragment for
+  reasons that have nothing to do with layout handedness. Positioned and block-level elements are
+  where a real bug shows.
+- **Charts.** Deliberately physical, per the section above.
+
+Of 32 components that differed on the first sweep, **six** were real, and they were two bugs wearing
+six faces.
+
 ## Logical properties are invisible in LTR
 
 This is the trap. In LTR, `marginInlineStart` resolves to exactly the `marginLeft` it replaced, so

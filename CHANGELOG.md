@@ -3,6 +3,44 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-01: the other half of the RTL sweep, and why it is not becoming a gate
+
+`--flip` below came out of rendering all 117 components in both directions. **32 differed.** This is
+the rest of that triage.
+
+**One more real bug, and it is the sibling of the last one.** `AuditLogRow` indented its expanded
+detail with `padding: "0 16px 14px 54px"` — a four-value shorthand, which is top-**right**-bottom-
+**left**. The 54px lines the detail up under the row's actor mark, so under RTL the mark moved to
+the other edge and the indent stayed where it was.
+
+`physical-inline-prop` could not see it for the same structural reason `physical-translate` had to
+exist: that rule finds a wrong property **name**, and a shorthand never spells one. `padding` is a
+perfectly neutral name. **`handed-shorthand`, the nineteenth rule**, reads the value instead: two
+values (`block inline`) and three (`top inline bottom`) are symmetric and pass, four is handed
+whenever right and left differ. `borderRadius` counts corners rather than edges, so it is checked on
+its own terms (`Tabs`'s `3px 3px 0 0` is symmetric and passes).
+
+Splitting one is where this bites twice: the shorthand reads **right then left** and `padding-inline`
+reads **start then end**, so transcribing left-to-right gets it backwards — and LTR looks perfect
+either way.
+
+**The other 26 were noise, and that is the finding.** A sweep like this is an audit tool, not a CI
+gate; a version tolerant enough to be green would mostly be asserting a 25-entry allowlist. Two
+thirds of its output is structural:
+
+- **Inside `<svg>`** — the box mirrors, the glyph does not and should not. A magnifier is not a
+  mirrored magnifier.
+- **Inline content in text** — bidi reordering moves a citation pill or a price fragment for reasons
+  unrelated to handedness. `AlfredMessage`, `ApprovalGate` and `PriceCard` all flagged and all use
+  logical properties correctly.
+- **Charts** — deliberately physical, recorded years-deep in `guidelines/rtl.md`.
+
+So the sweep is written down as a **recipe** in that guideline, alongside the icon contact sheet it
+resembles: throwaway, scratchpad-only, run when a new layout primitive lands. What it found became
+two static rules that run on every PR in milliseconds.
+
+Six of 32 were real, and they were **two bugs wearing six faces**.
+
 ## 2026-08-01: `--flip`, because `transform` never got a logical form
 
 Every RTL rule in this system says the same thing: use the logical property. That advice covers

@@ -205,7 +205,11 @@ export function AuditLogRow({
           >
             <div
               style={{
-                padding: `0 16px 14px ${INDENT}px`,
+                // start then end, NOT the shorthand's right-then-left: the
+                // 54px indent aligns the detail under the row's icon, so it has
+                // to follow the reading direction with it.
+                paddingBlock: "0 14px",
+                paddingInline: `${INDENT}px 16px`,
                 opacity: open ? 1 : 0,
                 transition: "opacity var(--dur-base) var(--ease-standard)",
               }}
