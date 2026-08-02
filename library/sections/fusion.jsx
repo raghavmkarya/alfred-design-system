@@ -241,7 +241,7 @@ const LibMarqueeStrip = ({ items, tone }) => {
    1.03-1.04 (guidelines/style-absorption.md). */
 const libPosterCss = `
 .lib-poster-cta { display: inline-flex; transition: transform var(--dur-base) var(--ease-spring); }
-.lib-poster-cta:hover { transform: scale(1.03); }
+.lib-poster-cta:hover { transform: scale(1.04); }
 `;
 
 function LibPosterHero({
@@ -252,7 +252,7 @@ function LibPosterHero({
   primaryCta = "get started",
   secondaryCta = "See a live brief",
   marqueeItems = LIB_MARQUEE_ITEMS,
-  variant = "default", /* "default" | "with-marquee" */
+  variant = "with-marquee", /* "with-marquee" | "quiet" — the marquee IS the vivid signature; bare render carries it */
 }) {
   return (
     /* One cool ambient only: the poster page's gradient element is the
@@ -271,9 +271,12 @@ function LibPosterHero({
         paddingBlock: "96px 72px", width: "100%", boxSizing: "border-box",
       })}>
         <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
-        {/* The ONE poster statement of the page: --text-poster, line-height 1.0. */}
+        {/* The ONE poster statement of the page: --text-poster at line-height
+            1.0, set in --font-poster so Clash Display survives marketing dark
+            (the theme's Satoshi headline swap de-fanged the poster). */}
         <h1 style={{
-          ...libDisplay("var(--text-poster)"), lineHeight: 1.0, letterSpacing: "-0.02em",
+          ...libDisplay("var(--text-poster)"), fontFamily: "var(--font-poster)",
+          fontWeight: "var(--fw-semibold)", lineHeight: 1.0, letterSpacing: "-0.02em",
           color: "var(--text-display)", maxWidth: 980, marginBlockStart: 28,
         }}>{libAccent(title, titleAccent)}</h1>
         <p style={{ ...libSub, maxWidth: 560, marginBlockStart: 26 }}>{sub}</p>
@@ -281,14 +284,18 @@ function LibPosterHero({
           <span className="lib-poster-cta">
             <Button variant="primary" size="lg">{primaryCta}</Button>
           </span>
-          <Button variant="outline" size="lg" style={libGhostCta}>{secondaryCta}</Button>
+          <span className="lib-poster-cta">
+            <Button variant="outline" size="lg" style={libGhostCta}>{secondaryCta}</Button>
+          </span>
         </div>
       </div>
-      {variant === "with-marquee" ? <LibMarqueeStrip items={marqueeItems} tone="ink" /> : null}
-      {/* The one ambient grain layer of the page, over everything, inert. */}
+      {variant !== "quiet" ? <LibMarqueeStrip items={marqueeItems} tone="ink" /> : null}
+      {/* The one ambient grain layer of the page, over everything, inert.
+          0.05 is the top of the budget — the texture should be felt at
+          poster scale, not hunted for. */}
       <div aria-hidden="true" style={{
         position: "absolute", inset: 0, backgroundImage: "var(--texture-grain)",
-        opacity: 0.04, pointerEvents: "none",
+        opacity: 0.05, pointerEvents: "none",
       }} />
     </section>
   );

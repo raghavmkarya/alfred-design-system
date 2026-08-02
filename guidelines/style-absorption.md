@@ -39,8 +39,13 @@ The style's real asset is conviction — poster scale and confident motion —
 not its rainbow. Adopted:
 
 - **`--text-poster`** (tokens/typography.css): `clamp(56px, 9vw, 140px)` for
-  ONE marketing-hero statement per page. Clash Display, line-height 1.0,
-  tracking -0.02em.
+  ONE marketing-hero statement per page. Line-height 1.0, tracking -0.02em.
+- **`--font-poster`** (tokens/typography.css): the poster statement is set in
+  this token, which keeps Clash Display on EVERY theme — deliberately
+  bypassing the marketing-dark swap of `--font-display` to Satoshi. That swap
+  matches the live site's regular headlines; applied to the poster it
+  de-fanged the one loud statement a page is allowed. A poster set in the
+  body face is not a poster.
 - **`--ease-spring`** (tokens/spacing.css): overshoot curve for marketing
   CTAs and reveals. Hover scale stays inside 1.03-1.04. The product app keeps
   `--ease-emphasized`.

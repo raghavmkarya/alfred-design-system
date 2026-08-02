@@ -6702,7 +6702,7 @@
       "file": "library/sections/fusion.js",
       "name": "Poster hero",
       "tier": 2,
-      "description": "The vivid absorption executed on-brand: a near-full-viewport statement hero with one poster-scale Clash headline (--text-poster, line-height 1.0) carrying exactly one gradient-filled word, spring-scaled primary CTA (--ease-spring, 1.03), and one ambient grain layer at 0.04. One poster statement per page.",
+      "description": "The vivid absorption executed on-brand: a near-full-viewport statement hero with one poster-scale Clash headline (--text-poster, line-height 1.0) carrying exactly one gradient-filled word, spring-scaled primary CTA (--ease-spring, 1.03), and one ambient grain layer at 0.04. One poster statement per page. Bare render includes the marquee strip: the ticker is the vivid signature.",
       "pageTypes": [
         "landing"
       ],
@@ -6745,15 +6745,15 @@
       ],
       "variants": [
         {
-          "id": "default",
-          "name": "Poster statement",
+          "id": "with-marquee",
+          "name": "With marquee",
           "props": {}
         },
         {
-          "id": "with-marquee",
-          "name": "With marquee strip",
+          "id": "quiet",
+          "name": "Quiet (no marquee)",
           "props": {
-            "variant": "with-marquee"
+            "variant": "quiet"
           }
         }
       ]

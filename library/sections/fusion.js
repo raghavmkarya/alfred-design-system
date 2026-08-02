@@ -366,7 +366,7 @@ const LibMarqueeStrip = ({
    1.03-1.04 (guidelines/style-absorption.md). */
 const libPosterCss = `
 .lib-poster-cta { display: inline-flex; transition: transform var(--dur-base) var(--ease-spring); }
-.lib-poster-cta:hover { transform: scale(1.03); }
+.lib-poster-cta:hover { transform: scale(1.04); }
 `;
 function LibPosterHero({
   eyebrow = "Alfred for Marketing",
@@ -377,7 +377,7 @@ function LibPosterHero({
   primaryCta = "get started",
   secondaryCta = "See a live brief",
   marqueeItems = LIB_MARQUEE_ITEMS,
-  variant = "default" /* "default" | "with-marquee" */
+  variant = "with-marquee" /* "with-marquee" | "quiet" — the marquee IS the vivid signature; bare render carries it */
 }) {
   return (
     /*#__PURE__*/
@@ -410,6 +410,8 @@ function LibPosterHero({
     }, eyebrow), /*#__PURE__*/React.createElement("h1", {
       style: {
         ...libDisplay("var(--text-poster)"),
+        fontFamily: "var(--font-poster)",
+        fontWeight: "var(--fw-semibold)",
         lineHeight: 1.0,
         letterSpacing: "-0.02em",
         color: "var(--text-display)",
@@ -435,11 +437,13 @@ function LibPosterHero({
     }, /*#__PURE__*/React.createElement(Button, {
       variant: "primary",
       size: "lg"
-    }, primaryCta)), /*#__PURE__*/React.createElement(Button, {
+    }, primaryCta)), /*#__PURE__*/React.createElement("span", {
+      className: "lib-poster-cta"
+    }, /*#__PURE__*/React.createElement(Button, {
       variant: "outline",
       size: "lg",
       style: libGhostCta
-    }, secondaryCta))), variant === "with-marquee" ? /*#__PURE__*/React.createElement(LibMarqueeStrip, {
+    }, secondaryCta)))), variant !== "quiet" ? /*#__PURE__*/React.createElement(LibMarqueeStrip, {
       items: marqueeItems,
       tone: "ink"
     }) : null, /*#__PURE__*/React.createElement("div", {
@@ -448,7 +452,7 @@ function LibPosterHero({
         position: "absolute",
         inset: 0,
         backgroundImage: "var(--texture-grain)",
-        opacity: 0.04,
+        opacity: 0.05,
         pointerEvents: "none"
       }
     }))
