@@ -46,7 +46,16 @@ production code, depending on the need.
 - `ui_kits/onboarding/` — standalone first-run flow (light): connect your stack → calibrate →
   first brief, on the four-stage operating model. Single component in `Onboarding.jsx`.
 - `ui_kits/website/` — the dark seekalfred.ai marketing site recreation.
-- `templates/sections/` — 27 copy-paste marketing section blocks (`window.Sec*`): logo cloud,
+- `library/` — the Inspiration Library, THE place to start any marketing page: 55 section
+  patterns (`window.Lib*`, 10 categories, 95 variants) distilled from a 107-site competitor
+  sweep, each with finished Alfred-voice defaults, both themes, real-site `usedBy` evidence in
+  `library/sections.json`, and a static export per section in `library/export/`. Browse with
+  `library/index.html` (live previews, copy-HTML, standalone download); 8 composed recipe pages
+  in `library/recipes/` (landing, feature, pricing, blog index/article, comparison, resource
+  hub, gated content) show the sections assembled into whole pages. Authoring contract in
+  `library/README.md`; verified by `scripts/verify-library.mjs`.
+- `templates/sections/` — LEGACY (superseded by `library/` for new work; `templates/pages/*`
+  still consume them): 27 copy-paste marketing section blocks (`window.Sec*`): logo cloud,
   bento, feature split, comparison, pricing, testimonial, integrations, CTA + hero (3 variants),
   statement, closing CTA, FAQ, security grid, team, values, careers, story editorial, contact
   split, industry cards, agent showcase, enterprise band, stack diagram, timeline, sourced stats.
