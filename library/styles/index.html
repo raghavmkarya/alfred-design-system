@@ -1,0 +1,73 @@
+<!-- Style exploration index. The eight pages it links are DELIBERATELY off-system
+     (excluded from verify-craft); this index itself is an Alfred surface. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred style lab — eight directions outside the system</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-black.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-sans); color: var(--text-primary); background: var(--bg-canvas); }
+  .wrap { max-width: 1180px; margin-inline: auto; padding: 48px 32px 80px; }
+  h1 { font-family: var(--font-display); font-size: var(--text-3xl); letter-spacing: -0.02em; margin: 0 0 10px; }
+  .sub { font-size: var(--text-base); color: var(--text-secondary); max-width: 640px; line-height: var(--lh-relaxed); margin: 0 0 8px; }
+  .note { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 36px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+  a.card {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--surface-card); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-2xl); overflow: hidden;
+    transition: border-color var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
+  }
+  a.card:hover { border-color: var(--border-default); box-shadow: var(--elevation-raised); }
+  a.card:focus-visible { outline: none; border-color: var(--border-focus); box-shadow: var(--shadow-focus); }
+  .thumb { position: relative; height: 240px; overflow: hidden; background: var(--surface-sunken); border-block-end: 1px solid var(--border-subtle); }
+  .thumb iframe { border: 0; width: 1280px; height: 960px; transform-origin: top left; position: absolute; pointer-events: none; }
+  .meta { padding: 14px 16px 16px; }
+  .meta .name { font-size: var(--text-base); font-weight: var(--fw-bold); }
+  .meta .desc { font-size: var(--text-xs); color: var(--text-secondary); line-height: var(--lh-normal); margin-block-start: 4px; }
+  .back { font-size: var(--text-sm); font-weight: var(--fw-bold); color: var(--text-link); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p style="margin: 0 0 18px;"><a class="back" href="../index.html">← Inspiration Library</a></p>
+  <h1>Style lab</h1>
+  <p class="sub">Eight visual directions from outside the Alfred design system, each rendering the same page content so only the style differs. Every page ends with an "Adopting this" panel: what the system would add to support the direction, and what collides with the brand.</p>
+  <p class="note">Off-system by design: these pages use raw hex, foreign type stacks and rule-breaking effects on purpose, and are excluded from the craft verifier. They are references, never product surfaces.</p>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+  var STYLES = [
+    ["editorial-light", "Editorial light", "Warm paper, serif display, hairline rules. Anthropic, Notion, Intercom."],
+    ["swiss-brutalist", "Swiss / brutalist", "Exposed grid, mono labels, flat blocks, no shadows. Gumroad, Berkeley Graphics, PostHog."],
+    ["aurora-glass", "Aurora glass", "Frosted panels over drifting brand-hue auroras. Stripe, Arc, Reflect."],
+    ["playful-illustrated", "Playful illustrated", "Bold rounded shapes, characters, bouncy motion. Mailchimp, Miro, Duolingo."],
+    ["terminal-dev", "Terminal / dev-retro", "Monospace-first, phosphor accents, keyboard-centric. Warp, terminal.shop, val.town."],
+    ["enterprise-trust", "Enterprise trust", "Navy gravitas, dense proof, analyst-forward. Salesforce, ServiceNow, Workday."],
+    ["vivid-maximalist", "Vivid maximalist", "Oversized type, clashing hues, sticker collage energy. family.co, Cash App."],
+    ["data-ink-minimal", "Data-ink minimal", "Near-monochrome, hairline everything, numbers as drama. Equals, Hex, Observable."],
+  ];
+  var grid = document.getElementById("grid");
+  STYLES.forEach(function (s) {
+    var a = document.createElement("a");
+    a.className = "card";
+    a.href = s[0] + ".html";
+    a.innerHTML = '<div class="thumb"><iframe loading="lazy" tabindex="-1" aria-hidden="true" src="' + s[0] + '.html" title=""></iframe></div>'
+      + '<div class="meta"><div class="name">' + s[1] + '</div><div class="desc">' + s[2] + "</div></div>";
+    grid.appendChild(a);
+    var frame = a.querySelector("iframe");
+    var fit = function () {
+      var w = a.querySelector(".thumb").clientWidth || 360;
+      frame.style.transform = "scale(" + w / 1280 + ")";
+      frame.style.height = (240 / (w / 1280)) + "px";
+    };
+    fit();
+    window.addEventListener("resize", fit);
+  });
+</script>
+</body>
+</html>

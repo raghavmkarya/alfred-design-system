@@ -42,12 +42,25 @@ export function readRecipes() {
   });
 }
 
+export function readStyles() {
+  const dir = path.join(ROOT, "library/styles");
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith(".html") && f !== "index.html").sort()
+    .map((f) => {
+      const head = fs.readFileSync(path.join(dir, f), "utf8").split("\n", 1)[0];
+      const name = (head.match(/Style exploration:\s*([^.]+)\./) || [])[1] || null;
+      return { slug: f.replace(/\.html$/, ""), name };
+    });
+}
+
 export function buildSectionsJson(metas) {
   return JSON.stringify({
     generatedBy: "scripts/gen-library.mjs",
     categories: metas.map((m) => ({ ...m.category, count: m.sections.length })),
     sections: metas.flatMap((m) => m.sections.map((s) => ({ category: m.category.id, ...s }))),
     recipes: readRecipes(),
+    styles: readStyles(),
   }, null, 2) + "\n";
 }
 

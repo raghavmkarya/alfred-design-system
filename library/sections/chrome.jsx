@@ -9,7 +9,7 @@
    scripts/build-kits.mjs; catalogued in library/meta/chrome.json.
    ============================================================ */
 const {
-  Button, EyebrowBadge, Badge, Avatar,
+  Button, EyebrowBadge, Badge, Avatar, Kbd,
 } = window.AlfredAIDesignSystem_1ce241;
 
 const libContainer = (extra) => ({
@@ -405,7 +405,349 @@ function LibFooter({
   );
 }
 
+/* ---- shared glyphs and styles for the two open-specimen surfaces ---- */
+const libChevronDown = (size) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0 }}>
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+);
+const libSearchGlyph = (size) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" style={{ flexShrink: 0 }}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="M16.6 16.6L21 21" />
+  </svg>
+);
+const libDocGlyph = (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0 }}>
+    <path d="M7 3h7l5 5v13H7z" />
+    <path d="M14 3v5h5" />
+  </svg>
+);
+const libClockGlyph = (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0 }}>
+    <circle cx="12" cy="12" r="8.5" />
+    <path d="M12 7.5V12l3 2" />
+  </svg>
+);
+const libColEyebrow = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)", fontWeight: "var(--fw-bold)",
+  color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "var(--ls-caps)",
+};
+/* First case-insensitive hit of the query, wrapped in an accent-soft mark. */
+const libHighlight = (text, query) => {
+  const q = (query || "").trim();
+  if (!q) return text;
+  const at = text.toLowerCase().indexOf(q.toLowerCase());
+  if (at === -1) return text;
+  return (
+    <>
+      {text.slice(0, at)}
+      <mark style={{ background: "var(--accent-soft)", color: "var(--text-primary)", borderRadius: 3, paddingInline: 1 }}>{text.slice(at, at + q.length)}</mark>
+      {text.slice(at + q.length)}
+    </>
+  );
+};
+
+/* The desktop grid keeps role columns side by side with the promo card
+   trailing; under 860px the header collapses to the wordmark and the panel
+   stacks like the mobile drawer, promo last, CTA pair pinned at the end. */
+const libMegaCss = `
+.lib-mm-links { display: flex; }
+.lib-mm-actions { display: flex; }
+.lib-mm-cols { display: grid; grid-template-columns: var(--mm-cols, minmax(0, 1fr)); gap: 36px 48px; }
+.lib-mm-mobile-cta { display: none; }
+@media (max-width: 860px) {
+  .lib-mm-links { display: none; }
+  .lib-mm-actions { display: none; }
+  .lib-mm-cols { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .lib-mm-mobile-cta { display: flex; }
+}
+`;
+
+/* ......... mega-menu · expanded role-grouped panel, shown open ......... */
+function LibMegaMenu({
+  logoText = "alfred ai",
+  items = [
+    { label: "Product", href: "/product" },
+    { label: "Solutions", href: "/solutions" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Resources", href: "/resources" },
+    { label: "Company", href: "/about" },
+  ],
+  openItem = "Product",
+  columns = [
+    { eyebrow: "For marketing", links: [
+      { label: "The Monday brief", description: "Your week's decisions, drafted before you sit down." },
+      { label: "Channel spend", description: "I watch every channel and flag reallocations before they cost you." },
+      { label: "Creative fatigue", description: "I catch tired creative days before it shows in your CPA." },
+      { label: "Attribution", description: "One causal answer per question, sources attached." },
+    ] },
+    { eyebrow: "For finance", links: [
+      { label: "Budget pacing" },
+      { label: "Forecast vs actuals" },
+      { label: "Spend audit trail" },
+      { label: "Approvals" },
+      { label: "Board pack" },
+    ] },
+  ],
+  promo = {
+    eyebrow: "Customer story",
+    title: "Northwind cut wasted spend 23%",
+    body: "See the decisions I surfaced in their first 30 days.",
+    ctaLabel: "Read the story",
+  },
+  ctaLabel = "Ask Alfred",
+  secondaryCtaLabel = "See pricing",
+}) {
+  const track = `repeat(${Math.max((columns || []).length, 1)}, minmax(0, 1fr))${promo ? " minmax(0, 0.95fr)" : ""}`;
+  return (
+    <section style={{ background: "var(--bg-page)", paddingBlockEnd: 88 }}>
+      <style>{libMegaCss}</style>
+      <header style={{
+        background: "var(--surface-veil)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)",
+        borderBlockEnd: "1px solid var(--border-subtle)",
+      }}>
+        <div style={libContainer({ height: 68, display: "flex", alignItems: "center", gap: 28 })}>
+          <LibWordmark text={logoText} />
+          <nav aria-label="Main" className="lib-mm-links" style={{ alignItems: "center", gap: 26 }}>
+            {items.map((it, i) => it.label === openItem ? (
+              <button key={i} type="button" aria-expanded="true" style={{
+                display: "inline-flex", alignItems: "center", gap: 5, padding: 0, background: "transparent",
+                border: "none", cursor: "pointer", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+                fontWeight: "var(--fw-semibold)", color: "var(--text-primary)", lineHeight: "var(--lh-normal)",
+              }}>
+                {it.label}
+                {libChevronDown(13)}
+              </button>
+            ) : (
+              <a key={i} href={it.href || "#"} style={libLinkStyle}>{it.label}</a>
+            ))}
+          </nav>
+          <div className="lib-mm-actions" style={{ alignItems: "center", gap: 10, marginInlineStart: "auto" }}>
+            {secondaryCtaLabel ? <Button variant="ghost" size="md">{secondaryCtaLabel}</Button> : null}
+            <Button variant="primary" size="md">{ctaLabel}</Button>
+          </div>
+        </div>
+      </header>
+      <div role="region" aria-label={`${openItem} menu`} style={{
+        background: "var(--surface-card)", borderBlockEnd: "1px solid var(--border-subtle)",
+        boxShadow: "var(--elevation-overlay)",
+      }}>
+        <div className="lib-mm-cols" style={{ ...libContainer({ paddingBlock: "34px 38px" }), "--mm-cols": track }}>
+          {(columns || []).map((col, i) => (
+            <div key={i}>
+              {col.eyebrow ? <div style={{ ...libColEyebrow, marginBlockEnd: 16 }}>{col.eyebrow}</div> : null}
+              <ul style={{
+                listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column",
+                gap: (col.links || []).some((l) => l.description) ? 16 : 12,
+              }}>
+                {(col.links || []).map((l, j) => (
+                  <li key={j}>
+                    <a href={l.href || "#"} style={{ textDecoration: "none", display: "block" }}>
+                      <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: "var(--text-primary)", lineHeight: "var(--lh-normal)" }}>{l.label}</span>
+                      {l.description ? (
+                        <span style={{ display: "block", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", lineHeight: "var(--lh-normal)", marginBlockStart: 3 }}>{l.description}</span>
+                      ) : null}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {promo ? (
+            <div style={{
+              background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
+              borderRadius: "var(--radius-lg)", padding: 20, alignSelf: "start",
+            }}>
+              {promo.eyebrow ? <Badge tone="brand">{promo.eyebrow}</Badge> : null}
+              <div style={{
+                fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 19,
+                letterSpacing: "-0.01em", lineHeight: 1.25, color: "var(--text-primary)", marginBlockStart: 12,
+              }}>{promo.title}</div>
+              {promo.body ? (
+                <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", margin: 0, marginBlockStart: 6 }}>{promo.body}</p>
+              ) : null}
+              {promo.ctaLabel ? (
+                <a href="#" style={{
+                  display: "inline-flex", alignItems: "center", gap: 4, marginBlockStart: 12,
+                  fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-semibold)",
+                  color: "var(--text-link)", textDecoration: "none",
+                }}>
+                  {promo.ctaLabel}
+                  {libChevron(13)}
+                </a>
+              ) : null}
+            </div>
+          ) : null}
+          <div className="lib-mm-mobile-cta" style={{ gap: 10, flexWrap: "wrap" }}>
+            {secondaryCtaLabel ? <Button variant="ghost" size="md">{secondaryCtaLabel}</Button> : null}
+            <Button variant="primary" size="md">{ctaLabel}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ......... search-overlay · command-K search, shown open ......... */
+function LibSearchOverlay({
+  placeholder = "Ask me where anything lives",
+  query = "spend",
+  groups = [
+    { label: "How it works", items: [
+      { title: "How I score channel spend", path: "How it works · Scoring" },
+      { title: "Where the spend data comes from", path: "How it works · Sources" },
+    ] },
+    { label: "Playbooks", items: [
+      { title: "The wasted-spend sweep", path: "Playbooks · Budget" },
+      { title: "Reallocating mid-quarter without a fight", path: "Playbooks · Budget" },
+    ] },
+    { label: "Pricing", items: [
+      { title: "What counts as managed spend", path: "Pricing · FAQ" },
+    ] },
+  ],
+  recentHeading = "Recent",
+  recent = ["Creative fatigue threshold", "Connect GA4 in an afternoon"],
+  emptyHeading = "Try one of these",
+  suggestions = ["How I score channel spend", "What teams like Meridian pay per seat", "What happens in the first 30 days"],
+  noResultsText = "I found nothing for that. Try a shorter phrase or ask me directly.",
+  askLabel = "Ask me instead",
+  footerHints = [
+    { keys: ["↑", "↓"], label: "to move" },
+    { keys: ["↵"], label: "to open" },
+    { keys: ["esc"], label: "to close" },
+  ],
+  footerNote = "Searching all 140 pages of this site",
+  variant = "results", /* "results" | "empty" | "no-results" */
+}) {
+  const [q, setQ] = React.useState(variant === "empty" ? "" : query);
+  const rowStyle = (selected) => ({
+    display: "flex", alignItems: "center", gap: 12, paddingBlock: 9, paddingInline: "18px 20px",
+    cursor: "pointer",
+    background: selected ? "var(--accent-soft)" : "transparent",
+    borderInlineStart: selected ? "2px solid var(--accent)" : "2px solid transparent",
+  });
+  const rowTitleStyle = {
+    display: "block", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+    fontWeight: "var(--fw-medium)", color: "var(--text-primary)", lineHeight: "var(--lh-normal)",
+    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+  };
+  const groupEyebrow = (label) => (
+    <div style={{ ...libColEyebrow, paddingInline: 20, marginBlockStart: 16, marginBlockEnd: 6 }}>{label}</div>
+  );
+  const plainRow = (glyph, label, i) => (
+    <li key={i} role="option" aria-selected={false} style={rowStyle(false)}>
+      <span style={{ display: "inline-flex", color: "var(--text-muted)", flexShrink: 0 }}>{glyph}</span>
+      <span style={{ ...rowTitleStyle, flex: 1, minWidth: 0 }}>{label}</span>
+    </li>
+  );
+
+  let body = null;
+  if (variant === "no-results") {
+    body = (
+      <div style={{ paddingBlock: "30px 22px", paddingInline: 24, textAlign: "center" }}>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", margin: 0 }}>{noResultsText}</p>
+        {askLabel ? (
+          <a href="#" style={{
+            display: "inline-flex", alignItems: "center", gap: 4, marginBlockStart: 12,
+            fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-semibold)",
+            color: "var(--text-link)", textDecoration: "none",
+          }}>
+            {askLabel}
+            {libChevron(13)}
+          </a>
+        ) : null}
+      </div>
+    );
+  } else if (variant === "empty") {
+    body = (
+      <>
+        {recent && recent.length ? (
+          <div>
+            {groupEyebrow(recentHeading)}
+            <ul role="listbox" aria-label={recentHeading} style={{ listStyle: "none", margin: 0, padding: 0 }}>
+              {recent.map((r, i) => plainRow(libClockGlyph, r, i))}
+            </ul>
+          </div>
+        ) : null}
+        <div>
+          {groupEyebrow(emptyHeading)}
+          <ul role="listbox" aria-label={emptyHeading} style={{ listStyle: "none", margin: 0, padding: 0 }}>
+            {(suggestions || []).map((s, i) => plainRow(libSearchGlyph(16), s, i))}
+          </ul>
+        </div>
+      </>
+    );
+  } else {
+    body = (groups || []).map((g, gi) => (
+      <div key={gi}>
+        {groupEyebrow(g.label)}
+        <ul role="listbox" aria-label={g.label} style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          {(g.items || []).map((it, ii) => {
+            const selected = gi === 0 && ii === 0;
+            return (
+              <li key={ii} role="option" aria-selected={selected} style={rowStyle(selected)}>
+                <span style={{ display: "inline-flex", color: selected ? "var(--accent)" : "var(--text-muted)", flexShrink: 0 }}>{libDocGlyph}</span>
+                <span style={{ flex: 1, minWidth: 0 }}>
+                  <span style={rowTitleStyle}>{libHighlight(it.title, q)}</span>
+                  {it.path ? (
+                    <span style={{ display: "block", fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)", color: "var(--text-muted)", marginBlockStart: 1 }}>{it.path}</span>
+                  ) : null}
+                </span>
+                {selected ? <Kbd>↵</Kbd> : null}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ));
+  }
+
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: 72 })}>
+        <div style={{ background: "var(--overlay-scrim)", borderRadius: "var(--radius-2xl)", paddingBlock: 56, paddingInline: 24 }}>
+          <div role="dialog" aria-label="Site search" style={{
+            maxWidth: 620, marginInline: "auto", overflow: "hidden",
+            background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+            borderRadius: "var(--radius-xl)", boxShadow: "var(--elevation-modal)",
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, paddingInline: 20, height: 58, borderBlockEnd: "1px solid var(--border-subtle)" }}>
+              <span style={{ display: "inline-flex", color: "var(--text-muted)", flexShrink: 0 }}>{libSearchGlyph(17)}</span>
+              <input
+                value={q} onChange={(e) => setQ(e.target.value)} placeholder={placeholder} aria-label="Search this site"
+                style={{
+                  flex: 1, minWidth: 0, height: "100%", border: "none", background: "transparent",
+                  color: "var(--text-primary)", fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
+                }}
+              />
+              <Kbd>esc</Kbd>
+            </div>
+            <div style={{ paddingBlockEnd: 12 }}>{body}</div>
+            <div style={{
+              borderBlockStart: "1px solid var(--border-subtle)", display: "flex", alignItems: "center",
+              justifyContent: "space-between", flexWrap: "wrap", gap: "8px 18px", paddingInline: 20, paddingBlock: 10,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+                {(footerHints || []).map((h, i) => (
+                  <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ display: "inline-flex", gap: 3 }}>{(h.keys || []).map((k, j) => <Kbd key={j}>{k}</Kbd>)}</span>
+                    <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)", color: "var(--text-muted)" }}>{h.label}</span>
+                  </span>
+                ))}
+              </div>
+              {footerNote ? <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-2xs)", color: "var(--text-muted)" }}>{footerNote}</span> : null}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 window.LibNavbar = LibNavbar;
 window.LibAnnouncementBanner = LibAnnouncementBanner;
 window.LibPageHeaderHero = LibPageHeaderHero;
 window.LibFooter = LibFooter;
+window.LibMegaMenu = LibMegaMenu;
+window.LibSearchOverlay = LibSearchOverlay;

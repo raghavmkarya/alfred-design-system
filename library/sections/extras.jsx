@@ -1,15 +1,17 @@
 /* ============================================================
    Alfred, Inspiration Library · EXTRAS.
-   Five utility patterns from the tail of the competitor sweep,
+   Eight utility patterns from the tail of the competitor sweep,
    rebuilt on design-system tokens so they render truthfully in
    light and in data-theme="dark": team grid, careers band, 404,
-   cookie consent, and the ask-an-AI GEO block. Every component
-   ships complete default copy: a bare <LibError404 /> is a
-   finished section. Compiled to a committed .js twin by
-   scripts/build-kits.mjs; catalogued in library/meta/extras.json.
+   cookie consent, the ask-an-AI GEO block, a sunset/migration
+   notice, insight data-headline cards, and curated collection
+   rows. Every component ships complete default copy: a bare
+   <LibError404 /> is a finished section. Compiled to a committed
+   .js twin by scripts/build-kits.mjs; catalogued in
+   library/meta/extras.json.
    ============================================================ */
 const {
-  EyebrowBadge, Button, Avatar, Badge,
+  EyebrowBadge, Button, Avatar, Badge, Sparkline, LineChart,
 } = window.AlfredAIDesignSystem_1ce241;
 
 const libContainer = (extra) => ({
@@ -466,8 +468,396 @@ function LibAskAi({
   );
 }
 
+/* ==== sunset-migration-band · acquisition notice: letter, timeline, one CTA ==== */
+const libCalendarGlyph = libGlyph(<>
+  <rect x="3" y="4" width="18" height="17" rx="2" />
+  <path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <path d="M3 10h18" />
+</>, 16);
+function LibSunsetMigrationBand({
+  layout = "panel", /* "panel" | "band" */
+  eyebrow = "An update from Bluepeak",
+  headline = "Bluepeak is now part of Meridian",
+  sub = "Nothing changes for you today. Your data, pricing, and workspace carry over, and I will walk you through every step.",
+  deadlineLine = "Bluepeak workspaces migrate automatically by June 30, 2027.",
+  letterTitle = "A note from our CEO",
+  letterSalutation = "To every Bluepeak customer,",
+  letterParagraphs = [
+    "When you hired Bluepeak, you hired a kind of judgment: watch the business, flag what matters, say it plainly. Meridian asked for exactly that, at a scale we could not reach alone.",
+    "So nothing about how I work for you changes. Your data stays yours, your pricing holds, and every workspace carries over with its full history.",
+  ],
+  letterPullQuote = "Joining Meridian lets me watch more of your business with the same judgment you hired me for.",
+  signatureName = "Priya Rao",
+  signatureRole = "CEO, Bluepeak",
+  timelineTitle = "What happens when",
+  timeline = [
+    { date: "Today", title: "Nothing to do", body: "Your workspace, pricing, and history stay exactly where they are." },
+    { date: "March 2027", title: "Early migration opens", body: "Move on your own schedule: one click, a full dry run, and a 30-day rollback window." },
+    { date: "June 30, 2027", title: "Automatic migration", body: "Any workspace still on Bluepeak moves to Meridian automatically, with nothing lost." },
+  ],
+  ctaLabel = "Read the full plan",
+  footnote = "Fictional entities. Swap in the real names, dates, and announcement link at publish.",
+}) {
+  if (layout === "band") {
+    /* Slim awareness strip for above the nav. A deadline exists, so it is
+       deliberately not dismissible; the date rides in the band itself. */
+    return (
+      <section style={{ background: "var(--surface-card)", borderBlockEnd: "1px solid var(--border-subtle)" }}>
+        <div style={libContainer({
+          paddingBlock: "14px 14px", display: "flex", alignItems: "center",
+          justifyContent: "space-between", gap: 16, flexWrap: "wrap",
+        })}>
+          <p style={{ ...libBody, fontSize: "var(--text-sm)" }}>
+            <span style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{headline}.</span>{" "}
+            {deadlineLine}
+          </p>
+          <a href="#announcement" style={{
+            display: "inline-flex", alignItems: "center", gap: 6, flexShrink: 0,
+            color: "var(--text-link)", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+            fontWeight: "var(--fw-medium)", textDecoration: "none",
+          }}>
+            {ctaLabel}
+            <span style={{ display: "inline-flex", transform: "scaleX(var(--flip))" }}>{libArrowGlyph}</span>
+          </a>
+        </div>
+      </section>
+    );
+  }
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 104px" })}>
+        <div style={{ maxWidth: 680 }}>
+          <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+          <h2 style={{ ...libDisplay(40), marginBlockStart: 18 }}>{headline}</h2>
+          <p style={{ ...libSub, maxWidth: 560, marginBlockStart: 16 }}>{sub}</p>
+        </div>
+        <div style={{
+          display: "grid", gridTemplateColumns: "minmax(0, 1.1fr) minmax(0, 0.9fr)",
+          gap: 48, alignItems: "start", marginBlockStart: 48,
+        }}>
+          <div style={{ ...libCard, padding: 32 }}>
+            <p style={libKicker}>{letterTitle}</p>
+            <p style={{ ...libBody, color: "var(--text-primary)", marginBlockStart: 18 }}>{letterSalutation}</p>
+            {letterParagraphs.map((p, i) => (
+              <p key={i} style={{ ...libBody, marginBlockStart: 12 }}>{p}</p>
+            ))}
+            {letterPullQuote ? (
+              <p style={{
+                fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 20,
+                lineHeight: 1.4, letterSpacing: "-0.01em", color: "var(--text-primary)",
+                borderInlineStart: "3px solid var(--accent)", paddingInlineStart: 16,
+                margin: 0, marginBlockStart: 20,
+              }}>{"“"}{letterPullQuote}{"”"}</p>
+            ) : null}
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBlockStart: 24 }}>
+              <Avatar name={signatureName} size={40} />
+              <div>
+                <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{signatureName}</div>
+                <div style={{ ...libFine, marginBlockStart: 2 }}>{signatureRole}</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p style={libKicker}>{timelineTitle}</p>
+            <div style={{ marginBlockStart: 18 }}>
+              {timeline.map((t, i) => (
+                <div key={i} style={{
+                  position: "relative", paddingInlineStart: 24,
+                  paddingBlockEnd: i < timeline.length - 1 ? 24 : 0,
+                  borderInlineStart: i < timeline.length - 1 ? "2px solid var(--border-subtle)" : "2px solid transparent",
+                }}>
+                  <span aria-hidden="true" style={{
+                    position: "absolute", insetInlineStart: -7, insetBlockStart: 2,
+                    width: 12, height: 12, borderRadius: "var(--radius-pill)",
+                    background: i === 0 ? "var(--accent)" : "var(--surface-card)",
+                    border: i === 0 ? "2px solid var(--accent)" : "2px solid var(--border-strong)",
+                  }} />
+                  <p style={libKicker}>{t.date}</p>
+                  <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", marginBlockStart: 4 }}>{t.title}</div>
+                  <p style={{ ...libBody, fontSize: "var(--text-sm)", marginBlockStart: 4 }}>{t.body}</p>
+                </div>
+              ))}
+            </div>
+            {deadlineLine ? (
+              <div style={{
+                display: "flex", gap: 10, alignItems: "flex-start",
+                background: "var(--accent-soft)", border: "1px solid var(--border-subtle)",
+                borderRadius: "var(--radius-lg)", paddingBlock: 14, paddingInline: 16, marginBlockStart: 28,
+              }}>
+                <span style={{ display: "inline-flex", color: "var(--accent)", marginBlockStart: 2 }}>{libCalendarGlyph}</span>
+                <p style={{ ...libBody, fontSize: "var(--text-sm)", color: "var(--text-primary)", fontWeight: "var(--fw-medium)" }}>{deadlineLine}</p>
+              </div>
+            ) : null}
+            <div style={{ marginBlockStart: 20 }}>
+              <Button variant="primary" size="lg">{ctaLabel}</Button>
+            </div>
+            {footnote ? <p style={{ ...libFine, marginBlockStart: 14 }}>{footnote}</p> : null}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ==== insight-data-cards · the number IS the headline, with its reasoning ==== */
+function LibInsightDataCards({
+  eyebrow = "Answers, not dashboards",
+  headline = "You ask, I bring the number and the reasoning",
+  sub = "Each card below is an answer exactly as I hand it over: the figure, how it moved, and where it came from.",
+  showCharts = true,
+  cards = [
+    {
+      kicker: "Net new ARR · April",
+      value: "$156K",
+      delta: "Up 9.7% on March",
+      tone: "good",
+      trustLine: "I computed this from closed-won in your CRM, net of the two Northwind downgrades.",
+      followUp: "Ask me why it moved",
+      chart: null,
+    },
+    {
+      kicker: "Qualified pipeline · this quarter",
+      value: "$4.8M",
+      delta: "Pacing 12 days ahead",
+      tone: "good",
+      trustLine: "Weighted by stage across your CRM, refreshed this morning at 6:04.",
+      followUp: "Show the pacing math",
+      chart: { type: "line", points: [3.2, 3.5, 3.4, 3.9, 4.3, 4.8], labels: ["W1", "W2", "W3", "W4", "W5", "W6"], ariaLabel: "Qualified pipeline by week, from $3.2M to $4.8M" },
+    },
+    {
+      kicker: "Blended CAC · six months",
+      value: "$412",
+      delta: "Down 9% since February",
+      tone: "good",
+      trustLine: "All spend across four channels over customers won. No signup counted twice.",
+      followUp: "See which channel drove it",
+      chart: { type: "spark", points: [486, 472, 455, 449, 431, 412], ariaLabel: "Blended CAC by month, falling from $486 to $412" },
+    },
+  ],
+  footnote = "Fictional Meridian numbers, so the demo stays a demo.",
+}) {
+  const deltaTone = { good: "success", bad: "danger", neutral: "neutral" };
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 104px" })}>
+        <div style={{ textAlign: "center", maxWidth: 640, marginInline: "auto" }}>
+          <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+          <h2 style={{ ...libDisplay(40), marginBlockStart: 18 }}>{headline}</h2>
+          <p style={{ ...libSub, marginBlockStart: 16 }}>{sub}</p>
+        </div>
+        <div style={{
+          display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
+          gap: 20, marginBlockStart: 48,
+        }}>
+          {cards.map((c, i) => (
+            <div key={i} style={{ ...libCard, padding: 24, display: "flex", flexDirection: "column" }}>
+              <p style={libKicker}>{c.kicker}</p>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", marginBlockStart: 12 }}>
+                <span style={libDisplay(40)}>{c.value}</span>
+                {c.delta ? <Badge tone={deltaTone[c.tone] || "neutral"}>{c.delta}</Badge> : null}
+              </div>
+              {showCharts && c.chart ? (
+                <div style={{ marginBlockStart: 18 }}>
+                  {c.chart.type === "line" ? (
+                    <LineChart points={c.chart.points} labels={c.chart.labels || []} height={120} ariaLabel={c.chart.ariaLabel} />
+                  ) : (
+                    <Sparkline points={c.chart.points} height={64} ariaLabel={c.chart.ariaLabel} />
+                  )}
+                </div>
+              ) : null}
+              <p style={{ ...libBody, fontSize: "var(--text-sm)", marginBlockStart: 16 }}>{c.trustLine}</p>
+              {c.followUp ? (
+                <div style={{ marginBlockStart: "auto", paddingBlockStart: 16 }}>
+                  <a href="#ask" style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    color: "var(--text-link)", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+                    fontWeight: "var(--fw-medium)", textDecoration: "none",
+                  }}>
+                    {c.followUp}
+                    <span style={{ display: "inline-flex", transform: "scaleX(var(--flip))" }}>{libArrowGlyph}</span>
+                  </a>
+                </div>
+              ) : null}
+            </div>
+          ))}
+        </div>
+        {footnote ? <p style={{ ...libFine, textAlign: "center", marginBlockStart: 28 }}>{footnote}</p> : null}
+      </div>
+    </section>
+  );
+}
+
+/* ==== curated-collections · gallery rows with named curation and depth counts ==== */
+const libCollectionGlyphs = {
+  review: <>
+    <path d="M4 6h16" />
+    <path d="M4 12h9" />
+    <path d="M4 18h6" />
+    <path d="m15 16 2.5 2.5L22 14" />
+  </>,
+  board: <>
+    <rect x="3" y="4" width="18" height="12" rx="2" />
+    <path d="M8 13v-3" />
+    <path d="M12 13V7" />
+    <path d="M16 13v-2" />
+    <path d="M12 16v4" />
+    <path d="M8 20h8" />
+  </>,
+  vendor: <>
+    <path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z" />
+    <circle cx="7.5" cy="7.5" r="1" />
+  </>,
+  forecast: <>
+    <path d="m3 17 6-6 4 4 8-8" />
+    <path d="M15 7h6v6" />
+  </>,
+  pipeline: <>
+    <path d="M3 4h18l-7 8v6l-4 2v-8Z" />
+  </>,
+  renewal: <>
+    <path d="M21 12a9 9 0 1 1-2.6-6.4" />
+    <path d="M21 3v6h-6" />
+  </>,
+  launch: <>
+    <path d="M5 21V4" />
+    <path d="M5 4h12l-2.5 4L17 12H5" />
+  </>,
+  hiring: <>
+    <circle cx="9" cy="8" r="3.5" />
+    <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+    <path d="M18 8v6" />
+    <path d="M15 11h6" />
+  </>,
+};
+function LibCuratedCollections({
+  eyebrow = "The library",
+  headline = "Start from a playbook that already worked",
+  headlineAccent = "already worked",
+  sub = "Curated rows, not an endless grid. Every playbook here ran on a live workspace before it earned a card.",
+  showChips = true,
+  chips = [
+    { label: "All playbooks", count: 42 },
+    { label: "Budgeting", count: 12 },
+    { label: "Forecasting", count: 9 },
+    { label: "Board prep", count: 7 },
+    { label: "Vendor spend", count: 8 },
+    { label: "Pipeline", count: 6 },
+  ],
+  rows = [
+    {
+      title: "Playbooks I run for finance teams",
+      subtitle: "Handpicked from what worked at Meridian and Northwind",
+      viewAll: "Browse all 42 playbooks",
+      items: [
+        { glyph: "review", title: "Weekly spend review", meta: "For CFOs", value: "12 minutes to first decision" },
+        { glyph: "board", title: "Board pack in an afternoon", meta: "For controllers", value: "Built from live numbers" },
+        { glyph: "vendor", title: "Vendor spend triage", meta: "For finance ops", value: "Flags the top five contracts" },
+        { glyph: "forecast", title: "Forecast sanity check", meta: "For FP&A", value: "Catches drift before the review" },
+      ],
+    },
+    {
+      title: "New this week",
+      subtitle: "Added by the Alfred team, each one proven on a live workspace first",
+      viewAll: "See all 18 recent additions",
+      items: [
+        { glyph: "pipeline", title: "Pipeline coverage brief", meta: "For CROs", value: "Coverage against two quarters" },
+        { glyph: "renewal", title: "Renewal early-warning sweep", meta: "For customer teams", value: "Scans renewals 90 days out" },
+        { glyph: "launch", title: "Launch spend retro", meta: "For marketing leaders", value: "Closes the loop on launch week" },
+        { glyph: "hiring", title: "Hiring plan reality check", meta: "For COOs", value: "Headcount against the cash curve" },
+      ],
+    },
+  ],
+  footnote = "Fictional catalog. Wire each card to a real playbook at publish.",
+}) {
+  const [activeChip, setActiveChip] = React.useState(0);
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 104px" })}>
+        <div style={{ maxWidth: 640 }}>
+          <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+          <h2 style={{ ...libDisplay(40), marginBlockStart: 18 }}>{libAccented(headline, headlineAccent)}</h2>
+          <p style={{ ...libSub, marginBlockStart: 16 }}>{sub}</p>
+        </div>
+        {showChips && chips.length ? (
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBlockStart: 32 }}>
+            {chips.map((c, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-pressed={i === activeChip}
+                onClick={() => setActiveChip(i)}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 7, height: 36, paddingInline: 14,
+                  borderRadius: "var(--radius-pill)",
+                  border: i === activeChip ? "1px solid var(--accent)" : "1px solid var(--border-default)",
+                  background: i === activeChip ? "var(--accent-soft)" : "transparent",
+                  color: "var(--text-primary)", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+                  fontWeight: "var(--fw-medium)", cursor: "pointer",
+                  transition: "border-color var(--dur-fast) var(--ease-standard), background-color var(--dur-fast) var(--ease-standard)",
+                }}
+              >
+                {c.label}
+                <span style={{ color: "var(--text-muted)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)" }}>{c.count}</span>
+              </button>
+            ))}
+          </div>
+        ) : null}
+        {rows.map((row, i) => (
+          <div key={i} style={{ marginBlockStart: i === 0 ? 44 : 40 }}>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+              <div>
+                <h3 style={libDisplay(24)}>{row.title}</h3>
+                {row.subtitle ? <p style={{ ...libBody, fontSize: "var(--text-sm)", color: "var(--text-muted)", marginBlockStart: 6 }}>{row.subtitle}</p> : null}
+              </div>
+              {row.viewAll ? (
+                <a href="#browse" style={{ ...libPillLink, height: 36, flexShrink: 0, color: "var(--text-secondary)" }}>
+                  {row.viewAll}
+                  <span style={{ display: "inline-flex", color: "var(--text-muted)", transform: "scaleX(var(--flip))" }}>{libArrowGlyph}</span>
+                </a>
+              ) : null}
+            </div>
+            {/* horizontal gallery: 4-up when it fits, scroll with a peeking card when it doesn't */}
+            <div style={{
+              display: "grid", gridAutoFlow: "column", gridAutoColumns: "minmax(232px, 1fr)",
+              gap: 16, overflowX: "auto", marginBlockStart: 18, paddingBlockEnd: 8,
+              scrollSnapType: "x proximity",
+            }}>
+              {row.items.map((item, j) => (
+                <a key={j} href="#playbook" style={{
+                  ...libCard, boxShadow: "var(--elevation-surface)", padding: 14,
+                  textDecoration: "none", display: "flex", flexDirection: "column",
+                  scrollSnapAlign: "start",
+                }}>
+                  <div style={{
+                    background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
+                    borderRadius: "var(--radius-lg)", height: 104, display: "grid", placeItems: "center",
+                    color: "var(--chart-2)",
+                  }}>
+                    {libGlyph(libCollectionGlyphs[item.glyph] || libCollectionGlyphs.review, 30)}
+                  </div>
+                  <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", marginBlockStart: 14 }}>{item.title}</div>
+                  <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)", marginBlockStart: 4 }}>{item.meta}</div>
+                  <div style={{
+                    fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-secondary)",
+                    marginBlockStart: "auto", paddingBlockStart: 12,
+                  }}>{item.value}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+        {footnote ? <p style={{ ...libFine, marginBlockStart: 20 }}>{footnote}</p> : null}
+      </div>
+    </section>
+  );
+}
+
 window.LibTeamGrid2 = LibTeamGrid2;
 window.LibCareersBand = LibCareersBand;
 window.LibError404 = LibError404;
 window.LibCookieConsent = LibCookieConsent;
 window.LibAskAi = LibAskAi;
+window.LibSunsetMigrationBand = LibSunsetMigrationBand;
+window.LibInsightDataCards = LibInsightDataCards;
+window.LibCuratedCollections = LibCuratedCollections;

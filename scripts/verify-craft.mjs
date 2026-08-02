@@ -25,8 +25,12 @@ const EXTS = new Set([".html", ".css", ".jsx"]);
 
 /* Generated snapshots of already-linted sources: SSR renders of the library
    sections (their .jsx IS scanned) — re-linting the serialized inline styles
-   of bundle components would re-report code that lives in components/. */
-const SKIP_PATHS = ["library/export"];
+   of bundle components would re-report code that lives in components/.
+   library/styles is DELIBERATELY off-system: style explorations rendered in
+   foreign visual languages (raw hex, serif stacks, hard shadows) so they can
+   be compared against ours — linting them to Alfred's craft rules would
+   defeat their purpose. They never ship as product surfaces. */
+const SKIP_PATHS = ["library/export", "library/styles"];
 
 /* Files where raw ramp tokens are a legitimate, reviewed brand device — gradient <stop>s that
    render the brand gradient in SVG, the sequential heat scale, and the fake dark DashboardMock

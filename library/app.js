@@ -252,6 +252,18 @@
             href: "recipes/" + r.slug + ".html", target: "_blank", rel: "noopener",
             title: r.subtitle || "",
           }, h("span", null, r.name || r.slug), h("span", { className: "count" }, "page"));
+        })) : null,
+      data.styles && data.styles.length ? h("div", null,
+        h("div", { className: "lib-group" }, "Style lab"),
+        h("a", {
+          className: "lib-item", style: { textDecoration: "none" },
+          href: "styles/index.html", target: "_blank", rel: "noopener",
+        }, h("span", null, "All eight directions"), h("span", { className: "count" }, "lab")),
+        data.styles.map(function (s) {
+          return h("a", {
+            key: s.slug, className: "lib-item", style: { textDecoration: "none" },
+            href: "styles/" + s.slug + ".html", target: "_blank", rel: "noopener",
+          }, h("span", null, s.name || s.slug), h("span", { className: "count" }, "style"));
         })) : null);
 
     var body;

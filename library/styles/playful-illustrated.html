@@ -1,0 +1,461 @@
+<!-- Style exploration: Playful illustrated. Off-system by design; compare at library/styles/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfred style lab — Playful illustrated</title>
+<style>
+  /* ---------- Fonts (local only) ---------- */
+  @font-face { font-family: "Bricolage"; src: url("../../assets/fonts/BricolageGrotesque-Bold.ttf") format("truetype"); font-weight: 700 800; font-display: swap; }
+  @font-face { font-family: "Satoshi"; src: url("../../assets/fonts/Satoshi-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Satoshi"; src: url("../../assets/fonts/Satoshi-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Satoshi"; src: url("../../assets/fonts/Satoshi-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+  @font-face { font-family: "Satoshi"; src: url("../../assets/fonts/Satoshi-Black.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+  @font-face { font-family: "Clash Display"; src: url("../../assets/fonts/ClashDisplay-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+  /* ---------- Palette + physics ---------- */
+  :root {
+    --canvas: #FFFDF9;
+    --yellow: #FFE01B;
+    --ink: #241C15;
+    --green: #58CC02;
+    --green-press: #46A302;
+    --blue: #1CB0F6;
+    --orange: #FF9600;
+    --red: #FF4B4B;
+    --purple: #CE82FF;
+    --peach: #FDE7D8;
+    --babyblue: #D8E8FD;
+    --lilac: #E6DFFB;
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --shadow-soft: 0 8px 24px rgba(36, 28, 21, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: "Satoshi", "Nunito Sans", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* Grain overlay for spot-color fields */
+  .grainy { position: relative; }
+  .grainy::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  /* ---------- Motion ---------- */
+  @keyframes pop-in { from { opacity: 0; transform: scale(0.8) translateY(14px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  @keyframes sway { from { transform: rotate(-1.6deg); } to { transform: rotate(1.8deg); } }
+  @keyframes wave { 0%, 100% { transform: rotate(0deg); } 45% { transform: rotate(-13deg); } 60% { transform: rotate(4deg); } }
+  @keyframes blink { 0%, 91%, 100% { transform: scaleY(1); } 94% { transform: scaleY(0.06); } 97% { transform: scaleY(1); } }
+  @keyframes floaty { from { transform: translateY(-7px) rotate(4deg); } to { transform: translateY(7px) rotate(-2deg); } }
+  @keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; } 50% { transform: scale(0.72) rotate(18deg); opacity: 0.75; } }
+  @keyframes bob { from { transform: translateY(0); } to { transform: translateY(6px); } }
+  .pop { animation: pop-in 0.5s var(--spring) both; }
+  .d1 { animation-delay: 0.06s; } .d2 { animation-delay: 0.14s; } .d3 { animation-delay: 0.22s; }
+  .d4 { animation-delay: 0.30s; } .d5 { animation-delay: 0.38s; }
+
+  /* ---------- Nav ---------- */
+  nav { background: var(--canvas); }
+  .nav-inner { display: flex; align-items: center; gap: 36px; padding: 22px 0; }
+  .wordmark {
+    font-family: "Bricolage", "Satoshi", sans-serif; font-weight: 700; font-size: 27px;
+    letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  }
+  .wordmark svg { flex: none; }
+  .nav-links { display: flex; gap: 6px; margin-left: auto; }
+  .nav-links a {
+    color: var(--ink); text-decoration: none; font-weight: 700; font-size: 15.5px;
+    padding: 9px 15px; border-radius: 999px; transition: transform 0.25s var(--spring), background 0.2s ease;
+  }
+  .nav-links a:hover { background: var(--yellow); transform: rotate(-1.5deg) scale(1.05); }
+
+  /* ---------- Toy buttons ---------- */
+  .btn {
+    display: inline-block; border-radius: 999px; cursor: pointer; text-decoration: none; text-align: center;
+    font-family: "Satoshi", sans-serif; font-weight: 900; font-size: 15px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: transform 0.25s var(--spring), box-shadow 0.25s var(--spring), background 0.2s ease;
+    -webkit-user-select: none; user-select: none;
+  }
+  .btn-primary {
+    background: var(--green); color: #fff; padding: 19px 40px;
+    box-shadow: 0 5px 0 var(--green-press);
+    border: 2px solid var(--green);
+  }
+  .btn-primary:hover { transform: scale(1.05) rotate(-1deg); background: #61d906; }
+  .btn-primary:active { transform: translateY(5px); box-shadow: 0 0 0 var(--green-press); }
+  .btn-secondary {
+    background: #fff; color: var(--ink); padding: 17px 34px;
+    border: 2px solid var(--ink); box-shadow: 0 5px 0 var(--ink);
+  }
+  .btn-secondary:hover { transform: scale(1.05) rotate(1deg); }
+  .btn-secondary:active { transform: translateY(5px); box-shadow: 0 0 0 var(--ink); }
+  .btn-nav { padding: 13px 24px; font-size: 13.5px; background: #fff; color: var(--ink); border: 2px solid var(--ink); box-shadow: 0 4px 0 var(--ink); }
+  .btn-nav:hover { transform: scale(1.06) rotate(-1.5deg); background: var(--yellow); }
+  .btn-nav:active { transform: translateY(4px); box-shadow: 0 0 0 var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--yellow); overflow: visible; }
+  .hero-grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 24px; align-items: end; padding: 72px 0 0; }
+  .hero-copy { padding-bottom: 96px; }
+  .eyebrow {
+    display: inline-block; background: #fff; border: 2px solid var(--ink); border-radius: 999px;
+    padding: 9px 20px; font-weight: 900; font-size: 12.5px; letter-spacing: 0.14em;
+    transform: rotate(-2deg); box-shadow: 0 3px 0 var(--ink); margin-bottom: 30px;
+  }
+  h1 {
+    font-family: "Bricolage", sans-serif; font-weight: 700;
+    font-size: clamp(52px, 6.4vw, 82px); line-height: 1.02; letter-spacing: -0.015em;
+    max-width: 620px; margin-bottom: 26px;
+  }
+  .squiggle { position: relative; display: inline-block; }
+  .squiggle > svg { position: absolute; left: -2%; right: -2%; width: 104%; height: 15px; bottom: -13px; }
+  .hero-sub { font-size: 18.5px; font-weight: 500; line-height: 1.6; max-width: 540px; margin-bottom: 40px; }
+  .hero-ctas { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+
+  .hero-art { position: relative; align-self: end; min-height: 480px; display: flex; justify-content: center; align-items: flex-end; }
+  .mascot {
+    width: 396px; max-width: 100%; display: block; margin: 0 auto -84px;
+    position: relative; z-index: 3;
+  }
+  .mascot .sway { animation: sway 3.4s ease-in-out infinite alternate; transform-origin: 190px 400px; }
+  .mascot .arm-wave { animation: wave 2.6s ease-in-out infinite; transform-origin: 104px 218px; }
+  .eye-blink { animation: blink 4.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .peek .eye-blink { animation-delay: 1.3s; }
+
+  .float-brief {
+    position: absolute; right: -6px; top: 44px; width: 158px; z-index: 4;
+    animation: floaty 3.2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 18px 14px rgba(36, 28, 21, 0.18));
+  }
+  .doodle-arrow { position: absolute; left: -66px; bottom: 148px; width: 120px; transform: rotate(8deg); z-index: 2; }
+
+  .spark { position: absolute; animation: twinkle 2.8s ease-in-out infinite; }
+  .spark.s1 { top: 26px; left: 4px; width: 34px; animation-delay: 0.4s; }
+  .spark.s2 { top: 148px; right: 148px; width: 22px; animation-delay: 1.2s; }
+  .spark.s3 { bottom: 120px; right: 30px; width: 26px; animation-delay: 2s; }
+  .hero-copy .spark.s4 { position: static; display: inline-block; width: 26px; vertical-align: super; margin-left: 10px; }
+
+  /* ---------- Stats ---------- */
+  .stats { background: var(--canvas); padding: 150px 0 110px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .stat-card {
+    border: 2px solid var(--ink); border-radius: 26px; padding: 34px 30px 30px;
+    box-shadow: var(--shadow-soft); transform: rotate(var(--tilt));
+    transition: transform 0.3s var(--spring), box-shadow 0.3s var(--spring);
+  }
+  .stat-card:hover { transform: rotate(calc(var(--tilt) * -1)) scale(1.05) translateY(-6px); box-shadow: 0 16px 32px rgba(36, 28, 21, 0.12); }
+  .stat-card.peachy { --tilt: -2deg; background: var(--peach); }
+  .stat-card.bluey { --tilt: 1.4deg; background: var(--babyblue); }
+  .stat-card.lilacy { --tilt: -1.2deg; background: var(--lilac); }
+  .stat-chip {
+    width: 52px; height: 52px; border-radius: 18px; border: 2px solid var(--ink);
+    display: grid; place-items: center; margin-bottom: 20px; background: #fff;
+  }
+  .stat-value {
+    font-family: "Bricolage", sans-serif; font-weight: 700; font-size: 54px;
+    line-height: 1; letter-spacing: -0.01em; margin-bottom: 8px;
+  }
+  .peachy .stat-value { color: var(--orange); }
+  .bluey .stat-value { color: var(--blue); }
+  .lilacy .stat-value { color: var(--purple); }
+  .stat-label { font-weight: 700; font-size: 16.5px; }
+
+  /* ---------- Feature ---------- */
+  .feature { background: var(--lilac); padding: 130px 0 120px; overflow: visible; }
+  .feature-card {
+    position: relative; max-width: 700px; margin: 46px auto 0; background: #fff;
+    border: 2px solid var(--ink); border-radius: 30px; padding: 52px 54px 48px;
+    box-shadow: var(--shadow-soft); transform: rotate(-1deg);
+    transition: transform 0.3s var(--spring);
+  }
+  .feature-card:hover { transform: rotate(0.4deg) scale(1.02); }
+  .feature-card h2 {
+    font-family: "Bricolage", sans-serif; font-weight: 700; font-size: 40px;
+    letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 16px;
+  }
+  .feature-card h2 .hi { background: var(--yellow); border-radius: 8px; padding: 0 8px; box-decoration-break: clone; }
+  .feature-card p { font-size: 18px; font-weight: 500; line-height: 1.65; max-width: 520px; }
+  .peek {
+    position: absolute; top: -87px; right: 44px; width: 178px; z-index: 2;
+    animation: bob 2.4s ease-in-out infinite alternate;
+  }
+  .feature .spark.f1 { position: absolute; top: -28px; left: -30px; width: 30px; animation-delay: 0.8s; }
+  .feature .spark.f2 { position: absolute; bottom: -22px; right: -26px; width: 24px; animation-delay: 1.6s; }
+  .feature-wrap { position: relative; max-width: 700px; margin: 0 auto; }
+
+  /* ---------- Adopting panel: plain Alfred styling ---------- */
+  .adopting { background: #F7F6F3; padding: 100px 0 110px; }
+  .adopting-card {
+    background: #fff; border: 1px solid #E8E5E0; border-radius: 16px;
+    padding: 44px 48px; max-width: 920px; margin: 0 auto;
+    box-shadow: 0 6px 20px rgba(2, 2, 30, 0.05);
+    color: #02021E; font-family: "Satoshi", sans-serif;
+    transform: none;
+  }
+  .adopting-card .panel-eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #FF8431; margin-bottom: 10px;
+  }
+  .adopting-card h2 {
+    font-family: "Clash Display", "Satoshi", sans-serif; font-weight: 600;
+    font-size: 30px; letter-spacing: -0.01em; margin-bottom: 8px;
+  }
+  .adopting-card .panel-sub { font-size: 15.5px; color: #4A4A5E; margin-bottom: 32px; max-width: 640px; }
+  .adopting-cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; }
+  .adopting-cols h3 {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #6B6B80; margin-bottom: 14px;
+  }
+  .adopting-cols ul { list-style: none; }
+  .adopting-cols li {
+    position: relative; padding-left: 20px; font-size: 15px; line-height: 1.6;
+    color: #26263C; margin-bottom: 13px;
+  }
+  .adopting-cols li::before {
+    content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%;
+  }
+  .col-add li::before { background: #FF8431; }
+  .col-clash li::before { background: #B9B9C9; }
+  .adopting-cols code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px;
+    background: #F4F2FE; color: #3D3D8F; border-radius: 5px; padding: 1px 6px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--ink); color: #FFFDF9; padding: 30px 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 15px; font-weight: 700; }
+  .footer-inner svg { flex: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 940px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-copy { padding-bottom: 40px; }
+    .hero-art { min-height: 420px; }
+    .stat-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+    .adopting-cols { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <nav>
+    <div class="wrap nav-inner">
+      <span class="wordmark">alfred ai
+        <svg viewBox="0 0 40 40" width="20" height="20" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#FF9600"/></svg>
+      </span>
+      <div class="nav-links">
+        <a href="#">Product</a>
+        <a href="#">How it works</a>
+        <a href="#">Pricing</a>
+        <a href="#">Resources</a>
+      </div>
+      <a class="btn btn-nav" href="#">Talk to sales</a>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero grainy">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow pop">DECISION INTELLIGENCE PLATFORM</span>
+        <h1 class="pop d1">Every decision, <span class="squiggle">briefed<svg viewBox="0 0 220 16" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 C 30 2 52 14 80 8 C 108 2 130 14 158 8 C 186 3 202 12 216 6" fill="none" stroke="#FF4B4B" stroke-width="6" stroke-linecap="round"/></svg></span> before you ask<svg class="spark s4" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#241C15"/></svg></h1>
+        <p class="hero-sub pop d2">I connect your marketing, sales and finance stack, learn how your organisation decides, and hand you the next move with the reasoning attached.</p>
+        <div class="hero-ctas pop d3">
+          <a class="btn btn-primary" href="#">get started</a>
+          <a class="btn btn-secondary" href="#">See how I work</a>
+        </div>
+      </div>
+
+      <div class="hero-art pop d2">
+        <!-- sparkle stickers -->
+        <svg class="spark s1" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#FF4B4B"/></svg>
+        <svg class="spark s2" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#fff"/></svg>
+        <svg class="spark s3" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#CE82FF"/></svg>
+
+        <!-- doodle arrow pointing at the mascot -->
+        <svg class="doodle-arrow" viewBox="0 0 130 90" aria-hidden="true">
+          <path d="M6 78 C 40 84 84 62 112 22" fill="none" stroke="#241C15" stroke-width="5" stroke-linecap="round"/>
+          <path d="M96 24 L 113 20 L 111 38" fill="none" stroke="#241C15" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- the butler blob mascot -->
+        <svg class="mascot" viewBox="0 0 380 430" aria-hidden="true">
+          <g class="sway">
+            <!-- contact shadow -->
+            <ellipse cx="190" cy="404" rx="126" ry="16" fill="#241C15" opacity="0.13"/>
+            <!-- arms + feet behind the body -->
+            <g class="arm-wave">
+              <path d="M104 218 C 62 192 44 148 42 96" fill="none" stroke="#241C15" stroke-width="38" stroke-linecap="round"/>
+              <path d="M104 218 C 62 192 44 148 42 96" fill="none" stroke="#1CB0F6" stroke-width="24" stroke-linecap="round"/>
+            </g>
+            <path d="M278 226 C 312 242 328 268 331 296" fill="none" stroke="#241C15" stroke-width="38" stroke-linecap="round"/>
+            <path d="M278 226 C 312 242 328 268 331 296" fill="none" stroke="#1CB0F6" stroke-width="24" stroke-linecap="round"/>
+            <rect x="126" y="352" width="50" height="42" rx="18" fill="#FF9600" stroke="#241C15" stroke-width="6"/>
+            <rect x="204" y="352" width="50" height="42" rx="18" fill="#FF9600" stroke="#241C15" stroke-width="6"/>
+            <!-- body -->
+            <path d="M190 58 C 268 58 312 126 312 216 C 312 318 262 374 190 374 C 118 374 68 318 68 216 C 68 126 112 58 190 58 Z" fill="#1CB0F6" stroke="#241C15" stroke-width="7" stroke-linejoin="round"/>
+            <ellipse cx="190" cy="272" rx="76" ry="84" fill="#BEE9FF"/>
+            <!-- face -->
+            <g class="eye-blink">
+              <ellipse cx="150" cy="168" rx="25" ry="29" fill="#fff" stroke="#241C15" stroke-width="5"/>
+              <ellipse cx="230" cy="168" rx="25" ry="29" fill="#fff" stroke="#241C15" stroke-width="5"/>
+              <circle cx="156" cy="174" r="9.5" fill="#241C15"/>
+              <circle cx="236" cy="174" r="9.5" fill="#241C15"/>
+              <circle cx="160" cy="170" r="3" fill="#fff"/>
+              <circle cx="240" cy="170" r="3" fill="#fff"/>
+            </g>
+            <circle cx="122" cy="212" r="12" fill="#FF9600" opacity="0.4"/>
+            <circle cx="258" cy="212" r="12" fill="#FF9600" opacity="0.4"/>
+            <path d="M163 214 Q 190 240 217 214" fill="none" stroke="#241C15" stroke-width="7" stroke-linecap="round"/>
+            <!-- bow tie -->
+            <g>
+              <path d="M158 250 L 184 263 L 158 276 Z" fill="#FF4B4B" stroke="#241C15" stroke-width="6" stroke-linejoin="round"/>
+              <path d="M222 250 L 196 263 L 222 276 Z" fill="#FF4B4B" stroke="#241C15" stroke-width="6" stroke-linejoin="round"/>
+              <rect x="182" y="255" width="16" height="16" rx="5" fill="#FF4B4B" stroke="#241C15" stroke-width="5"/>
+            </g>
+            <!-- bowler hat -->
+            <g transform="translate(190 58) rotate(-7)">
+              <path d="M-42 -6 C -42 -52 42 -52 42 -6 Z" fill="#241C15"/>
+              <rect x="-44" y="-18" width="88" height="12" rx="5" fill="#FFE01B" stroke="#241C15" stroke-width="4"/>
+              <ellipse cx="0" cy="-2" rx="64" ry="13" fill="#241C15"/>
+            </g>
+          </g>
+        </svg>
+
+        <!-- floating daily brief paper -->
+        <svg class="float-brief" viewBox="0 0 150 190" aria-hidden="true">
+          <g transform="rotate(6 75 95)">
+            <rect x="10" y="10" width="130" height="168" rx="14" fill="#FFFDF9" stroke="#241C15" stroke-width="6"/>
+            <rect x="10" y="10" width="130" height="38" rx="14" fill="#FFE01B" stroke="#241C15" stroke-width="6"/>
+            <rect x="10" y="34" width="130" height="14" fill="#FFE01B"/>
+            <line x1="10" y1="48" x2="140" y2="48" stroke="#241C15" stroke-width="6"/>
+            <line x1="28" y1="72" x2="122" y2="72" stroke="#241C15" stroke-width="7" stroke-linecap="round"/>
+            <line x1="28" y1="94" x2="106" y2="94" stroke="#B9B0A6" stroke-width="7" stroke-linecap="round"/>
+            <line x1="28" y1="116" x2="118" y2="116" stroke="#B9B0A6" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="112" cy="148" r="16" fill="#58CC02" stroke="#241C15" stroke-width="5"/>
+            <path d="M104 148 L 110 154 L 121 141" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= STATS ================= -->
+  <section class="stats">
+    <div class="wrap">
+      <div class="stat-grid">
+        <div class="pop d2"><div class="stat-card peachy">
+          <div class="stat-chip">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M13 2 L5 14 H11 L9.5 22 L19 9.5 H12.5 L13 2 Z" fill="#FF9600" stroke="#241C15" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="stat-value">70%</div>
+          <div class="stat-label">faster decisions</div>
+        </div></div>
+        <div class="pop d3"><div class="stat-card bluey">
+          <div class="stat-chip">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="11" cy="11" r="8" fill="#FFE01B" stroke="#241C15" stroke-width="2"/><path d="M11 7 v8 M8 9.5 c0-1 1.3-1.7 3-1.7 s3 .7 3 1.6 c0 2.3-6 1.5-6 3.6 c0 1 1.3 1.7 3 1.7 s3-.7 3-1.6" fill="none" stroke="#241C15" stroke-width="1.8" stroke-linecap="round"/><path d="M19 15 L21.5 21 M21.5 21 l-3.2-1 M21.5 21 l.4-3.3" fill="none" stroke="#241C15" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="stat-value">12%</div>
+          <div class="stat-label">less wasted spend</div>
+        </div></div>
+        <div class="pop d4"><div class="stat-card lilacy">
+          <div class="stat-chip">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#E6DFFB" stroke="#241C15" stroke-width="2"/><path d="M12 7 V12 L15.5 14" fill="none" stroke="#241C15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="stat-value">15+</div>
+          <div class="stat-label">hrs reclaimed weekly</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURE ================= -->
+  <section class="feature grainy">
+    <div class="wrap">
+      <div class="feature-wrap">
+        <div class="feature-card pop d1">
+          <!-- peeking character breaking the card edge -->
+          <svg class="peek" viewBox="0 0 220 128" aria-hidden="true">
+            <path d="M34 118 C 34 34 186 34 186 118 Z" fill="#CE82FF" stroke="#241C15" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M96 44 C 100 32 112 30 116 38 M110 42 C 116 30 128 32 129 40" fill="none" stroke="#241C15" stroke-width="5" stroke-linecap="round"/>
+            <g class="eye-blink">
+              <ellipse cx="82" cy="88" rx="14" ry="16" fill="#fff" stroke="#241C15" stroke-width="4"/>
+              <ellipse cx="138" cy="88" rx="14" ry="16" fill="#fff" stroke="#241C15" stroke-width="4"/>
+              <circle cx="85" cy="92" r="5.5" fill="#241C15"/>
+              <circle cx="141" cy="92" r="5.5" fill="#241C15"/>
+              <circle cx="87" cy="90" r="1.8" fill="#fff"/>
+              <circle cx="143" cy="90" r="1.8" fill="#fff"/>
+            </g>
+            <circle cx="62" cy="106" r="8" fill="#FF4B4B" opacity="0.35"/>
+            <circle cx="158" cy="106" r="8" fill="#FF4B4B" opacity="0.35"/>
+            <rect x="32" y="104" width="40" height="22" rx="11" fill="#CE82FF" stroke="#241C15" stroke-width="5"/>
+            <rect x="148" y="104" width="40" height="22" rx="11" fill="#CE82FF" stroke="#241C15" stroke-width="5"/>
+          </svg>
+          <svg class="spark f1" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#241C15"/></svg>
+          <svg class="spark f2" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#fff"/></svg>
+          <h2><span class="hi">The daily brief</span></h2>
+          <p>What changed, why it changed, what to do about it. Ranked by impact, on your desk before your first meeting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ADOPTING THIS (plain Alfred styling) ================= -->
+  <section class="adopting">
+    <div class="wrap">
+      <div class="adopting-card">
+        <div class="panel-eyebrow">Style lab notes</div>
+        <h2>Adopting this</h2>
+        <p class="panel-sub">What the playful-illustrated formula would mean for the Alfred design system: the physics and border language are worth stealing, the palette strategy and mascots are not.</p>
+        <div class="adopting-cols">
+          <div class="col-add">
+            <h3>What the system would add</h3>
+            <ul>
+              <li>A spring easing token, <code>--ease-spring</code> (cubic-bezier(0.34, 1.56, 0.64, 1), 300ms), for micro-interactions only: toggles, chips and success states. Bounce on sub-100px elements reads as craft, not childishness, and survives dark surfaces.</li>
+              <li>An opt-in pressable primary button: a hard-offset shadow of a darker orange (<code>0 3px 0 #D96A1E</code> under <code>#FF8431</code>) that depresses on :active. Ship as <code>--btn-pressable</code>; keep the existing glow as the default.</li>
+              <li>The illustration system, not the characters: a recurring cast of hand-drawn motifs for empty states, errors and onboarding, rendered in Alfred's own line style with periwinkle and orange spot fills, allowed to overlap card edges.</li>
+              <li>A chunky border card variant, <code>--border-chunky</code> (2px solid ink or periwinkle-alpha), as an alternative to shadow-only cards. It holds up in dark mode, where shadows die.</li>
+              <li>Sticker tilt, sparingly: 1 to 2 degrees of card rotation and overlapping badges on marketing surfaces, inside the existing one-gradient-per-view budget.</li>
+            </ul>
+          </div>
+          <div class="col-clash">
+            <h3>What clashes with the brand</h3>
+            <ul>
+              <li>Saturated full-bleed color fields. Alfred's canon is color as accent, never wallpaper, and dark-first; a full orange or periwinkle band breaks the quiet-dark taste and the one-primary orange budget.</li>
+              <li>Rounded chubby display type. Baloo and Nunito-900 energy fights Clash Display's tight authority; Bricolage Grotesque at heavier weight is the ceiling of playfulness for an executive product.</li>
+              <li>Mascot characters and ubiquitous bounce. Alfred is already the character through its first-person voice, so a visual mascot splits that identity, and springs on large surfaces make a data-trust product feel unserious.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Alfred by E902</span>
+      <svg viewBox="0 0 40 40" width="14" height="14" aria-hidden="true"><path d="M20 2 C22 15 25 18 38 20 C25 22 22 25 20 38 C18 25 15 22 2 20 C15 18 18 15 20 2 Z" fill="#FFE01B"/></svg>
+      <span>seekalfred.ai</span>
+    </div>
+  </footer>
+
+</body>
+</html>

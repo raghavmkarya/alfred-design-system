@@ -1,0 +1,457 @@
+/* ============================================================
+   Alfred . Inspiration Library . COMMUNITY AND EVENTS.
+   Four patterns for the surfaces around the product: conference
+   and webinar heroes, community showcases, newsroom strips and
+   awards rows. Rebuilt on design-system tokens so they render
+   truthfully in light and in data-theme="dark". Every component
+   ships complete default copy: a bare <LibEventHero /> is a
+   finished section. All companies, people and award bodies in
+   rendered output are fictional.
+   Compiled to a committed .js twin by scripts/build-kits.mjs;
+   catalogued in library/meta/community-events.json.
+   ============================================================ */
+const {
+  EyebrowBadge, Button, Avatar, AvatarStack,
+} = window.AlfredAIDesignSystem_1ce241;
+
+/* file-private helpers (const arrows stay off window) */
+const libContainer = (extra) => ({
+  maxWidth: 1120, marginInline: "auto", paddingInline: 40, ...extra,
+});
+const libDisplay = (size) => ({
+  fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)",
+  fontSize: size, lineHeight: "var(--lh-snug)", letterSpacing: "-0.02em",
+  color: "var(--text-primary)", margin: 0,
+});
+const libNumeral = (size) => ({
+  fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)",
+  fontSize: size, lineHeight: 1, letterSpacing: "-0.02em",
+  color: "var(--text-display)", margin: 0,
+});
+const libSub = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-lg)",
+  color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", margin: 0,
+};
+const libBody = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+  color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", margin: 0,
+};
+const libFine = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)",
+  color: "var(--text-muted)", lineHeight: "var(--lh-normal)", margin: 0,
+};
+const libGradientText = {
+  background: "var(--gradient-brand)", WebkitBackgroundClip: "text",
+  backgroundClip: "text", color: "transparent",
+};
+const libCard = (extra) => ({
+  background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+  borderRadius: "var(--radius-2xl)", padding: 28, boxSizing: "border-box", ...extra,
+});
+const libGhostCta = { background: "transparent", color: "var(--text-primary)", borderColor: "var(--border-default)" };
+
+/* section head: eyebrow + headline (+ optional sub), centered or start */
+const LibEventsHead = ({ eyebrow, headline, sub, center, size = 36, maxW = 720 }) => (
+  <div style={{ textAlign: center ? "center" : "start" }}>
+    {eyebrow ? <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge> : null}
+    <h2 style={{ ...libDisplay(size), maxWidth: maxW, marginBlockStart: eyebrow ? 18 : 0, marginInline: center ? "auto" : undefined }}>{headline}</h2>
+    {sub ? <p style={{ ...libSub, maxWidth: 580, marginBlockStart: 14, marginInline: center ? "auto" : undefined }}>{sub}</p> : null}
+  </div>
+);
+
+/* single-color line glyphs, drawn inline so they tint via currentColor */
+const libGlyphProps = (size, strokeWidth = 1.8) => ({
+  width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor",
+  strokeWidth, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true,
+  style: { flexShrink: 0, display: "block" },
+});
+const libCalendarGlyph = (size = 16) => (
+  <svg {...libGlyphProps(size)}><rect x="4" y="5.5" width="16" height="15" rx="2" /><path d="M4 10.5h16" /><path d="M8.5 3.5v4" /><path d="M15.5 3.5v4" /></svg>
+);
+const libPinGlyph = (size = 16) => (
+  <svg {...libGlyphProps(size)}><path d="M12 21.5s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.6" /></svg>
+);
+const libGlobeGlyph = (size = 16) => (
+  <svg {...libGlyphProps(size)}><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.4 2.6 3.7 5.6 3.7 9s-1.3 6.4-3.7 9c-2.4-2.6-3.7-5.6-3.7-9S9.6 5.6 12 3z" /></svg>
+);
+const libMedalGlyph = (size = 22) => (
+  <svg {...libGlyphProps(size)}><circle cx="12" cy="9" r="5.2" /><path d="M9.2 13.6L8 21l4-2.4L16 21l-1.2-7.4" /></svg>
+);
+const libDownloadGlyph = (size = 15) => (
+  <svg {...libGlyphProps(size, 2)}><path d="M12 4v10.5" /><path d="M7.5 10.5l4.5 4.5 4.5-4.5" /><path d="M4.5 19.5h15" /></svg>
+);
+const libBookGlyph = (size = 20) => (
+  <svg {...libGlyphProps(size)}><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21z" /><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20" /></svg>
+);
+const libChatGlyph = (size = 20) => (
+  <svg {...libGlyphProps(size)}><path d="M21 11.7a7.7 7.7 0 0 1-8.5 7.6 8 8 0 0 1-3.2-.8L4 20l1.5-4.6a7.7 7.7 0 1 1 15.5-3.7z" /></svg>
+);
+const libUsersGlyph = (size = 20) => (
+  <svg {...libGlyphProps(size)}><circle cx="9" cy="8" r="3.4" /><path d="M3.5 20c0-3 2.5-5 5.5-5s5.5 2 5.5 5" /><circle cx="16.8" cy="9" r="2.6" /><path d="M17.5 15.2c2.3.5 3.9 2.3 3.9 4.8" /></svg>
+);
+const libContributeGlyph = (size = 20) => (
+  <svg {...libGlyphProps(size)}><rect x="4" y="4" width="16" height="16" rx="3" /><path d="M12 8.5v7" /><path d="M8.5 12h7" /></svg>
+);
+const libArrowGlyph = (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ transform: "scaleX(var(--flip))", flexShrink: 0 }}>
+    <path d="M4.5 12h15" />
+    <path d="M13 5.5l6.5 6.5-6.5 6.5" />
+  </svg>
+);
+const libLinkCta = (label) => (
+  <button type="button" style={{
+    display: "inline-flex", alignItems: "center", gap: 8, background: "none", border: "none",
+    padding: 0, cursor: "pointer", color: "var(--text-link)", fontFamily: "var(--font-sans)",
+    fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
+  }}>
+    {label}
+    {libArrowGlyph}
+  </button>
+);
+const LibKindTag = ({ children }) => (
+  <span style={{
+    background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
+    color: "var(--text-secondary)", fontFamily: "var(--font-sans)", fontSize: 11,
+    fontWeight: "var(--fw-semibold)", letterSpacing: "0.02em",
+    paddingInline: 9, paddingBlock: 3, borderRadius: "var(--radius-pill)", whiteSpace: "nowrap",
+  }}>{children}</span>
+);
+
+/* ------- event-hero . date and venue up top, one register CTA ------- */
+function LibEventHero({
+  eyebrow = "Alfred Decision Summit 2026",
+  title = "One day to change how your team decides",
+  titleAccent = "how your team decides",
+  date = "October 14, 2026",
+  venue = "Northwind Center, New York",
+  sub = "Talks, working sessions and live briefings from operators who run real budgets with me. Bring one decision you are stuck on; leave with it made.",
+  primaryCta = "Register now",
+  secondaryCta = "See the agenda",
+  urgency = "I hold your rate at $399 until September 1, then it moves to $499.",
+  stats = [
+    { value: "40", label: "sessions across four tracks" },
+    { value: "1,200", label: "operators in the room" },
+    { value: "30", label: "speakers who run real budgets" },
+  ],
+  speakersLabel = "On stage",
+  speakers = [
+    { name: "Maya Trent", credential: "Head of Marketing, Meridian" },
+    { name: "Daniel Osei", credential: "VP Marketing, Northwind Group" },
+    { name: "Sofia Herrera", credential: "CMO, Bluepeak" },
+    { name: "Ravi Kulkarni", credential: "Growth Lead, Atlas Freight" },
+  ],
+  mode = "conference", /* "conference" | "webinar" */
+}) {
+  const accented = titleAccent && title.includes(titleAccent) ? (
+    <>
+      {title.slice(0, title.indexOf(titleAccent))}
+      {/* the section's one gradient element */}
+      <span style={libGradientText}>{titleAccent}</span>
+      {title.slice(title.indexOf(titleAccent) + titleAccent.length)}
+    </>
+  ) : title;
+  const dateVenueItem = (glyph, text) => (
+    <span style={{
+      display: "inline-flex", alignItems: "center", gap: 8,
+      fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
+      fontWeight: "var(--fw-bold)", color: "var(--text-primary)",
+    }}>
+      <span style={{ color: "var(--accent)", display: "inline-flex" }}>{glyph}</span>
+      {text}
+    </span>
+  );
+  return (
+    <section style={{ position: "relative", overflow: "hidden", background: "var(--glow-periwinkle), var(--glow-orange), var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 88px", textAlign: "center" })}>
+        <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+        <h1 style={{ ...libDisplay(56), lineHeight: 1.06, maxWidth: 820, marginInline: "auto", marginBlockStart: 22 }}>{accented}</h1>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", columnGap: 28, rowGap: 10, marginBlockStart: 20 }}>
+          {dateVenueItem(libCalendarGlyph(16), date)}
+          {dateVenueItem(mode === "webinar" ? libGlobeGlyph(16) : libPinGlyph(16), venue)}
+        </div>
+        <p style={{ ...libSub, maxWidth: 600, marginInline: "auto", marginBlockStart: 18 }}>{sub}</p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBlockStart: 32, flexWrap: "wrap" }}>
+          <Button variant="primary" size="lg">{primaryCta}</Button>
+          <Button variant="outline" size="lg" style={libGhostCta}>{secondaryCta}</Button>
+        </div>
+        {urgency ? <p style={{ ...libFine, marginBlockStart: 14 }}>{urgency}</p> : null}
+        {stats && stats.length ? (
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gap: 32, maxWidth: 820, marginInline: "auto", marginBlockStart: 56,
+            borderBlockStart: "1px solid var(--border-subtle)", paddingBlockStart: 36,
+          }}>
+            {stats.map((s, i) => (
+              <div key={i}>
+                <div style={libNumeral(40)}>{s.value}</div>
+                <div style={{ ...libBody, marginBlockStart: 8, maxWidth: 200, marginInline: "auto" }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {speakers && speakers.length ? (
+          <div style={{ marginBlockStart: 48 }}>
+            <div style={{
+              fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)",
+              letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)",
+            }}>{speakersLabel}</div>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 14, marginBlockStart: 18 }}>
+              {speakers.map((sp, i) => (
+                <div key={i} style={{
+                  display: "flex", alignItems: "center", gap: 10,
+                  background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+                  borderRadius: "var(--radius-pill)", paddingBlock: 8,
+                  paddingInlineStart: 10, paddingInlineEnd: 18,
+                }}>
+                  <Avatar name={sp.name} size={32} />
+                  <span style={{ textAlign: "start" }}>
+                    <span style={{ display: "block", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{sp.name}</span>
+                    <span style={{ display: "block", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", marginBlockStart: 1 }}>{sp.credential}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+/* ------- community-showcase . member-made work + a join band ------- */
+function LibCommunityShowcase({
+  eyebrow = "Community",
+  headline = "Built by people who run me on real budgets",
+  sub = "I collect the playbooks, templates and dashboards our community ships, so you start from work that already paid off.",
+  items = [
+    { kind: "Playbook", title: "The Monday reallocation review", body: "The five-step budget pass I run with Meridian's growth team, with the thresholds that trigger a move.", metric: "2,140 teams use this", name: "Priya Menon", company: "Bluepeak" },
+    { kind: "Dashboard", title: "Pipeline coverage, one screen", body: "Coverage, velocity and slippage on a single view, wired to the questions a board actually asks.", metric: "890 teams run this weekly", name: "Tomás Rivera", company: "Meridian" },
+    { kind: "Template", title: "The creative fatigue tripwire", body: "A ready-made flag that catches frequency crossing the fatigue line, nine days before the agency review would.", metric: "1,460 copies made", name: "Amara Diallo", company: "Northwind Group" },
+  ],
+  pathways = [
+    { glyph: "read", title: "Read", body: "Start with the playbook library. No account, no call." },
+    { glyph: "chat", title: "Join the chat", body: "4,800 operators comparing real numbers, every day." },
+    { glyph: "meet", title: "Meet up", body: "Monthly sessions in eight cities, run by members." },
+    { glyph: "build", title: "Contribute", body: "Ship a template back. Attribution is the trust mechanic here." },
+  ],
+  joinText = "Join 4,800 operators who compare real numbers, not opinions",
+  joinNames = ["Priya Menon", "Tomás Rivera", "Amara Diallo", "Elena Marsh", "Ravi Kulkarni", "Maya Trent", "Daniel Osei"],
+  primaryCta = "Browse the showcase",
+  secondaryCta = "Join the community",
+  disclaimer = "Illustrative community items with fictional creators and companies.",
+  variant = "grid", /* "grid" | "pathways" */
+}) {
+  const glyphFor = (g) => g === "chat" ? libChatGlyph() : g === "meet" ? libUsersGlyph() : g === "build" ? libContributeGlyph() : libBookGlyph();
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 88px" })}>
+        <LibEventsHead eyebrow={eyebrow} headline={headline} sub={sub} center size={38} />
+        {variant === "pathways" ? (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20, marginBlockStart: 48 }}>
+            {pathways.map((p, i) => (
+              <article key={i} style={libCard({ padding: 24 })}>
+                <div style={{
+                  inlineSize: 40, blockSize: 40, borderRadius: "var(--radius-md)",
+                  background: "var(--accent-soft)", color: "var(--text-on-tint-brand)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>{glyphFor(p.glyph)}</div>
+                <h3 style={{ ...libDisplay(18), marginBlockStart: 16 }}>{p.title}</h3>
+                <p style={{ ...libBody, marginBlockStart: 8 }}>{p.body}</p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBlockStart: 48, alignItems: "stretch" }}>
+            {items.map((c, i) => (
+              <article key={i} style={{ ...libCard({}), display: "flex", flexDirection: "column", height: "100%" }}>
+                <div><LibKindTag>{c.kind}</LibKindTag></div>
+                <h3 style={{ ...libDisplay(19), marginBlockStart: 16 }}>{c.title}</h3>
+                <p style={{ ...libBody, marginBlockStart: 8, flex: 1 }}>{c.body}</p>
+                <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--accent)", marginBlockStart: 18 }}>{c.metric}</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBlockStart: 14, borderBlockStart: "1px solid var(--border-subtle)", paddingBlockStart: 14 }}>
+                  <Avatar name={c.name} size={28} />
+                  <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-secondary)" }}>
+                    By <span style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{c.name}</span> at {c.company}
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+        <div style={{
+          marginBlockStart: 40, borderRadius: "var(--radius-2xl)", background: "var(--surface-sunken)",
+          border: "1px solid var(--border-subtle)", paddingBlock: 28, paddingInline: 32,
+          display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 24,
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap", flex: "1 1 420px" }}>
+            <AvatarStack names={joinNames} max={5} size={40} />
+            <p style={{ ...libDisplay(19), maxWidth: 440 }}>{joinText}</p>
+          </div>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <Button variant="primary" size="md">{primaryCta}</Button>
+            <Button variant="outline" size="md" style={libGhostCta}>{secondaryCta}</Button>
+          </div>
+        </div>
+        {disclaimer ? <p style={{ ...libFine, marginBlockStart: 24, textAlign: "center" }}>{disclaimer}</p> : null}
+      </div>
+    </section>
+  );
+}
+
+/* ------- press-band . featured story, dated list, media kit ------- */
+function LibPressBand({
+  headline = "Newsroom",
+  intro = "Everything I have announced, newest first. Stories, not press-release adjectives.",
+  featured = {
+    kicker: "Product · August 2026",
+    title: "Alfred brings decision briefs to every budget owner",
+    excerpt: "Starting today, every budget owner on a team gets their own morning brief: what changed in their line, why it changed, and the move I would make. Until now briefs went to the marketing lead only.",
+    ctaLabel: "Read the announcement",
+  },
+  items = [
+    { date: "Jul 2026", category: "Customers", title: "Meridian rebalances three channels from one brief, pipeline efficiency up 18%" },
+    { date: "Jun 2026", category: "Product", title: "Budget drift now flagged within 24 hours instead of at month end" },
+    { date: "May 2026", category: "Company", title: "Alfred opens its second office and doubles the decision-science team" },
+    { date: "Apr 2026", category: "Product", title: "Write-back actions arrive: approve a reallocation and I carry it out" },
+  ],
+  moreLabel = "See more announcements",
+  contactTitle = "Writing about Alfred?",
+  contactBody = "Reach the team at press@seekalfred.ai and I will get you numbers, not adjectives.",
+  kitLabel = "Download the media kit",
+  kitNote = "Logos, product screenshots and founder photos, ready to drop in.",
+  variant = "featured", /* "featured" | "compact" */
+}) {
+  const listRow = (it, i) => (
+    <li key={i} style={{
+      display: "flex", alignItems: "center", gap: 16, paddingBlock: 16,
+      borderBlockStart: "1px solid var(--border-subtle)",
+    }}>
+      <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", whiteSpace: "nowrap", inlineSize: 64 }}>{it.date}</span>
+      <LibKindTag>{it.category}</LibKindTag>
+      <span style={{ flex: 1, minWidth: 160, fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: "var(--text-primary)", lineHeight: "var(--lh-normal)" }}>{it.title}</span>
+      <span style={{ color: "var(--text-muted)", display: "inline-flex" }}>{libArrowGlyph}</span>
+    </li>
+  );
+  if (variant === "compact") {
+    return (
+      <section style={{ background: "var(--bg-page)", borderBlockStart: "1px solid var(--border-subtle)", borderBlockEnd: "1px solid var(--border-subtle)" }}>
+        <div style={libContainer({ paddingBlock: "72px 64px" })}>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", justifyContent: "space-between", gap: 16 }}>
+            <h2 style={libDisplay(26)}>{headline}</h2>
+            <button type="button" style={{
+              display: "inline-flex", alignItems: "center", gap: 8, background: "none", border: "none",
+              padding: 0, cursor: "pointer", color: "var(--text-link)", fontFamily: "var(--font-sans)",
+              fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)",
+            }}>{libDownloadGlyph(15)}{kitLabel}</button>
+          </div>
+          <ul style={{ listStyle: "none", margin: 0, padding: 0, marginBlockStart: 24 }}>
+            {items.map(listRow)}
+          </ul>
+          <div style={{ marginBlockStart: 24 }}>{libLinkCta(moreLabel)}</div>
+        </div>
+      </section>
+    );
+  }
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({
+        paddingBlock: "96px 88px",
+        display: "grid", gridTemplateColumns: "minmax(0, 1.6fr) minmax(0, 1fr)",
+        gap: 56, alignItems: "start",
+      })}>
+        <div>
+          <h2 style={libDisplay(38)}>{headline}</h2>
+          <p style={{ ...libSub, maxWidth: 520, marginBlockStart: 12 }}>{intro}</p>
+          <article style={{ ...libCard({ padding: 32 }), marginBlockStart: 32 }}>
+            <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: "var(--fw-bold)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--accent)" }}>{featured.kicker}</div>
+            <h3 style={{ ...libDisplay(24), marginBlockStart: 12 }}>{featured.title}</h3>
+            <p style={{ ...libBody, fontSize: "var(--text-base)", marginBlockStart: 10 }}>{featured.excerpt}</p>
+            <div style={{ marginBlockStart: 18 }}>{libLinkCta(featured.ctaLabel)}</div>
+          </article>
+          <ul style={{ listStyle: "none", margin: 0, padding: 0, marginBlockStart: 28 }}>
+            {items.map(listRow)}
+          </ul>
+          <div style={{ marginBlockStart: 20 }}>{libLinkCta(moreLabel)}</div>
+        </div>
+        <aside style={{ ...libCard({ padding: 28 }), position: "sticky", insetBlockStart: 32 }}>
+          <h3 style={libDisplay(19)}>{contactTitle}</h3>
+          <p style={{ ...libBody, marginBlockStart: 10 }}>{contactBody}</p>
+          <div style={{ marginBlockStart: 20 }}>
+            <Button variant="outline" size="md" style={libGhostCta} iconLeft={libDownloadGlyph(15)}>{kitLabel}</Button>
+          </div>
+          <p style={{ ...libFine, marginBlockStart: 12 }}>{kitNote}</p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+/* ------- awards-strip . fictional award bodies, year chips ------- */
+function LibAwardsStrip({
+  headline = "Rated by the teams who use me daily",
+  items = [
+    { title: "Top decision platform", body: "Northwind operator survey", year: "2026" },
+    { title: "Momentum leader", body: "B2B Radar quadrant", year: "2026" },
+    { title: "Best brief experience", body: "SoftwareScout awards", year: "2025" },
+    { title: "Operators' choice", body: "StackReview community vote", year: "2025" },
+  ],
+  quote = "Alfred cut our reallocation cycle from nine days to two. The award I care about is that one.",
+  quoteName = "Elena Marsh",
+  quoteTitle = "Head of Growth",
+  quoteCompany = "Bluepeak",
+  footnote = "Fictional award bodies, shown to demonstrate placement. Swap in live sources at publish.",
+  variant = "strip", /* "strip" | "with-quote" */
+}) {
+  return (
+    <section style={{ background: "var(--bg-page)", borderBlockStart: "1px solid var(--border-subtle)", borderBlockEnd: "1px solid var(--border-subtle)" }}>
+      <div style={libContainer({ paddingBlock: "80px 72px" })}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 44 }}>
+          <div style={{ flex: "1 1 220px", minWidth: 200 }}>
+            <h2 style={libDisplay(24)}>{headline}</h2>
+            {footnote ? <p style={{ ...libFine, marginBlockStart: 12, maxWidth: 260 }}>{footnote}</p> : null}
+          </div>
+          {items.map((a, i) => (
+            <div key={i} style={{
+              paddingInlineStart: i === 0 ? 0 : 36,
+              borderInlineStart: i === 0 ? "none" : "1px solid var(--border-subtle)",
+            }}>
+              <span style={{ color: "var(--accent)", display: "inline-flex" }}>{libMedalGlyph(22)}</span>
+              <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)", marginBlockStart: 12 }}>{a.title}</div>
+              <div style={{ ...libFine, marginBlockStart: 3 }}>{a.body}</div>
+              <span style={{
+                display: "inline-block", marginBlockStart: 10,
+                background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
+                color: "var(--text-secondary)", fontFamily: "var(--font-sans)", fontSize: 11,
+                fontWeight: "var(--fw-semibold)", paddingInline: 9, paddingBlock: 3,
+                borderRadius: "var(--radius-pill)",
+              }}>{a.year}</span>
+            </div>
+          ))}
+        </div>
+        {variant === "with-quote" ? (
+          <figure style={{
+            margin: 0, marginBlockStart: 44, paddingBlockStart: 36,
+            borderBlockStart: "1px solid var(--border-subtle)",
+            display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 24,
+          }}>
+            <blockquote style={{ margin: 0, flex: "1 1 420px", fontFamily: "var(--font-sans)", fontWeight: "var(--fw-medium)", fontSize: 19, lineHeight: "var(--lh-relaxed)", color: "var(--text-primary)", maxWidth: 640 }}>
+              {"“" + quote + "”"}
+            </blockquote>
+            <figcaption style={{ display: "flex", gap: 12, alignItems: "center" }}>
+              <Avatar name={quoteName} size={36} />
+              <span>
+                <span style={{ display: "block", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{quoteName}</span>
+                <span style={{ display: "block", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--text-muted)", marginBlockStart: 2 }}>{quoteTitle} · {quoteCompany}</span>
+              </span>
+            </figcaption>
+          </figure>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+window.LibEventHero = LibEventHero;
+window.LibCommunityShowcase = LibCommunityShowcase;
+window.LibPressBand = LibPressBand;
+window.LibAwardsStrip = LibAwardsStrip;

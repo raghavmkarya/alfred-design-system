@@ -118,6 +118,70 @@
         { "id": "minimal", "name": "Minimal", "props": { "variant": "minimal", "tagline": "Your chief of staff for every decision.", "columns": [{ "title": "", "links": ["How it works", "Pricing", "Resources", "Contact", "Privacy", "Terms"] }], "newsletterHeadline": "", "newsletterCtaLabel": "", "newsletterPlaceholder": "" } },
         { "id": "legal-only", "name": "Legal only", "props": { "variant": "legal-only", "tagline": "", "columns": [{ "title": "", "links": ["Privacy", "Terms", "Cookie preferences"] }], "newsletterHeadline": "", "newsletterCtaLabel": "", "newsletterPlaceholder": "", "socialLinks": [] } }
       ]
+    },
+    {
+      "id": "mega-menu",
+      "global": "LibMegaMenu",
+      "file": "library/sections/chrome.js",
+      "name": "Mega menu",
+      "tier": 2,
+      "description": "The navbar's expanded mega-menu panel, shown open as a specimen: header bar with the dual CTA pair, then a full-width panel of role-grouped link columns (uppercase eyebrows, one-line descriptions on the primary column only) and exactly one promo card in the trailing slot. Under 860px the panel stacks like the mobile drawer, promo last, CTA pair pinned at the end.",
+      "pageTypes": ["landing", "feature", "pricing", "blog", "resource", "comparison"],
+      "usedBy": [
+        { "site": "6sense.com", "url": "https://6sense.com", "note": "Role-based Products columns (Revenue Marketing vs Sales Intelligence), Forrester Wave promo card, in-menu CTAs" },
+        { "site": "webflow.com", "url": "https://webflow.com", "note": "Solutions menu with 3 audience columns plus promo cards; Resources menu as Get started / Learn / Discover / Get help" },
+        { "site": "hubspot.com", "url": "https://www.hubspot.com", "note": "Products two-column layout with bundle and marketplace promos on the trailing edge; tabbed Solutions menu" },
+        { "site": "gong.io", "url": "https://www.gong.io", "note": "Counter-example: simpler dropdowns plus a persistent Book a demo; role paths pushed to on-page cards instead" }
+      ],
+      "props": [
+        { "name": "logoText", "type": "string", "doc": "Wordmark text next to the gradient tile" },
+        { "name": "items", "type": "Array<{label, href}>", "doc": "Top-level nav links, capped at 5 or 6 in practice; Pricing stays a direct link, never a dropdown" },
+        { "name": "openItem", "type": "string", "doc": "Label of the nav item rendered open (aria-expanded, chevron); the panel is captioned as this item's menu" },
+        { "name": "columns", "type": "Array<{eyebrow, links: Array<{label, description?, href?}>}>", "doc": "Role-grouped link columns; give one-line descriptions to the primary column only" },
+        { "name": "promo", "type": "{eyebrow, title, body, ctaLabel} | null", "doc": "Exactly one promo card in the trailing column; null removes the slot and widens the link columns" },
+        { "name": "ctaLabel", "type": "string", "doc": "The one orange primary CTA, persistent in the header and pinned at the mobile drawer end" },
+        { "name": "secondaryCtaLabel", "type": "string", "doc": "Ghost button before the CTA; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "product", "name": "Product, by role", "props": {} },
+        { "id": "resources", "name": "Resources, verb-led", "props": { "openItem": "Resources", "columns": [
+          { "eyebrow": "Get started", "links": [{ "label": "Connect your stack" }, { "label": "Your first brief" }, { "label": "Invite your team" }, { "label": "Pricing" }] },
+          { "eyebrow": "Learn", "links": [{ "label": "The library" }, { "label": "Playbooks" }, { "label": "Product updates" }, { "label": "FAQ" }] },
+          { "eyebrow": "Get help", "links": [{ "label": "Contact" }, { "label": "Book a walkthrough" }, { "label": "Status" }] }
+        ], "promo": { "eyebrow": "Live session", "title": "Watch me rebalance a real quarter", "body": "Thursday, 30 minutes, one real budget. Bring your own numbers.", "ctaLabel": "Save a seat" } } }
+      ]
+    },
+    {
+      "id": "search-overlay",
+      "global": "LibSearchOverlay",
+      "file": "library/sections/chrome.js",
+      "name": "Search overlay",
+      "tier": 3,
+      "description": "Command-K site search shown open as a specimen over a scrim: one input with an esc keycap, results grouped under section eyebrows with the matched fragment highlighted and a visible selection, then a one-line keycap legend footer. Empty state offers recent searches plus curated suggestions instead of a void; only worth shipping once the site has 30+ indexable pages.",
+      "pageTypes": ["resource", "blog"],
+      "usedBy": [
+        { "site": "docsearch.algolia.com", "url": "https://docsearch.algolia.com", "note": "The reference anatomy: Ctrl/Cmd+K trigger, grouped results, recent searches, WAI-ARIA keyboard support" },
+        { "site": "raycast.com", "url": "https://www.raycast.com", "note": "Counter-example verified: keyboard-first brand but no site search overlay; plain nav instead" }
+      ],
+      "props": [
+        { "name": "placeholder", "type": "string", "doc": "Input placeholder, in Alfred's first person" },
+        { "name": "query", "type": "string", "doc": "Typed query the specimen opens with; its first hit in each result title is highlighted. The input stays editable" },
+        { "name": "groups", "type": "Array<{label, items: Array<{title, path?}>}>", "doc": "Result groups under uppercase section eyebrows; the first row renders as the keyboard selection" },
+        { "name": "recentHeading", "type": "string", "doc": "Eyebrow over the recent rows in the empty state" },
+        { "name": "recent", "type": "string[]", "doc": "Recent searches shown in the empty state; empty array hides the block" },
+        { "name": "emptyHeading", "type": "string", "doc": "Eyebrow over the curated suggestions in the empty state" },
+        { "name": "suggestions", "type": "string[]", "doc": "3 to 5 curated queries so the empty state is never a void" },
+        { "name": "noResultsText", "type": "string", "doc": "No-results line; owns the miss and offers a way forward" },
+        { "name": "askLabel", "type": "string", "doc": "Link under the no-results line that hands the query to Alfred; empty string hides it" },
+        { "name": "footerHints", "type": "Array<{keys: string[], label}>", "doc": "Keycap legend in the footer, one hint per key group" },
+        { "name": "footerNote", "type": "string", "doc": "Muted trailing footer note; empty string hides it" },
+        { "name": "variant", "type": "'results' | 'empty' | 'no-results'", "doc": "results = grouped hits with a selection; empty = recent plus suggestions; no-results = owned miss with an ask-Alfred handoff" }
+      ],
+      "variants": [
+        { "id": "results", "name": "Grouped results", "props": {} },
+        { "id": "empty", "name": "Empty state", "props": { "variant": "empty" } },
+        { "id": "no-results", "name": "No results", "props": { "variant": "no-results", "query": "quarterly synergy dashboard" } }
+      ]
     }
   ]
 }
