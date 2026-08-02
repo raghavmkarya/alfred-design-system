@@ -3,6 +3,38 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-02: a control can be small to look at and large to hit
+
+Third answer to the same question the day has been asking — *what input has this suite never been
+given?* It had never been asked about **pointer target size** (WCAG 2.5.8, AA in WCAG 2.2: 24×24 CSS
+px). Fourteen of 117 components had a target under it.
+
+**Four were real**, all icon-only: `Chip`'s remove at **14×14**, `TagInput`'s the same (it composes
+`Chip`), `Toast`'s dismiss at 15×15, `Banner`'s at 16×16, `Drawer`'s close at 32×**22**.
+
+The obvious repair — pad the button out to 24×24 — is not free. It changes the button's box, which
+changes the row's layout, which changes every visual baseline, for a control nobody wanted to look
+bigger. The 14px glyph is a deliberate choice: a 24px close cross in a toast competes with the
+message.
+
+**`HitArea`** is the answer instead: a transparent absolutely-positioned child that overhangs the
+button. Out of flow, so it costs no layout and moves no pixel; inside the button, so the button is
+what receives the click. Two things it needs and one thing to watch, all written down in the new
+`guidelines/target-size.md` — the second being that an overhang can reach across a gap and swallow a
+*neighbouring* target's clicks.
+
+The gate measures the **union** of the button and its descendants, because measuring the button's own
+box would report every one of these as still broken. It also asserts a `Chip` is exactly the same
+height with and without a remove button, which is the entire justification for the approach.
+Removing one `<HitArea />` fails it at 14px.
+
+**The other ten are exempt and are documented as such**, so nobody "fixes" them later. 2.5.8 exempts
+targets in a sentence or block of text: `IntegrationCard`, `ModuleStatusCard`, `Callout` and
+`DataTable`'s column sort buttons all measure 14–18px because that is a line of text, and padding
+them would put visible gaps in prose. Range inputs report a 6px box but the UA hit-tests the thumb.
+And **`Tabs` at 11px wide is a fixture artifact** — the playground generates single-character labels,
+so the sweep was measuring its own fixtures. That is the third time in two days.
+
 ## 2026-08-02: the reflow tail was one bug, not seven
 
 The 320px work below left seven small spills recorded as known-and-unfixed. Re-measured at a **real
