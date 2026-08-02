@@ -1,0 +1,29 @@
+<!-- @dsCard group="Inspiration" viewport="1280x900" name="Blog article" subtitle="Essay page: sticky TOC body, inline CTA, article footer, related reads" -->
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred · Why speed of correction beats quality of launch</title>
+<link rel="icon" href="../../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../vendor/react-18.3.1.production.min.js"></script>
+<script src="../../vendor/react-dom-18.3.1.production.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="../sections/chrome.js"></script>
+<script src="../sections/content-editorial.js"></script>
+<script src="../sections/cta-capture.js"></script>
+<script src="../sections/content-hub.js"></script>
+<script src="blog-article.js"></script>
+<script>
+  ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(window.RecipeBlogArticle));
+</script>
+</body>
+</html>

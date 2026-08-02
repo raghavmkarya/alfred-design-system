@@ -4863,5 +4863,47 @@
         }
       ]
     }
+  ],
+  "recipes": [
+    {
+      "slug": "blog-article",
+      "name": "Blog article",
+      "subtitle": "Essay page: sticky TOC body, inline CTA, article footer, related reads"
+    },
+    {
+      "slug": "blog-index",
+      "name": "Blog index",
+      "subtitle": "Editorial hub: featured report, filterable post grid, newsletter band"
+    },
+    {
+      "slug": "comparison",
+      "name": "Comparison page",
+      "subtitle": "Alfred vs the usual stack: table, before/after, proof, switching FAQ"
+    },
+    {
+      "slug": "feature",
+      "name": "Recipe: Feature deep-dive",
+      "subtitle": "Product deep-dive page: argument, proof artifacts, live demo, spotlight metric"
+    },
+    {
+      "slug": "gated-content",
+      "name": "Gated content",
+      "subtitle": "Playbook landing page: slim nav, capture hero, proof strips, objection FAQ"
+    },
+    {
+      "slug": "landing",
+      "name": "Recipe: Landing page",
+      "subtitle": "Homepage-grade landing page composed from 13 library sections"
+    },
+    {
+      "slug": "pricing",
+      "name": "Recipe: Pricing page",
+      "subtitle": "Pricing page: tiers, price anchor, enterprise band, money-framed proof and FAQ"
+    },
+    {
+      "slug": "resource-hub",
+      "name": "Resource hub",
+      "subtitle": "Library page: search hero, format filters, resource grid, live session, weekly brief"
+    }
   ]
 }

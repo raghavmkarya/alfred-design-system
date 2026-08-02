@@ -32,11 +32,22 @@ export function readMetas() {
   return metas;
 }
 
+export function readRecipes() {
+  const dir = path.join(ROOT, "library/recipes");
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((f) => f.endsWith(".html")).sort().map((f) => {
+    const head = fs.readFileSync(path.join(dir, f), "utf8").split("\n", 1)[0];
+    const attr = (k) => (head.match(new RegExp(`${k}="([^"]*)"`)) || [])[1] || null;
+    return { slug: f.replace(/\.html$/, ""), name: attr("name"), subtitle: attr("subtitle") };
+  });
+}
+
 export function buildSectionsJson(metas) {
   return JSON.stringify({
     generatedBy: "scripts/gen-library.mjs",
     categories: metas.map((m) => ({ ...m.category, count: m.sections.length })),
     sections: metas.flatMap((m) => m.sections.map((s) => ({ category: m.category.id, ...s }))),
+    recipes: readRecipes(),
   }, null, 2) + "\n";
 }
 

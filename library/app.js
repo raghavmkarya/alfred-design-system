@@ -243,7 +243,16 @@
             "aria-current": current ? "true" : undefined,
             onClick: function () { location.hash = c.id === "all" ? "#/" : "#/c/" + c.id; },
           }, h("span", null, c.name), h("span", { className: "count" }, String(c.count)));
-        }));
+        }),
+      data.recipes && data.recipes.length ? h("div", null,
+        h("div", { className: "lib-group" }, "Recipe pages"),
+        data.recipes.map(function (r) {
+          return h("a", {
+            key: r.slug, className: "lib-item", style: { textDecoration: "none" },
+            href: "recipes/" + r.slug + ".html", target: "_blank", rel: "noopener",
+            title: r.subtitle || "",
+          }, h("span", null, r.name || r.slug), h("span", { className: "count" }, "page"));
+        })) : null);
 
     var body;
     if (route.view === "detail" && byId[route.id]) {
