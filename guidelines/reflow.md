@@ -85,6 +85,12 @@ whiteSpace: "nowrap", maxWidth: "100%", overflow: "hidden", textOverflow: "ellip
 `tests/strings.spec.js` renders each component with a 55-character unbreakable word in a plain 360px
 block container and asserts nothing leaves the box.
 
+**A shrink-to-fit root makes `max-width: 100%` meaningless.** `DateRangePicker` is an `inline-flex`
+root, so the percentage cap on its segmented pill resolved against a width that was itself
+content-sized: circular, and the cap did nothing. Capping the root as well gave the percentage
+something real to measure against. If a `max-width: 100%` appears to have no effect, look at whether
+its containing block has a definite width at all.
+
 **Test in a BLOCK container, not the playground canvas.** The canvas is a flex container, and a flex
 item's `min-width: auto` floor beats its own `max-width: 100%`, so a sweep there reports failures no
 ordinary page would ever see. `PageHeader`, `DateRangePicker`, `AlfredMessage` and `ReasoningState`

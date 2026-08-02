@@ -3,6 +3,30 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-02: the reflow tail was one bug, not seven
+
+The 320px work below left seven small spills recorded as known-and-unfixed. Re-measured at a **real
+320px viewport** instead of a pinned canvas, **six of the seven were not bugs at all**, which is the
+frame lesson landing for the third time in two days. `Drawer` and `Popover` are absolutely
+positioned, so a canvas-pinned ruler was measuring them against the wrong box entirely;
+`TeamMemberRow`, `PromptSuggestions` and `SeekComposer` were flex-container artifacts of the same
+kind. All five scroll a real 320px page by exactly zero pixels.
+
+**`DateRangePicker` was the one real case**, and its repair has a lesson of its own. Five presets are
+336px. The control is a segmented **pill** — rounded ends, dividers between neighbours — so wrapping
+it produces a broken shape rather than a smaller one; it scrolls on its own axis instead, which is
+what 1.4.10 asks of content that needs a horizontal layout to keep its meaning, and the same answer
+`DataTable` already uses.
+
+Adding `maxWidth: "100%"` to the pill did **nothing**, twice measured. The root is `inline-flex`,
+which is shrink-to-fit, so the percentage resolved against a width that was itself content-sized —
+circular. Capping the root as well gave the percentage something real to measure against. **If a
+`max-width: 100%` seems inert, check whether its containing block has a definite width at all.**
+
+The `reflow` project now covers all six, the five non-bugs included: they are there so the judgement
+that they are fine is recorded as a test rather than as a note. Reverting the root cap fails it at
+336px.
+
 ## 2026-08-02: long strings, and the fix that fixed nothing
 
 Every fixture in this system is short English. German UI copy runs about **35% longer**, and a single

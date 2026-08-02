@@ -27,13 +27,23 @@ export function DateRangePicker({ value = "30d", presets = DEFAULT_PRESETS, onCh
 
   return (
     <div style={{
-      display: "inline-flex", alignItems: "center", flexWrap: "wrap", gap: 10,
+      // an inline-flex root is shrink-to-fit, so the pill's `maxWidth: 100%`
+      // below resolves against a width that is itself content-sized. Cap the
+      // root and the percentage has something real to measure against.
+      display: "inline-flex", alignItems: "center", flexWrap: "wrap", gap: 10, maxWidth: "100%",
       fontFamily: "var(--font-sans)", ...style,
     }}>
+      {/* Five presets are 336px, which does not fit a 320px viewport. This is a
+          segmented PILL — rounded ends and dividers between neighbours — so
+          wrapping it produces a broken shape rather than a smaller one. It
+          scrolls on its own axis instead, which is what WCAG 1.4.10 asks of
+          content that needs a horizontal layout to keep its meaning, and the
+          same answer DataTable already uses. */}
       <div role="group" aria-label="Date range" style={{
         display: "inline-flex", alignItems: "center",
         background: "var(--surface-sunken)", border: "1px solid var(--border-subtle)",
         borderRadius: "var(--radius-pill)", padding: 4, boxShadow: "var(--elevation-surface)",
+        maxWidth: "100%", minWidth: 0, overflowX: "auto",
       }}>
         {items.map((p, i) => {
           const active = value === p.value;
