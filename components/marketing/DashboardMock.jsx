@@ -126,7 +126,7 @@ export function DashboardMock({
         </div>
 
         {/* KPI row + score ring */}
-        <div style={{ display: "grid", gridTemplateColumns: `repeat(${kpiData.length}, 1fr) auto`, gap: 10 }}>
+        <div style={{ display: "grid", gridTemplateColumns: `repeat(${kpiData.length}, minmax(0, 1fr)) auto`, gap: 10 }}>
           {kpiData.map((k, i) => (
             <div key={i} style={{ ...tile, display: "flex", flexDirection: "column", gap: 5, padding: "12px 14px" }}>
               <span style={capsLabel}>{k.label}</span>

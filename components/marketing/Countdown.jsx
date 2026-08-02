@@ -77,7 +77,9 @@ export function Countdown({
       style={{ display: "inline-flex", flexDirection: "column", gap: s.gap, ...style }}
       {...rest}
     >
-      <div aria-hidden="true" style={{ display: "inline-flex", alignItems: "flex-start", gap: s.colGap }}>
+      {/* wraps because four md segments are 74px each plus gaps — 326px, which
+          does not fit a 320px viewport by six pixels */}
+      <div aria-hidden="true" style={{ display: "inline-flex", alignItems: "flex-start", gap: s.colGap, flexWrap: "wrap", justifyContent: "center" }}>
         {blocks.map((b, i) => (
           <React.Fragment key={b.unit}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: s.gap }}>

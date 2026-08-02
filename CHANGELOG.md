@@ -3,6 +3,58 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-02: an element that paints nothing was adding 69px of horizontal scroll
+
+Nothing in this repo had ever rendered below **1240px**. The `visual`, `interaction`, `forced-colors`
+and `playground` projects all pin that one width, so WCAG 1.4.10 reflow — content usable at a 320px
+CSS viewport, which is 1280px at 400% zoom — was a criterion the whole suite was structurally unable
+to see. Same shape as RTL a day earlier: the gate existed, and it only ever got one input.
+
+**Thirteen of 117 components spilled a 320px viewport. The worst one was invisible.**
+
+Every `role="img"` chart renders a visually-hidden `<table>` of its data (the text alternative from
+PR #40), styled with the canonical sr-only recipe:
+
+```js
+{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0,0,0,0)" }
+```
+
+That is correct on a block container and **wrong on a `<table>`**. A table box ignores a width below
+its min-content width, and `overflow` does not clip it, so the table laid out at its natural ~390px.
+`clip` suppresses *painting*, not *layout*, and an absolutely positioned box still contributes to its
+containing block's scrollable overflow.
+
+**One chart alone on a 320px page made the document 389px wide.** Sixty-nine pixels of horizontal
+scroll produced by an element that paints nothing at all, on all ten charts that use the primitive.
+The fix is one wrapping `<div>`.
+
+No static rule could ever have found it: the declaration is the canonical idiom, correctly spelled.
+Only the box it lands on makes it wrong.
+
+**The other class was `1fr`.** A `1fr` track's automatic minimum is **min-content**, not zero, so a
+grid column will not shrink past its widest unbreakable child. `StatBand` prints its numbers at 64px,
+which gave three columns a floor near 400px. Five components carried a bare `1fr`; all now use
+`minmax(0, 1fr)`, and **`grid-1fr-min-content`, the twentieth craft rule**, blocks the bare form. It
+needed a balanced-paren stripper, because the one spelling already correct —
+`minmax(min(260px, 100%), 1fr)` — nests, and a lazy `[^)]*` stops at `min()`'s bracket and fails it.
+
+Also fixed: `Stepper` (three fixed 120px steps are 360px; now `flex: "0 1 120px"`, so the basis still
+wins whenever there is room), `Countdown` (four 74px segments plus gaps overshoot by six pixels; now
+wraps) and `Pagination` (a windowed pager is eight controls; now wraps).
+
+**An eleventh Playwright project, `reflow`**, renders at 320×720 and asserts each chart alone on an
+otherwise empty page adds no second scroll axis. Alone is deliberate: on a shared page one wide
+sibling masks or manufactures the result.
+
+**Being exact about what it proves**: reverting the chart fix fails only **two** of the ten per-chart
+tests, because a hidden table is only wide enough to spill when its fixture data makes it so. The
+structural assertion — the hidden style must sit on a `div`, not the table — is what actually guards
+the class, and the spec says so in place rather than implying ten tests cover it.
+
+Two findings are recorded as **not** bugs: `Drawer` already carries `maxWidth: "90vw"`, and
+`DataTable` and `CapabilityTicker` scroll inside their own containers, which is exactly what
+1.4.10's two-dimensional-content exemption asks for.
+
 ## 2026-08-01: the other half of the RTL sweep, and why it is not becoming a gate
 
 `--flip` below came out of rendering all 117 components in both directions. **32 differed.** This is

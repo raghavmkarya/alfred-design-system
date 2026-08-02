@@ -87,6 +87,23 @@ const translateXArgs = (line) => {
    (50% from the start is 50% from the end). Anything else has a handedness. */
 const directionNeutral = (arg) => /^-?0(?:px|%|r?em)?$/.test(arg) || /^-?50%$/.test(arg);
 
+/* Remove every `name(...)` call and its balanced contents from a line. */
+const stripCalls = (line, name) => {
+  let out = "", i = 0;
+  while (i < line.length) {
+    const at = line.indexOf(name + "(", i);
+    if (at === -1) { out += line.slice(i); break; }
+    out += line.slice(i, at);
+    let j = at + name.length + 1, depth = 1;
+    for (; j < line.length && depth > 0; j++) {
+      if (line[j] === "(") depth++;
+      else if (line[j] === ")") depth--;
+    }
+    i = j;
+  }
+  return out;
+};
+
 /* Split a CSS value on top-level whitespace, so `var(--a) 4px` is two values and
    `calc(1px + 2px)` stays one. */
 const splitValues = (v) => {
@@ -163,6 +180,24 @@ const RULES = [
       const t = line.trim();
       if (t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /rtl-ok/.test(line)) return true;
       return !isHandedShorthand(line);
+    } },
+  /* A `1fr` track's automatic minimum is MIN-CONTENT, not zero, so a grid column
+     cannot shrink past its widest unbreakable child however narrow the viewport
+     gets. `StatBand` prints its numbers at 64px, so three columns had a floor of
+     about 400px and spilled a 320px page (WCAG 1.4.10). `minmax(0, 1fr)` sets
+     the floor to zero and is what `1fr` is almost always meant to say. */
+  { id: "grid-1fr-min-content", why: "a bare `1fr` track cannot shrink below its content — write `minmax(0, 1fr)` so the column can reflow at 320px. A track that must not shrink carries a `reflow-ok` marker",
+    re: /gridTemplateColumns|grid-template-columns/,
+    skipFile: (r) => !(r.startsWith("components/") && r.endsWith(".jsx")),
+    skipLine: (line) => {
+      const t = line.trim();
+      if (t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /reflow-ok/.test(line)) return true;
+      // Strip every minmax(...) first, then look for a surviving bare `1fr`.
+      // Balanced-paren, because the correct responsive idiom nests:
+      // `minmax(min(260px, 100%), 1fr)` — a lazy `[^)]*` stops at min()'s
+      // bracket and leaves a `1fr` behind, failing the one spelling that is
+      // already right.
+      return !/(?<![\w-])1fr\b/.test(stripCalls(line, "minmax"));
     } },
   { id: "raw-shadow-token", why: "name the elevation ROLE, not the shadow size — use --elevation-{surface,raised,floating,overlay,modal}. (--shadow-brand / --shadow-focus are state, not elevation, and stay direct.)",
     re: /var\(\s*--shadow-(?:xs|sm|md|lg|xl)\s*\)/,

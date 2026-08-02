@@ -119,7 +119,7 @@ function Option({ option, checked, actionLabel, onChoose }) {
         </p>
       ) : null}
 
-      <dl style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, margin: 0 }}>
+      <dl style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: 10, margin: 0 }}>
         <Metric label="Confidence" value={`${option.confidence}%`} />
         <Metric label="Reversibility" value={option.reversibility} />
       </dl>

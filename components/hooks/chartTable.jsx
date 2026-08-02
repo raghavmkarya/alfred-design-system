@@ -36,8 +36,17 @@ const HIDDEN = {
 
 export function ChartTable({ caption, columns = [], rows = [] }) {
   if (!rows.length || !columns.length) return null;
+  /* The HIDDEN style goes on a DIV, not on the table. A table box ignores a
+     width below its min-content width and `overflow` does not clip it, so
+     `width: 1px` on the table itself left it laid out at its natural ~390px —
+     and, being absolutely positioned, it still contributed that to the page's
+     scrollable overflow. One chart on a 320px page made the document 389px
+     wide: 69px of horizontal scroll caused by an element that paints nothing.
+     A block container is where `width: 1px` + `overflow: hidden` actually
+     clips. See guidelines/chart-contract.md. */
   return (
-    <table style={HIDDEN}>
+    <div style={HIDDEN}>
+    <table>
       <caption>{caption}</caption>
       <thead>
         <tr>{columns.map((c, i) => <th key={i} scope="col">{c}</th>)}</tr>
@@ -54,5 +63,6 @@ export function ChartTable({ caption, columns = [], rows = [] }) {
         ))}
       </tbody>
     </table>
+    </div>
   );
 }

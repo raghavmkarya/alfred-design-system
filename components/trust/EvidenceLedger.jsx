@@ -58,7 +58,7 @@ export function EvidenceLedger({
           {claim}
         </h3>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr auto", alignItems: "center", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", alignItems: "center", gap: 14 }}>
           <div
             role="meter"
             aria-label={`Evidence confidence: ${score}%`}
