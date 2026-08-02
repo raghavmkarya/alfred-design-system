@@ -48,6 +48,17 @@ The fix is to put the hidden style on a wrapping `<div>` and leave the table pla
 structurally, not only by effect: reverting it fails only the charts whose fixture data happens to
 be wide, which is not a reliable guard.
 
+**`table-layout: fixed` is not enough on its own**, which is worth knowing because it looks like the
+tidier answer. It does make the declared width bind — for the table *grid*. A `<caption>` sits
+outside that grid, and its nowrap text still pushes the wrapper box wide. Only a block container
+clips the whole thing.
+
+**A clipping wrapper is a real element, and positional selectors count it.** Rendering `<ChartTable>`
+before a chart's visual content shifted every `> div` index under that root by one, which moved
+`BulletChart`'s first row from `nth(0)` to `nth(1)` and broke two cursor tests. Render the hidden
+table *after* the graphic: the reading order is better that way round anyway, since the table
+restates what the chart already showed.
+
 ## What is exempt
 
 WCAG 1.4.10 exempts content that requires two-dimensional layout — **data tables** among them. That

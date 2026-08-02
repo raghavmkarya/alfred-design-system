@@ -64,8 +64,11 @@ for (const [name, props] of CHARTS) {
    are two-row. They are a real reflow gate for each chart, but they are NOT a
    reliable guard on THIS bug. The structural assertion below is. */
 test("the hidden chart table is clipped by a block container, not by the table", async ({ page }) => {
-  // the fix, asserted structurally as well as by its effect: reverting the
-  // HIDDEN style back onto the <table> reinstates 69px of page scroll above
+  // Moving the HIDDEN style back onto the <table> reinstates the 69px of page
+  // scroll above, so this is the assertion that actually guards the class. It
+  // also records WHY, which the effect-tests cannot: `table-layout: fixed` on
+  // the table is not enough on its own, because the <caption> sits outside the
+  // table grid and its nowrap text still pushes the box wide.
   await page.goto("/tests/harness.html");
   await page.waitForSelector("body[data-ready='1']", { timeout: 15000 });
   const shape = await page.evaluate(() => {
@@ -73,11 +76,15 @@ test("the hidden chart table is clipped by a block container, not by the table",
     if (!t) return null;
     const wrap = t.parentElement;
     const cs = getComputedStyle(wrap);
-    return { tag: wrap.tagName.toLowerCase(), width: cs.width, overflow: cs.overflow, position: cs.position };
+    return {
+      tag: wrap.tagName.toLowerCase(), width: cs.width, overflow: cs.overflow, position: cs.position,
+      laidOut: Math.round(wrap.getBoundingClientRect().width),
+    };
   });
   expect(shape).not.toBeNull();
-  expect(shape.tag).toBe("div");            // a block container, where width+overflow actually clip
-  expect(shape.width).toBe("1px");
+  expect(shape.tag).toBe("div");            // a block container, where width + overflow actually clip
   expect(shape.position).toBe("absolute");
   expect(shape.overflow).toBe("hidden");
+  expect(shape.width).toBe("1px");
+  expect(shape.laidOut).toBeLessThanOrEqual(1);   // the declared width actually binds
 });

@@ -51,6 +51,14 @@ tests, because a hidden table is only wide enough to spill when its fixture data
 structural assertion — the hidden style must sit on a `div`, not the table — is what actually guards
 the class, and the spec says so in place rather than implying ten tests cover it.
 
+**Two things the fix itself taught, both by failing first.** `table-layout: fixed` on the table looks
+like the tidier repair and is **not sufficient**: it binds the declared width for the table *grid*,
+but a `<caption>` sits outside that grid and its nowrap text still pushes the box wide. And a
+clipping wrapper is a **real element** — rendering `<ChartTable>` before a chart's visual content
+shifted every `> div` index under that root by one, moving `BulletChart`'s first row from `nth(0)` to
+`nth(1)` and breaking two cursor tests. It renders after the graphic now, which is the better reading
+order regardless: the table restates what the chart already showed.
+
 Two findings are recorded as **not** bugs: `Drawer` already carries `maxWidth: "90vw"`, and
 `DataTable` and `CapabilityTicker` scroll inside their own containers, which is exactly what
 1.4.10's two-dimensional-content exemption asks for.
