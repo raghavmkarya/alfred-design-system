@@ -11,8 +11,15 @@ const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
 const fails = [];
 const ok = (label, msg) => console.log("OK  ", label, "—", msg);
 
+/* --only <categoryId>: schema + SSR for one category, and skip the global
+   artifact-freshness and wiring checks. For parallel authoring — the full
+   pass would fail on other categories mid-edit. */
+const onlyAt = process.argv.indexOf("--only");
+const ONLY = onlyAt !== -1 ? process.argv[onlyAt + 1] : null;
+
 /* —— 1 · meta schema integrity ————————————————————————————————— */
-const metas = readMetas();
+const metas = readMetas().filter((m) => !ONLY || m.category?.id === ONLY);
+if (ONLY && !metas.length) { console.log(`FAIL library — no meta file with category id "${ONLY}"`); process.exit(1); }
 const ids = new Set();
 const orders = new Set();
 const PAGE_TYPES = new Set(["landing", "feature", "pricing", "blog", "resource", "gated", "comparison", "legal", "any"]);
@@ -50,7 +57,8 @@ if (!fails.length) ok("meta", `${metas.length} categories, ${ids.size} sections,
 
 /* —— 2 · committed artifacts match a clean rebuild ————————————— */
 let artifacts = null;
-try {
+if (ONLY) artifacts = new Map(); /* freshness is a whole-repo property — integrator's job */
+else try {
   artifacts = await buildArtifacts();
   const stale = [];
   for (const [rel, next] of artifacts) {
@@ -91,7 +99,16 @@ if (artifacts) {
 }
 
 /* —— 4 · the app's static surface is wired together ————————————— */
-const page = (f) => fs.readFileSync(path.join(ROOT, "library", f), "utf8");
+const page = (f) => ONLY ? "" : fs.readFileSync(path.join(ROOT, "library", f), "utf8");
+if (ONLY) {
+  if (fails.length) {
+    console.log(`\nFAIL library (--only ${ONLY}) —`);
+    for (const f of fails) console.log("  •", f);
+    process.exit(1);
+  }
+  console.log(`\nLIBRARY CATEGORY "${ONLY}" VERIFIED CLEAN`);
+  process.exit(0);
+}
 const wiring = [
   ["index.html", "app.js", "the app script"],
   ["index.html", "library.css", "the app stylesheet"],

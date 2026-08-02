@@ -29,6 +29,10 @@ const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
    follows the same committed-twin contract. */
 const KIT_ROOTS = ["ui_kits", "library"].map((d) => path.join(ROOT, d));
 const CHECK = process.argv.includes("--check");
+/* --only <substring>: compile just the matching .jsx files. For parallel
+   authoring — a full walk would trip over someone else's half-written file. */
+const onlyAt = process.argv.indexOf("--only");
+const ONLY = onlyAt !== -1 ? process.argv[onlyAt + 1] : null;
 
 const babelSrc = fs.readFileSync(path.join(ROOT, "node_modules/@babel/standalone/babel.min.js"), "utf8");
 const bctx = {}; bctx.window = bctx; bctx.self = bctx; vm.createContext(bctx);
@@ -40,7 +44,8 @@ const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) =
   return e.isDirectory() ? walk(p) : p.endsWith(".jsx") ? [p] : [];
 });
 
-const sources = () => KIT_ROOTS.filter(fs.existsSync).flatMap(walk).sort();
+const sources = () => KIT_ROOTS.filter(fs.existsSync).flatMap(walk).sort()
+  .filter((p) => !ONLY || p.includes(ONLY));
 
 const stale = [];
 let written = 0;

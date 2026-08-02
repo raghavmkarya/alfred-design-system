@@ -1,0 +1,137 @@
+{
+  "category": { "id": "extras", "name": "Extras", "order": 10, "icon": "pin" },
+  "sections": [
+    {
+      "id": "team-grid",
+      "global": "LibTeamGrid2",
+      "file": "library/sections/extras.js",
+      "name": "Team grid",
+      "tier": 3,
+      "description": "Centered company intro over a four-across people grid: initial avatars, name, role kicker and a one-line bio each, with a quiet careers CTA underneath. Use it on the about or company page once the team is worth naming; ships with placeholder people to swap at publish.",
+      "pageTypes": ["landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Short kicker above the headline; the badge renders it uppercase" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "members", "type": "Array<{name, title, bio?}>", "doc": "People to render; avatars are generated from initials, never photos or logos" },
+        { "name": "showBios", "type": "boolean", "doc": "Hide the one-line bios for a tighter, names-only grid" },
+        { "name": "ctaLabel", "type": "string", "doc": "Careers CTA under the grid; empty string hides it" },
+        { "name": "footnote", "type": "string", "doc": "Muted placeholder disclaimer; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "With bios", "props": {} },
+        { "id": "names-only", "name": "Names only", "props": { "showBios": false } }
+      ]
+    },
+    {
+      "id": "careers-band",
+      "global": "LibCareersBand",
+      "file": "library/sections/extras.js",
+      "name": "Careers band",
+      "tier": 3,
+      "description": "Split hiring band: mission headline and three working values on one side, an open-roles card with location and type per role on the other, plus a built-in empty state for between hiring rounds. A momentum signal; place it once, mid growth-story, not as a default block.",
+      "pageTypes": ["landing"],
+      "usedBy": [
+        { "site": "planhat.com", "url": "https://www.planhat.com", "note": "Hiring callout with mission framing placed in the homepage body" },
+        { "site": "clay.com", "url": "https://www.clay.com", "note": "Careers card inside the homepage content hub" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "values", "type": "Array<{title, body}>", "doc": "Working values listed under the mission copy" },
+        { "name": "rolesTitle", "type": "string", "doc": "Kicker on the roles card" },
+        { "name": "roles", "type": "Array<{title, location, type}>", "doc": "Open roles; an empty array switches the card to the empty state" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary CTA under the role list" },
+        { "name": "emptyStateText", "type": "string", "doc": "Shown instead of the list when roles is empty" },
+        { "name": "contactEmail", "type": "string", "doc": "Mailto shown under the list and as the empty-state CTA" },
+        { "name": "footnote", "type": "string", "doc": "Muted placeholder disclaimer; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "With open roles", "props": {} },
+        { "id": "no-open-roles", "name": "No open roles", "props": { "roles": [] } }
+      ]
+    },
+    {
+      "id": "error-404",
+      "global": "LibError404",
+      "file": "library/sections/extras.js",
+      "name": "404 section",
+      "tier": 3,
+      "description": "Full-page not-found state in Alfred's voice: gradient display numeral, 'this page isn't in my memory' framing, a primary route home, and a quick-links row to the pages people were probably after. Use it as the body of every unmatched route, under the site nav.",
+      "pageTypes": ["legal"],
+      "usedBy": [],
+      "props": [
+        { "name": "errorCode", "type": "string", "doc": "The display numeral; the section's one gradient element" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string", "doc": "Ghost CTA beside the primary; empty string hides it" },
+        { "name": "linksLabel", "type": "string", "doc": "Kicker over the quick-links row" },
+        { "name": "links", "type": "Array<{label, href}>", "doc": "Quick links to likely destinations; an empty array hides the row" }
+      ],
+      "variants": [
+        { "id": "default", "name": "With quick links", "props": {} },
+        { "id": "minimal", "name": "Minimal", "props": { "links": [] } }
+      ]
+    },
+    {
+      "id": "cookie-consent",
+      "global": "LibCookieConsent",
+      "file": "library/sections/extras.js",
+      "name": "Cookie consent",
+      "tier": 3,
+      "description": "Consent banner as a floating card: plain-language cookie copy, an accept-all / essentials-only split, and an expandable preferences panel with per-category toggles, a locked essential row, and a saved confirmation. Pin it above the footer; the copy promises no ad trackers, so keep that true.",
+      "pageTypes": ["legal"],
+      "usedBy": [],
+      "props": [
+        { "name": "headline", "type": "string" },
+        { "name": "body", "type": "string" },
+        { "name": "acceptLabel", "type": "string" },
+        { "name": "rejectLabel", "type": "string" },
+        { "name": "settingsLabel", "type": "string", "doc": "Text button that expands the preferences panel" },
+        { "name": "saveLabel", "type": "string", "doc": "Save button inside the expanded panel" },
+        { "name": "policyLinkLabel", "type": "string" },
+        { "name": "policyHref", "type": "string" },
+        { "name": "preferences", "type": "Array<{id, title, body, locked?, defaultOn?}>", "doc": "Cookie categories; a locked row renders an 'Always on' badge instead of a toggle" },
+        { "name": "defaultExpanded", "type": "boolean", "doc": "Render with the preferences panel already open" },
+        { "name": "savedText", "type": "string", "doc": "Status line after any choice is saved" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Collapsed banner", "props": {} },
+        { "id": "preferences-open", "name": "Preferences open", "props": { "defaultExpanded": true } }
+      ]
+    },
+    {
+      "id": "ask-ai",
+      "global": "LibAskAi",
+      "file": "library/sections/extras.js",
+      "name": "Ask AI about us",
+      "tier": 3,
+      "description": "Pre-footer GEO block: three prefilled questions about Alfred and one-click handoffs that open the selected prompt in an external assistant, plus a copy-the-prompt fallback. Confidence play for AI-referred sceptics; place it once per site, pre-footer, and keep the prompts honest.",
+      "pageTypes": ["landing", "resource"],
+      "usedBy": [
+        { "site": "thoughtspot.com", "url": "https://www.thoughtspot.com", "note": "'Ask an AI about ThoughtSpot' block with prefilled prompts placed pre-footer" },
+        { "site": "apollo.io", "url": "https://www.apollo.io", "note": "Ask-an-AI module built into the footer, offering six assistants" },
+        { "site": "runway.cfo.ai", "url": "https://runway.cfo.ai", "note": "Suggested AI-assistant prompts about the product inside a prose blurb" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "headlineAccent", "type": "string", "doc": "Substring of headline rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "promptsTitle", "type": "string", "doc": "Kicker over the prompt picker" },
+        { "name": "prompts", "type": "string[]", "doc": "Prefilled questions; the selected one is appended to each assistant URL" },
+        { "name": "assistantsTitle", "type": "string", "doc": "Kicker over the assistant links" },
+        { "name": "assistants", "type": "Array<{name, url}>", "doc": "External assistants; url is a prefix the encoded prompt is appended to. Text-only pills, never third-party logos" },
+        { "name": "copyLabel", "type": "string", "doc": "Clipboard fallback button label" },
+        { "name": "copiedLabel", "type": "string", "doc": "Label after the prompt is copied" },
+        { "name": "note", "type": "string", "doc": "Privacy reassurance line under the intro copy" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Pre-footer panel", "props": {} }
+      ]
+    }
+  ]
+}

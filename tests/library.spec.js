@@ -43,7 +43,8 @@ for (const cat of data.categories) {
     const { errors, external } = watch(page);
     await page.goto(`/library/preview.html?section=${section.id}&theme=dark`);
     await expect(page.locator("body[data-ready='1']")).toBeAttached();
-    await expect(page.locator("#root section")).toBeAttached();
+    /* chrome patterns render <header>/<nav>/<footer>, others <section> */
+    await expect(page.locator("#root > *").first()).toBeAttached();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
     expect(errors, "preview console errors").toEqual([]);
     expect(external, "preview requested a third-party URL").toEqual([]);
@@ -60,12 +61,12 @@ test("preview renders light when no theme param is passed", async ({ page }) => 
 
 test("detail view syncs iframe height and copies section HTML", async ({ page, context }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  const s = data.sections[0];
+  /* a hero is tall, so the handshake visibly replaces the 420px placeholder */
+  const s = data.sections.find((x) => x.id === "hero-glow");
   await page.goto(`/library/index.html#/s/${s.id}`);
   await expect(page.locator("body[data-ready='1']")).toBeAttached();
   const frame = page.locator(".lib-frame-wrap iframe");
   await expect(frame).toBeVisible();
-  /* the height handshake replaces the 420px placeholder with the real height */
   await expect.poll(async () => (await frame.boundingBox()).height, { timeout: 10000 }).toBeGreaterThan(430);
   await page.getByRole("button", { name: "Copy HTML" }).click();
   await expect(page.getByText("Copied section HTML")).toBeVisible();

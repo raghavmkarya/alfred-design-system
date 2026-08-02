@@ -1,0 +1,162 @@
+{
+  "category": { "id": "content-editorial", "name": "Editorial", "order": 8, "icon": "read-only" },
+  "sections": [
+    {
+      "id": "prose",
+      "global": "LibProse",
+      "file": "library/sections/content-editorial.js",
+      "name": "Prose section",
+      "tier": 1,
+      "description": "A single narrow column of finished editorial prose: gradient rule, eyebrow, display headline, larger lede paragraph, then the essay. Use it as a confidence beat between denser proof sections, for founder letters, and (legal variant, with a dateline) for policy pages.",
+      "pageTypes": ["blog", "legal"],
+      "usedBy": [
+        { "site": "anthropic.com", "url": "https://www.anthropic.com", "note": "'Built on hard questions' editorial value-prop block, essay tone" },
+        { "site": "june.so", "url": "https://june.so", "note": "Homepage replaced by a founders' farewell letter announcing the Amplitude acquisition" },
+        { "site": "runway.cfo.ai", "url": "https://runway.cfo.ai/", "note": "Company blurb with suggested AI-assistant prompts about the product (GEO-native)" },
+        { "site": "stripe.com", "url": "https://stripe.com", "note": "Editorial interlude between proof sections" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Short uppercase kicker above the headline" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the essay or policy" },
+        { "name": "body", "type": "string", "doc": "The prose; blank lines split paragraphs" },
+        { "name": "lastUpdated", "type": "string", "doc": "Optional dateline under the headline (legal pages); empty hides it" },
+        { "name": "ctaLabel", "type": "string", "doc": "Ghost CTA under the essay; empty hides it" },
+        { "name": "lede", "type": "boolean", "doc": "Render the first paragraph larger and in primary ink" }
+      ],
+      "variants": [
+        { "id": "article", "name": "Essay", "props": {} },
+        { "id": "legal", "name": "Legal page", "props": {
+          "eyebrow": "LEGAL",
+          "headline": "Privacy policy",
+          "body": "This policy explains what data Alfred by E902 collects, why it is collected, and how you can control it. The short version: I read your connected business data to brief you, your data stays isolated to your organisation, nothing is used to train models across customers, and no raw data leaves your environment.\n\n1. Data we process. Business data from the tools you explicitly connect, account details you provide, and standard usage data from this site.\n\n2. How it is used. Connected data is used solely to deliver decision intelligence to your organisation: briefs, answers, flags, and actions you approve. It is never sold, shared with third parties, or used to train foundational models.\n\n3. Your controls. You can disconnect any integration, export your data, or close your account at any time by contacting support@seekalfred.ai.",
+          "lastUpdated": "Last updated: July 2026",
+          "ctaLabel": "",
+          "lede": false
+        } }
+      ]
+    },
+    {
+      "id": "faq",
+      "global": "LibFaq2",
+      "file": "library/sections/content-editorial.js",
+      "name": "FAQ accordion",
+      "tier": 1,
+      "description": "Objection-handling FAQ on the design-system accordion, with full-paragraph answers written for AI-search surfaces as much as for buyers. Single column by default, two-column for long lists, and a support strip that catches whatever the answers missed.",
+      "pageTypes": ["landing", "pricing", "gated", "feature"],
+      "usedBy": [
+        { "site": "apollo.io", "url": "https://www.apollo.io", "note": "Nine SEO-depth Q&As with full-paragraph answers on the homepage" },
+        { "site": "klaviyo.com", "url": "https://www.klaviyo.com", "note": "Pricing/GDPR/enterprise objections handled before the demo ask" },
+        { "site": "pecan.ai", "url": "https://www.pecan.ai", "note": "10 AEO-friendly Q&As covering skills, ROI, security, pricing" },
+        { "site": "commonroom.io", "url": "https://www.commonroom.io", "note": "Enterprise objection handling: data volume, security, deployment time" },
+        { "site": "gong.io/labs", "url": "https://www.gong.io/gong-labs", "note": "Methodology FAQ (data collection, anonymization) turns trust objections into content" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Short uppercase kicker above the headline" },
+        { "name": "headline", "type": "string", "doc": "Centered section headline" },
+        { "name": "sub", "type": "string", "doc": "One-line subhead; empty hides it" },
+        { "name": "faqs", "type": "Array<{q, a}>", "doc": "Question and full-paragraph answer pairs; first item opens by default" },
+        { "name": "layout", "type": "'single' | 'two-column'", "doc": "One accordion column, or the list split across two for long FAQs" },
+        { "name": "support", "type": "boolean", "doc": "Append the ask-a-human strip with the contact note and primary CTA" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary CTA in the support strip" },
+        { "name": "contactNote", "type": "string", "doc": "Copy in the support strip" }
+      ],
+      "variants": [
+        { "id": "single", "name": "Single column", "props": {} },
+        { "id": "two-column", "name": "Two column", "props": { "layout": "two-column" } },
+        { "id": "support-cta", "name": "With support strip", "props": { "support": true } }
+      ]
+    },
+    {
+      "id": "toc-sticky",
+      "global": "LibTocSticky",
+      "file": "library/sections/content-editorial.js",
+      "name": "Sticky table of contents",
+      "tier": 2,
+      "description": "Long-read scaffold: a sticky on-this-page rail with an active marker and back-to-top control beside the article column. Use on briefs and guides longer than four screens so readers can jump straight to the section they came for.",
+      "pageTypes": ["blog"],
+      "usedBy": [],
+      "props": [
+        { "name": "title", "type": "string", "doc": "Rail heading, e.g. 'On this page'" },
+        { "name": "items", "type": "string[]", "doc": "Rail entries; clicking moves the active marker" },
+        { "name": "backToTopLabel", "type": "string", "doc": "Label on the back-to-top control under the rail" },
+        { "name": "initialActive", "type": "number", "doc": "Index of the entry marked active on first render" },
+        { "name": "sections", "type": "Array<{heading, body}>", "doc": "The demo article column; headings should mirror items" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Sticky rail", "props": {} }
+      ]
+    },
+    {
+      "id": "article-footer",
+      "global": "LibArticleFooter",
+      "file": "library/sections/content-editorial.js",
+      "name": "Article footer stack",
+      "tier": 2,
+      "description": "Everything that belongs after the last paragraph in one stack: author card, share and tag rows, a read-next card, and a newsletter capture. Closes a brief with a next action instead of dead space.",
+      "pageTypes": ["blog"],
+      "usedBy": [],
+      "props": [
+        { "name": "authorName", "type": "string", "doc": "Byline; also seeds the avatar initials" },
+        { "name": "authorBio", "type": "string", "doc": "One-sentence author description" },
+        { "name": "shareLabel", "type": "string", "doc": "Kicker above the share icon buttons" },
+        { "name": "tagsLabel", "type": "string", "doc": "Kicker before the tag badges" },
+        { "name": "items", "type": "string[]", "doc": "Tag labels rendered as badges" },
+        { "name": "nextArticleLabel", "type": "string", "doc": "Kicker inside the read-next card" },
+        { "name": "nextArticleTitle", "type": "string", "doc": "Title of the next article" },
+        { "name": "newsletterHeadline", "type": "string", "doc": "Headline on the newsletter capture card" },
+        { "name": "newsletterSub", "type": "string", "doc": "Supporting line under the newsletter headline" },
+        { "name": "newsletterCtaLabel", "type": "string", "doc": "Submit button label" },
+        { "name": "newsletterPlaceholder", "type": "string", "doc": "Email input placeholder" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Full stack", "props": {} }
+      ]
+    },
+    {
+      "id": "inline-cta-callout",
+      "global": "LibInlineCtaCallout",
+      "file": "library/sections/content-editorial.js",
+      "name": "Inline CTA callout",
+      "tier": 2,
+      "description": "A mid-article callout card with a gradient spine: headline, one persuasive paragraph, and a single primary CTA. Drop one between prose sections to break scroll monotony; walkthroughs and research offers outperform generic demo asks here.",
+      "pageTypes": ["blog", "resource"],
+      "usedBy": [
+        { "site": "heap.io", "url": "https://heap.io", "note": "Product Analytics Buyer's Guide offer mid-page" },
+        { "site": "churnzero.com", "url": "https://churnzero.com", "note": "Proprietary research study as a mid-page lead-gen module" },
+        { "site": "webflow.com/blog", "url": "https://webflow.com/blog", "note": "External-expert pull-quote card dropped into the feed" }
+      ],
+      "props": [
+        { "name": "headline", "type": "string", "doc": "Short display headline on the card" },
+        { "name": "body", "type": "string", "doc": "One persuasive paragraph" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary CTA label" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Gradient spine card", "props": {} }
+      ]
+    },
+    {
+      "id": "changelog-feed",
+      "global": "LibChangelogFeed",
+      "file": "library/sections/content-editorial.js",
+      "name": "Changelog feed",
+      "tier": 2,
+      "description": "Dated release timeline with New/Improved badges: shipping velocity as a trust device for homepages and feature pages. Sticky intro column beside the feed; cap it at four entries and route the rest through the follow-along CTA.",
+      "pageTypes": ["blog", "feature"],
+      "usedBy": [
+        { "site": "linear.app", "url": "https://linear.app", "note": "Last 4 changelog entries on the homepage with 'View all'" },
+        { "site": "attio.com", "url": "https://attio.com/changelog", "note": "Dated recent releases on the homepage signal velocity" },
+        { "site": "omni.co", "url": "https://omni.co", "note": "'Weekly engineering demos' feed with authors and dates" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Short uppercase kicker above the headline" },
+        { "name": "headline", "type": "string", "doc": "Intro column headline" },
+        { "name": "sub", "type": "string", "doc": "One-line subhead; empty hides it" },
+        { "name": "items", "type": "Array<{date, tag, title, body}>", "doc": "Entries newest first; tag New/Improved/Fixed picks the badge tone" },
+        { "name": "ctaLabel", "type": "string", "doc": "Ghost CTA in the intro column; empty hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Timeline", "props": {} }
+      ]
+    }
+  ]
+}

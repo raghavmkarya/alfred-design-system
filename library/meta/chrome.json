@@ -1,0 +1,123 @@
+{
+  "category": { "id": "chrome", "name": "Site chrome", "order": 1, "icon": "web-stack-connected" },
+  "sections": [
+    {
+      "id": "navbar",
+      "global": "LibNavbar",
+      "file": "library/sections/chrome.js",
+      "name": "Navbar",
+      "tier": 1,
+      "description": "Sticky marketing nav on a blurred page-tone veil: gradient-tile wordmark, journey-organised links, ghost sign-in plus one orange CTA, and a mobile menu that swaps in under 760px. Slim variant strips the nav to Pricing plus a single CTA for conversion pages; transparent variant sits over a hero.",
+      "pageTypes": ["landing", "feature", "pricing", "blog", "resource", "comparison"],
+      "usedBy": [
+        { "site": "gong.io", "url": "https://www.gong.io", "note": "Sticky mega-menu with a single primary CTA" },
+        { "site": "6sense.com", "url": "https://www.6sense.com", "note": "Mega-nav organized by buyer-journey stage and role, not product list" },
+        { "site": "decagon.ai", "url": "https://decagon.ai", "note": "Nav grouped by lifecycle verbs: Channels / Build / Optimize / Scale" },
+        { "site": "apollo.io", "url": "https://www.apollo.io", "note": "Persona/Roles menu as a first-class nav category" },
+        { "site": "webflow.com", "url": "https://webflow.com", "note": "Persona switcher and theme toggle inside the marketing nav" }
+      ],
+      "props": [
+        { "name": "logoText", "type": "string", "doc": "Wordmark text next to the gradient tile" },
+        { "name": "items", "type": "Array<{label, href}>", "doc": "Top-level nav links; empty array hides the link row" },
+        { "name": "ctaLabel", "type": "string", "doc": "The one orange primary CTA" },
+        { "name": "secondaryCtaLabel", "type": "string", "doc": "Ghost button before the CTA; empty string hides it" },
+        { "name": "mobileMenuLabel", "type": "string", "doc": "Accessible label on the mobile menu toggle" },
+        { "name": "variant", "type": "'standard' | 'slim' | 'transparent'", "doc": "standard = sticky veil bar; slim = 56px conversion bar; transparent = borderless, for sitting over a hero" }
+      ],
+      "variants": [
+        { "id": "standard", "name": "Standard", "props": {} },
+        { "id": "slim-conversion", "name": "Slim conversion", "props": { "variant": "slim", "items": [{ "label": "Pricing", "href": "/pricing" }], "secondaryCtaLabel": "" } },
+        { "id": "transparent", "name": "Transparent over hero", "props": { "variant": "transparent", "secondaryCtaLabel": "How it works" } }
+      ]
+    },
+    {
+      "id": "announcement-banner",
+      "global": "LibAnnouncementBanner",
+      "file": "library/sections/chrome.js",
+      "name": "Announcement banner",
+      "tier": 1,
+      "description": "One-line dismissible strip above the nav for launches, offers, events and waitlists. Gradient variant is the page's loud brand moment; subtle variant is a quiet sunken bar with an optional New badge for routine product news.",
+      "pageTypes": ["landing", "feature", "pricing"],
+      "usedBy": [
+        { "site": "heap.io", "url": "https://heap.io", "note": "Gated benchmark report promo, lead capture from the very top" },
+        { "site": "tellius.com", "url": "https://www.tellius.com", "note": "Rotating 4-message carousel banner" },
+        { "site": "peak.ai", "url": "https://peak.ai", "note": "Acquisition notice with CEO quote inline, not just a link" },
+        { "site": "paretos.com", "url": "https://www.paretos.com", "note": "Waitlist funnel for an unreleased product" },
+        { "site": "monday.com", "url": "https://monday.com", "note": "Owned-conference promo with ticket link" }
+      ],
+      "props": [
+        { "name": "text", "type": "string", "doc": "The one-line announcement; lead with the offer or the number" },
+        { "name": "ctaLabel", "type": "string", "doc": "Underlined link with a chevron; empty string hides it" },
+        { "name": "dismissLabel", "type": "string", "doc": "Accessible label on the close button" },
+        { "name": "badge", "type": "string", "doc": "Optional leading badge text (e.g. New); empty string hides it" },
+        { "name": "variant", "type": "'gradient' | 'subtle'", "doc": "gradient = brand gradient fill; subtle = sunken neutral strip" }
+      ],
+      "variants": [
+        { "id": "gradient", "name": "Gradient", "props": {} },
+        { "id": "subtle", "name": "Subtle", "props": { "variant": "subtle", "badge": "New", "text": "Alfred for Sales is next. Join the waitlist and I will brief you the day it opens.", "ctaLabel": "Join the waitlist" } }
+      ]
+    },
+    {
+      "id": "page-header",
+      "global": "LibPageHeaderHero",
+      "file": "library/sections/chrome.js",
+      "name": "Interior page header",
+      "tier": 1,
+      "description": "Interior page opener: breadcrumb trail, eyebrow chip, display headline and a one-line value sub. Left-aligned variant for pricing-style pages; blog-post variant swaps the sub for author, date, read-time and category metadata.",
+      "pageTypes": ["blog", "resource", "pricing", "legal", "comparison"],
+      "usedBy": [
+        { "site": "ahrefs.com/blog", "url": "https://ahrefs.com/blog", "note": "Blog title plus one-line value tagline; category nav doubles as blog IA" },
+        { "site": "webflow.com/blog", "url": "https://webflow.com/blog", "note": "Title, tagline and a category chip row" },
+        { "site": "intercom.com/blog", "url": "https://www.intercom.com/blog", "note": "Centered blog header with category chips" }
+      ],
+      "props": [
+        { "name": "variant", "type": "'centered' | 'left' | 'blog-post'", "doc": "centered = hub/interior default; left = start-aligned; blog-post = narrow measure plus byline metadata" },
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip text; rendered uppercase by the chip" },
+        { "name": "headline", "type": "string", "doc": "Display headline, Clash Display" },
+        { "name": "sub", "type": "string", "doc": "One-line value sub; empty string hides it" },
+        { "name": "breadcrumbs", "type": "Array<{label, href}>", "doc": "Trail above the eyebrow; an entry with empty href renders as the current page" },
+        { "name": "authorName", "type": "string", "doc": "blog-post variant: byline name, avatar derives from it" },
+        { "name": "publishDate", "type": "string", "doc": "blog-post variant: human-readable date" },
+        { "name": "readTime", "type": "string", "doc": "blog-post variant: e.g. 6 min read" },
+        { "name": "category", "type": "string", "doc": "blog-post variant: category badge; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "centered", "name": "Centered", "props": {} },
+        { "id": "left", "name": "Left-aligned", "props": { "variant": "left", "eyebrow": "Pricing", "headline": "Priced for the person who makes the call", "sub": "Three plans for Alfred for Marketing, one custom Enterprise track, and a launch offer of 50% off your first two months.", "breadcrumbs": [{ "label": "Home", "href": "/" }, { "label": "Pricing", "href": "" }] } },
+        { "id": "blog-post", "name": "Blog post", "props": { "variant": "blog-post", "eyebrow": "The brief", "headline": "Why speed of correction beats quality of launch", "sub": "", "breadcrumbs": [{ "label": "Home", "href": "/" }, { "label": "The brief", "href": "/blog" }], "authorName": "The Alfred team", "publishDate": "July 28, 2026", "readTime": "6 min read", "category": "Essay" } }
+      ]
+    },
+    {
+      "id": "footer",
+      "global": "LibFooter",
+      "file": "library/sections/chrome.js",
+      "name": "Footer",
+      "tier": 1,
+      "description": "The footer as sitemap: brand column with tagline and a one-field newsletter form, auto-fitting link columns, then a legal and social bar. Fat is the default grammar of the sweep; minimal collapses to one link row for lean pages; legal-only is the utility strip for sunset and legal pages.",
+      "pageTypes": ["landing", "feature", "pricing", "blog", "resource", "gated", "comparison", "legal"],
+      "usedBy": [
+        { "site": "vercel.com", "url": "https://vercel.com", "note": "Massive footer as sitemap, enabling a radically short page" },
+        { "site": "anthropic.com", "url": "https://www.anthropic.com", "note": "Fat footer carries the full IA the sparse page deliberately avoids" },
+        { "site": "hubspot.com", "url": "https://www.hubspot.com", "note": "Free-tools column doubles as SEO and lead-gen surface" },
+        { "site": "klaviyo.com", "url": "https://www.klaviyo.com", "note": "Competitor-comparison column plus compliance badges" },
+        { "site": "railway.com", "url": "https://railway.com", "note": "Compare column plus a live status line" }
+      ],
+      "props": [
+        { "name": "logoText", "type": "string", "doc": "Wordmark text next to the gradient tile" },
+        { "name": "tagline", "type": "string", "doc": "Brand paragraph under the wordmark; empty string hides it" },
+        { "name": "columns", "type": "Array<{title, links: string[]}>", "doc": "Link columns; a column with empty title renders links only. Minimal and legal-only variants flatten all links into one row" },
+        { "name": "newsletterHeadline", "type": "string", "doc": "Line above the subscribe form; empty string hides it" },
+        { "name": "newsletterPlaceholder", "type": "string", "doc": "Email input placeholder" },
+        { "name": "newsletterCtaLabel", "type": "string", "doc": "Subscribe button label; empty string hides the whole form" },
+        { "name": "socialLinks", "type": "Array<{label, href}>", "doc": "Text links in the bottom bar; empty array hides the row" },
+        { "name": "legalText", "type": "string", "doc": "Copyright and company line in the bottom bar" },
+        { "name": "variant", "type": "'fat' | 'minimal' | 'legal-only'", "doc": "fat = sitemap footer; minimal = wordmark plus one link row; legal-only = single utility strip" }
+      ],
+      "variants": [
+        { "id": "fat", "name": "Fat sitemap", "props": {} },
+        { "id": "minimal", "name": "Minimal", "props": { "variant": "minimal", "tagline": "Your chief of staff for every decision.", "columns": [{ "title": "", "links": ["How it works", "Pricing", "Resources", "Contact", "Privacy", "Terms"] }], "newsletterHeadline": "", "newsletterCtaLabel": "", "newsletterPlaceholder": "" } },
+        { "id": "legal-only", "name": "Legal only", "props": { "variant": "legal-only", "tagline": "", "columns": [{ "title": "", "links": ["Privacy", "Terms", "Cookie preferences"] }], "newsletterHeadline": "", "newsletterCtaLabel": "", "newsletterPlaceholder": "", "socialLinks": [] } }
+      ]
+    }
+  ]
+}

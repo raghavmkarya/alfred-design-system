@@ -218,7 +218,10 @@ const RULES = [
     skipLine: (line) => { const t = line.trim(); return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || /raw-ramp-ok/.test(line); } },
 ];
 
-const files = walk(ROOT);
+/* Positional args scope the scan to specific files (repo-relative), for
+   parallel authoring; no args = the full-repo gate CI runs. */
+const argFiles = process.argv.slice(2).filter((a) => !a.startsWith("-"));
+const files = argFiles.length ? argFiles : walk(ROOT);
 const findings = [];
 
 for (const rel of files) {

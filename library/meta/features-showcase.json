@@ -1,0 +1,190 @@
+{
+  "category": { "id": "features-showcase", "name": "Product showcase", "order": 5, "icon": "demo-play" },
+  "sections": [
+    {
+      "id": "persona-tiles",
+      "global": "LibPersonaTiles",
+      "file": "library/sections/features-showcase.js",
+      "name": "Persona question tiles",
+      "tier": 2,
+      "description": "Self-segmentation tiles phrased as the questions each leader actually asks, one per persona, each routing onward with a quiet Seek Alfred link. Place directly after the hero when the page serves four or more personas.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "monday.com", "url": "https://monday.com/", "note": "7 department cards immediately after the hero fork the journey" },
+        { "site": "webflow.com", "url": "https://webflow.com", "note": "Marketer/Designer/Developer/Agency router into persona content" },
+        { "site": "gong.io", "url": "https://www.gong.io", "note": "Dual segmentation on one page: industry tiles AND role tabs" },
+        { "site": "clickup.com", "url": "https://clickup.com/", "note": "Each team section headed 'REPLACES [tool logos]', quantifying consolidation" },
+        { "site": "pecan.ai", "url": "https://www.pecan.ai", "note": "8 use-case tiles as primary nav into solution pages" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip label, rendered uppercase by the badge" },
+        { "name": "headline", "type": "string", "doc": "Section display headline" },
+        { "name": "sub", "type": "string", "doc": "One-sentence subhead under the headline" },
+        { "name": "tiles", "type": "Array<{persona, question}>", "doc": "One tile per persona: the role name and the question Alfred answers for them" },
+        { "name": "ctaLabel", "type": "string", "doc": "Link label repeated on every tile" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "tabbed-use-cases",
+      "global": "LibTabbedUseCases",
+      "file": "library/sections/features-showcase.js",
+      "name": "Tabbed use cases",
+      "tier": 2,
+      "description": "Four moments of the marketing week compressed into one tabbed panel: each tab is a complete mini-story with title, body, three proof stats and a product frame. Use to compress 4 to 9 scroll sections into one on landing and feature pages.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "hubspot.com", "url": "https://www.hubspot.com", "note": "Case studies tabbed by company size so every visitor sees a peer" },
+        { "site": "clay.com", "url": "https://www.clay.com", "note": "Each tab shows 4 sequential product states, teaching the workflow visually" },
+        { "site": "fullstory.com", "url": "https://fullstory.com", "note": "Each industry tab is a mini landing page: hero image + 3 solution links" },
+        { "site": "webflow.com", "url": "https://webflow.com", "note": "Build/Manage/Optimize crossed with 4 personas: matrix compression of a huge feature set" },
+        { "site": "airtable.com", "url": "https://www.airtable.com", "note": "Tab carousel as progressive disclosure instead of a long scroll" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip label" },
+        { "name": "headline", "type": "string", "doc": "Section display headline" },
+        { "name": "sub", "type": "string", "doc": "One-sentence subhead" },
+        { "name": "items", "type": "Array<{label, title, body, screenshotAlt, stats?}>", "doc": "One entry per tab: tab label, panel title and body, a caption for the product frame, and up to three {label, value} proof stats rendered inside the frame" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "integrations-grid",
+      "global": "LibIntegrationsGrid2",
+      "file": "library/sections/features-showcase.js",
+      "name": "Integrations grid",
+      "tier": 2,
+      "description": "The connected stack grouped by category with a read-only trust claim, footnote and quiet CTA, plus a hub-and-spoke variant that puts Alfred at the center of the buyer's tools. Use to answer 'does it fit my stack?' on landing and feature pages.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "hex.tech", "url": "https://hex.tech", "note": "20+ connectors grouped by stack layer, not alphabetical" },
+        { "site": "omni.co", "url": "https://omni.co", "note": "AI-assistant band as a first-class feature section" },
+        { "site": "attentive.com", "url": "https://www.attentive.com", "note": "'100+ integrations' with category filter chips" },
+        { "site": "fivetran.com", "url": "https://www.fivetran.com", "note": "24-connector grid as its own section; the connectors ARE the product" },
+        { "site": "pigment.com", "url": "https://www.pigment.com", "note": "Grid categorized by system type (AI, ERP, CRM) with an MCP Server row" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip label" },
+        { "name": "headline", "type": "string", "doc": "Section display headline" },
+        { "name": "sub", "type": "string", "doc": "Trust framing: read-only connections, write-back only on approval" },
+        { "name": "integrations", "type": "Array<{name, category}>", "doc": "Connector names with their category; the grid layout groups rows by category" },
+        { "name": "footnote", "type": "string", "doc": "Small print under the grid, e.g. the custom-integration SLA claim" },
+        { "name": "ctaLabel", "type": "string", "doc": "Quiet outline CTA under the footnote" },
+        { "name": "layout", "type": "'grid' | 'hub-spoke'", "doc": "Grouped category rows, or a radial diagram with the gradient Alfred hub at the center" }
+      ],
+      "variants": [
+        { "id": "grid", "name": "Grouped grid", "props": {} },
+        { "id": "hub-spoke", "name": "Hub and spoke", "props": { "layout": "hub-spoke" } }
+      ]
+    },
+    {
+      "id": "architecture-diagram",
+      "global": "LibArchitectureDiagram",
+      "file": "library/sections/features-showcase.js",
+      "name": "Architecture diagram card",
+      "tier": 2,
+      "description": "A four-layer stack diagram placing Alfred as the operating layer between the buyer's tools and their decisions, the memory layer ringed in the brand gradient and flow arrows between layers. Use on feature pages to sell platform-ness spatially.",
+      "pageTypes": ["feature", "landing"],
+      "usedBy": [
+        { "site": "planhat.com", "url": "https://www.planhat.com", "note": "Radial capabilities diagram as the page centerpiece; sells the platform spatially" },
+        { "site": "copy.ai", "url": "https://www.copy.ai", "note": "Nested-box diagram as the anti-point-solution argument" },
+        { "site": "mode.com", "url": "https://mode.com", "note": "Diagram placing the product within the modern data stack layers" },
+        { "site": "clari.com", "url": "https://www.clari.com", "note": "Large platform infographic with dual CTAs" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip label" },
+        { "name": "headline", "type": "string", "doc": "Section display headline" },
+        { "name": "sub", "type": "string", "doc": "One-line positioning claim beside the diagram" },
+        { "name": "layers", "type": "Array<{label, body, emphasis?}>", "doc": "Stack layers listed bottom-up; the diagram renders them top-down. Set emphasis on one layer to give it the gradient ring" },
+        { "name": "caption", "type": "string", "doc": "One-line legend under the diagram explaining the flow" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "dashboard-demo",
+      "global": "LibDashboardDemo",
+      "file": "library/sections/features-showcase.js",
+      "name": "Dashboard demo section",
+      "tier": 2,
+      "description": "The live Daily Brief product mock as the section centerpiece, with a live status chip, three numbered callouts decoding what the reader is looking at, and the page's primary CTA. The show-don't-tell section for landing pages.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "linear.app", "url": "https://linear.app", "note": "Live issue view with an AI agent working it, not a flat screenshot" },
+        { "site": "metabase.com", "url": "https://metabase.com", "note": "Interactive embedded dashboard directly under the hero" },
+        { "site": "hex.tech", "url": "https://hex.tech", "note": "One fictional dataset across every mock creates a narrative demo thread" },
+        { "site": "bird.com", "url": "https://bird.com", "note": "Dashboard mock streaming webhook events in real time" },
+        { "site": "sigmacomputing.com", "url": "https://sigmacomputing.com", "note": "Auto-rotating 6-slide use-case screenshot carousel" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip label" },
+        { "name": "headline", "type": "string", "doc": "Section display headline" },
+        { "name": "sub", "type": "string", "doc": "One-sentence subhead" },
+        { "name": "statusLabel", "type": "string", "doc": "Live status chip text above the mock, e.g. 'All clear'" },
+        { "name": "statusNote", "type": "string", "doc": "Muted freshness note beside the status chip" },
+        { "name": "screenshotAlt", "type": "string", "doc": "Figcaption under the product mock" },
+        { "name": "callouts", "type": "Array<{label, body}>", "doc": "Three numbered callouts decoding the mock" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary (orange) CTA under the callouts" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "numbered-chapters",
+      "global": "LibNumberedChapters",
+      "file": "library/sections/features-showcase.js",
+      "name": "Numbered feature chapters",
+      "tier": 2,
+      "description": "An editorial argument told in numbered chapters beside a sticky headline column: converts a feature page into a linear story instead of a feature dump. Use for narrative why-pages and long-form feature scrolls.",
+      "pageTypes": ["feature"],
+      "usedBy": [
+        { "site": "linear.app", "url": "https://linear.app", "note": "1.0-5.0 chapter numbering; the footer maps to the same chapters" },
+        { "site": "bird.com", "url": "https://bird.com", "note": "01-05 product chapters; the zigzag doubles as the chapter structure" },
+        { "site": "intercom.com/resources", "url": "https://www.intercom.com/resources", "note": "'6 reasons' anchor-linked sections with a testimonial + screenshots inside each" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip label" },
+        { "name": "headline", "type": "string", "doc": "The claim the chapters argue, sticky beside them" },
+        { "name": "sub", "type": "string", "doc": "One-sentence framing of the argument" },
+        { "name": "chapters", "type": "Array<{number, title, body}>", "doc": "Ordered chapters with their display numerals" },
+        { "name": "ctaLabel", "type": "string", "doc": "Quiet outline CTA under the sticky headline" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "inline-video",
+      "global": "LibInlineVideo",
+      "file": "library/sections/features-showcase.js",
+      "name": "Inline video module",
+      "tier": 2,
+      "description": "A full-width product-film poster with a gradient play control, duration chip and fictional-customer caption. Drop directly under the hero or as a mid-page break; in production, swap the poster for the real embed.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "clari.com", "url": "https://www.clari.com", "note": "Wistia demo film as its own section directly under the hero" },
+        { "site": "metabase.com", "url": "https://metabase.com", "note": "1-minute demo with a preview image in front of it" },
+        { "site": "churnzero.com", "url": "https://churnzero.com", "note": "Full-width embedded demo as a standalone section" },
+        { "site": "totango.com", "url": "https://www.totango.com", "note": "Atmospheric brand film as a mid-page break" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Eyebrow chip label" },
+        { "name": "headline", "type": "string", "doc": "Section display headline" },
+        { "name": "sub", "type": "string", "doc": "What the film shows, in one sentence" },
+        { "name": "posterTitle", "type": "string", "doc": "Film title on the poster's bottom bar" },
+        { "name": "posterNote", "type": "string", "doc": "Muted line under the poster title" },
+        { "name": "duration", "type": "string", "doc": "Runtime chip, e.g. '3:47'; also read into the play button's aria-label" },
+        { "name": "finePrint", "type": "string", "doc": "Small centered line under the poster" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}

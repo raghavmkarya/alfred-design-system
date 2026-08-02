@@ -1,0 +1,150 @@
+{
+  "category": { "id": "cta-capture", "name": "CTA and capture", "order": 7, "icon": "cta-arrow" },
+  "sections": [
+    {
+      "id": "cta-band",
+      "global": "LibCtaBand",
+      "file": "library/sections/cta-capture.js",
+      "name": "CTA band",
+      "tier": 1,
+      "description": "The closing ask: a rounded brand-gradient panel that bookends the page with the hero promise, ink primary CTA plus ghost secondary, or a slim justified band with one headline and one button. Place it last on any page that must convert.",
+      "pageTypes": ["landing", "feature", "pricing", "blog", "resource", "comparison"],
+      "usedBy": [
+        { "site": "gong.io", "url": "https://www.gong.io", "note": "Scheduling form embedded directly in the band, not a link out" },
+        { "site": "decagon.ai", "url": "https://decagon.ai", "note": "Closing band repeats the hero headline verbatim: bookend effect" },
+        { "site": "pendo.io", "url": "https://www.pendo.io", "note": "Choice-of-demo: self-guided tour vs video vs live, instead of one button" },
+        { "site": "rudderstack.com", "url": "https://www.rudderstack.com", "note": "Closer as a 3-card journey: Book demo / Implement / Drive outcomes" },
+        { "site": "vercel.com", "url": "https://vercel.com", "note": "Copyable code snippet as the second CTA path for developers" },
+        { "site": "railway.com", "url": "https://railway.com", "note": "Brand-metaphor close sustaining the hero promise" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Short uppercase kicker above the headline; empty string hides it" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string", "doc": "Supporting line; empty string hides it (the justified variant drops it)" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary action label" },
+        { "name": "secondaryCtaLabel", "type": "string", "doc": "Secondary action label; empty string renders a single-CTA band" },
+        { "name": "layout", "type": "'gradient-panel' | 'justified'", "doc": "gradient-panel = centered rounded brand-gradient panel (the section's one gradient element); justified = slim full-width band, headline start, CTA end" }
+      ],
+      "variants": [
+        { "id": "gradient-panel", "name": "Gradient panel", "props": {} },
+        { "id": "justified", "name": "Justified band", "props": { "layout": "justified", "headline": "Your competitors are making faster decisions. Are you?", "sub": "", "secondaryCtaLabel": "" } }
+      ]
+    },
+    {
+      "id": "newsletter-capture",
+      "global": "LibNewsletterCapture",
+      "file": "library/sections/cta-capture.js",
+      "name": "Newsletter capture",
+      "tier": 1,
+      "description": "Single-field email capture for editorial surfaces, framed as access to the weekly brief rather than a subscription. Three placements: centered block, split band card, and a compact strip that sits just above the footer. Submit swaps to an inline confirmation.",
+      "pageTypes": ["blog", "resource"],
+      "usedBy": [
+        { "site": "webflow.com/blog", "url": "https://webflow.com/blog", "note": "'Unlock exclusive content' framing: access, not 'subscribe'" },
+        { "site": "attio.com", "url": "https://attio.com", "note": "'Stay ahead of GTM' single-field subscribe" },
+        { "site": "ahrefs.com/blog", "url": "https://ahrefs.com/blog", "note": "Digest form near the footer" },
+        { "site": "snowflake.com", "url": "https://www.snowflake.com/en/", "note": "Newsletter capture merged into the final CTA band" },
+        { "site": "peak.ai", "url": "https://peak.ai", "note": "Minimal email capture just above the footer" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string", "doc": "Shown in the centered and band layouts; the footer-embed strip shows privacyNote instead" },
+        { "name": "placeholder", "type": "string", "doc": "Email input placeholder" },
+        { "name": "ctaLabel", "type": "string" },
+        { "name": "privacyNote", "type": "string" },
+        { "name": "successMessage", "type": "string", "doc": "Replaces the form after submit" },
+        { "name": "layout", "type": "'centered' | 'band' | 'footer-embed'", "doc": "centered = standalone block; band = two-column card; footer-embed = compact strip above the footer" }
+      ],
+      "variants": [
+        { "id": "centered", "name": "Centered", "props": {} },
+        { "id": "band", "name": "Band", "props": { "layout": "band" } },
+        { "id": "footer-embed", "name": "Footer embed", "props": { "layout": "footer-embed" } }
+      ]
+    },
+    {
+      "id": "lead-capture-split",
+      "global": "LibLeadCaptureSplit",
+      "file": "library/sections/cta-capture.js",
+      "name": "Lead capture split form",
+      "tier": 1,
+      "description": "Two-column capture for high-intent asks: benefit copy and proof bullets on one side, a sticky card form (name, email, company, team size, free-text ask) on the other. The whats-inside variant boxes the bullets as gated-asset contents under a titled panel.",
+      "pageTypes": ["gated"],
+      "usedBy": [
+        { "site": "monday.com", "url": "https://monday.com/", "note": "Inline signup embedded mid-homepage, not just a header CTA" },
+        { "site": "hibob.com/finance", "url": "https://www.hibob.com/finance/", "note": "Demo form lets the prospect choose what to preview" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "bullets", "type": "string[]", "doc": "Checklist of what the prospect gets; empty array hides the block" },
+        { "name": "bulletsTitle", "type": "string", "doc": "Uppercase title over the bullets, shown only in the whats-inside layout" },
+        { "name": "items", "type": "Array<{label, placeholder?, type, options?}>", "doc": "Form fields; type is 'text' | 'email' | 'select' | 'textarea' | 'multiselect'" },
+        { "name": "ctaLabel", "type": "string" },
+        { "name": "privacyNote", "type": "string" },
+        { "name": "successMessage", "type": "string", "doc": "Replaces the form card contents after submit" },
+        { "name": "layout", "type": "'standard' | 'whats-inside'", "doc": "standard = bullets as a plain checklist; whats-inside = bullets boxed in a titled sunken panel" }
+      ],
+      "variants": [
+        { "id": "standard", "name": "Standard", "props": {} },
+        { "id": "whats-inside", "name": "What's inside", "props": { "layout": "whats-inside", "bulletsTitle": "What's inside the walkthrough" } }
+      ]
+    },
+    {
+      "id": "multi-step-form",
+      "global": "LibMultiStepForm",
+      "file": "library/sections/cta-capture.js",
+      "name": "Multi-step form",
+      "tier": 3,
+      "description": "A three-step progressive form in one card: contact details, a stack picker with toggle chips, then the first question, with a segmented progress bar, step counter and back/next controls. Use when one long form would scare off a cold visitor.",
+      "pageTypes": ["gated"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "steps", "type": "Array<{title, fields: Array<{label, type, placeholder?, options?}>}>", "doc": "Ordered steps; field type is 'text' | 'email' | 'textarea' | 'multiselect'" },
+        { "name": "nextLabel", "type": "string" },
+        { "name": "backLabel", "type": "string" },
+        { "name": "submitLabel", "type": "string", "doc": "Primary button label on the final step" },
+        { "name": "progressLabel", "type": "string", "doc": "Counter template; {current} and {total} are replaced, e.g. 'Step 2 of 3'" },
+        { "name": "successMessage", "type": "string", "doc": "Replaces the card contents after submit" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "roi-calculator",
+      "global": "LibRoiCalculator",
+      "file": "library/sections/cta-capture.js",
+      "name": "ROI calculator",
+      "tier": 3,
+      "description": "Interactive ROI math as a mid-page conversion tool: three sliders (team size, weekly hours, hourly cost) drive live monthly-value, hours-reclaimed and payback-days figures in a results card, with the automation assumption stated in plain sight. For pricing and landing pages.",
+      "pageTypes": ["landing", "pricing"],
+      "usedBy": [
+        { "site": "zams.com", "url": "https://www.zams.com", "note": "Inline ROI calculator as a mid-page conversion tool" },
+        { "site": "intercom.com", "url": "https://www.intercom.com", "note": "Cost estimator paired with an ROI calculator on the pricing page" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "teamLabel", "type": "string", "doc": "Label for the team-size slider (1 to 50 people)" },
+        { "name": "hoursLabel", "type": "string", "doc": "Label for the weekly-hours slider (1 to 20 hours)" },
+        { "name": "rateLabel", "type": "string", "doc": "Label for the hourly-cost slider ($30 to $250)" },
+        { "name": "defaultTeam", "type": "number", "doc": "Initial team-size value" },
+        { "name": "defaultHours", "type": "number", "doc": "Initial hours-per-week value" },
+        { "name": "defaultRate", "type": "number", "doc": "Initial loaded hourly cost in dollars" },
+        { "name": "automationShare", "type": "number", "doc": "Share of reporting time Alfred absorbs, 0 to 1; drives all three outputs" },
+        { "name": "planPrice", "type": "number", "doc": "Monthly plan price in dollars used for the payback-days figure" },
+        { "name": "planNote", "type": "string", "doc": "Caption under the payback figure naming the plan" },
+        { "name": "assumption", "type": "string", "doc": "The stated assumption behind the math, in Alfred's voice" },
+        { "name": "ctaLabel", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}
