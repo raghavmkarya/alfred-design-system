@@ -51,6 +51,11 @@ export function SyncStatusBadge({ status = "fresh", label, size = "md", style = 
         fontSize: z.font,
         lineHeight: 1,
         whiteSpace: "nowrap",
+        // a pill carrying a caller's label must cap itself, or the label's
+        // length becomes the pill's minimum width
+        maxWidth: "100%",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
         ...style,
       }}
     >

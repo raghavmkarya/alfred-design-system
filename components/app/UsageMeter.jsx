@@ -52,7 +52,10 @@ export function UsageMeter({
           fontSize: "var(--text-sm)", fontWeight: "var(--fw-medium)", color: "var(--text-secondary)",
           minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
         }}>{label}</span>
-        <span style={{ fontSize: "var(--text-sm)", fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap", flex: "none", lineHeight: 1.4 }}>
+        {/* `flex: none` + nowrap held the count AND the caller's `unit` rigid,
+            so a long unit pushed the whole row out of the card. It may shrink
+            and truncate now; the numbers still never wrap. */}
+        <span style={{ fontSize: "var(--text-sm)", fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap", flex: "0 1 auto", minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", lineHeight: 1.4 }}>
           <span style={{
             fontWeight: "var(--fw-bold)", color: usedColor,
             transition: "color var(--dur-base) var(--ease-standard)",

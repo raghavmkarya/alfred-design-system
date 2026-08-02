@@ -3,6 +3,39 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-02: long strings, and the fix that fixed nothing
+
+Every fixture in this system is short English. German UI copy runs about **35% longer**, and a single
+unbreakable token — a compound noun, a URL, an account ID — has no break opportunity at all. Nothing
+here had ever been rendered with one.
+
+**The obvious fix fixed nothing, and that is the useful part.** A global
+`overflow-wrap: break-word` went into `tokens/base.css` first. Re-running the sweep: **27 of 117
+before, 27 of 117 after.** Not one component changed.
+
+Because the failure mode is not overflow, it is **oversizing**. A flex item's automatic minimum size
+is its **min-content** size, so a component holding an unbreakable word does not spill its box — the
+box *grows*, and takes the row with it. `overflow-wrap` never engages, because nothing is
+overflowing. It is the same `min-width: auto` floor as the `1fr` grid bug below, seen from the other
+side. The rule stays, because it becomes load-bearing the moment a container is allowed to shrink,
+but it is documented as what it is.
+
+**The real mistake is `white-space: nowrap` on a caller's string.** A component cannot know how long
+a prop is, so `nowrap` there makes the caller's string the component's minimum width. Five had it
+without a cap: `UsageMeter` (its `flex: "none"` value span held the count *and* the caller's `unit`
+rigid), `FilterBar`, `SyncStatusBadge`, `BillingPlanCard` and `AuditLogRow`. All now pair it with
+`maxWidth` + `overflow: hidden` + `textOverflow: ellipsis`. `nowrap` on text a component *authors* —
+a separator, a tabular number — is untouched and fine.
+
+**27 became 5 once the frame was right.** The first sweep drove the playground, whose canvas is a
+**flex** container — and a flex item's `min-width: auto` floor beats its own `max-width: 100%`, so it
+manufactures failures no ordinary page would see. Re-run in a plain 360px **block** container,
+`PageHeader`, `DateRangePicker`, `AlfredMessage` and `ReasoningState` were all perfectly fine.
+Checking the frame before fixing 27 components was worth more than the fixes.
+
+`tests/strings.spec.js` renders eleven components with a 55-character unbreakable word in that block
+container and asserts nothing leaves the box. Reverting `UsageMeter` alone fails it at 178px.
+
 ## 2026-08-02: an element that paints nothing was adding 69px of horizontal scroll
 
 Nothing in this repo had ever rendered below **1240px**. The `visual`, `interaction`, `forced-colors`

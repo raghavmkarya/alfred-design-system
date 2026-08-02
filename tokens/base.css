@@ -8,6 +8,20 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
+/* A long word must break rather than break the layout. Every fixture in this
+   system is short English; real copy is not. German UI text runs about 35%
+   longer than English, and a single unbreakable token — a compound noun, a URL,
+   an account ID, a file name — has no break opportunity at all, so by default it
+   sets the min-content width of everything containing it and pushes the whole
+   row out of its box.
+
+   `break-word` only acts when the word would otherwise overflow, so it changes
+   nothing about text that already fits. It is deliberately NOT `word-break:
+   break-all`, which chops ordinary sentences mid-word. */
+body {
+  overflow-wrap: break-word;
+}
+
 /* Direction sign. CSS has logical properties for margin, padding, border and
    inset, but NONE for `transform` — `translateX(18px)` means eighteen pixels to
    the physical right in every direction, so a switch knob, a hover nudge or a
