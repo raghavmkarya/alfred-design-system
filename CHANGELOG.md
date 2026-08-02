@@ -3,6 +3,34 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-02: two assumptions, executed — and one that turned out to be true
+
+The last two never-given inputs. **Neither found a bug**, which is the honest result and still worth
+the work: both were properties that were true by care and guarded by nothing.
+
+**Forced-colors ran only on the light theme.** `tokens/forced-colors.css` carries no `[data-theme]`
+selector, so the expectation was that Windows High Contrast behaves identically whichever theme sits
+underneath — but the components beneath it set colours inline and per theme, and nobody had ever
+executed the assumption. It now runs on all three: **5 tests became 15**, and all 15 pass.
+
+The parameterisation had a trap of its own worth recording. Reading the theme from a module-level
+variable set in `beforeAll` looks fine and is wrong under `fullyParallel` — one worker can interleave
+tests from two describes, and the shared variable would silently make this the same theme three
+times, reporting 15 results while proving 5. The theme is closed over per iteration instead, and the
+`beforeEach` **asserts the theme actually applied** alongside the existing assertion that the
+emulation did. Breaking the setter fails 10 of 15, which is what makes the parameterisation real.
+
+**Hover parity was already correct.** A touch or keyboard user cannot hover, so anything revealed by
+hover must also be revealed by focus. `Tooltip` pairs `onMouseEnter` with `onFocus`, no component
+gates rendered content behind a hover-only state (the ~23 `onMouseEnter` handlers all set *styling*
+state, which is decorative), and every chart cursor has a keyboard model.
+
+But **`Tooltip` had no test coverage at all** — not in any spec, not in `verify-a11y` — so that
+`onFocus` could have been dropped in a refactor with every gate still green.
+`tests/pointer-parity.spec.js` holds it now: focus reveals the tip, `aria-describedby` resolves to a
+real element, and blur closes it so it cannot strand on screen after tabbing away. Removing `onFocus`
+fails all three.
+
 ## 2026-08-02: a control can be small to look at and large to hit
 
 Third answer to the same question the day has been asking — *what input has this suite never been
