@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred library — section preview</title>
+<link rel="stylesheet" href="../styles.css" />
+<script>
+  /* Theme must land on <html> before first paint: ?theme=dark → marketing dark,
+     anything else (or absent) → light, matching the token system's default. */
+  (function () {
+    var t = new URLSearchParams(location.search).get("theme");
+    if (t === "dark" || t === "app-dark") document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<!-- Vendored React, no CDN, no Babel: sections load as compiled .js twins. -->
+<script src="../vendor/react-18.3.1.production.min.js"></script>
+<script src="../vendor/react-dom-18.3.1.production.min.js"></script>
+<script src="../_ds_bundle.js"></script>
+<style>html, body { margin: 0; } body { background: var(--bg-page); }</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+(function () {
+  "use strict";
+  var params = new URLSearchParams(location.search);
+  var sectionId = params.get("section");
+  var variantId = params.get("variant");
+
+  function fail(msg) {
+    document.getElementById("root").innerHTML =
+      '<p style="font-family:var(--font-sans);color:var(--danger-600);padding:32px">' + msg + "</p>";
+  }
+
+  fetch("sections.json")
+    .then(function (r) { if (!r.ok) throw new Error("sections.json " + r.status); return r.json(); })
+    .then(function (data) {
+      var section = data.sections.filter(function (s) { return s.id === sectionId; })[0];
+      if (!section) return fail("Unknown section “" + String(sectionId) + "”. Pass ?section=<id> from sections.json.");
+      /* Load only the twin that owns this section: one script tag, resolved
+         relative to the repo root this page lives under. */
+      var script = document.createElement("script");
+      script.src = "../" + section.file;
+      script.onload = function () {
+        var Comp = window[section.global];
+        if (typeof Comp !== "function") return fail(section.global + " did not attach to window.");
+        var variant = (section.variants || []).filter(function (v) { return v.id === variantId; })[0]
+          || (section.variants || [])[0];
+        var props = (variant && variant.props) || {};
+        ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(Comp, props));
+        /* Report rendered height so the catalog can size the iframe. */
+        var post = function () {
+          window.parent.postMessage({
+            type: "alfred-lib:height",
+            section: section.id,
+            variant: variant ? variant.id : null,
+            href: location.href,
+            height: document.body.scrollHeight,
+          }, location.origin);
+        };
+        if (typeof ResizeObserver === "function") {
+          new ResizeObserver(post).observe(document.body);
+        }
+        requestAnimationFrame(post);
+        document.body.dataset.ready = "1";
+      };
+      script.onerror = function () { fail("Could not load " + section.file + ". Run node scripts/build-kits.mjs."); };
+      document.body.appendChild(script);
+    })
+    .catch(function (e) { fail(String(e.message) + ". Run node scripts/gen-library.mjs."); });
+})();
+</script>
+</body>
+</html>

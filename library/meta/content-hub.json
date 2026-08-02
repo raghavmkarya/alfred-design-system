@@ -1,0 +1,208 @@
+{
+  "category": { "id": "content-hub", "name": "Content hubs", "order": 9, "icon": "bookmark" },
+  "sections": [
+    {
+      "id": "card-grid",
+      "global": "LibCardGrid",
+      "file": "library/sections/content-hub.js",
+      "name": "Card grid",
+      "tier": 1,
+      "description": "The workhorse content index: format badge, title, excerpt and read-time on every card, with an optional full-width featured lead card above the grid. The default band for a blog index, a resource hub, or a recently-shipped proof grid.",
+      "pageTypes": ["blog", "resource"],
+      "usedBy": [
+        { "site": "hubspot.com/resources", "url": "https://www.hubspot.com/resources", "note": "'700+ Free Resources' with a format badge (Ebook/Template/Kit/Tool) on every card" },
+        { "site": "anthropic.com", "url": "https://www.anthropic.com/news", "note": "Dated announcement cards replace feature marketing entirely" },
+        { "site": "vercel.com", "url": "https://vercel.com", "note": "'Recently shipped' 4-card grid doubles as changelog proof" },
+        { "site": "sisense.com", "url": "https://www.sisense.com", "note": "Mixed content types with Report/Blog/Webinar labels per card" },
+        { "site": "webflow.com", "url": "https://webflow.com", "note": "Gallery of customer-built sites as end-of-page proof of output quality" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Section eyebrow, rendered uppercase by the badge" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the band" },
+        { "name": "sub", "type": "string", "doc": "One-line promise under the headline" },
+        { "name": "items", "type": "Array<{category, title, excerpt, readTime, ctaLabel}>", "doc": "The cards; category renders as the per-card format badge" },
+        { "name": "featured", "type": "{category, title, excerpt, readTime, ctaLabel} | null", "doc": "Optional full-width lead card above the grid, with the section's one gradient keyline and the primary CTA" },
+        { "name": "ctaLabel", "type": "string", "doc": "Browse-all ghost button in the header; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "blog", "name": "Blog grid", "props": {} },
+        {
+          "id": "resource",
+          "name": "Resource grid",
+          "props": {
+            "eyebrow": "Resources",
+            "headline": "Take one, use it this week",
+            "sub": "Templates, checklists, and calculators built for the person who makes the call.",
+            "items": [
+              { "category": "Template", "title": "The board-ready budget defence, as a fill-in template", "excerpt": "Every campaign ranked by pipeline contribution, in the order a CFO wants to read it.", "readTime": "Template", "ctaLabel": "Get the template" },
+              { "category": "Checklist", "title": "The 12-point stack audit before you connect anything", "excerpt": "Which tools matter, which metrics contradict, and where your one version of the truth will come from.", "readTime": "Checklist", "ctaLabel": "Get the checklist" },
+              { "category": "Calculator", "title": "What a two-day decision delay costs you", "excerpt": "Put in your monthly spend and correction cadence. Read the number. Sit with it.", "readTime": "Calculator", "ctaLabel": "Run the numbers" }
+            ]
+          }
+        },
+        {
+          "id": "featured",
+          "name": "Featured lead + grid",
+          "props": {
+            "featured": { "category": "Report", "title": "The state of the marketing decision, 2026", "excerpt": "Why 63% of marketing leaders say opportunities die waiting for a decision, and what the fastest teams do differently.", "readTime": "14 min read", "ctaLabel": "Read the report" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "filter-chip-row",
+      "global": "LibFilterChipRow",
+      "file": "library/sections/content-hub.js",
+      "name": "Filter chip row",
+      "tier": 1,
+      "description": "Category filter band for a content index: a chip row with a live results count and a clear action, or an underlined tab row for tighter hubs. All is always first; the count updates as the reader filters.",
+      "pageTypes": ["blog", "resource"],
+      "usedBy": [
+        { "site": "twilio.com/recipes", "url": "https://www.twilio.com/en-us/recipes/", "note": "Four facets (tool x product x role x industry) with Clear All (ex-Segment)" },
+        { "site": "salesloft.com/resources", "url": "https://www.salesloft.com/resources", "note": "Persona-first filtering: Role is the primary facet before content type" },
+        { "site": "intercom.com/blog", "url": "https://www.intercom.com/blog", "note": "Owned-media brand ('The Ticket') surfaced as a first-class filter category" },
+        { "site": "webflow.com/blog", "url": "https://webflow.com/blog", "note": "Category chip row driving the blog IA" }
+      ],
+      "props": [
+        { "name": "label", "type": "string", "doc": "Small uppercase label before the chips (chips variant only)" },
+        { "name": "items", "type": "string[]", "doc": "Filter categories; the first item is the reset state" },
+        { "name": "counts", "type": "number[]", "doc": "Result counts parallel to items, shown through resultsLabel" },
+        { "name": "activeChip", "type": "string", "doc": "Initially selected category" },
+        { "name": "clearLabel", "type": "string", "doc": "Reset action, shown only once a non-default filter is active" },
+        { "name": "resultsLabel", "type": "string", "doc": "Count template; {count} is replaced with the active category's count" },
+        { "name": "variant", "type": "'chips' | 'tabs'", "doc": "Chip row for hubs, tab row for tighter blog IAs" }
+      ],
+      "variants": [
+        { "id": "chips", "name": "Chips", "props": {} },
+        { "id": "tabs", "name": "Tabs", "props": { "variant": "tabs" } }
+      ]
+    },
+    {
+      "id": "resource-hub-hero",
+      "global": "LibResourceHubHero",
+      "file": "library/sections/content-hub.js",
+      "name": "Resource hub hero",
+      "tier": 2,
+      "description": "Hub opener that doubles as navigation: library search with a browse CTA, format quick links, a quantified proof line for the library itself, and one flagship report featured in a strip card. For the top of a resource center.",
+      "pageTypes": ["resource"],
+      "usedBy": [
+        { "site": "hubspot.com/resources", "url": "https://www.hubspot.com/resources", "note": "Title + tagline + dual CTA with a featured latest-report link" },
+        { "site": "salesloft.com/resources", "url": "https://www.salesloft.com/resources", "note": "'For sellers, by sellers' + media-type quick links; hero doubles as nav" },
+        { "site": "twilio.com/resource-center", "url": "https://www.twilio.com/en-us/resource-center", "note": "Featured analyst-report card inside the hub hero" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Hub eyebrow, rendered uppercase by the badge" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the hub" },
+        { "name": "sub", "type": "string", "doc": "The hub's promise, stated as time saved" },
+        { "name": "searchPlaceholder", "type": "string", "doc": "Placeholder in the library search field" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary browse CTA beside the search field" },
+        { "name": "quickLinks", "type": "string[]", "doc": "Format quick links under the search; empty array hides the row" },
+        { "name": "statsLine", "type": "string", "doc": "Quantified proof line for the library itself" },
+        { "name": "featured", "type": "{tag, title, meta, ctaLabel} | null", "doc": "Flagship asset strip card at the bottom of the hero" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "webinar-split",
+      "global": "LibWebinarSplit",
+      "file": "library/sections/content-hub.js",
+      "name": "Webinar split",
+      "tier": 2,
+      "description": "Live-session promo split: explicit date, time and duration for temporal urgency, named hosts with avatars, and a one-field registration card with a recording fallback and a confirmation state. For webinar and event pages.",
+      "pageTypes": ["resource", "gated"],
+      "usedBy": [
+        { "site": "snowflake.com", "url": "https://www.snowflake.com/en/", "note": "Three webinar promo cards with explicit dates" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Session eyebrow, rendered uppercase by the badge" },
+        { "name": "headline", "type": "string", "doc": "What the viewer will watch happen, as the headline" },
+        { "name": "sub", "type": "string", "doc": "The session agenda in one sentence" },
+        { "name": "date", "type": "string", "doc": "Explicit session date; the urgency device" },
+        { "name": "time", "type": "string", "doc": "Session time across the audience's timezones" },
+        { "name": "duration", "type": "string", "doc": "Session length" },
+        { "name": "speakers", "type": "Array<{name, role}>", "doc": "Hosts, rendered with avatar initials" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary registration CTA" },
+        { "name": "secondaryCtaLabel", "type": "string", "doc": "Recording fallback CTA" },
+        { "name": "placeholder", "type": "string", "doc": "Email field placeholder" },
+        { "name": "privacyNote", "type": "string", "doc": "Fine print under the form" },
+        { "name": "successMessage", "type": "string", "doc": "Confirmation shown in the card after submit" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "pagination-row",
+      "global": "LibPaginationRow",
+      "file": "library/sections/content-hub.js",
+      "name": "Pagination row",
+      "tier": 2,
+      "description": "Numbered pagination band for a content index: Newer and Older paddles around numbered pages, Latest and Oldest jump links, and a position caption. The observed standard on content hubs; no site in the sweep used infinite scroll.",
+      "pageTypes": ["blog", "resource"],
+      "usedBy": [
+        { "site": "ahrefs.com/blog", "url": "https://ahrefs.com/blog", "note": "Classic numbered pagination across 20+ pages" },
+        { "site": "twilio.com/recipes", "url": "https://www.twilio.com/en-us/recipes/", "note": "Numbered 1-7 with arrows" }
+      ],
+      "props": [
+        { "name": "page", "type": "number", "doc": "Initially active page" },
+        { "name": "pageCount", "type": "number", "doc": "Total pages" },
+        { "name": "prevLabel", "type": "string", "doc": "Backward paddle label; content hubs read newest-first" },
+        { "name": "nextLabel", "type": "string", "doc": "Forward paddle label" },
+        { "name": "pageLabel", "type": "string", "doc": "Position caption template; {current} and {total} are replaced" },
+        { "name": "firstLabel", "type": "string", "doc": "Jump link to page one" },
+        { "name": "lastLabel", "type": "string", "doc": "Jump link to the last page" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "contact-split",
+      "global": "LibContactSplit2",
+      "file": "library/sections/content-hub.js",
+      "name": "Contact section",
+      "tier": 2,
+      "description": "Contact split: routed email channels with a stated reply expectation on one side, a short name-email-message form with a confirmation state on the other. Every channel lands with a human; the copy says so.",
+      "pageTypes": ["landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Section eyebrow, rendered uppercase by the badge" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the section" },
+        { "name": "sub", "type": "string", "doc": "Who answers, and how fast" },
+        { "name": "channels", "type": "Array<{label, value, note}>", "doc": "Routed email channels; value renders as a mailto link" },
+        { "name": "formFields", "type": "Array<{label, placeholder, type}>", "doc": "Form fields; type 'textarea' renders a multiline field" },
+        { "name": "ctaLabel", "type": "string", "doc": "Submit label" },
+        { "name": "successMessage", "type": "string", "doc": "Confirmation shown in the card after submit" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "video-showcase",
+      "global": "LibVideoShowcase",
+      "file": "library/sections/content-hub.js",
+      "name": "Video showcase band",
+      "tier": 3,
+      "description": "A watch band: one featured recording plus a rail of shorter sessions, each with duration and view count. Proof of the product in motion, at the end of a blog index or resource hub, without a heavy video embed.",
+      "pageTypes": ["landing", "resource"],
+      "usedBy": [
+        { "site": "raycast.com", "url": "https://www.raycast.com", "note": "Community hub with a 16-video UGC wall as social proof" },
+        { "site": "ahrefs.com/blog", "url": "https://ahrefs.com/blog", "note": "'ahrefstv' band with view counts inside the blog index" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Section eyebrow, rendered uppercase by the badge" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the band" },
+        { "name": "sub", "type": "string", "doc": "What the recordings show, in one sentence" },
+        { "name": "ctaLabel", "type": "string", "doc": "Browse-all ghost button in the header; empty string hides it" },
+        { "name": "featured", "type": "{tag, title, byline?, duration, views}", "doc": "The large lead recording" },
+        { "name": "items", "type": "Array<{tag, title, duration, views}>", "doc": "The rail of shorter recordings" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}

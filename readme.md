@@ -173,7 +173,8 @@ ui_kits/app/          ← 22-screen product workspace (light): briefing, Seek Al
 ui_kits/app-dark/     ← the same workspace under [data-theme="app-dark"]: warm ink surfaces, Clash kept (reuses the light kit's screens)
 ui_kits/onboarding/   ← standalone first-run flow (light): connect → calibrate → first brief
 ui_kits/website/      ← marketing site recreation (dark) + LIVE-DRIFT.md register
-templates/sections/   ← 27 copy-paste marketing section blocks (window.Sec* — hero, statement, FAQ, agent showcase, stack diagram, careers, contact…)
+library/              ← the Inspiration Library: 55 marketing section patterns (window.Lib*, 10 categories, 95 variants) distilled from a 107-site B2B SaaS sweep, a browsable catalog app (index.html: live previews in light + marketing dark, copy-HTML, standalone download), 8 composed recipe pages (landing · feature · pricing · blog ×2 · comparison · resource hub · gated content) and per-section static exports — see library/README.md
+templates/sections/   ← 27 copy-paste marketing section blocks (window.Sec* — hero, statement, FAQ, agent showcase, stack diagram, careers, contact…) — LEGACY: superseded by library/ for new work; kept because templates/pages/* consume them
 templates/pages/      ← 13 full-page templates (pricing, alfred_core, product module, waitlist, contact, about, blog ×2, docs, integrations, in-development, 404, legal)
 templates/email/      ← 600px email system: shell + block library + 19 lifecycle/transactional templates
 templates/collateral/ ← A4 print theme + 12 sales/CS docs (one-pagers, battle cards, security pack, pilot plan, ROI calculator)
@@ -183,7 +184,7 @@ social/               ← 102-frame social system: OG images · LinkedIn/Faceboo
 slides/               ← presentation templates (cover, index, section, content)
 playground/           ← live component playground (prop controls from the .d.ts) + generated props.json
 vendor/               ← committed production React + ReactDOM, shared by the playground and the four UI kits. No published page loads a third-party script, and no kit compiles JSX in the browser (scripts/build-kits.mjs precompiles it)
-scripts/              ← tooling: the 10 verifiers (verify-render · components · a11y · craft · types · contrast · playground · npm · icons · consumer — the last installs the packed tarball on the LATEST React, since the other nine run on the peer range's lower bound) + build-kits.mjs (precompiles the UI-kit JSX) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
+scripts/              ← tooling: the 11 verifiers (verify-render · components · a11y · craft · types · contrast · playground · library · npm · icons · consumer — consumer installs the packed tarball on the LATEST React, since the others run on the peer range's lower bound; library render-verifies every section variant data-driven from library/sections.json) + build-kits.mjs (precompiles the UI-kit and library JSX) + gen-library.mjs (sections.json + static exports) + check-sync-drift.mjs (are the 3 distribution channels current with main?)
 SKILL.md              ← Agent-Skill manifest (name: alfred-ai-design)
 .design-sync/         ← claude.ai/design project link + sync notes (projectId, lastSyncCommit, exclude list — check-sync-drift.mjs reads this)
 ```

@@ -26,6 +26,7 @@ const GROUP_META = {
   Brand: { icon: "bookmark", order: 7 },
   Templates: { icon: "export", order: 8 },
   Pages: { icon: "web-clarity", order: 8.5 },
+  Inspiration: { icon: "bookmark", order: 8.7 },
   Decks: { icon: "demo-play", order: 9 },
   Slides: { icon: "fullscreen", order: 10 },
 };

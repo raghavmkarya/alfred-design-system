@@ -3,6 +3,32 @@
 Notable changes to the Alfred AI design system. Date-stamped (the system ships as a
 synced folder, not an npm package, so there's no semver tag).
 
+## 2026-08-02: the Inspiration Library — 55 patterns from 107 sites, browsable and liftable
+
+A marketing page should start from evidence, not a blank file. `library/` is the new
+pattern catalog: a 16-batch sweep of 107 B2B SaaS marketing sites (revenue intelligence,
+decision intelligence, analytics, design leaders, resource/gated exemplars) was distilled
+into 55 section patterns across 10 categories — 95 variants, every one rebuilt on tokens
+as a `window.Lib*` global with finished Alfred-voice defaults (fictional entities only),
+rendering truthfully in light and marketing dark. Per-section evidence (`usedBy` sites,
+execution notes) travels in `library/meta/*.json`.
+
+The catalog app (`library/index.html`, playground-style: vendored React, no build step)
+browses by category/tier/page-type with live iframe previews, per-variant deep links
+(`library/preview.html?section=&variant=&theme=`), viewport widths, copy-HTML and
+standalone-download. Eight recipe pages in `library/recipes/` compose the sections into
+whole reference pages (landing, feature, pricing, blog index/article, comparison,
+resource hub, gated content) — Claude/Codex lift sections or whole pages from here into
+Framer instead of designing from scratch.
+
+Plumbing: `build-kits.mjs` walks `library/` too (committed twins, `--only` scope for
+parallel authors); `gen-library.mjs` generates `sections.json` + a static
+`library/export/<id>.html` per section; the new eleventh verifier `verify-library.mjs`
+freshness-gates both and SSRs every section variant DATA-DRIVEN from the schema, so a
+new category lands with render coverage and no registration list. `verify-craft` and
+`verify-render` gained file-scoping for the same reason. `templates/sections/` is now
+legacy (pages still consume it; new work starts in `library/`).
+
 ## 2026-08-02: two assumptions, executed — and one that turned out to be true
 
 The last two never-given inputs. **Neither found a bug**, which is the honest result and still worth

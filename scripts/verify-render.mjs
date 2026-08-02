@@ -26,6 +26,27 @@ const KITS = [
   ["templates/sections/SectionsF.jsx", ["SecContactSplit", "SecIndustryCards", "SecAgentShowcase", "SecEnterpriseBand", "SecStackDiagram", "SecTimeline", "SecSourcedStats"]],
   ["ui_kits/app/Screens3.jsx", ["ConnectionFlow", "ConnectionHealth", "FirstRunWaiting", "NotificationsCenter", "AlertDetail"]],
   ["ui_kits/app/Screens4.jsx", ["SettingsProfile", "TeamPermissions", "BillingPlans", "MemoryCore", "AuditLog"]],
+  // Inspiration Library recipe pages (the 55 sections themselves are render-
+  // verified data-driven from library/sections.json by verify-library.mjs).
+  // Section twins load first: recipes compose window.Lib* globals.
+  ["library/sections/chrome.jsx", []],
+  ["library/sections/heroes.jsx", []],
+  ["library/sections/social-proof.jsx", []],
+  ["library/sections/features-core.jsx", []],
+  ["library/sections/features-showcase.jsx", []],
+  ["library/sections/pricing.jsx", []],
+  ["library/sections/cta-capture.jsx", []],
+  ["library/sections/content-editorial.jsx", []],
+  ["library/sections/content-hub.jsx", []],
+  ["library/sections/extras.jsx", []],
+  ["library/recipes/landing.jsx", ["RecipeLanding"]],
+  ["library/recipes/feature.jsx", ["RecipeFeature"]],
+  ["library/recipes/pricing.jsx", ["RecipePricing"]],
+  ["library/recipes/blog-index.jsx", ["RecipeBlogIndex"]],
+  ["library/recipes/blog-article.jsx", ["RecipeBlogArticle"]],
+  ["library/recipes/comparison.jsx", ["RecipeComparison"]],
+  ["library/recipes/resource-hub.jsx", ["RecipeResourceHub"]],
+  ["library/recipes/gated-content.jsx", ["RecipeGatedContent"]],
 ];
 
 const reactSrc = dep("react/umd/react.development.js");

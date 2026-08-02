@@ -1,0 +1,83 @@
+{
+  "category": { "id": "heroes", "name": "Heroes", "order": 2, "icon": "spark" },
+  "sections": [
+    {
+      "id": "hero-glow",
+      "global": "LibHeroGlow",
+      "file": "library/sections/heroes.js",
+      "name": "Glow hero",
+      "tier": 1,
+      "description": "One blurred brand glow on the page background, display headline with a single gradient accent, dual CTA (orange filled + ghost), micro-proof line. The default opener for any landing page.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string" },
+        { "name": "proofLine", "type": "string" },
+        { "name": "media", "type": "'none' | 'dashboard'" }
+      ],
+      "variants": [
+        { "id": "centered", "name": "Centered", "props": {} },
+        { "id": "split-dashboard", "name": "Split with product frame", "props": { "media": "dashboard" } }
+      ]
+    },
+    {
+      "id": "hero-conversation",
+      "global": "LibHeroConversation",
+      "file": "library/sections/heroes.js",
+      "name": "Agent conversation hero",
+      "tier": 1,
+      "description": "Alfred answering a real business question as the hero visual: user question, sourced first-person answer, live composer. Alfred's signature block, the equivalent of Stripe's code pane.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "question", "type": "string" },
+        { "name": "answer", "type": "string" },
+        { "name": "sources", "type": "Array<{name, detail?, status?}>" },
+        { "name": "trace", "type": "Array<{label, status}>", "doc": "briefing variant only" },
+        { "name": "suggestions", "type": "string[]" },
+        { "name": "variant", "type": "'composer' | 'briefing'" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string" }
+      ],
+      "variants": [
+        { "id": "composer", "name": "With composer", "props": {} },
+        { "id": "briefing", "name": "Briefing with trace", "props": { "variant": "briefing" } }
+      ]
+    },
+    {
+      "id": "hero-capture",
+      "global": "LibHeroCapture",
+      "file": "library/sections/heroes.js",
+      "name": "Capture hero",
+      "tier": 1,
+      "description": "Email-capture hero for gated content and waitlists: benefit copy plus what's-inside bullets on one side, a sticky form card on the other, avatar-cluster proof. Centered variant for waitlist pages.",
+      "pageTypes": ["gated", "landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "bullets", "type": "string[]" },
+        { "name": "bulletsTitle", "type": "string" },
+        { "name": "ctaLabel", "type": "string" },
+        { "name": "emailPlaceholder", "type": "string" },
+        { "name": "finePrint", "type": "string" },
+        { "name": "proofNames", "type": "string[]" },
+        { "name": "proofLabel", "type": "string" },
+        { "name": "layout", "type": "'split' | 'centered'" }
+      ],
+      "variants": [
+        { "id": "gated-split", "name": "Gated split", "props": {} },
+        { "id": "waitlist-centered", "name": "Waitlist centered", "props": { "layout": "centered", "eyebrow": "EARLY ACCESS", "title": "Alfred is almost ready for you", "sub": "Join the waitlist and I will brief you the moment your access opens.", "ctaLabel": "Join the waitlist", "bullets": [], "finePrint": "We'll only reach out when your early access is ready." } }
+      ]
+    }
+  ]
+}

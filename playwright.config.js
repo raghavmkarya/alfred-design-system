@@ -26,7 +26,7 @@ export default defineConfig({
   projects: [
     // NB: testMatch is an explicit alternation, not a glob of tests/ — a new
     // spec file has to be named here or it silently never runs.
-    { name: "interaction", testMatch: /interaction\.spec\.js|theme-tokens\.spec\.js|chart-cursor\.spec\.js|kits-boot\.spec\.js|strings\.spec\.js|target-size\.spec\.js|pointer-parity\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
+    { name: "interaction", testMatch: /interaction\.spec\.js|theme-tokens\.spec\.js|chart-cursor\.spec\.js|kits-boot\.spec\.js|strings\.spec\.js|target-size\.spec\.js|pointer-parity\.spec\.js|library\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
     { name: "visual", testMatch: /visual\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
     // forced-colors: Windows High Contrast emulation. Chromium substitutes the system
     // palette, so this asserts real computed colors, not just that the media query fires.

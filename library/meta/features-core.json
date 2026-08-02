@@ -1,0 +1,233 @@
+{
+  "category": { "id": "features-core", "name": "Features", "order": 4, "icon": "spark" },
+  "sections": [
+    {
+      "id": "icon-feature-grid",
+      "global": "LibIconFeatureGrid",
+      "file": "library/sections/features-core.js",
+      "name": "Icon feature grid",
+      "tier": 1,
+      "description": "Card grid of capabilities with one consistent grammar per card: icon tile, headline, body. Three columns by default, a two-by-two for four-job stories, and a dense linked-checklist variant that signals breadth. The workhorse features section for any landing page.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "posthog.com", "url": "https://posthog.com", "note": "17 built-in tools as a dense checklist link grid; breadth IS the pitch" },
+        { "site": "clickup.com", "url": "https://clickup.com/", "note": "100+ icon feature wall as an abundance signal" },
+        { "site": "gong.io", "url": "https://www.gong.io", "note": "Six product cards, each with a learn-more link" },
+        { "site": "commonroom.io", "url": "https://www.commonroom.io", "note": "Know / Act / Run three-verb trio for cognitive simplicity" },
+        { "site": "sierra.ai", "url": "https://sierra.ai", "note": "One grid per named product line instead of one generic features section" },
+        { "site": "metabase.com", "url": "https://metabase.com", "note": "Testimonials embedded inside each feature card" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Sentence-case badge label; the chip renders it uppercase" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the section" },
+        { "name": "sub", "type": "string", "doc": "One-line subhead under the headline" },
+        { "name": "items", "type": "Array<{icon?, title, body?}>", "doc": "Feature cards. icon is one of brief | alert | chat | action | memory | shield; the checklist layout reads title only" },
+        { "name": "layout", "type": "'three-col' | 'two-by-two' | 'checklist'", "doc": "Card grid at 3 or 2 columns, or a dense two-column linked checklist" }
+      ],
+      "variants": [
+        { "id": "three-col", "name": "Three columns", "props": {} },
+        {
+          "id": "two-by-two",
+          "name": "Two by two",
+          "props": {
+            "layout": "two-by-two",
+            "items": [
+              { "icon": "brief", "title": "A prioritised daily brief", "body": "Every morning: what changed, why it changed, what to do about it, ranked by business impact." },
+              { "icon": "alert", "title": "Proactive flags", "body": "I surface risks and opportunities before you ask. The first sign of trouble is my alert, not a board question." },
+              { "icon": "chat", "title": "On-demand answers", "body": "Ask any business question in plain language and get an answer grounded in your actual data, in seconds." },
+              { "icon": "action", "title": "Execution on command", "body": "Approve a recommendation and I carry it out inside your connected tools. Every change logged, every step traceable." }
+            ]
+          }
+        },
+        {
+          "id": "checklist",
+          "name": "Linked checklist",
+          "props": {
+            "layout": "checklist",
+            "headline": "Everything the brief carries",
+            "sub": "What lands on your desk before your first meeting.",
+            "items": [
+              { "title": "What changed overnight, ranked by business impact" },
+              { "title": "The cause behind every change, not just the number" },
+              { "title": "A recommended action with projected impact" },
+              { "title": "Risks and opportunities flagged before you ask" },
+              { "title": "One-step execution inside your connected tools" },
+              { "title": "A full audit trail on every action taken" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "feature-split",
+      "global": "LibFeatureSplit2",
+      "file": "library/sections/features-core.js",
+      "name": "Feature split (zig-zag)",
+      "tier": 1,
+      "description": "Alternating text-and-artifact chapters, numbered like a table of contents so a feature dump reads as a narrative. The artifact varies per split (brief mock, live Alfred exchange, audit trail) so proof sits next to every claim. Sticky variant pins each artifact while its copy scrolls.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "linear.app", "url": "https://linear.app", "note": "Numbered chapters (1.0 Intake to 5.0 Monitor), each split a distinct UI artifact incl. Slack mock and code diff" },
+        { "site": "attio.com", "url": "https://attio.com", "note": "Five revenue-motion chapters, real product UI as the artwork, scrollytelling" },
+        { "site": "rudderstack.com", "url": "https://www.rudderstack.com", "note": "A customer testimonial embedded inside every zigzag split" },
+        { "site": "bird.com", "url": "https://bird.com", "note": "TypeScript code sample + UI mockup paired per channel" },
+        { "site": "resend.com", "url": "https://resend.com", "note": "Interactive simulations (live HTTP response, rendered React Email) instead of screenshots" },
+        { "site": "railway.com", "url": "https://railway.com", "note": "Sticky-scroll lifecycle-verb chapters with inline competitor tags" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Sentence-case badge label for the section head" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the section" },
+        { "name": "items", "type": "Array<{eyebrow, headline, body, ctaLabel?, artifact?, screenshotAlt?, paneMessages?}>", "doc": "One chapter per item. artifact picks the mock: 'brief' | 'answer' | 'audit'; paneMessages ([{role: 'user' | 'alfred', text, sources?}]) renders a live Alfred exchange instead; screenshotAlt is the artifact's accessible label" },
+        { "name": "layout", "type": "'zigzag' | 'sticky'", "doc": "Alternating sides, or text-first rows with the artifact pinned while its copy scrolls" }
+      ],
+      "variants": [
+        { "id": "screenshot", "name": "Zig-zag artifacts", "props": {} },
+        {
+          "id": "alfred-pane",
+          "name": "Alfred pane",
+          "props": {
+            "items": [
+              {
+                "eyebrow": "Seek Alfred",
+                "headline": "Every answer starts in your data",
+                "body": "Ask in plain language, get an answer grounded in your actual numbers in seconds. 85% of marketing questions answered without waiting on an analyst.",
+                "ctaLabel": "Talk to sales",
+                "screenshotAlt": "Alfred answering a plain-language question from connected marketing data",
+                "paneMessages": [
+                  { "role": "user", "text": "Which campaigns look good but add nothing to pipeline?" },
+                  { "role": "alfred", "text": "Two. Both have strong platform metrics and under 2% pipeline contribution. Pausing them frees an estimated 12% of monthly spend. Want me to stage it?" }
+                ]
+              }
+            ]
+          }
+        },
+        { "id": "sticky-scroll", "name": "Sticky scroll", "props": { "layout": "sticky" } }
+      ]
+    },
+    {
+      "id": "bento-grid",
+      "global": "LibBentoGrid2",
+      "file": "library/sections/features-core.js",
+      "name": "Bento grid",
+      "tier": 1,
+      "description": "Mixed-size card mosaic that doubles as a clickable platform map: one glowing hero cell for Alfred Core, stat and capability cells around it, and a full-width integrations band with neutral stack chips. Uniform variant when every capability deserves equal weight.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "stripe.com", "url": "https://stripe.com", "note": "6 product-capability cards at mixed sizes with imagery" },
+        { "site": "snowflake.com", "url": "https://www.snowflake.com/en/", "note": "Clickable workload cards as the 'platform diagram', easy to update" },
+        { "site": "clay.com", "url": "https://www.clay.com", "note": "Four pillar cards each embedding mini customer case studies" },
+        { "site": "warp.dev", "url": "https://warp.dev", "note": "Four-quadrant product-line grid" },
+        { "site": "zams.com", "url": "https://www.zams.com", "note": "One live AI worker + 4 'Coming Soon' roadmap cells building anticipation" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Sentence-case badge label for the section head" },
+        { "name": "headline", "type": "string", "doc": "Display headline for the section" },
+        { "name": "sub", "type": "string", "doc": "One-line subhead under the headline" },
+        { "name": "items", "type": "Array<{size, title, body, tags?}>", "doc": "Cells in placement order. size: 'large' (2x2, the one glow cell) | 'tall' (1x2) | 'small' | 'wide' (full row); tags renders a pill row of neutral stack labels" },
+        { "name": "layout", "type": "'bento' | 'uniform'", "doc": "Mixed-size mosaic, or a uniform three-column grid ignoring sizes" }
+      ],
+      "variants": [
+        { "id": "two-row", "name": "Mixed-size bento", "props": {} },
+        { "id": "three-by-three", "name": "Uniform three-up", "props": { "layout": "uniform" } }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "global": "LibHowItWorks",
+      "file": "library/sections/features-core.js",
+      "name": "How it works steps",
+      "tier": 1,
+      "description": "Numbered verb-led steps from connected data to executed action, as a horizontal rail or a vertical timeline, ending in a primary CTA plus a reassurance line that defuses implementation fear. Use it wherever onboarding effort is the silent objection.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "tellius.com", "url": "https://www.tellius.com", "note": "Numbered 01-03: Ask, Kaiya Investigates, Get Finished Outputs" },
+        { "site": "sigmacomputing.com", "url": "https://sigmacomputing.com", "note": "Discover, Build, Act, Scale with expandable descriptions" },
+        { "site": "amplitude.com", "url": "https://amplitude.com", "note": "Two install paths shown side by side" },
+        { "site": "runway.cfo.ai", "url": "https://runway.cfo.ai/", "note": "3-step onboarding timeline ending in a 'Talk to a human' CTA to defuse implementation fear" },
+        { "site": "cubesoftware.com", "url": "https://www.cubesoftware.com", "note": "'No code. No consultants' three numbered callouts" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Sentence-case badge label for the section head" },
+        { "name": "headline", "type": "string", "doc": "Display headline, verb-led reads best" },
+        { "name": "sub", "type": "string", "doc": "One-line subhead under the headline" },
+        { "name": "items", "type": "Array<{number, title, body}>", "doc": "3-5 steps with visible two-digit numbers and verb titles" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary CTA after the final step; empty string hides it" },
+        { "name": "ctaCaption", "type": "string", "doc": "Reassurance line under the CTA, e.g. the read-only promise" },
+        { "name": "orientation", "type": "'horizontal' | 'vertical'", "doc": "Four-column rail, or a numbered vertical timeline" }
+      ],
+      "variants": [
+        { "id": "horizontal", "name": "Horizontal rail", "props": {} },
+        { "id": "vertical", "name": "Vertical timeline", "props": { "orientation": "vertical" } }
+      ]
+    },
+    {
+      "id": "comparison-table",
+      "global": "LibComparisonTable",
+      "file": "library/sections/features-core.js",
+      "name": "Comparison table",
+      "tier": 1,
+      "description": "Category-level comparison that lands the point without naming rivals: the Alfred column tinted and rounded, row labels as capabilities, prose cells instead of bare checkmarks. Matrix pits dashboards and generic assistants against Alfred; the two-column variant collapses to 'the usual stack vs Alfred'.",
+      "pageTypes": ["comparison", "pricing"],
+      "usedBy": [
+        { "site": "commonroom.io", "url": "https://www.commonroom.io", "note": "'Legacy stack vs Common Room' across six capabilities; consolidation made explicit" },
+        { "site": "backstory.ai", "url": "https://www.backstory.ai/", "note": "'Other tools vs us' against the category, no named rival" },
+        { "site": "lindy.ai", "url": "https://www.lindy.ai", "note": "Human assistant salary vs product cost; price anchored against a hire" },
+        { "site": "notion.com", "url": "https://www.notion.com/pricing", "note": "Pricing matrix with tooltips and state chips inside cells" },
+        { "site": "linear.app", "url": "https://linear.app/pricing", "note": "One dropdown morphs tier cards into the full comparison table in place" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Sentence-case badge label for the section head" },
+        { "name": "headline", "type": "string", "doc": "Display headline stating the difference" },
+        { "name": "sub", "type": "string", "doc": "One-line subhead under the headline" },
+        { "name": "columns", "type": "string[]", "doc": "Header labels; first entry is the empty capability column" },
+        { "name": "items", "type": "Array<{label, cells: string[]}>", "doc": "One capability per row; cells align with columns[1..]" },
+        { "name": "highlight", "type": "number", "doc": "Column index to tint as the winner; -1 (default) tints the last column" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary CTA under the table; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "matrix", "name": "Category matrix", "props": {} },
+        {
+          "id": "two-column",
+          "name": "Two column",
+          "props": {
+            "columns": ["", "The usual stack", "Alfred"],
+            "items": [
+              { "label": "Who it serves", "cells": ["Analysts and prompt windows", "The leader who owns the number"] },
+              { "label": "When it speaks", "cells": ["When you ask", "Before you ask: flags arrive proactively"] },
+              { "label": "What it gives you", "cells": ["Charts and fluent text", "What changed, why it changed, what to do about it"] },
+              { "label": "Memory", "cells": ["Forgets last quarter's context", "Remembers every signal, decision, and outcome"] },
+              { "label": "Action", "cells": ["Stops at the chart or the draft", "Executes in your tools on command, fully logged"] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "before-after",
+      "global": "LibBeforeAfter",
+      "file": "library/sections/features-core.js",
+      "name": "Before and after contrast",
+      "tier": 2,
+      "description": "Two cards, one Monday: the pains written in second person on a sunken muted card, the Alfred outcomes with checks on a raised glowing card, one CTA underneath. Problem-agitate-solve compressed into a single scannable section.",
+      "pageTypes": ["landing", "comparison"],
+      "usedBy": [
+        { "site": "vitally.io", "url": "https://www.vitally.io", "note": "'The Problem' vs 'Why Vitally' two-state toggle collapses two sections into one" },
+        { "site": "drivetrain.ai", "url": "https://www.drivetrain.ai", "note": "Three pain points before any feature content: classic PAS structure" },
+        { "site": "backstory.ai", "url": "https://www.backstory.ai/", "note": "Second-person pain headlines: 'You're the last to know'" },
+        { "site": "railway.com", "url": "https://railway.com", "note": "Inline competitor framing inside each feature chapter" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string", "doc": "Sentence-case badge label for the section head" },
+        { "name": "headline", "type": "string", "doc": "Display headline framing the contrast" },
+        { "name": "beforeTitle", "type": "string", "doc": "Title of the pain card" },
+        { "name": "beforeItems", "type": "string[]", "doc": "Second-person pains, one per row, marked with muted x glyphs" },
+        { "name": "afterTitle", "type": "string", "doc": "Title of the outcome card" },
+        { "name": "afterItems", "type": "string[]", "doc": "Quantified outcomes, one per row, marked with accent checks" },
+        { "name": "ctaLabel", "type": "string", "doc": "Primary CTA under the cards; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Side by side", "props": {} }
+      ]
+    }
+  ]
+}

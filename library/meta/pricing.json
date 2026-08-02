@@ -1,0 +1,107 @@
+{
+  "category": { "id": "pricing", "name": "Pricing", "order": 6, "icon": "budget" },
+  "sections": [
+    {
+      "id": "pricing-tiers",
+      "global": "LibPricingTiers2",
+      "file": "library/sections/pricing.js",
+      "name": "Pricing tiers",
+      "tier": 1,
+      "description": "The tier grid: centered header, plan cards with per-tier AI query allowances, a highlighted most-popular plan carrying the one orange CTA, an enterprise strip and a launch-offer footnote. The core of any pricing page; the single-plan variant doubles as an in-page pricing band for landing pages.",
+      "pageTypes": ["pricing", "landing"],
+      "usedBy": [
+        { "site": "intercom.com", "url": "https://www.intercom.com/pricing", "note": "Outcome-based $0.99/resolution as the anchor metric across all tiers; seats secondary" },
+        { "site": "monday.com", "url": "https://monday.com/pricing", "note": "Seat slider with live per-seat math; AI credits itemized as a second consumption axis" },
+        { "site": "asana.com", "url": "https://asana.com/pricing", "note": "Add-on products as expandable cards under the tier row; two enterprise tiers" },
+        { "site": "clickup.com", "url": "https://clickup.com/pricing", "note": "Separate AI pricing block beside seat tiers + 'Super Fair Billing' transparency" },
+        { "site": "notion.com", "url": "https://www.notion.com/pricing", "note": "AI credits add-on ($10/1,000) separated from seat tiers" },
+        { "site": "lindy.ai", "url": "https://www.lindy.ai", "note": "Tiers shown on the homepage itself, anchored against a human assistant's salary" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "headlineAccent", "type": "string", "doc": "substring of headline rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "plans", "type": "Array<{name, price, period?, badge?, description?, features, ctaLabel}>", "doc": "price is a display string ('$199' or 'Custom'); a plan with a badge — or the only plan — gets the highlighted treatment and the primary CTA" },
+        { "name": "enterpriseNote", "type": "string", "doc": "text of the enterprise strip under the grid; empty string hides the strip" },
+        { "name": "enterpriseCta", "type": "string" },
+        { "name": "footnote", "type": "string", "doc": "small muted terms line under everything; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "three-tier", "name": "Three tiers", "props": {} },
+        {
+          "id": "two-plus-enterprise",
+          "name": "Two plans + enterprise",
+          "props": {
+            "plans": [
+              {
+                "name": "Growth", "price": "$499", "period": "/month", "badge": "Most popular",
+                "description": "For teams that want recommendations and the hands to act on them.",
+                "features": ["8 users", "500 AI chat queries a month", "Full chat access with write-back", "Full spend mix simulation", "Custom integration requests, 2-week SLA", "Priority support plus onboarding"],
+                "ctaLabel": "Choose Growth"
+              },
+              {
+                "name": "Max", "price": "$999", "period": "/month",
+                "description": "For leaders running the whole function through Alfred.",
+                "features": ["25 users", "800 AI chat queries a month", "Scheduled reports", "Audit logs and role-based access", "Enterprise integrations plus custom, 1-week SLA", "Dedicated support"],
+                "ctaLabel": "Go Max"
+              },
+              {
+                "name": "Enterprise", "price": "Custom", "period": "",
+                "description": "Fully tailored: pricing, features, users, and integrations.",
+                "features": ["Unlimited users", "Custom AI volume", "SSO and advanced security", "Volume discounts available"],
+                "ctaLabel": "Talk to sales"
+              }
+            ],
+            "enterpriseNote": ""
+          }
+        },
+        {
+          "id": "single",
+          "name": "Single plan",
+          "props": {
+            "headline": "One plan, everything I do",
+            "sub": "Growth covers the full working loop: brief, flags, answers, and write-back on your approval. Launch offer: 50% off your first two months.",
+            "plans": [
+              {
+                "name": "Growth", "price": "$499", "period": "/month",
+                "description": "For teams that want recommendations and the hands to act on them.",
+                "features": ["8 users", "500 AI chat queries a month", "Full chat access with write-back", "Full spend mix simulation", "CMO overview and campaign health KPIs", "Custom integration requests, 2-week SLA", "Priority support plus onboarding"],
+                "ctaLabel": "Choose Growth"
+              }
+            ],
+            "enterpriseNote": "Need more seats, custom AI volume, or SSO? Enterprise is fully tailored."
+          }
+        }
+      ]
+    },
+    {
+      "id": "enterprise-band",
+      "global": "LibEnterpriseBand2",
+      "file": "library/sections/pricing.js",
+      "name": "Enterprise band",
+      "tier": 2,
+      "description": "Full-width tailored-enterprise panel to sit under the tier grid: one soft periwinkle glow, security and compliance chips (SSO, roles, audit, residency), dedicated-support and rollout proof rows, and a talk-to-sales CTA. Use when enterprise is a note under the tiers rather than its own plan column.",
+      "pageTypes": ["pricing", "landing"],
+      "usedBy": [
+        { "site": "intercom.com", "url": "https://www.intercom.com/pricing", "note": "Enterprise pitch kept as a band under the outcome-priced tiers" },
+        { "site": "monday.com", "url": "https://monday.com/pricing", "note": "Enterprise row under the seat-slider tiers with security and scale proof" },
+        { "site": "asana.com", "url": "https://asana.com/pricing", "note": "Enterprise tiers separated from the core row, sold on admin and security" },
+        { "site": "notion.com", "url": "https://www.notion.com/pricing", "note": "Enterprise band leads with SSO, audit and admin controls beneath the tiers" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "chips", "type": "string[]", "doc": "security/compliance chip labels; empty array hides the row" },
+        { "name": "items", "type": "Array<{icon?, title, detail}>", "doc": "proof rows on the right; icon is one of 'support' | 'rollout' | 'volume' | 'discount' | 'shield' (defaults to shield)" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string", "doc": "empty string hides the ghost CTA" },
+        { "name": "finePrint", "type": "string", "doc": "small muted line under the CTAs; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}
