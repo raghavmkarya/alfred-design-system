@@ -27,6 +27,12 @@
      display size for marketing-hero statements only — one per page, Clash
      Display, line-height 1.0, tracking -0.02em. Never in the product app. */
   --text-poster: clamp(56px, 9vw, 140px);
+  /* The poster register keeps Clash Display EVERYWHERE, deliberately
+     including marketing dark: the [data-theme="dark"] block below swaps
+     --font-display to Satoshi to match the live site's regular headlines,
+     which silently de-fanged the one poster statement a page is allowed.
+     A poster that renders in the body face is not a poster. */
+  --font-poster: "Clash Display", "Satoshi", ui-sans-serif, system-ui, sans-serif;
   --text-display-2xl: 96px;  /* hero / cover */
   --text-display-xl: 72px;
   --text-display-lg: 56px;
