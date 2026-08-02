@@ -31,6 +31,21 @@ const CHARTS = [
   ["Sparkline", { points: [12, 18, 15, 24] }],
 ];
 
+/* The non-chart tail of the 320px sweep. Five of these six were reported as
+   spilling by a sweep driven through the playground and are NOT bugs: the
+   canvas is a flex container, and `Drawer` and `Popover` are absolutely
+   positioned, so a canvas-pinned measurement is simply the wrong ruler for
+   them. They are here to keep that judgement honest — if any of them ever does
+   scroll a real 320px page, this says so. Only `DateRangePicker` was real. */
+const TAIL = [
+  ["DateRangePicker", {}],
+  ["Drawer", { open: true, title: "Filters", children: "x" }],
+  ["Popover", { open: true, content: "x", children: "trigger" }],
+  ["TeamMemberRow", { name: "Ada Lovelace", email: "ada@example.com", role: "Admin" }],
+  ["PromptSuggestions", { suggestions: ["Where should I move budget?", "Why did CPA rise?"] }],
+  ["SeekComposer", { suggestions: ["Where should I move budget?"] }],
+];
+
 /* Renders ONE component alone on an otherwise empty 320px page and reports the
    document's own overflow. Alone is the point: a shared page lets one wide
    sibling mask or manufacture a result. */
@@ -50,6 +65,15 @@ async function soloOverflow(page, name, props) {
 }
 
 for (const [name, props] of CHARTS) {
+  test(`${name} reflows to 320px without a second scroll axis`, async ({ page }) => {
+    await page.goto("/tests/harness.html");
+    await page.waitForSelector("body[data-ready='1']", { timeout: 15000 });
+    const r = await soloOverflow(page, name, props);
+    expect(r.scroll).toBeLessThanOrEqual(r.client);
+  });
+}
+
+for (const [name, props] of TAIL) {
   test(`${name} reflows to 320px without a second scroll axis`, async ({ page }) => {
     await page.goto("/tests/harness.html");
     await page.waitForSelector("body[data-ready='1']", { timeout: 15000 });
