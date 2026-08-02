@@ -25,7 +25,9 @@ import path from "node:path";
 import vm from "node:vm";
 
 const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
-const KITS = path.join(ROOT, "ui_kits");
+/* ui_kits was the original surface; library/ (the inspiration pattern library)
+   follows the same committed-twin contract. */
+const KIT_ROOTS = ["ui_kits", "library"].map((d) => path.join(ROOT, d));
 const CHECK = process.argv.includes("--check");
 
 const babelSrc = fs.readFileSync(path.join(ROOT, "node_modules/@babel/standalone/babel.min.js"), "utf8");
@@ -38,9 +40,11 @@ const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) =
   return e.isDirectory() ? walk(p) : p.endsWith(".jsx") ? [p] : [];
 });
 
+const sources = () => KIT_ROOTS.filter(fs.existsSync).flatMap(walk).sort();
+
 const stale = [];
 let written = 0;
-for (const jsx of walk(KITS).sort()) {
+for (const jsx of sources()) {
   const rel = path.relative(ROOT, jsx).split(path.sep).join("/");
   const out = jsx.replace(/\.jsx$/, ".js");
   const src = fs.readFileSync(jsx, "utf8");
@@ -84,5 +88,5 @@ if (CHECK) {
   }
   console.log("OK   kits        — every compiled kit file matches a clean rebuild");
 } else {
-  console.log(`Compiled ${written} kit file(s) changed of ${walk(KITS).length} total.`);
+  console.log(`Compiled ${written} kit file(s) changed of ${sources().length} total.`);
 }

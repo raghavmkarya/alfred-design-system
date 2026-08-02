@@ -23,6 +23,11 @@ const ROOT = new URL("..", import.meta.url).pathname;
 const SKIP_DIRS = new Set(["scripts", "uploads", "node_modules", ".git", ".design-sync", ".design_sync", "mocks", "dist", "test-results", "playwright-report"]);
 const EXTS = new Set([".html", ".css", ".jsx"]);
 
+/* Generated snapshots of already-linted sources: SSR renders of the library
+   sections (their .jsx IS scanned) — re-linting the serialized inline styles
+   of bundle components would re-report code that lives in components/. */
+const SKIP_PATHS = ["library/export"];
+
 /* Files where raw ramp tokens are a legitimate, reviewed brand device — gradient <stop>s that
    render the brand gradient in SVG, the sequential heat scale, and the fake dark DashboardMock
    device frame (must NOT re-theme with the host page). Everywhere else in components/ the
@@ -46,6 +51,7 @@ function walk(dir, out = []) {
     const top = rel.split(path.sep)[0];
     if (fs.statSync(full).isDirectory()) {
       if (SKIP_DIRS.has(name) || SKIP_DIRS.has(top)) continue;
+      if (SKIP_PATHS.includes(rel.split(path.sep).join("/"))) continue;
       walk(full, out);
     } else if (EXTS.has(path.extname(name))) {
       out.push(rel);

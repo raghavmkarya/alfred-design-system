@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred AI — Inspiration Library</title>
+<link rel="icon" href="../assets/logos/alfred-favicon-black.svg" />
+<link rel="stylesheet" href="../styles.css" />
+<!-- Vendored React (shared with the UI kits and the playground), no CDN.
+     Authored in plain React.createElement, so no Babel and no build step:
+     the app is a committed static artifact like the playground. -->
+<script src="../vendor/react-18.3.1.production.min.js"></script>
+<script src="../vendor/react-dom-18.3.1.production.min.js"></script>
+<link rel="stylesheet" href="library.css" />
+</head>
+<body>
+<div id="root"></div>
+<noscript>
+  <p style="font-family: var(--font-sans); padding: 40px;">
+    The library renders live section previews, so it needs JavaScript. The
+    static exports in <code>library/export/</code> do not.
+  </p>
+</noscript>
+<script src="app.js"></script>
+</body>
+</html>
