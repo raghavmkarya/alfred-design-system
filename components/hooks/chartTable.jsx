@@ -22,6 +22,20 @@ import React from "react";
  * Internal: lives under components/hooks/ so the bundle keeps it off the public
  * namespace, the same way usePress is internal.
  */
+/* This style goes on a wrapping DIV, never on the <table> — see the render
+   below. Under the default `auto` algorithm a table box IGNORES any width below
+   its min-content width, and `overflow` does not clip a table, so `width: 1px`
+   left it laid out at its natural ~390px. `clip` suppresses PAINTING, not
+   layout, and an absolutely positioned box still contributes to its containing
+   block's scrollable overflow: one chart alone on a 320px page made the
+   document 389px wide, sixty-nine pixels of horizontal scroll from an element
+   that paints nothing.
+
+   `tableLayout: "fixed"` is NOT enough on its own — it binds the declared width
+   for the table grid, but a <caption> sits outside that grid and its nowrap
+   text still pushes the wrapper box wide. A block container is the only place
+   `width: 1px` + `overflow: hidden` clips the whole thing.
+   See guidelines/reflow.md. */
 const HIDDEN = {
   position: "absolute",
   width: 1,
@@ -36,8 +50,15 @@ const HIDDEN = {
 
 export function ChartTable({ caption, columns = [], rows = [] }) {
   if (!rows.length || !columns.length) return null;
+  /* The wrapper is a REAL element in every chart's DOM, so a chart that renders
+     <ChartTable> before its visual content shifts every positional selector
+     under its root by one. BulletChart did, and its first row moved from
+     `> div` nth(0) to nth(1). Render it AFTER the graphic: the reading order is
+     better that way round anyway, since the table restates what the chart
+     already showed. */
   return (
-    <table style={HIDDEN}>
+    <div style={HIDDEN}>
+    <table>
       <caption>{caption}</caption>
       <thead>
         <tr>{columns.map((c, i) => <th key={i} scope="col">{c}</th>)}</tr>
@@ -54,5 +75,6 @@ export function ChartTable({ caption, columns = [], rows = [] }) {
         ))}
       </tbody>
     </table>
+    </div>
   );
 }

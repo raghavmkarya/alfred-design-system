@@ -7,7 +7,7 @@ import React from "react";
  */
 export function StatBand({ stats = [], gradient = true, style = {} }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length}, 1fr)`, gap: 24, ...style }}>
+    <div style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))`, gap: 24, ...style }}>
       {stats.map((s, i) => (
         <div key={i} style={{ display: "flex", flexDirection: "column", gap: 8, textAlign: "center" }}>
           <span style={{

@@ -8,7 +8,7 @@ import React from "react";
  */
 export function StepFlow({ steps = [], style = {} }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: `repeat(${steps.length}, 1fr)`, gap: 0, ...style }}>
+    <div style={{ display: "grid", gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))`, gap: 0, ...style }}>
       {steps.map((s, i) => (
         <div key={i} style={{ position: "relative", padding: "0 22px", display: "flex", flexDirection: "column", gap: 12 }}>
           {/* connector rail */}

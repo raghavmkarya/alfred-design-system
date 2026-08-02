@@ -68,12 +68,6 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
       style={{ display: "flex", flexDirection: "column", gap: 16, width: "100%", ...CHART_FOCUS_STYLE, ...style }}
     >
       <ChartLive text={cursor.keyboard && at != null ? describe(at) : ""} />
-      <ChartTable caption="Bullet chart" columns={["Measure", "Value", "Target"]}
-        rows={items.map((it) => [
-          String(it.label ?? ""),
-          String(it.value ?? ""),
-          typeof it.target === "number" ? String(it.target) : "—",
-        ])} />
       {items.map((it, i) => {
         const { value, target, top } = scaleOf(it);
         const ranges = Array.isArray(it.ranges) ? it.ranges : [];
@@ -214,6 +208,15 @@ export function BulletChart({ items = [], valueFormat, style = {} }) {
           </div>
         );
       })}
+      {/* after the rows, not before: ChartTable's clipping wrapper is a real
+          element, so rendering it first shifted every positional selector under
+          this root by one. Reading order is better this way round regardless. */}
+      <ChartTable caption="Bullet chart" columns={["Measure", "Value", "Target"]}
+        rows={items.map((it) => [
+          String(it.label ?? ""),
+          String(it.value ?? ""),
+          typeof it.target === "number" ? String(it.target) : "—",
+        ])} />
     </div>
   );
 }

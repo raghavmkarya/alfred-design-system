@@ -17,7 +17,10 @@ export function Stepper({ steps = [], current = 0, style = {} }) {
           <React.Fragment key={i}>
             <div role="listitem" aria-current={active ? "step" : undefined}
               aria-label={`Step ${i + 1}: ${s.label}, ${state}`}
-              style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, flex: "none", width: 120 }}>
+              // `0 1 120px` not `none` + `width: 120`: three fixed 120px steps
+              // are 360px and cannot fit a 320px viewport. With spare room the
+              // basis still wins, so nothing moves at desktop widths.
+              style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, flex: "0 1 120px", minWidth: 0 }}>
               <div style={{
                 width: 32, height: 32, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
                 background: done ? "var(--accent)" : active ? "var(--accent-soft)" : "transparent",

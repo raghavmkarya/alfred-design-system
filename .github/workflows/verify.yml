@@ -93,6 +93,12 @@ jobs:
       # longer match its API throws here and nowhere else.
       - name: Playwright playground tests
         run: npx playwright test --project=playground
+      # WCAG 1.4.10 reflow at a 320px CSS viewport. Every other project pins
+      # 1240px, so until this existed the whole suite could only ever see one
+      # width — and a visually-hidden chart table was adding 69px of horizontal
+      # page scroll behind all of them.
+      - name: Playwright reflow (320px) tests
+        run: npx playwright test --project=reflow
 
   # Tri-theme visual regression (light / app-dark / marketing-dark) — the harness
   # that caught the marketing-dark Banner bug, now a standing gate. Runs in the

@@ -57,6 +57,11 @@ So every `role="img"` chart also renders a **visually-hidden `<table>`** of its 
 internal `ChartTable` primitive: a `<caption>` (the chart's own summary), `<th scope="col">` headers
 and `<th scope="row">` row labels.
 
+- **The hidden style goes on a wrapping `<div>`, never on the `<table>`.** A table box ignores a
+  width below its min-content width and `overflow` does not clip it, so `width: 1px` on the table
+  itself left it laid out at ~390px — and, being absolutely positioned, it contributed all of that to
+  the page's scrollable overflow. One chart on a 320px page made the document **389px** wide. See
+  [`reflow.md`](./reflow.md).
 - **Visually hidden, not toggleable.** It changes nothing on screen, so it needs no per-chart layout
   decision and cannot move a visual baseline.
 - **Clip-rect, not `display: none`.** The latter removes the table from the accessibility tree, which

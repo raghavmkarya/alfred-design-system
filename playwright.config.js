@@ -31,6 +31,9 @@ export default defineConfig({
     { name: "forced-colors", testMatch: /forced-colors\.spec\.js/, use: { ...devices["Desktop Chrome"], forcedColors: "active" } },
     // playground: boots the live docs page and clicks through all 115 components
     { name: "playground", testMatch: /playground\.spec\.js/, use: { ...devices["Desktop Chrome"] } },
+    // reflow: WCAG 1.4.10 at a 320px CSS viewport. Every other project pins
+    // 1240px, so until this existed the suite could only ever see one width.
+    { name: "reflow", testMatch: /reflow\.spec\.js/, use: { ...devices["Desktop Chrome"], viewport: { width: 320, height: 720 } } },
   ],
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.02, animations: "disabled" } },
 });

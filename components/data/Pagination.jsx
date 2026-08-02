@@ -26,8 +26,10 @@ export function Pagination({ page = 1, pageCount = 1, onChange, style = {} }) {
         display: "inline-flex", alignItems: "center", justifyContent: "center",
       }}>{content}</button>
   );
+  // wraps: a windowed pager is prev + up to seven stops + next, and eight 34px
+  // controls with gaps do not fit a 320px viewport
   return (
-    <nav aria-label="Pagination" style={{ display: "flex", alignItems: "center", gap: 6, ...style }}>
+    <nav aria-label="Pagination" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, ...style }}>
       {cell(chev("M15 6l-6 6 6 6"), { key: "prev", disabled: page <= 1, onClick: () => go(page - 1), label: "Previous page" })}
       {nums.map((n, i) => n === "…"
         ? <span key={"e" + i} aria-hidden="true" style={{ padding: "0 4px", color: "var(--text-muted)" }}>…</span>
