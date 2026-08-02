@@ -26,6 +26,11 @@ export function FilterBar({ filters = [], onChange, right, style = {} }) {
     color: "var(--text-muted)",
     whiteSpace: "nowrap",
     flex: "none",
+    // the label is the caller's; nowrap without a cap makes its length the
+    // component's minimum width
+    maxWidth: 180,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   };
 
   const renderControl = (f) => {

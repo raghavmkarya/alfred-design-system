@@ -59,6 +59,38 @@ before a chart's visual content shifted every `> div` index under that root by o
 table *after* the graphic: the reading order is better that way round anyway, since the table
 restates what the chart already showed.
 
+## Long strings are the same bug from the other side
+
+Every fixture in this system is short English. Real copy is not: German UI text runs about **35%
+longer**, and a single unbreakable token — a compound noun, a URL, an account ID, a file name — has
+no break opportunity at all.
+
+**The failure mode is not overflow. It is oversizing.** A flex item's automatic minimum size is its
+min-content size, so a component holding an unbreakable word does not spill its box: the box *grows*,
+and takes the row with it. That is the same `min-width: auto` floor as the `1fr` case above, and it
+is why the global `overflow-wrap: break-word` in `tokens/base.css` fixed **none** of the failures on
+its own. Nothing was overflowing. The container has to be allowed to shrink first; only then does
+breaking or truncating have anything to act on.
+
+**`white-space: nowrap` on a caller's string is the specific mistake.** A component cannot know how
+long a prop is, so `nowrap` there makes the caller's string the component's minimum width. It is only
+safe paired with a cap and an ellipsis:
+
+```jsx
+whiteSpace: "nowrap", maxWidth: "100%", overflow: "hidden", textOverflow: "ellipsis"
+```
+
+`nowrap` on text the component *authors* — a "/" separator, a unit, a tabular number — is fine.
+
+`tests/strings.spec.js` renders each component with a 55-character unbreakable word in a plain 360px
+block container and asserts nothing leaves the box.
+
+**Test in a BLOCK container, not the playground canvas.** The canvas is a flex container, and a flex
+item's `min-width: auto` floor beats its own `max-width: 100%`, so a sweep there reports failures no
+ordinary page would ever see. `PageHeader`, `DateRangePicker`, `AlfredMessage` and `ReasoningState`
+all looked broken there and are all completely fine. Sweeping the canvas said 27 of 117 were
+affected; the block container said **five**.
+
 ## What is exempt
 
 WCAG 1.4.10 exempts content that requires two-dimensional layout — **data tables** among them. That

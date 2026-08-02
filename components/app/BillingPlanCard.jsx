@@ -102,7 +102,9 @@ export function BillingPlanCard({
             {price}
           </span>
           {period ? (
-            <span style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)", whiteSpace: "nowrap" }}>{period}</span>
+            // `period` is the caller's; nowrap inside a `flex: none` group made
+            // its length the card's floor
+            <span style={{ fontSize: "var(--text-xs)", color: "var(--text-muted)", whiteSpace: "nowrap", maxWidth: 120, overflow: "hidden", textOverflow: "ellipsis" }}>{period}</span>
           ) : null}
         </span>
       </div>

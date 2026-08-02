@@ -122,7 +122,12 @@ export function AuditLogRow({
                   fontSize: "var(--text-xs)",
                   fontWeight: "var(--fw-semibold)",
                   color: "var(--text-primary)",
+                  // the target chip carries a caller string; nowrap alone made
+                  // its length the row's minimum width
                   whiteSpace: "nowrap",
+                  maxWidth: "100%",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
                   verticalAlign: "baseline",
                 }}
               >
