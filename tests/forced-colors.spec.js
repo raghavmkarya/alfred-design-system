@@ -5,62 +5,86 @@ import { test, expect } from "@playwright/test";
    The bug this suite exists to catch: HCM flattens every author background to
    Canvas, so anything that conveyed meaning through a FILL — selection, elevation,
    a focus ring drawn as a box-shadow — silently disappears. */
-test.beforeEach(async ({ page }) => {
-  await page.emulateMedia({ forcedColors: "active" });
-  await page.goto("/tests/harness.html");
-  await page.waitForSelector("body[data-ready='1']", { timeout: 15000 });
-  // guard the guard: if emulation ever stops applying, every assertion below
-  // would pass vacuously against ordinary light-theme colors.
-  expect(await page.evaluate(() => matchMedia("(forced-colors: active)").matches)).toBe(true);
-});
+/* Run on ALL THREE themes, not just the default light one.
+   `tokens/forced-colors.css` carries no `[data-theme]` selector, so the
+   expectation is that HCM behaves identically whichever theme is underneath —
+   but that was an assumption nobody had ever executed, and the components
+   beneath it set colours inline and per theme. Parameterising costs one loop
+   and turns the assumption into a result. */
+const THEMES = ["light", "app-dark", "dark"];
 
 const styleOf = (page, sel, prop) =>
   page.locator(sel).first().evaluate((el, p) => getComputedStyle(el)[p], prop);
 
-test("selection survives: a checked segment is not identical to an unchecked one", async ({ page }) => {
-  // before Phase 2.4 both rendered white-on-black and the state was simply gone
-  const onSel = "[data-testid='seg'] [role='radio'][aria-checked='true']";
-  const offSel = "[data-testid='seg'] [role='radio'][aria-checked='false']";
-  expect(await styleOf(page, onSel, "backgroundColor")).not.toBe(await styleOf(page, offSel, "backgroundColor"));
-  expect(await styleOf(page, onSel, "color")).not.toBe(await styleOf(page, offSel, "color"));
-});
-
-test("selection survives: a selected tab is not identical to an unselected one", async ({ page }) => {
-  const on = await styleOf(page, "[data-testid='hcm-tabs'] [role='tab'][aria-selected='true']", "backgroundColor");
-  const off = await styleOf(page, "[data-testid='hcm-tabs'] [role='tab'][aria-selected='false']", "backgroundColor");
-  expect(on).not.toBe(off);
-});
-
-test("the selected item's label follows it onto the highlight", async ({ page }) => {
-  // a descendant keeping CanvasText would vanish into the Highlight fill
-  const colors = await page.locator("[data-testid='seg'] [role='radio'][aria-checked='true']").first()
-    .evaluate((el) => ({
-      own: getComputedStyle(el).color,
-      kids: [...el.querySelectorAll("*")].map((k) => getComputedStyle(k).color),
-    }));
-  for (const k of colors.kids) expect(k).toBe(colors.own);
-});
-
-test("focus ring survives, even where it is drawn as a box-shadow", async ({ page }) => {
-  // HCM drops box-shadows; the baseline restores a real outline with !important
-  const input = page.locator("[data-testid='density-comfortable'] input").first();
-  await input.focus();
-  const outline = await input.evaluate((el) => {
-    const cs = getComputedStyle(el);
-    return { width: cs.outlineWidth, style: cs.outlineStyle };
+for (const theme of THEMES) {
+  test.describe(`forced-colors on ${theme}`, () => {
+  /* `theme` is closed over per iteration, NOT read from a mutable module-level
+     variable set in beforeAll. With `fullyParallel`, one worker can interleave
+     tests from two describes, and a shared variable would silently make this
+     the same theme three times — a parameterisation that reports 15 results and
+     proves 5. */
+  test.beforeEach(async ({ page }) => {
+    await page.emulateMedia({ forcedColors: "active" });
+    await page.goto("/tests/harness.html");
+    await page.waitForSelector("body[data-ready='1']", { timeout: 15000 });
+    // The HCM probe section carries no theme of its own, so the root value
+    // cascades into it. Light is the absence of the attribute, as elsewhere.
+    await page.evaluate((t) => {
+      if (t === "light") delete document.documentElement.dataset.theme;
+      else document.documentElement.dataset.theme = t;
+    }, theme);
+    // guard the guard, twice over: if emulation ever stops applying, every
+    // assertion below passes vacuously against ordinary colors — and if the
+    // theme fails to apply, two thirds of these tests are duplicates.
+    expect(await page.evaluate(() => matchMedia("(forced-colors: active)").matches)).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.dataset.theme || "light")).toBe(theme);
   });
-  expect(outline.style).not.toBe("none");
-  expect(parseFloat(outline.width)).toBeGreaterThan(0);
-});
+  test("selection survives: a checked segment is not identical to an unchecked one", async ({ page }) => {
+    // before Phase 2.4 both rendered white-on-black and the state was simply gone
+    const onSel = "[data-testid='seg'] [role='radio'][aria-checked='true']";
+    const offSel = "[data-testid='seg'] [role='radio'][aria-checked='false']";
+    expect(await styleOf(page, onSel, "backgroundColor")).not.toBe(await styleOf(page, offSel, "backgroundColor"));
+    expect(await styleOf(page, onSel, "color")).not.toBe(await styleOf(page, offSel, "color"));
+  });
 
-test("chart colour is preserved so series stay distinguishable", async ({ page }) => {
-  // forcing the palette would collapse every series to one CanvasText silhouette.
-  // Defensible only because every chart also carries a text alternative (PR #40).
-  expect(await styleOf(page, "[data-testid='hcm-chart'] svg", "forcedColorAdjust")).toBe("none");
-  // the text alternative sits on whichever element carries the chart's semantics:
-  // role="img" on a static chart, or the focusable role="group" once it is
-  // interactive (Phase 4.4). Assert it exists, not where it happens to live.
-  const named = page.locator("[data-testid='hcm-chart'] [role='img'][aria-label], [data-testid='hcm-chart'] [role='group'][aria-label]");
-  expect(await named.count()).toBeGreaterThan(0);
-  expect(await named.first().getAttribute("aria-label")).toBeTruthy();
-});
+  test("selection survives: a selected tab is not identical to an unselected one", async ({ page }) => {
+    const on = await styleOf(page, "[data-testid='hcm-tabs'] [role='tab'][aria-selected='true']", "backgroundColor");
+    const off = await styleOf(page, "[data-testid='hcm-tabs'] [role='tab'][aria-selected='false']", "backgroundColor");
+    expect(on).not.toBe(off);
+  });
+
+  test("the selected item's label follows it onto the highlight", async ({ page }) => {
+    // a descendant keeping CanvasText would vanish into the Highlight fill
+    const colors = await page.locator("[data-testid='seg'] [role='radio'][aria-checked='true']").first()
+      .evaluate((el) => ({
+        own: getComputedStyle(el).color,
+        kids: [...el.querySelectorAll("*")].map((k) => getComputedStyle(k).color),
+      }));
+    for (const k of colors.kids) expect(k).toBe(colors.own);
+  });
+
+  test("focus ring survives, even where it is drawn as a box-shadow", async ({ page }) => {
+    // HCM drops box-shadows; the baseline restores a real outline with !important
+    const input = page.locator("[data-testid='density-comfortable'] input").first();
+    await input.focus();
+    const outline = await input.evaluate((el) => {
+      const cs = getComputedStyle(el);
+      return { width: cs.outlineWidth, style: cs.outlineStyle };
+    });
+    expect(outline.style).not.toBe("none");
+    expect(parseFloat(outline.width)).toBeGreaterThan(0);
+  });
+
+  test("chart colour is preserved so series stay distinguishable", async ({ page }) => {
+    // forcing the palette would collapse every series to one CanvasText silhouette.
+    // Defensible only because every chart also carries a text alternative (PR #40).
+    expect(await styleOf(page, "[data-testid='hcm-chart'] svg", "forcedColorAdjust")).toBe("none");
+    // the text alternative sits on whichever element carries the chart's semantics:
+    // role="img" on a static chart, or the focusable role="group" once it is
+    // interactive (Phase 4.4). Assert it exists, not where it happens to live.
+    const named = page.locator("[data-testid='hcm-chart'] [role='img'][aria-label], [data-testid='hcm-chart'] [role='group'][aria-label]");
+    expect(await named.count()).toBeGreaterThan(0);
+    expect(await named.first().getAttribute("aria-label")).toBeTruthy();
+  });
+  });
+}

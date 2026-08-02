@@ -54,4 +54,21 @@ Two more that a sweep reports and that are not violations:
 - **Range inputs** (`Slider`, `ScenarioSimulator`) report a 6px-tall box, but the target is the thumb
   and the UA hit-tests it with its own slop.
 
-Related: [`reflow.md`](./reflow.md) · [`craft-checklist.md`](./craft-checklist.md).
+## The other half of touch: hover parity
+
+A touch or keyboard user cannot hover. **Anything revealed by hover must also be revealed by focus**
+(WCAG 2.1.1 Keyboard, 1.4.13 Content on Hover or Focus).
+
+This system already does it: `Tooltip` pairs `onMouseEnter` with `onFocus`, no component gates
+rendered content behind a hover-only state (the ~23 `onMouseEnter` handlers all set *styling* state,
+which is decorative and correctly ignored on touch), and every chart cursor has a documented keyboard
+model.
+
+It was true by care and guarded by nothing. `Tooltip` had **no test coverage at all** — not in any
+spec, not in `verify-a11y` — so its `onFocus` could have been dropped in a refactor with every gate
+still green. `tests/pointer-parity.spec.js` now holds it: focus reveals the tip, `aria-describedby`
+resolves to a real element, and blur closes it so it cannot strand on screen after tabbing away.
+Removing `onFocus` fails all three.
+
+Related: [`reflow.md`](./reflow.md) · [`craft-checklist.md`](./craft-checklist.md) ·
+[`forced-colors.md`](./forced-colors.md).
