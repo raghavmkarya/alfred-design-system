@@ -91,6 +91,13 @@
       "order": 13,
       "icon": "demo-play",
       "count": 4
+    },
+    {
+      "id": "fusion",
+      "name": "Fusion",
+      "order": 14,
+      "icon": "spark",
+      "count": 4
     }
   ],
   "sections": [
@@ -6600,6 +6607,257 @@
           "name": "With named quote",
           "props": {
             "variant": "with-quote"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion",
+      "id": "console-hero",
+      "global": "LibConsoleHero",
+      "file": "library/sections/fusion.js",
+      "name": "Console hero",
+      "tier": 1,
+      "description": "The terminal absorption executed on-brand: split hero with a Kbd-built keyboard hint on the left and a console evidence pane on the right, where Alfred works in prompt-prefixed mono lines under a phosphor-glow live dot. 12px-radius card, hairline border, blinking cursor. No window chrome, no scanlines, no green.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "hintKey",
+          "type": "string",
+          "doc": "the key cap inside the Kbd hint line"
+        },
+        {
+          "name": "hintAfter",
+          "type": "string",
+          "doc": "hint text after the key cap"
+        },
+        {
+          "name": "connected",
+          "type": "string[]",
+          "doc": "sources on the live connection line; null = the variant's default"
+        },
+        {
+          "name": "transcript",
+          "type": "Array<{verb, text}>",
+          "doc": "prompt-prefixed work lines; verbs checked/traced/flagged carry the orange/periwinkle semantics; null = the variant's default"
+        },
+        {
+          "name": "readyLine",
+          "type": "string",
+          "doc": "the closing brief-ready line the cursor blinks after; null = the variant's default"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'briefing'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Working session",
+          "props": {}
+        },
+        {
+          "id": "briefing",
+          "name": "Briefing transcript",
+          "props": {
+            "variant": "briefing"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion",
+      "id": "poster-hero",
+      "global": "LibPosterHero",
+      "file": "library/sections/fusion.js",
+      "name": "Poster hero",
+      "tier": 2,
+      "description": "The vivid absorption executed on-brand: a near-full-viewport statement hero with one poster-scale Clash headline (--text-poster, line-height 1.0) carrying exactly one gradient-filled word, spring-scaled primary CTA (--ease-spring, 1.03), and one ambient grain layer at 0.04. One poster statement per page.",
+      "pageTypes": [
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "the single gradient-filled word; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "marqueeItems",
+          "type": "string[]",
+          "doc": "with-marquee variant only: items in the ticker strip beneath"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'with-marquee'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Poster statement",
+          "props": {}
+        },
+        {
+          "id": "with-marquee",
+          "name": "With marquee strip",
+          "props": {
+            "variant": "with-marquee"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion",
+      "id": "marquee-divider",
+      "global": "LibMarqueeDivider",
+      "file": "library/sections/fusion.js",
+      "name": "Marquee divider",
+      "tier": 3,
+      "description": "Full-bleed ticker as a section divider: mono uppercase items separated by small diamond glyphs, looping on a duplicated aria-hidden row over --dur-marquee, static under prefers-reduced-motion. Monochrome ink on surface or periwinkle tint, never orange. Budget: one marquee per page.",
+      "pageTypes": [
+        "any"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "items",
+          "type": "string[]"
+        },
+        {
+          "name": "tone",
+          "type": "'ink' | 'periwinkle'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Ink on surface",
+          "props": {}
+        },
+        {
+          "id": "periwinkle",
+          "name": "Periwinkle tint",
+          "props": {
+            "tone": "periwinkle"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion",
+      "id": "instrument-stat-band",
+      "global": "LibInstrumentStatBand",
+      "file": "library/sections/fusion.js",
+      "name": "Instrument stat band",
+      "tier": 2,
+      "description": "Stat band wearing the instrument layer: Clash numerals over mono uppercase labels, mono corner metadata (last-synced stamp top-right, bracketed counts below), hairline column rules between stats. The live variant gives one value the phosphor glow and a live dot.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "leftMeta",
+          "type": "string",
+          "doc": "mono caps metadata, top-left corner"
+        },
+        {
+          "name": "rightMeta",
+          "type": "string",
+          "doc": "mono caps metadata, top-right corner (the last-synced stamp)"
+        },
+        {
+          "name": "counts",
+          "type": "string",
+          "doc": "bracketed counts line, bottom-left corner"
+        },
+        {
+          "name": "items",
+          "type": "Array<{value, label}>"
+        },
+        {
+          "name": "liveIndex",
+          "type": "number",
+          "doc": "live variant only: which value carries the phosphor glow"
+        },
+        {
+          "name": "liveLabel",
+          "type": "string"
+        },
+        {
+          "name": "footnote",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'live'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Instrument band",
+          "props": {}
+        },
+        {
+          "id": "live",
+          "name": "Live value",
+          "props": {
+            "variant": "live"
           }
         }
       ]

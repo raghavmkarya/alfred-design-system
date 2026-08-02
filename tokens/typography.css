@@ -7,7 +7,12 @@
   --font-display: "Clash Display", "Satoshi", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-accent: "Bricolage Grotesque", "Satoshi", ui-sans-serif, sans-serif;
-  --font-mono: "Satoshi", ui-monospace, "SF Mono", Menlo, monospace;
+  /* The instrument layer (absorbed from the terminal-dev style study): a TRUE
+     mono stack for metadata, evidence trails, keyboard hints, timestamps and
+     API surfaces. It used to alias Satoshi, which made the token a no-op; a
+     token named mono renders mono. Budget: labels and data only — never
+     headlines (Clash owns those) and never body (Satoshi owns that). */
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
 
   /* —— Weights ————————————————————————————————————— */
   --fw-light: 300;     /* @kind font */
@@ -18,6 +23,10 @@
   --fw-black: 900;     /* @kind font */
 
   /* —— Type scale (px) ————————————————————————————— */
+  /* Poster scale (absorbed from the vivid-maximalist style study): a fluid
+     display size for marketing-hero statements only — one per page, Clash
+     Display, line-height 1.0, tracking -0.02em. Never in the product app. */
+  --text-poster: clamp(56px, 9vw, 140px);
   --text-display-2xl: 96px;  /* hero / cover */
   --text-display-xl: 72px;
   --text-display-lg: 56px;

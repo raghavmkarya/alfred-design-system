@@ -42,6 +42,12 @@
   --elevation-floating: var(--shadow-md);  /* @kind shadow */
   --elevation-overlay: var(--shadow-lg);   /* @kind shadow */
   --elevation-modal: var(--shadow-xl);     /* @kind shadow */
+
+  /* Phosphor glow (absorbed from the terminal-dev style study): a warm
+     text-shadow for live/mono metadata on the DARK marketing theme — a status
+     dot, a blinking cursor, one live number. State, not elevation, like
+     --shadow-brand. Orange only; never green, never on light surfaces. */
+  --shadow-phosphor: 0 0 6px rgba(255, 132, 49, 0.35);  /* @kind shadow */
 }
 
 /* Re-declared per theme so each picks up its own `--shadow-*` ramp.
