@@ -1,0 +1,663 @@
+<!-- Style exploration: Swiss / brutalist. Off-system by design; compare at library/styles/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfred style lab — Swiss / brutalist</title>
+<style>
+  /* ============ FONTS (local only) ============ */
+  @font-face {
+    font-family: "Inter";
+    src: url("../../assets/fonts/Inter-400.woff2") format("woff2");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../../assets/fonts/Inter-500.woff2") format("woff2");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../../assets/fonts/Inter-600.woff2") format("woff2");
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../../assets/fonts/Inter-700.woff2") format("woff2");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  /* Alfred fonts, used ONLY in the "Adopting this" panel */
+  @font-face {
+    font-family: "Satoshi";
+    src: url("../../assets/fonts/Satoshi-Regular.woff2") format("woff2");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Satoshi";
+    src: url("../../assets/fonts/Satoshi-Medium.woff2") format("woff2");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Satoshi";
+    src: url("../../assets/fonts/Satoshi-Bold.woff2") format("woff2");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  /* ============ RESET ============ */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray: #B7B7B7;
+    --pink: #FF90E8;
+    --yellow: #FFC900;
+    --green: #23A094;
+    --blue: #90A8ED;
+    --sans: "Inter", "Helvetica Neue", Arial, system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  html { background: var(--white); }
+  body {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--black);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--black); color: var(--white); }
+
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
+
+  .mono {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* ============ THE SHEET (framed document) ============ */
+  .sheet {
+    max-width: 1216px;
+    margin: 0 auto;
+    border-left: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+    background: var(--white);
+  }
+
+  /* ============ TITLE BLOCK ============ */
+  .titleblock {
+    display: flex;
+    border-bottom: 1px solid var(--black);
+  }
+  .titleblock > div {
+    padding: 8px 16px;
+    border-right: 1px solid var(--black);
+    white-space: nowrap;
+  }
+  .titleblock > div:last-child { border-right: none; margin-left: auto; }
+  .titleblock .fill { flex: 1; border-right: 1px solid var(--black); color: var(--gray); overflow: hidden; }
+
+  /* ============ NAV ============ */
+  nav {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--black);
+  }
+  .wordmark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    border-right: 1px solid var(--black);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .wordmark .bug {
+    width: 14px; height: 14px;
+    background: var(--black);
+    display: inline-block;
+  }
+  .navlinks { display: flex; align-items: stretch; }
+  .navlinks a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 20px;
+    border-right: 1px solid var(--black);
+  }
+  .navlinks a .idx { color: var(--gray); }
+  .navlinks a:hover { background: var(--black); color: var(--white); }
+  .navlinks a:hover .idx { color: var(--white); }
+  .nav-cta {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    border-left: 1px solid var(--black);
+    background: var(--black);
+    color: var(--white);
+  }
+  .nav-cta:hover { background: var(--yellow); color: var(--black); }
+
+  /* ============ HERO ============ */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 336px;
+    border-bottom: 1px solid var(--black);
+  }
+  .hero-main { padding: 56px 40px 48px; }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow .sq { width: 8px; height: 8px; background: var(--black); }
+  .hero-eyebrow .dim { color: var(--gray); }
+  h1 {
+    font-size: 84px;
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    max-width: 12ch;
+    margin-bottom: 28px;
+  }
+  h1 .underl { box-shadow: inset 0 -6px 0 var(--yellow); }
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 54ch;
+    margin-bottom: 36px;
+  }
+  .cta-row { display: flex; gap: 16px; align-items: center; }
+  .btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border: 2px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary {
+    background: var(--pink);
+    box-shadow: 4px 4px 0 var(--black);
+  }
+  .btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--black);
+  }
+  .btn-secondary:hover { background: var(--black); color: var(--white); }
+
+  /* hero right instrument panel */
+  .hero-panel {
+    border-left: 1px solid var(--black);
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-panel .cell {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--black);
+  }
+  .hero-panel .cell:last-child { border-bottom: none; }
+  .hero-panel .kv {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+  }
+  .hero-panel .kv .k { color: var(--gray); }
+  .hero-hatch { flex: 1; min-height: 120px; padding: 0 !important; position: relative; }
+  .hero-hatch svg { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+  .hero-hatch .tag {
+    position: absolute;
+    bottom: 8px; left: 8px;
+    background: var(--white);
+    border: 1px solid var(--black);
+    padding: 3px 8px;
+  }
+  .status-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--green);
+    border: 1px solid var(--black);
+    margin-right: 6px;
+  }
+
+  /* metadata band under hero */
+  .meta-band {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--black);
+  }
+  .meta-band > span {
+    padding: 8px 16px;
+    border-right: 1px solid var(--black);
+  }
+  .meta-band > span:last-child { border-right: none; }
+  .meta-band .spacer { flex: 1; border-right: none; }
+
+  /* ============ STATS ============ */
+  .stats-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--black);
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--black);
+  }
+  .stat {
+    padding: 28px 24px 24px;
+    border-right: 1px solid var(--black);
+    position: relative;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .fig {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+  .stat .value {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .stat .value sup { font-size: 28px; vertical-align: 26px; letter-spacing: 0; }
+  .stat .label { font-size: 15px; font-weight: 500; }
+  .stat-a { background: var(--yellow); }
+  .stat-b { background: var(--pink); }
+  .stat-c { background: var(--blue); }
+
+  /* ============ FEATURE ============ */
+  .feature {
+    display: grid;
+    grid-template-columns: 336px 1fr;
+    border-bottom: 1px solid var(--black);
+  }
+  .feature-index {
+    border-right: 1px solid var(--black);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .feature-index .row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 8px;
+  }
+  .feature-index .row .k { color: var(--gray); }
+  .feature-body { padding: 40px; }
+  .feature-card {
+    max-width: 720px;
+    border: 2px solid var(--black);
+    background: var(--white);
+    box-shadow: 6px 6px 0 var(--black);
+  }
+  .feature-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--black);
+  }
+  .feature-card .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--black);
+    padding: 10px 16px;
+  }
+  .feature-card .card-head .badge {
+    background: var(--green);
+    border: 1px solid var(--black);
+    padding: 3px 8px;
+  }
+  .feature-card h2 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    padding: 20px 20px 0;
+  }
+  .feature-card p {
+    padding: 12px 20px 20px;
+    max-width: 52ch;
+    font-size: 15px;
+  }
+  .feature-card table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid var(--black);
+  }
+  .feature-card th, .feature-card td {
+    text-align: left;
+    padding: 9px 16px;
+    border-bottom: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+    font-size: 13px;
+  }
+  .feature-card th:last-child, .feature-card td:last-child { border-right: none; }
+  .feature-card tr:last-child td { border-bottom: none; }
+  .feature-card th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--black);
+    background: #F0F0F0;
+  }
+  .feature-card td .tick { font-family: var(--mono); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer .foot-cell {
+    padding: 14px 20px;
+    border-right: 1px solid var(--white);
+  }
+  footer .foot-cell:last-child { border-right: none; border-left: 1px solid var(--white); }
+  footer .spacer { flex: 1; }
+  footer a { box-shadow: inset 0 -1px 0 var(--white); }
+  footer a:hover { background: var(--white); color: var(--black); }
+
+  /* ============ ADOPTING THIS (plain Alfred styling, deliberately off-style) ============ */
+  .adopting-zone {
+    background: #F4F4F8;
+    padding: 72px 32px 88px;
+    font-family: "Satoshi", system-ui, sans-serif;
+    color: #02021E;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .adopting-card {
+    max-width: 880px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(2, 2, 30, 0.08);
+    padding: 48px 52px 52px;
+  }
+  .adopting-card .kicker {
+    font-family: "Satoshi", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FF8431;
+    margin-bottom: 12px;
+  }
+  .adopting-card h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .adopting-card .lede {
+    font-size: 16px;
+    color: rgba(2, 2, 30, 0.7);
+    max-width: 62ch;
+    margin-bottom: 32px;
+  }
+  .adopting-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+  }
+  .adopting-card ul { list-style: none; }
+  .adopting-card li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(2, 2, 30, 0.85);
+  }
+  .adopting-card li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #FF8431;
+  }
+  .adopting-card .clashes li::before { background: #A7A7FC; }
+  .adopting-card code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    background: rgba(2, 2, 30, 0.06);
+    border-radius: 6px;
+    padding: 1px 6px;
+  }
+  .adopting-card .net {
+    margin-top: 28px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: rgba(167, 167, 252, 0.14);
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(2, 2, 30, 0.85);
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-panel { border-left: none; border-top: 1px solid var(--black); }
+    .feature { grid-template-columns: 1fr; }
+    .feature-index { border-right: none; border-bottom: 1px solid var(--black); }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--black); }
+    .stat:last-child { border-bottom: none; }
+    h1 { font-size: 48px; }
+    .navlinks { display: none; }
+    .titleblock .hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- Title block -->
+  <div class="titleblock mono" aria-hidden="true">
+    <div>ALFRED-OS / MKT</div>
+    <div>DOC NO. AA-2026-0802</div>
+    <div class="hide-sm">REV 2.6.0</div>
+    <div class="fill">////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+    <div class="hide-sm">SHEET 01 / 01</div>
+    <div>SCALE 1:1</div>
+  </div>
+
+  <!-- 1. NAV -->
+  <nav>
+    <a class="wordmark" href="#"><span class="bug"></span>alfred&nbsp;ai</a>
+    <div class="navlinks mono">
+      <a href="#"><span class="idx">01</span> Product</a>
+      <a href="#"><span class="idx">02</span> How it works</a>
+      <a href="#"><span class="idx">03</span> Pricing</a>
+      <a href="#"><span class="idx">04</span> Resources</a>
+    </div>
+    <a class="nav-cta mono" href="#">Talk to sales&nbsp;&nbsp;[&rarr;]</a>
+  </nav>
+
+  <!-- 2. HERO -->
+  <header class="hero">
+    <div class="hero-main">
+      <div class="hero-eyebrow mono">
+        <span class="sq"></span>
+        <span>Decision intelligence platform</span>
+        <span class="dim">/&nbsp;SEC.01</span>
+      </div>
+      <h1>Every decision, <span class="underl">briefed</span> before you ask</h1>
+      <p class="hero-sub">I connect your marketing, sales and finance stack, learn how your
+      organisation decides, and hand you the next move with the reasoning attached.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">get started</a>
+        <a class="btn btn-secondary" href="#">See how I work</a>
+      </div>
+    </div>
+    <aside class="hero-panel mono" aria-label="system readout">
+      <div class="cell"><span class="status-dot"></span>SYSTEM NOMINAL</div>
+      <div class="cell">
+        <div class="kv"><span class="k">VER</span><span>2.6.0</span></div>
+        <div class="kv"><span class="k">STACKS</span><span>MKT&nbsp;/&nbsp;SLS&nbsp;/&nbsp;FIN</span></div>
+        <div class="kv"><span class="k">LAST SYNC</span><span>14:02:36 IST</span></div>
+        <div class="kv"><span class="k">ALERTS</span><span>[2]</span></div>
+        <div class="kv"><span class="k">DECISIONS QUEUED</span><span>[7]</span></div>
+      </div>
+      <div class="cell hero-hatch">
+        <svg viewBox="0 0 336 160" preserveAspectRatio="none" role="img" aria-label="crosshatch fill">
+          <defs>
+            <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="336" height="160" fill="url(#hatch)"/>
+        </svg>
+        <span class="tag">FIG.00 / SIGNAL FIELD</span>
+      </div>
+      <div class="cell">
+        <div class="kv"><span class="k">LAT</span><span>12.9716&deg; N</span></div>
+        <div class="kv"><span class="k">LON</span><span>77.5946&deg; E</span></div>
+      </div>
+    </aside>
+  </header>
+
+  <!-- metadata band -->
+  <div class="meta-band mono" aria-hidden="true">
+    <span>&darr; MEASURED OUTCOMES</span>
+    <span class="spacer"></span>
+    <span>SAMPLE: DEPLOYED TEAMS</span>
+    <span>UNITS: %, HRS</span>
+  </div>
+
+  <!-- 3. STATS -->
+  <section class="stats" aria-label="outcome statistics">
+    <div class="stat stat-a">
+      <div class="fig mono"><span>FIG.01 / VELOCITY</span><span>[+]</span></div>
+      <div class="value">70%</div>
+      <div class="label">faster decisions</div>
+    </div>
+    <div class="stat stat-b">
+      <div class="fig mono"><span>FIG.02 / EFFICIENCY</span><span>[&minus;]</span></div>
+      <div class="value">12%</div>
+      <div class="label">less wasted spend</div>
+    </div>
+    <div class="stat stat-c">
+      <div class="fig mono"><span>FIG.03 / CAPACITY</span><span>[&uarr;]</span></div>
+      <div class="value">15<sup>+</sup><span style="font-size:36px;letter-spacing:0;">hrs</span></div>
+      <div class="label">reclaimed weekly</div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURE -->
+  <section class="feature" aria-label="feature module">
+    <div class="feature-index mono">
+      <div class="row"><span class="k">MODULE</span><span>BRF-001</span></div>
+      <div class="row"><span class="k">CLASS</span><span>DAILY OUTPUT</span></div>
+      <div class="row"><span class="k">CADENCE</span><span>07:00 LOCAL</span></div>
+      <div class="row"><span class="k">RANKING</span><span>BY IMPACT</span></div>
+      <div class="row"><span class="k">STATUS</span><span><span class="status-dot"></span>SHIPPING</span></div>
+    </div>
+    <div class="feature-body">
+      <div class="feature-card">
+        <div class="card-head mono">
+          <span>BRF-001 / THE DAILY BRIEF</span>
+          <span class="badge">ACTIVE</span>
+        </div>
+        <h2>The daily brief</h2>
+        <p>What changed, why it changed, what to do about it. Ranked by impact,
+        on your desk before your first meeting.</p>
+        <table>
+          <thead>
+            <tr><th>No.</th><th>Section</th><th>Source</th><th>State</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>What changed</td><td>MKT / SLS / FIN</td><td><span class="tick">[x]</span> compiled</td></tr>
+            <tr><td>02</td><td>Why it changed</td><td>Causal model</td><td><span class="tick">[x]</span> compiled</td></tr>
+            <tr><td>03</td><td>What to do</td><td>Decision engine</td><td><span class="tick">[x]</span> ranked</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FOOTER -->
+  <footer class="mono">
+    <span class="foot-cell">Alfred by E902</span>
+    <span class="foot-cell"><a href="https://seekalfred.ai">seekalfred.ai</a></span>
+    <span class="spacer"></span>
+    <span class="foot-cell">EOF // ALL DIMENSIONS IN PX</span>
+  </footer>
+
+</div>
+
+<!-- 6. ADOPTING THIS — plain Alfred styling on purpose -->
+<section class="adopting-zone" aria-label="Adopting this style">
+  <div class="adopting-card">
+    <div class="kicker">Style lab notes</div>
+    <h2>Adopting this</h2>
+    <p class="lede">What it would take for the Alfred design system to support the Swiss
+    brutalist direction, and where it fights the brand we already have.</p>
+
+    <h3>What the design system would add</h3>
+    <ul>
+      <li>A <code>--font-mono</code> token (JetBrains Mono or IBM Plex Mono free, Berkeley Mono
+      if licensed) for eyebrows, table headers, KPI unit labels, timestamps and metadata chips
+      at 11 to 12px uppercase with +0.06em tracking. It slots under the existing tracked-eyebrow
+      rule and reads "decision instrument", on brand for decision intelligence.</li>
+      <li>A hairline rule system: a token like <code>--rule-hairline</code> (1px, built with
+      color-mix on ink) used as full-bleed section separators and exposed column rules on
+      marketing pages and data tables. It gives the dark site an analyst-terminal structure
+      without touching the palette.</li>
+      <li>The corner and status metadata move: version strings, "last synced 14:02" stamps and
+      bracketed counts like ALERTS [2] set in mono at panel corners, backed by a
+      <code>--text-meta</code> size and tracking token. A natural fit for a product about
+      live decisions.</li>
+      <li>Flat 100% orange <code>#FF8431</code> and periwinkle <code>#A7A7FC</code> chips and
+      fills for status and category markers in dashboards, replacing tinted alpha washes in
+      those contexts only.</li>
+    </ul>
+
+    <h3>What clashes with the Alfred brand</h3>
+    <ul class="clashes">
+      <li>Radius zero everywhere. Alfred's soft 12/24/32px corners are core brand, so going
+      square would make Alfred look like a different company. The compromise: keep the radii
+      but add a 1px visible border token so borders, not shadows, can carry edges on dense
+      data surfaces.</li>
+      <li>The shadow and glow ban. Alfred's diffuse vertical shadows and orange hover glow are
+      signature. At most, add a <code>--shadow-none</code> context for dense tables; the hard
+      4px offset shadow stays out of the system.</li>
+      <li>The gradient ban clashes fundamentally. The periwinkle to orange gradient is Alfred's
+      one hero effect, and Clash Display stays for headlines. The mono family joins as a third
+      voice for labels only, and mono-brutalist framing never shares a component with the
+      gradient.</li>
+    </ul>
+
+    <div class="net">Net: adopt the instrument layer (mono labels, hairline rules, corner
+    metadata, flat semantic color chips) as new tokens. Reject radius zero, global shadow
+    removal and the gradient ban, which would erase Alfred's warmth.</div>
+  </div>
+</section>
+
+</body>
+</html>

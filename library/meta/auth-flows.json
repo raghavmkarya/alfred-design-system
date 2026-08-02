@@ -1,0 +1,147 @@
+{
+  "category": { "id": "auth-flows", "name": "Auth and onboarding", "order": 12, "icon": "security-lock" },
+  "sections": [
+    {
+      "id": "auth-split",
+      "global": "LibAuthSplit",
+      "file": "library/sections/auth-flows.js",
+      "name": "Auth split page",
+      "tier": 2,
+      "description": "Full-height login/signup page: a narrow form column (wordmark, one headline, SSO buttons first, email fallback, legal microcopy) beside a gradient brand panel carrying a single customer quote or one stat. Login and signup share the template; only the headline, subline and swap link change.",
+      "pageTypes": ["any"],
+      "usedBy": [
+        { "site": "Linear", "url": "https://linear.app/login", "note": "Ultra-minimal centered form, SSO buttons stacked above email" },
+        { "site": "Notion", "url": "https://app.notion.com/login", "note": "Single narrow column, Google/Apple SSO first, email magic-link fallback" },
+        { "site": "Clay", "url": "https://app.clay.com/signup", "note": "Signup carries the value-prop headline beside the form" },
+        { "site": "Attio", "url": "https://app.attio.com/sign-up", "note": "Split layout with dark brand panel and testimonial" }
+      ],
+      "props": [
+        { "name": "mode", "type": "'signup' | 'login'", "doc": "swaps headline, subline, legal line and the swap link; the form itself is shared" },
+        { "name": "brand", "type": "string" },
+        { "name": "headline", "type": "string", "doc": "empty string = the mode's default headline" },
+        { "name": "sub", "type": "string", "doc": "empty string = the mode's default subline" },
+        { "name": "ssoPrimary", "type": "string" },
+        { "name": "ssoSecondary", "type": "string", "doc": "empty string hides the second SSO button" },
+        { "name": "emailPlaceholder", "type": "string" },
+        { "name": "emailCta", "type": "string" },
+        { "name": "legal", "type": "string", "doc": "signup mode only" },
+        { "name": "swapPrompt", "type": "string" },
+        { "name": "swapCta", "type": "string" },
+        { "name": "panel", "type": "'quote' | 'stat'", "doc": "what the gradient brand panel carries" },
+        { "name": "panelQuote", "type": "string" },
+        { "name": "panelQuoteName", "type": "string" },
+        { "name": "panelQuoteTitle", "type": "string" },
+        { "name": "panelQuoteCompany", "type": "string" },
+        { "name": "panelStatValue", "type": "string" },
+        { "name": "panelStatLabel", "type": "string" },
+        { "name": "panelFootnote", "type": "string" }
+      ],
+      "variants": [
+        { "id": "signup", "name": "Signup", "props": {} },
+        { "id": "login", "name": "Login", "props": { "mode": "login" } },
+        { "id": "stat-panel", "name": "Stat brand panel", "props": { "panel": "stat" } }
+      ]
+    },
+    {
+      "id": "signup-proof",
+      "global": "LibSignupProof",
+      "file": "library/sections/auth-flows.js",
+      "name": "Signup with proof",
+      "tier": 2,
+      "description": "Signup form flanked by exactly ONE form of live social proof: an attributed testimonial, an avatar-count line, or a muted logo row. Proof answers 'is this safe to commit to' at the moment of commitment, and risk-reversal microcopy sits directly under the CTA.",
+      "pageTypes": ["any"],
+      "usedBy": [
+        { "site": "PostHog", "url": "https://posthog.com/", "note": "'Join 500,000+ teams' count beside the signup CTAs" },
+        { "site": "Attio", "url": "https://app.attio.com/sign-up", "note": "Testimonial card in the signup brand panel" },
+        { "site": "Supahub", "url": "https://supahub.com/", "note": "'No credit card required' risk-reversal microcopy at the signup CTA" },
+        { "site": "Clay", "url": "https://app.clay.com/signup", "note": "Value-prop headline carried onto the signup surface itself" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "headlineAccent", "type": "string", "doc": "substring of headline rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "proofType", "type": "'testimonial' | 'number' | 'logos'", "doc": "exactly one proof form renders; never stack them" },
+        { "name": "quote", "type": "string" },
+        { "name": "quoteName", "type": "string" },
+        { "name": "quoteTitle", "type": "string" },
+        { "name": "quoteCompany", "type": "string" },
+        { "name": "proofNames", "type": "string[]", "doc": "avatar-count variant: names rendered as initials" },
+        { "name": "proofLabel", "type": "string" },
+        { "name": "logoLabel", "type": "string" },
+        { "name": "logoItems", "type": "string[]", "doc": "fictional wordmarks, tinted muted so they never compete with the one orange CTA" },
+        { "name": "disclaimer", "type": "string" },
+        { "name": "formTitle", "type": "string" },
+        { "name": "ssoLabel", "type": "string" },
+        { "name": "emailPlaceholder", "type": "string" },
+        { "name": "ctaLabel", "type": "string" },
+        { "name": "riskReversal", "type": "string", "doc": "muted small text directly under the primary CTA" }
+      ],
+      "variants": [
+        { "id": "testimonial", "name": "With testimonial", "props": {} },
+        { "id": "avatar-count", "name": "Avatar count", "props": { "proofType": "number" } },
+        { "id": "logo-row", "name": "Logo row", "props": { "proofType": "logos" } }
+      ]
+    },
+    {
+      "id": "onboarding-preview",
+      "global": "LibOnboardingPreview",
+      "file": "library/sections/auth-flows.js",
+      "name": "Onboarding preview stepper",
+      "tier": 2,
+      "description": "Setup-in-minutes marketing band: exactly three numbered steps with verb-led titles, one sentence each and a time estimate, summed in the headline. Step 3 is the value moment (the first briefing), and a low-commitment sample path sits beside the CTA.",
+      "pageTypes": ["landing", "feature", "pricing"],
+      "usedBy": [
+        { "site": "PostHog", "url": "https://posthog.com/", "note": "Dual-path getting-started block: sign up via web, or the CLI wizard" },
+        { "site": "Supahub", "url": "https://supahub.com/", "note": "'Super fast setup' callout plus a demo path as the learning pathway" },
+        { "site": "Clay", "url": "https://www.clay.com/", "note": "Homepage walks the workflow as sequential steps before the signup CTA" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string", "doc": "sum the step estimates here, then make sure the product meets it" },
+        { "name": "headlineAccent", "type": "string", "doc": "substring of headline rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "steps", "type": "Array<{title, body, time?}>", "doc": "exactly three: connect, configure, get value; the last step must be the value moment" },
+        { "name": "ctaLabel", "type": "string" },
+        { "name": "secondaryLabel", "type": "string", "doc": "the low-commitment parallel path, e.g. a sample briefing" },
+        { "name": "variant", "type": "'band' | 'vertical'" }
+      ],
+      "variants": [
+        { "id": "band", "name": "Stepper band", "props": {} },
+        { "id": "vertical", "name": "Vertical timeline", "props": { "variant": "vertical" } }
+      ]
+    },
+    {
+      "id": "migration-promise",
+      "global": "LibMigrationPromise",
+      "file": "library/sections/auth-flows.js",
+      "name": "Migration promise",
+      "tier": 2,
+      "description": "Switch-to-us band that removes the switching cost: named source tools, an honest effort promise, read-only reassurance and a keep-your-history guarantee, with a concierge path for unusual stacks. Place on comparison pages and near the closing CTA.",
+      "pageTypes": ["comparison", "landing", "pricing"],
+      "usedBy": [
+        { "site": "Supahub", "url": "https://supahub.com/alternatives/canny-alternative", "note": "Alternative pages built for switchers, competitive positioning plus switch path" },
+        { "site": "Attio", "url": "https://attio.com/", "note": "Painless migration from legacy CRMs as an adoption argument" },
+        { "site": "PostHog", "url": "https://posthog.com/docs/migrate", "note": "Dedicated migrate docs hub linked from marketing surfaces" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "headlineAccent", "type": "string", "doc": "substring of headline rendered in the brand gradient; the section's one gradient element" },
+        { "name": "body", "type": "string" },
+        { "name": "sourcesLabel", "type": "string" },
+        { "name": "sources", "type": "string[]", "doc": "name the exact tools; a generic import promise converts far worse" },
+        { "name": "steps", "type": "Array<{title, body}>", "doc": "split variant: the three-step migration path" },
+        { "name": "guarantee", "type": "string", "doc": "the keep-your-history / read-only reassurance line" },
+        { "name": "concierge", "type": "string", "doc": "the concierge offer for larger or unusual stacks" },
+        { "name": "ctaLabel", "type": "string" },
+        { "name": "secondaryCtaLabel", "type": "string" },
+        { "name": "variant", "type": "'split' | 'band'" }
+      ],
+      "variants": [
+        { "id": "split", "name": "Split with source grid", "props": {} },
+        { "id": "band", "name": "Slim band", "props": { "variant": "band" } }
+      ]
+    }
+  ]
+}

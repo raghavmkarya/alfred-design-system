@@ -132,6 +132,92 @@
       "variants": [
         { "id": "default", "name": "Pre-footer panel", "props": {} }
       ]
+    },
+    {
+      "id": "sunset-migration-band",
+      "global": "LibSunsetMigrationBand",
+      "file": "library/sections/extras.js",
+      "name": "Sunset migration band",
+      "tier": 3,
+      "description": "Acquisition or product-sunset notice that converts anxiety into accountability: a letter-style note from a named leader with an accent-ruled pull quote, a three-step migration timeline whose deadline is stated as a date, and a single CTA to the canonical announcement post. The band layout compresses the same fact into a slim above-the-nav strip; keep it non-dismissible while a deadline stands.",
+      "pageTypes": ["landing", "blog"],
+      "usedBy": [
+        { "site": "peak.ai", "url": "https://peak.ai", "note": "Panel below the hero: 'Peak is now part of UiPath', a continuity sentence, a CEO quote, and a Learn more link to the blog" },
+        { "site": "mode.com", "url": "https://mode.com", "note": "Slim band above the nav announcing the ThoughtSpot acquisition, with a Learn More link to the press release" }
+      ],
+      "props": [
+        { "name": "layout", "type": "'panel' | 'band'", "doc": "panel = hero-adjacent letter plus timeline, for anything requiring customer action; band = slim awareness strip for above the nav" },
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string", "doc": "The plain fact in the entity's own words: '<Brand> is now part of <Acquirer>'. No euphemisms" },
+        { "name": "sub", "type": "string", "doc": "One sentence of continuity reassurance" },
+        { "name": "deadlineLine", "type": "string", "doc": "The customer-facing deadline stated as a date, the one thing readers scan for; rendered in both layouts. Empty string hides the panel callout" },
+        { "name": "letterTitle", "type": "string", "doc": "Kicker over the letter card" },
+        { "name": "letterSalutation", "type": "string" },
+        { "name": "letterParagraphs", "type": "string[]", "doc": "Body of the leader letter, one string per paragraph" },
+        { "name": "letterPullQuote", "type": "string", "doc": "Accent-ruled pull quote inside the letter; empty string hides it" },
+        { "name": "signatureName", "type": "string", "doc": "Named leader who signs the letter; the name converts anxiety into accountability" },
+        { "name": "signatureRole", "type": "string" },
+        { "name": "timelineTitle", "type": "string", "doc": "Kicker over the migration timeline" },
+        { "name": "timeline", "type": "Array<{date, title, body}>", "doc": "Migration milestones; the first item renders as the current step" },
+        { "name": "ctaLabel", "type": "string", "doc": "The single CTA, linking the canonical announcement that carries dates, FAQs and migration paths. The band itself never carries terms" },
+        { "name": "footnote", "type": "string", "doc": "Muted placeholder disclaimer; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Panel with letter and timeline", "props": {} },
+        { "id": "top-band", "name": "Slim top band", "props": { "layout": "band" } }
+      ]
+    },
+    {
+      "id": "insight-data-cards",
+      "global": "LibInsightDataCards",
+      "file": "library/sections/extras.js",
+      "name": "Insight data cards",
+      "tier": 2,
+      "description": "Product-proof cards whose headline IS the metric: a big answer figure with a valence delta chip, an optional bundle LineChart or Sparkline preview, a how-I-computed-it trust line, and a drill-in affordance that implies depth beyond the headline. Data is plausible but obviously fictional (Meridian), so screenshots read as demos, never as customer claims.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "equals.com", "url": "https://equals.com", "note": "Q&A message card with the metric as the answer and the calculation source as supporting detail" },
+        { "site": "hex.tech", "url": "https://hex.tech", "note": "Fictional NexaCorp dashboard cards: metric headline, delta, and chart previews, with sci-fi product names to signal fiction" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "showCharts", "type": "boolean", "doc": "Hide the chart previews for a tighter numbers-only row" },
+        { "name": "cards", "type": "Array<{kicker, value, delta?, tone?, trustLine, followUp?, chart?}>", "doc": "One card per metric. tone colours the delta chip (good | bad | neutral); chart is {type: 'line' | 'spark', points, labels?, ariaLabel} rendered with the bundle LineChart / Sparkline" },
+        { "name": "footnote", "type": "string", "doc": "Fictional-data disclaimer under the row; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "With chart previews", "props": {} },
+        { "id": "numbers-only", "name": "Numbers only", "props": { "showCharts": false } }
+      ]
+    },
+    {
+      "id": "curated-collections",
+      "global": "LibCuratedCollections",
+      "file": "library/sections/extras.js",
+      "name": "Curated collections",
+      "tier": 3,
+      "description": "Gallery-style curated rows under count-bearing view-all links: each row states its curation logic in the title and who picked it in the subtitle, with category chips above as a second navigation axis. Cards keep to thumbnail, title, one metadata line and one value line; rows scroll horizontally with a peeking card where four-up does not fit. For Alfred this is the playbook, integration, or report gallery.",
+      "pageTypes": ["resource", "landing"],
+      "usedBy": [
+        { "site": "notion.com", "url": "https://www.notion.com/templates", "note": "Template gallery: featured rows with curation subtitles, count-based Browse links, and category chips with template counts" },
+        { "site": "framer.com", "url": "https://www.framer.com/marketplace/templates/", "note": "Marketplace template gallery in the same pattern class; rows are JS-rendered" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "headline", "type": "string" },
+        { "name": "headlineAccent", "type": "string", "doc": "Substring of headline rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "showChips", "type": "boolean", "doc": "Hide the category chip row for a rows-only gallery" },
+        { "name": "chips", "type": "Array<{label, count}>", "doc": "Category chips over the rows, the second navigation axis; counts are the depth signal. The first chip renders active" },
+        { "name": "rows", "type": "Array<{title, subtitle, viewAll, items}>", "doc": "Curated rows; items are {glyph, title, meta, value} where glyph names a built-in line pictogram (review | board | vendor | forecast | pipeline | renewal | launch | hiring)" },
+        { "name": "footnote", "type": "string", "doc": "Muted placeholder disclaimer; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Chips and two rows", "props": {} },
+        { "id": "rows-only", "name": "Rows only", "props": { "showChips": false } }
+      ]
     }
   ]
 }

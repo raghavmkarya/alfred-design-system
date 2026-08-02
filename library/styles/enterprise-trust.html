@@ -1,0 +1,520 @@
+<!-- Style exploration: Enterprise trust. Off-system by design; compare at library/styles/index.html -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfred style lab — Enterprise trust</title>
+<style>
+  /* ============ Local fonts (zero external requests) ============ */
+  @font-face{font-family:"Inter Local";src:url("../../assets/fonts/Inter-400.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Inter Local";src:url("../../assets/fonts/Inter-500.woff2") format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:"Inter Local";src:url("../../assets/fonts/Inter-600.woff2") format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:"Inter Local";src:url("../../assets/fonts/Inter-700.woff2") format("woff2");font-weight:700;font-display:swap}
+  @font-face{font-family:"Satoshi Local";src:url("../../assets/fonts/Satoshi-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Satoshi Local";src:url("../../assets/fonts/Satoshi-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:"Satoshi Local";src:url("../../assets/fonts/Satoshi-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+
+  :root{
+    --navy:#032D60;          /* authority navy */
+    --navy-deep:#0B1220;     /* near-black ink alternative */
+    --blue:#0176D3;          /* primary action blue */
+    --blue-dark:#0B5CAB;     /* hover step */
+    --steel-bg:#F4F6F9;      /* steel-tint section */
+    --steel-500:#5B6B7F;     /* secondary text */
+    --steel-300:#B4C8E1;     /* muted periwinkle-steel */
+    --line:#D8DEE6;          /* hairline borders */
+    --amber:#FDB022;         /* badges only */
+    --green:#62D84E;         /* single signal accent, key stats only */
+    --body:#3E5470;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter Local",-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--navy);background:#fff;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+
+  /* ============ Reveal-on-scroll (conservative fade-up) ============ */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .28s ease-out,transform .28s ease-out}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .logo-track{animation:none !important}
+  }
+
+  /* ============ Buttons ============ */
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 26px;
+    border-radius:6px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;
+    border:1px solid transparent;transition:background .15s ease,border-color .15s ease;text-decoration:none}
+  .btn:hover{text-decoration:none}
+  .btn-solid{background:var(--blue);color:#fff}
+  .btn-solid:hover{background:var(--blue-dark)}
+  .btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.7)}
+  .btn-ghost-navy{background:transparent;color:var(--navy);border-color:var(--line)}
+  .btn-ghost-navy:hover{border-color:var(--navy)}
+
+  /* ============ Nav ============ */
+  .nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;height:64px;gap:36px}
+  .wordmark{font-weight:700;font-size:19px;letter-spacing:-.01em;color:var(--navy);text-decoration:none}
+  .wordmark:hover{text-decoration:none}
+  .nav-links{display:flex;gap:28px;flex:1}
+  .nav-links a{color:#274B77;font-size:14.5px;font-weight:500}
+  .nav-links a:hover{color:var(--blue)}
+  .nav .btn{height:40px;padding:0 20px;font-size:14px}
+
+  /* ============ Hero ============ */
+  .hero{background:linear-gradient(180deg,#032D60 0%,#062A55 55%,#0B1220 100%);color:#fff;padding:88px 0 96px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+  .hero .eyebrow{color:var(--steel-300);margin-bottom:18px}
+  .hero h1{font-size:54px;line-height:1.07;font-weight:700;letter-spacing:-.015em;margin-bottom:20px;text-wrap:balance}
+  h2{text-wrap:balance}
+  .hero .sub{font-size:18px;line-height:1.6;color:#C6D6EA;max-width:34em;margin-bottom:30px}
+  .cta-row{display:flex;gap:14px;margin-bottom:26px}
+  .trust-row{display:flex;gap:22px;font-size:13px;color:#8FA6C6}
+  .trust-row span{display:inline-flex;align-items:center;gap:7px}
+  .trust-row svg{flex:none}
+
+  /* Product screenshot mock, browser chrome */
+  .shot{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.38);color:var(--navy)}
+  .chrome{display:flex;align-items:center;gap:10px;background:#E8ECF1;padding:9px 12px;border-bottom:1px solid var(--line)}
+  .chrome .dots{display:flex;gap:5px}
+  .chrome .dots i{width:9px;height:9px;border-radius:50%;background:#C4CDD8;display:block}
+  .chrome .url{flex:1;background:#fff;border:1px solid var(--line);border-radius:5px;font-size:11px;color:var(--steel-500);padding:3px 10px}
+  .app{display:flex}
+  .app-side{width:46px;background:var(--steel-bg);border-right:1px solid var(--line);padding:12px 0;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .app-side i{width:20px;height:20px;border-radius:5px;background:#D5DDE7;display:block}
+  .app-side i:first-child{background:var(--blue)}
+  .app-main{flex:1;padding:16px 18px}
+  .app-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+  .app-head b{font-size:13.5px;font-weight:600}
+  .app-head span{font-size:11px;color:var(--steel-500)}
+  .kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .kpi{border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+  .kpi small{display:block;font-size:9.5px;color:var(--steel-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+  .kpi b{font-size:16px;font-weight:700}
+  .kpi em{font-style:normal;font-size:10px;font-weight:600;margin-left:5px}
+  .kpi .up{color:#2E8A24}
+  .kpi .down{color:#B54708}
+  .chart-card{border:1px solid var(--line);border-radius:6px;padding:10px 12px 6px}
+  .chart-card small{font-size:10px;color:var(--steel-500)}
+
+  /* ============ Logo strip ============ */
+  .logos{padding:34px 0 38px;border-bottom:1px solid var(--line)}
+  .logos p{text-align:center;font-size:13px;color:var(--steel-500);margin-bottom:22px}
+  .logo-mask{overflow:hidden;position:relative}
+  .logo-mask:before,.logo-mask:after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+  .logo-mask:before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+  .logo-mask:after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+  .logo-track{display:flex;align-items:center;gap:72px;width:max-content;animation:marquee 38s linear infinite}
+  .logo-track:hover{animation-play-state:paused}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+  .lg{white-space:nowrap;color:#8A99A8;font-weight:700;font-size:19px;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:8px}
+  .lg svg{flex:none}
+  .lg.caps{font-weight:600;letter-spacing:.18em;font-size:15px}
+  .lg.serifish{font-weight:500;letter-spacing:.02em}
+
+  /* ============ Stat band ============ */
+  .stats{background:var(--steel-bg);padding:88px 0;border-bottom:1px solid var(--line)}
+  .stats .eyebrow{color:var(--steel-500);text-align:center;margin-bottom:10px}
+  .stats h2{text-align:center;font-size:34px;font-weight:700;letter-spacing:-.01em;margin-bottom:52px}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr}
+  .stat{padding:0 40px;text-align:center;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:0}
+  .stat .num{font-size:62px;font-weight:700;letter-spacing:-.02em;line-height:1.05;color:var(--navy);font-variant-numeric:tabular-nums}
+  .stat .num sup{font-size:16px;font-weight:600;color:var(--steel-500);letter-spacing:0}
+  .stat .label{font-size:15.5px;font-weight:600;color:var(--navy);margin-top:8px}
+  .stat .cap{font-size:13px;color:var(--steel-500);margin-top:3px}
+  .footnotes{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--steel-500);display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+
+  /* ============ Analyst band ============ */
+  .analyst{padding:88px 0;border-bottom:1px solid var(--line)}
+  .analyst .eyebrow{color:var(--steel-500);text-align:center;margin-bottom:10px}
+  .analyst h2{text-align:center;font-size:34px;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
+  .analyst .lede{text-align:center;color:var(--body);max-width:44em;margin:0 auto 48px}
+  .badges{display:flex;justify-content:center;gap:24px;margin-bottom:44px}
+  .badge{width:230px;border:1px solid var(--line);border-radius:8px;padding:26px 22px;text-align:center;
+    box-shadow:0 1px 3px rgba(3,45,96,.08);transition:transform .15s ease,box-shadow .15s ease;background:#fff}
+  .badge:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(3,45,96,.12)}
+  .badge .art{height:64px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .badge b{display:block;font-size:15px;font-weight:700;line-height:1.3}
+  .badge span{display:block;font-size:12.5px;color:var(--steel-500);margin-top:5px;line-height:1.45}
+  .badge.dark{background:var(--navy);border-color:var(--navy)}
+  .badge.dark b{color:#fff}
+  .badge.dark span{color:var(--steel-300)}
+  .analyst .cta-row{justify-content:center;margin-bottom:0}
+
+  /* ============ Feature module ============ */
+  .feature{background:var(--steel-bg);padding:88px 0;border-bottom:1px solid var(--line)}
+  .feature .eyebrow{color:var(--steel-500);margin-bottom:26px}
+  .fcard{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 1px 3px rgba(3,45,96,.08);
+    display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+  .fcard-txt{padding:52px 56px;display:flex;flex-direction:column;justify-content:center}
+  .fcard-txt h3{font-size:30px;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
+  .fcard-txt p{color:var(--body);font-size:17px;max-width:30em;margin-bottom:22px}
+  .fcard-txt .more{font-size:15px;font-weight:600}
+  .fcard-mock{background:var(--steel-bg);border-left:1px solid var(--line);padding:36px;display:flex;align-items:center}
+  .brief{background:#fff;border:1px solid var(--line);border-radius:8px;width:100%;box-shadow:0 1px 3px rgba(3,45,96,.08)}
+  .brief-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .brief-head b{font-size:13px;font-weight:600}
+  .brief-head span{font-size:11px;color:var(--steel-500)}
+  .brief-row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:13px}
+  .brief-row:last-child{border-bottom:0}
+  .brief-row .n{width:22px;height:22px;border-radius:5px;background:var(--steel-bg);border:1px solid var(--line);
+    display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--steel-500);flex:none}
+  .brief-row .t{flex:1;color:var(--navy);font-weight:500}
+  .chip{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:4px;white-space:nowrap}
+  .chip.hi{background:rgba(98,216,78,.16);color:#2E7D22}
+  .chip.md{background:var(--steel-bg);color:var(--steel-500);border:1px solid var(--line)}
+
+  /* ============ Mega footer ============ */
+  .footer{background:linear-gradient(180deg,#032D60,#0B1220);color:#fff;padding:72px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px}
+  .foot-brand .wordmark{color:#fff;font-size:20px}
+  .foot-brand p{font-size:13.5px;color:#8FA6C6;margin-top:12px;max-width:22em;line-height:1.55}
+  .foot-col h4{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--steel-300);margin-bottom:16px}
+  .foot-col a{display:block;color:#C6D6EA;font-size:14px;padding:5px 0}
+  .foot-col a:hover{color:#fff}
+  .foot-strip{border-top:1px solid rgba(180,200,225,.18);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#8FA6C6}
+  .foot-strip b{color:#C6D6EA;font-weight:600}
+  .foot-strip .legal a{color:#8FA6C6;margin-left:20px}
+
+  /* ============ Adopting-this panel (plain Alfred styling) ============ */
+  .adopt-sec{background:#F7F7FB;padding:72px 0 88px;font-family:"Satoshi Local",-apple-system,system-ui,sans-serif}
+  .adopt-card{background:#fff;border-radius:24px;box-shadow:0 12px 32px rgba(2,2,30,.07);padding:48px 52px;color:#02021E}
+  .adopt-card .tag{display:inline-block;font-size:12px;font-weight:500;color:#5c5c74;background:#f1f1f7;border-radius:999px;padding:4px 12px;margin-bottom:18px}
+  .adopt-card h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  .adopt-card .intro{font-size:15px;color:#5c5c74;max-width:52em;margin-bottom:32px;line-height:1.6}
+  .adopt-cols{display:grid;grid-template-columns:1.1fr .9fr;gap:48px}
+  .adopt-cols h3{font-size:15px;font-weight:700;margin-bottom:14px}
+  .adopt-cols ul{list-style:none}
+  .adopt-cols li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.55;color:#2c2c44;margin-bottom:12px}
+  .adopt-cols li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:2px}
+  .adds li:before{background:#FF8431}
+  .clashes li:before{background:#A7A7FC}
+  .adopt-cols code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12.5px;background:#f1f1f7;border-radius:4px;padding:1px 5px;color:#02021E}
+
+  @media (max-width:960px){
+    .hero-grid,.fcard,.adopt-cols{grid-template-columns:1fr}
+    .stat-grid{grid-template-columns:1fr;gap:36px}
+    .stat{border-left:0;padding:0}
+    .badges{flex-wrap:wrap}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+  }
+</style>
+
+<!-- ============ Nav ============ -->
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="wordmark" href="#">alfred ai</a>
+    <div class="nav-links">
+      <a href="#">Product</a>
+      <a href="#">How it works</a>
+      <a href="#">Pricing</a>
+      <a href="#">Resources</a>
+    </div>
+    <a class="btn btn-solid" href="#">Talk to sales</a>
+  </div>
+</nav>
+
+<!-- ============ Hero ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Decision intelligence platform</div>
+      <h1>Every decision, briefed before you ask</h1>
+      <p class="sub">I connect your marketing, sales and finance stack, learn how your organisation decides, and hand you the next move with the reasoning attached.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#">get started</a>
+        <a class="btn btn-ghost-light" href="#">See how I work</a>
+      </div>
+      <div class="trust-row">
+        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8.5 6 12.5 14 3.5" stroke="#62D84E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SOC 2 Type II</span>
+        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8.5 6 12.5 14 3.5" stroke="#62D84E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SSO and SCIM</span>
+        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8.5 6 12.5 14 3.5" stroke="#62D84E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Private-cloud deploy</span>
+      </div>
+    </div>
+
+    <!-- Product screenshot in browser chrome -->
+    <div class="shot" aria-hidden="true">
+      <div class="chrome">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="url">app.seekalfred.ai/brief</span>
+      </div>
+      <div class="app">
+        <div class="app-side"><i></i><i></i><i></i><i></i></div>
+        <div class="app-main">
+          <div class="app-head"><b>Morning brief</b><span>Tuesday 09:12</span></div>
+          <div class="kpis">
+            <div class="kpi"><small>Pipeline coverage</small><b>3.4x</b><em class="up">+0.3</em></div>
+            <div class="kpi"><small>CAC payback</small><b>11.2 mo</b><em class="up">-1.8</em></div>
+            <div class="kpi"><small>Spend at risk</small><b>$48k</b><em class="down">flagged</em></div>
+          </div>
+          <div class="chart-card">
+            <small>Decision cycle time, trailing 12 weeks</small>
+            <svg width="100%" height="150" viewBox="0 0 460 150" preserveAspectRatio="none" role="img">
+              <line x1="0" y1="30" x2="460" y2="30" stroke="#E6ECF2"/>
+              <line x1="0" y1="70" x2="460" y2="70" stroke="#E6ECF2"/>
+              <line x1="0" y1="110" x2="460" y2="110" stroke="#E6ECF2"/>
+              <path d="M0 46 L42 52 L84 44 L126 60 L168 58 L210 74 L252 70 L294 88 L336 92 L378 104 L420 110 L460 118 L460 150 L0 150 Z" fill="#B4C8E1" opacity=".28"/>
+              <path d="M0 46 L42 52 L84 44 L126 60 L168 58 L210 74 L252 70 L294 88 L336 92 L378 104 L420 110 L460 118" fill="none" stroke="#0176D3" stroke-width="2.5" stroke-linejoin="round"/>
+              <circle cx="460" cy="118" r="4" fill="#0176D3"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Logo strip ============ -->
+<section class="logos reveal">
+  <div class="wrap">
+    <p>Trusted by decision-led operators at 400+ companies</p>
+    <div class="logo-mask">
+      <div class="logo-track">
+        <span class="lg"><svg width="18" height="18" viewBox="0 0 18 18"><rect width="18" height="18" rx="4" fill="#8A99A8"/></svg>Cobaltworks</span>
+        <span class="lg caps">MERIDIAN</span>
+        <span class="lg serifish">Fairhaven Group</span>
+        <span class="lg">Stackfield</span>
+        <span class="lg caps">NOVUM+</span>
+        <span class="lg serifish">Atlas &amp; Rowe</span>
+        <span class="lg"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="9" fill="#8A99A8"/></svg>Halewood</span>
+        <span class="lg"><svg width="18" height="18" viewBox="0 0 18 18"><rect width="18" height="18" rx="4" fill="#8A99A8"/></svg>Cobaltworks</span>
+        <span class="lg caps">MERIDIAN</span>
+        <span class="lg serifish">Fairhaven Group</span>
+        <span class="lg">Stackfield</span>
+        <span class="lg caps">NOVUM+</span>
+        <span class="lg serifish">Atlas &amp; Rowe</span>
+        <span class="lg"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="9" fill="#8A99A8"/></svg>Halewood</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stat band ============ -->
+<section class="stats">
+  <div class="wrap reveal">
+    <div class="eyebrow">Outcomes, quantified</div>
+    <h2>The numbers arrive before the narrative</h2>
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="num"><span class="count" data-target="70">0</span>%<sup>1</sup></div>
+        <div class="label">faster decisions</div>
+        <div class="cap">from question raised to call made</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="count" data-target="12">0</span>%<sup>2</sup></div>
+        <div class="label">less wasted spend</div>
+        <div class="cap">reallocated before quarter close</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="count" data-target="15">0</span>+<sup>3</sup></div>
+        <div class="label">hrs reclaimed weekly</div>
+        <div class="cap">per operating leader, on average</div>
+      </div>
+    </div>
+    <div class="footnotes">
+      <span>1. Median time-to-decision across enterprise deployments, FY26 cohort.</span>
+      <span>2. Audited reallocation outcomes, 2025 to 2026 rollouts.</span>
+      <span>3. Self-reported in weekly operator surveys, n=214.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Analyst band ============ -->
+<section class="analyst">
+  <div class="wrap reveal">
+    <div class="eyebrow">Analyst recognition</div>
+    <h2>Recognised where your board looks first</h2>
+    <p class="lede">Independent research firms rank Alfred at the front of the decision-intelligence category, on completeness of reasoning and speed to value.</p>
+    <div class="badges">
+      <div class="badge">
+        <div class="art">
+          <svg width="72" height="60" viewBox="0 0 72 60" fill="none" aria-hidden="true">
+            <path d="M14 8 C6 18 6 34 14 46" stroke="#FDB022" stroke-width="3" stroke-linecap="round"/>
+            <path d="M58 8 C66 18 66 34 58 46" stroke="#FDB022" stroke-width="3" stroke-linecap="round"/>
+            <path d="M36 10 l6.5 13.2 14.6 2.1 -10.6 10.3 2.5 14.5 -13 -6.9 -13 6.9 2.5 -14.5 -10.6 -10.3 14.6 -2.1 Z" fill="#FDB022"/>
+          </svg>
+        </div>
+        <b>Leader, 2026 Quadrant</b>
+        <span>Decision Intelligence Platforms<br>Veridian Research</span>
+      </div>
+      <div class="badge dark">
+        <div class="art">
+          <svg width="84" height="60" viewBox="0 0 84 60" fill="none" aria-hidden="true">
+            <path d="M4 46 C18 46 20 18 34 18 C48 18 46 40 60 40 C70 40 74 30 80 22" stroke="#FDB022" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="66" cy="14" r="8" fill="#FDB022"/>
+            <circle cx="66" cy="14" r="3.2" fill="#032D60"/>
+          </svg>
+        </div>
+        <b>Wave Leader, Q3 2026</b>
+        <span>Decision Intelligence Wave<br>Meridian Insights</span>
+      </div>
+      <div class="badge">
+        <div class="art">
+          <svg width="120" height="24" viewBox="0 0 120 24" fill="none" aria-hidden="true">
+            <path d="M12 1 l3.1 6.6 7.2 1 -5.2 5 1.2 7.1 -6.3 -3.4 -6.3 3.4 1.2 -7.1 -5.2 -5 7.2 -1 Z" fill="#FDB022"/>
+            <path d="M36 1 l3.1 6.6 7.2 1 -5.2 5 1.2 7.1 -6.3 -3.4 -6.3 3.4 1.2 -7.1 -5.2 -5 7.2 -1 Z" fill="#FDB022"/>
+            <path d="M60 1 l3.1 6.6 7.2 1 -5.2 5 1.2 7.1 -6.3 -3.4 -6.3 3.4 1.2 -7.1 -5.2 -5 7.2 -1 Z" fill="#FDB022"/>
+            <path d="M84 1 l3.1 6.6 7.2 1 -5.2 5 1.2 7.1 -6.3 -3.4 -6.3 3.4 1.2 -7.1 -5.2 -5 7.2 -1 Z" fill="#FDB022"/>
+            <path d="M108 1 l3.1 6.6 7.2 1 -5.2 5 1.2 7.1 -6.3 -3.4 -6.3 3.4 1.2 -7.1 -5.2 -5 7.2 -1 Z" fill="#FDB022" opacity=".35"/>
+          </svg>
+        </div>
+        <b>4.8 / 5 enterprise rating</b>
+        <span>312 verified reviews<br>TrustRank Enterprise</span>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#">Read the analyst report</a>
+      <a class="btn btn-ghost-navy" href="#">See all recognition</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Feature card ============ -->
+<section class="feature">
+  <div class="wrap reveal">
+    <div class="eyebrow">The product</div>
+    <div class="fcard">
+      <div class="fcard-txt">
+        <h3>The daily brief</h3>
+        <p>What changed, why it changed, what to do about it. Ranked by impact, on your desk before your first meeting.</p>
+        <a class="more" href="#">See a sample brief &rarr;</a>
+      </div>
+      <div class="fcard-mock" aria-hidden="true">
+        <div class="brief">
+          <div class="brief-head"><b>Daily brief</b><span>Tue 08:40 &middot; 3 items</span></div>
+          <div class="brief-row"><span class="n">1</span><span class="t">Shift $40k from paid social to search</span><span class="chip hi">High impact</span></div>
+          <div class="brief-row"><span class="n">2</span><span class="t">Renewal risk flagged: Fairhaven Group</span><span class="chip md">Revenue</span></div>
+          <div class="brief-row"><span class="n">3</span><span class="t">Creative fatigue on prospecting set B</span><span class="chip md">Monitor</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Mega footer ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="wordmark">alfred ai</span>
+        <p>The decision-intelligence platform for operating leaders. Every decision, briefed with the reasoning attached.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#">The daily brief</a>
+        <a href="#">Decision graph</a>
+        <a href="#">Integrations</a>
+        <a href="#">Security</a>
+      </div>
+      <div class="foot-col">
+        <h4>How it works</h4>
+        <a href="#">Connect your stack</a>
+        <a href="#">Reasoning engine</a>
+        <a href="#">Enterprise rollout</a>
+        <a href="#">Data governance</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="#">Analyst reports</a>
+        <a href="#">Customer stories</a>
+        <a href="#">Webinars</a>
+        <a href="#">Guides</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#">About E902</a>
+        <a href="#">Careers</a>
+        <a href="#">Trust centre</a>
+        <a href="#">Contact sales</a>
+      </div>
+    </div>
+    <div class="foot-strip">
+      <span><b>Alfred by E902 &middot; seekalfred.ai</b></span>
+      <span class="legal">&copy; 2026 E902 <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ Adopting this (plain Alfred styling) ============ -->
+<section class="adopt-sec">
+  <div class="wrap">
+    <div class="adopt-card">
+      <span class="tag">Style lab notes</span>
+      <h2>Adopting this</h2>
+      <p class="intro">Enterprise trust is a proof machine: logo strip, stat band, badge wall in the first two scrolls. The structure travels well into Alfred's dark theme. The navy corporate skin does not.</p>
+      <div class="adopt-cols">
+        <div class="adds">
+          <h3>What the design system would add</h3>
+          <ul>
+            <li>Proof-stack layout components: <code>LogoStrip</code>, <code>StatBand</code> (Clash Display numerals, Satoshi labels) and <code>BadgeWall</code>, so credibility lands in the first two scrolls of any marketing page.</li>
+            <li>Quantified-claim discipline as tokens: a <code>--text-citation</code> style (12 to 13px, muted) for fine-print sources on every stat, plus a count-up motion primitive (250ms ease-out, honours reduced motion).</li>
+            <li>A steel neutral ramp for dense proof surfaces: <code>--steel-300 #B4C8E1</code>, <code>--steel-500 #5B6B7F</code> and a <code>--hairline rgba(167,167,252,0.15)</code> border token for cards, tables and logo walls, keeping orange strictly for action.</li>
+            <li>Mega-footer and resource-card grid conventions as the marketing site scales; the dual-CTA hero (solid orange primary plus ghost secondary) is already brand-compatible.</li>
+            <li>Badge walls, partially: keep the pattern but re-house third-party badges on ink <code>#02021E</code> cards with periwinkle hairlines, isolated in one dedicated band, because analyst badge artwork is fixed-colour.</li>
+          </ul>
+        </div>
+        <div class="clashes">
+          <h3>What clashes with the Alfred brand</h3>
+          <ul>
+            <li>The navy <code>#032D60</code> palette itself: Alfred's canvas is ink <code>#02021E</code>, and a corporate navy would read as a second blue fighting periwinkle. Every navy role maps to ink instead.</li>
+            <li>Conservative type and dead interaction: one neutral grotesk at 600 to 700, 4 to 8px radii and no-glow hovers would erase Clash Display's character, Alfred's soft 12/24/32px radii and the warm orange hover glow. Borrow only the scale discipline and the hairline card borders.</li>
+            <li>Corporate stock photography and restraint as identity: Alfred stays with product UI, data visualisation and its hand-crafted illustration library, and keeps its one gradient element per view rather than adopting enterprise blandness.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Fade-up reveal
+  var reveals = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window) || reduced){
+    reveals.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); ro.unobserve(e.target); }
+      });
+    },{threshold:0,rootMargin:"0px 0px -40px 0px"});
+    reveals.forEach(function(el){ ro.observe(el); });
+  }
+
+  // Count-up on stats
+  var counters = document.querySelectorAll(".count");
+  function run(el){
+    var target = parseInt(el.getAttribute("data-target"),10);
+    if (reduced){ el.textContent = target; return; }
+    var t0 = null, dur = 650;
+    function step(ts){
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0)/dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (!("IntersectionObserver" in window) || reduced){
+    counters.forEach(run);
+  } else {
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ run(e.target); co.unobserve(e.target); }
+      });
+    },{threshold:.2});
+    counters.forEach(function(el){ co.observe(el); });
+  }
+})();
+</script>

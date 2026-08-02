@@ -1,0 +1,121 @@
+{
+  "category": { "id": "docs-support", "name": "Docs and support", "order": 11, "icon": "search" },
+  "sections": [
+    {
+      "id": "docs-hub",
+      "global": "LibDocsHub",
+      "file": "library/sections/docs-support.js",
+      "name": "Docs hub",
+      "tier": 1,
+      "description": "The front door of the help center: a one-sentence hero over a prominent search field with a keyboard hint, a start-here row of popular guides, then lifecycle-ordered category cards (icon, title, one-line subtitle, article count). Progressive disclosure: quick starts first, full taxonomy below.",
+      "pageTypes": ["resource"],
+      "usedBy": [
+        { "site": "Stripe Docs", "url": "https://docs.stripe.com", "note": "Start-here hero, use-case columns, then Browse-by-product card sections grouped into 4-5 categories" },
+        { "site": "Tailscale KB", "url": "https://tailscale.com/kb", "note": "One-sentence value prop hero, four lifecycle-ordered category cards (Get started, Manage, Expand, Reference)" },
+        { "site": "Linear Docs", "url": "https://linear.app/docs", "note": "Popular row of 4 guides above a Basics grid; consistent title + subtitle card format" },
+        { "site": "Intercom Help Center", "url": "https://www.intercom.com/help/en/", "note": "Big search under a brand-line heading; 14 collection cards each with icon and article count" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "heading", "type": "string", "doc": "One-sentence hero line stating what the docs cover" },
+        { "name": "sub", "type": "string" },
+        { "name": "searchPlaceholder", "type": "string", "doc": "The search field is the primary CTA of the page" },
+        { "name": "searchHintKey", "type": "string", "doc": "Keyboard hint rendered as a Kbd cap at the field's end; empty string hides it" },
+        { "name": "popularLabel", "type": "string" },
+        { "name": "popular", "type": "string[]", "doc": "Start-here row of popular guides; empty array hides the row" },
+        { "name": "categories", "type": "Array<{glyph, title, sub, count}>", "doc": "Lifecycle-ordered category cards; glyph is one of bolt | plug | sliders | book | spark | person" }
+      ],
+      "variants": [
+        { "id": "landing", "name": "Search and categories", "props": {} },
+        { "id": "categories-only", "name": "Categories only", "props": { "popular": [] } }
+      ]
+    },
+    {
+      "id": "status-band",
+      "global": "LibStatusBand",
+      "file": "library/sections/docs-support.js",
+      "name": "Status band",
+      "tier": 3,
+      "description": "A slim system-status strip: one dot, one plain sentence, one timestamp, a 90-day uptime number, and per-service dots using the fixed operational / degraded / outage vocabulary. Embed it on docs and support pages and link out to the full status history; never duplicate incident detail inline.",
+      "pageTypes": ["resource", "landing"],
+      "usedBy": [
+        { "site": "Stripe status", "url": "https://status.stripe.com", "note": "Overall banner, per-component list, incident history below" },
+        { "site": "Intercom Help Center", "url": "https://www.intercom.com/help/en/", "note": "Help surface links out to status and support entry points from footer" },
+        { "site": "Resend", "url": "https://resend.com", "note": "Developer-trust surface pairs API proof with transparency links" }
+      ],
+      "props": [
+        { "name": "state", "type": "'operational' | 'incident'", "doc": "Switches the dot tone and the default copy; during incidents the sentence leads with impact and next update time" },
+        { "name": "message", "type": "string", "doc": "Overrides the per-state default sentence" },
+        { "name": "note", "type": "string", "doc": "Overrides the per-state default timestamp / next-update note" },
+        { "name": "uptimeLine", "type": "string", "doc": "90-day uptime as a number, not a vague claim" },
+        { "name": "linkLabel", "type": "string", "doc": "Link to the full status page" },
+        { "name": "services", "type": "Array<{name, status}>", "doc": "Per-service dots; status is the fixed vocabulary operational | degraded | outage" }
+      ],
+      "variants": [
+        { "id": "operational", "name": "All systems operational", "props": {} },
+        { "id": "incident", "name": "Degraded incident", "props": { "state": "incident" } }
+      ]
+    },
+    {
+      "id": "developer-proof-band",
+      "global": "LibDeveloperProofBand",
+      "file": "library/sections/docs-support.js",
+      "name": "Developer proof band",
+      "tier": 2,
+      "description": "Proves the product is programmable: hard numbers first (endpoints, p95 latency, uptime), a quiet single-color SDK and MCP pill row, and a code-ish pane built entirely from tokens with language tabs and a runnable-looking snippet. Primary CTA routes to the API reference, secondary to a key.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [
+        { "site": "Resend", "url": "https://resend.com", "note": "9 official SDKs, OpenAPI spec, MCP server, migration guides; trust through openness and specifics" },
+        { "site": "Stripe Docs", "url": "https://docs.stripe.com", "note": "CLI banner ('run stripe docs in your terminal') and AI/agent skills as first-class entry points" },
+        { "site": "Tailscale KB", "url": "https://tailscale.com/kb", "note": "CLI/API reference surfaced as a top-level category alongside user guides" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "heading", "type": "string" },
+        { "name": "sub", "type": "string", "doc": "Speaks to engineers in concrete terms, with a named (fictional) team as proof" },
+        { "name": "stats", "type": "Array<{value, label}>", "doc": "Lead with numbers: endpoint count, p95 latency, uptime" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string" },
+        { "name": "sdkLabel", "type": "string" },
+        { "name": "sdks", "type": "string[]", "doc": "Quiet single-color pill row; include the MCP server, it is table stakes on developer bands" },
+        { "name": "tabs", "type": "Array<{id, label}>", "doc": "Language tabs over the code pane" },
+        { "name": "defaultTab", "type": "string", "doc": "Which snippet renders first: typescript | python | curl" },
+        { "name": "snippets", "type": "Record<tabId, Array<Array<[tone, text]>>>", "doc": "Code lines as [tone, text] span pairs; tones kw | str | fn | env | cm | pl map to semantic tokens" },
+        { "name": "paneCaption", "type": "string" },
+        { "name": "paneFootnote", "type": "string" }
+      ],
+      "variants": [
+        { "id": "typescript", "name": "TypeScript tab", "props": {} },
+        { "id": "curl", "name": "cURL tab", "props": { "defaultTab": "curl" } }
+      ]
+    },
+    {
+      "id": "support-entry",
+      "global": "LibSupportEntry",
+      "file": "library/sections/docs-support.js",
+      "name": "Support entry",
+      "tier": 2,
+      "description": "A help-center entry that triages before it converses: search first, an all-systems status line so 'is it down?' never becomes a ticket, then three honestly-scoped routes (browse docs, ask Alfred, email a human) each with a stated response time. The assistant route carries the brand ring; the human route is present but ranked last.",
+      "pageTypes": ["resource", "landing"],
+      "usedBy": [
+        { "site": "Intercom Help Center", "url": "https://www.intercom.com/help/en/", "note": "Search-led hero ('Great service changes everything'), collection cards, then contact routes" },
+        { "site": "Notion Help Center", "url": "https://www.notion.com/help", "note": "Search plus guides/reference split, with contact support as the last resort route" },
+        { "site": "Tailscale KB", "url": "https://tailscale.com/kb", "note": "Support channels folded into the Resources and reference category rather than a competing surface" }
+      ],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "heading", "type": "string" },
+        { "name": "sub", "type": "string", "doc": "States the escalation promise honestly: assistant first, human within 4 business hours" },
+        { "name": "showSearch", "type": "boolean", "doc": "false renders the channels-only band for embedding at a page's end" },
+        { "name": "searchPlaceholder", "type": "string" },
+        { "name": "statusLine", "type": "string", "doc": "One-line status with a dot, linking to the status page" },
+        { "name": "statusLinkLabel", "type": "string" },
+        { "name": "routes", "type": "Array<{glyph, title, sub, meta, ctaLabel, recommended?, badge?}>", "doc": "Keep to 3 routes max; each states scope and expected response time. recommended gets the section's one gradient ring" }
+      ],
+      "variants": [
+        { "id": "triage", "name": "Search-led triage", "props": {} },
+        { "id": "channels-only", "name": "Channels only", "props": { "showSearch": false } }
+      ]
+    }
+  ]
+}

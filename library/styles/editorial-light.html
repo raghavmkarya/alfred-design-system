@@ -1,0 +1,330 @@
+<!-- Style exploration: Editorial light. Off-system by design; compare at library/styles/index.html -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfred style lab — Editorial light</title>
+<style>
+  /* ---- Local fonts (zero external requests) ---- */
+  @font-face { font-family: "Inter"; src: url("../../assets/fonts/Inter-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Inter"; src: url("../../assets/fonts/Inter-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Satoshi"; src: url("../../assets/fonts/Satoshi-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Satoshi"; src: url("../../assets/fonts/Satoshi-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Satoshi"; src: url("../../assets/fonts/Satoshi-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+  :root {
+    --paper: #FAF9F5;          /* bone canvas, never white */
+    --paper-raised: #F0EEE6;   /* warmer cream band */
+    --hairline: #E8E6DC;       /* warm hairline, not gray */
+    --ink: #141413;            /* warm near-black */
+    --ink-60: #5E5D59;         /* warm secondary */
+    --accent: #D97757;         /* terracotta, on a leash */
+    --accent-press: #CC785C;
+    --band: #191918;           /* inverted ink band */
+    --sand: #EBDBBC;           /* tinted illustration panel */
+    --serif: "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
+    --alfred-sans: "Satoshi", system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--sand); color: var(--ink); }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+
+  /* faint paper grain, editorial sections only */
+  .paper { position: relative; }
+  .paper::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .028;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* full-bleed chapter rules */
+  hr.rule { border: 0; border-top: 1px solid var(--hairline); }
+
+  /* rise-in: slow, few, small */
+  .rise { opacity: 0; transform: translateY(14px); transition: opacity .3s ease-out, transform .3s ease-out; }
+  .rise.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none; transition: none; } }
+
+  /* ---------------- Nav ---------------- */
+  nav { border-bottom: 1px solid var(--hairline); }
+  .nav-inner { display: flex; align-items: center; gap: 40px; height: 76px; }
+  .wordmark { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: 0; }
+  .nav-links { display: flex; gap: 32px; margin-left: auto; }
+  .nav-links a {
+    font-size: 14.5px; color: var(--ink); text-decoration: none;
+  }
+  .nav-links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+  .nav-cta {
+    font-size: 14.5px; font-weight: 500; color: var(--ink); text-decoration: none;
+    border: 1px solid var(--ink); border-radius: 999px; padding: 9px 20px;
+    transition: background-color .25s ease-out;
+  }
+  .nav-cta:hover { background: var(--paper-raised); }
+
+  /* ---------------- Hero ---------------- */
+  .hero { padding: 148px 0 132px; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-60);
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    margin-top: 34px;
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(3.4rem, 6.4vw, 5.3rem);
+    line-height: 1.07; letter-spacing: -0.01em;
+    max-width: 20ch;
+  }
+  .hero .sub {
+    margin-top: 30px; max-width: 58ch;
+    font-size: 18px; line-height: 1.7; color: var(--ink-60);
+  }
+  .cta-row { margin-top: 44px; display: flex; align-items: center; gap: 30px; }
+  .btn-primary {
+    display: inline-block; background: var(--accent); color: var(--paper);
+    font-family: var(--sans); font-size: 15px; font-weight: 500; letter-spacing: 0;
+    border-radius: 999px; padding: 13px 27px; text-decoration: none;
+    transition: background-color .25s ease-out;
+  }
+  .btn-primary:hover { background: var(--accent-press); }
+  .link-quiet {
+    font-size: 15.5px; color: var(--ink); text-decoration: underline;
+    text-decoration-thickness: 1px; text-underline-offset: 3px;
+    text-decoration-color: var(--ink-60);
+    transition: color .25s ease-out;
+  }
+  .link-quiet:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  /* ---------------- Stats ---------------- */
+  .stats { padding: 104px 0 112px; }
+  .section-label {
+    font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-60); margin-bottom: 58px;
+  }
+  .section-label .no { color: var(--accent); margin-right: 10px; }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .stat { padding-right: 40px; }
+  .stat + .stat { border-left: 1px solid var(--hairline); padding-left: 40px; }
+  .stat-value { font-family: var(--serif); font-weight: 400; font-size: 64px; line-height: 1; letter-spacing: -0.01em; }
+  .stat-value .unit { font-size: 30px; }
+  .stat-label { margin-top: 16px; font-size: 15.5px; color: var(--ink-60); }
+
+  /* ---------------- Feature ---------------- */
+  .feature { padding: 128px 0 136px; }
+  .feature-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 88px; align-items: center; }
+  .feature h2 {
+    font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1.15;
+    letter-spacing: -0.005em; margin-top: 30px;
+  }
+  .feature p { margin-top: 22px; max-width: 44ch; color: var(--ink-60); font-size: 17px; line-height: 1.7; }
+  .panel {
+    background: var(--sand); border: 1px solid rgba(20, 20, 19, 0.14); border-radius: 14px;
+    padding: 60px 40px; display: flex; justify-content: center; align-items: center;
+  }
+  .panel svg { max-width: 100%; height: auto; display: block; }
+
+  /* ---------------- Footer band ---------------- */
+  .band { background: var(--band); color: var(--paper-raised); }
+  .band-inner { display: flex; align-items: baseline; justify-content: space-between; padding: 52px 0; font-size: 15px; }
+  .band a { color: var(--paper-raised); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .band a:hover { color: var(--accent); }
+  .band .colophon { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8983; }
+
+  /* ---------------- Adopting this (plain Alfred styling) ---------------- */
+  .adopting-section { background: #F2F3F8; padding: 88px 0 96px; font-family: var(--alfred-sans); letter-spacing: 0; }
+  .adopting-card {
+    background: #FFFFFF; border-radius: 24px; padding: 56px 60px;
+    box-shadow: 0 16px 40px rgba(2, 2, 30, 0.08), 0 2px 8px rgba(2, 2, 30, 0.04);
+    color: #02021E;
+  }
+  .adopting-card .kicker {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FF8431;
+  }
+  .adopting-card h2 { font-size: 30px; font-weight: 700; margin-top: 10px; letter-spacing: -0.01em; line-height: 1.2; }
+  .adopting-card .lede { margin-top: 10px; font-size: 16px; color: rgba(2, 2, 30, 0.65); max-width: 66ch; }
+  .adopting-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+  .adopting-cols h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+  .adopting-cols ul { list-style: none; }
+  .adopting-cols li { position: relative; padding-left: 22px; font-size: 15px; line-height: 1.55; color: rgba(2, 2, 30, 0.78); }
+  .adopting-cols li + li { margin-top: 14px; }
+  .adds li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: #FF8431; }
+  .clashes li::before { content: ""; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; border-radius: 1px; background: #02021E; }
+
+  /* ---------------- Responsive ---------------- */
+  @media (max-width: 960px) {
+    .wrap { padding: 0 28px; }
+    .hero { padding: 96px 0 88px; }
+    .feature-grid { grid-template-columns: 1fr; gap: 48px; }
+    .adopting-cols { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hero h1 br { display: none; }
+    .stat-grid { grid-template-columns: 1fr; row-gap: 40px; }
+    .stat + .stat { border-left: 0; padding-left: 0; }
+    .adopting-card { padding: 36px 28px; }
+    .band-inner { flex-direction: column; gap: 12px; }
+  }
+</style>
+
+<div class="paper">
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="wordmark" href="#">alfred ai</a>
+      <div class="nav-links">
+        <a href="#">Product</a>
+        <a href="#">How it works</a>
+        <a href="#">Pricing</a>
+        <a href="#">Resources</a>
+      </div>
+      <a class="nav-cta" href="#">Talk to sales</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow rise">Decision intelligence platform</p>
+      <h1 class="rise" style="transition-delay: 70ms">Every decision,<br>briefed before you ask</h1>
+      <p class="sub rise" style="transition-delay: 140ms">I connect your marketing, sales and finance stack, learn how your organisation decides, and hand you the next move with the reasoning attached.</p>
+      <div class="cta-row rise" style="transition-delay: 210ms">
+        <a class="btn-primary" href="#">get started</a>
+        <a class="link-quiet" href="#">See how I work &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <hr class="rule">
+
+  <section class="stats">
+    <div class="wrap">
+      <p class="section-label rise"><span class="no">01</span>Outcomes</p>
+      <div class="stat-grid">
+        <div class="stat rise">
+          <p class="stat-value">70%</p>
+          <p class="stat-label">faster decisions</p>
+        </div>
+        <div class="stat rise" style="transition-delay: 70ms">
+          <p class="stat-value">12%</p>
+          <p class="stat-label">less wasted spend</p>
+        </div>
+        <div class="stat rise" style="transition-delay: 140ms">
+          <p class="stat-value">15+ <span class="unit">hrs</span></p>
+          <p class="stat-label">reclaimed weekly</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="feature">
+    <div class="wrap feature-grid">
+      <div>
+        <p class="section-label rise" style="margin-bottom: 0"><span class="no">02</span>The product</p>
+        <h2 class="rise" style="transition-delay: 70ms">The daily brief</h2>
+        <p class="rise" style="transition-delay: 140ms">What changed, why it changed, what to do about it. Ranked by impact, on your desk before your first meeting.</p>
+      </div>
+      <div class="panel rise" style="transition-delay: 140ms">
+        <svg width="380" height="270" viewBox="0 0 380 270" fill="none" role="img" aria-label="Hand-drawn ink sketch of the morning brief beside a cup of coffee">
+          <g stroke="#141413" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- morning sun -->
+            <path d="M34 70 a17 17 0 0 1 33 -1"/>
+            <path d="M50 42 l0 -11"/>
+            <path d="M28 51 l-8 -8"/>
+            <path d="M73 50 l8 -8"/>
+            <!-- the sheet -->
+            <path d="M96 52 C 148 45 214 44 266 49 C 269 49 271 51 271 54 L 277 206 C 277 210 275 212 272 212 C 216 219 148 221 101 216 C 98 216 96 214 96 211 L 90 58 C 90 54 92 52 96 52 Z"/>
+            <!-- headline squiggles -->
+            <path d="M118 84 q40 -6 78 -3"/>
+            <path d="M118 99 q27 -5 52 -3"/>
+            <!-- ranked item 2 -->
+            <path d="M124 143 a9 9 0 1 1 -0.2 0"/>
+            <path d="M148 148 q46 -4 96 -3"/>
+            <!-- ranked item 3 -->
+            <path d="M126 172 a9 9 0 1 1 -0.2 0"/>
+            <path d="M150 177 q40 -3 82 -2"/>
+            <!-- ranked item 1, checked -->
+            <path d="M122 114 a9 9 0 1 1 -0.2 0"/>
+            <path d="M146 119 q52 -4 104 -3"/>
+            <!-- coffee -->
+            <path d="M296 200 C 297 222 303 233 320 234 C 337 233 343 222 344 200 C 328 204 311 204 296 200 Z"/>
+            <path d="M344 206 q15 -3 14 8 q-1 11 -16 8"/>
+            <path d="M312 186 q5 -8 0 -15 q-5 -7 1 -13"/>
+            <path d="M327 188 q5 -8 0 -15"/>
+          </g>
+          <path d="M117 122 l5 6 l9 -12" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <footer class="band">
+    <div class="wrap band-inner">
+      <p>Alfred by E902 &middot; <a href="#">seekalfred.ai</a></p>
+      <p class="colophon">Cream, ink &amp; one accent</p>
+    </div>
+  </footer>
+
+</div>
+
+<section class="adopting-section">
+  <div class="wrap">
+    <div class="adopting-card">
+      <p class="kicker">Style lab notes</p>
+      <h2>Adopting this</h2>
+      <p class="lede">What the Alfred design system would take from Editorial light, and where it collides with the brand.</p>
+      <div class="adopting-cols">
+        <div class="adds">
+          <h3>What the design system would add</h3>
+          <ul>
+            <li>A paper surface token set (--paper-50 #FAF9F5, --paper-100 #F0EEE6, --paper-border #E8E6DC, warm --ink-body #141413) as a marketing-light or docs and report theme, without touching the dark site.</li>
+            <li>A hairline card variant: 1px --paper-border, 12 to 16px radius, shadow removed, for reports, decision memos and long-form "Alfred writes to you" surfaces where the paper metaphor suits the chief-of-staff voice.</li>
+            <li>Whitespace and measure rules as tokens: 120px+ section padding, a 66ch prose cap, and the dated-list editorial index pattern. None of it conflicts with the brand.</li>
+            <li>A slow motion preset: 250ms ease-out rise-in with 60 to 80ms stagger, replacing scale and glow on editorial surfaces.</li>
+            <li>One editorial display decision, not two: either promote Bricolage Grotesque at weight 400 to the "one serif sentence" hero role, or add a true serif as --font-editorial. Adding both duplicates the accent role.</li>
+            <li>Illustration guidelines lifted from the style's restraint: single colour, line-led, no glossy 3D.</li>
+          </ul>
+        </div>
+        <div class="clashes">
+          <h3>What clashes with the brand</h3>
+          <ul>
+            <li>Dark-first identity: the cream canvas is the style's core, but Alfred's marketing site is ink-dark by rule. Wholesale adoption is a rebrand; the workable translation is "editorial dark" (keep --ink-900, borrow hairline rules, large-display restraint and one-accent discipline).</li>
+            <li>Accent temperature: this style runs on desaturated terracotta, while Alfred's #FF8431 and the periwinkle-to-orange gradient are deliberately vivid signatures. Keep the vivid orange and adopt only the "accent on a leash" budget.</li>
+            <li>Type voice: Clash Display's tight-tracked geometric character is the opposite of a 400-weight serif. Never set the two in the same view, and never tighten or bold an adopted serif.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var els = Array.prototype.slice.call(document.querySelectorAll(".rise"));
+    var show = function (el) { el.classList.add("in"); };
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      els.forEach(show);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { show(en.target); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function (el) { io.observe(el); });
+    /* safety: everything visible after 1.4s regardless of scroll position */
+    window.setTimeout(function () { els.forEach(show); }, 1400);
+  })();
+</script>

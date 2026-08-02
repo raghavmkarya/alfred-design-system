@@ -6,7 +6,7 @@
       "name": "Site chrome",
       "order": 1,
       "icon": "web-stack-connected",
-      "count": 4
+      "count": 6
     },
     {
       "id": "heroes",
@@ -69,7 +69,28 @@
       "name": "Extras",
       "order": 10,
       "icon": "pin",
-      "count": 5
+      "count": 8
+    },
+    {
+      "id": "docs-support",
+      "name": "Docs and support",
+      "order": 11,
+      "icon": "search",
+      "count": 4
+    },
+    {
+      "id": "auth-flows",
+      "name": "Auth and onboarding",
+      "order": 12,
+      "icon": "security-lock",
+      "count": 4
+    },
+    {
+      "id": "community-events",
+      "name": "Community and events",
+      "order": 13,
+      "icon": "demo-play",
+      "count": 4
     }
   ],
   "sections": [
@@ -536,6 +557,261 @@
             "newsletterCtaLabel": "",
             "newsletterPlaceholder": "",
             "socialLinks": []
+          }
+        }
+      ]
+    },
+    {
+      "category": "chrome",
+      "id": "mega-menu",
+      "global": "LibMegaMenu",
+      "file": "library/sections/chrome.js",
+      "name": "Mega menu",
+      "tier": 2,
+      "description": "The navbar's expanded mega-menu panel, shown open as a specimen: header bar with the dual CTA pair, then a full-width panel of role-grouped link columns (uppercase eyebrows, one-line descriptions on the primary column only) and exactly one promo card in the trailing slot. Under 860px the panel stacks like the mobile drawer, promo last, CTA pair pinned at the end.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing",
+        "blog",
+        "resource",
+        "comparison"
+      ],
+      "usedBy": [
+        {
+          "site": "6sense.com",
+          "url": "https://6sense.com",
+          "note": "Role-based Products columns (Revenue Marketing vs Sales Intelligence), Forrester Wave promo card, in-menu CTAs"
+        },
+        {
+          "site": "webflow.com",
+          "url": "https://webflow.com",
+          "note": "Solutions menu with 3 audience columns plus promo cards; Resources menu as Get started / Learn / Discover / Get help"
+        },
+        {
+          "site": "hubspot.com",
+          "url": "https://www.hubspot.com",
+          "note": "Products two-column layout with bundle and marketplace promos on the trailing edge; tabbed Solutions menu"
+        },
+        {
+          "site": "gong.io",
+          "url": "https://www.gong.io",
+          "note": "Counter-example: simpler dropdowns plus a persistent Book a demo; role paths pushed to on-page cards instead"
+        }
+      ],
+      "props": [
+        {
+          "name": "logoText",
+          "type": "string",
+          "doc": "Wordmark text next to the gradient tile"
+        },
+        {
+          "name": "items",
+          "type": "Array<{label, href}>",
+          "doc": "Top-level nav links, capped at 5 or 6 in practice; Pricing stays a direct link, never a dropdown"
+        },
+        {
+          "name": "openItem",
+          "type": "string",
+          "doc": "Label of the nav item rendered open (aria-expanded, chevron); the panel is captioned as this item's menu"
+        },
+        {
+          "name": "columns",
+          "type": "Array<{eyebrow, links: Array<{label, description?, href?}>}>",
+          "doc": "Role-grouped link columns; give one-line descriptions to the primary column only"
+        },
+        {
+          "name": "promo",
+          "type": "{eyebrow, title, body, ctaLabel} | null",
+          "doc": "Exactly one promo card in the trailing column; null removes the slot and widens the link columns"
+        },
+        {
+          "name": "ctaLabel",
+          "type": "string",
+          "doc": "The one orange primary CTA, persistent in the header and pinned at the mobile drawer end"
+        },
+        {
+          "name": "secondaryCtaLabel",
+          "type": "string",
+          "doc": "Ghost button before the CTA; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "product",
+          "name": "Product, by role",
+          "props": {}
+        },
+        {
+          "id": "resources",
+          "name": "Resources, verb-led",
+          "props": {
+            "openItem": "Resources",
+            "columns": [
+              {
+                "eyebrow": "Get started",
+                "links": [
+                  {
+                    "label": "Connect your stack"
+                  },
+                  {
+                    "label": "Your first brief"
+                  },
+                  {
+                    "label": "Invite your team"
+                  },
+                  {
+                    "label": "Pricing"
+                  }
+                ]
+              },
+              {
+                "eyebrow": "Learn",
+                "links": [
+                  {
+                    "label": "The library"
+                  },
+                  {
+                    "label": "Playbooks"
+                  },
+                  {
+                    "label": "Product updates"
+                  },
+                  {
+                    "label": "FAQ"
+                  }
+                ]
+              },
+              {
+                "eyebrow": "Get help",
+                "links": [
+                  {
+                    "label": "Contact"
+                  },
+                  {
+                    "label": "Book a walkthrough"
+                  },
+                  {
+                    "label": "Status"
+                  }
+                ]
+              }
+            ],
+            "promo": {
+              "eyebrow": "Live session",
+              "title": "Watch me rebalance a real quarter",
+              "body": "Thursday, 30 minutes, one real budget. Bring your own numbers.",
+              "ctaLabel": "Save a seat"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "category": "chrome",
+      "id": "search-overlay",
+      "global": "LibSearchOverlay",
+      "file": "library/sections/chrome.js",
+      "name": "Search overlay",
+      "tier": 3,
+      "description": "Command-K site search shown open as a specimen over a scrim: one input with an esc keycap, results grouped under section eyebrows with the matched fragment highlighted and a visible selection, then a one-line keycap legend footer. Empty state offers recent searches plus curated suggestions instead of a void; only worth shipping once the site has 30+ indexable pages.",
+      "pageTypes": [
+        "resource",
+        "blog"
+      ],
+      "usedBy": [
+        {
+          "site": "docsearch.algolia.com",
+          "url": "https://docsearch.algolia.com",
+          "note": "The reference anatomy: Ctrl/Cmd+K trigger, grouped results, recent searches, WAI-ARIA keyboard support"
+        },
+        {
+          "site": "raycast.com",
+          "url": "https://www.raycast.com",
+          "note": "Counter-example verified: keyboard-first brand but no site search overlay; plain nav instead"
+        }
+      ],
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "string",
+          "doc": "Input placeholder, in Alfred's first person"
+        },
+        {
+          "name": "query",
+          "type": "string",
+          "doc": "Typed query the specimen opens with; its first hit in each result title is highlighted. The input stays editable"
+        },
+        {
+          "name": "groups",
+          "type": "Array<{label, items: Array<{title, path?}>}>",
+          "doc": "Result groups under uppercase section eyebrows; the first row renders as the keyboard selection"
+        },
+        {
+          "name": "recentHeading",
+          "type": "string",
+          "doc": "Eyebrow over the recent rows in the empty state"
+        },
+        {
+          "name": "recent",
+          "type": "string[]",
+          "doc": "Recent searches shown in the empty state; empty array hides the block"
+        },
+        {
+          "name": "emptyHeading",
+          "type": "string",
+          "doc": "Eyebrow over the curated suggestions in the empty state"
+        },
+        {
+          "name": "suggestions",
+          "type": "string[]",
+          "doc": "3 to 5 curated queries so the empty state is never a void"
+        },
+        {
+          "name": "noResultsText",
+          "type": "string",
+          "doc": "No-results line; owns the miss and offers a way forward"
+        },
+        {
+          "name": "askLabel",
+          "type": "string",
+          "doc": "Link under the no-results line that hands the query to Alfred; empty string hides it"
+        },
+        {
+          "name": "footerHints",
+          "type": "Array<{keys: string[], label}>",
+          "doc": "Keycap legend in the footer, one hint per key group"
+        },
+        {
+          "name": "footerNote",
+          "type": "string",
+          "doc": "Muted trailing footer note; empty string hides it"
+        },
+        {
+          "name": "variant",
+          "type": "'results' | 'empty' | 'no-results'",
+          "doc": "results = grouped hits with a selection; empty = recent plus suggestions; no-results = owned miss with an ask-Alfred handoff"
+        }
+      ],
+      "variants": [
+        {
+          "id": "results",
+          "name": "Grouped results",
+          "props": {}
+        },
+        {
+          "id": "empty",
+          "name": "Empty state",
+          "props": {
+            "variant": "empty"
+          }
+        },
+        {
+          "id": "no-results",
+          "name": "No results",
+          "props": {
+            "variant": "no-results",
+            "query": "quarterly synergy dashboard"
           }
         }
       ]
@@ -4862,6 +5138,1471 @@
           "props": {}
         }
       ]
+    },
+    {
+      "category": "extras",
+      "id": "sunset-migration-band",
+      "global": "LibSunsetMigrationBand",
+      "file": "library/sections/extras.js",
+      "name": "Sunset migration band",
+      "tier": 3,
+      "description": "Acquisition or product-sunset notice that converts anxiety into accountability: a letter-style note from a named leader with an accent-ruled pull quote, a three-step migration timeline whose deadline is stated as a date, and a single CTA to the canonical announcement post. The band layout compresses the same fact into a slim above-the-nav strip; keep it non-dismissible while a deadline stands.",
+      "pageTypes": [
+        "landing",
+        "blog"
+      ],
+      "usedBy": [
+        {
+          "site": "peak.ai",
+          "url": "https://peak.ai",
+          "note": "Panel below the hero: 'Peak is now part of UiPath', a continuity sentence, a CEO quote, and a Learn more link to the blog"
+        },
+        {
+          "site": "mode.com",
+          "url": "https://mode.com",
+          "note": "Slim band above the nav announcing the ThoughtSpot acquisition, with a Learn More link to the press release"
+        }
+      ],
+      "props": [
+        {
+          "name": "layout",
+          "type": "'panel' | 'band'",
+          "doc": "panel = hero-adjacent letter plus timeline, for anything requiring customer action; band = slim awareness strip for above the nav"
+        },
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string",
+          "doc": "The plain fact in the entity's own words: '<Brand> is now part of <Acquirer>'. No euphemisms"
+        },
+        {
+          "name": "sub",
+          "type": "string",
+          "doc": "One sentence of continuity reassurance"
+        },
+        {
+          "name": "deadlineLine",
+          "type": "string",
+          "doc": "The customer-facing deadline stated as a date, the one thing readers scan for; rendered in both layouts. Empty string hides the panel callout"
+        },
+        {
+          "name": "letterTitle",
+          "type": "string",
+          "doc": "Kicker over the letter card"
+        },
+        {
+          "name": "letterSalutation",
+          "type": "string"
+        },
+        {
+          "name": "letterParagraphs",
+          "type": "string[]",
+          "doc": "Body of the leader letter, one string per paragraph"
+        },
+        {
+          "name": "letterPullQuote",
+          "type": "string",
+          "doc": "Accent-ruled pull quote inside the letter; empty string hides it"
+        },
+        {
+          "name": "signatureName",
+          "type": "string",
+          "doc": "Named leader who signs the letter; the name converts anxiety into accountability"
+        },
+        {
+          "name": "signatureRole",
+          "type": "string"
+        },
+        {
+          "name": "timelineTitle",
+          "type": "string",
+          "doc": "Kicker over the migration timeline"
+        },
+        {
+          "name": "timeline",
+          "type": "Array<{date, title, body}>",
+          "doc": "Migration milestones; the first item renders as the current step"
+        },
+        {
+          "name": "ctaLabel",
+          "type": "string",
+          "doc": "The single CTA, linking the canonical announcement that carries dates, FAQs and migration paths. The band itself never carries terms"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "Muted placeholder disclaimer; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Panel with letter and timeline",
+          "props": {}
+        },
+        {
+          "id": "top-band",
+          "name": "Slim top band",
+          "props": {
+            "layout": "band"
+          }
+        }
+      ]
+    },
+    {
+      "category": "extras",
+      "id": "insight-data-cards",
+      "global": "LibInsightDataCards",
+      "file": "library/sections/extras.js",
+      "name": "Insight data cards",
+      "tier": 2,
+      "description": "Product-proof cards whose headline IS the metric: a big answer figure with a valence delta chip, an optional bundle LineChart or Sparkline preview, a how-I-computed-it trust line, and a drill-in affordance that implies depth beyond the headline. Data is plausible but obviously fictional (Meridian), so screenshots read as demos, never as customer claims.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "equals.com",
+          "url": "https://equals.com",
+          "note": "Q&A message card with the metric as the answer and the calculation source as supporting detail"
+        },
+        {
+          "site": "hex.tech",
+          "url": "https://hex.tech",
+          "note": "Fictional NexaCorp dashboard cards: metric headline, delta, and chart previews, with sci-fi product names to signal fiction"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "showCharts",
+          "type": "boolean",
+          "doc": "Hide the chart previews for a tighter numbers-only row"
+        },
+        {
+          "name": "cards",
+          "type": "Array<{kicker, value, delta?, tone?, trustLine, followUp?, chart?}>",
+          "doc": "One card per metric. tone colours the delta chip (good | bad | neutral); chart is {type: 'line' | 'spark', points, labels?, ariaLabel} rendered with the bundle LineChart / Sparkline"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "Fictional-data disclaimer under the row; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "With chart previews",
+          "props": {}
+        },
+        {
+          "id": "numbers-only",
+          "name": "Numbers only",
+          "props": {
+            "showCharts": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "extras",
+      "id": "curated-collections",
+      "global": "LibCuratedCollections",
+      "file": "library/sections/extras.js",
+      "name": "Curated collections",
+      "tier": 3,
+      "description": "Gallery-style curated rows under count-bearing view-all links: each row states its curation logic in the title and who picked it in the subtitle, with category chips above as a second navigation axis. Cards keep to thumbnail, title, one metadata line and one value line; rows scroll horizontally with a peeking card where four-up does not fit. For Alfred this is the playbook, integration, or report gallery.",
+      "pageTypes": [
+        "resource",
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "notion.com",
+          "url": "https://www.notion.com/templates",
+          "note": "Template gallery: featured rows with curation subtitles, count-based Browse links, and category chips with template counts"
+        },
+        {
+          "site": "framer.com",
+          "url": "https://www.framer.com/marketplace/templates/",
+          "note": "Marketplace template gallery in the same pattern class; rows are JS-rendered"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "headlineAccent",
+          "type": "string",
+          "doc": "Substring of headline rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "showChips",
+          "type": "boolean",
+          "doc": "Hide the category chip row for a rows-only gallery"
+        },
+        {
+          "name": "chips",
+          "type": "Array<{label, count}>",
+          "doc": "Category chips over the rows, the second navigation axis; counts are the depth signal. The first chip renders active"
+        },
+        {
+          "name": "rows",
+          "type": "Array<{title, subtitle, viewAll, items}>",
+          "doc": "Curated rows; items are {glyph, title, meta, value} where glyph names a built-in line pictogram (review | board | vendor | forecast | pipeline | renewal | launch | hiring)"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "Muted placeholder disclaimer; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Chips and two rows",
+          "props": {}
+        },
+        {
+          "id": "rows-only",
+          "name": "Rows only",
+          "props": {
+            "showChips": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "docs-support",
+      "id": "docs-hub",
+      "global": "LibDocsHub",
+      "file": "library/sections/docs-support.js",
+      "name": "Docs hub",
+      "tier": 1,
+      "description": "The front door of the help center: a one-sentence hero over a prominent search field with a keyboard hint, a start-here row of popular guides, then lifecycle-ordered category cards (icon, title, one-line subtitle, article count). Progressive disclosure: quick starts first, full taxonomy below.",
+      "pageTypes": [
+        "resource"
+      ],
+      "usedBy": [
+        {
+          "site": "Stripe Docs",
+          "url": "https://docs.stripe.com",
+          "note": "Start-here hero, use-case columns, then Browse-by-product card sections grouped into 4-5 categories"
+        },
+        {
+          "site": "Tailscale KB",
+          "url": "https://tailscale.com/kb",
+          "note": "One-sentence value prop hero, four lifecycle-ordered category cards (Get started, Manage, Expand, Reference)"
+        },
+        {
+          "site": "Linear Docs",
+          "url": "https://linear.app/docs",
+          "note": "Popular row of 4 guides above a Basics grid; consistent title + subtitle card format"
+        },
+        {
+          "site": "Intercom Help Center",
+          "url": "https://www.intercom.com/help/en/",
+          "note": "Big search under a brand-line heading; 14 collection cards each with icon and article count"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "type": "string",
+          "doc": "One-sentence hero line stating what the docs cover"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string",
+          "doc": "The search field is the primary CTA of the page"
+        },
+        {
+          "name": "searchHintKey",
+          "type": "string",
+          "doc": "Keyboard hint rendered as a Kbd cap at the field's end; empty string hides it"
+        },
+        {
+          "name": "popularLabel",
+          "type": "string"
+        },
+        {
+          "name": "popular",
+          "type": "string[]",
+          "doc": "Start-here row of popular guides; empty array hides the row"
+        },
+        {
+          "name": "categories",
+          "type": "Array<{glyph, title, sub, count}>",
+          "doc": "Lifecycle-ordered category cards; glyph is one of bolt | plug | sliders | book | spark | person"
+        }
+      ],
+      "variants": [
+        {
+          "id": "landing",
+          "name": "Search and categories",
+          "props": {}
+        },
+        {
+          "id": "categories-only",
+          "name": "Categories only",
+          "props": {
+            "popular": []
+          }
+        }
+      ]
+    },
+    {
+      "category": "docs-support",
+      "id": "status-band",
+      "global": "LibStatusBand",
+      "file": "library/sections/docs-support.js",
+      "name": "Status band",
+      "tier": 3,
+      "description": "A slim system-status strip: one dot, one plain sentence, one timestamp, a 90-day uptime number, and per-service dots using the fixed operational / degraded / outage vocabulary. Embed it on docs and support pages and link out to the full status history; never duplicate incident detail inline.",
+      "pageTypes": [
+        "resource",
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "Stripe status",
+          "url": "https://status.stripe.com",
+          "note": "Overall banner, per-component list, incident history below"
+        },
+        {
+          "site": "Intercom Help Center",
+          "url": "https://www.intercom.com/help/en/",
+          "note": "Help surface links out to status and support entry points from footer"
+        },
+        {
+          "site": "Resend",
+          "url": "https://resend.com",
+          "note": "Developer-trust surface pairs API proof with transparency links"
+        }
+      ],
+      "props": [
+        {
+          "name": "state",
+          "type": "'operational' | 'incident'",
+          "doc": "Switches the dot tone and the default copy; during incidents the sentence leads with impact and next update time"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "doc": "Overrides the per-state default sentence"
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "doc": "Overrides the per-state default timestamp / next-update note"
+        },
+        {
+          "name": "uptimeLine",
+          "type": "string",
+          "doc": "90-day uptime as a number, not a vague claim"
+        },
+        {
+          "name": "linkLabel",
+          "type": "string",
+          "doc": "Link to the full status page"
+        },
+        {
+          "name": "services",
+          "type": "Array<{name, status}>",
+          "doc": "Per-service dots; status is the fixed vocabulary operational | degraded | outage"
+        }
+      ],
+      "variants": [
+        {
+          "id": "operational",
+          "name": "All systems operational",
+          "props": {}
+        },
+        {
+          "id": "incident",
+          "name": "Degraded incident",
+          "props": {
+            "state": "incident"
+          }
+        }
+      ]
+    },
+    {
+      "category": "docs-support",
+      "id": "developer-proof-band",
+      "global": "LibDeveloperProofBand",
+      "file": "library/sections/docs-support.js",
+      "name": "Developer proof band",
+      "tier": 2,
+      "description": "Proves the product is programmable: hard numbers first (endpoints, p95 latency, uptime), a quiet single-color SDK and MCP pill row, and a code-ish pane built entirely from tokens with language tabs and a runnable-looking snippet. Primary CTA routes to the API reference, secondary to a key.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "Resend",
+          "url": "https://resend.com",
+          "note": "9 official SDKs, OpenAPI spec, MCP server, migration guides; trust through openness and specifics"
+        },
+        {
+          "site": "Stripe Docs",
+          "url": "https://docs.stripe.com",
+          "note": "CLI banner ('run stripe docs in your terminal') and AI/agent skills as first-class entry points"
+        },
+        {
+          "site": "Tailscale KB",
+          "url": "https://tailscale.com/kb",
+          "note": "CLI/API reference surfaced as a top-level category alongside user guides"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string",
+          "doc": "Speaks to engineers in concrete terms, with a named (fictional) team as proof"
+        },
+        {
+          "name": "stats",
+          "type": "Array<{value, label}>",
+          "doc": "Lead with numbers: endpoint count, p95 latency, uptime"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "sdkLabel",
+          "type": "string"
+        },
+        {
+          "name": "sdks",
+          "type": "string[]",
+          "doc": "Quiet single-color pill row; include the MCP server, it is table stakes on developer bands"
+        },
+        {
+          "name": "tabs",
+          "type": "Array<{id, label}>",
+          "doc": "Language tabs over the code pane"
+        },
+        {
+          "name": "defaultTab",
+          "type": "string",
+          "doc": "Which snippet renders first: typescript | python | curl"
+        },
+        {
+          "name": "snippets",
+          "type": "Record<tabId, Array<Array<[tone, text]>>>",
+          "doc": "Code lines as [tone, text] span pairs; tones kw | str | fn | env | cm | pl map to semantic tokens"
+        },
+        {
+          "name": "paneCaption",
+          "type": "string"
+        },
+        {
+          "name": "paneFootnote",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "typescript",
+          "name": "TypeScript tab",
+          "props": {}
+        },
+        {
+          "id": "curl",
+          "name": "cURL tab",
+          "props": {
+            "defaultTab": "curl"
+          }
+        }
+      ]
+    },
+    {
+      "category": "docs-support",
+      "id": "support-entry",
+      "global": "LibSupportEntry",
+      "file": "library/sections/docs-support.js",
+      "name": "Support entry",
+      "tier": 2,
+      "description": "A help-center entry that triages before it converses: search first, an all-systems status line so 'is it down?' never becomes a ticket, then three honestly-scoped routes (browse docs, ask Alfred, email a human) each with a stated response time. The assistant route carries the brand ring; the human route is present but ranked last.",
+      "pageTypes": [
+        "resource",
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "Intercom Help Center",
+          "url": "https://www.intercom.com/help/en/",
+          "note": "Search-led hero ('Great service changes everything'), collection cards, then contact routes"
+        },
+        {
+          "site": "Notion Help Center",
+          "url": "https://www.notion.com/help",
+          "note": "Search plus guides/reference split, with contact support as the last resort route"
+        },
+        {
+          "site": "Tailscale KB",
+          "url": "https://tailscale.com/kb",
+          "note": "Support channels folded into the Resources and reference category rather than a competing surface"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string",
+          "doc": "States the escalation promise honestly: assistant first, human within 4 business hours"
+        },
+        {
+          "name": "showSearch",
+          "type": "boolean",
+          "doc": "false renders the channels-only band for embedding at a page's end"
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string"
+        },
+        {
+          "name": "statusLine",
+          "type": "string",
+          "doc": "One-line status with a dot, linking to the status page"
+        },
+        {
+          "name": "statusLinkLabel",
+          "type": "string"
+        },
+        {
+          "name": "routes",
+          "type": "Array<{glyph, title, sub, meta, ctaLabel, recommended?, badge?}>",
+          "doc": "Keep to 3 routes max; each states scope and expected response time. recommended gets the section's one gradient ring"
+        }
+      ],
+      "variants": [
+        {
+          "id": "triage",
+          "name": "Search-led triage",
+          "props": {}
+        },
+        {
+          "id": "channels-only",
+          "name": "Channels only",
+          "props": {
+            "showSearch": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "auth-flows",
+      "id": "auth-split",
+      "global": "LibAuthSplit",
+      "file": "library/sections/auth-flows.js",
+      "name": "Auth split page",
+      "tier": 2,
+      "description": "Full-height login/signup page: a narrow form column (wordmark, one headline, SSO buttons first, email fallback, legal microcopy) beside a gradient brand panel carrying a single customer quote or one stat. Login and signup share the template; only the headline, subline and swap link change.",
+      "pageTypes": [
+        "any"
+      ],
+      "usedBy": [
+        {
+          "site": "Linear",
+          "url": "https://linear.app/login",
+          "note": "Ultra-minimal centered form, SSO buttons stacked above email"
+        },
+        {
+          "site": "Notion",
+          "url": "https://app.notion.com/login",
+          "note": "Single narrow column, Google/Apple SSO first, email magic-link fallback"
+        },
+        {
+          "site": "Clay",
+          "url": "https://app.clay.com/signup",
+          "note": "Signup carries the value-prop headline beside the form"
+        },
+        {
+          "site": "Attio",
+          "url": "https://app.attio.com/sign-up",
+          "note": "Split layout with dark brand panel and testimonial"
+        }
+      ],
+      "props": [
+        {
+          "name": "mode",
+          "type": "'signup' | 'login'",
+          "doc": "swaps headline, subline, legal line and the swap link; the form itself is shared"
+        },
+        {
+          "name": "brand",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string",
+          "doc": "empty string = the mode's default headline"
+        },
+        {
+          "name": "sub",
+          "type": "string",
+          "doc": "empty string = the mode's default subline"
+        },
+        {
+          "name": "ssoPrimary",
+          "type": "string"
+        },
+        {
+          "name": "ssoSecondary",
+          "type": "string",
+          "doc": "empty string hides the second SSO button"
+        },
+        {
+          "name": "emailPlaceholder",
+          "type": "string"
+        },
+        {
+          "name": "emailCta",
+          "type": "string"
+        },
+        {
+          "name": "legal",
+          "type": "string",
+          "doc": "signup mode only"
+        },
+        {
+          "name": "swapPrompt",
+          "type": "string"
+        },
+        {
+          "name": "swapCta",
+          "type": "string"
+        },
+        {
+          "name": "panel",
+          "type": "'quote' | 'stat'",
+          "doc": "what the gradient brand panel carries"
+        },
+        {
+          "name": "panelQuote",
+          "type": "string"
+        },
+        {
+          "name": "panelQuoteName",
+          "type": "string"
+        },
+        {
+          "name": "panelQuoteTitle",
+          "type": "string"
+        },
+        {
+          "name": "panelQuoteCompany",
+          "type": "string"
+        },
+        {
+          "name": "panelStatValue",
+          "type": "string"
+        },
+        {
+          "name": "panelStatLabel",
+          "type": "string"
+        },
+        {
+          "name": "panelFootnote",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "signup",
+          "name": "Signup",
+          "props": {}
+        },
+        {
+          "id": "login",
+          "name": "Login",
+          "props": {
+            "mode": "login"
+          }
+        },
+        {
+          "id": "stat-panel",
+          "name": "Stat brand panel",
+          "props": {
+            "panel": "stat"
+          }
+        }
+      ]
+    },
+    {
+      "category": "auth-flows",
+      "id": "signup-proof",
+      "global": "LibSignupProof",
+      "file": "library/sections/auth-flows.js",
+      "name": "Signup with proof",
+      "tier": 2,
+      "description": "Signup form flanked by exactly ONE form of live social proof: an attributed testimonial, an avatar-count line, or a muted logo row. Proof answers 'is this safe to commit to' at the moment of commitment, and risk-reversal microcopy sits directly under the CTA.",
+      "pageTypes": [
+        "any"
+      ],
+      "usedBy": [
+        {
+          "site": "PostHog",
+          "url": "https://posthog.com/",
+          "note": "'Join 500,000+ teams' count beside the signup CTAs"
+        },
+        {
+          "site": "Attio",
+          "url": "https://app.attio.com/sign-up",
+          "note": "Testimonial card in the signup brand panel"
+        },
+        {
+          "site": "Supahub",
+          "url": "https://supahub.com/",
+          "note": "'No credit card required' risk-reversal microcopy at the signup CTA"
+        },
+        {
+          "site": "Clay",
+          "url": "https://app.clay.com/signup",
+          "note": "Value-prop headline carried onto the signup surface itself"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "headlineAccent",
+          "type": "string",
+          "doc": "substring of headline rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "proofType",
+          "type": "'testimonial' | 'number' | 'logos'",
+          "doc": "exactly one proof form renders; never stack them"
+        },
+        {
+          "name": "quote",
+          "type": "string"
+        },
+        {
+          "name": "quoteName",
+          "type": "string"
+        },
+        {
+          "name": "quoteTitle",
+          "type": "string"
+        },
+        {
+          "name": "quoteCompany",
+          "type": "string"
+        },
+        {
+          "name": "proofNames",
+          "type": "string[]",
+          "doc": "avatar-count variant: names rendered as initials"
+        },
+        {
+          "name": "proofLabel",
+          "type": "string"
+        },
+        {
+          "name": "logoLabel",
+          "type": "string"
+        },
+        {
+          "name": "logoItems",
+          "type": "string[]",
+          "doc": "fictional wordmarks, tinted muted so they never compete with the one orange CTA"
+        },
+        {
+          "name": "disclaimer",
+          "type": "string"
+        },
+        {
+          "name": "formTitle",
+          "type": "string"
+        },
+        {
+          "name": "ssoLabel",
+          "type": "string"
+        },
+        {
+          "name": "emailPlaceholder",
+          "type": "string"
+        },
+        {
+          "name": "ctaLabel",
+          "type": "string"
+        },
+        {
+          "name": "riskReversal",
+          "type": "string",
+          "doc": "muted small text directly under the primary CTA"
+        }
+      ],
+      "variants": [
+        {
+          "id": "testimonial",
+          "name": "With testimonial",
+          "props": {}
+        },
+        {
+          "id": "avatar-count",
+          "name": "Avatar count",
+          "props": {
+            "proofType": "number"
+          }
+        },
+        {
+          "id": "logo-row",
+          "name": "Logo row",
+          "props": {
+            "proofType": "logos"
+          }
+        }
+      ]
+    },
+    {
+      "category": "auth-flows",
+      "id": "onboarding-preview",
+      "global": "LibOnboardingPreview",
+      "file": "library/sections/auth-flows.js",
+      "name": "Onboarding preview stepper",
+      "tier": 2,
+      "description": "Setup-in-minutes marketing band: exactly three numbered steps with verb-led titles, one sentence each and a time estimate, summed in the headline. Step 3 is the value moment (the first briefing), and a low-commitment sample path sits beside the CTA.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing"
+      ],
+      "usedBy": [
+        {
+          "site": "PostHog",
+          "url": "https://posthog.com/",
+          "note": "Dual-path getting-started block: sign up via web, or the CLI wizard"
+        },
+        {
+          "site": "Supahub",
+          "url": "https://supahub.com/",
+          "note": "'Super fast setup' callout plus a demo path as the learning pathway"
+        },
+        {
+          "site": "Clay",
+          "url": "https://www.clay.com/",
+          "note": "Homepage walks the workflow as sequential steps before the signup CTA"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string",
+          "doc": "sum the step estimates here, then make sure the product meets it"
+        },
+        {
+          "name": "headlineAccent",
+          "type": "string",
+          "doc": "substring of headline rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "steps",
+          "type": "Array<{title, body, time?}>",
+          "doc": "exactly three: connect, configure, get value; the last step must be the value moment"
+        },
+        {
+          "name": "ctaLabel",
+          "type": "string"
+        },
+        {
+          "name": "secondaryLabel",
+          "type": "string",
+          "doc": "the low-commitment parallel path, e.g. a sample briefing"
+        },
+        {
+          "name": "variant",
+          "type": "'band' | 'vertical'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "band",
+          "name": "Stepper band",
+          "props": {}
+        },
+        {
+          "id": "vertical",
+          "name": "Vertical timeline",
+          "props": {
+            "variant": "vertical"
+          }
+        }
+      ]
+    },
+    {
+      "category": "auth-flows",
+      "id": "migration-promise",
+      "global": "LibMigrationPromise",
+      "file": "library/sections/auth-flows.js",
+      "name": "Migration promise",
+      "tier": 2,
+      "description": "Switch-to-us band that removes the switching cost: named source tools, an honest effort promise, read-only reassurance and a keep-your-history guarantee, with a concierge path for unusual stacks. Place on comparison pages and near the closing CTA.",
+      "pageTypes": [
+        "comparison",
+        "landing",
+        "pricing"
+      ],
+      "usedBy": [
+        {
+          "site": "Supahub",
+          "url": "https://supahub.com/alternatives/canny-alternative",
+          "note": "Alternative pages built for switchers, competitive positioning plus switch path"
+        },
+        {
+          "site": "Attio",
+          "url": "https://attio.com/",
+          "note": "Painless migration from legacy CRMs as an adoption argument"
+        },
+        {
+          "site": "PostHog",
+          "url": "https://posthog.com/docs/migrate",
+          "note": "Dedicated migrate docs hub linked from marketing surfaces"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "headlineAccent",
+          "type": "string",
+          "doc": "substring of headline rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "body",
+          "type": "string"
+        },
+        {
+          "name": "sourcesLabel",
+          "type": "string"
+        },
+        {
+          "name": "sources",
+          "type": "string[]",
+          "doc": "name the exact tools; a generic import promise converts far worse"
+        },
+        {
+          "name": "steps",
+          "type": "Array<{title, body}>",
+          "doc": "split variant: the three-step migration path"
+        },
+        {
+          "name": "guarantee",
+          "type": "string",
+          "doc": "the keep-your-history / read-only reassurance line"
+        },
+        {
+          "name": "concierge",
+          "type": "string",
+          "doc": "the concierge offer for larger or unusual stacks"
+        },
+        {
+          "name": "ctaLabel",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCtaLabel",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'split' | 'band'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "split",
+          "name": "Split with source grid",
+          "props": {}
+        },
+        {
+          "id": "band",
+          "name": "Slim band",
+          "props": {
+            "variant": "band"
+          }
+        }
+      ]
+    },
+    {
+      "category": "community-events",
+      "id": "event-hero",
+      "global": "LibEventHero",
+      "file": "library/sections/community-events.js",
+      "name": "Event hero",
+      "tier": 2,
+      "description": "Conference or webinar hero: event-name eyebrow, tagline headline with one gradient accent, date and venue on one line directly under it, a single register CTA with a real price-deadline nudge, a three-stat scale band and a named speaker row. Webinar variant swaps the venue for online and caps the room instead of the rate.",
+      "pageTypes": [
+        "landing",
+        "resource"
+      ],
+      "usedBy": [
+        {
+          "site": "HubSpot UNBOUND",
+          "url": "https://unbound.hubspot.com/",
+          "note": "Name plus tagline, 'September 16-18, 2026 in Boston, MA', Register Now with a save-$200 price step, speaker carousel"
+        },
+        {
+          "site": "Figma Config",
+          "url": "https://config.figma.com/",
+          "note": "Multi-edition event cards (SF June, India Oct), free virtual CTA alongside the in-person apply window"
+        },
+        {
+          "site": "monday.com Elevate",
+          "url": "https://www.monday.com/elevate",
+          "note": "Date plus venue plus Get tickets, then a 3-stat scale band (250+ sessions, 6,500+ attendees, 150+ speakers)"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "doc": "the event name and year; the headline stays for the tagline"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "doc": "explicit date, never buried below the fold"
+        },
+        {
+          "name": "venue",
+          "type": "string",
+          "doc": "venue and city, or the online line in webinar mode"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string",
+          "doc": "the one register / tickets CTA"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "urgency",
+          "type": "string",
+          "doc": "urgency subline tied to a real deadline or price step, not vague scarcity"
+        },
+        {
+          "name": "stats",
+          "type": "Array<{value, label}>",
+          "doc": "the scale band: sessions, attendees, speakers"
+        },
+        {
+          "name": "speakersLabel",
+          "type": "string"
+        },
+        {
+          "name": "speakers",
+          "type": "Array<{name, credential}>",
+          "doc": "name plus one-line credential; fictional people only"
+        },
+        {
+          "name": "mode",
+          "type": "'conference' | 'webinar'",
+          "doc": "controls the venue glyph: map pin or globe"
+        }
+      ],
+      "variants": [
+        {
+          "id": "conference",
+          "name": "Conference",
+          "props": {}
+        },
+        {
+          "id": "webinar",
+          "name": "Webinar",
+          "props": {
+            "mode": "webinar",
+            "eyebrow": "Live briefing",
+            "title": "Watch me rebalance a real budget in 30 minutes",
+            "titleAccent": "a real budget",
+            "date": "November 5, 2026",
+            "venue": "Online, free to attend",
+            "sub": "One live working session: I take a fictional quarter with real-shaped numbers, find the drift, and make the reallocation call on air. Bring questions.",
+            "primaryCta": "Save my seat",
+            "secondaryCta": "See past sessions",
+            "urgency": "I cap the room at 500 seats so every question gets answered.",
+            "stats": [
+              {
+                "value": "30 min",
+                "label": "one live working session"
+              },
+              {
+                "value": "500",
+                "label": "seats, capped so questions get answered"
+              },
+              {
+                "value": "3",
+                "label": "reallocation calls made on air"
+              }
+            ],
+            "speakersLabel": "Your hosts",
+            "speakers": [
+              {
+                "name": "Maya Trent",
+                "credential": "Head of Marketing, Meridian"
+              },
+              {
+                "name": "Daniel Osei",
+                "credential": "VP Marketing, Northwind Group"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "category": "community-events",
+      "id": "community-showcase",
+      "global": "LibCommunityShowcase",
+      "file": "library/sections/community-events.js",
+      "name": "Community showcase",
+      "tier": 3,
+      "description": "Member-made highlights: a curated featured row of community playbooks, dashboards and templates, each carrying creator attribution and exactly one adoption number, above a join band with avatar proof and dual CTA. Pathways variant swaps the cards for entry points by commitment level: read, chat, meet, contribute.",
+      "pageTypes": [
+        "landing",
+        "resource"
+      ],
+      "usedBy": [
+        {
+          "site": "Raycast Store",
+          "url": "https://www.raycast.com/store",
+          "note": "Card grid with creator avatar plus link and install count as the one proof number per card; curated Featured row above the browseable grid"
+        },
+        {
+          "site": "dbt Community",
+          "url": "https://www.getdbt.com/community",
+          "note": "Membership stat band and participation pathways by commitment level: Slack, forum, meetups, PRs"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "Array<{kind, title, body, metric, name, company}>",
+          "doc": "3 to 6 featured items; one adoption metric per card, attribution is the trust mechanic"
+        },
+        {
+          "name": "pathways",
+          "type": "Array<{glyph, title, body}>",
+          "doc": "pathways variant only; glyph is 'read' | 'chat' | 'meet' | 'build'"
+        },
+        {
+          "name": "joinText",
+          "type": "string"
+        },
+        {
+          "name": "joinNames",
+          "type": "string[]",
+          "doc": "fictional names behind the avatar cluster"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "disclaimer",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'grid' | 'pathways'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "featured-grid",
+          "name": "Featured grid",
+          "props": {}
+        },
+        {
+          "id": "pathways",
+          "name": "Pathways",
+          "props": {
+            "variant": "pathways",
+            "headline": "Four ways in, by commitment level",
+            "sub": "Read the playbooks, join the chat, meet the operators, or ship a template back. Start wherever you are."
+          }
+        }
+      ]
+    },
+    {
+      "category": "community-events",
+      "id": "press-band",
+      "global": "LibPressBand",
+      "file": "library/sections/community-events.js",
+      "name": "Press band",
+      "tier": 3,
+      "description": "Newsroom strip: one featured announcement with kicker and excerpt, a plain dated list tagged by category (the list is a table, not more cards), and a sticky press-contact card with a media kit download. Compact variant collapses to the dated list plus an inline media kit link.",
+      "pageTypes": [
+        "resource",
+        "blog"
+      ],
+      "usedBy": [
+        {
+          "site": "Stripe Newsroom",
+          "url": "https://stripe.com/newsroom",
+          "note": "Featured hero items, dated categorized feed mixing announcements with customer stories, media contact block with a real email"
+        },
+        {
+          "site": "Anthropic News",
+          "url": "https://www.anthropic.com/news",
+          "note": "Large featured hero, secondary cards, then a searchable date / category / title table with See more"
+        }
+      ],
+      "props": [
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "intro",
+          "type": "string"
+        },
+        {
+          "name": "featured",
+          "type": "{kicker, title, excerpt, ctaLabel}",
+          "doc": "the one featured story on top"
+        },
+        {
+          "name": "items",
+          "type": "Array<{date, category, title}>",
+          "doc": "newest first; every item dated and category-tagged; mix announcements with customer stories"
+        },
+        {
+          "name": "moreLabel",
+          "type": "string",
+          "doc": "See more affordance instead of an infinite wall"
+        },
+        {
+          "name": "contactTitle",
+          "type": "string"
+        },
+        {
+          "name": "contactBody",
+          "type": "string",
+          "doc": "press contact with a real email address"
+        },
+        {
+          "name": "kitLabel",
+          "type": "string"
+        },
+        {
+          "name": "kitNote",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'featured' | 'compact'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "featured",
+          "name": "Featured plus list",
+          "props": {}
+        },
+        {
+          "id": "compact",
+          "name": "Compact list",
+          "props": {
+            "variant": "compact"
+          }
+        }
+      ]
+    },
+    {
+      "category": "community-events",
+      "id": "awards-strip",
+      "global": "LibAwardsStrip",
+      "file": "library/sections/community-events.js",
+      "name": "Awards strip",
+      "tier": 2,
+      "description": "Recognition badges row: four fictional award bodies with medal glyphs and year chips as compact third-party proof, capped at one quiet row with inline separators. With-quote variant pairs the badges with one named customer line, so the praise is never anonymous.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing",
+        "comparison"
+      ],
+      "usedBy": [
+        {
+          "site": "monday.com Elevate",
+          "url": "https://www.monday.com/elevate",
+          "note": "Stat plus testimonial proof strip: attendee quotes from named companies, never anonymous praise"
+        },
+        {
+          "site": "Linear Changelog",
+          "url": "https://linear.app/changelog",
+          "note": "The momentum-strip sibling: dated entries at a stable cadence; badges capped to one row work the same compact-proof job"
+        }
+      ],
+      "props": [
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "Array<{title, body, year}>",
+          "doc": "4 to 6 badges, each naming a fictional award body, with a year chip"
+        },
+        {
+          "name": "quote",
+          "type": "string",
+          "doc": "with-quote variant only"
+        },
+        {
+          "name": "quoteName",
+          "type": "string",
+          "doc": "with-quote variant only"
+        },
+        {
+          "name": "quoteTitle",
+          "type": "string",
+          "doc": "with-quote variant only"
+        },
+        {
+          "name": "quoteCompany",
+          "type": "string",
+          "doc": "with-quote variant only; named company, never anonymous"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "fine print noting the bodies are fictional placement"
+        },
+        {
+          "name": "variant",
+          "type": "'strip' | 'with-quote'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "strip",
+          "name": "Badge row",
+          "props": {}
+        },
+        {
+          "id": "with-quote",
+          "name": "With named quote",
+          "props": {
+            "variant": "with-quote"
+          }
+        }
+      ]
     }
   ],
   "recipes": [
@@ -4904,6 +6645,40 @@
       "slug": "resource-hub",
       "name": "Resource hub",
       "subtitle": "Library page: search hero, format filters, resource grid, live session, weekly brief"
+    }
+  ],
+  "styles": [
+    {
+      "slug": "aurora-glass",
+      "name": "Aurora glass"
+    },
+    {
+      "slug": "data-ink-minimal",
+      "name": "Data-ink minimal"
+    },
+    {
+      "slug": "editorial-light",
+      "name": "Editorial light"
+    },
+    {
+      "slug": "enterprise-trust",
+      "name": "Enterprise trust"
+    },
+    {
+      "slug": "playful-illustrated",
+      "name": "Playful illustrated"
+    },
+    {
+      "slug": "swiss-brutalist",
+      "name": "Swiss / brutalist"
+    },
+    {
+      "slug": "terminal-dev",
+      "name": "Terminal / dev-retro"
+    },
+    {
+      "slug": "vivid-maximalist",
+      "name": "Vivid maximalist"
     }
   ]
 }
