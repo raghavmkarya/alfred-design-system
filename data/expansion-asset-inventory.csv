@@ -27,7 +27,9 @@ component:app/SyncStatusBadge,component,components/app/SyncStatusBadge.jsx,app/S
 component:app/TeamMemberRow,component,components/app/TeamMemberRow.jsx,app/TeamMemberRow,reusable,Typed design-system primitive available to launch compositions.,yes
 component:app/UpgradeModal,component,components/app/UpgradeModal.jsx,app/UpgradeModal,reusable,Typed design-system primitive available to launch compositions.,yes
 component:app/UsageMeter,component,components/app/UsageMeter.jsx,app/UsageMeter,reusable,Typed design-system primitive available to launch compositions.,yes
+component:brand/BrandMoment,component,components/brand/BrandMoment.jsx,brand/BrandMoment,reusable,Typed design-system primitive available to launch compositions.,yes
 component:brand/Icon,component,components/brand/Icon.jsx,brand/Icon,reusable,Typed design-system primitive available to launch compositions.,yes
+component:brand/Illustration,component,components/brand/Illustration.jsx,brand/Illustration,reusable,Typed design-system primitive available to launch compositions.,yes
 component:brand/Logo,component,components/brand/Logo.jsx,brand/Logo,reusable,Typed design-system primitive available to launch compositions.,yes
 component:charts/AreaChart,component,components/charts/AreaChart.jsx,charts/AreaChart,reusable,Typed design-system primitive available to launch compositions.,yes
 component:charts/BarChart,component,components/charts/BarChart.jsx,charts/BarChart,reusable,Typed design-system primitive available to launch compositions.,yes
@@ -169,22 +171,34 @@ icon:audit-log,icon,assets/icons/audit-log.svg,audit-log,reusable,Canonical desi
 icon:bookmark,icon,assets/icons/bookmark.svg,bookmark,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:budget,icon,assets/icons/budget.svg,budget,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:channel-mix,icon,assets/icons/channel-mix.svg,channel-mix,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:check,icon,assets/icons/check.svg,check,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:chevron-down,icon,assets/icons/chevron-down.svg,chevron-down,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:chevron-left,icon,assets/icons/chevron-left.svg,chevron-left,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:chevron-right,icon,assets/icons/chevron-right.svg,chevron-right,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:chevron-up,icon,assets/icons/chevron-up.svg,chevron-up,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:close,icon,assets/icons/close.svg,close,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:close-x,icon,assets/icons/close-x.svg,close-x,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:cta-arrow,icon,assets/icons/cta-arrow.svg,cta-arrow,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:delete,icon,assets/icons/delete.svg,delete,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:demo-play,icon,assets/icons/demo-play.svg,demo-play,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:export,icon,assets/icons/export.svg,export,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:eye,icon,assets/icons/eye.svg,eye,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:eye-off,icon,assets/icons/eye-off.svg,eye-off,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:fullscreen,icon,assets/icons/fullscreen.svg,fullscreen,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:gdpr,icon,assets/icons/gdpr.svg,gdpr,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:integration-success,icon,assets/icons/integration-success.svg,integration-success,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:locked-feature,icon,assets/icons/locked-feature.svg,locked-feature,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:minus,icon,assets/icons/minus.svg,minus,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:mql,icon,assets/icons/mql.svg,mql,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:pin,icon,assets/icons/pin.svg,pin,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:plus,icon,assets/icons/plus.svg,plus,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:pricing-cross,icon,assets/icons/pricing-cross.svg,pricing-cross,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:read-only,icon,assets/icons/read-only.svg,read-only,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:refresh,icon,assets/icons/refresh.svg,refresh,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:search,icon,assets/icons/search.svg,search,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:security-lock,icon,assets/icons/security-lock.svg,security-lock,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:sort,icon,assets/icons/sort.svg,sort,reusable,Canonical design-system icon available to launch compositions.,yes
+icon:spark,icon,assets/icons/spark.svg,spark,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:step-locked,icon,assets/icons/step-locked.svg,step-locked,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:trend-down,icon,assets/icons/trend-down.svg,trend-down,reusable,Canonical design-system icon available to launch compositions.,yes
 icon:trend-flat,icon,assets/icons/trend-flat.svg,trend-flat,reusable,Canonical design-system icon available to launch compositions.,yes
@@ -335,14 +349,18 @@ social variant:organisation-brain-01--v3.html,social variant,social/_variants/or
 social variant:organisation-brain-01--v3.png,social variant,social/_variants/organisation-brain-01--v3.png,organisation-brain-01--v3.png,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
 social variant:organisation-brain-01--v4.html,social variant,social/_variants/organisation-brain-01--v4.html,organisation-brain-01--v4.html,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
 social variant:organisation-brain-01--v4.png,social variant,social/_variants/organisation-brain-01--v4.png,organisation-brain-01--v4.png,campaign-specific,Organisation-brain draft retained as campaign-specific working history.,yes
+UI kit:app-dark/boot,UI kit,ui_kits/app-dark/boot.jsx,app-dark/boot,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:app/AppShell,UI kit,ui_kits/app/AppShell.jsx,app/AppShell,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:app/AuthScreen,UI kit,ui_kits/app/AuthScreen.jsx,app/AuthScreen,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:app/boot,UI kit,ui_kits/app/boot.jsx,app/boot,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:app/Dashboard,UI kit,ui_kits/app/Dashboard.jsx,app/Dashboard,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:app/Screens,UI kit,ui_kits/app/Screens.jsx,app/Screens,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:app/Screens2,UI kit,ui_kits/app/Screens2.jsx,app/Screens2,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:app/Screens3,UI kit,ui_kits/app/Screens3.jsx,app/Screens3,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:app/Screens4,UI kit,ui_kits/app/Screens4.jsx,app/Screens4,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:onboarding/boot,UI kit,ui_kits/onboarding/boot.jsx,onboarding/boot,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:onboarding/Onboarding,UI kit,ui_kits/onboarding/Onboarding.jsx,onboarding/Onboarding,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
+UI kit:website/boot,UI kit,ui_kits/website/boot.jsx,website/boot,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:website/SiteBottom,UI kit,ui_kits/website/SiteBottom.jsx,website/SiteBottom,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 UI kit:website/SiteTop,UI kit,ui_kits/website/SiteTop.jsx,website/SiteTop,needs revision,Product-shot source needs current-product and responsive-crop review.,yes
 uploaded brand source:Alfed AI icon.svg,uploaded brand source,uploads/Alfed AI icon.svg,Alfed AI icon.svg,redundant,Superseded by normalized canonical files under assets/logos.,yes
