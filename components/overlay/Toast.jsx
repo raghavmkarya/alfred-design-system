@@ -1,5 +1,6 @@
 import React from "react";
 import { GLYPH } from "../hooks/glyphs.jsx";
+import { HitArea, HIT_RELATIVE } from "../hooks/hitArea.jsx";
 
 /**
  * Alfred AI — Toast
@@ -19,7 +20,8 @@ export function Toast({ tone = "info", title, children, onClose, style = {} }) {
         {children && <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)", marginTop: title ? 2 : 0 }}>{children}</div>}
       </div>
       {onClose && (
-        <button onClick={onClose} aria-label="Dismiss" style={{ border: "none", background: "transparent", cursor: "pointer", color: "var(--text-placeholder)", display: "inline-flex", padding: 0 }}>
+        <button onClick={onClose} aria-label="Dismiss" style={{ border: "none", background: "transparent", cursor: "pointer", color: "var(--text-placeholder)", display: "inline-flex", padding: 0, ...HIT_RELATIVE }}>
+          <HitArea />
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d={GLYPH.close} /></svg>
         </button>
       )}

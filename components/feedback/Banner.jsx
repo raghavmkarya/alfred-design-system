@@ -1,5 +1,6 @@
 import React from "react";
 import { GLYPH } from "../hooks/glyphs.jsx";
+import { HitArea, HIT_RELATIVE } from "../hooks/hitArea.jsx";
 
 /**
  * Alfred AI — Banner
@@ -32,7 +33,8 @@ export function Banner({ tone = "info", title, children, action, onDismiss, styl
         {action && <div style={{ marginTop: 10 }}>{action}</div>}
       </div>
       {onDismiss && (
-        <button type="button" onClick={onDismiss} aria-label="Dismiss" style={{ border: "none", background: "transparent", cursor: "pointer", color: fg, opacity: 0.7, padding: 0, display: "inline-flex" }}>
+        <button type="button" onClick={onDismiss} aria-label="Dismiss" style={{ border: "none", background: "transparent", cursor: "pointer", color: fg, opacity: 0.7, padding: 0, display: "inline-flex", ...HIT_RELATIVE }}>
+          <HitArea inset={-4} />
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d={GLYPH.close} /></svg>
         </button>
       )}
