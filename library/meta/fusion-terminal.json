@@ -1,0 +1,167 @@
+{
+  "category": {
+    "id": "fusion-terminal",
+    "name": "Terminal set",
+    "order": 15,
+    "icon": "web-stack-connected"
+  },
+  "sections": [
+    {
+      "id": "log-stream",
+      "global": "LibLogStream",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Decision log stream",
+      "tier": 2,
+      "description": "The live decision-log feed: timestamped mono lines with severity chips on semantic tints (info cool, warn on the warning tint, exactly one brand-tone flag), the newest line fading in on a slow reduced-motion-safe keyframe, and a following-everything-logged footer whose live dot is the view's one phosphor element.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string" },
+        { "name": "paneLabel", "type": "string", "doc": "mono caps label on the feed header" },
+        { "name": "paneMeta", "type": "string", "doc": "mono caps metadata, header end side" },
+        { "name": "lines", "type": "Array<{time, level: 'info'|'warn'|'ok'|'flag', text}>", "doc": "the feed; keep exactly one flag-level line, it is the brand-tone budget" },
+        { "name": "followingLine", "type": "string", "doc": "footer status while following" },
+        { "name": "pausedLine", "type": "string", "doc": "paused variant only: footer status" },
+        { "name": "retentionLine", "type": "string", "doc": "footer end-side metadata" },
+        { "name": "variant", "type": "'default' | 'paused'" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Following", "props": {} },
+        { "id": "paused", "name": "Paused", "props": { "variant": "paused" } }
+      ]
+    },
+    {
+      "id": "api-quickstart",
+      "global": "LibApiQuickstart",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "API quickstart",
+      "tier": 2,
+      "description": "Tabbed shell pane beside a three-step column: curl, TypeScript and Python tabs (aria-pressed), dollar-prefixed request lines, an endpoint mono caption, a copy chip, and a periwinkle-tinted response block in the response-open variant. Ask Alfred from your own tools.",
+      "pageTypes": ["feature", "resource"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "endpoint", "type": "string", "doc": "mono caption above the request lines" },
+        { "name": "steps", "type": "Array<{num, title, body}>", "doc": "the numbered column beside the pane" },
+        { "name": "tabs", "type": "Array<{id, label, lines: {text, prompt?}[]}>", "doc": "one shell/code specimen per language; prompt lines render the $ prefix" },
+        { "name": "responseLabel", "type": "string", "doc": "status caption on the response block" },
+        { "name": "responseLines", "type": "string[]", "doc": "the response body, one mono line each" },
+        { "name": "copyLabel", "type": "string" },
+        { "name": "showResponse", "type": "boolean", "doc": "response-open variant: render the tinted output block" }
+      ],
+      "variants": [
+        { "id": "shell", "name": "Shell", "props": {} },
+        { "id": "response-open", "name": "Response open", "props": { "showResponse": true } }
+      ]
+    },
+    {
+      "id": "shortcut-grid",
+      "global": "LibShortcutGrid",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Shortcut grid",
+      "tier": 2,
+      "description": "The product as a keyboard map: three instrument cards grouped Ask, Act and Navigate, each row a plain-language action with its Kbd combo, bracketed counts in the card headers, and exactly one highlighted row on the accent tint.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "groups", "type": "Array<{group, items: {label, keys[], highlight?}[]}>", "doc": "keep exactly one highlighted row across all groups" },
+        { "name": "footerHint", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "boot-sequence",
+      "global": "LibBootSequence",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Boot sequence",
+      "tier": 2,
+      "description": "Connecting your stack as a boot log: mono lines checking in one by one with success ticks and per-step timing figures, closing on a ready-in-4m-12s line with the phosphor cursor. The done variant renders the finished log with no animation.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "paneLabel", "type": "string" },
+        { "name": "paneMeta", "type": "string" },
+        { "name": "lines", "type": "Array<{text, time}>", "doc": "the boot steps, each with its timing figure" },
+        { "name": "readyLine", "type": "string", "doc": "the closing line the phosphor cursor blinks after" },
+        { "name": "cta", "type": "string" },
+        { "name": "variant", "type": "'default' | 'done'", "doc": "default staggers the lines in; done is the static finished log" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Booting", "props": {} },
+        { "id": "done", "name": "Done", "props": { "variant": "done" } }
+      ]
+    },
+    {
+      "id": "man-page-faq",
+      "global": "LibManPageFaq",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Man-page FAQ",
+      "tier": 3,
+      "description": "The FAQ styled as a help page: an ALFRED(1) header, NAME, SYNOPSIS and QUESTIONS in mono section headers with hairline rules, a mono command synopsis specimen, and every answer set in Satoshi. Mono labels, body never.",
+      "pageTypes": ["pricing", "feature", "resource"],
+      "usedBy": [],
+      "props": [
+        { "name": "headerStart", "type": "string", "doc": "man header, start side" },
+        { "name": "headerMid", "type": "string" },
+        { "name": "headerEnd", "type": "string" },
+        { "name": "nameLabel", "type": "string" },
+        { "name": "nameBody", "type": "string", "doc": "Satoshi one-liner under NAME" },
+        { "name": "synopsisLabel", "type": "string" },
+        { "name": "synopsisLine", "type": "string", "doc": "the mono command specimen; the one code surface of the section" },
+        { "name": "questionsLabel", "type": "string" },
+        { "name": "questions", "type": "Array<{q, a}>", "doc": "Satoshi questions and answers, hairline-ruled" },
+        { "name": "footerLine", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "replay-pane",
+      "global": "LibReplayPane",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Reasoning replay",
+      "tier": 2,
+      "description": "A reasoning replay: the ConsolePanel transcript of a working session over a static timeline scrubber with step markers, start and end timestamps, and one accent playhead carrying the view's phosphor glow. Scrub back through why the call was made.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string" },
+        { "name": "connected", "type": "string[]", "doc": "sources on the ConsolePanel header" },
+        { "name": "transcript", "type": "Array<{verb, text, tone?}>", "doc": "the replayed working session, ConsolePanel lines" },
+        { "name": "readyLine", "type": "string", "doc": "the paused-at status line; the panel cursor stays off, the playhead owns the phosphor budget" },
+        { "name": "markers", "type": "Array<{at, label}>", "doc": "step markers as percent offsets along the timeline" },
+        { "name": "playheadAt", "type": "number", "doc": "playhead position, percent" },
+        { "name": "startStamp", "type": "string" },
+        { "name": "midStamp", "type": "string" },
+        { "name": "endStamp", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}

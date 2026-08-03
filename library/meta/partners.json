@@ -1,0 +1,93 @@
+{
+  "category": { "id": "partners", "name": "Partners", "order": 19, "icon": "integration-success" },
+  "sections": [
+    {
+      "id": "partner-hero",
+      "global": "LibPartnerHero",
+      "file": "library/sections/partners.js",
+      "name": "Partner program hero",
+      "tier": 2,
+      "description": "The partner-program opener: centered display headline with one gradient-accented phrase, dual CTA (apply plus partner guide), and three quick program stats (margin share, client seats, certification time) with mono instrument labels above a hairline rule.",
+      "pageTypes": ["landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string" },
+        { "name": "stats", "type": "Array<{value, label, note}>", "doc": "three quick program numbers; label sets in mono caps, note in small sans" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "partner-tiers",
+      "global": "LibPartnerTiers",
+      "file": "library/sections/partners.js",
+      "name": "Partner tiers",
+      "tier": 2,
+      "description": "The three-rung program ladder (Registered, Certified, Strategic) as benefit cards: check-glyph benefit lists, one highlighted tier carrying the orange border and primary CTA, and a mono requirement footnote under a dashed rule on every card.",
+      "pageTypes": ["landing", "pricing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "tiers", "type": "Array<{name, badge?, summary, benefits, ctaLabel, requirement}>", "doc": "requirement is the mono entry-bar footnote, e.g. 'req :: 5 live clients · 4 certified operators'" },
+        { "name": "highlightIndex", "type": "number", "doc": "index of the tier that gets the orange border, floating elevation and primary CTA" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "agency-proof",
+      "global": "LibAgencyProof",
+      "file": "library/sections/partners.js",
+      "name": "Agency proof",
+      "tier": 2,
+      "description": "Agency social proof on the sunken band: a strip of fictional agency text wordmarks in mixed type treatments, one pull quote from an agency operator against an orange rule, and a per-client partner-console mini visual with mono spend rows and status badges.",
+      "pageTypes": ["landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "quote", "type": "string" },
+        { "name": "quoteName", "type": "string" },
+        { "name": "quoteRole", "type": "string" },
+        { "name": "marks", "type": "Array<{name, style}>", "doc": "text wordmarks only, always fictional; style is 'display' | 'tracked' | 'sans'" },
+        { "name": "marksLabel", "type": "string", "doc": "mono caption under the wordmark strip declaring the roster fictional" },
+        { "name": "consoleLabel", "type": "string" },
+        { "name": "consoleMeta", "type": "string" },
+        { "name": "clients", "type": "Array<{client, spend, pace, state, tone}>", "doc": "console rows; tone is a Badge tone ('success' | 'warning' | …)" },
+        { "name": "consoleFoot", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "co-sell-steps",
+      "global": "LibCoSellSteps",
+      "file": "library/sections/partners.js",
+      "name": "Co-sell steps",
+      "tier": 2,
+      "description": "How partnering works, in four numbered steps (apply, certify, launch the first client, share the margin): number chips joined by a connector line, short body copy per step, a mono time estimate under each, and the final margin step tinted on the accent-soft chip.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "steps", "type": "Array<{title, body, time}>", "doc": "time is the mono estimate, e.g. 't :: 2 weeks'" },
+        { "name": "cta", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}

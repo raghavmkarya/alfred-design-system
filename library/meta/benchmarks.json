@@ -1,0 +1,104 @@
+{
+  "category": { "id": "benchmarks", "name": "Benchmarks", "order": 20, "icon": "trend-up" },
+  "sections": [
+    {
+      "id": "benchmark-hero",
+      "global": "LibBenchmarkHero",
+      "file": "library/sections/benchmarks.js",
+      "name": "Benchmark report hero",
+      "tier": 1,
+      "description": "The annual report opener: gradient-accented report title, mono n= sample line, get-the-report CTA pair, and one finding pulled forward as a report-cover card with a mono edition tag and a pdf format stamp. Ties straight into the gated-content recipe.",
+      "pageTypes": ["gated", "resource", "landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "sampleLine", "type": "string", "doc": "the mono n= sample-size line under the sub" },
+        { "name": "primaryCta", "type": "string" },
+        { "name": "secondaryCta", "type": "string" },
+        { "name": "reportTag", "type": "string", "doc": "mono edition tag in the cover card header" },
+        { "name": "statEyebrow", "type": "string", "doc": "mono finding number opposite the edition tag" },
+        { "name": "statValue", "type": "string", "doc": "the one stat pulled forward, display-face numeral" },
+        { "name": "statLabel", "type": "string" },
+        { "name": "statNote", "type": "string" },
+        { "name": "formatLine", "type": "string", "doc": "mono format stamp in the cover card footer (pages, gate)" },
+        { "name": "variant", "type": "'default'" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "benchmark-table",
+      "global": "LibBenchmarkTable",
+      "file": "library/sections/benchmarks.js",
+      "name": "Benchmarks-by-stage table",
+      "tier": 1,
+      "description": "Metric medians cut by company stage: token-built table (the bundle Table's props don't carry row highlighting or per-cell mono) with mono caps column headers, mono values, ONE accent-soft highlighted row tagged as the metric Alfred moves, and a mono methodology stamp printed under the data like a plate mark.",
+      "pageTypes": ["resource", "blog", "landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "metricHeader", "type": "string", "doc": "header of the metric column" },
+        { "name": "stages", "type": "string[]", "doc": "value column headers, e.g. Seed / Growth / Scale" },
+        { "name": "rows", "type": "Array<{metric, values: string[], highlight?}>", "doc": "one row per metric; at most one row carries highlight: true" },
+        { "name": "highlightTag", "type": "string", "doc": "mono bracket tag shown on the highlighted row" },
+        { "name": "stamp", "type": "string", "doc": "the mono methodology stamp under the table" },
+        { "name": "variant", "type": "'default'" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "percentile-band",
+      "global": "LibPercentileBand",
+      "file": "library/sections/benchmarks.js",
+      "name": "Percentile band",
+      "tier": 2,
+      "description": "Where you rank: a horizontal distribution bar with quartile ticks, a periwinkle interquartile band, and ONE accent marker (phosphor-glow, the you-after-90-days flag) near the good end of the axis. Mono axis endpoints and a caption row with the band legend and the n= count.",
+      "pageTypes": ["resource", "landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "axisStart", "type": "string", "doc": "mono label at the start of the axis" },
+        { "name": "axisEnd", "type": "string", "doc": "mono label at the end of the axis" },
+        { "name": "ticks", "type": "Array<{pos, label}>", "doc": "quartile ticks; pos is 0-100 along the axis, first and last also bound the shaded band" },
+        { "name": "marker", "type": "{pos, label}", "doc": "the one accent marker; keep pos low enough that the flag fits inside the card" },
+        { "name": "bandLabel", "type": "string", "doc": "legend text for the interquartile band" },
+        { "name": "captionStart", "type": "string", "doc": "mono axis caption (units, direction of good)" },
+        { "name": "captionEnd", "type": "string", "doc": "mono sample stamp at the end of the caption row" },
+        { "name": "variant", "type": "'default'" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "methodology-note",
+      "global": "LibMethodologyNote",
+      "file": "library/sections/benchmarks.js",
+      "name": "Methodology note",
+      "tier": 2,
+      "description": "The fine print as a first-class block and a credibility device: sample, period, definitions and limits in a quiet two-column note on a sunken band, each entry under a numbered mono sidenote, with a mono dataset-available footnote under the closing hairline.",
+      "pageTypes": ["resource", "blog", "gated"],
+      "usedBy": [],
+      "props": [
+        { "name": "heading", "type": "string" },
+        { "name": "intro", "type": "string", "doc": "one-line stance on why the fine print is shown" },
+        { "name": "items", "type": "Array<{sidenote, title, body}>", "doc": "the note entries; sidenote renders in numbered mono caps" },
+        { "name": "footnote", "type": "string", "doc": "mono closing line under the bottom hairline" },
+        { "name": "variant", "type": "'default'" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}
