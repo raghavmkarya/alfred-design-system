@@ -59,6 +59,13 @@
   /* Ambient page glow used behind auth / hero (soft, low-opacity) */
   --glow-periwinkle: radial-gradient(60% 55% at 22% 18%, rgba(167,167,252,0.42) 0%, rgba(167,167,252,0) 70%); /* @kind color */
   --glow-orange:     radial-gradient(58% 60% at 88% 92%, rgba(255,132,49,0.38) 0%, rgba(255,132,49,0) 70%); /* @kind color */
+  /* Grain texture (absorbed from the vivid-maximalist style study): a tiling
+     noise field for ONE ambient layer per dark marketing page, at 0.03-0.05
+     opacity so the quiet-dark rule survives. Never in the product app, never
+     on light surfaces. It lives beside the glows because it is a background
+     image like they are — and because gen-tokens.mjs only scans this file set,
+     so a token defined anywhere else never reaches the manifest or Framer. */
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E"); /* @kind other */
 
   /* —— Semantic surface / text aliases ————————————————— */
   --bg-page: #FFFFFF;

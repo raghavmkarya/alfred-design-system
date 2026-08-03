@@ -54,6 +54,12 @@ jobs:
       # variant — coverage grows from sections.json, no registration list.
       - name: verify-library (pattern library schema + renders)
         run: node scripts/verify-library.mjs
+      # The token CSS is the runtime, but four generated channels describe it:
+      # the manifest token list, tokens.json, the Tailwind preset and the Framer
+      # styles. Nothing gated them, so six absorption tokens shipped live while
+      # every downstream channel still described the old system.
+      - name: verify-tokens (manifest + multi-platform exports fresh)
+        run: node scripts/gen-tokens.mjs --check
       # Builds the publishable package and imports it as a consumer would,
       # server-rendering all 117 through the ESM entry. dist/ is generated and
       # not committed, so nothing else would notice if it stopped building.

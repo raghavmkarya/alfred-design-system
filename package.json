@@ -31,7 +31,7 @@
     "verify:craft": "node scripts/verify-craft.mjs",
     "verify:contrast": "node scripts/verify-contrast.mjs",
     "verify:campaign": "npm run verify:campaign-content && npm run verify:campaign-factory && npm run verify:campaign-render && npm run verify:campaign-web && npm run verify:investor-deck && npm run verify:motion-toolkit && npm run verify:launch-support && npm run verify:product-assets && npm run campaign:release-manifest && npm run verify:campaign-release",
-    "verify:all": "npm run build && npm run typecheck && npm run verify:types && npm run verify:components && npm run verify:render && npm run verify:a11y && npm run verify:craft && npm run verify:contrast && npm run verify:library && npm run verify:expansion-inventory && npm run verify:expansion-social && npm run verify:expansion-positioning && npm run verify:campaign",
+    "verify:all": "npm run build && npm run typecheck && npm run verify:types && npm run verify:components && npm run verify:render && npm run verify:a11y && npm run verify:craft && npm run verify:contrast && npm run verify:library && npm run verify:tokens && npm run verify:expansion-inventory && npm run verify:expansion-social && npm run verify:expansion-positioning && npm run verify:campaign",
     "build": "node scripts/build-bundle.mjs",
     "test": "playwright test --project=interaction",
     "test:visual": "playwright test --project=visual",
@@ -40,7 +40,9 @@
     "verify:consumer": "node scripts/verify-consumer.mjs",
     "publish:npm": "npm run verify:npm && cd dist && npx --yes npm@11 publish",
     "gen:library": "node scripts/gen-library.mjs",
-    "verify:library": "node scripts/verify-library.mjs"
+    "verify:library": "node scripts/verify-library.mjs",
+    "tokens": "node scripts/gen-tokens.mjs",
+    "verify:tokens": "node scripts/gen-tokens.mjs --check"
   },
   "devDependencies": {
     "@babel/standalone": "^7.29.0",
