@@ -252,6 +252,405 @@
           }
         }
       ]
+    },
+    {
+      "id": "ops-board",
+      "global": "LibOpsBoard",
+      "file": "library/sections/fusion.js",
+      "name": "Live ops board",
+      "tier": 2,
+      "description": "The instrument panel as a full section: mono header and sync metadata, a cell grid of Clash numerals with one phosphor live value, and a watching-stream footer with a keyboard hint. The terminal absorption at section scale.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "boardLabel",
+          "type": "string"
+        },
+        {
+          "name": "syncLabel",
+          "type": "string"
+        },
+        {
+          "name": "cells",
+          "type": "Array<{label, value, meta, live?}>"
+        },
+        {
+          "name": "streamLine",
+          "type": "string"
+        },
+        {
+          "name": "hintKey",
+          "type": "string"
+        },
+        {
+          "name": "hintAfter",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'compact'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        },
+        {
+          "id": "compact",
+          "name": "Compact",
+          "props": {
+            "variant": "compact"
+          }
+        }
+      ]
+    },
+    {
+      "id": "command-strip",
+      "global": "LibCommandStrip",
+      "file": "library/sections/fusion.js",
+      "name": "Command palette strip",
+      "tier": 2,
+      "description": "Run the function from the keyboard: copy beside an open command-palette specimen with grouped ask/act commands, kbd combos, a phosphor caret and an everything-logged footer.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "paletteHint",
+          "type": "string"
+        },
+        {
+          "name": "groups",
+          "type": "Array<{group, items: {label, keys[]}[]}>"
+        },
+        {
+          "name": "footerHint",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "id": "decision-diff",
+      "global": "LibDecisionDiff",
+      "file": "library/sections/fusion.js",
+      "name": "Decision diff",
+      "tier": 2,
+      "description": "Every change reviewable like code: a diff pane with minus and plus lines on danger and success tints, the reason as context lines, and an approve CTA. Receipts culture in terminal form.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "comparison"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "fileLabel",
+          "type": "string"
+        },
+        {
+          "name": "lines",
+          "type": "Array<{kind: 'ctx'|'del'|'add', text}>"
+        },
+        {
+          "name": "approveCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "id": "sticker-stats",
+      "global": "LibStickerStats",
+      "file": "library/sections/fusion.js",
+      "name": "Sticker stat wall",
+      "tier": 2,
+      "description": "The vivid wall on the orange budget: oversized tilted stat chips (one orange, one periwinkle tint, the rest ink and outline) that spring upright on hover, over the grain layer.",
+      "pageTypes": [
+        "landing",
+        "comparison"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "stickers",
+          "type": "Array<{value, label, tone: 'orange'|'peri'|'card'|'outline', tilt}>"
+        },
+        {
+          "name": "footnote",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "id": "type-stack",
+      "global": "LibTypeStack",
+      "file": "library/sections/fusion.js",
+      "name": "Poster type stack",
+      "tier": 2,
+      "description": "The pitch as a word wall: stacked poster lines in Clash alternating solid, outlined and gradient fills, with the nine-word claim carrying the whole section.",
+      "pageTypes": [
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "lines",
+          "type": "Array<{text, style: 'solid'|'outline'|'gradient'}>"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'left'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Centered",
+          "props": {}
+        },
+        {
+          "id": "left",
+          "name": "Left-aligned",
+          "props": {
+            "variant": "left"
+          }
+        }
+      ]
+    },
+    {
+      "id": "big-number",
+      "global": "LibBigNumber",
+      "file": "library/sections/fusion.js",
+      "name": "Big number takeover",
+      "tier": 2,
+      "description": "A full-viewport single stat: one gradient-filled poster numeral up to 240px, a mono eyebrow, the claim and its caveat, one CTA. The loudest legal move in the system.",
+      "pageTypes": [
+        "landing",
+        "comparison"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "caption",
+          "type": "string"
+        },
+        {
+          "name": "detail",
+          "type": "string"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'quiet'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "With grain",
+          "props": {}
+        },
+        {
+          "id": "quiet",
+          "name": "Quiet",
+          "props": {
+            "variant": "quiet"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tape-cta",
+      "global": "LibTapeCta",
+      "file": "library/sections/fusion.js",
+      "name": "Tape-framed CTA",
+      "tier": 2,
+      "description": "The closing band framed by two ticker tapes, ink above and periwinkle below, with a spring-hover primary CTA between them. Vivid conviction without touching the color budget.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing",
+        "comparison"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "tapeItems",
+          "type": "string[]"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "id": "decision-receipt",
+      "global": "LibDecisionReceipt",
+      "file": "library/sections/fusion.js",
+      "name": "Decision receipt",
+      "tier": 2,
+      "description": "A week of decisions itemized on a printed receipt: mono lines, dashed rules, a phosphor total and a barcode strip, tilted like it just came off the till. Kept, not claimed.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "storeLine",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "Array<{label, amount}>"
+        },
+        {
+          "name": "totalLabel",
+          "type": "string"
+        },
+        {
+          "name": "totalValue",
+          "type": "string"
+        },
+        {
+          "name": "barcodeLine",
+          "type": "string"
+        },
+        {
+          "name": "footnote",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
     }
   ]
 }

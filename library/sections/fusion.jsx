@@ -327,7 +327,460 @@ function LibInstrumentStatBand({
   );
 }
 
+/* ==================================================================
+   FUSION WAVE 2 — the dial turned up. Same budgets, louder execution:
+   each section is allowed ONE loud thing and earns it.
+   ================================================================== */
+
+/* Shared grain layer (one per section that uses it). */
+const LibGrain = ({ opacity = 0.05 }) => (
+  <div aria-hidden="true" style={{
+    position: "absolute", inset: 0, backgroundImage: "var(--texture-grain)",
+    opacity, pointerEvents: "none",
+  }} />
+);
+
+/* —— ops-board · the live instrument panel as a full section ——— */
+const LIB_OPS_CELLS = [
+  { label: "Spend today", value: "$48.2K", meta: "+4% vs plan", live: true },
+  { label: "Blended ROAS", value: "3.4x", meta: "holding" },
+  { label: "CAC", value: "$142", meta: "-9% this month" },
+  { label: "Decisions queued", value: "3", meta: "ranked by impact" },
+];
+function LibOpsBoard({
+  boardLabel = "ALFRED :: LIVE OPS",
+  syncLabel = "last synced 08:02 · read-only",
+  cells = LIB_OPS_CELLS,
+  streamLine = "watching 14 campaigns · 3 platforms · nothing needs you yet",
+  hintKey = "/",
+  hintAfter = "to ask about any number",
+  variant = "default", /* "default" | "compact" */
+}) {
+  const compact = variant === "compact";
+  return (
+    <section style={{ position: "relative", overflow: "hidden", background: "var(--bg-page)" }}>
+      <LibGrain opacity={0.04} />
+      <div style={libContainer({ position: "relative", paddingBlock: compact ? "56px 56px" : "88px 88px" })}>
+        <div style={{
+          border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)",
+          background: "var(--surface-card)", overflow: "hidden",
+        }}>
+          {/* instrument header */}
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12,
+            paddingBlock: 12, paddingInline: 20, borderBlockEnd: "1px solid var(--border-subtle)",
+            flexWrap: "wrap",
+          }}>
+            <span style={libMonoCaps({ color: "var(--text-secondary)" })}>{boardLabel}</span>
+            <span style={libMonoCaps({})}>{syncLabel}</span>
+          </div>
+          {/* cells */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}>
+            {cells.map((c, i) => (
+              <div key={i} style={{
+                paddingBlock: compact ? 20 : 30, paddingInline: 22,
+                borderInlineStart: i === 0 ? "none" : "1px solid var(--border-subtle)",
+              }}>
+                <div style={libMonoCaps({})}>{c.label}</div>
+                <div style={{
+                  ...libNumeral(compact ? 34 : 44), marginBlockStart: 10,
+                  textShadow: c.live ? "var(--shadow-phosphor)" : undefined,
+                }}>{c.value}</div>
+                <div style={{ ...libMonoLine, fontSize: 11, marginBlockStart: 6, color: "var(--text-muted)" }}>{c.meta}</div>
+              </div>
+            ))}
+          </div>
+          {/* stream footer */}
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12,
+            paddingBlock: 12, paddingInline: 20, borderBlockStart: "1px solid var(--border-subtle)",
+            background: "var(--surface-sunken)", flexWrap: "wrap",
+          }}>
+            <span style={{ ...libMonoLine, fontSize: 12, display: "flex", alignItems: "center", gap: 9, minWidth: 0 }}>
+              <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "var(--radius-circle)", background: "var(--accent)", flexShrink: 0 }} />
+              {streamLine}
+            </span>
+            <span style={{ ...libMonoCaps({}), display: "flex", alignItems: "center", gap: 7 }}>
+              <span>Press</span><Kbd>{hintKey}</Kbd><span>{hintAfter}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* —— command-strip · run your marketing from the keyboard ——— */
+const LIB_COMMANDS = [
+  { group: "Ask", items: [
+    { label: "Where should I move budget this week?", keys: ["enter"] },
+    { label: "Why did CAC rise on Tuesday?", keys: ["enter"] },
+  ] },
+  { group: "Act", items: [
+    { label: "Approve the $18K reallocation", keys: ["A"] },
+    { label: "Pause the fatigued ad set", keys: ["P"] },
+    { label: "Send the brief to Slack", keys: ["S"] },
+  ] },
+];
+function LibCommandStrip({
+  eyebrow = "Keyboard first",
+  title = "The whole function, one palette away",
+  titleAccent = "one palette",
+  sub = "Every question I can answer and every action I can take lives behind one keystroke. No dashboard spelunking, no tab archaeology.",
+  paletteHint = "Ask or act…",
+  groups = LIB_COMMANDS,
+  footerHint = "esc to dismiss · everything logged",
+}) {
+  return (
+    <section style={{ background: "var(--surface-sunken)", borderBlock: "1px solid var(--border-subtle)" }}>
+      <div style={libContainer({
+        paddingBlock: "88px 88px",
+        display: "grid", gridTemplateColumns: "minmax(0, 0.9fr) minmax(0, 1.1fr)",
+        gap: 56, alignItems: "center",
+      })}>
+        <div>
+          <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+          <h2 style={{ ...libDisplay(44), marginBlockStart: 20 }}>{libAccent(title, titleAccent)}</h2>
+          <p style={{ ...libSub, fontSize: "var(--text-base)", maxWidth: 440, marginBlockStart: 18 }}>{sub}</p>
+          <p style={{ ...libMonoCaps({}), display: "flex", alignItems: "center", gap: 7, marginBlockStart: 28, marginBlockEnd: 0 }}>
+            <Kbd>⌘</Kbd><Kbd>K</Kbd><span>from anywhere</span>
+          </p>
+        </div>
+        {/* the palette specimen, shown open */}
+        <div style={{
+          background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+          borderRadius: "var(--radius-lg)", boxShadow: "var(--elevation-overlay)", overflow: "hidden", minWidth: 0,
+        }}>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 10, paddingBlock: 14, paddingInline: 18,
+            borderBlockEnd: "1px solid var(--border-subtle)",
+          }}>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" style={{ color: "var(--text-muted)", flexShrink: 0 }}>
+              <circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" />
+            </svg>
+            <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>{paletteHint}</span>
+            <span aria-hidden="true" style={{ width: 2, height: 16, background: "var(--accent)", boxShadow: "var(--shadow-phosphor)", marginInlineStart: -6 }} />
+          </div>
+          {groups.map((g) => (
+            <div key={g.group} style={{ paddingBlock: 10, paddingInline: 8, borderBlockEnd: "1px solid var(--border-subtle)" }}>
+              <div style={libMonoCaps({ paddingInline: 10, marginBlockEnd: 4 })}>{g.group}</div>
+              {g.items.map((it, i) => (
+                <div key={i} style={{
+                  display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12,
+                  paddingBlock: 9, paddingInline: 10, borderRadius: "var(--radius-sm)",
+                  background: g.group === "Act" && i === 0 ? "var(--accent-soft)" : "transparent",
+                }}>
+                  <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: g.group === "Act" && i === 0 ? "var(--text-on-tint-brand)" : "var(--text-primary)", minWidth: 0 }}>{it.label}</span>
+                  <span style={{ display: "flex", gap: 4, flexShrink: 0 }}>{it.keys.map((k) => <Kbd key={k}>{k}</Kbd>)}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+          <div style={{ ...libMonoCaps({}), paddingBlock: 10, paddingInline: 18 }}>{footerHint}</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* —— decision-diff · what I changed, as a diff ——— */
+const LIB_DIFF_LINES = [
+  { kind: "ctx", text: "campaign: meridian-search-brand · budget review" },
+  { kind: "del", text: "daily budget: $2,400 · CPL $61 and climbing" },
+  { kind: "add", text: "daily budget: $1,400 · $1K/day to performance max" },
+  { kind: "ctx", text: "reason: CPL 22% under target and holding for 3 weeks" },
+  { kind: "del", text: "creative: launch set, 9 weeks old, fatigue flagged" },
+  { kind: "add", text: "creative: refresh pair from the July winners" },
+];
+function LibDecisionDiff({
+  eyebrow = "Receipts, not promises",
+  title = "Every change, reviewable like code",
+  titleAccent = "like code",
+  sub = "I don't describe what I did in a paragraph. I show the exact before and after, with the reason attached, and nothing ships without your approval.",
+  fileLabel = "reallocation.diff · proposed by Alfred · awaiting approval",
+  lines = LIB_DIFF_LINES,
+  approveCta = "Approve the change",
+  secondaryCta = "See the full trail",
+}) {
+  const tone = {
+    ctx: { color: "var(--text-muted)", background: "transparent", mark: " " },
+    del: { color: "var(--text-on-tint-danger, var(--text-secondary))", background: "var(--danger-100)", mark: "-" },
+    add: { color: "var(--text-on-tint-success, var(--text-primary))", background: "var(--success-100)", mark: "+" },
+  };
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({
+        paddingBlock: "88px 88px",
+        display: "grid", gridTemplateColumns: "minmax(0, 0.9fr) minmax(0, 1.1fr)",
+        gap: 56, alignItems: "center",
+      })}>
+        <div>
+          <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+          <h2 style={{ ...libDisplay(44), marginBlockStart: 20 }}>{libAccent(title, titleAccent)}</h2>
+          <p style={{ ...libSub, fontSize: "var(--text-base)", maxWidth: 440, marginBlockStart: 18 }}>{sub}</p>
+          <div style={{ display: "flex", gap: 12, marginBlockStart: 30, flexWrap: "wrap" }}>
+            <Button variant="primary" size="lg">{approveCta}</Button>
+            <Button variant="outline" size="lg" style={libGhostCta}>{secondaryCta}</Button>
+          </div>
+        </div>
+        <div style={{
+          background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+          borderRadius: "var(--radius-md)", overflow: "hidden", minWidth: 0, boxShadow: "var(--elevation-raised)",
+        }}>
+          <div style={{ ...libMonoCaps({}), paddingBlock: 11, paddingInline: 18, borderBlockEnd: "1px solid var(--border-subtle)" }}>{fileLabel}</div>
+          <div dir="ltr" style={{ paddingBlock: 12 }}>
+            {lines.map((l, i) => {
+              const t = tone[l.kind] || tone.ctx;
+              return (
+                <div key={i} style={{
+                  ...libMonoLine, fontSize: 12.5, display: "flex", gap: 12,
+                  paddingBlock: 4, paddingInline: 18, background: t.background, color: t.color,
+                }}>
+                  <span aria-hidden="true" style={{ width: 10, flexShrink: 0, userSelect: "none", fontWeight: "var(--fw-bold)" }}>{t.mark}</span>
+                  <span style={{ minWidth: 0 }}>{l.text}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* —— sticker-stats · the vivid wall, on the orange budget ——— */
+const LIB_STICKERS = [
+  { value: "70%", label: "faster decisions", tone: "orange", tilt: -3 },
+  { value: "15+ hrs", label: "back every week", tone: "outline", tilt: 2 },
+  { value: "12%", label: "less wasted spend", tone: "peri", tilt: -1.5 },
+  { value: "07:00", label: "brief on your desk", tone: "card", tilt: 2.5 },
+  { value: "0", label: "dashboards to build", tone: "outline", tilt: -2 },
+];
+function LibStickerStats({
+  eyebrow = "The numbers do the talking",
+  title = "Proof you can slap on a wall",
+  stickers = LIB_STICKERS,
+  footnote = "Illustrative scenario figures for Alfred for Marketing.",
+}) {
+  const skin = {
+    orange: { background: "var(--accent)", color: "var(--text-on-brand)", border: "1px solid transparent" },
+    peri: { background: "var(--info-100)", color: "var(--text-on-tint-info)", border: "1px solid transparent" },
+    card: { background: "var(--surface-card)", color: "var(--text-primary)", border: "1px solid var(--border-default)" },
+    outline: { background: "transparent", color: "var(--text-primary)", border: "2px solid var(--border-default)" },
+  };
+  return (
+    <section style={{ position: "relative", overflow: "hidden", background: "var(--bg-page)" }}>
+      <LibGrain opacity={0.05} />
+      <style>{`.lib-sticker { transition: transform var(--dur-base) var(--ease-spring); } .lib-sticker:hover { transform: scale(1.04) rotate(0deg) !important; }`}</style>
+      <div style={libContainer({ position: "relative", paddingBlock: "96px 88px", textAlign: "center" })}>
+        <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+        <h2 style={{ ...libDisplay(48), maxWidth: 680, marginInline: "auto", marginBlockStart: 20 }}>{title}</h2>
+        <div style={{
+          display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center",
+          gap: 22, marginBlockStart: 52,
+        }}>
+          {stickers.map((s, i) => (
+            <div key={i} className="lib-sticker" style={{
+              ...skin[s.tone] || skin.card,
+              borderRadius: "var(--radius-2xl)", paddingBlock: 26, paddingInline: 34,
+              transform: `rotate(${s.tilt}deg)`, boxShadow: "var(--elevation-raised)",
+            }}>
+              <div style={{ ...libNumeral(52), color: "inherit" }}>{s.value}</div>
+              <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", marginBlockStart: 6 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+        <p style={{ ...libMonoCaps({}), marginBlockStart: 44, marginBlockEnd: 0 }}>{footnote}</p>
+      </div>
+    </section>
+  );
+}
+
+/* —— type-stack · the poster word wall ——— */
+function LibTypeStack({
+  lines = [
+    { text: "Read less.", style: "solid" },
+    { text: "Know more.", style: "outline" },
+    { text: "Decide faster.", style: "gradient" },
+  ],
+  sub = "The whole pitch in nine words. Everything else on this site is evidence.",
+  primaryCta = "get started",
+  variant = "default", /* "default" | "left" */
+}) {
+  const centered = variant !== "left";
+  const face = (l, i) => {
+    const base = {
+      fontFamily: "var(--font-poster)", fontWeight: "var(--fw-semibold)",
+      fontSize: "clamp(48px, 7.4vw, 116px)", lineHeight: 1.02, letterSpacing: "-0.02em",
+      margin: 0, color: "var(--text-display)",
+    };
+    if (l.style === "outline") return { ...base, color: "transparent", WebkitTextStroke: "2px var(--text-secondary)" };
+    return base;
+  };
+  return (
+    <section style={{ position: "relative", overflow: "hidden", background: "var(--bg-page)" }}>
+      <LibGrain opacity={0.04} />
+      <div style={libContainer({
+        position: "relative", paddingBlock: "104px 96px",
+        textAlign: centered ? "center" : "start", maxWidth: 1000,
+      })}>
+        <h2 style={{ margin: 0 }}>
+          {lines.map((l, i) => (
+            <span key={i} style={{ display: "block", ...face(l, i) }}>
+              {l.style === "gradient" ? <LibGradientText>{l.text}</LibGradientText> : l.text}
+            </span>
+          ))}
+        </h2>
+        <p style={{ ...libSub, maxWidth: 480, marginBlockStart: 30, marginInline: centered ? "auto" : undefined }}>{sub}</p>
+        <div style={{ display: "flex", justifyContent: centered ? "center" : "flex-start", marginBlockStart: 32 }}>
+          <Button variant="primary" size="lg">{primaryCta}</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* —— big-number · the full-viewport stat takeover ——— */
+function LibBigNumber({
+  eyebrow = "FOUND IN ONE PASS",
+  value = "$24K",
+  caption = "of wasted monthly spend, surfaced in Meridian's first review with me",
+  detail = "One afternoon of connecting the stack. No migration, no dashboard build, no analyst queue.",
+  cta = "See it on your data",
+  variant = "default", /* "default" | "quiet" */
+}) {
+  return (
+    <section style={{ position: "relative", overflow: "hidden", background: "var(--bg-page)" }}>
+      {variant !== "quiet" && <LibGrain opacity={0.05} />}
+      <div style={libContainer({
+        position: "relative", paddingBlock: "120px 104px", textAlign: "center",
+        display: "flex", flexDirection: "column", alignItems: "center",
+      })}>
+        <p style={{ ...libMonoCaps({ color: "var(--text-secondary)" }), margin: 0 }}>{eyebrow}</p>
+        {/* The one loud thing: a poster-scale numeral, gradient-filled. */}
+        <div style={{
+          fontFamily: "var(--font-poster)", fontWeight: "var(--fw-semibold)",
+          fontSize: "clamp(96px, 16vw, 240px)", lineHeight: 1.0, letterSpacing: "-0.03em",
+          marginBlockStart: 18,
+        }}>
+          <LibGradientText>{value}</LibGradientText>
+        </div>
+        <p style={{
+          fontFamily: "var(--font-sans)", fontSize: "var(--text-xl, 20px)", color: "var(--text-primary)",
+          maxWidth: 560, lineHeight: "var(--lh-normal)", marginBlockStart: 22, marginBlockEnd: 0,
+        }}>{caption}</p>
+        <p style={{ ...libSub, fontSize: "var(--text-base)", maxWidth: 480, marginBlockStart: 14 }}>{detail}</p>
+        <div style={{ marginBlockStart: 34 }}>
+          <Button variant="primary" size="lg">{cta}</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* —— tape-cta · the CTA band framed by ticker tapes ——— */
+function LibTapeCta({
+  title = "Stop reading reports. Start making decisions.",
+  sub = "Bring your stack to a 30-minute walkthrough and watch your own data brief you back.",
+  primaryCta = "Talk to sales",
+  secondaryCta = "See pricing",
+  tapeItems = LIB_MARQUEE_ITEMS,
+}) {
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <LibMarqueeStrip items={tapeItems} tone="ink" />
+      <div style={libContainer({ paddingBlock: "88px 88px", textAlign: "center" })}>
+        <h2 style={{ ...libDisplay(52), maxWidth: 760, marginInline: "auto" }}>{title}</h2>
+        <p style={{ ...libSub, maxWidth: 560, marginBlockStart: 18, marginInline: "auto" }}>{sub}</p>
+        <style>{`.lib-tape-cta { display: inline-flex; transition: transform var(--dur-base) var(--ease-spring); } .lib-tape-cta:hover { transform: scale(1.04); }`}</style>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBlockStart: 32, flexWrap: "wrap" }}>
+          <span className="lib-tape-cta"><Button variant="primary" size="lg">{primaryCta}</Button></span>
+          <Button variant="outline" size="lg" style={libGhostCta}>{secondaryCta}</Button>
+        </div>
+      </div>
+      <LibMarqueeStrip items={tapeItems} tone="periwinkle" />
+    </section>
+  );
+}
+
+/* —— decision-receipt · the itemized proof, printed ——— */
+const LIB_RECEIPT_ITEMS = [
+  { label: "Search brand budget trimmed", amount: "-$1,000/day" },
+  { label: "Performance Max topped up", amount: "+$1,000/day" },
+  { label: "Fatigued creative paused", amount: "CTR +9%" },
+  { label: "Renewal risk flagged early", amount: "1 account" },
+  { label: "Reporting hours returned", amount: "15 hrs/wk" },
+];
+function LibDecisionReceipt({
+  eyebrow = "Kept, not claimed",
+  title = "A week with me, itemized",
+  sub = "Every decision lands on the record with its outcome. This is what one week's receipt looks like.",
+  storeLine = "ALFRED FOR MARKETING · WEEK 31",
+  items = LIB_RECEIPT_ITEMS,
+  totalLabel = "Decisions shipped",
+  totalValue = "12",
+  barcodeLine = "reviewed · approved · logged",
+  footnote = "Illustrative week at the fictional Meridian.",
+}) {
+  return (
+    <section style={{ background: "var(--surface-sunken)", borderBlock: "1px solid var(--border-subtle)" }}>
+      <div style={libContainer({
+        paddingBlock: "88px 88px",
+        display: "grid", gridTemplateColumns: "minmax(0, 1.1fr) minmax(0, 0.9fr)",
+        gap: 64, alignItems: "center",
+      })}>
+        <div>
+          <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+          <h2 style={{ ...libDisplay(44), marginBlockStart: 20 }}>{title}</h2>
+          <p style={{ ...libSub, fontSize: "var(--text-base)", maxWidth: 460, marginBlockStart: 18 }}>{sub}</p>
+          <p style={{ ...libMonoCaps({}), marginBlockStart: 26, marginBlockEnd: 0 }}>{footnote}</p>
+        </div>
+        {/* the receipt */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div dir="ltr" style={{
+            background: "var(--surface-card)", border: "1px solid var(--border-default)",
+            borderRadius: "var(--radius-md)", paddingBlock: 26, paddingInline: 26,
+            width: "min(340px, 100%)", transform: "rotate(1.2deg)",
+            boxShadow: "var(--elevation-floating)",
+          }}>
+            <div style={{ ...libMonoCaps({ color: "var(--text-secondary)" }), textAlign: "center" }}>{storeLine}</div>
+            <div aria-hidden="true" style={{ borderBlockEnd: "1px dashed var(--border-default)", marginBlock: 16 }} />
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {items.map((it, i) => (
+                <div key={i} style={{ ...libMonoLine, fontSize: 12.5, display: "flex", justifyContent: "space-between", gap: 14 }}>
+                  <span style={{ minWidth: 0 }}>{it.label}</span>
+                  <span style={{ flexShrink: 0, color: "var(--text-primary)", fontWeight: "var(--fw-semibold)" }}>{it.amount}</span>
+                </div>
+              ))}
+            </div>
+            <div aria-hidden="true" style={{ borderBlockEnd: "1px dashed var(--border-default)", marginBlock: 16 }} />
+            <div style={{ ...libMonoLine, fontSize: 13, display: "flex", justifyContent: "space-between", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>
+              <span>{totalLabel}</span>
+              {/* the one phosphor element of this view */}
+              <span style={{ textShadow: "var(--shadow-phosphor)" }}>{totalValue}</span>
+            </div>
+            <div aria-hidden="true" style={{
+              marginBlockStart: 18, height: 34,
+              background: "repeating-linear-gradient(90deg, var(--text-primary) 0 2px, transparent 2px 5px, var(--text-primary) 5px 6px, transparent 6px 11px)",
+              opacity: 0.55, borderRadius: 2,
+            }} />
+            <div style={{ ...libMonoCaps({}), textAlign: "center", marginBlockStart: 10 }}>{barcodeLine}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 window.LibConsoleHero = LibConsoleHero;
 window.LibPosterHero = LibPosterHero;
 window.LibMarqueeDivider = LibMarqueeDivider;
 window.LibInstrumentStatBand = LibInstrumentStatBand;
+window.LibOpsBoard = LibOpsBoard;
+window.LibCommandStrip = LibCommandStrip;
+window.LibDecisionDiff = LibDecisionDiff;
+window.LibStickerStats = LibStickerStats;
+window.LibTypeStack = LibTypeStack;
+window.LibBigNumber = LibBigNumber;
+window.LibTapeCta = LibTapeCta;
+window.LibDecisionReceipt = LibDecisionReceipt;
