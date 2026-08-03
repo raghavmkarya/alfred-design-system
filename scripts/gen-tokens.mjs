@@ -4,13 +4,25 @@
      tokens/tokens.json        — structured token tree (light + dark)
      tokens/tailwind.preset.cjs — Tailwind preset referencing the CSS vars
      tokens/framer-styles.json  — color/text styles for the Framer sync
-   Run: node scripts/gen-tokens.mjs */
+   Run: node scripts/gen-tokens.mjs   (add --check to diff without writing)
+
+   The outputs are COMMITTED and freshness-gated by verify-tokens.mjs. Without
+   that gate a token added to the CSS ships to the site (the CSS is the runtime)
+   while the manifest, Tailwind preset and Framer styles keep describing the old
+   system — which is exactly what happened to the six style-absorption tokens.
+
+   NOTE: only the files in TOKEN_FILES are scanned. A token defined in any other
+   tokens/*.css file is invisible to every downstream channel. */
 import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
 const DARK = '[data-theme="dark"]';
 const m = JSON.parse(fs.readFileSync(path.join(ROOT, "_ds_manifest.json"), "utf8"));
+const CHECK = process.argv.includes("--check");
+/* Collected, then written (or diffed) in one place at the end. */
+const OUT = new Map();
+const emit = (rel, content) => OUT.set(rel, content);
 
 // —— parse tokens/*.css → { name, value, kind, definedIn, annotation?, scope? } ——
 // Kind comes from a trailing `/* @kind … */` comment when present, else by name.
@@ -47,7 +59,7 @@ for (const rel of TOKEN_FILES) {
   }
 }
 m.tokens = toks;
-fs.writeFileSync(path.join(ROOT, "_ds_manifest.json"), JSON.stringify(m));
+emit("_ds_manifest.json", JSON.stringify(m));
 const base = toks.filter((t) => !t.scope);
 const dark = toks.filter((t) => t.scope === DARK);
 const byName = (list) => Object.fromEntries(list.map((t) => [t.name.replace(/^--/, ""), t.value]));
@@ -75,7 +87,7 @@ const tokens = {
   opacity: byName(pick(base, /^--opacity-/)),
   breakpoint: Object.fromEntries([...fs.readFileSync(path.join(ROOT, "tokens/spacing.css"), "utf8").matchAll(/--(bp-[a-z]+):\s*([0-9px]+);/g)].map((x) => [x[1], x[2]])),
 };
-fs.writeFileSync(path.join(ROOT, "tokens/tokens.json"), JSON.stringify(tokens, null, 2));
+emit("tokens/tokens.json", JSON.stringify(tokens, null, 2));
 
 // —— Tailwind preset (references CSS vars so it tracks the active theme) ——
 const varMap = (list, strip) => Object.fromEntries(list.map((t) => {
@@ -110,7 +122,7 @@ module.exports = {
   },
 };
 `;
-fs.writeFileSync(path.join(ROOT, "tokens/tailwind.preset.cjs"), preset);
+emit("tokens/tailwind.preset.cjs", preset);
 
 // —— Framer color + text styles (name → light/dark hex) ——
 const darkByName = byName(colorDark);
@@ -123,7 +135,25 @@ const framerColors = colorBase
     return { name: key, light: t.value, ...(d && isHexish(d) ? { dark: d } : {}) };
   });
 const framerText = pick(base, /^--text-(display|h[1-6]|lg|base|sm|xs|2xs)/).map((t) => ({ name: t.name.replace(/^--/, ""), fontSize: t.value, fontFamily: "Satoshi (web) / Clash Display (app headings)" }));
-fs.writeFileSync(path.join(ROOT, "tokens/framer-styles.json"), JSON.stringify({ colorStyles: framerColors, textStyles: framerText }, null, 2));
+emit("tokens/framer-styles.json", JSON.stringify({ colorStyles: framerColors, textStyles: framerText }, null, 2));
 
-console.log("tokens.json:", Object.keys(tokens.color).length, "colors,", Object.keys(tokens.fontSize).length, "sizes");
-console.log("tailwind.preset.cjs + framer-styles.json (", framerColors.length, "color styles ) written");
+const stale = [];
+let written = 0;
+for (const [rel, next] of OUT) {
+  const abs = path.join(ROOT, rel);
+  const prev = fs.existsSync(abs) ? fs.readFileSync(abs, "utf8") : null;
+  if (prev === next) continue;
+  if (CHECK) { stale.push(rel); continue; }
+  fs.writeFileSync(abs, next);
+  written++;
+}
+if (CHECK) {
+  if (stale.length) {
+    console.log(`FAIL stale token exports — run \`node scripts/gen-tokens.mjs\` and commit:\n  ${stale.join("\n  ")}`);
+    process.exit(1);
+  }
+  console.log("OK   tokens      — manifest, tokens.json, Tailwind preset and Framer styles match a clean rebuild");
+} else {
+  console.log("tokens.json:", Object.keys(tokens.color).length, "colors,", Object.keys(tokens.fontSize).length, "sizes");
+  console.log(`${written} of ${OUT.size} token export(s) rewritten (manifest · tokens.json · tailwind preset · framer styles)`);
+}
