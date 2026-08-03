@@ -98,6 +98,48 @@
       "order": 14,
       "icon": "spark",
       "count": 12
+    },
+    {
+      "id": "fusion-terminal",
+      "name": "Terminal set",
+      "order": 15,
+      "icon": "web-stack-connected",
+      "count": 6
+    },
+    {
+      "id": "fusion-poster",
+      "name": "Poster set",
+      "order": 16,
+      "icon": "spark",
+      "count": 6
+    },
+    {
+      "id": "app-promo",
+      "name": "App promo",
+      "order": 17,
+      "icon": "demo-play",
+      "count": 4
+    },
+    {
+      "id": "trust",
+      "name": "Trust center",
+      "order": 18,
+      "icon": "security-lock",
+      "count": 4
+    },
+    {
+      "id": "partners",
+      "name": "Partners",
+      "order": 19,
+      "icon": "integration-success",
+      "count": 4
+    },
+    {
+      "id": "benchmarks",
+      "name": "Benchmarks",
+      "order": 20,
+      "icon": "trend-up",
+      "count": 4
     }
   ],
   "sections": [
@@ -7259,6 +7301,1658 @@
         {
           "name": "footnote",
           "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "fusion-terminal",
+      "id": "log-stream",
+      "global": "LibLogStream",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Decision log stream",
+      "tier": 2,
+      "description": "The live decision-log feed: timestamped mono lines with severity chips on semantic tints (info cool, warn on the warning tint, exactly one brand-tone flag), the newest line fading in on a slow reduced-motion-safe keyframe, and a following-everything-logged footer whose live dot is the view's one phosphor element.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "paneLabel",
+          "type": "string",
+          "doc": "mono caps label on the feed header"
+        },
+        {
+          "name": "paneMeta",
+          "type": "string",
+          "doc": "mono caps metadata, header end side"
+        },
+        {
+          "name": "lines",
+          "type": "Array<{time, level: 'info'|'warn'|'ok'|'flag', text}>",
+          "doc": "the feed; keep exactly one flag-level line, it is the brand-tone budget"
+        },
+        {
+          "name": "followingLine",
+          "type": "string",
+          "doc": "footer status while following"
+        },
+        {
+          "name": "pausedLine",
+          "type": "string",
+          "doc": "paused variant only: footer status"
+        },
+        {
+          "name": "retentionLine",
+          "type": "string",
+          "doc": "footer end-side metadata"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'paused'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Following",
+          "props": {}
+        },
+        {
+          "id": "paused",
+          "name": "Paused",
+          "props": {
+            "variant": "paused"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion-terminal",
+      "id": "api-quickstart",
+      "global": "LibApiQuickstart",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "API quickstart",
+      "tier": 2,
+      "description": "Tabbed shell pane beside a three-step column: curl, TypeScript and Python tabs (aria-pressed), dollar-prefixed request lines, an endpoint mono caption, a copy chip, and a periwinkle-tinted response block in the response-open variant. Ask Alfred from your own tools.",
+      "pageTypes": [
+        "feature",
+        "resource"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "endpoint",
+          "type": "string",
+          "doc": "mono caption above the request lines"
+        },
+        {
+          "name": "steps",
+          "type": "Array<{num, title, body}>",
+          "doc": "the numbered column beside the pane"
+        },
+        {
+          "name": "tabs",
+          "type": "Array<{id, label, lines: {text, prompt?}[]}>",
+          "doc": "one shell/code specimen per language; prompt lines render the $ prefix"
+        },
+        {
+          "name": "responseLabel",
+          "type": "string",
+          "doc": "status caption on the response block"
+        },
+        {
+          "name": "responseLines",
+          "type": "string[]",
+          "doc": "the response body, one mono line each"
+        },
+        {
+          "name": "copyLabel",
+          "type": "string"
+        },
+        {
+          "name": "showResponse",
+          "type": "boolean",
+          "doc": "response-open variant: render the tinted output block"
+        }
+      ],
+      "variants": [
+        {
+          "id": "shell",
+          "name": "Shell",
+          "props": {}
+        },
+        {
+          "id": "response-open",
+          "name": "Response open",
+          "props": {
+            "showResponse": true
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion-terminal",
+      "id": "shortcut-grid",
+      "global": "LibShortcutGrid",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Shortcut grid",
+      "tier": 2,
+      "description": "The product as a keyboard map: three instrument cards grouped Ask, Act and Navigate, each row a plain-language action with its Kbd combo, bracketed counts in the card headers, and exactly one highlighted row on the accent tint.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "groups",
+          "type": "Array<{group, items: {label, keys[], highlight?}[]}>",
+          "doc": "keep exactly one highlighted row across all groups"
+        },
+        {
+          "name": "footerHint",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "fusion-terminal",
+      "id": "boot-sequence",
+      "global": "LibBootSequence",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Boot sequence",
+      "tier": 2,
+      "description": "Connecting your stack as a boot log: mono lines checking in one by one with success ticks and per-step timing figures, closing on a ready-in-4m-12s line with the phosphor cursor. The done variant renders the finished log with no animation.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "paneLabel",
+          "type": "string"
+        },
+        {
+          "name": "paneMeta",
+          "type": "string"
+        },
+        {
+          "name": "lines",
+          "type": "Array<{text, time}>",
+          "doc": "the boot steps, each with its timing figure"
+        },
+        {
+          "name": "readyLine",
+          "type": "string",
+          "doc": "the closing line the phosphor cursor blinks after"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'done'",
+          "doc": "default staggers the lines in; done is the static finished log"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Booting",
+          "props": {}
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "props": {
+            "variant": "done"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion-terminal",
+      "id": "man-page-faq",
+      "global": "LibManPageFaq",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Man-page FAQ",
+      "tier": 3,
+      "description": "The FAQ styled as a help page: an ALFRED(1) header, NAME, SYNOPSIS and QUESTIONS in mono section headers with hairline rules, a mono command synopsis specimen, and every answer set in Satoshi. Mono labels, body never.",
+      "pageTypes": [
+        "pricing",
+        "feature",
+        "resource"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "headerStart",
+          "type": "string",
+          "doc": "man header, start side"
+        },
+        {
+          "name": "headerMid",
+          "type": "string"
+        },
+        {
+          "name": "headerEnd",
+          "type": "string"
+        },
+        {
+          "name": "nameLabel",
+          "type": "string"
+        },
+        {
+          "name": "nameBody",
+          "type": "string",
+          "doc": "Satoshi one-liner under NAME"
+        },
+        {
+          "name": "synopsisLabel",
+          "type": "string"
+        },
+        {
+          "name": "synopsisLine",
+          "type": "string",
+          "doc": "the mono command specimen; the one code surface of the section"
+        },
+        {
+          "name": "questionsLabel",
+          "type": "string"
+        },
+        {
+          "name": "questions",
+          "type": "Array<{q, a}>",
+          "doc": "Satoshi questions and answers, hairline-ruled"
+        },
+        {
+          "name": "footerLine",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "fusion-terminal",
+      "id": "replay-pane",
+      "global": "LibReplayPane",
+      "file": "library/sections/fusion-terminal.js",
+      "name": "Reasoning replay",
+      "tier": 2,
+      "description": "A reasoning replay: the ConsolePanel transcript of a working session over a static timeline scrubber with step markers, start and end timestamps, and one accent playhead carrying the view's phosphor glow. Scrub back through why the call was made.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "connected",
+          "type": "string[]",
+          "doc": "sources on the ConsolePanel header"
+        },
+        {
+          "name": "transcript",
+          "type": "Array<{verb, text, tone?}>",
+          "doc": "the replayed working session, ConsolePanel lines"
+        },
+        {
+          "name": "readyLine",
+          "type": "string",
+          "doc": "the paused-at status line; the panel cursor stays off, the playhead owns the phosphor budget"
+        },
+        {
+          "name": "markers",
+          "type": "Array<{at, label}>",
+          "doc": "step markers as percent offsets along the timeline"
+        },
+        {
+          "name": "playheadAt",
+          "type": "number",
+          "doc": "playhead position, percent"
+        },
+        {
+          "name": "startStamp",
+          "type": "string"
+        },
+        {
+          "name": "midStamp",
+          "type": "string"
+        },
+        {
+          "name": "endStamp",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "fusion-poster",
+      "id": "quote-poster",
+      "global": "LibQuotePoster",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Quote poster",
+      "tier": 2,
+      "description": "A testimonial at poster scale: the quote set in the poster face at clamp(40px, 6vw, 96px) under an oversized decorative quotemark, attribution in mono caps with an orange tick rule, and the section's one grain layer for print feel.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "comparison"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "quote",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "company",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'compact'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        },
+        {
+          "id": "compact",
+          "name": "Compact",
+          "props": {
+            "variant": "compact",
+            "quote": "The Monday brief runs my Monday now.",
+            "name": "Daniel Okafor",
+            "role": "Head of growth",
+            "company": "Northwind"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion-poster",
+      "id": "stamp-badges",
+      "global": "LibStampBadges",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Stamp badges",
+      "tier": 3,
+      "description": "A row of circular rotating-text stamps built with SVG textPath on a circle: the working-agreement lines set in mono caps around double rings, rotating slowly on the marquee duration (static under reduced motion), with at most one orange stamp in the row.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "lead",
+          "type": "string"
+        },
+        {
+          "name": "stamps",
+          "type": "Array<{text, tone: 'ink' | 'periwinkle' | 'orange'}>",
+          "doc": "one orange stamp max; orange is action, not ornament"
+        },
+        {
+          "name": "footnote",
+          "type": "string"
+        },
+        {
+          "name": "idPrefix",
+          "type": "string",
+          "doc": "unique per instance if two stamp rows share a page"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "fusion-poster",
+      "id": "split-flap",
+      "global": "LibSplitFlap",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Split-flap board",
+      "tier": 3,
+      "description": "A departure-board stat row: each value rendered as per-letter split-flap tiles with the midline hairline, letterforms in Clash via the poster face token, mono caps board metadata, and exactly one live value carrying the phosphor glow.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "boardLabel",
+          "type": "string"
+        },
+        {
+          "name": "updatedLabel",
+          "type": "string"
+        },
+        {
+          "name": "stats",
+          "type": "Array<{value, label, live?}>",
+          "doc": "one live value max; its tiles are the section's one phosphor element"
+        },
+        {
+          "name": "footline",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "fusion-poster",
+      "id": "gradient-panel-poster",
+      "global": "LibGradientPanelPoster",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Gradient panel poster",
+      "tier": 2,
+      "description": "The full-bleed brand-gradient panel worn as a poster: ink type on the gradient (the view's one gradient element), a poster-scale claim in the Clash poster face, an ink-filled CTA with spring hover, and a grain layer over the panel.",
+      "pageTypes": [
+        "landing",
+        "pricing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "claim",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'justified'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Centered",
+          "props": {}
+        },
+        {
+          "id": "justified",
+          "name": "Justified",
+          "props": {
+            "variant": "justified"
+          }
+        }
+      ]
+    },
+    {
+      "category": "fusion-poster",
+      "id": "counter-band",
+      "global": "LibCounterBand",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Counter band",
+      "tier": 2,
+      "description": "An outcomes band of animated big counters built on the bundle AnimatedCounter (SSRs at the final value, counts up in view), with mono caps labels and sublabels, a spring-hover CTA at the band's shoulder, and a mono footnote keeping the figures honest.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "comparison"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "counters",
+          "type": "Array<{value, prefix?, suffix?, label, sublabel?}>"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "footnote",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "fusion-poster",
+      "id": "kinetic-stack",
+      "global": "LibKineticStack",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Kinetic stack",
+      "tier": 3,
+      "description": "The poster set piece: three staggered, slightly rotated and overlapping poster lines with z-offsets in a static composition (no scroll-jacking), one line outlined and one gradient-filled, over the section's one grain layer, with a spring-hover CTA below.",
+      "pageTypes": [
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "lines",
+          "type": "Array<{text, style: 'solid' | 'outline' | 'gradient', tilt, indent, z}>",
+          "doc": "exactly one outline line and one gradient line"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "app-promo",
+      "id": "app-hero",
+      "global": "LibAppHero",
+      "file": "library/sections/app-promo.js",
+      "name": "App hero",
+      "tier": 1,
+      "description": "Split hero for the mobile app: a phone mockup built entirely from tokens (rounded device frame, notch pill, mono status row, a mini daily-brief screen with KpiCard-like rows and an approve action), beside benefit copy and two text-only store badges rendered as outline buttons. No real store logos, no images.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "storeBadges",
+          "type": "string[]",
+          "doc": "labels for the text-only store buttons; kept as plain outline buttons, never real store logos"
+        },
+        {
+          "name": "proofLine",
+          "type": "string"
+        },
+        {
+          "name": "briefTitle",
+          "type": "string"
+        },
+        {
+          "name": "briefMeta",
+          "type": "string"
+        },
+        {
+          "name": "briefRows",
+          "type": "Array<{label, value, delta?, good?}>",
+          "doc": "KpiCard-like rows on the mini brief screen"
+        },
+        {
+          "name": "alfredLine",
+          "type": "string",
+          "doc": "Alfred's recommendation card at the bottom of the screen"
+        },
+        {
+          "name": "approveLabel",
+          "type": "string"
+        },
+        {
+          "name": "laterLabel",
+          "type": "string"
+        },
+        {
+          "name": "phoneTime",
+          "type": "string",
+          "doc": "time shown in the phone's status row"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "app-promo",
+      "id": "notif-stack",
+      "global": "LibNotifStack",
+      "file": "library/sections/app-promo.js",
+      "name": "Notification stack",
+      "tier": 2,
+      "description": "Benefit copy beside a stack of Alfred push notifications: two collapsed cards peeking above the live one, each with app mark, name, time and a one-line message, the front card carrying the full message and an approve/defer action row. Sells push-with-judgement without a single screenshot.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "bullets",
+          "type": "string[]"
+        },
+        {
+          "name": "deliveryLine",
+          "type": "string",
+          "doc": "mono footline under the bullets"
+        },
+        {
+          "name": "notifications",
+          "type": "Array<{name, time, message}>",
+          "doc": "oldest first; the last entry renders as the expanded front card"
+        },
+        {
+          "name": "approveLabel",
+          "type": "string"
+        },
+        {
+          "name": "deferLabel",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "app-promo",
+      "id": "phone-row",
+      "global": "LibPhoneRow",
+      "file": "library/sections/app-promo.js",
+      "name": "Phone row",
+      "tier": 2,
+      "description": "Three small token-built phone frames in a row, each showing one moment of a decision's day: the 07:00 brief, the traced flag with a sparkline, and the one-tap approval. Captions under each frame tell the story left to right.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "moments",
+          "type": "Array<{kind: 'brief' | 'flag' | 'approval', time, caption, detail}>",
+          "doc": "each kind renders its built-in mini screen; caption and detail set the copy under the frame"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "app-promo",
+      "id": "handoff-band",
+      "global": "LibHandoffBand",
+      "file": "library/sections/app-promo.js",
+      "name": "Handoff band",
+      "tier": 2,
+      "description": "Desk-to-pocket continuity band: a desktop review card and a phone frame connected by a dotted path with one phosphor-glow accent dot mid-journey. The desk raises the flag at 08:12, the pocket approves it at 08:31, and the mono footline states the promise: one decision record, every screen.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "deskLabel",
+          "type": "string",
+          "doc": "mono header of the desktop card"
+        },
+        {
+          "name": "deskMeta",
+          "type": "string"
+        },
+        {
+          "name": "deskFlag",
+          "type": "string"
+        },
+        {
+          "name": "deskDetail",
+          "type": "string"
+        },
+        {
+          "name": "phoneTime",
+          "type": "string"
+        },
+        {
+          "name": "phoneTitle",
+          "type": "string"
+        },
+        {
+          "name": "phoneStatus",
+          "type": "string"
+        },
+        {
+          "name": "phoneMeta",
+          "type": "string"
+        },
+        {
+          "name": "footLine",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "trust",
+      "id": "trust-hero",
+      "global": "LibTrustHero",
+      "file": "library/sections/trust.js",
+      "name": "Trust center entry",
+      "tier": 1,
+      "description": "The trust-center opener: quiet centered header, one search field, and a grid of document cards (security overview, DPA, subprocessor list, pen-test summary) each carrying a mono updated stamp and a download or request button. An illustrative-documents footnote keeps it fictional-safe.",
+      "pageTypes": [
+        "legal",
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string"
+        },
+        {
+          "name": "docs",
+          "type": "Array<{icon?, name, detail, updated, action}>",
+          "doc": "document cards; icon is a glyph key ('doc' | 'lock' | 'shield'), updated renders as a mono stamp, action is the button label"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "mono footnote under the grid; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "trust",
+      "id": "subprocessor-table",
+      "global": "LibSubprocessorTable",
+      "file": "library/sections/trust.js",
+      "name": "Subprocessor register",
+      "tier": 2,
+      "description": "The subprocessor register on the bundle Table: fictional vendors (Northcloud Hosting, Relay Mail, Quarrystone Data…) with purpose, a region chip, and a right-aligned mono reviewed stamp. Header block carries the register-updated stamp and the 30-day change notice.",
+      "pageTypes": [
+        "legal"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "registerStamp",
+          "type": "string",
+          "doc": "mono stamp at the header's end, e.g. 'Register updated 2026-07-14'"
+        },
+        {
+          "name": "rows",
+          "type": "Array<{vendor, purpose, region, updated}>",
+          "doc": "register rows; fictional vendors only"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "mono footnote under the table; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "trust",
+      "id": "data-flow",
+      "global": "LibDataFlow",
+      "file": "library/sections/trust.js",
+      "name": "Data flow diagram",
+      "tier": 2,
+      "description": "Where your data lives, as a token-built three-node diagram: your stack, the Alfred runtime, your workspace, joined by labeled connectors (read-only in, write-back only on approval) whose arrows flip with the reading direction. Region chips on every node; the runtime node carries the EU or US choice.",
+      "pageTypes": [
+        "legal",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "nodes",
+          "type": "Array<{icon?, title, detail, chips?, chipsNote?}>",
+          "doc": "exactly the diagram's nodes, in flow order; chips are mono region pills"
+        },
+        {
+          "name": "connectors",
+          "type": "Array<{label, note}>",
+          "doc": "one per gap between nodes; label sits above the arrow, note below"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "mono footnote under the diagram; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "trust",
+      "id": "commitments-grid",
+      "global": "LibCommitmentsGrid",
+      "file": "library/sections/trust.js",
+      "name": "Security commitments grid",
+      "tier": 2,
+      "description": "The security commitments as a quiet grid: no training on your data, logical isolation, SSO and SCIM, audit trail, retention controls, region pinning. Each card pairs a single-color line glyph with a one-sentence promise written as a contract term, not a marketing line.",
+      "pageTypes": [
+        "legal",
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "Array<{icon?, title, body}>",
+          "doc": "commitment cards; icon is a glyph key ('noTraining' | 'isolation' | 'key' | 'audit' | 'clock' | 'pin')"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "mono footnote under the grid; empty string hides it"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "partners",
+      "id": "partner-hero",
+      "global": "LibPartnerHero",
+      "file": "library/sections/partners.js",
+      "name": "Partner program hero",
+      "tier": 2,
+      "description": "The partner-program opener: centered display headline with one gradient-accented phrase, dual CTA (apply plus partner guide), and three quick program stats (margin share, client seats, certification time) with mono instrument labels above a hairline rule.",
+      "pageTypes": [
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "stats",
+          "type": "Array<{value, label, note}>",
+          "doc": "three quick program numbers; label sets in mono caps, note in small sans"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "partners",
+      "id": "partner-tiers",
+      "global": "LibPartnerTiers",
+      "file": "library/sections/partners.js",
+      "name": "Partner tiers",
+      "tier": 2,
+      "description": "The three-rung program ladder (Registered, Certified, Strategic) as benefit cards: check-glyph benefit lists, one highlighted tier carrying the orange border and primary CTA, and a mono requirement footnote under a dashed rule on every card.",
+      "pageTypes": [
+        "landing",
+        "pricing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "tiers",
+          "type": "Array<{name, badge?, summary, benefits, ctaLabel, requirement}>",
+          "doc": "requirement is the mono entry-bar footnote, e.g. 'req :: 5 live clients · 4 certified operators'"
+        },
+        {
+          "name": "highlightIndex",
+          "type": "number",
+          "doc": "index of the tier that gets the orange border, floating elevation and primary CTA"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "partners",
+      "id": "agency-proof",
+      "global": "LibAgencyProof",
+      "file": "library/sections/partners.js",
+      "name": "Agency proof",
+      "tier": 2,
+      "description": "Agency social proof on the sunken band: a strip of fictional agency text wordmarks in mixed type treatments, one pull quote from an agency operator against an orange rule, and a per-client partner-console mini visual with mono spend rows and status badges.",
+      "pageTypes": [
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "quote",
+          "type": "string"
+        },
+        {
+          "name": "quoteName",
+          "type": "string"
+        },
+        {
+          "name": "quoteRole",
+          "type": "string"
+        },
+        {
+          "name": "marks",
+          "type": "Array<{name, style}>",
+          "doc": "text wordmarks only, always fictional; style is 'display' | 'tracked' | 'sans'"
+        },
+        {
+          "name": "marksLabel",
+          "type": "string",
+          "doc": "mono caption under the wordmark strip declaring the roster fictional"
+        },
+        {
+          "name": "consoleLabel",
+          "type": "string"
+        },
+        {
+          "name": "consoleMeta",
+          "type": "string"
+        },
+        {
+          "name": "clients",
+          "type": "Array<{client, spend, pace, state, tone}>",
+          "doc": "console rows; tone is a Badge tone ('success' | 'warning' | …)"
+        },
+        {
+          "name": "consoleFoot",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "partners",
+      "id": "co-sell-steps",
+      "global": "LibCoSellSteps",
+      "file": "library/sections/partners.js",
+      "name": "Co-sell steps",
+      "tier": 2,
+      "description": "How partnering works, in four numbered steps (apply, certify, launch the first client, share the margin): number chips joined by a connector line, short body copy per step, a mono time estimate under each, and the final margin step tinted on the accent-soft chip.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "steps",
+          "type": "Array<{title, body, time}>",
+          "doc": "time is the mono estimate, e.g. 't :: 2 weeks'"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "benchmarks",
+      "id": "benchmark-hero",
+      "global": "LibBenchmarkHero",
+      "file": "library/sections/benchmarks.js",
+      "name": "Benchmark report hero",
+      "tier": 1,
+      "description": "The annual report opener: gradient-accented report title, mono n= sample line, get-the-report CTA pair, and one finding pulled forward as a report-cover card with a mono edition tag and a pdf format stamp. Ties straight into the gated-content recipe.",
+      "pageTypes": [
+        "gated",
+        "resource",
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "sampleLine",
+          "type": "string",
+          "doc": "the mono n= sample-size line under the sub"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "reportTag",
+          "type": "string",
+          "doc": "mono edition tag in the cover card header"
+        },
+        {
+          "name": "statEyebrow",
+          "type": "string",
+          "doc": "mono finding number opposite the edition tag"
+        },
+        {
+          "name": "statValue",
+          "type": "string",
+          "doc": "the one stat pulled forward, display-face numeral"
+        },
+        {
+          "name": "statLabel",
+          "type": "string"
+        },
+        {
+          "name": "statNote",
+          "type": "string"
+        },
+        {
+          "name": "formatLine",
+          "type": "string",
+          "doc": "mono format stamp in the cover card footer (pages, gate)"
+        },
+        {
+          "name": "variant",
+          "type": "'default'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "benchmarks",
+      "id": "benchmark-table",
+      "global": "LibBenchmarkTable",
+      "file": "library/sections/benchmarks.js",
+      "name": "Benchmarks-by-stage table",
+      "tier": 1,
+      "description": "Metric medians cut by company stage: token-built table (the bundle Table's props don't carry row highlighting or per-cell mono) with mono caps column headers, mono values, ONE accent-soft highlighted row tagged as the metric Alfred moves, and a mono methodology stamp printed under the data like a plate mark.",
+      "pageTypes": [
+        "resource",
+        "blog",
+        "landing"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "metricHeader",
+          "type": "string",
+          "doc": "header of the metric column"
+        },
+        {
+          "name": "stages",
+          "type": "string[]",
+          "doc": "value column headers, e.g. Seed / Growth / Scale"
+        },
+        {
+          "name": "rows",
+          "type": "Array<{metric, values: string[], highlight?}>",
+          "doc": "one row per metric; at most one row carries highlight: true"
+        },
+        {
+          "name": "highlightTag",
+          "type": "string",
+          "doc": "mono bracket tag shown on the highlighted row"
+        },
+        {
+          "name": "stamp",
+          "type": "string",
+          "doc": "the mono methodology stamp under the table"
+        },
+        {
+          "name": "variant",
+          "type": "'default'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "benchmarks",
+      "id": "percentile-band",
+      "global": "LibPercentileBand",
+      "file": "library/sections/benchmarks.js",
+      "name": "Percentile band",
+      "tier": 2,
+      "description": "Where you rank: a horizontal distribution bar with quartile ticks, a periwinkle interquartile band, and ONE accent marker (phosphor-glow, the you-after-90-days flag) near the good end of the axis. Mono axis endpoints and a caption row with the band legend and the n= count.",
+      "pageTypes": [
+        "resource",
+        "landing",
+        "feature"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "axisStart",
+          "type": "string",
+          "doc": "mono label at the start of the axis"
+        },
+        {
+          "name": "axisEnd",
+          "type": "string",
+          "doc": "mono label at the end of the axis"
+        },
+        {
+          "name": "ticks",
+          "type": "Array<{pos, label}>",
+          "doc": "quartile ticks; pos is 0-100 along the axis, first and last also bound the shaded band"
+        },
+        {
+          "name": "marker",
+          "type": "{pos, label}",
+          "doc": "the one accent marker; keep pos low enough that the flag fits inside the card"
+        },
+        {
+          "name": "bandLabel",
+          "type": "string",
+          "doc": "legend text for the interquartile band"
+        },
+        {
+          "name": "captionStart",
+          "type": "string",
+          "doc": "mono axis caption (units, direction of good)"
+        },
+        {
+          "name": "captionEnd",
+          "type": "string",
+          "doc": "mono sample stamp at the end of the caption row"
+        },
+        {
+          "name": "variant",
+          "type": "'default'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "benchmarks",
+      "id": "methodology-note",
+      "global": "LibMethodologyNote",
+      "file": "library/sections/benchmarks.js",
+      "name": "Methodology note",
+      "tier": 2,
+      "description": "The fine print as a first-class block and a credibility device: sample, period, definitions and limits in a quiet two-column note on a sunken band, each entry under a numbered mono sidenote, with a mono dataset-available footnote under the closing hairline.",
+      "pageTypes": [
+        "resource",
+        "blog",
+        "gated"
+      ],
+      "usedBy": [],
+      "props": [
+        {
+          "name": "heading",
+          "type": "string"
+        },
+        {
+          "name": "intro",
+          "type": "string",
+          "doc": "one-line stance on why the fine print is shown"
+        },
+        {
+          "name": "items",
+          "type": "Array<{sidenote, title, body}>",
+          "doc": "the note entries; sidenote renders in numbered mono caps"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "mono closing line under the bottom hairline"
+        },
+        {
+          "name": "variant",
+          "type": "'default'"
         }
       ],
       "variants": [

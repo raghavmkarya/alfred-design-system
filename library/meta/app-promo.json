@@ -1,0 +1,105 @@
+{
+  "category": { "id": "app-promo", "name": "App promo", "order": 17, "icon": "demo-play" },
+  "sections": [
+    {
+      "id": "app-hero",
+      "global": "LibAppHero",
+      "file": "library/sections/app-promo.js",
+      "name": "App hero",
+      "tier": 1,
+      "description": "Split hero for the mobile app: a phone mockup built entirely from tokens (rounded device frame, notch pill, mono status row, a mini daily-brief screen with KpiCard-like rows and an approve action), beside benefit copy and two text-only store badges rendered as outline buttons. No real store logos, no images.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "storeBadges", "type": "string[]", "doc": "labels for the text-only store buttons; kept as plain outline buttons, never real store logos" },
+        { "name": "proofLine", "type": "string" },
+        { "name": "briefTitle", "type": "string" },
+        { "name": "briefMeta", "type": "string" },
+        { "name": "briefRows", "type": "Array<{label, value, delta?, good?}>", "doc": "KpiCard-like rows on the mini brief screen" },
+        { "name": "alfredLine", "type": "string", "doc": "Alfred's recommendation card at the bottom of the screen" },
+        { "name": "approveLabel", "type": "string" },
+        { "name": "laterLabel", "type": "string" },
+        { "name": "phoneTime", "type": "string", "doc": "time shown in the phone's status row" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "notif-stack",
+      "global": "LibNotifStack",
+      "file": "library/sections/app-promo.js",
+      "name": "Notification stack",
+      "tier": 2,
+      "description": "Benefit copy beside a stack of Alfred push notifications: two collapsed cards peeking above the live one, each with app mark, name, time and a one-line message, the front card carrying the full message and an approve/defer action row. Sells push-with-judgement without a single screenshot.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "bullets", "type": "string[]" },
+        { "name": "deliveryLine", "type": "string", "doc": "mono footline under the bullets" },
+        { "name": "notifications", "type": "Array<{name, time, message}>", "doc": "oldest first; the last entry renders as the expanded front card" },
+        { "name": "approveLabel", "type": "string" },
+        { "name": "deferLabel", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "phone-row",
+      "global": "LibPhoneRow",
+      "file": "library/sections/app-promo.js",
+      "name": "Phone row",
+      "tier": 2,
+      "description": "Three small token-built phone frames in a row, each showing one moment of a decision's day: the 07:00 brief, the traced flag with a sparkline, and the one-tap approval. Captions under each frame tell the story left to right.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "moments", "type": "Array<{kind: 'brief' | 'flag' | 'approval', time, caption, detail}>", "doc": "each kind renders its built-in mini screen; caption and detail set the copy under the frame" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "handoff-band",
+      "global": "LibHandoffBand",
+      "file": "library/sections/app-promo.js",
+      "name": "Handoff band",
+      "tier": 2,
+      "description": "Desk-to-pocket continuity band: a desktop review card and a phone frame connected by a dotted path with one phosphor-glow accent dot mid-journey. The desk raises the flag at 08:12, the pocket approves it at 08:31, and the mono footline states the promise: one decision record, every screen.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "titleAccent", "type": "string", "doc": "substring of title rendered in the brand gradient; the section's one gradient element" },
+        { "name": "sub", "type": "string" },
+        { "name": "deskLabel", "type": "string", "doc": "mono header of the desktop card" },
+        { "name": "deskMeta", "type": "string" },
+        { "name": "deskFlag", "type": "string" },
+        { "name": "deskDetail", "type": "string" },
+        { "name": "phoneTime", "type": "string" },
+        { "name": "phoneTitle", "type": "string" },
+        { "name": "phoneStatus", "type": "string" },
+        { "name": "phoneMeta", "type": "string" },
+        { "name": "footLine", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}

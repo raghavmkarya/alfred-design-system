@@ -1,0 +1,123 @@
+{
+  "category": { "id": "fusion-poster", "name": "Poster set", "order": 16, "icon": "spark" },
+  "sections": [
+    {
+      "id": "quote-poster",
+      "global": "LibQuotePoster",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Quote poster",
+      "tier": 2,
+      "description": "A testimonial at poster scale: the quote set in the poster face at clamp(40px, 6vw, 96px) under an oversized decorative quotemark, attribution in mono caps with an orange tick rule, and the section's one grain layer for print feel.",
+      "pageTypes": ["landing", "feature", "comparison"],
+      "usedBy": [],
+      "props": [
+        { "name": "quote", "type": "string" },
+        { "name": "name", "type": "string" },
+        { "name": "role", "type": "string" },
+        { "name": "company", "type": "string" },
+        { "name": "variant", "type": "'default' | 'compact'" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} },
+        { "id": "compact", "name": "Compact", "props": { "variant": "compact", "quote": "The Monday brief runs my Monday now.", "name": "Daniel Okafor", "role": "Head of growth", "company": "Northwind" } }
+      ]
+    },
+    {
+      "id": "stamp-badges",
+      "global": "LibStampBadges",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Stamp badges",
+      "tier": 3,
+      "description": "A row of circular rotating-text stamps built with SVG textPath on a circle: the working-agreement lines set in mono caps around double rings, rotating slowly on the marquee duration (static under reduced motion), with at most one orange stamp in the row.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "lead", "type": "string" },
+        { "name": "stamps", "type": "Array<{text, tone: 'ink' | 'periwinkle' | 'orange'}>", "doc": "one orange stamp max; orange is action, not ornament" },
+        { "name": "footnote", "type": "string" },
+        { "name": "idPrefix", "type": "string", "doc": "unique per instance if two stamp rows share a page" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "split-flap",
+      "global": "LibSplitFlap",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Split-flap board",
+      "tier": 3,
+      "description": "A departure-board stat row: each value rendered as per-letter split-flap tiles with the midline hairline, letterforms in Clash via the poster face token, mono caps board metadata, and exactly one live value carrying the phosphor glow.",
+      "pageTypes": ["landing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "boardLabel", "type": "string" },
+        { "name": "updatedLabel", "type": "string" },
+        { "name": "stats", "type": "Array<{value, label, live?}>", "doc": "one live value max; its tiles are the section's one phosphor element" },
+        { "name": "footline", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "gradient-panel-poster",
+      "global": "LibGradientPanelPoster",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Gradient panel poster",
+      "tier": 2,
+      "description": "The full-bleed brand-gradient panel worn as a poster: ink type on the gradient (the view's one gradient element), a poster-scale claim in the Clash poster face, an ink-filled CTA with spring hover, and a grain layer over the panel.",
+      "pageTypes": ["landing", "pricing", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "claim", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "cta", "type": "string" },
+        { "name": "variant", "type": "'default' | 'justified'" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Centered", "props": {} },
+        { "id": "justified", "name": "Justified", "props": { "variant": "justified" } }
+      ]
+    },
+    {
+      "id": "counter-band",
+      "global": "LibCounterBand",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Counter band",
+      "tier": 2,
+      "description": "An outcomes band of animated big counters built on the bundle AnimatedCounter (SSRs at the final value, counts up in view), with mono caps labels and sublabels, a spring-hover CTA at the band's shoulder, and a mono footnote keeping the figures honest.",
+      "pageTypes": ["landing", "feature", "comparison"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "counters", "type": "Array<{value, prefix?, suffix?, label, sublabel?}>" },
+        { "name": "cta", "type": "string" },
+        { "name": "footnote", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "kinetic-stack",
+      "global": "LibKineticStack",
+      "file": "library/sections/fusion-poster.js",
+      "name": "Kinetic stack",
+      "tier": 3,
+      "description": "The poster set piece: three staggered, slightly rotated and overlapping poster lines with z-offsets in a static composition (no scroll-jacking), one line outlined and one gradient-filled, over the section's one grain layer, with a spring-hover CTA below.",
+      "pageTypes": ["landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "lines", "type": "Array<{text, style: 'solid' | 'outline' | 'gradient', tilt, indent, z}>", "doc": "exactly one outline line and one gradient line" },
+        { "name": "sub", "type": "string" },
+        { "name": "cta", "type": "string" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}

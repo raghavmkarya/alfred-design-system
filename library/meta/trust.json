@@ -1,0 +1,88 @@
+{
+  "category": { "id": "trust", "name": "Trust center", "order": 18, "icon": "security-lock" },
+  "sections": [
+    {
+      "id": "trust-hero",
+      "global": "LibTrustHero",
+      "file": "library/sections/trust.js",
+      "name": "Trust center entry",
+      "tier": 1,
+      "description": "The trust-center opener: quiet centered header, one search field, and a grid of document cards (security overview, DPA, subprocessor list, pen-test summary) each carrying a mono updated stamp and a download or request button. An illustrative-documents footnote keeps it fictional-safe.",
+      "pageTypes": ["legal", "landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "searchPlaceholder", "type": "string" },
+        { "name": "docs", "type": "Array<{icon?, name, detail, updated, action}>", "doc": "document cards; icon is a glyph key ('doc' | 'lock' | 'shield'), updated renders as a mono stamp, action is the button label" },
+        { "name": "footnote", "type": "string", "doc": "mono footnote under the grid; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "subprocessor-table",
+      "global": "LibSubprocessorTable",
+      "file": "library/sections/trust.js",
+      "name": "Subprocessor register",
+      "tier": 2,
+      "description": "The subprocessor register on the bundle Table: fictional vendors (Northcloud Hosting, Relay Mail, Quarrystone Data…) with purpose, a region chip, and a right-aligned mono reviewed stamp. Header block carries the register-updated stamp and the 30-day change notice.",
+      "pageTypes": ["legal"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "registerStamp", "type": "string", "doc": "mono stamp at the header's end, e.g. 'Register updated 2026-07-14'" },
+        { "name": "rows", "type": "Array<{vendor, purpose, region, updated}>", "doc": "register rows; fictional vendors only" },
+        { "name": "footnote", "type": "string", "doc": "mono footnote under the table; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "data-flow",
+      "global": "LibDataFlow",
+      "file": "library/sections/trust.js",
+      "name": "Data flow diagram",
+      "tier": 2,
+      "description": "Where your data lives, as a token-built three-node diagram: your stack, the Alfred runtime, your workspace, joined by labeled connectors (read-only in, write-back only on approval) whose arrows flip with the reading direction. Region chips on every node; the runtime node carries the EU or US choice.",
+      "pageTypes": ["legal", "feature"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "nodes", "type": "Array<{icon?, title, detail, chips?, chipsNote?}>", "doc": "exactly the diagram's nodes, in flow order; chips are mono region pills" },
+        { "name": "connectors", "type": "Array<{label, note}>", "doc": "one per gap between nodes; label sits above the arrow, note below" },
+        { "name": "footnote", "type": "string", "doc": "mono footnote under the diagram; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    },
+    {
+      "id": "commitments-grid",
+      "global": "LibCommitmentsGrid",
+      "file": "library/sections/trust.js",
+      "name": "Security commitments grid",
+      "tier": 2,
+      "description": "The security commitments as a quiet grid: no training on your data, logical isolation, SSO and SCIM, audit trail, retention controls, region pinning. Each card pairs a single-color line glyph with a one-sentence promise written as a contract term, not a marketing line.",
+      "pageTypes": ["legal", "landing"],
+      "usedBy": [],
+      "props": [
+        { "name": "eyebrow", "type": "string" },
+        { "name": "title", "type": "string" },
+        { "name": "sub", "type": "string" },
+        { "name": "items", "type": "Array<{icon?, title, body}>", "doc": "commitment cards; icon is a glyph key ('noTraining' | 'isolation' | 'key' | 'audit' | 'clock' | 'pin')" },
+        { "name": "footnote", "type": "string", "doc": "mono footnote under the grid; empty string hides it" }
+      ],
+      "variants": [
+        { "id": "default", "name": "Default", "props": {} }
+      ]
+    }
+  ]
+}
