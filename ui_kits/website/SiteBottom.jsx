@@ -37,6 +37,11 @@ function Outcomes() {
           { value: "$90M+", label: "Cost savings delivered" },
           { value: "90x", label: "Productivity boost" },
         ]} />
+        {/* Instrument-layer metadata (style absorption stage 2): mono, quiet,
+            the numbers read as instrument output rather than a claim. */}
+        <p style={{ fontFamily: "var(--font-mono)", fontSize: "var(--text-2xs)", letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--text-muted)", margin: "26px 0 0" }}>
+          Aggregate across live deployments · refreshed at every sync
+        </p>
       </Container2>
     </section>
   );

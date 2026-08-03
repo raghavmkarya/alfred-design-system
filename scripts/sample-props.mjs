@@ -19,6 +19,15 @@ export const sampleProps = (h, noop) => ({
   KpiCard: { label: "Blended ROAS", value: "4.8x", delta: "+12.4%", direction: "up", caption: "vs 30d" },
   ProgressBar: { value: 62 },
   AgentStatus: { query: "What's the biggest risk?", steps: ["Analysing spend", "Synthesising cause"] },
+  ConsolePanel: {
+    connected: ["Google Ads", "GA4", "CRM"],
+    transcript: [
+      { verb: "checked", text: "spend pacing across 14 live campaigns" },
+      { verb: "traced", text: "CPL drift to two search campaigns", tone: "info" },
+      { verb: "flagged", text: "$18K of monthly spend below target return", tone: "brand" },
+    ],
+    readyLine: "brief ready :: 3 decisions, ranked by impact",
+  },
   FaqItem: { question: "What is decision intelligence?", children: "Turning data into decisions." },
   SignalCard: { label: "SIGNAL DETECTED", statement: "Lead quality down 14%", trace: "New paid social", tone: "signal" },
   StatBand: { stats: [{ value: "90x", label: "Productivity" }, { value: "$90M+", label: "Saved" }] },

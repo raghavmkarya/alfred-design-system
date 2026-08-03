@@ -11,7 +11,7 @@
    catalogued in library/meta/fusion.json.
    ============================================================ */
 const {
-  EyebrowBadge, Button, Kbd,
+  EyebrowBadge, Button, Kbd, ConsolePanel,
 } = window.AlfredAIDesignSystem_1ce241;
 
 const libContainer = (extra) => ({
@@ -58,26 +58,17 @@ const libAccent = (title, accent) => (accent && title.includes(accent)) ? (
 
 /* === console-hero · the terminal absorption, executed on-brand === */
 
-/* Verb → colour, orange/periwinkle semantics only (AA tint-text tokens, never
-   raw ramps): analysis reads cool, the thing needing attention reads warm. */
-const libVerbColor = {
-  checked: "var(--text-primary)",
-  traced: "var(--text-on-tint-info)",
-  flagged: "var(--text-on-tint-brand)",
-};
-/* The cursor blinks on a steps() opacity animation; the global
-   prefers-reduced-motion contract in tokens/base.css collapses it to a
-   steady cursor, so no local override is needed. */
-const libConsoleCss = `
-@keyframes lib-console-blink { from { opacity: 1; } to { opacity: 0; } }
-`;
+/* The pane itself is the bundle's ConsolePanel (the absorption promoted it to
+   a real component); this section supplies the hero framing and the runs.
+   Verb tones: analysis reads cool (info), what needs attention reads warm
+   (brand) — never raw ramps. */
 const LIB_CONSOLE_RUNS = {
   default: {
     connected: ["Google Ads", "GA4", "CRM"],
     transcript: [
       { verb: "checked", text: "spend pacing across 14 live campaigns" },
-      { verb: "traced", text: "CPL drift to two search campaigns" },
-      { verb: "flagged", text: "$18K of monthly spend below target return" },
+      { verb: "traced", text: "CPL drift to two search campaigns", tone: "info" },
+      { verb: "flagged", text: "$18K of monthly spend below target return", tone: "brand" },
     ],
     readyLine: "brief ready :: 3 decisions, ranked by impact",
   },
@@ -85,8 +76,8 @@ const LIB_CONSOLE_RUNS = {
     connected: ["CRM", "Billing", "Support desk"],
     transcript: [
       { verb: "checked", text: "pipeline against Friday's forecast" },
-      { verb: "traced", text: "the slip to two stalled enterprise deals" },
-      { verb: "flagged", text: "renewal risk on one strategic account" },
+      { verb: "traced", text: "the slip to two stalled enterprise deals", tone: "info" },
+      { verb: "flagged", text: "renewal risk on one strategic account", tone: "brand" },
     ],
     readyLine: "monday brief ready :: on your desk by 07:00",
   },
@@ -107,17 +98,8 @@ function LibConsoleHero({
   variant = "default", /* "default" | "briefing" */
 }) {
   const run = LIB_CONSOLE_RUNS[variant] || LIB_CONSOLE_RUNS.default;
-  const sources = connected || run.connected;
-  const lines = transcript || run.transcript;
-  const ready = readyLine || run.readyLine;
-  /* Muted, not orange: four orange prefixes would overspend the budget the
-     primary CTA already holds. Orange in the pane = "flagged" + the cursor. */
-  const prompt = (
-    <span aria-hidden="true" style={{ color: "var(--text-muted)", flexShrink: 0, userSelect: "none" }}>&gt;</span>
-  );
   return (
     <section style={{ background: "var(--bg-page)" }}>
-      <style>{libConsoleCss}</style>
       <div style={libContainer({
         paddingBlock: "96px 88px",
         display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
@@ -137,46 +119,14 @@ function LibConsoleHero({
             <span>{hintAfter}</span>
           </p>
         </div>
-        {/* The console evidence pane: a 12px-radius card with a hairline
-            border where Alfred works in prompt-prefixed mono lines. No
-            window chrome, no scanlines, no green. */}
-        <div style={{
-          minWidth: 0, background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
-          borderRadius: "var(--radius-md)", boxShadow: "var(--elevation-raised)",
-          paddingBlock: 20, paddingInline: 22,
-        }}>
-          <div style={{
-            display: "flex", alignItems: "center", gap: 9,
-            paddingBlockEnd: 14, marginBlockEnd: 14, borderBlockEnd: "1px solid var(--border-subtle)",
-          }}>
-            <span aria-hidden="true" style={{
-              width: 7, height: 7, borderRadius: "var(--radius-circle)", flexShrink: 0,
-              background: "var(--accent)",
-            }} />
-            <span style={libMonoCaps({})}>{"connected :: " + sources.join(" · ")}</span>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {lines.map((l, i) => (
-              <div key={i} style={{ ...libMonoLine, display: "flex", gap: 10 }}>
-                {prompt}
-                <span style={{ minWidth: 0 }}>
-                  <span style={{ color: libVerbColor[l.verb] || "var(--text-primary)", fontWeight: "var(--fw-semibold)" }}>{l.verb}</span>
-                  {" " + l.text}
-                </span>
-              </div>
-            ))}
-            <div style={{ ...libMonoLine, color: "var(--text-primary)", display: "flex", alignItems: "center", gap: 10 }}>
-              {prompt}
-              <span style={{ fontWeight: "var(--fw-semibold)", minWidth: 0 }}>{ready}</span>
-              {/* The one phosphor element of this view: the working cursor. */}
-              <span aria-hidden="true" style={{
-                display: "inline-block", width: 7, height: 15, borderRadius: 1, flexShrink: 0,
-                background: "var(--accent)", boxShadow: "var(--shadow-phosphor)",
-                animation: "lib-console-blink 1.2s steps(2, jump-none) infinite",
-              }} />
-            </div>
-          </div>
-        </div>
+        {/* The pane is the bundle's ConsolePanel — the absorption's reference
+            execution, promoted to a real component in stage 2. Its cursor is
+            the one phosphor element of this view. */}
+        <ConsolePanel
+          connected={connected || run.connected}
+          transcript={transcript || run.transcript}
+          readyLine={readyLine || run.readyLine}
+        />
       </div>
     </section>
   );
