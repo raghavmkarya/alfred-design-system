@@ -48,3 +48,17 @@ the site should migrate toward it, not the other way around.
   eyebrow stays Satoshi-tracked (`--ls-caps`); a mono eyebrow variant may use `--font-mono`.
 - **Schibsted Grotesk** — stat counters / countdown digits. DS uses Clash Display for
   KPI values.
+
+## DS-forward divergences (style absorption stage 2, 2026-08-03)
+
+Deliberate departures from the live crawl — the DS is the target, the site
+migrates toward these (guidelines/style-absorption.md):
+
+- Hero headline set in `--font-poster` (Clash Display on every theme). Live
+  sets dark headlines in Satoshi; the poster register deliberately does not.
+- Hero reasoning pane is now `ConsolePanel` (the terminal-absorption evidence
+  trail) instead of `AgentStatus`; its cursor is the view's one phosphor
+  element.
+- Hero primary CTA carries the `--ease-spring` hover (scale 1.03).
+- Outcomes adds a mono instrument-metadata line under the stat band
+  (`--font-mono`, uppercase, muted).

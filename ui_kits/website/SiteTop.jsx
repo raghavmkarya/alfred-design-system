@@ -1,4 +1,4 @@
-const { Logo, Button, Badge, Tabs, SignalCard, AgentStatus, Card } = window.AlfredAIDesignSystem_1ce241;
+const { Logo, Button, Badge, Tabs, SignalCard, ConsolePanel, Card } = window.AlfredAIDesignSystem_1ce241;
 const LOGOROOT = "../../assets/logos";
 
 const Container = ({ children, style }) => (
@@ -42,24 +42,38 @@ function SiteNav() {
 
 /* ——— Hero ——— */
 function Hero() {
+  /* Style-absorption stage 2 (guidelines/style-absorption.md, logged in
+     LIVE-DRIFT.md): the headline moves to the poster register (--font-poster
+     keeps Clash Display on dark, where --font-display swaps to Satoshi), the
+     primary CTA gains the spring hover, and the reasoning pane becomes the
+     ConsolePanel evidence trail — whose cursor is this view's one phosphor
+     element. */
   return (
     <section style={{ position: "relative", overflow: "hidden", background: "var(--glow-periwinkle), var(--glow-orange), var(--bg-page)" }}>
+      <style>{`.site-hero-cta { display: inline-flex; transition: transform var(--dur-base) var(--ease-spring); } .site-hero-cta:hover { transform: scale(1.03); }`}</style>
       <Container style={{ padding: "92px 40px 88px", display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 56, alignItems: "center" }}>
         <div>
           <Eyebrow>Decision intelligence platform</Eyebrow>
-          <h1 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 60, lineHeight: 1.02, letterSpacing: "-0.03em", color: "var(--text-primary)", margin: "18px 0 0" }}>
+          <h1 style={{ fontFamily: "var(--font-poster)", fontWeight: "var(--fw-semibold)", fontSize: 60, lineHeight: 1.02, letterSpacing: "-0.03em", color: "var(--text-primary)", margin: "18px 0 0" }}>
             The AI memory powering <span style={{ background: "var(--gradient-brand)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>every decision</span> across your organisation
           </h1>
           <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-lg)", color: "var(--text-secondary)", lineHeight: "var(--lh-normal)", margin: "22px 0 0", maxWidth: 520 }}>
             Operate your business as a unified intelligence where signals, decisions and actions are continuously connected.
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 30 }}>
-            <Button variant="primary" size="lg">Talk to sales</Button>
+            <span className="site-hero-cta"><Button variant="primary" size="lg">Talk to sales</Button></span>
             <Button variant="outline" size="lg" style={{ color: "var(--text-primary)", borderColor: "var(--border-default)" }}>How it works</Button>
           </div>
         </div>
-        <AgentStatus query="What is the biggest risk in the business right now?"
-          steps={["Analysing campaign spends", "Synthesising root cause", "Isolating performance shifts", "Correlating fatigue patterns"]} />
+        <ConsolePanel
+          connected={["Google Ads", "GA4", "CRM"]}
+          transcript={[
+            { verb: "checked", text: "spend pacing across 14 live campaigns" },
+            { verb: "traced", text: "CPL drift to two search campaigns", tone: "info" },
+            { verb: "flagged", text: "$18K of monthly spend below target return", tone: "brand" },
+          ]}
+          readyLine="brief ready :: 3 decisions, ranked by impact"
+        />
       </Container>
     </section>
   );

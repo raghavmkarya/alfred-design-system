@@ -6,7 +6,7 @@ const {
   Badge,
   Tabs,
   SignalCard,
-  AgentStatus,
+  ConsolePanel,
   Card
 } = window.AlfredAIDesignSystem_1ce241;
 const LOGOROOT = "../../assets/logos";
@@ -121,13 +121,19 @@ function SiteNav() {
 
 /* ——— Hero ——— */
 function Hero() {
+  /* Style-absorption stage 2 (guidelines/style-absorption.md, logged in
+     LIVE-DRIFT.md): the headline moves to the poster register (--font-poster
+     keeps Clash Display on dark, where --font-display swaps to Satoshi), the
+     primary CTA gains the spring hover, and the reasoning pane becomes the
+     ConsolePanel evidence trail — whose cursor is this view's one phosphor
+     element. */
   return /*#__PURE__*/React.createElement("section", {
     style: {
       position: "relative",
       overflow: "hidden",
       background: "var(--glow-periwinkle), var(--glow-orange), var(--bg-page)"
     }
-  }, /*#__PURE__*/React.createElement(Container, {
+  }, /*#__PURE__*/React.createElement("style", null, `.site-hero-cta { display: inline-flex; transition: transform var(--dur-base) var(--ease-spring); } .site-hero-cta:hover { transform: scale(1.03); }`), /*#__PURE__*/React.createElement(Container, {
     style: {
       padding: "92px 40px 88px",
       display: "grid",
@@ -137,7 +143,7 @@ function Hero() {
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, null, "Decision intelligence platform"), /*#__PURE__*/React.createElement("h1", {
     style: {
-      fontFamily: "var(--font-display)",
+      fontFamily: "var(--font-poster)",
       fontWeight: "var(--fw-semibold)",
       fontSize: 60,
       lineHeight: 1.02,
@@ -167,19 +173,33 @@ function Hero() {
       gap: 12,
       marginTop: 30
     }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "site-hero-cta"
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "lg"
-  }, "Talk to sales"), /*#__PURE__*/React.createElement(Button, {
+  }, "Talk to sales")), /*#__PURE__*/React.createElement(Button, {
     variant: "outline",
     size: "lg",
     style: {
       color: "var(--text-primary)",
       borderColor: "var(--border-default)"
     }
-  }, "How it works"))), /*#__PURE__*/React.createElement(AgentStatus, {
-    query: "What is the biggest risk in the business right now?",
-    steps: ["Analysing campaign spends", "Synthesising root cause", "Isolating performance shifts", "Correlating fatigue patterns"]
+  }, "How it works"))), /*#__PURE__*/React.createElement(ConsolePanel, {
+    connected: ["Google Ads", "GA4", "CRM"],
+    transcript: [{
+      verb: "checked",
+      text: "spend pacing across 14 live campaigns"
+    }, {
+      verb: "traced",
+      text: "CPL drift to two search campaigns",
+      tone: "info"
+    }, {
+      verb: "flagged",
+      text: "$18K of monthly spend below target return",
+      tone: "brand"
+    }],
+    readyLine: "brief ready :: 3 decisions, ranked by impact"
   })));
 }
 

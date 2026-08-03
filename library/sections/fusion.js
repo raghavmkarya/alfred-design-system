@@ -15,7 +15,8 @@
 const {
   EyebrowBadge,
   Button,
-  Kbd
+  Kbd,
+  ConsolePanel
 } = window.AlfredAIDesignSystem_1ce241;
 const libContainer = extra => ({
   maxWidth: 1120,
@@ -86,19 +87,10 @@ const libAccent = (title, accent) => accent && title.includes(accent) ? /*#__PUR
 
 /* === console-hero · the terminal absorption, executed on-brand === */
 
-/* Verb → colour, orange/periwinkle semantics only (AA tint-text tokens, never
-   raw ramps): analysis reads cool, the thing needing attention reads warm. */
-const libVerbColor = {
-  checked: "var(--text-primary)",
-  traced: "var(--text-on-tint-info)",
-  flagged: "var(--text-on-tint-brand)"
-};
-/* The cursor blinks on a steps() opacity animation; the global
-   prefers-reduced-motion contract in tokens/base.css collapses it to a
-   steady cursor, so no local override is needed. */
-const libConsoleCss = `
-@keyframes lib-console-blink { from { opacity: 1; } to { opacity: 0; } }
-`;
+/* The pane itself is the bundle's ConsolePanel (the absorption promoted it to
+   a real component); this section supplies the hero framing and the runs.
+   Verb tones: analysis reads cool (info), what needs attention reads warm
+   (brand) — never raw ramps. */
 const LIB_CONSOLE_RUNS = {
   default: {
     connected: ["Google Ads", "GA4", "CRM"],
@@ -107,10 +99,12 @@ const LIB_CONSOLE_RUNS = {
       text: "spend pacing across 14 live campaigns"
     }, {
       verb: "traced",
-      text: "CPL drift to two search campaigns"
+      text: "CPL drift to two search campaigns",
+      tone: "info"
     }, {
       verb: "flagged",
-      text: "$18K of monthly spend below target return"
+      text: "$18K of monthly spend below target return",
+      tone: "brand"
     }],
     readyLine: "brief ready :: 3 decisions, ranked by impact"
   },
@@ -121,10 +115,12 @@ const LIB_CONSOLE_RUNS = {
       text: "pipeline against Friday's forecast"
     }, {
       verb: "traced",
-      text: "the slip to two stalled enterprise deals"
+      text: "the slip to two stalled enterprise deals",
+      tone: "info"
     }, {
       verb: "flagged",
-      text: "renewal risk on one strategic account"
+      text: "renewal risk on one strategic account",
+      tone: "brand"
     }],
     readyLine: "monday brief ready :: on your desk by 07:00"
   }
@@ -148,24 +144,11 @@ function LibConsoleHero({
   variant = "default" /* "default" | "briefing" */
 }) {
   const run = LIB_CONSOLE_RUNS[variant] || LIB_CONSOLE_RUNS.default;
-  const sources = connected || run.connected;
-  const lines = transcript || run.transcript;
-  const ready = readyLine || run.readyLine;
-  /* Muted, not orange: four orange prefixes would overspend the budget the
-     primary CTA already holds. Orange in the pane = "flagged" + the cursor. */
-  const prompt = /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      color: "var(--text-muted)",
-      flexShrink: 0,
-      userSelect: "none"
-    }
-  }, ">");
   return /*#__PURE__*/React.createElement("section", {
     style: {
       background: "var(--bg-page)"
     }
-  }, /*#__PURE__*/React.createElement("style", null, libConsoleCss), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: libContainer({
       paddingBlock: "96px 88px",
       display: "grid",
@@ -211,84 +194,11 @@ function LibConsoleHero({
       alignItems: "center",
       gap: 7
     }
-  }, /*#__PURE__*/React.createElement("span", null, "Press"), /*#__PURE__*/React.createElement(Kbd, null, hintKey), /*#__PURE__*/React.createElement("span", null, hintAfter))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minWidth: 0,
-      background: "var(--surface-card)",
-      border: "1px solid var(--border-subtle)",
-      borderRadius: "var(--radius-md)",
-      boxShadow: "var(--elevation-raised)",
-      paddingBlock: 20,
-      paddingInline: 22
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "center",
-      gap: 9,
-      paddingBlockEnd: 14,
-      marginBlockEnd: 14,
-      borderBlockEnd: "1px solid var(--border-subtle)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      width: 7,
-      height: 7,
-      borderRadius: "var(--radius-circle)",
-      flexShrink: 0,
-      background: "var(--accent)"
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: libMonoCaps({})
-  }, "connected :: " + sources.join(" · "))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 8
-    }
-  }, lines.map((l, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      ...libMonoLine,
-      display: "flex",
-      gap: 10
-    }
-  }, prompt, /*#__PURE__*/React.createElement("span", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: libVerbColor[l.verb] || "var(--text-primary)",
-      fontWeight: "var(--fw-semibold)"
-    }
-  }, l.verb), " " + l.text))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      ...libMonoLine,
-      color: "var(--text-primary)",
-      display: "flex",
-      alignItems: "center",
-      gap: 10
-    }
-  }, prompt, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontWeight: "var(--fw-semibold)",
-      minWidth: 0
-    }
-  }, ready), /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      display: "inline-block",
-      width: 7,
-      height: 15,
-      borderRadius: 1,
-      flexShrink: 0,
-      background: "var(--accent)",
-      boxShadow: "var(--shadow-phosphor)",
-      animation: "lib-console-blink 1.2s steps(2, jump-none) infinite"
-    }
-  }))))));
+  }, /*#__PURE__*/React.createElement("span", null, "Press"), /*#__PURE__*/React.createElement(Kbd, null, hintKey), /*#__PURE__*/React.createElement("span", null, hintAfter))), /*#__PURE__*/React.createElement(ConsolePanel, {
+    connected: connected || run.connected,
+    transcript: transcript || run.transcript,
+    readyLine: readyLine || run.readyLine
+  })));
 }
 
 /* === marquee strip · shared by the divider and the poster hero === */

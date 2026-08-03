@@ -10,9 +10,11 @@
   /* The instrument layer (absorbed from the terminal-dev style study): a TRUE
      mono stack for metadata, evidence trails, keyboard hints, timestamps and
      API surfaces. It used to alias Satoshi, which made the token a no-op; a
-     token named mono renders mono. Budget: labels and data only — never
-     headlines (Clash owns those) and never body (Satoshi owns that). */
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
+     token named mono renders mono. JetBrains Mono is committed (OFL,
+     tokens/fonts.css) so the instrument layer renders identically on every
+     machine; the system stacks are fallbacks. Budget: labels and data only —
+     never headlines (Clash owns those) and never body (Satoshi owns that). */
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 
   /* —— Weights ————————————————————————————————————— */
   --fw-light: 300;     /* @kind font */

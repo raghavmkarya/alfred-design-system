@@ -79,7 +79,16 @@ function Outcomes() {
       value: "90x",
       label: "Productivity boost"
     }]
-  })));
+  }), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: "var(--font-mono)",
+      fontSize: "var(--text-2xs)",
+      letterSpacing: "var(--ls-caps)",
+      textTransform: "uppercase",
+      color: "var(--text-muted)",
+      margin: "26px 0 0"
+    }
+  }, "Aggregate across live deployments \xB7 refreshed at every sync")));
 }
 
 /* ——— Security ——— */
