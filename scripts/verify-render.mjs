@@ -47,6 +47,9 @@ const KITS = [
   ["library/recipes/comparison.jsx", ["RecipeComparison"]],
   ["library/recipes/resource-hub.jsx", ["RecipeResourceHub"]],
   ["library/recipes/gated-content.jsx", ["RecipeGatedContent"]],
+  ["library/sections/agent-story.jsx", []],
+  ["library/sections/agent-team.jsx", []],
+  ["library/recipes/agent-employee.jsx", ["RecipeAgentEmployee"]],
 ];
 
 const reactSrc = dep("react/umd/react.development.js");
