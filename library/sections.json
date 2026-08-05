@@ -140,6 +140,20 @@
       "order": 20,
       "icon": "trend-up",
       "count": 4
+    },
+    {
+      "id": "agent-story",
+      "name": "Agent story",
+      "order": 21,
+      "icon": "spark",
+      "count": 8
+    },
+    {
+      "id": "agent-team",
+      "name": "Agent team",
+      "order": 22,
+      "icon": "check",
+      "count": 8
     }
   ],
   "sections": [
@@ -8962,9 +8976,1093 @@
           "props": {}
         }
       ]
+    },
+    {
+      "category": "agent-story",
+      "id": "employee-hero",
+      "global": "LibEmployeeHero",
+      "file": "library/sections/agent-story.js",
+      "name": "Employee hero",
+      "tier": 1,
+      "description": "The last-hire claim as a centered hero: gradient-accented superlative headline, a three-verb cadence line set in the display face with a settling sans tail (Watches. Reasons. Ships.), dual CTA where the secondary is a watch-the-film ghost with a play glyph, and the trial fine print inside the hero. Poster variant sets the headline at --text-poster, the page's one poster statement.",
+      "pageTypes": [
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "hero-centered-video: superlative hire headline, Learns/Improves/Delivers cadence sub, Start free + Watch the film pair, trial terms inside the hero"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "cadence",
+          "type": "string",
+          "doc": "the three-verb line, display face, e.g. \"Watches. Reasons. Ships.\""
+        },
+        {
+          "name": "cadenceTail",
+          "type": "string",
+          "doc": "the sans clause after the cadence"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string",
+          "doc": "ghost CTA with the play glyph"
+        },
+        {
+          "name": "finePrint",
+          "type": "string",
+          "doc": "trial risk-killer line inside the hero"
+        },
+        {
+          "name": "variant",
+          "type": "'centered' | 'poster'",
+          "doc": "poster sets the title at --text-poster / --font-poster; one poster statement per page"
+        }
+      ],
+      "variants": [
+        {
+          "id": "centered",
+          "name": "Centered",
+          "props": {}
+        },
+        {
+          "id": "poster",
+          "name": "Poster statement",
+          "props": {
+            "variant": "poster",
+            "title": "Your last marketing hire",
+            "titleAccent": "last"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-story",
+      "id": "highlights-grid",
+      "global": "LibHighlightsGrid",
+      "file": "library/sections/agent-story.js",
+      "name": "Highlights grid",
+      "tier": 1,
+      "description": "The four-card operation grid: left-aligned intro, then flat sunken-fill cards each carrying a two-sentence claim (capability, then outcome) over a token-built product still: a morning-brief mini panel with a sparkline, a drafted-move card awaiting sign-off, an overnight change feed and an on-voice draft. The lead card sits on the accent tint; the lead-card variant stretches it full width with the still beside the claim.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "highlights-carousel: flat soft-fill cards, two-sentence capability+outcome headlines over product stills, one accent persona card breaking the grid"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "cards",
+          "type": "Array<{claim, outcome, panel: 'brief'|'move'|'watch'|'draft', lead?}>",
+          "doc": "at most one lead card, it carries the accent-soft fill"
+        },
+        {
+          "name": "variant",
+          "type": "'grid' | 'lead-card'",
+          "doc": "lead-card spans the lead card across the full row"
+        }
+      ],
+      "variants": [
+        {
+          "id": "grid",
+          "name": "Even grid",
+          "props": {}
+        },
+        {
+          "id": "lead-card",
+          "name": "Lead card wide",
+          "props": {
+            "variant": "lead-card"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-story",
+      "id": "voice-learned",
+      "global": "LibVoiceLearned",
+      "file": "library/sections/agent-story.js",
+      "name": "Voice learned",
+      "tier": 2,
+      "description": "The brand-voice proof as a before/after copy pane: a voice-check card holding two message samples, the generic one muted and tagged rejected, the on-voice one on the accent tint and tagged shipped, with a mono footer naming the voice-model source. Copy column explains that the voice is learned from already-shipped work.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "intelligence-rail 'Your brand, learned' claim, executed as a sounds-like-you before/after pane instead of a tile"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "paneLabel",
+          "type": "string",
+          "doc": "mono caps label on the pane header"
+        },
+        {
+          "name": "paneMeta",
+          "type": "string",
+          "doc": "mono caps metadata, header end side"
+        },
+        {
+          "name": "samples",
+          "type": "Array<{tag, verdict, onVoice, text, note}>",
+          "doc": "keep exactly one onVoice sample; it carries the accent tint"
+        },
+        {
+          "name": "footLine",
+          "type": "string",
+          "doc": "mono footer under the samples"
+        },
+        {
+          "name": "mediaSide",
+          "type": "'end' | 'start'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "media-end",
+          "name": "Pane end side",
+          "props": {}
+        },
+        {
+          "id": "media-start",
+          "name": "Pane start side",
+          "props": {
+            "mediaSide": "start"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-story",
+      "id": "always-on-band",
+      "global": "LibAlwaysOnBand",
+      "file": "library/sections/agent-story.js",
+      "name": "Always-on band",
+      "tier": 2,
+      "description": "The night shift as a timestamped timeline: centered intro on the sunken band, then mono-time rows walking the overnight run (sync, pacing, the catch, the draft) into a highlighted 07:30 payoff row whose dot is the view's one phosphor element, closed by a runs-nightly mono footer. Compact variant keeps the payoff and every other step.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "teammate-twoshot 'She works while you sleep' band, retold as an overnight action timeline with a morning-ready payoff"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "entries",
+          "type": "Array<{time, text, payoff?}>",
+          "doc": "keep exactly one payoff row; it carries the accent tint and the phosphor dot"
+        },
+        {
+          "name": "footLine",
+          "type": "string",
+          "doc": "mono caps closing line"
+        },
+        {
+          "name": "variant",
+          "type": "'default' | 'compact'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Full night",
+          "props": {}
+        },
+        {
+          "id": "compact",
+          "name": "Compact",
+          "props": {
+            "variant": "compact"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-story",
+      "id": "overnight-watch",
+      "global": "LibOvernightWatch",
+      "file": "library/sections/agent-story.js",
+      "name": "Overnight watch",
+      "tier": 2,
+      "description": "Know-what-changed-overnight split: copy column with CTA pair beside a diff-flavored change-feed pane, each row a +/- chip on the success or danger tint with a mono source tag, closing on an accent-tinted drafted-response row prefixed with a prompt glyph. Feed-only variant drops the response row.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "teammate-twoshot COMPETITOR WATCH card ('Know what changed overnight.'), executed as a token-built diff feed instead of a cropped screenshot"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "primaryCta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "paneLabel",
+          "type": "string",
+          "doc": "mono caps label on the pane header"
+        },
+        {
+          "name": "paneMeta",
+          "type": "string",
+          "doc": "mono caps metadata, header end side"
+        },
+        {
+          "name": "rows",
+          "type": "Array<{sign: '+'|'-', text, meta}>",
+          "doc": "the diff feed; sign picks the success or danger tint"
+        },
+        {
+          "name": "responseRow",
+          "type": "string",
+          "doc": "the accent-tinted closing line, Alfred's drafted response"
+        },
+        {
+          "name": "showResponse",
+          "type": "boolean"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "With drafted response",
+          "props": {}
+        },
+        {
+          "id": "feed-only",
+          "name": "Feed only",
+          "props": {
+            "showResponse": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-story",
+      "id": "week-in-motion",
+      "global": "LibWeekInMotion",
+      "file": "library/sections/agent-story.js",
+      "name": "Week in motion",
+      "tier": 2,
+      "description": "The pre-planned week as a Mon-Fri column strip: each day a card of queued task chips with channel badges riding the semantic Badge tones, exactly one chip on the accent tint flagged needs-your-sign-off, and an optional today column outlined in the accent with a mono TODAY tag. Plain variant drops the today marker.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "teammate-twoshot WEEKLY EXECUTION card ('A full week, already in motion.'), expanded into a five-day queued-task strip"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "week",
+          "type": "Array<{day, tasks: {title, channel, tone, approval?}[]}>",
+          "doc": "five day columns; keep exactly one approval chip, it carries the accent tint"
+        },
+        {
+          "name": "today",
+          "type": "string",
+          "doc": "day prefix to outline as today, e.g. \"wed\"; empty hides the marker"
+        },
+        {
+          "name": "approvalLabel",
+          "type": "string"
+        },
+        {
+          "name": "footLine",
+          "type": "string",
+          "doc": "mono caps closing line"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "With today marker",
+          "props": {}
+        },
+        {
+          "id": "plain",
+          "name": "Plain week",
+          "props": {
+            "today": ""
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-story",
+      "id": "agency-compare",
+      "global": "LibAgencyCompare",
+      "tier": 1,
+      "file": "library/sections/agent-story.js",
+      "name": "Agency compare",
+      "description": "Never-brief-an-agency-again contrast: two step cards side by side, the retainer way muted on the sunken fill with mono time and dollar costs, the Alfred way accent-outlined with second-and-tap costs, closed by a row of mono delta pills (2 wks to same morning, $8,500/mo to one plan). Alfred-first variant swaps the card order.",
+      "pageTypes": [
+        "landing",
+        "comparison",
+        "pricing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "never-hire-agency-toggle: old-way vs product-way with quantified pains, executed as a static two-column contrast with delta pills instead of a toggle"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string",
+          "doc": "substring of title rendered in the brand gradient; the section's one gradient element"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "beforeLabel",
+          "type": "string"
+        },
+        {
+          "name": "afterLabel",
+          "type": "string"
+        },
+        {
+          "name": "beforeSteps",
+          "type": "Array<{step, cost}>",
+          "doc": "the retainer flow; costs are mono"
+        },
+        {
+          "name": "afterSteps",
+          "type": "Array<{step, cost}>",
+          "doc": "the Alfred flow; costs render on the brand tint"
+        },
+        {
+          "name": "deltas",
+          "type": "string[]",
+          "doc": "mono delta pills under the cards"
+        },
+        {
+          "name": "alfredFirst",
+          "type": "boolean"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Retainer first",
+          "props": {}
+        },
+        {
+          "id": "alfred-first",
+          "name": "Alfred first",
+          "props": {
+            "alfredFirst": true
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-story",
+      "id": "numbers-live",
+      "global": "LibNumbersLive",
+      "file": "library/sections/agent-story.js",
+      "name": "Numbers live",
+      "tier": 2,
+      "description": "Already-doing-the-work counters: an AnimatedCounter trio divided by hairlines on the sunken band, then the acceptance-rate progression as a track with a muted week-one marker and an accent now-marker carrying the view's one phosphor glow, mono week labels, and a mono footnote naming the fictional rollout. Counters-only variant drops the progression.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "resource"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "by-the-numbers-counters: anti-vaporware framing, count-up stats and the 82-to-97 acceptance range counter, retold as a progression track"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "counters",
+          "type": "Array<{value, prefix?, suffix?, label, sublabel?}>"
+        },
+        {
+          "name": "progressionLabel",
+          "type": "string"
+        },
+        {
+          "name": "startPct",
+          "type": "number"
+        },
+        {
+          "name": "startLabel",
+          "type": "string"
+        },
+        {
+          "name": "endPct",
+          "type": "number"
+        },
+        {
+          "name": "endLabel",
+          "type": "string"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "mono caps closing line naming the fictional source"
+        },
+        {
+          "name": "showProgression",
+          "type": "boolean"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "With progression",
+          "props": {}
+        },
+        {
+          "id": "counters-only",
+          "name": "Counters only",
+          "props": {
+            "showProgression": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "capability-modules",
+      "global": "LibCapabilityModules",
+      "file": "library/sections/agent-team.js",
+      "name": "Capability modules",
+      "tier": 1,
+      "description": "The she-runs-the-whole-thing stack: six alternating function rows (strategy, search, lifecycle, paid, social, insights), each an italic operator-pain quote, a first-person Alfred claim, a mechanism sentence naming real tools, an adoption-count proof line in mono, and a token-built mini visual (brief, trend, queue, shift, answer). The copy formula is the pattern.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "'She runs the whole thing' six-module rows: pain quote (shipped but CSS-hidden) + color channel label + benefit h3 + tool-naming mechanism + adoption-count proof"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "modules",
+          "type": "Array<{label, pain, title, body, proof, visual}>",
+          "doc": "visual.kind is one of brief | trend | queue | shift | answer; each kind is a token-built mini card"
+        },
+        {
+          "name": "showPain",
+          "type": "boolean",
+          "doc": "render the italic operator-pain quote above each module (enrichlabs ships it hidden; we show it by default)"
+        }
+      ],
+      "variants": [
+        {
+          "id": "full",
+          "name": "With pain quotes",
+          "props": {}
+        },
+        {
+          "id": "no-pain",
+          "name": "Claims only",
+          "props": {
+            "showPain": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "team-roster",
+      "global": "LibTeamRoster",
+      "file": "library/sections/agent-team.js",
+      "name": "Team roster",
+      "tier": 1,
+      "description": "Meet-your-new-team roster of the four Alfred module personas (Marketing live today, Sales and Receivables on waitlist, Core included): initial-tile avatars built from tokens, role line, one-liner, status badge and a learn-more link. The one live module's tile carries the section's single gradient element.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "'Meet your new marketing team' 2x2 agent-persona cards (Helena/Sam/Kai/Angela) sold like hires, whole card the link"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "members",
+          "type": "Array<{initial, name, role, line, status, live?}>",
+          "doc": "live: true highlights the card (gradient tile, focus border, brand badge)"
+        },
+        {
+          "name": "layout",
+          "type": "'grid' | 'row'",
+          "doc": "2x2 grid at 880px, or four across full width"
+        },
+        {
+          "name": "linkLabel",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "grid",
+          "name": "Two by two",
+          "props": {}
+        },
+        {
+          "id": "row",
+          "name": "Four across",
+          "props": {
+            "layout": "row"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "tuned-by-you",
+      "global": "LibTunedByYou",
+      "file": "library/sections/agent-team.js",
+      "name": "Tuned by you",
+      "tier": 2,
+      "description": "Built-by-operators-tuned-by-you intelligence grid: four claims (playbooks not guesses, your brand learned, sharper every week, compounding value) with line icons; the self-improving card carries the 82-to-96-percent acceptance curve as a mono evidence line.",
+      "pageTypes": [
+        "landing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "'Built by marketers. Tuned by you.' intelligence rail: by-marketers playbooks / brand learned / self-improving 82-97% / value compounds"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "Array<{icon, title, body, stat?}>",
+          "doc": "icon is one of playbook | brand | improve | compound"
+        },
+        {
+          "name": "layout",
+          "type": "'four-across' | 'two-by-two'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "four-across",
+          "name": "Four across",
+          "props": {}
+        },
+        {
+          "id": "two-by-two",
+          "name": "Two by two",
+          "props": {
+            "layout": "two-by-two"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "time-back-callout",
+      "global": "LibTimeBackCallout",
+      "file": "library/sections/agent-team.js",
+      "name": "Time-back callout",
+      "tier": 2,
+      "description": "The reclaimed-hours interstitial: a setup line, one poster-scale figure (the section's one poster statement, set in the poster face so Clash survives marketing dark), and a qualifier that restates the enemy: hiring, managing and chasing overhead. Quiet band by default.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "big-stat band: 'Get back up to' + 140px animated hours figure + qualifier restating freelancers as the enemy"
+        }
+      ],
+      "props": [
+        {
+          "name": "lead",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "unit",
+          "type": "string"
+        },
+        {
+          "name": "caption",
+          "type": "string"
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "doc": "mono evidence line under the caption; empty string hides it"
+        },
+        {
+          "name": "surface",
+          "type": "'band' | 'page'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "band",
+          "name": "Sunken band",
+          "props": {}
+        },
+        {
+          "id": "on-page",
+          "name": "On the page",
+          "props": {
+            "surface": "page"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "operator-quotes",
+      "global": "LibOperatorQuotes",
+      "file": "library/sections/agent-team.js",
+      "name": "Operator quotes",
+      "tier": 1,
+      "description": "Testimonial wall in the pre-highlighted register: five operator quotes, each with exactly one semibold money phrase (the disciplined stand-in for emoji and caps), name, role and fictional company. Featured layout leads with one full-width quote over a two-by-two grid.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "'What marketers are saying' wall: selective <strong> bolding pre-highlights the money phrase inside each quote"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "quotes",
+          "type": "Array<{quote, strong, name, title, company}>",
+          "doc": "strong is a substring of quote rendered semibold in text-primary"
+        },
+        {
+          "name": "featured",
+          "type": "boolean",
+          "doc": "true: first quote spans full width; false: two-column masonry"
+        }
+      ],
+      "variants": [
+        {
+          "id": "featured",
+          "name": "Featured first",
+          "props": {}
+        },
+        {
+          "id": "columns",
+          "name": "Two-column masonry",
+          "props": {
+            "featured": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "trial-faq",
+      "global": "LibTrialFaq",
+      "file": "library/sections/agent-team.js",
+      "name": "Trial FAQ",
+      "tier": 1,
+      "description": "The conversational nine-question FAQ, objection first: the general-AI-assistant question opens, then reporting cadence, results timeline, usage metering, privacy and no-training, integrations, brand learning, trial terms, and the bench teaser closes. Alfred answers every one in first person, numbers attached.",
+      "pageTypes": [
+        "landing",
+        "pricing",
+        "feature"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "'Good to know.' accordion: killer objection ('Can't I just use ChatGPT?') first, answers dense with numbers, specialists teaser as the final answer"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "faqs",
+          "type": "Array<{q, a}>"
+        },
+        {
+          "name": "layout",
+          "type": "'single' | 'two-column'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "single",
+          "name": "Single column",
+          "props": {}
+        },
+        {
+          "id": "two-column",
+          "name": "Two column",
+          "props": {
+            "layout": "two-column"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "specialists-callout",
+      "global": "LibSpecialistsCallout",
+      "file": "library/sections/agent-team.js",
+      "name": "Specialists callout",
+      "tier": 3,
+      "description": "The more-agents teaser: a brief band naming the waitlist modules (Alfred for Sales, Alfred for Receivables) as chips, one line on the shared memory, and a book-a-demo CTA. Split variant puts the CTAs in a card column beside the copy.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "the specialists FAQ answer naming Sam/Paul/Angela/Kai and closing 'Book a demo and we will design the bench around your stack', promoted to its own band"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "string"
+        },
+        {
+          "name": "chips",
+          "type": "string[]"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "layout",
+          "type": "'band' | 'split'"
+        }
+      ],
+      "variants": [
+        {
+          "id": "band",
+          "name": "Centered band",
+          "props": {}
+        },
+        {
+          "id": "split",
+          "name": "Split card",
+          "props": {
+            "layout": "split"
+          }
+        }
+      ]
+    },
+    {
+      "category": "agent-team",
+      "id": "work-with-cta",
+      "global": "LibWorkWithCta",
+      "file": "library/sections/agent-team.js",
+      "name": "Work-with CTA",
+      "tier": 1,
+      "description": "The minimal centered close: availability eyebrow, a question headline addressed to the reader ('Ready to work with Alfred?'), the trial terms restated once more, and a single primary CTA. Nothing else survives to the last section. Glow variant adds the brand glow background.",
+      "pageTypes": [
+        "landing",
+        "feature",
+        "pricing",
+        "gated"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "'Ready to work with Helena?' buy band: 'Available now' eyebrow, terms line repeated a third time, only the primary CTA survives"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "name": "terms",
+          "type": "string"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "doc": "adds the periwinkle and orange page glows behind the close"
+        }
+      ],
+      "variants": [
+        {
+          "id": "minimal",
+          "name": "Minimal",
+          "props": {}
+        },
+        {
+          "id": "glow",
+          "name": "With glow",
+          "props": {
+            "glow": true
+          }
+        }
+      ]
     }
   ],
   "recipes": [
+    {
+      "slug": "agent-employee",
+      "name": "Recipe: Agent employee page",
+      "subtitle": "The Helena pattern: story, capabilities, team, proof, trial FAQ"
+    },
     {
       "slug": "blog-article",
       "name": "Blog article",
@@ -9022,6 +10120,10 @@
     {
       "slug": "enterprise-trust",
       "name": "Enterprise trust"
+    },
+    {
+      "slug": "helena-light",
+      "name": "Helena light"
     },
     {
       "slug": "playful-illustrated",

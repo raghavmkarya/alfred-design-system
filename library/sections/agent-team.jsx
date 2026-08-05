@@ -1,0 +1,702 @@
+/* ============================================================
+   Alfred . Inspiration Library . AGENT TEAM.
+   Eight patterns translated from the enrichlabs.ai teardown (the
+   TEAM / CAPABILITY register: capability modules, agent roster,
+   trust FAQ, minimal buy band), rebuilt as ALFRED executions on
+   design-system tokens so they render truthfully in light and in
+   data-theme="dark". The anatomy and copy formulas are the
+   absorption; every word, name and visual is Alfred's own. All
+   company and people names in rendered output are fictional.
+   Compiled to a committed .js twin by scripts/build-kits.mjs;
+   catalogued in library/meta/agent-team.json.
+   ============================================================ */
+const {
+  EyebrowBadge, Button, Badge, Accordion, Sparkline, Avatar,
+} = window.AlfredAIDesignSystem_1ce241;
+
+const libContainer = (extra) => ({
+  maxWidth: 1120, marginInline: "auto", paddingInline: 40, ...extra,
+});
+const libDisplay = (size) => ({
+  fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)",
+  fontSize: size, lineHeight: "var(--lh-snug)", letterSpacing: "-0.02em",
+  color: "var(--text-primary)", margin: 0,
+});
+const libSub = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-lg)",
+  color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", margin: 0,
+};
+const libBody = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-base)",
+  color: "var(--text-secondary)", lineHeight: "var(--lh-relaxed)", margin: 0,
+};
+const libFine = {
+  fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)",
+  color: "var(--text-muted)", lineHeight: "var(--lh-normal)", margin: 0,
+};
+/* the instrument layer: mono for labels and evidence lines only */
+const libMonoCaps = (extra) => ({
+  fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: "var(--fw-medium)",
+  letterSpacing: "var(--ls-caps)", textTransform: "uppercase",
+  color: "var(--text-muted)", ...extra,
+});
+const libMono = (extra) => ({
+  fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-muted)", ...extra,
+});
+const libCard = (extra) => ({
+  background: "var(--surface-card)", border: "1px solid var(--border-subtle)",
+  borderRadius: "var(--radius-2xl)", padding: 24, boxSizing: "border-box", ...extra,
+});
+const libGhostCta = { background: "transparent", color: "var(--text-primary)", borderColor: "var(--border-default)" };
+
+/* section head: eyebrow + display headline (+ optional sub) */
+const LibTeamHead = ({ eyebrow, headline, sub, size = 40, maxW = 680 }) => (
+  <div style={{ textAlign: "center", maxWidth: maxW, marginInline: "auto" }}>
+    {eyebrow ? <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge> : null}
+    <h2 style={{ ...libDisplay(size), marginBlockStart: eyebrow ? 18 : 0 }}>{headline}</h2>
+    {sub ? <p style={{ ...libSub, maxWidth: 560, marginBlockStart: 14, marginInline: "auto" }}>{sub}</p> : null}
+  </div>
+);
+
+/* single-color inline glyphs so everything tints via currentColor */
+const libCheckGlyph = (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0 }}>
+    <path d="M4 12.5l5.5 5.5L20 6.5" />
+  </svg>
+);
+const libArrowGlyph = (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ transform: "scaleX(var(--flip))", flexShrink: 0 }}>
+    <path d="M4.5 12h15" />
+    <path d="M13 5.5l6.5 6.5-6.5 6.5" />
+  </svg>
+);
+const libTunedGlyph = (kind) => {
+  const p = {
+    width: 22, height: 22, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor",
+    strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true,
+  };
+  if (kind === "playbook") return (
+    <svg {...p}><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21z" /><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20" /><path d="M9 7.5h7" /></svg>
+  );
+  if (kind === "brand") return (
+    <svg {...p}><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="3.4" /><path d="M12 3.5v2.6M12 17.9v2.6M3.5 12h2.6M17.9 12h2.6" /></svg>
+  );
+  if (kind === "improve") return (
+    <svg {...p}><path d="M4 19.5L9.5 14l3.5 3.5 7-7.5" /><path d="M15.5 10H20v4.5" /></svg>
+  );
+  /* compound */
+  return (
+    <svg {...p}><rect x="4" y="13.5" width="4.4" height="6.5" rx="1" /><rect x="9.8" y="9" width="4.4" height="11" rx="1" /><rect x="15.6" y="4" width="4.4" height="16" rx="1" /></svg>
+  );
+};
+
+/* ================================================================
+   capability-modules . "I run the whole thing"
+   The signature enrichlabs pattern: alternating rows, one per
+   function, each = operator pain quote + first-person claim +
+   mechanism + adoption proof + a token-built mini visual.
+   ================================================================ */
+
+/* mini visuals, all built from tokens so they re-theme truthfully */
+const LibModuleVisual = ({ visual }) => {
+  const v = visual || {};
+  if (v.kind === "trend") return (
+    <div style={libCard({ display: "flex", flexDirection: "column", gap: 14, minHeight: 208, justifyContent: "center" })}>
+      <div style={libMonoCaps({})}>{v.label}</div>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
+        <span style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 38, lineHeight: 1, letterSpacing: "-0.02em", color: "var(--text-primary)", fontVariantNumeric: "tabular-nums" }}>{v.value}</span>
+        <Badge tone="success" dot>{v.delta}</Badge>
+      </div>
+      <Sparkline points={v.points || [3, 3.6, 3.2, 4.1, 4.4, 5.1]} width={280} height={54} fill ariaLabel={(v.label || "trend") + " sparkline"} style={{ maxWidth: "100%" }} />
+    </div>
+  );
+  if (v.kind === "queue") return (
+    <div style={libCard({ display: "flex", flexDirection: "column", gap: 0, minHeight: 208, justifyContent: "center", paddingBlock: 18 })}>
+      <div style={{ ...libMonoCaps({}), paddingBlock: "0 12px" }}>{v.label}</div>
+      {(v.rows || []).map((r, i) => (
+        <div key={i} style={{
+          display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16,
+          paddingBlock: 12, borderBlockStart: "1px solid var(--border-subtle)",
+        }}>
+          <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-primary)", minWidth: 0 }}>{r.name}</span>
+          <Badge tone={r.tone || "neutral"} dot={r.tone === "success"}>{r.status}</Badge>
+        </div>
+      ))}
+    </div>
+  );
+  if (v.kind === "shift") return (
+    <div style={libCard({ display: "flex", flexDirection: "column", gap: 16, minHeight: 208, justifyContent: "center" })}>
+      <div style={libMonoCaps({})}>{v.label}</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+        <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-secondary)" }}>{v.from}</span>
+        <span style={{ color: "var(--accent)" }}>{libArrowGlyph}</span>
+        <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{v.to}</span>
+      </div>
+      <div style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)", fontSize: 38, lineHeight: 1, letterSpacing: "-0.02em", color: "var(--text-primary)", fontVariantNumeric: "tabular-nums" }}>{v.amount}</div>
+      <div style={libMono({})}>{v.note}</div>
+    </div>
+  );
+  if (v.kind === "answer") return (
+    <div style={libCard({ display: "flex", flexDirection: "column", gap: 14, minHeight: 208, justifyContent: "center" })}>
+      <div style={{ ...libFine, fontStyle: "italic" }}>{"“" + v.question + "”"}</div>
+      <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-primary)", lineHeight: "var(--lh-relaxed)", margin: 0 }}>{v.answer}</div>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        {(v.sources || []).map((s, i) => (
+          <span key={i} style={{
+            ...libMono({ fontSize: 11 }), paddingBlock: 3, paddingInline: 10,
+            borderRadius: "var(--radius-pill)", border: "1px solid var(--border-subtle)",
+            background: "var(--surface-sunken)",
+          }}>{s}</span>
+        ))}
+      </div>
+    </div>
+  );
+  /* default: "brief", a morning-brief checklist card */
+  return (
+    <div style={libCard({ display: "flex", flexDirection: "column", gap: 0, minHeight: 208, justifyContent: "center", paddingBlock: 18 })}>
+      <div style={{ ...libMonoCaps({}), paddingBlock: "0 12px" }}>{v.label}</div>
+      {(v.rows || []).map((r, i) => (
+        <div key={i} style={{
+          display: "flex", alignItems: "center", gap: 10,
+          paddingBlock: 11, borderBlockStart: "1px solid var(--border-subtle)",
+          fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--text-primary)",
+        }}>
+          <span style={{ color: "var(--accent)", display: "inline-flex" }}>{libCheckGlyph}</span>
+          <span style={{ minWidth: 0 }}>{r}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const LIB_MODULES = [
+  {
+    label: "Strategy",
+    pain: "I spend every Monday rebuilding the same plan I built last Monday.",
+    title: "Your week, already planned",
+    body: "Every Monday at 8:00 I hand you the week's operating plan: what to ship, what to pause, what to watch. Built from your numbers, not a template.",
+    proof: "412 weekly plans drafted, one every Monday",
+    visual: { kind: "brief", label: "Monday brief · 8:02", rows: ["Shift $18K into Performance Max", "Pause the lookalike test at $4K", "Watch mobile checkout, down 6%"] },
+  },
+  {
+    label: "Search",
+    pain: "Organic is a black box. I find out we dropped a month too late.",
+    title: "Free traffic, watched daily",
+    body: "I read Search Console and GA4 every morning, flag the pages that slipped, and draft the fix before the drop compounds.",
+    proof: "1,900 pages watched every morning",
+    visual: { kind: "trend", label: "Organic sessions", value: "20.1K", delta: "+12% this month", points: [3.1, 3.4, 3.2, 3.9, 4.3, 4.8, 5.2] },
+  },
+  {
+    label: "Lifecycle",
+    pain: "Our flows haven't been touched since the person who built them left.",
+    title: "Flows that keep earning",
+    body: "I audit every journey in your ESP, rewrite the ones that leak, and queue each change for your sign-off before anything sends.",
+    proof: "3,100 flow fixes approved by operators",
+    visual: { kind: "queue", label: "Flow queue", rows: [
+      { name: "Winback rewrite", status: "Awaiting approval", tone: "brand" },
+      { name: "Cart series v2", status: "Live", tone: "success" },
+      { name: "Welcome refresh", status: "Live", tone: "success" },
+    ] },
+  },
+  {
+    label: "Paid media",
+    pain: "By the time I catch a bad audience it has spent the month's budget.",
+    title: "Budget moved before it burns",
+    body: "I watch pacing across Google and Meta overnight. The moment cost per lead breaks your threshold, the reallocation is drafted and waiting.",
+    proof: "$4.2M of spend repositioned last quarter",
+    visual: { kind: "shift", label: "Drafted overnight", from: "Brand search", to: "Performance Max", amount: "$18K", note: "CPL 22% under target and holding" },
+  },
+  {
+    label: "Social",
+    pain: "The calendar is a hungry thing and I am always a week behind it.",
+    title: "A calendar that fills itself",
+    body: "I draft the week's posts from what actually performed, in your voice, and stage the lot for one approval instead of five.",
+    proof: "740 calendars staged every Monday",
+    visual: { kind: "queue", label: "This week", rows: [
+      { name: "Case study thread · Tue", status: "Staged", tone: "neutral" },
+      { name: "Product clip · Wed", status: "Staged", tone: "neutral" },
+      { name: "Founder note · Fri", status: "Approved", tone: "success" },
+    ] },
+  },
+  {
+    label: "Insights",
+    pain: "Every exec meeting starts with 40 minutes of what the numbers even are.",
+    title: "Answers before the meeting",
+    body: "Ask me anything about the funnel and you get the number, the cause, and the source it came from. One message, no dashboard spelunking.",
+    proof: "58,000 questions answered with sources attached",
+    visual: { kind: "answer", question: "Why did CAC rise last week?", answer: "A new paid-social audience: lead quality fell 14% while spend held. I'd cap it at $4K/day.", sources: ["Meta Ads", "CRM", "GA4"] },
+  },
+];
+
+function LibCapabilityModules({
+  eyebrow = "What Alfred runs",
+  headline = "I run the whole thing",
+  sub = "Six functions, one chief of staff. Each one reads your stack overnight and shows up in the morning with the move already drafted.",
+  modules = LIB_MODULES, /* Array<{label, pain, title, body, proof, visual}> */
+  showPain = true,
+  footnote = "Illustrative adoption figures; scenario data from the fictional Meridian rollout.",
+}) {
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 104px" })}>
+        <LibTeamHead eyebrow={eyebrow} headline={headline} sub={sub} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 72, marginBlockStart: 72 }}>
+          {modules.map((m, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <div key={i} style={{
+                display: "grid", gridTemplateColumns: "minmax(0, 1.05fr) minmax(0, 0.95fr)",
+                gap: 56, alignItems: "center",
+              }}>
+                <div style={{ order: flip ? 1 : 0, minWidth: 0 }}>
+                  {showPain && m.pain ? (
+                    <p style={{ ...libBody, fontStyle: "italic", color: "var(--text-muted)", maxWidth: 440, marginBlockEnd: 16 }}>{"“" + m.pain + "”"}</p>
+                  ) : null}
+                  <div style={libMonoCaps({ color: "var(--text-secondary)" })}>{m.label}</div>
+                  <h3 style={{ ...libDisplay(28), marginBlockStart: 10 }}>{m.title}</h3>
+                  <p style={{ ...libBody, maxWidth: 440, marginBlockStart: 12 }}>{m.body}</p>
+                  {m.proof ? <div style={{ ...libMono({}), marginBlockStart: 16 }}>{m.proof}</div> : null}
+                </div>
+                <div style={{ order: flip ? 0 : 1, minWidth: 0 }}>
+                  <LibModuleVisual visual={m.visual} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {footnote ? <p style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "var(--ls-caps)", textTransform: "uppercase", color: "var(--text-muted)", textAlign: "center", marginBlockStart: 56, marginBlockEnd: 0 }}>{footnote}</p> : null}
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   team-roster . "meet your new marketing team"
+   Agent-persona cards for the Alfred module bench. Initial-tile
+   avatars built from tokens; the one live module carries the
+   section's single gradient element.
+   ================================================================ */
+const libRosterCss = `
+.lib-at-roster-card { transition: transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard); }
+.lib-at-roster-card:hover { transform: translateY(-2px); box-shadow: var(--elevation-raised); }
+@media (prefers-reduced-motion: reduce) {
+  .lib-at-roster-card { transition: none; }
+  .lib-at-roster-card:hover { transform: none; }
+}
+`;
+
+const LIB_ROSTER = [
+  {
+    initial: "M", name: "Alfred for Marketing", role: "Chief of staff for the marketing leader",
+    line: "Runs budget, funnel and reporting decisions every morning.",
+    status: "Live today", live: true,
+  },
+  {
+    initial: "S", name: "Alfred for Sales", role: "Pipeline read before your forecast call",
+    line: "Deal risk, stage slippage and the save play, briefed daily.",
+    status: "Waitlist",
+  },
+  {
+    initial: "R", name: "Alfred for Receivables", role: "Cash collected without the chasing",
+    line: "Watches every invoice and drafts the nudge at the right moment.",
+    status: "Waitlist",
+  },
+  {
+    initial: "C", name: "Alfred Core", role: "The shared memory the whole bench reasons from",
+    line: "Your stack, your history and your thresholds, held in one place.",
+    status: "Included",
+  },
+];
+
+function LibTeamRoster({
+  eyebrow = "The bench",
+  headline = "Meet your new operating team",
+  sub = "One is on the job today. The rest are already in training on the same memory.",
+  members = LIB_ROSTER, /* Array<{initial, name, role, line, status, live?}> */
+  layout = "grid", /* "grid" (2x2) | "row" (4 across) */
+  linkLabel = "Learn more",
+}) {
+  const row = layout === "row";
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <style>{libRosterCss}</style>
+      <div style={libContainer({ paddingBlock: "96px 104px" })}>
+        <LibTeamHead eyebrow={eyebrow} headline={headline} sub={sub} />
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: row
+            ? "repeat(auto-fit, minmax(min(230px, 100%), 1fr))"
+            : "repeat(auto-fit, minmax(min(320px, 100%), 1fr))",
+          gap: 20, marginBlockStart: 56,
+          maxWidth: row ? undefined : 880, marginInline: "auto",
+        }}>
+          {members.map((m, i) => (
+            <article key={i} className="lib-at-roster-card" style={libCard({
+              padding: 20, display: "flex", flexDirection: "column", gap: 16,
+              borderColor: m.live ? "var(--border-focus)" : "var(--border-subtle)",
+            })}>
+              <div aria-hidden="true" style={{
+                borderRadius: "var(--radius-xl)", aspectRatio: row ? "1 / 1" : "8 / 5",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                /* the live module's tile is the section's one gradient element */
+                background: m.live ? "var(--gradient-brand)" : "var(--surface-sunken)",
+              }}>
+                <span style={{
+                  fontFamily: "var(--font-display)", fontWeight: "var(--fw-semibold)",
+                  fontSize: row ? 56 : 64, lineHeight: 1, letterSpacing: "-0.02em",
+                  color: m.live ? "var(--text-on-brand)" : "var(--text-muted)",
+                }}>{m.initial}</span>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, flex: 1 }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+                  <h3 style={{ ...libDisplay(19), letterSpacing: "-0.01em" }}>{m.name}</h3>
+                  <Badge tone={m.live ? "brand" : "neutral"} dot={!!m.live}>{m.status}</Badge>
+                </div>
+                <div style={{ ...libFine, fontWeight: "var(--fw-bold)", color: "var(--text-secondary)" }}>{m.role}</div>
+                {m.line ? <p style={{ ...libFine, marginBlockStart: 2 }}>{m.line}</p> : null}
+              </div>
+              <span style={{
+                display: "inline-flex", alignItems: "center", gap: 7,
+                fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)",
+                fontWeight: "var(--fw-bold)", color: "var(--text-link)",
+              }}>{linkLabel} {libArrowGlyph}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   tuned-by-you . "built by marketers, tuned by you"
+   Four intelligence claims with line icons; the self-improving
+   claim carries the acceptance-curve stat as a mono evidence line.
+   ================================================================ */
+const LIB_TUNED = [
+  { icon: "playbook", title: "Playbooks, not guesses", body: "Every move I draft comes from an operator-written playbook, not a general model's best guess at your job." },
+  { icon: "brand", title: "Your brand, learned", body: "I read your site, your winners and your tone in week one. Every draft after that sounds like you wrote it." },
+  { icon: "improve", title: "Sharper every week", body: "You approve or correct each move and I keep the reasons. The corrections are the tuning.", stat: "82% to 96% approval by week ten" },
+  { icon: "compound", title: "Value that compounds", body: "Every decision I log makes the next one faster. Month six is a different product from week one." },
+];
+
+function LibTunedByYou({
+  eyebrow = "Intelligence",
+  headline = "Built by operators, tuned by you",
+  sub = "I don't guess at marketing. I run playbooks written by people who did the job, then learn how your company does it.",
+  items = LIB_TUNED, /* Array<{icon, title, body, stat?}> */
+  layout = "four-across", /* "four-across" | "two-by-two" */
+}) {
+  const twoByTwo = layout === "two-by-two";
+  return (
+    <section style={{ background: "var(--surface-sunken)", borderBlock: "1px solid var(--border-subtle)" }}>
+      <div style={libContainer({ paddingBlock: "88px 96px" })}>
+        <LibTeamHead eyebrow={eyebrow} headline={headline} sub={sub} />
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: twoByTwo
+            ? "repeat(auto-fit, minmax(min(320px, 100%), 1fr))"
+            : "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
+          gap: 20, marginBlockStart: 52,
+          maxWidth: twoByTwo ? 880 : undefined, marginInline: "auto",
+        }}>
+          {items.map((it, i) => (
+            <div key={i} style={libCard({ padding: 26, display: "flex", flexDirection: "column", gap: 14 })}>
+              <span style={{
+                width: 44, height: 44, borderRadius: "var(--radius-md)",
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                background: "var(--surface-card)", border: "1px solid var(--border-subtle)", color: "var(--text-secondary)", flexShrink: 0,
+              }}>{libTunedGlyph(it.icon)}</span>
+              <h3 style={{ ...libDisplay(19), letterSpacing: "-0.01em" }}>{it.title}</h3>
+              <p style={{ ...libFine, fontSize: "var(--text-sm)", lineHeight: "var(--lh-relaxed)", color: "var(--text-secondary)", flex: 1 }}>{it.body}</p>
+              {it.stat ? <div style={libMono({})}>{it.stat}</div> : null}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   time-back-callout . the reclaimed-hours interstitial
+   A quiet band: setup line, one poster-scale figure, a qualifier
+   that restates the enemy (hiring and managing overhead).
+   ================================================================ */
+function LibTimeBackCallout({
+  lead = "Get back up to",
+  value = "20",
+  unit = "hours a week",
+  caption = "without hiring, managing or chasing a single contractor.",
+  footnote = "Illustrative scenario: the fictional Meridian rollout after 90 days",
+  surface = "band", /* "band" | "page" */
+}) {
+  const band = surface === "band";
+  return (
+    <section style={{
+      background: band ? "var(--surface-sunken)" : "var(--bg-page)",
+      borderBlock: band ? "1px solid var(--border-subtle)" : undefined,
+    }}>
+      <div style={libContainer({ paddingBlock: "80px 84px", textAlign: "center", maxWidth: 820 })}>
+        <p style={{ ...libSub, marginBlockEnd: 10 }}>{lead}</p>
+        {/* the section's one poster-scale statement, Clash on every theme */}
+        <div style={{
+          fontFamily: "var(--font-poster)", fontWeight: "var(--fw-semibold)",
+          fontSize: "clamp(64px, 10vw, 120px)", lineHeight: 1, letterSpacing: "-0.03em",
+          color: "var(--text-display)", fontVariantNumeric: "tabular-nums",
+        }}>
+          {value}
+          <span style={{ fontSize: "0.32em", fontWeight: "var(--fw-semibold)", letterSpacing: "-0.01em", marginInlineStart: 14, color: "var(--text-primary)" }}>{unit}</span>
+        </div>
+        <p style={{ ...libSub, maxWidth: 520, marginInline: "auto", marginBlockStart: 14 }}>{caption}</p>
+        {footnote ? <p style={{ ...libMono({}), marginBlockStart: 22, marginBlockEnd: 0 }}>{footnote}</p> : null}
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   operator-quotes . testimonial wall, enrichlabs register
+   Quotes keep a raw operator texture with ONE semibold key phrase
+   each (the money phrase, pre-highlighted). Fictional people and
+   companies throughout.
+   ================================================================ */
+const LIB_QUOTES = [
+  {
+    quote: "I stopped preparing for Monday meetings. The brief is already in my inbox, and it is better than the one I used to write.",
+    strong: "The brief is already in my inbox",
+    name: "Priya Menon", title: "VP Marketing", company: "Meridian",
+  },
+  {
+    quote: "We cut two agency retainers in the first quarter. Nothing got slower.",
+    strong: "Nothing got slower.",
+    name: "Daniel Okafor", title: "Head of Growth", company: "Fernwell Labs",
+  },
+  {
+    quote: "Alfred caught a $9K a week pacing error our dashboard had been hiding for a month.",
+    strong: "$9K a week pacing error",
+    name: "Mei Lin", title: "Marketing Director", company: "Quarrystone",
+  },
+  {
+    quote: "First tool my CFO ever asked to see. Every number arrives with its source attached, so the argument is over before it starts.",
+    strong: "Every number arrives with its source attached",
+    name: "Sofia Alvarez", title: "CMO", company: "Copperline",
+  },
+  {
+    quote: "It is the difference between a report and a recommendation. I approve moves now, I don't hunt for them.",
+    strong: "I approve moves now, I don't hunt for them.",
+    name: "James Carter", title: "Founder", company: "Halcyon Goods",
+  },
+];
+
+const libStrongSpan = (text, strong) => {
+  if (!strong || !text.includes(strong)) return text;
+  const at = text.indexOf(strong);
+  return (
+    <>
+      {text.slice(0, at)}
+      <strong style={{ fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{strong}</strong>
+      {text.slice(at + strong.length)}
+    </>
+  );
+};
+
+const LibOperatorQuoteCard = ({ q, big }) => (
+  <figure style={{ ...libCard({ padding: big ? 32 : 26 }), margin: 0, display: "flex", flexDirection: "column", gap: 20, height: "100%", breakInside: "avoid" }}>
+    <blockquote style={{
+      margin: 0, flex: 1, fontFamily: "var(--font-sans)", fontSize: big ? 20 : "var(--text-base)",
+      lineHeight: "var(--lh-relaxed)", color: "var(--text-secondary)",
+    }}>
+      {"“"}{libStrongSpan(q.quote, q.strong)}{"”"}
+    </blockquote>
+    <figcaption style={{ display: "flex", gap: 12, alignItems: "center" }}>
+      <Avatar name={q.name} size={36} />
+      <div>
+        <div style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: "var(--fw-bold)", color: "var(--text-primary)" }}>{q.name}</div>
+        <div style={{ ...libFine, marginBlockStart: 2 }}>{q.title} · {q.company}</div>
+      </div>
+    </figcaption>
+  </figure>
+);
+
+function LibOperatorQuotes({
+  eyebrow = "Operator stories",
+  headline = "What operators tell me",
+  sub = "Real jobs, fictional names. The pattern is the point: less hunting, more approving.",
+  quotes = LIB_QUOTES, /* Array<{quote, strong, name, title, company}> */
+  featured = true, /* first quote spans the full width */
+}) {
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 104px" })}>
+        <LibTeamHead eyebrow={eyebrow} headline={headline} sub={sub} />
+        {featured ? (
+          /* two fixed columns so the four follow-up quotes sit as a 2x2 under the featured one */
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 20, marginBlockStart: 52 }}>
+            {quotes.map((q, i) => (
+              <div key={i} style={{ gridColumn: i === 0 ? "1 / -1" : undefined, minWidth: 0 }}>
+                <LibOperatorQuoteCard q={q} big={i === 0} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ columnCount: 2, columnGap: 20, marginBlockStart: 52 }}>
+            {quotes.map((q, i) => (
+              <div key={i} style={{ breakInside: "avoid", marginBlockEnd: 20 }}>
+                <LibOperatorQuoteCard q={q} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   trial-faq . the conversational nine, objection first
+   Alfred answers in first person. The killer objection (a general
+   AI assistant) opens; trial terms and the bench close it out.
+   ================================================================ */
+const LIB_FAQS = [
+  { q: "Can't I just use a general AI assistant?", a: "You can, and you will spend hours a week feeding it context and checking its numbers. Assistants answer prompts. I run the work between your questions: I hold your stack, your history and your thresholds, so the brief is waiting before you ask." },
+  { q: "How often do I hear from you?", a: "Every morning by 8:00 with the overnight brief, and the moment a number crosses a threshold you set. Nothing else. No digest spam." },
+  { q: "How fast do results show up?", a: "Your first useful brief lands the morning after you connect a data source. Reallocation wins typically show inside two weeks, and the compounding effects by month three." },
+  { q: "How does usage work?", a: "Plans meter on decisions reviewed, not seats. Ask me as many questions as you like; you move up a tier only when I am running materially more of your operation." },
+  { q: "Is my data used to train models?", a: "No. Your data stays in your workspace, connections are read-only by default, and nothing you share trains anyone else's model." },
+  { q: "What do you connect to?", a: "Google Ads, Meta, GA4, Search Console, your ESP and your CRM on day one. If a tool has an API, my team can usually have it connected within a sprint." },
+  { q: "How do you learn our brand?", a: "In week one I read your site, your best-performing work and your tone guidelines. You correct my first drafts and I keep the corrections. That is the tuning." },
+  { q: "What are the trial terms?", a: "Set up in one afternoon, full access from day one, cancel anytime. If the first week's briefs don't earn their keep, walk away." },
+  { q: "What about sales and finance?", a: "Alfred for Sales and Alfred for Receivables are next on the bench, trained on the same memory that runs your marketing. Join the waitlist and I'll brief you the day your access opens." },
+];
+
+function LibTrialFaq({
+  eyebrow = "Questions",
+  headline = "Good to know",
+  sub = "The questions operators ask before they hand me the keys.",
+  faqs = LIB_FAQS, /* Array<{q, a}> */
+  layout = "single", /* "single" | "two-column" */
+}) {
+  const items = faqs.map((f, i) => ({ id: "q" + i, title: f.q, content: f.a }));
+  const half = Math.ceil(items.length / 2);
+  const columns = [items.slice(0, half), items.slice(half)];
+  return (
+    <section style={{ background: "var(--bg-page)" }}>
+      <div style={libContainer({ paddingBlock: "96px 104px" })}>
+        <LibTeamHead eyebrow={eyebrow} headline={headline} sub={sub} />
+        <div style={{ marginBlockStart: 48 }}>
+          {layout === "two-column" ? (
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(340px, 100%), 1fr))", gap: 24, alignItems: "start" }}>
+              {columns.map((col, i) => (
+                <Accordion key={i} items={col} defaultOpen={i === 0 && col.length ? [col[0].id] : []} />
+              ))}
+            </div>
+          ) : (
+            <div style={{ maxWidth: 780, marginInline: "auto" }}>
+              <Accordion items={items} defaultOpen={items.length ? [items[0].id] : []} />
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   specialists-callout . the more-agents teaser
+   A brief band pointing at the waitlist modules, closed by a
+   book-a-demo CTA. Enrich buries this in its final FAQ answer;
+   Alfred gives it a quiet band of its own.
+   ================================================================ */
+function LibSpecialistsCallout({
+  eyebrow = "Next on the bench",
+  headline = "Marketing is my first job, not my last",
+  body = "Alfred for Sales and Alfred for Receivables are already in training on the same memory that runs your marketing. Same voice, same audit trail, new desks.",
+  chips = ["Alfred for Sales · waitlist", "Alfred for Receivables · waitlist"],
+  cta = "Book a demo",
+  secondaryCta = "Join the waitlist",
+  layout = "band", /* "band" (centered) | "split" (text start, CTA end) */
+}) {
+  const split = layout === "split";
+  const chipRow = (center) => (
+    <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: center ? "center" : "flex-start", marginBlockStart: 20 }}>
+      {chips.map((c, i) => <Badge key={i} tone="neutral">{c}</Badge>)}
+    </div>
+  );
+  if (split) {
+    return (
+      <section style={{ background: "var(--bg-page)" }}>
+        <div style={libContainer({ paddingBlock: "72px 72px" })}>
+          <div style={{
+            ...libCard({ padding: 40 }),
+            display: "grid", gridTemplateColumns: "minmax(0, 1.4fr) minmax(0, 1fr)",
+            gap: 40, alignItems: "center",
+          }}>
+            <div>
+              <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+              <h2 style={{ ...libDisplay(30), marginBlockStart: 14 }}>{headline}</h2>
+              <p style={{ ...libBody, maxWidth: 520, marginBlockStart: 12 }}>{body}</p>
+              {chipRow(false)}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "stretch" }}>
+              <Button variant="primary" size="lg">{cta}</Button>
+              {secondaryCta ? <Button variant="outline" size="lg" style={libGhostCta}>{secondaryCta}</Button> : null}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+  return (
+    <section style={{ background: "var(--surface-sunken)", borderBlock: "1px solid var(--border-subtle)" }}>
+      <div style={libContainer({ paddingBlock: "72px 76px", textAlign: "center", maxWidth: 760 })}>
+        <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+        <h2 style={{ ...libDisplay(34), marginBlockStart: 16 }}>{headline}</h2>
+        <p style={{ ...libSub, maxWidth: 560, marginInline: "auto", marginBlockStart: 14 }}>{body}</p>
+        {chipRow(true)}
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBlockStart: 28 }}>
+          <Button variant="primary" size="lg">{cta}</Button>
+          {secondaryCta ? <Button variant="outline" size="lg" style={libGhostCta}>{secondaryCta}</Button> : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   work-with-cta . "ready to work with Alfred?"
+   The minimal centered close: availability eyebrow, question
+   headline addressed to the reader, trial terms, one primary CTA.
+   ================================================================ */
+function LibWorkWithCta({
+  eyebrow = "Available now",
+  headline = "Ready to work with Alfred?",
+  terms = "Set up in one afternoon · Cancel anytime",
+  cta = "get started",
+  glow = false, /* add the brand glow background */
+}) {
+  return (
+    <section style={{
+      position: "relative", overflow: "hidden",
+      background: glow ? "var(--glow-periwinkle), var(--glow-orange), var(--bg-page)" : "var(--bg-page)",
+    }}>
+      <div style={libContainer({ paddingBlock: "104px 112px", textAlign: "center", maxWidth: 680 })}>
+        <EyebrowBadge tone="brand">{eyebrow}</EyebrowBadge>
+        <h2 style={{ ...libDisplay(44), marginBlockStart: 18 }}>{headline}</h2>
+        {terms ? <p style={{ ...libSub, marginBlockStart: 14 }}>{terms}</p> : null}
+        <div style={{ marginBlockStart: 30 }}>
+          <Button variant="primary" size="lg">{cta}</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+window.LibCapabilityModules = LibCapabilityModules;
+window.LibTeamRoster = LibTeamRoster;
+window.LibTunedByYou = LibTunedByYou;
+window.LibTimeBackCallout = LibTimeBackCallout;
+window.LibOperatorQuotes = LibOperatorQuotes;
+window.LibTrialFaq = LibTrialFaq;
+window.LibSpecialistsCallout = LibSpecialistsCallout;
+window.LibWorkWithCta = LibWorkWithCta;
