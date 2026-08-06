@@ -50,6 +50,8 @@ const KITS = [
   ["library/sections/agent-story.jsx", []],
   ["library/sections/agent-team.jsx", []],
   ["library/recipes/agent-employee.jsx", ["RecipeAgentEmployee"]],
+  ["library/sections/agent-pages.jsx", []],
+  ["library/recipes/agent-profile.jsx", ["RecipeAgentProfile"]],
 ];
 
 const reactSrc = dep("react/umd/react.development.js");
