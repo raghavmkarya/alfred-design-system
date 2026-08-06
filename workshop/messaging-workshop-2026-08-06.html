@@ -178,7 +178,7 @@ table.sc input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(-
 .brief-card p { font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-body); line-height: var(--lh-relaxed); margin: 0; padding: 8px 0; border-top: 1px solid var(--border-subtle); }
 .brief-card p:first-of-type { border-top: none; padding-top: 0; }
 .gm-rail { position: fixed; bottom: 0; left: 0; right: 0; z-index: var(--z-sticky); background: rgba(0,0,0,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--border-subtle); padding: 12px 20px; display: flex; gap: 22px; align-items: center; justify-content: center; flex-wrap: wrap; }
-.gm-bar { position: absolute; top: -1px; left: 0; height: 2px; width: 100%; background: var(--orange-500); transform: scaleX(0); transform-origin: left; }
+.gm-bar { position: absolute; top: -1px; left: 0; height: 2px; width: 100%; background: var(--orange-500); transform: scaleX(0.001); transform-origin: left; }
 .gm-step { font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-muted); display: flex; align-items: center; gap: 7px; white-space: nowrap; }
 .gm-step .dotp { width: 8px; height: 8px; border-radius: var(--radius-circle); border: 1px solid var(--border-strong); }
 .gm-step.done { color: var(--text-primary); }
@@ -238,7 +238,7 @@ body.gm-on .approve-why { border-left: 2px solid var(--periwinkle-400); padding-
 body.gm-on .btn:active { transform: scale(0.97); }
 .statnum .solid { color: var(--orange-400); }
 .payoff { max-width: 680px; margin: 34px auto 0; }
-.payoff-line { height: 2px; background: var(--gradient-brand); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-slow) var(--ease-standard); }
+.payoff-line { height: 2px; background: var(--gradient-brand); transform: scaleX(0.001); transform-origin: left; transition: transform var(--dur-slow) var(--ease-standard); }
 .payoff-note { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows var(--dur-slow) var(--ease-standard), opacity var(--dur-slow) var(--ease-standard); }
 .payoff-note .inner { overflow: hidden; min-height: 0; font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary); line-height: var(--lh-relaxed); }
 .payoff-note .inner p { margin: 18px 0 0; }
