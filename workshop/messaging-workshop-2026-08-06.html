@@ -1,0 +1,1467 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alfred messaging workshop · 6 angles · 6 Aug 2026</title>
+<link rel="icon" href="../assets/logos/alfred-favicon-white.svg" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+html, body { margin: 0; }
+body { background: var(--bg-page); }
+
+/* ---------- workshop chrome (not part of the mock) ---------- */
+.wk-toolbar { position: sticky; top: 0; z-index: var(--z-overlay); background: #171715; border-bottom: 1px solid var(--border-strong); padding: 10px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.wk-title { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--periwinkle-400); white-space: nowrap; }
+.wk-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.wk-group-label { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); margin-right: 2px; }
+.wk-tab { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--fw-semibold); color: var(--text-secondary); background: transparent; border: 1px solid var(--border-default); border-radius: var(--radius-pill); padding: 6px 14px; cursor: pointer; line-height: 1; transition: background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard); }
+.wk-tab:hover { border-color: var(--border-strong); color: var(--text-primary); }
+.wk-tab.on { background: var(--accent); color: var(--text-on-orange); border-color: transparent; }
+.wk-tab.on-alt { background: var(--periwinkle-400); color: var(--ink-900); border-color: transparent; }
+.wk-thesis { background: #111110; border-bottom: 1px solid var(--border-subtle); padding: 10px 20px; font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); }
+.wk-thesis strong { color: var(--text-primary); }
+
+/* ---------- mock shell ---------- */
+.container { max-width: 1120px; margin-inline: auto; padding-inline: 40px; }
+.band { padding-block: 84px; background: var(--bg-page); }
+.band.sunken { background: var(--surface-sunken); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+.eyebrow { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--orange-400); margin: 0; }
+.h2 { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary); margin: 14px 0 0; }
+.intro { font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-secondary); line-height: var(--lh-relaxed); margin: 16px 0 0; max-width: 640px; }
+.grad { background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* nav */
+.m-nav { background: var(--surface-veil); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); }
+.m-nav-inner { height: 68px; display: flex; align-items: center; gap: 28px; }
+.m-nav a.link { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--fw-medium); color: var(--text-secondary); text-decoration: none; }
+.m-logo { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
+.m-logo img { height: 24px; display: block; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; height: var(--density-control-h-lg); padding: 0 var(--density-control-pad-lg); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: var(--fw-bold); letter-spacing: 0.01em; line-height: 1; border-radius: var(--radius-lg); border: 1px solid transparent; cursor: pointer; white-space: nowrap; user-select: none; transition: background var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-fast) var(--ease-standard), border-color var(--dur-base) var(--ease-standard); }
+.btn.sm { height: var(--density-control-h-md); padding: 0 var(--density-control-pad-md); font-size: var(--text-base); border-radius: var(--radius-md); }
+.btn-p { background: var(--accent); color: var(--text-on-orange); }
+.btn-p:hover { box-shadow: var(--shadow-brand); }
+.btn-s { background: transparent; color: var(--text-primary); border-color: var(--border-default); }
+.btn-s:hover { border-color: var(--border-strong); }
+.btn-ink { background: var(--ink-900); color: #fff; }
+
+/* hero */
+.hero { position: relative; overflow: hidden; background: var(--glow-periwinkle), var(--glow-orange), var(--bg-page); }
+.hero-inner { padding-block: 96px 92px; text-align: center; }
+.chip { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: var(--radius-pill); color: var(--text-link); font-family: var(--font-sans); font-size: var(--text-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-caps); text-transform: uppercase; line-height: 1; white-space: nowrap; }
+.chip::before { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1px solid currentColor; opacity: 0.35; }
+.chip .dot { width: 6px; height: 6px; border-radius: var(--radius-circle); background: currentColor; }
+.chip.peri { color: var(--periwinkle-400); }
+.h1 { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: 58px; line-height: 1.07; letter-spacing: -0.02em; color: var(--text-primary); margin: 22px auto 0; max-width: 880px; }
+.hero-sub { font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-secondary); line-height: var(--lh-relaxed); margin: 20px auto 0; max-width: 600px; }
+.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+.hero-note { font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-muted); margin: 16px 0 0; }
+
+/* grids + cards */
+.grid { display: grid; gap: 18px; margin-top: 40px; }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+.card { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-2xl); padding: 26px 26px 28px; }
+.card h3 { font-family: var(--font-sans); font-size: var(--text-lg); font-weight: var(--fw-bold); color: var(--text-primary); margin: 0 0 8px; }
+.card p { font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-body); line-height: var(--lh-relaxed); margin: 0; }
+.card .verb { font-family: var(--font-sans); font-size: 10px; font-weight: var(--fw-bold); letter-spacing: 0.09em; text-transform: uppercase; color: var(--orange-400); display: block; margin-bottom: 10px; }
+.card .quote { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-subtle); font-size: var(--text-sm); color: var(--text-secondary); font-style: italic; }
+.statnum { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: 52px; letter-spacing: -0.02em; line-height: 1; color: var(--text-primary); }
+.statnum .grad { display: inline; }
+.statlbl { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--lh-relaxed); margin-top: 10px; }
+.statsrc { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); margin-top: 8px; }
+.step-num { font-family: var(--font-display); font-size: var(--text-sm); font-weight: var(--fw-semibold); color: var(--periwinkle-400); display: block; margin-bottom: 10px; letter-spacing: 0.06em; }
+.phase-h { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--periwinkle-400); margin: 34px 0 0; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.pill { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--fw-medium); color: var(--text-secondary); border: 1px solid var(--border-default); border-radius: var(--radius-pill); padding: 9px 16px; line-height: 1; }
+.status-tag { display: inline-block; font-family: var(--font-sans); font-size: 10px; font-weight: var(--fw-bold); letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill); padding: 5px 10px; line-height: 1; margin-bottom: 14px; }
+.status-live { color: #7BE0A3; border: 1px solid rgba(123,224,163,0.4); }
+.status-dev { color: var(--periwinkle-400); border: 1px solid rgba(167,167,252,0.4); }
+.status-new { color: var(--orange-400); border: 1px solid rgba(255,132,49,0.4); }
+
+/* compare */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
+.compare .col { border-radius: var(--radius-2xl); padding: 28px; border: 1px solid var(--border-subtle); }
+.compare .col.old { background: var(--surface-sunken); }
+.compare .col.mine { background: var(--surface-card); border-color: rgba(255,132,49,0.35); }
+.compare h4 { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; margin: 0 0 18px; }
+.compare .col.old h4 { color: var(--text-muted); }
+.compare .col.mine h4 { color: var(--orange-400); }
+.compare ul { margin: 0; padding: 0; list-style: none; }
+.compare li { font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-body); line-height: var(--lh-relaxed); padding: 10px 0; border-top: 1px solid var(--border-subtle); }
+.compare li:first-child { border-top: none; padding-top: 0; }
+
+/* quote vignette */
+.vignette { margin-top: 40px; background: var(--surface-card); border: 1px solid var(--border-subtle); border-left: 3px solid var(--orange-500); border-radius: var(--radius-lg); padding: 28px 32px; }
+.vignette p.q { font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary); line-height: var(--lh-relaxed); margin: 0; }
+.vignette p.who { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-muted); margin: 14px 0 0; }
+
+/* cash panel */
+.cash-panel { margin: 44px auto 0; max-width: 620px; text-align: left; background: rgba(255,255,255,0.04); border: 1px solid var(--border-default); border-radius: var(--radius-xl); padding: 22px 26px; backdrop-filter: blur(6px); }
+.cash-panel .ph { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-muted); margin: 0 0 14px; }
+.cash-row { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-top: 1px solid var(--border-subtle); font-family: var(--font-sans); font-size: var(--text-sm); }
+.cash-row:first-of-type { border-top: none; }
+.cash-row .k { color: var(--text-secondary); }
+.cash-row .v { color: var(--text-primary); font-weight: var(--fw-semibold); }
+.cash-row .v.flag { color: var(--orange-400); }
+
+/* cta band */
+.cta-wrap { position: relative; overflow: hidden; border-radius: var(--radius-3xl); background: var(--gradient-brand); padding: 72px 56px; text-align: center; }
+.cta-wrap::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 130% at 50% 0%, rgba(2,2,30,0.22) 0%, transparent 60%); }
+.cta-in { position: relative; }
+.cta-eyebrow { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; margin: 0; color: var(--ink-900); opacity: 0.75; }
+.cta-h2 { font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: 44px; line-height: 1.08; letter-spacing: -0.02em; color: var(--ink-900); margin: 16px auto 0; max-width: 680px; }
+.cta-sub { font-family: var(--font-sans); font-size: var(--text-lg); color: var(--ink-900); line-height: var(--lh-relaxed); margin: 16px auto 0; opacity: 0.85; max-width: 540px; }
+
+/* footer */
+.m-footer { border-top: 1px solid var(--border-subtle); padding-block: 56px 40px; }
+.m-footer .cols { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.m-footer p, .m-footer a { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-muted); text-decoration: none; line-height: 2; }
+.m-footer .fh { font-weight: var(--fw-bold); color: var(--text-secondary); }
+
+/* timeline */
+.timeline { counter-reset: t; }
+.timeline .card { position: relative; }
+
+/* scorecard */
+.sc-wrap { padding-block: 64px; }
+.sc-block { margin-top: 44px; }
+.sc-block h3 { font-family: var(--font-display); font-size: 26px; font-weight: var(--fw-semibold); color: var(--text-primary); margin: 0 0 4px; letter-spacing: -0.01em; }
+.sc-block .role { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-muted); margin: 0 0 16px; }
+table.sc { width: 100%; border-collapse: collapse; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; }
+table.sc th, table.sc td { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-body); text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border-subtle); }
+table.sc th { font-size: var(--text-xs); font-weight: var(--fw-bold); letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); background: var(--surface-sunken); }
+table.sc td.angle { color: var(--text-primary); font-weight: var(--fw-semibold); white-space: nowrap; }
+table.sc input[type="number"] { width: 58px; background: var(--surface-sunken); color: var(--text-primary); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 6px 8px; font-family: var(--font-sans); font-size: var(--text-sm); }
+table.sc input[type="text"] { width: 100%; min-width: 180px; background: var(--surface-sunken); color: var(--text-primary); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 6px 10px; font-family: var(--font-sans); font-size: var(--text-sm); }
+table.sc input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--orange-500); }
+.sc-note { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--lh-relaxed); }
+.sc-decision { margin-top: 56px; background: var(--surface-card); border: 1px solid rgba(255,132,49,0.4); border-radius: var(--radius-2xl); padding: 30px; }
+.sc-decision textarea { width: 100%; min-height: 70px; background: var(--surface-sunken); color: var(--text-primary); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 10px 12px; font-family: var(--font-sans); font-size: var(--text-sm); box-sizing: border-box; }
+
+@media (max-width: 900px) {
+  .g4, .g3 { grid-template-columns: repeat(2, 1fr); }
+  .compare { grid-template-columns: 1fr; }
+  .h1 { font-size: 40px; }
+  .m-nav .link { display: none; }
+}
+/* ---------- gamified butler variant ---------- */
+.chat-card { max-width: 640px; margin: 40px auto 0; background: rgba(255,255,255,0.04); border: 1px solid var(--border-default); border-radius: var(--radius-2xl); padding: 26px 28px; text-align: left; backdrop-filter: blur(6px); }
+.chat-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.chat-avatar { width: 34px; height: 34px; border-radius: var(--radius-circle); background: var(--gradient-brand); display: flex; align-items: center; justify-content: center; color: var(--ink-900); flex: none; }
+.chat-name { font-family: var(--font-sans); font-weight: var(--fw-bold); font-size: var(--text-sm); color: var(--text-primary); }
+.chat-role { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); }
+.chat-line { font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary); line-height: var(--lh-relaxed); min-height: 56px; }
+.chat-caret { display: inline-block; width: 2px; height: 1.05em; background: var(--orange-400); vertical-align: text-bottom; margin-left: 2px; animation: gmBlink 1s steps(1) infinite; }
+@keyframes gmBlink { 50% { opacity: 0; } }
+.gm-chips { display: none; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.gm-chips.show { display: flex; }
+.gm-chip { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--fw-semibold); color: var(--text-primary); background: transparent; border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 10px 18px; cursor: pointer; line-height: 1; transition: color var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard), background var(--dur-base) var(--ease-standard); }
+.gm-chip:hover { border-color: var(--orange-400); color: var(--orange-400); }
+.gm-chip.picked { background: var(--accent); color: var(--text-on-orange); border-color: transparent; }
+.gm-reply { display: none; font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-secondary); line-height: var(--lh-relaxed); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border-subtle); }
+.gm-reply.show { display: block; }
+.approve-card { max-width: 680px; margin: 40px auto 0; background: var(--surface-card); border: 1px solid rgba(255,132,49,0.35); border-radius: var(--radius-2xl); padding: 26px 30px; }
+.approve-card .cap { font-family: var(--font-sans); font-size: 10px; font-weight: var(--fw-bold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 12px; }
+.approve-card p.abody { font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary); line-height: var(--lh-relaxed); margin: 0; }
+.approve-why { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-subtle); font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--lh-relaxed); }
+.approve-why.show { display: block; }
+.approve-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.approve-done { display: none; margin-top: 20px; font-family: var(--font-sans); font-size: var(--text-base); color: #7BE0A3; line-height: var(--lh-relaxed); align-items: flex-start; gap: 9px; }
+.approve-done.show { display: flex; }
+.approve-done svg { flex: none; margin-top: 3px; }
+.brief-card { max-width: 680px; margin: 40px auto 0; background: var(--surface-card); border: 1px solid var(--border-subtle); border-left: 3px solid var(--periwinkle-400); border-radius: var(--radius-lg); padding: 26px 30px; }
+.brief-card .cap { font-family: var(--font-sans); font-size: 10px; font-weight: var(--fw-bold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 12px; }
+.brief-card p { font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-body); line-height: var(--lh-relaxed); margin: 0; padding: 8px 0; border-top: 1px solid var(--border-subtle); }
+.brief-card p:first-of-type { border-top: none; padding-top: 0; }
+.gm-rail { position: fixed; bottom: 0; left: 0; right: 0; z-index: var(--z-sticky); background: rgba(0,0,0,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--border-subtle); padding: 12px 20px; display: flex; gap: 22px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.gm-bar { position: absolute; top: -1px; left: 0; height: 2px; width: 100%; background: var(--orange-500); transform: scaleX(0); transform-origin: left; }
+.gm-step { font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-muted); display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.gm-step .dotp { width: 8px; height: 8px; border-radius: var(--radius-circle); border: 1px solid var(--border-strong); }
+.gm-step.done { color: var(--text-primary); }
+.gm-step.done .dotp { background: var(--orange-500); border-color: transparent; }
+body.gm-on main { padding-bottom: 52px; }
+@media (prefers-reduced-motion: reduce) { .chat-caret { animation: none; } }
+
+/* per-function game pieces */
+.gm-count { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--fw-semibold); color: var(--text-secondary); border: 1px solid var(--border-default); border-radius: var(--radius-pill); padding: 8px 16px; margin-top: 24px; }
+.gm-count b { color: var(--orange-400); }
+.gm-note { display: none; max-width: 680px; margin: 26px auto 0; font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary); line-height: var(--lh-relaxed); border-left: 3px solid var(--orange-500); padding: 4px 0 4px 18px; }
+.gm-note.show { display: block; }
+.deal-card { cursor: pointer; transition: border-color var(--dur-base) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
+.deal-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.deal-card.cleared { cursor: default; border-color: rgba(123,224,163,0.4); }
+.deal-card.risky { cursor: default; border-color: rgba(255,132,49,0.55); }
+.deal-meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); }
+.deal-meta b { color: var(--text-primary); font-weight: var(--fw-semibold); }
+.deal-verdict { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-subtle); font-family: var(--font-sans); font-size: var(--text-sm); line-height: var(--lh-relaxed); }
+.deal-verdict.show { display: block; }
+.deal-verdict.ok { color: #7BE0A3; }
+.deal-verdict.bad { color: var(--orange-400); }
+.wl-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 20px; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--surface-card); margin-top: 10px; flex-wrap: wrap; }
+.wl-row.done { opacity: 0.55; }
+.wl-cell { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); }
+.wl-cell b { color: var(--text-primary); font-weight: var(--fw-semibold); font-size: var(--text-base); }
+.wl-pill { font-family: var(--font-sans); font-size: 10px; font-weight: var(--fw-bold); letter-spacing: 0.07em; text-transform: uppercase; border-radius: var(--radius-pill); padding: 5px 10px; line-height: 1; }
+.wl-pill.hi { color: var(--orange-400); border: 1px solid rgba(255,132,49,0.4); }
+.wl-pill.med { color: var(--periwinkle-400); border: 1px solid rgba(167,167,252,0.4); }
+.wl-pill.low { color: var(--text-muted); border: 1px solid var(--border-default); }
+.wl-detail { display: none; width: 100%; margin-top: 6px; }
+.wl-detail.show { display: block; }
+.wl-detail .approve-card { margin: 10px 0 0; max-width: none; }
+
+/* ---------- marketing morning experience ---------- */
+.rv { opacity: 0; transform: translateY(12px); transition: opacity var(--dur-slow) var(--ease-standard), transform var(--dur-slow) var(--ease-standard); }
+.rv-on { opacity: 1; transform: none; }
+.ledger { max-width: 640px; margin: 0 auto 20px; text-align: left; transition: opacity var(--dur-base) var(--ease-standard); }
+.ledger.dim { opacity: 0.55; }
+.ledger-eyebrow { font-family: var(--font-sans); font-size: 10px; font-weight: var(--fw-bold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 6px; }
+.ledger-line { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--lh-relaxed); padding: 8px 0; border-top: 1px solid var(--border-subtle); opacity: 0; transform: translateY(8px); transition: opacity var(--dur-slow) var(--ease-standard), transform var(--dur-slow) var(--ease-standard); }
+.ledger-line b { color: var(--text-muted); font-weight: var(--fw-semibold); margin-right: 6px; }
+.ledger-line.on { opacity: 1; transform: none; }
+.approve-card { transition: border-color var(--dur-base) var(--ease-standard), background var(--dur-base) var(--ease-standard); }
+.approve-card.settled { border-color: var(--border-default); background: var(--surface-sunken); }
+.approve-foot { min-height: 46px; margin-top: 20px; }
+.approve-actions { margin-top: 0; transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
+.approve-actions.out { opacity: 0; transform: translateY(-4px); pointer-events: none; }
+.approve-done { margin-top: 0; opacity: 0; transform: translateY(4px); transition: opacity var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard); }
+.approve-done.vis { display: flex; }
+.approve-done.show { opacity: 1; transform: none; }
+.approve-done svg path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset var(--dur-slow) var(--ease-standard) 120ms; }
+.approve-done.show svg path { stroke-dashoffset: 0; }
+.approve-done.emph svg path { transition-timing-function: var(--ease-emphasized); }
+body.gm-on .approve-why { border-left: 2px solid var(--periwinkle-400); padding-left: 14px; }
+body.gm-on .btn:active { transform: scale(0.97); }
+.statnum .solid { color: var(--orange-400); }
+.payoff { max-width: 680px; margin: 34px auto 0; }
+.payoff-line { height: 2px; background: var(--gradient-brand); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-slow) var(--ease-standard); }
+.payoff-note { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows var(--dur-slow) var(--ease-standard), opacity var(--dur-slow) var(--ease-standard); }
+.payoff-note .inner { overflow: hidden; min-height: 0; font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary); line-height: var(--lh-relaxed); }
+.payoff-note .inner p { margin: 18px 0 0; }
+.payoff.open .payoff-line { transform: scaleX(1); }
+.payoff.open .payoff-note { grid-template-rows: 1fr; opacity: 1; }
+.cf-line { font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary); line-height: var(--lh-relaxed); padding: 10px 0; border-top: 1px solid var(--border-subtle); margin: 0; }
+.cf-caption { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-muted); margin-top: 22px; }
+.statnum { font-variant-numeric: tabular-nums; }
+.agent-credit { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle); }
+.roster-row { padding: 12px 0; border-top: 1px solid var(--border-subtle); }
+.roster-row b { display: block; font-family: var(--font-sans); font-size: var(--text-base); font-weight: var(--fw-bold); color: var(--text-primary); margin: 3px 0 4px; }
+.roster-row p { font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--lh-relaxed); margin: 0; }
+.roster-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.roster-head h3 { margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .rv, .ledger-line { opacity: 1; transform: none; transition: none; }
+  .ledger { transition: none; }
+  .approve-card, .approve-actions, .approve-done, .approve-done svg path, .payoff-line, .payoff-note { transition: none; }
+  .approve-done svg path { stroke-dashoffset: 0; }
+}
+
+@media print {
+  .wk-toolbar, .wk-thesis { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="wk-toolbar">
+  <span class="wk-title">Alfred messaging workshop · 6 Aug 2026</span>
+  <div class="wk-group" id="angleTabs"><span class="wk-group-label">Angle</span></div>
+  <div class="wk-group" id="pageTabs"><span class="wk-group-label">Page</span></div>
+</div>
+<div class="wk-thesis" id="thesis"></div>
+
+<main id="stage"></main>
+
+<script>
+/* =============================================================
+   CONSTANT CONTENT (identical across angles, so the workshop
+   compares messaging, not structure)
+   ============================================================= */
+
+const LOGO = "../assets/logos/alfred-logo-white.svg";
+
+const MARKETING_STATS = [
+  { n: "70%", l: "faster decision cycles" },
+  { n: "12%", l: "reduction in wasted spend" },
+  { n: "15+", l: "hours reclaimed every week" },
+  { n: "85%", l: "of marketing questions answered without an analyst" },
+];
+
+const MARKET_STATS = [
+  { n: "1 in 3", l: "marketing leaders run 5 to 15 tools just to measure ROI.", s: "NIQ, 2026" },
+  { n: "63%", l: "say they miss opportunities because decisions take too long.", s: "PwC CMO Survey, 2025" },
+  { n: "58%", l: "of treasurers rank visibility into cash and financial risk as their top challenge.", s: "Deloitte Global Treasury Survey, 2024" },
+];
+
+const RECV_STATS = [
+  { n: "70%", l: "of B2B invoices in India are now overdue, with settlement typically more than a month past terms.", s: "Atradius Payment Practices Barometer, India, 2025" },
+  { n: "+3 days", l: "added to global DSO in a single year, the sharpest jump since 2008, straining cash flow across industries.", s: "Allianz Trade, global DSO analysis, 2024" },
+  { n: "4 in 10", l: "CFOs do not completely trust the accuracy of their own organisation's financial data: inaccurate books, slower decisions.", s: "BlackLine CFO survey, 2024" },
+  { n: "58%", l: "of treasurers rank visibility into cash and financial risk exposure as their single top challenge.", s: "Deloitte Global Treasury Survey, 2024" },
+];
+
+const MKT_AGENTS = [
+  { t: "Daily Brief", v: "briefs", d: "What changed overnight, why it matters, and the move I recommend. On your desk before your first coffee." },
+  { t: "Spend Mix", v: "reallocates", d: "You don't need to guess where the money should go. I show you, with the data." },
+  { t: "Creative Fatigue", v: "watches", d: "Your creative is getting tired. Your spend hasn't noticed yet. I have." },
+  { t: "Anomaly Detection", v: "flags", d: "The issue is flagged before your next stand-up. Not after your next board meeting." },
+  { t: "AI Visibility", v: "scouts", d: "Your buyers are asking AI which platform to use. I tell you whether you're the answer they're getting, and what to do if you're not." },
+  { t: "Unified KPI Cockpit", v: "reconciles", d: "One version of the truth. Not five versions that contradict each other at board time." },
+];
+
+const SALES_AGENTS = [
+  { t: "Sales Play", v: "learns", d: "I reverse-engineer every deal you've ever won or lost into weighted patterns, and rebuild the playbook on every close." },
+  { t: "Deal Deviation", v: "intervenes", d: "The moment a live deal drifts from your winning pattern, I flag why and draft the corrective move, grounded in comparable won deals." },
+  { t: "Revenue Signal", v: "senses", d: "I read intent inside live deals: pricing-page revisits, a champion gone quiet, a new stakeholder. Every deal carries a Signal Heat score." },
+  { t: "Coaching Intelligence", v: "coaches", d: "Continuous coaching, not quarterly reviews. I track each rep against your winning patterns and surface the specific fix." },
+  { t: "Forecast Intelligence", v: "calculates", d: "Deal-level probabilities from your own win history. The forecast stops being a negotiation and starts being a calculation." },
+  { t: "Daily Brief", v: "briefs", d: "The deals needing intervention today, the reps flagging coaching needs, and how the forecast moved since yesterday." },
+];
+
+const RECV_PHASES = [
+  { phase: "Onboard", agents: [
+    { t: "Onboarding & Field Mapping", v: "maps", d: "Learns your ERP's schema on day one, so you're live in weeks, not quarters." },
+    { t: "Document Extraction", v: "reads", d: "Pulls structured data from invoices, credit notes, debit notes and remittances automatically." },
+    { t: "Customer Segmentation", v: "segments", d: "Groups customers by real payment behaviour and risk, so each segment gets the treatment it deserves." },
+  ]},
+  { phase: "Predict", agents: [
+    { t: "Cash Prediction", v: "predicts", d: "Scores every invoice by risk and collectability, and forecasts inflow weeks ahead." },
+    { t: "Risk Simulation", v: "simulates", d: "Models concentration and default scenarios across your top customers, surfacing where trouble compounds." },
+    { t: "Liquidity Forecast", v: "forecasts", d: "Rolls every prediction into a live cash position: inflow variance, DSO drift, working capital." },
+  ]},
+  { phase: "Collect", agents: [
+    { t: "Collection Priority Score", v: "ranks", d: "Ranks every account by the expected value of a human touch, so effort goes where it moves cash." },
+    { t: "Cash Application", v: "matches", d: "Matches payment, remittance, invoice and deduction together the day the cash lands, so every rupee finds its invoice." },
+    { t: "Dunning & Collections", v: "reaches out", d: "Runs the outreach: the right message, timing and channel per customer, drafted for your approval." },
+  ]},
+  { phase: "Resolve & report", agents: [
+    { t: "Dispute & Deduction Management", v: "resolves", d: "Codes every deduction statutory, agreed or claimed, and tracks winnability as it decays." },
+    { t: "ERP Write-back", v: "posts", d: "Posts every reconciled entry back to your ERP: applications, codes, status changes. Under your control." },
+    { t: "Daily Brief", v: "briefs", d: "One brief each morning: what changed overnight, what's predicted today, and the few decisions that need you." },
+  ]},
+];
+
+const HOW_STEPS = [
+  { t: "Connect", d: "I plug into the stack you already run. No rip and replace, no dashboards to build." },
+  { t: "Analyse", d: "I read every signal across your business, and remember every decision and its outcome." },
+  { t: "Recommend", d: "I bring you the move with the reasoning attached. The decision stays yours." },
+  { t: "Execute", d: "The moment you approve, I act. Nothing changes in your stack without your sign-off." },
+];
+
+const TIMELINE = [
+  { t: "Week 1", d: "Connected and reading. Your first brief lands the next morning." },
+  { t: "Month 1", d: "I know your numbers, your channels and your cadence. My recommendations get specific." },
+  { t: "Month 3", d: "I've watched your decisions play out. I start predicting what works for you, not for the average company." },
+  { t: "Month 6", d: "Your institutional memory lives in me: every decision, its outcome, and what caused what. Yours to keep, and mine to use." },
+];
+
+const MODULES = [
+  { t: "Alfred for Marketing", status: "Live", cls: "status-live", tag: "Read less, know more.",
+    bullets: ["Six specialist agents on your funnel", "12% less wasted spend, 70% faster decisions", "Live in under a week"] },
+  { t: "Alfred for Sales", status: "In development", cls: "status-dev", tag: "Catch it at risk, not at lost.",
+    bullets: ["Learns from your own won and lost deals", "Deal-level forecasts, not stage-weighted guesses", "Early access open"] },
+  { t: "Alfred for Receivables", status: "Newly live", cls: "status-new", tag: "Chase less, collect more.",
+    bullets: ["Twelve agents across the full cash cycle", "Predicts slippage before an invoice goes overdue", "Built for the leaders who answer for the cash"] },
+];
+
+const MKT_COMPARE = {
+  old: ["You read dashboards all morning and still brief yourself.",
+        "Spend drift surfaces at the QBR, a quarter too late.",
+        "Creative fatigues silently while budget keeps flowing.",
+        "Every question joins the analyst queue and waits days."],
+  mine: ["I read everything and brief you in four minutes.",
+         "I flag drift before your next stand-up.",
+         "I catch fatigue before performance dips, and say where to shift.",
+         "85% of questions answered on the spot, from your own data."],
+};
+
+const INTEGRATIONS = ["Google Ads", "Meta Ads", "LinkedIn Ads", "Amazon Ads", "GA4", "HubSpot", "Salesforce", "Search Console", "Slack", "Email"];
+
+const SALES_VIGNETTE = "Of the last 26 deals that reached negotiation without an economic-buyer introduction, five closed: 19%. Of the 31 that had one, 18 closed: 58%. Recommended action: a warm intro email, pre-drafted below.";
+
+const RECV_PERSONAS = [
+  { t: "The CFO", d: "From vision to foresight. A live cash position you can defend in the board meeting, with the drivers underneath it." },
+  { t: "The AR Head", d: "From reactive to proactive. Slippage predicted and worked before it becomes overdue, not chased after." },
+  { t: "The Collections Head", d: "From chasing to coaching. Your team spends its hours on the conversations that actually move cash." },
+];
+
+/* =============================================================
+   THE SIX ANGLES
+   ============================================================= */
+
+const g = (s) => '<span class="grad">' + s + '</span>';
+
+/* Shared section copy for every angle. The angle concept lives in the hero
+   and the closing CTA band only; the middle of the page stays product-led. */
+const DEFAULTS = {
+  home: {
+    ctaS: "How I work",
+    statsH2: "Outcomes, not activity", statsIntro: "Confirmed outcomes from Alfred for Marketing, our longest-running live module.",
+    modulesH2: "Where I work for you", modulesIntro: "Marketing is live. Sales is in development. Receivables is newly live.",
+    howH2: "How I work", howIntro: "Four steps, one rule: nothing changes in your stack without your sign-off.",
+    betterH2: "I get better every week", betterIntro: "I remember every signal, decision and outcome. The briefings sharpen as the history builds.",
+    proofH2: "Why leaders bring me in",
+  },
+  marketing: {
+    agentsH2: "The six agents", agentsIntro: "Each one owns a job on your funnel. You talk to one: me.",
+  },
+};
+
+const ANGLES = [
+{
+  name: "I am Alfred",
+  thesis: "The meeting's stated direction, verbatim. Alfred introduces itself in first person and claims the outcomes. Details of how move below the fold.",
+  home: {
+    eyebrow: "Meet Alfred",
+    h1: "Hi. I'm Alfred, " + g("your AI Chief of Staff."),
+    sub: "I run your marketing, help you close deals faster, and collect your receivables sooner. You make the calls. I do the reading, the watching, and the work.",
+    ctaP: "Put me to work", ctaS: "How I work",
+    note: "Live in under a week. No dashboards to build.",
+    cta: { eyebrow: "Next step", h2: "Give me your stack. I'll give you your time back.", sub: "Bring your stack to a 30-minute walkthrough. Connect in the meeting, and your first brief on your own business lands tomorrow morning.", btn: "Talk to sales" },
+  },
+  marketing: {
+    h1: "I'll run " + g("marketing") + " for you.",
+    sub: "Wasted spend flagged before the QBR, not after it. Creative fatigue caught before performance dips. One version of the truth at board time. You approve the moves, I do the reading and the work.",
+    ctaP: "Put me on your funnel",
+    cta: { h2: "Let me take marketing off your desk.", sub: "Within a week I'm reading your whole stack and briefing you every morning.", btn: "Talk to sales" },
+  },
+  sales: {
+    h1: "I'll help you " + g("close deals faster."),
+    sub: "I learn from every deal your company has ever won or lost, and apply it to every deal currently open. Your team executes with intelligence, not instinct.",
+    ctaP: "Join early access",
+    cta: { h2: "Get early access.", sub: "I'm learning revenue the way I learned marketing: from your own deals, not benchmark playbooks.", btn: "Join early access" },
+  },
+  receivables: {
+    h1: "I'll collect " + g("what you're owed."),
+    sub: "I predict which invoices will slip, prevent the slippage before it happens, and keep cash flowing without souring the customer relationships the cash depends on.",
+    ctaP: "See my cash desk",
+    cta: { h2: "Built for the leaders who answer for the cash.", sub: "Bring your ledger to a walkthrough. I'll show you the cash you're not seeing.", btn: "Talk to sales" },
+  },
+},
+{
+  name: "Compounds over time",
+  thesis: "The Helena-style layer the meeting asked for: Alfred learns, so its value compounds. The moat is institutional memory, stated as the headline.",
+  home: {
+    eyebrow: "The AI that compounds",
+    h1: "Month one, I'm useful. " + g("Month six, I'm irreplaceable."),
+    sub: "I'm Alfred, your AI Chief of Staff. I remember every signal, decision and outcome across your business, so every week my briefings get sharper and my calls get closer to yours.",
+    ctaP: "Start compounding", ctaS: "See how I learn",
+    note: "The earlier I start, the more I know.",
+    betterH2: "The compounding curve", betterIntro: "This is the part no tool can copy: your history, living in me, and belonging to you.",
+    cta: { eyebrow: "Next step", h2: "The best week to start was last week.", sub: "Your systems keep the data; nothing keeps the loop. Every week you wait is a week of decisions and outcomes I never get to watch play out. A 30-minute walkthrough this week; the connect happens the same day.", btn: "Book the walkthrough" },
+  },
+  marketing: {
+    h1: "Marketing that " + g("gets better every week."),
+    sub: "I don't just watch your funnel. I remember what worked, what didn't and why, and every recommendation I make starts from everything I've already learned about your business.",
+    ctaP: "Start the flywheel",
+    cta: { h2: "Every campaign makes the next one smarter.", sub: "Connect your stack and let the learning start this week.", btn: "Talk to sales" },
+  },
+  sales: {
+    h1: "Every deal you close " + g("makes me better") + " at the next one.",
+    sub: "My Sales Play Engine rebuilds on every close. Your win patterns become my operating model, and they sharpen with every deal your team runs.",
+    ctaP: "Join early access",
+    cta: { h2: "Start the flywheel with your very next close.", sub: "The earlier I see your deals, the sooner your forecast becomes a calculation.", btn: "Join early access" },
+  },
+  receivables: {
+    h1: "Every invoice teaches me " + g("how your cash behaves."),
+    sub: "Payment behaviour, dispute patterns, seasonal drift. I learn your book customer by customer, so my predictions tighten every single month.",
+    ctaP: "Let me read your book",
+    cta: { h2: "Your book holds years of lessons. Let me read them.", sub: "I learn your customers' payment behaviour from day one and never forget it.", btn: "Talk to sales" },
+  },
+},
+{
+  name: "While you slept",
+  thesis: "Always-on made concrete: the work already happened before the visitor's day started. Scene-led product truth, not a rhetorical device. Every page opens on an overnight scene.",
+  home: {
+    eyebrow: "Every night",
+    h1: "Your business kept moving overnight. " + g("So did I."),
+    sub: "I'm Alfred, your AI Chief of Staff. While you slept I re-read every account, checked every number against its history, and wrote up the three things that need you. It's on your desk before your coffee.",
+    ctaP: "See this morning's brief", ctaS: "How I work",
+    note: "Every morning, seven days a week.",
+    extra: '<div class="brief-card"><p class="cap">The morning brief, a week in · illustrative</p>' +
+      '<p>Spend drift on Meta caught overnight; the correction is drafted and attached, waiting on your word.</p>' +
+      '<p>The Meridian deal reached negotiation without an economic-buyer introduction. I have the warm intro drafted.</p>' +
+      '<p>Nabha Industries is stretching beyond its usual payment pattern. A call from your side lands better than my letter.</p>' +
+      '</div>',
+    cta: { eyebrow: "Next step", h2: "Tonight could be my first shift.", sub: "A 30-minute walkthrough this afternoon, then the connect. Wake up to your first brief.", btn: "Start tonight" },
+  },
+  marketing: {
+    h1: "Spend drifts at 2am. " + g("I'm awake for it."),
+    sub: "Budgets don't wait for your morning meeting. I watch every account through the night, flag what moved, and have the reallocation drafted before your team logs in.",
+    ctaP: "Put me on the night shift",
+    cta: { h2: "Wake up ahead of your funnel.", sub: "Connect your accounts today. First overnight brief tomorrow.", btn: "Start tonight" },
+  },
+  sales: {
+    h1: "Deals go quiet at night. " + g("I notice by morning."),
+    sub: "A champion stops replying, a stage lingers a day too long, a new stakeholder appears. I check every live deal against your win patterns overnight and tell you which ones need you today.",
+    ctaP: "Join early access",
+    cta: { h2: "Know by 7am which deals need you.", sub: "Early access: I read your deal history, then take the night shift on your pipeline.", btn: "Join early access" },
+  },
+  receivables: {
+    h1: "Payments land at midnight. " + g("Applied by morning."),
+    sub: "Cash doesn't keep office hours. I match every payment the night it arrives, rescore every open invoice, and start your morning with a cash position that's already true.",
+    ctaP: "See the morning position",
+    cta: { h2: "Wake up to a true cash position.", sub: "Start the connect tonight; I map your ERP over the first week, and every morning after starts reconciled.", btn: "Start tonight" },
+  },
+},
+{
+  name: "Answers for the number",
+  thesis: "Accountability as positioning: your team carries targets, your agencies carry targets, your software never has. Alfred invites being held to a number and shows its working.",
+  home: {
+    eyebrow: "Accountability",
+    h1: "Hold me to a number, " + g("like everyone else who works for you."),
+    sub: "I'm Alfred, your AI Chief of Staff. Your team carries targets. Your agencies carry targets. Your software never has. I work against the same numbers you answer for, and I show my reasoning on every call.",
+    ctaP: "Set the number", ctaS: "How I work",
+    note: "Pick the metric. Every Monday I publish my own scorecard against it, misses first, with what I got wrong and what changes.",
+    cta: { eyebrow: "Next step", h2: "Give me a number to answer for.", sub: "A 30-minute walkthrough: pick the metric that hurts, and I'll show you how I'd move it, and how I report when I miss.", btn: "Set the number" },
+  },
+  marketing: {
+    h1: "Your marketing spend " + g("finally has someone answering for it."),
+    sub: "Every rupee of budget gets read, questioned and defended. When spend drifts from return, I flag it, say why, and bring the reallocation for your sign-off.",
+    ctaP: "Put me on the budget",
+    cta: { h2: "Make the budget answer back.", sub: "Connect your accounts, pick the number, and watch it get defended.", btn: "Set the number" },
+  },
+  sales: {
+    h1: "A forecast someone " + g("actually stands behind."),
+    sub: "Stage-weighted guesses answer to nobody. My probabilities come from your own win history, and every deal's score shows its working. When my probability is wrong, I say so in the next brief and show which pattern misled me.",
+    ctaP: "Join early access",
+    cta: { h2: "Get a forecast with a spine.", sub: "Early access: deal-level probabilities you can interrogate, from your own history.", btn: "Join early access" },
+  },
+  receivables: {
+    h1: "Someone finally " + g("owns the DSO number."),
+    sub: "Cash slips when it's everyone's problem and no one's job. I own the watching: every invoice scored, every risk worked early, every action logged for your review.",
+    ctaP: "Hand me the number",
+    cta: { h2: "Make DSO someone's job. Mine.", sub: "Connect your ERP, and the cash cycle gets an owner this week.", btn: "Hand me the number" },
+  },
+},
+{
+  name: "Leverage",
+  thesis: "Growth without headcount: the analyst layer that scaling usually requires, absorbed. The growth-product promise stated as organisational leverage, resonant for every ICP holding a budget.",
+  home: {
+    eyebrow: "Leverage",
+    h1: "Run a bigger company " + g("with the team you already have."),
+    sub: "I'm Alfred, your AI Chief of Staff. Growth used to mean hiring ahead of it: analysts, coordinators, another layer of reviews. I absorb that layer, so your best people spend their time on the work only they can do.",
+    ctaP: "Find my leverage", ctaS: "How I work",
+    note: "15+ leadership hours back every week, from the marketing module alone.",
+    cta: { eyebrow: "Next step", h2: "Grow the numbers, not the org chart.", sub: "A 30-minute walkthrough to find the hours and spend hiding in your current stack.", btn: "Find my leverage" },
+  },
+  marketing: {
+    h1: "A marketing team that performs " + g("two sizes bigger."),
+    sub: "The analyst you were about to hire, the reporting hours you lose every Monday, the channel tests that never get run: I take all of it, and your team ships the work that grows the business.",
+    ctaP: "Upsize the team",
+    cta: { h2: "Get the analyst without the req.", sub: "Connect your stack and the reporting layer disappears this week.", btn: "Find my leverage" },
+  },
+  sales: {
+    h1: "Every rep sells like " + g("your best rep prepared them."),
+    sub: "Deal risks flagged from your own win patterns, the corrective move drafted for approval, and the specific coaching fix surfaced per rep. The judgement that separates your top performer becomes standard issue for the whole floor.",
+    ctaP: "Join early access",
+    cta: { h2: "Raise the floor of the whole team.", sub: "Early access: your win patterns, turned into every rep's prep.", btn: "Join early access" },
+  },
+  receivables: {
+    h1: "A collections function " + g("bigger than its headcount."),
+    sub: "Twelve agents cover the scoring, matching, chasing and reconciling. Your people handle only the calls that need judgement, and the whole book gets worked without a single new seat.",
+    ctaP: "Multiply the team",
+    cta: { h2: "Scale collections without hiring.", sub: "Connect your ERP: the mapping starts this week, and the full cash cycle is covered without adding a single seat.", btn: "Multiply the team" },
+  },
+},
+{
+  name: "The butler",
+  gamified: true,
+  thesis: "Variant of angle 1, gamified. Alfred as the butler he's named for: the page is your first conversation with him. Choose your seat, read a brief, approve one move. The product loop, played instead of claimed. All interactive cards use illustrative demo data.",
+  home: {}, marketing: {}, sales: {}, receivables: {},
+},
+];
+
+/* =============================================================
+   RENDERERS
+   ============================================================= */
+
+const PAGES = [
+  { id: "home", label: "Home" },
+  { id: "marketing", label: "Marketing" },
+  { id: "sales", label: "Sales" },
+  { id: "receivables", label: "Receivables" },
+  { id: "scorecard", label: "Scorecard" },
+];
+
+function nav() {
+  return '<header class="m-nav"><div class="container m-nav-inner">' +
+    '<a class="m-logo" href="#"><img src="' + LOGO + '" alt="alfred ai" /></a>' +
+    '<nav style="display:flex;align-items:center;gap:26px">' +
+      ['Marketing','Sales','Receivables','Pricing'].map(l => '<a class="link" href="#">' + l + '</a>').join('') +
+    '</nav>' +
+    '<div style="margin-left:auto;display:flex;gap:10px"><button class="btn sm btn-s">Sign in</button><button class="btn sm btn-p">Talk to sales</button></div>' +
+  '</div></header>';
+}
+
+function hero(o, chipText, chipCls) {
+  return '<section class="hero"><div class="container hero-inner">' +
+    '<span class="chip ' + (chipCls || '') + '"><span class="dot"></span>' + chipText + '</span>' +
+    '<h1 class="h1">' + o.h1 + '</h1>' +
+    '<p class="hero-sub">' + o.sub + '</p>' +
+    '<div class="hero-ctas"><button class="btn btn-p">' + o.ctaP + '</button>' + (o.ctaS ? '<button class="btn btn-s">' + o.ctaS + '</button>' : '') + '</div>' +
+    (o.note ? '<p class="hero-note">' + o.note + '</p>' : '') +
+    (o.extra || '') +
+  '</div></section>';
+}
+
+function sectionHead(eyebrow, h2, intro) {
+  return '<p class="eyebrow">' + eyebrow + '</p><h2 class="h2">' + h2 + '</h2>' + (intro ? '<p class="intro">' + intro + '</p>' : '');
+}
+
+function statsBand(stats, eyebrow, h2, intro, sunken, srcDefault) {
+  return '<section class="band' + (sunken ? ' sunken' : '') + '"><div class="container">' +
+    sectionHead(eyebrow, h2, intro) +
+    '<div class="grid g4">' + stats.map(s =>
+      '<div><div class="statnum"><span class="grad">' + s.n + '</span></div><div class="statlbl">' + s.l + '</div>' +
+      ((s.s || srcDefault) ? '<div class="statsrc">' + (s.s || srcDefault) + '</div>' : '') + '</div>'
+    ).join('') +
+  '</div></div></section>';
+}
+
+function agentGrid(agents) {
+  return '<div class="grid g3">' + agents.map(a =>
+    '<div class="card"><span class="verb">' + a.v + '</span><h3>' + a.t + '</h3><p>' + a.d + '</p></div>'
+  ).join('') + '</div>';
+}
+
+function howBand(eyebrow, h2, intro, sunken) {
+  return '<section class="band' + (sunken ? ' sunken' : '') + '"><div class="container">' +
+    sectionHead(eyebrow, h2, intro) +
+    '<div class="grid g4">' + HOW_STEPS.map((s, i) =>
+      '<div class="card"><span class="step-num">0' + (i + 1) + '</span><h3>' + s.t + '</h3><p>' + s.d + '</p></div>'
+    ).join('') +
+  '</div></div></section>';
+}
+
+function ctaBand(c) {
+  return '<section class="band"><div class="container"><div class="cta-wrap"><div class="cta-in">' +
+    '<p class="cta-eyebrow">' + (c.eyebrow || 'Next step') + '</p>' +
+    '<h2 class="cta-h2">' + c.h2 + '</h2>' +
+    '<p class="cta-sub">' + c.sub + '</p>' +
+    '<div class="hero-ctas"><button class="btn btn-ink">' + c.btn + '</button></div>' +
+  '</div></div></div></section>';
+}
+
+function footer() {
+  return '<footer class="m-footer"><div class="container"><div class="cols">' +
+    '<div><img src="' + LOGO + '" alt="alfred ai" style="height:22px" /><p style="margin-top:14px;max-width:260px">Your AI Chief of Staff. Built by E902.</p></div>' +
+    '<div><p class="fh">Products</p><a href="#">Marketing</a><br/><a href="#">Sales</a><br/><a href="#">Receivables</a></div>' +
+    '<div><p class="fh">Company</p><a href="#">About</a><br/><a href="#">Pricing</a><br/><a href="#">Contact</a></div>' +
+    '<div><p class="fh">Legal</p><a href="#">Privacy</a><br/><a href="#">Terms</a><br/><a href="#">Security</a></div>' +
+  '</div><p style="margin-top:40px">© 2026 E902 · seekalfred.ai</p></div></footer>';
+}
+
+function renderHome(a) {
+  const o = Object.assign({}, DEFAULTS.home, a.home);
+  return nav() +
+    hero(o, o.eyebrow) +
+    statsBand(MARKETING_STATS, 'Track record', o.statsH2, o.statsIntro, true, 'Confirmed outcome · Alfred for Marketing') +
+    '<section class="band"><div class="container">' + sectionHead('The modules', o.modulesH2, o.modulesIntro) +
+      '<div class="grid g3">' + MODULES.map(m =>
+        '<div class="card"><span class="status-tag ' + m.cls + '">' + m.status + '</span><h3>' + m.t + '</h3>' +
+        '<p style="color:var(--text-primary);font-weight:var(--fw-semibold);margin-bottom:12px">' + m.tag + '</p>' +
+        m.bullets.map(b => '<p style="padding:6px 0;border-top:1px solid var(--border-subtle)">' + b + '</p>').join('') + '</div>'
+      ).join('') +
+    '</div></div></section>' +
+    howBand('The operating model', o.howH2, o.howIntro, true) +
+    '<section class="band"><div class="container">' + sectionHead('Compounding', o.betterH2, o.betterIntro) +
+      '<div class="grid g4 timeline">' + TIMELINE.map(t =>
+        '<div class="card"><span class="step-num">' + t.t + '</span><p>' + t.d + '</p></div>'
+      ).join('') +
+    '</div></div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('The problem', o.proofH2, '') +
+      '<div class="grid g3">' + MARKET_STATS.map(s =>
+        '<div><div class="statnum"><span class="grad">' + s.n + '</span></div><div class="statlbl">' + s.l + '</div><div class="statsrc">' + s.s + '</div></div>'
+      ).join('') +
+    '</div></div></section>' +
+    ctaBand(o.cta) + footer();
+}
+
+function renderMarketing(a) {
+  const o = Object.assign({}, DEFAULTS.marketing, a.marketing);
+  return nav() +
+    hero({ h1: o.h1, sub: o.sub, ctaP: o.ctaP, ctaS: 'How I work', note: 'First brief the next morning · fully live in under a week' }, 'Alfred for Marketing · Live') +
+    statsBand(MARKETING_STATS, 'Confirmed outcomes', 'The numbers I answer for', 'Measured across the module, not promised in a deck.', true, 'Confirmed outcome') +
+    '<section class="band"><div class="container">' + sectionHead('The agents', o.agentsH2, o.agentsIntro) + agentGrid(MKT_AGENTS) + '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('The difference', 'The old way, and mine', '') +
+      '<div class="compare">' +
+        '<div class="col old"><h4>Without me</h4><ul>' + MKT_COMPARE.old.map(x => '<li>' + x + '</li>').join('') + '</ul></div>' +
+        '<div class="col mine"><h4>With me</h4><ul>' + MKT_COMPARE.mine.map(x => '<li>' + x + '</li>').join('') + '</ul></div>' +
+      '</div>' +
+    '</div></section>' +
+    howBand('The operating model', 'How I work', 'Connect the stack once. I take it from there.', false) +
+    '<section class="band sunken"><div class="container">' + sectionHead('Integrations', 'I read what you already run', 'No new tracking, no migration. I connect to the stack you have.') +
+      '<div class="pill-row">' + INTEGRATIONS.map(i => '<span class="pill">' + i + '</span>').join('') + '</div>' +
+    '</div></section>' +
+    ctaBand(o.cta) + footer();
+}
+
+function renderSales(a) {
+  const o = a.sales;
+  return nav() +
+    hero({ h1: o.h1, sub: o.sub, ctaP: o.ctaP, ctaS: 'How I work', note: 'In development · early access open' }, 'Alfred for Sales · In development', 'peri') +
+    '<section class="band sunken"><div class="container">' + sectionHead('The foundation', 'The Sales Play Engine', 'I don\'t score your deals against benchmarks or anyone else\'s pipeline. I build only from yours: I reverse-engineer the specific factors behind every deal your company has won or lost, and use those patterns as the operating model for every live deal.') +
+      '<div class="grid g3">' +
+        '<div class="card"><h3>Learns from every close</h3><p>Won and lost deals, analysed across the dimensions that predict outcomes at your company specifically.</p></div>' +
+        '<div class="card"><h3>Weighted patterns by deal type</h3><p>Not one playbook. Pattern rules segmented by segment, size and motion, weighted by what actually predicted the win.</p></div>' +
+        '<div class="card"><h3>Rebuilds on every close</h3><p>The model never goes stale. Each closed deal updates the patterns every live deal is measured against.</p></div>' +
+      '</div>' +
+      '<div class="vignette"><p class="q">“' + SALES_VIGNETTE + '”</p><p class="who">Deal Deviation agent · illustrative flag, from the kind of deal history I build from your own CRM</p></div>' +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('The agents', 'Six agents on your pipeline', 'Each one watches a different failure mode. All of them report to you through me.') + agentGrid(SALES_AGENTS) + '</div></section>' +
+    howBand('The operating model', 'How I work', 'Your CRM stays the system of record. I become the system of action.', true) +
+    ctaBand(o.cta) + footer();
+}
+
+function renderReceivables(a) {
+  const o = a.receivables;
+  const cash = '<div class="cash-panel"><p class="ph">Cash outlook · this month · illustrative</p>' +
+    '<div class="cash-row"><span class="k">Expected inflow</span><span class="v">₹2.42 Cr</span></div>' +
+    '<div class="cash-row"><span class="k">DSO drift</span><span class="v flag">+3.1 days</span></div>' +
+    '<div class="cash-row"><span class="k">Nabha Industries</span><span class="v flag">Needs you · call recommended</span></div>' +
+    '<div class="cash-row"><span class="k">Applied today</span><span class="v">₹4.18L</span></div>' +
+  '</div>';
+  return nav() +
+    hero({ h1: o.h1, sub: o.sub, ctaP: o.ctaP, ctaS: 'How I work', extra: cash }, 'Alfred for Receivables', 'peri') +
+    statsBand(RECV_STATS, 'The problem', 'The state of the receivable', 'Receivables slip quietly, then all at once. The data says it plainly.', true) +
+    '<section class="band"><div class="container">' + sectionHead('The spine', 'Predict · Prevent · Perfect', 'Three moves, in that order. Most AR software starts and ends at step three.') +
+      '<div class="grid g3">' +
+        '<div class="card"><h3>Predict</h3><p>See the delay before it happens. Every invoice scored for risk and collectability, cash forecast weeks ahead.</p></div>' +
+        '<div class="card"><h3>Prevent</h3><p>Act before it becomes overdue. The right touch, to the right account, at the moment it changes the outcome.</p></div>' +
+        '<div class="card"><h3>Perfect</h3><p>Keep the cash position true. Payments applied the day they land, disputes coded, ERP written back.</p></div>' +
+      '</div>' +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('The agents', 'Twelve agents across the cash cycle', 'Four phases, from onboarding to the morning brief. Your team keeps the human conversations.') +
+      RECV_PHASES.map(p => '<p class="phase-h">' + p.phase + '</p>' + agentGrid(p.agents)).join('') +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('Who it’s for', 'Built for the people who answer for the cash', '') +
+      '<div class="grid g3">' + RECV_PERSONAS.map(p => '<div class="card"><h3>' + p.t + '</h3><p>' + p.d + '</p></div>').join('') + '</div>' +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('Trust', 'Autonomy is earned, never assumed', 'I propose, you approve. After ten consecutive accepted proposals on a task, you can grant me autonomy for that task, and revoke it just as easily.') +
+    '</div></section>' +
+    ctaBand(o.cta) + footer();
+}
+
+/* =============================================================
+   GAMIFIED BUTLER VARIANT
+   ============================================================= */
+
+const BOWTIE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l7 4-7 4z"/><path d="M21 7l-7 4 7 4z"/><rect x="10" y="9.5" width="4" height="5" rx="1"/></svg>';
+const TICK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" pathLength="1"/></svg>';
+const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let gmRole = null;
+
+const GM_ROLES = [
+  { k: "pipeline", label: "Pipeline", go: "marketing", goLabel: "To the marketing desk", reply: "Very good. Pipeline it is. Your funnel had a busy night; the marketing desk has three flags waiting on you." },
+  { k: "revenue", label: "Revenue", go: "sales", goLabel: "To the sales desk", reply: "Very good. Revenue, then. One of your live deals is quietly dying. Come; I'll let you guess which before I tell you." },
+  { k: "cash", label: "Cash", go: "receivables", goLabel: "To the cash desk", reply: "Very good. Cash it is. The overnight payments are applied and the worklist is ranked. Four accounts want attention." },
+  { k: "all", label: "All of it", go: null, goLabel: "Begin the tour", reply: "Spoken like a founder. The full tour, then: how a first week with me goes, desk by desk." },
+];
+
+function chatCard(greeting, chipsHtml) {
+  return '<div class="chat-card" tabindex="0" role="button" aria-label="Skip the typing"><div class="chat-head">' +
+    '<span class="chat-avatar">' + BOWTIE + '</span>' +
+    '<div><div class="chat-name">Alfred</div><div class="chat-role">Your AI Chief of Staff</div></div>' +
+    '</div>' +
+    '<div class="chat-line"><span id="gmText"></span><span class="chat-caret" id="gmCaret"></span></div>' +
+    chipsHtml +
+    '<div class="gm-reply" id="gmReply"></div>' +
+  '</div>';
+}
+
+function gmHero(greeting, chipsHtml, chipLabel) {
+  return '<section class="hero"><div class="container hero-inner">' +
+    '<span class="chip"><span class="dot"></span>' + (chipLabel || 'At your service') + '</span>' +
+    chatCard(greeting, chipsHtml) +
+  '</div></section>';
+}
+
+function gmType(text, after) {
+  const el = document.getElementById("gmText");
+  const caret = document.getElementById("gmCaret");
+  if (!el) return;
+  clearTimeout(window._gmT);
+  let done = false;
+  const finish = () => { if (done) return; done = true; clearTimeout(window._gmT); el.textContent = text; if (caret) caret.style.display = "none"; if (after) after(); };
+  window._gmFinishType = finish;
+  if (REDUCED || window._gmSkip) { finish(); return; }
+  el.textContent = "";
+  let i = 0;
+  const step = () => {
+    if (done) return;
+    el.textContent = text.slice(0, ++i);
+    if (i >= text.length) { finish(); return; }
+    const c = text[i - 1];
+    let d = 14;
+    if (c === " ") d = 24;
+    else if (c === ",") d = 45;
+    else if (c === "." || c === "?" || c === "!") d = 90;
+    window._gmT = setTimeout(step, d);
+  };
+  window._gmT = setTimeout(step, 14);
+  const card = el.closest(".chat-card");
+  if (card) {
+    card.style.cursor = "pointer";
+    card.onclick = finish;
+    card.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); finish(); } };
+  }
+}
+
+function gmShowChips() { const c = document.getElementById("gmChips"); if (c) c.classList.add("show"); }
+
+function gmPick(idx) {
+  gmRole = GM_ROLES[idx];
+  document.querySelectorAll(".gm-chip").forEach((b, i) => b.classList.toggle("picked", i === idx));
+  const r = document.getElementById("gmReply");
+  if (r) {
+    r.innerHTML = gmRole.reply +
+      '<div style="margin-top:14px"><button class="btn sm btn-p" onclick="' +
+      (gmRole.go ? "gmGo('" + gmRole.go + "')" : "gmTour()") +
+      '">' + gmRole.goLabel + '</button></div>';
+    r.classList.add("show");
+  }
+}
+
+function gmGo(page) { curPage = page; draw(); }
+function gmTour() {
+  const first = document.querySelector("#stage section.band");
+  if (first) first.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+}
+
+function moduleCard(m) {
+  return '<div class="card"><span class="status-tag ' + m.cls + '">' + m.status + '</span><h3>' + m.t + '</h3>' +
+    '<p style="color:var(--text-primary);font-weight:var(--fw-semibold);margin-bottom:12px">' + m.tag + '</p>' +
+    m.bullets.map(b => '<p style="padding:6px 0;border-top:1px solid var(--border-subtle)">' + b + '</p>').join('') + '</div>';
+}
+
+function approveBlock(id, cap, body, why, approveLabel, doneLine, group, extra) {
+  const call = "gmApprove('" + id + "'" + (group ? ", '" + group + "'" + (extra != null ? ", " + extra : "") : "") + ")";
+  return '<div class="approve-card" id="' + id + '"><p class="cap">' + cap + '</p>' +
+    '<p class="abody">' + body + '</p>' +
+    '<div class="approve-why" id="' + id + 'Why">' + why + '</div>' +
+    '<div class="approve-foot"><div class="approve-actions" id="' + id + 'Act">' +
+      '<button class="btn sm btn-p" onclick="' + call + '">' + approveLabel + '</button>' +
+      '<button class="btn sm btn-s" onclick="gmWhy(\'' + id + '\')">Ask why</button>' +
+    '</div>' +
+    '<div class="approve-done" id="' + id + 'Done">' + TICK + '<span>' + doneLine + '</span></div></div>' +
+  '</div>';
+}
+
+function gmWhy(id) { document.getElementById(id + "Why").classList.toggle("show"); }
+
+/* grouped approvals: 'mk' = marketing triage, 'hm' = home three-desk queue, 'wl' = receivables worklist */
+let gmMk = 0, gmHm = 0, gmWlSum = 0, gmWlDone = 0, gmT0 = null, gmDoneSet = new Set(), _introTimers = [];
+
+function gmSettleCard(id) {
+  const act = document.getElementById(id + "Act");
+  const done = document.getElementById(id + "Done");
+  const card = document.getElementById(id);
+  if (card) card.classList.add("settled");
+  if (REDUCED) {
+    act.style.display = "none";
+    done.classList.add("vis", "show");
+    return;
+  }
+  act.classList.add("out");
+  setTimeout(() => {
+    act.style.display = "none";
+    done.classList.add("vis");
+    requestAnimationFrame(() => requestAnimationFrame(() => done.classList.add("show")));
+  }, 120);
+}
+
+function gmApprove(id, group, extra) {
+  const cardEl = document.getElementById(id);
+  if (!cardEl || cardEl.dataset.done) return;
+  cardEl.dataset.done = "1";
+  gmSettleCard(id);
+  if (group === "mk") {
+    gmMk++;
+    const c = document.getElementById("gmMkCount");
+    if (c) c.innerHTML = gmMk >= 3 ? "<b>3 of 3.</b> All settled." : "<b>" + gmMk + " of 3</b> matters settled";
+    if (gmMk >= 3) {
+      const done = document.getElementById(id + "Done");
+      if (done) done.classList.add("emph");
+      const secs = gmT0 ? Math.round((performance.now() - gmT0) / 1000) : null;
+      const timed = secs !== null && secs <= 120;
+      const tail = " The day is yours; I shall keep the watch, and if anything moves that should not, you will hear from me before it compounds.";
+      const noteText = timed
+        ? "Queue cleared at 7:04. Three calls, " + secs + " seconds of your attention." + tail
+        : "Queue cleared at 7:04. Three calls, all settled." + tail;
+      const ctaSub = document.getElementById("gmCtaSub");
+      if (ctaSub && timed) ctaSub.textContent = "You cleared three flags in " + secs + " seconds. Connect your accounts this afternoon; your first brief arrives at 7:00 tomorrow, with the night's work already done.";
+      _introTimers.push(setTimeout(() => {
+        const pay = document.getElementById("gmPayoff");
+        if (pay) {
+          pay.querySelector(".inner p").textContent = noteText;
+          pay.classList.add("open");
+          gmMark(2);
+          pay.scrollIntoView({ block: "nearest", behavior: REDUCED ? "auto" : "smooth" });
+        }
+      }, REDUCED ? 0 : 300));
+    }
+  }
+  if (group === "hm") {
+    gmHm++;
+    const c = document.getElementById("gmHmCount");
+    if (c) c.innerHTML = gmHm >= 3 ? "<b>3 of 3.</b> Every desk handled." : "<b>" + gmHm + " of 3</b> desks handled";
+    if (gmHm >= 3) {
+      const done = document.getElementById(id + "Done");
+      if (done) done.classList.add("emph");
+      const secs = gmT0 ? Math.round((performance.now() - gmT0) / 1000) : null;
+      const timed = secs !== null && secs <= 120;
+      const noteText = (timed
+        ? "Three desks, three calls, " + secs + " seconds."
+        : "Three desks, three calls, all settled.") +
+        " That is the entire job: I read, I remember, I recommend; you decide. Everything below is how I keep earning it.";
+      _introTimers.push(setTimeout(() => {
+        const pay = document.getElementById("gmHmPayoff");
+        if (pay) {
+          pay.querySelector(".inner p").textContent = noteText;
+          pay.classList.add("open");
+          gmMark(2);
+          pay.scrollIntoView({ block: "nearest", behavior: REDUCED ? "auto" : "smooth" });
+        }
+      }, REDUCED ? 0 : 300));
+    }
+  }
+  if (group === "wl") {
+    gmWlDone++; gmWlSum += extra || 0;
+    const row = document.getElementById(id + "Row");
+    if (row) row.classList.add("done");
+    const c = document.getElementById("gmWlCount");
+    if (c) c.innerHTML = "Worked this morning: <b>₹" + gmWlSum.toFixed(1) + "L</b> of ₹31.3L flagged today";
+    if (gmWlDone >= 4) { const n = document.getElementById("gmWlNote"); if (n) n.classList.add("show"); }
+  }
+}
+
+/* rail milestones: earned progress never regresses */
+function gmMark(i) { gmDoneSet.add(i); if (window._gmRailTick) window._gmRailTick(); }
+
+/* marketing intro: night ledger stagger, then the 7:00 greeting */
+function gmIntro() {
+  const lines = Array.from(document.querySelectorAll(".ledger-line"));
+  const ledger = document.getElementById("gmLedger");
+  const startType = () => {
+    if (window._gmIntroDone) return;
+    window._gmIntroDone = true;
+    if (ledger) ledger.classList.add("dim");
+    gmMark(0);
+    gmType(GM_GREETINGS.marketing, () => { gmMark(1); gmShowChips(); });
+  };
+  if (REDUCED) { lines.forEach(l => l.classList.add("on")); startType(); return; }
+  lines.forEach((l, i) => _introTimers.push(setTimeout(() => l.classList.add("on"), 250 + i * 450)));
+  _introTimers.push(setTimeout(startType, 250 + lines.length * 450 + 300));
+  const hero = document.querySelector(".hero");
+  if (hero) hero.addEventListener("click", () => {
+    _introTimers.forEach(clearTimeout);
+    lines.forEach(l => l.classList.add("on"));
+    window._gmSkip = true;
+    startType();
+    if (window._gmFinishType) window._gmFinishType();
+  }, { once: true });
+}
+
+function gmBrief() {
+  const chip = document.querySelector(".gm-chip");
+  if (chip) { chip.classList.add("picked"); chip.disabled = true; }
+  const r = document.getElementById("gmReply");
+  if (r) { r.textContent = "Right this way."; r.classList.add("show"); }
+  _introTimers.push(setTimeout(() => {
+    const q = document.getElementById("gmQueue");
+    if (q) q.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+  }, REDUCED ? 0 : 400));
+}
+
+/* shared scroll-reveal system + queue timer + stat count-ups (marketing page) */
+function gmReveals() {
+  requestAnimationFrame(() => {
+    const els = document.querySelectorAll(".rv");
+    if (REDUCED || !("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("rv-on")); }
+    else {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if (!en.isIntersecting) return;
+          const el = en.target;
+          el.style.transitionDelay = (el.dataset.rvd || 0) + "ms";
+          el.classList.add("rv-on");
+          io.unobserve(el);
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+      els.forEach(e => io.observe(e));
+    }
+    const queue = document.getElementById("gmQueue");
+    if (queue && "IntersectionObserver" in window) {
+      const tio = new IntersectionObserver(entries => {
+        if (entries.some(en => en.isIntersecting)) { if (!gmT0) gmT0 = performance.now(); tio.disconnect(); }
+      }, { threshold: 0.35 });
+      tio.observe(queue);
+    } else if (queue) { gmT0 = performance.now(); }
+    const band = document.getElementById("gmCf");
+    const counts = document.querySelectorAll("[data-n]");
+    const run = () => counts.forEach(el => {
+      const target = parseFloat(el.dataset.n), suf = el.dataset.suf || "";
+      if (REDUCED) { el.textContent = target + suf; return; }
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / 600), v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        el.textContent = v + suf;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+    if (band && "IntersectionObserver" in window && !REDUCED) {
+      const cio = new IntersectionObserver(entries => {
+        if (entries.some(en => en.isIntersecting)) { run(); cio.disconnect(); }
+      }, { threshold: 0.3 });
+      cio.observe(band);
+    } else if (band) { run(); }
+  });
+}
+
+/* sales: guess the dying deal */
+const GM_DEALS = [
+  { name: "Apex Retail", value: "₹28L", stage: "Demo", signal: "On fire", ok: true,
+    verdict: "Healthy. Champion replied yesterday, a second stakeholder joined the thread, stage pace is a day ahead of your median. Not my worry." },
+  { name: "Meridian Systems", value: "₹42L", stage: "Negotiation", signal: "Warm", ok: false,
+    verdict: "This one. Your CRM says warm. Your own win history says dying: negotiation reached with no economic buyer in the room. Read on." },
+  { name: "Zenith Labs", value: "₹15L", stage: "Discovery", signal: "Steady", ok: true,
+    verdict: "Healthy. Early, but the discovery answers match your winning pattern. I'll flag it the day that changes." },
+];
+
+function gmDeal(i) {
+  const d = GM_DEALS[i];
+  const card = document.getElementById("gmDeal" + i);
+  if (!card || card.dataset.open) return;
+  card.dataset.open = "1";
+  card.classList.add(d.ok ? "cleared" : "risky");
+  const v = document.getElementById("gmDeal" + i + "V");
+  v.textContent = d.verdict;
+  v.classList.add("show", d.ok ? "ok" : "bad");
+  if (!d.ok) {
+    const rescue = document.getElementById("gmRescue");
+    if (rescue) { rescue.style.display = "block"; rescue.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "center" }); }
+  }
+}
+
+function gmWl(id) { document.getElementById(id + "Detail").classList.toggle("show"); }
+
+function gmRail(steps) {
+  return '<div class="gm-rail"><div class="gm-bar" id="gmBar"></div>' +
+    steps.map(s => '<span class="gm-step"><span class="dotp"></span>' + s + '</span>').join("") +
+  '</div>';
+}
+
+const RAIL_HOME = ["6:58 · The house reports", "7:00 · Three decisions", "7:04 · Meet the staff", "Month 6 · Irreplaceable"];
+const RAIL_MKT = ["Overnight · The log", "7:00 · The brief", "7:04 · Queue cleared", "All day · I watch"];
+const RAIL_SALES = ["Every close · I learn", "Nightly · Deals checked", "Morning · The flag", "You · One approval"];
+const RAIL_RECV = ["Night · Applied & scored", "7:00 · Position true", "Morning · The worklist", "You · The few calls"];
+
+function gmAttachRail() {
+  const bar = document.getElementById("gmBar");
+  if (!bar) { window._gmRailTick = null; window.onscroll = null; return; }
+  const steps = Array.from(document.querySelectorAll(".gm-step"));
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const h = document.documentElement;
+    const f = Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight));
+    const earned = steps.length ? gmDoneSet.size / steps.length : 0;
+    bar.style.transform = "scaleX(" + Math.max(f, earned) + ")";
+    steps.forEach((s, i) => s.classList.toggle("done", gmDoneSet.has(i) || f >= (i + 0.5) / steps.length));
+  };
+  window._gmRailTick = update;
+  window.onscroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  update();
+}
+
+const GM_GREETINGS = {
+  home: "Good morning. I'm Alfred, your AI Chief of Staff. The house has been up all night: three desks, three overnight reports, three matters for your judgement. Which number do you carry?",
+  marketing: "Good morning. While you slept I read the funnel end to end and kept back exactly three matters for your judgement. None will outlast your coffee.",
+  sales: "Good morning. One of your three biggest live deals is quietly dying. Care to guess which? I already know.",
+  receivables: "While you slept, ₹4.18L arrived and found its invoices, and I re-ranked the book. Four accounts are worth your morning. Work them in order, or jump to the one that worries you.",
+};
+
+const HOME_DESKS = [
+  { name: "The marketing desk", pill: "hi", pillLabel: "Live", line: "31 live ads checked · search terms swept · 3 flags raised",
+    top: "Creative set 4 is fatiguing while its budget holds, the queries you paused found a way back in through broad match, and a competitor is winning your buyers' AI answers. All three fixes are drafted; one waits in the queue below.",
+    go: "marketing", goLabel: "Go to the marketing desk" },
+  { name: "The sales desk", pill: "med", pillLabel: "In development", line: "14 live deals rescored against your win patterns · 1 deviation flagged",
+    top: "Meridian Systems reached negotiation without an economic-buyer introduction. Deals that did this closed at 19%; with the intro, 58%. The warm intro is drafted for your champion.",
+    go: "sales", goLabel: "Go to the sales desk" },
+  { name: "The cash desk", pill: "hi", pillLabel: "Newly live", line: "₹4.18L applied overnight · book re-ranked · 4 accounts worth attention",
+    top: "Nabha Industries is drifting eleven days past its own payment pattern, with ₹18.6L exposed. The call brief is prepared: history, contacts, the ask. The other three accounts have their actions queued.",
+    go: "receivables", goLabel: "Go to the cash desk" },
+];
+
+function gmDesk(i) { document.getElementById("hb" + i + "D").classList.toggle("show"); }
+
+function rosterCol(title, tagCls, tagLabel, rows) {
+  return '<div class="card rv"><div class="roster-head"><h3>' + title + '</h3><span class="status-tag ' + tagCls + '" style="margin-bottom:0">' + tagLabel + '</span></div>' +
+    rows + '</div>';
+}
+function rosterRow(a) {
+  return '<div class="roster-row"><span class="verb">' + a.v + '</span><b>' + a.t + '</b><p>' + a.d + '</p></div>';
+}
+
+function renderHomeG() {
+  gmHm = 0;
+  const chips = '<div class="gm-chips" id="gmChips">' +
+    GM_ROLES.map((r, i) => '<button class="gm-chip" onclick="gmPick(' + i + ')">' + r.label + '</button>').join("") +
+  '</div>';
+  return nav() +
+    gmHero(GM_GREETINGS.home, chips) +
+    '<section class="band sunken"><div class="container">' + sectionHead('6:58 · The house', 'Three desks, already working', 'While you slept, every desk filed its overnight report. Open one for the detail, follow it to its desk, or take the mornings in order below.') +
+      HOME_DESKS.map((d, i) =>
+        '<div class="wl-row rv" data-rvd="' + (i * 60) + '"><div class="wl-cell"><b>' + d.name + '</b><br/>' + d.line + '</div>' +
+        '<div style="display:flex;align-items:center;gap:12px"><span class="wl-pill ' + d.pill + '">' + d.pillLabel + '</span>' +
+        '<button class="btn sm btn-s" onclick="gmDesk(' + i + ')">Open the report</button></div>' +
+        '<div class="wl-detail" id="hb' + i + 'D"><div class="brief-card" style="margin:10px 0 0;max-width:none"><p class="cap">Overnight report · illustrative</p><p>' + d.top + '</p></div>' +
+        '<div style="margin-top:12px"><button class="btn sm btn-p" onclick="gmGo(\'' + d.go + '\')">' + d.goLabel + '</button></div></div></div>'
+      ).join('') +
+      '<p class="cf-caption rv">Read from the stack you already run: ' + INTEGRATIONS.join(' · ') + '. Connected in an afternoon, no rip and replace.</p>' +
+    '</div></section>' +
+    '<section class="band" id="gmQueue"><div class="container">' + sectionHead('7:00 · Three decisions', 'One call from each desk. The rest is handled.', 'This is the whole working relationship, three times over. Approve, or ask me why first; the reasoning is always attached.') +
+      '<div style="text-align:center"><span class="gm-count" id="gmHmCount">The morning queue: <b>0 of 3</b> desks handled</span></div>' +
+      '<div class="rv">' + approveBlock('gmH1', 'From the marketing desk · illustrative',
+        'Creative set 4 is past its best: CTR down 18% in nine days while frequency climbs. I would move ₹3.2L to set 2, which is still earning its keep. Shall I make the shift?',
+        'The fatigue signature: frequency up 2.1 times, CTR falling nine days in a row, CPA drifting up 12%. Set 2 shows the same audience the same offer and still holds a 1.8% CTR with headroom. Same reach, better price. Nothing runs until you approve.',
+        'Make the shift', 'Done. The budget is moved; the marketing desk shows the rest of that morning.', 'hm') + '</div>' +
+      '<div class="rv" data-rvd="60">' + approveBlock('gmH2', 'From the sales desk · illustrative',
+        'Meridian Systems reached negotiation without an economic-buyer introduction; deals like this close at 19% versus 58% with the intro. The warm intro is drafted for your champion. Shall I place it in your drafts?',
+        'The pattern comes from your own closed deals, not a benchmark: of the last six that reached this stage without economic-buyer contact, one closed. The draft references the champion\'s last thread. Nothing sends without your sign-off.',
+        'Place it in my drafts', 'Very good. It is in your drafts; the sales desk has the full story.', 'hm') + '</div>' +
+      '<div class="rv" data-rvd="120">' + approveBlock('gmH3', 'From the cash desk · illustrative',
+        'Nabha Industries: ₹18.6L across three invoices, drifting eleven days beyond their usual pattern. A call from your side lands better than my letter, and the brief is prepared. Shall I put it on your desk?',
+        'Their pattern: reliable at 40 to 45 days for two years, now at 56 and stretching, with two reminders unanswered. Expected value of a human call on this account today: the highest on your book.',
+        'Put it on my desk', 'Very good. The brief is on your desk; the cash desk shows the whole book.', 'hm') + '</div>' +
+      '<div class="payoff" id="gmHmPayoff"><div class="payoff-line"></div><div class="payoff-note"><div class="inner"><p></p></div></div></div>' +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('7:04 · The staff', 'Twenty-four specialists. You manage one: me.', 'Every desk runs on named agents with narrow jobs. They report to me; I report to you. This is the full household.') +
+      '<div class="grid g3">' +
+        rosterCol('Marketing · six agents', 'status-live', 'Live', MKT_AGENTS.map(rosterRow).join('')) +
+        rosterCol('Sales · six agents', 'status-dev', 'In development', SALES_AGENTS.map(rosterRow).join('')) +
+        rosterCol('Receivables · twelve agents', 'status-new', 'Newly live', RECV_PHASES.map(p => '<p class="phase-h" style="margin-top:18px">' + p.phase + '</p>' + p.agents.map(rosterRow).join('')).join('')) +
+      '</div>' +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('Trust', 'Autonomy is earned, never assumed', 'You saw it in the queue above: I propose, you approve. That rule only relaxes when I have earned it, and only where you say.') +
+      '<div class="grid g3">' +
+        '<div class="card rv"><span class="step-num">01</span><h3>Propose</h3><p>Every move arrives as a proposal with the reasoning attached. Nothing changes in your stack without your sign-off.</p></div>' +
+        '<div class="card rv" data-rvd="60"><span class="step-num">02</span><h3>Prove</h3><p>After ten accepted proposals of a kind at a 95% acceptance rate, that task qualifies for autonomy.</p></div>' +
+        '<div class="card rv" data-rvd="120"><span class="step-num">03</span><h3>Hand over</h3><p>You grant autonomy per task, watch every action in the log, and revoke it in one click. The leash stays in your hand.</p></div>' +
+      '</div>' +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('Month 6', 'What compounds', 'What happens when someone keeps your history.') +
+      '<div class="grid g4">' + TIMELINE.map((t, i) => '<div class="card rv" data-rvd="' + (i * 60) + '"><span class="step-num">' + t.t + '</span><p>' + t.d + '</p></div>').join('') + '</div>' +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('The problem', 'Why leaders bring me in', '') +
+      '<div class="grid g3">' + MARKET_STATS.map(s =>
+        '<div class="rv"><div class="statnum"><span class="solid">' + s.n + '</span></div><div class="statlbl">' + s.l + '</div><div class="statsrc">' + s.s + '</div></div>'
+      ).join('') + '</div>' +
+    '</div></section>' +
+    ctaBand({ eyebrow: 'At your service', h2: 'Shall I begin tonight?', sub: 'A 30-minute walkthrough tomorrow; wake to your first brief the morning after.', btn: 'Ring for Alfred' }) +
+    footer() + gmRail(RAIL_HOME);
+}
+
+const GM_LEDGER = [
+  ["00:41", "Ran the nightly search terms sweep. 214 stray impressions and 38 paid clicks traced to one live broad match ad group, on queries you paused last month. Flagged."],
+  ["03:27", "Checked creative health across 31 live ads. One set is tiring faster than it should. Flagged."],
+  ["04:52", "Put your buyers' twelve usual questions to the AI assistants they use. You were missing from answers you ought to own. Flagged."],
+  ["06:58", "Compiled your brief. Three matters need you; everything else checked clean."],
+];
+
+const GM_CREDITS = {
+  "Anomaly Detection": "Found flag 1 at 00:41.",
+  "Creative Fatigue": "Found flag 2 at 03:27.",
+  "AI Visibility": "Found flag 3 at 04:52.",
+};
+
+function renderMarketingG() {
+  gmMk = 0;
+  const ledger = '<div class="ledger" id="gmLedger"><p class="ledger-eyebrow">While you slept · illustrative</p>' +
+    GM_LEDGER.map(l => '<p class="ledger-line"><b>' + l[0] + '</b>' + l[1] + '</p>').join('') + '</div>';
+  const chips = '<div class="gm-chips" id="gmChips"><button class="gm-chip" onclick="gmBrief()">Good morning, Alfred</button></div>';
+  const stats = [["70", "%", "faster decision cycles"], ["12", "%", "reduction in wasted spend"], ["15", "+", "hours reclaimed weekly"], ["85", "%", "of marketing questions answered without an analyst"]];
+  return nav() +
+    '<section class="hero"><div class="container hero-inner">' +
+      '<span class="chip"><span class="dot"></span>Alfred for Marketing</span>' +
+      '<div style="margin-top:34px">' + ledger + '</div>' +
+      chatCard('', chips) +
+    '</div></section>' +
+    '<section class="band sunken" id="gmQueue"><div class="container">' + sectionHead('7:00 · The morning brief', 'Three flags. Your call on each.', 'Overnight was busy, but nothing burned. The numbers tie out, and three matters wait on your word. Approve, or ask me why first; I rather hope you will ask why.') +
+      '<div style="text-align:center"><span class="gm-count" id="gmMkCount">Morning queue: <b>0 of 3</b> matters settled</span></div>' +
+      '<div class="rv">' + approveBlock('gmM1', 'Flag 1 · the spend leak · illustrative',
+        'The queries you shut off last month are back: a live broad-match ad group is buying them again. I would add three negative keywords and cap that campaign at ₹40,000 a day. Shall I see to it?',
+        'Overnight the search terms report logged 214 impressions against keywords you paused; the 38 clicks they drew came at 2.3 times your median CPC, with zero conversions. The negatives close the door; the cap keeps it closed while I watch one full day\'s cycle to be certain.',
+        'See to it', 'Very good. The negatives are live and the cap is set; your team will find it already tidy at stand-up.', 'mk') + '</div>' +
+      '<div class="rv" data-rvd="60">' + approveBlock('gmM2', 'Flag 2 · creative fatigue · illustrative',
+        'Creative set 4 is past its best: CTR down 18% in nine days while frequency climbs. I would move ₹3.2L to set 2, which is still earning its keep. Shall I make the shift?',
+        'The signature is unmistakable: frequency up 2.1 times, CTR falling nine days in a row, CPA drifting up 12%. Set 2 shows the same audience the same offer and still holds a 1.8% CTR with headroom to spend. Same reach, better price.',
+        'Make the shift', 'Done. The budget is moved; I shall report the effect in tomorrow\'s brief.', 'mk') + '</div>' +
+      '<div class="rv" data-rvd="120">' + approveBlock('gmM3', 'Flag 3 · the AI answer gap · illustrative',
+        'When your buyers put their twelve usual questions to ChatGPT and Perplexity, a competitor is the answer in nine; you appear in two. I took the liberty of drafting the comparison page and the llms.txt entry that contest it. Shall I stage them for your review?',
+        'Each week I put the twelve questions your buyers actually ask to the assistants they actually use. This week you were the cited answer in two of the twelve; the same competitor in nine. The draft answers the exact prompts where you lose, in the shape those assistants prefer to cite.',
+        'Stage it for review', 'Right away. It is staged; the link sits at the top of this morning\'s brief.', 'mk') + '</div>' +
+      '<div class="payoff" id="gmPayoff"><div class="payoff-line"></div><div class="payoff-note"><div class="inner"><p></p></div></div></div>' +
+    '</div></section>' +
+    '<section class="band" id="gmCf"><div class="container">' + sectionHead('While the queue cleared', 'What you did not do this morning', '') +
+      '<div style="max-width:640px">' +
+        '<p class="cf-line rv">You did not open Ads Manager.</p>' +
+        '<p class="cf-line rv" data-rvd="60">You did not export a search terms report.</p>' +
+        '<p class="cf-line rv" data-rvd="120">You did not ask an analyst and wait until Thursday.</p>' +
+      '</div>' +
+      '<div class="grid g4">' + stats.map(s =>
+        '<div class="rv"><div class="statnum"><span class="solid" data-n="' + s[0] + '" data-suf="' + s[1] + '">0' + s[1] + '</span></div><div class="statlbl">' + s[2] + '</div><div class="statsrc">Confirmed outcome · Alfred for Marketing</div></div>'
+      ).join('') + '</div>' +
+      '<p class="cf-caption rv">These are measured outcomes. The queue you cleared was the illustration.</p>' +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('The staff', 'The staff who worked your night shift', 'Six specialists, one for each corner of your marketing. They report to me; I report to you. You hear one voice, and it is accountable.') +
+      '<div class="grid g3">' + MKT_AGENTS.map((a, i) =>
+        '<div class="card rv" data-rvd="' + Math.min(i * 60, 240) + '"><span class="verb">' + a.v + '</span><h3>' + a.t + '</h3><p>' + a.d + '</p>' +
+        (GM_CREDITS[a.t] ? '<p class="agent-credit">' + GM_CREDITS[a.t] + '</p>' : '') + '</div>'
+      ).join('') + '</div>' +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('The operating model', 'Connect once. Tomorrow starts at 7:00.', 'I read what you already run: your ad platforms, analytics and CRM as they stand. No new tracking, no migration, nothing to rebuild. Connect this afternoon and I read tonight.') +
+      '<div class="pill-row">' + INTEGRATIONS.map((p, i) => '<span class="pill rv" data-rvd="' + (i * 30) + '">' + p + '</span>').join('') + '</div>' +
+    '</div></section>' +
+    ctaBand({ eyebrow: 'At your service', h2: 'Shall I take tonight\'s watch?', sub: '<span id="gmCtaSub">Connect your accounts this afternoon; your first brief arrives at 7:00 tomorrow, with the night\'s work already done.</span>', btn: 'Ring for Alfred' }) +
+    footer() + gmRail(RAIL_MKT);
+}
+
+function renderSalesG() {
+  return nav() +
+    gmHero(GM_GREETINGS.sales, '', 'Alfred for Sales · In development') +
+    '<section class="band sunken"><div class="container">' + sectionHead('The board', 'Three deals. One is in trouble.', 'Three deals, illustrative, shown exactly as your CRM reports them. Click the one that worries you. I score every live deal against your own win patterns nightly, so I already know.') +
+      '<div class="grid g3">' + GM_DEALS.map((d, i) =>
+        '<div class="card deal-card" id="gmDeal' + i + '" role="button" tabindex="0" onclick="gmDeal(' + i + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();gmDeal(' + i + ')}"><h3>' + d.name + '</h3>' +
+        '<div class="deal-meta"><span>Value <b>' + d.value + '</b></span><span>Stage <b>' + d.stage + '</b></span><span>CRM signal <b>' + d.signal + '</b></span></div>' +
+        '<div class="deal-verdict" id="gmDeal' + i + 'V"></div></div>'
+      ).join('') + '</div>' +
+      '<div id="gmRescue" style="display:none">' +
+        approveBlock('gmA3', 'The rescue · illustrative',
+          'Meridian Systems reached negotiation without an economic-buyer introduction. Deals that did this closed at 19%; with the intro, 58%. I have drafted the warm intro for your champion. Shall I place it in your drafts?',
+          'The pattern comes from your own closed deals: of the last 26 that reached this stage without economic-buyer contact, five closed; of the 31 that had the introduction, 18 closed. The draft references the champion’s last thread and proposes a fifteen-minute call. Nothing sends without your sign-off.',
+          'Place it in my drafts', 'Very good. It is in your drafts, and flagged for tomorrow’s brief. That is the whole job: I find it early, you approve the fix.') +
+      '</div>' +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('The foundation', 'How I knew', 'I don\'t score your deals against benchmarks or anyone else\'s pipeline. I build only from yours: the Sales Play Engine reverse-engineers the factors behind every deal you have won or lost, and measures every live deal against them.') +
+      '<div class="grid g3">' +
+        '<div class="card"><h3>Learns from every close</h3><p>Won and lost deals, analysed across the dimensions that predict outcomes at your company specifically.</p></div>' +
+        '<div class="card"><h3>Weighted patterns by deal type</h3><p>Not one playbook. Pattern rules segmented by segment, size and motion.</p></div>' +
+        '<div class="card"><h3>Rebuilds on every close</h3><p>Each closed deal updates the patterns every live deal is measured against.</p></div>' +
+      '</div>' +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('The agents', 'My staff on this desk', 'Each one watches a different failure mode. All of them report to you through me.') + agentGrid(SALES_AGENTS) + '</div></section>' +
+    howBand('The operating model', 'How I work', 'Your CRM stays the system of record. I become the system of action.', false) +
+    ctaBand({ eyebrow: 'At your service', h2: 'Shall I take the night watch on your pipeline?', sub: 'Early access: I read your deal history first, then start watching.', btn: 'Join early access' }) +
+    footer() + gmRail(RAIL_SALES);
+}
+
+const GM_WORKLIST = [
+  { id: "gmW1", name: "Nabha Industries", exp: 18.6, pill: "hi", pillLabel: "Call now", line: "₹18.6L · 3 invoices · 11 days past their own pattern",
+    body: "Their pattern: reliable at 40 to 45 days for two years, now at 56 and stretching. Two reminders unanswered. A call from your side lands better than my letter; the brief has history, contacts and the ask.",
+    why: "Expected value of a human call on this account today is the highest on your book: exposure, drift rate and silence all peak here.",
+    label: "Put the call brief on my desk", done: "Very good. The brief is on your desk. I will watch the account and report tomorrow." },
+  { id: "gmW3", name: "Kova Foods", exp: 3.4, pill: "med", pillLabel: "Dispute decaying", line: "₹3.4L · deduction claimed · winnability falling weekly",
+    body: "A claimed deduction, disputable, but winnability decays roughly 8% a week while it sits. I have the evidence pack assembled: PODs, the rate agreement, the signed amendment. Shall I file the dispute?",
+    why: "Filed this week, the recovery odds are strong; let it sit a month and they are a third weaker. Smaller than Sterling, but Sterling waits happily for its reminder while this claim loses value every week it sits.",
+    label: "File the dispute", done: "Filed, with the evidence pack attached. I will track it through resolution." },
+  { id: "gmW2", name: "Sterling Auto", exp: 7.2, pill: "med", pillLabel: "Reminder due", line: "₹7.2L · 1 invoice · usually pays on the second nudge",
+    body: "Sterling pays reliably, on the second reminder. The first went out four days ago. I have the second drafted in their preferred tone, addressed to the accounts controller who actually pays.",
+    why: "Two years of history: 9 of 10 invoices settled within five days of the second reminder. No escalation needed, no call worth your time.",
+    label: "Send the reminder", done: "Sent. Expect settlement within the week; I will flag it if the pattern breaks." },
+  { id: "gmW4", name: "Mistry & Sons", exp: 2.1, pill: "low", pillLabel: "Promise to pay", line: "₹2.1L · promised Friday · watch, don't chase",
+    body: "They promised Friday, and they keep roughly 80% of promises. Chasing now costs goodwill for nothing. I recommend a silent watch: no touch unless Friday passes.",
+    why: "Their promise-keeping history says patience wins here. If Friday slips, I escalate the same evening with the next step already drafted.",
+    label: "Watch it", done: "On watch. If Friday passes unpaid, the escalation is on your desk that evening." },
+];
+
+function renderReceivablesG() {
+  gmWlSum = 0; gmWlDone = 0;
+  return nav() +
+    gmHero(GM_GREETINGS.receivables, '') +
+    '<section class="band sunken"><div class="container">' + sectionHead('The worklist · illustrative', 'Four accounts, ranked by what moves cash', 'Not oldest first, not biggest first: ranked by the expected value of your attention. Open each one; the action is already prepared.') +
+      '<div style="text-align:center"><span class="gm-count" id="gmWlCount">Worked this morning: <b>₹0.0L</b> of ₹31.3L flagged today</span></div>' +
+      GM_WORKLIST.map(w =>
+        '<div class="wl-row" id="' + w.id + 'Row"><div class="wl-cell"><b>' + w.name + '</b><br/>' + w.line + '</div>' +
+        '<div style="display:flex;align-items:center;gap:12px"><span class="wl-pill ' + w.pill + '">' + w.pillLabel + '</span>' +
+        '<button class="btn sm btn-s" onclick="gmWl(\'' + w.id + '\')">Review</button></div>' +
+        '<div class="wl-detail" id="' + w.id + 'Detail">' +
+          approveBlock(w.id, w.name + ' · illustrative', w.body, w.why, w.label, w.done, 'wl', w.exp) +
+        '</div></div>'
+      ).join('') +
+      '<p class="gm-note" id="gmWlNote">The book is worked. Four decisions, one morning coffee. Tomorrow the list re-ranks itself and we do it again, faster.</p>' +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('The morning position', 'The number is already true', 'Reconciled overnight, every night.') +
+      '<div class="cash-panel" style="margin-inline:0"><p class="ph">Cash outlook · this month · illustrative</p>' +
+      '<div class="cash-row"><span class="k">Expected inflow</span><span class="v">₹2.42 Cr</span></div>' +
+      '<div class="cash-row"><span class="k">DSO drift</span><span class="v flag">+3.1 days</span></div>' +
+      '<div class="cash-row"><span class="k">Nabha Industries</span><span class="v flag">Call recommended · brief ready</span></div>' +
+      '<div class="cash-row"><span class="k">Applied overnight</span><span class="v">₹4.18L</span></div>' +
+      '</div>' +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('The spine', 'Predict · Prevent · Perfect', 'Three moves, in that order.') +
+      '<div class="grid g3">' +
+        '<div class="card"><h3>Predict</h3><p>See the delay before it happens. Every invoice scored, cash forecast weeks ahead.</p></div>' +
+        '<div class="card"><h3>Prevent</h3><p>Act before it becomes overdue. The right touch, at the moment it changes the outcome.</p></div>' +
+        '<div class="card"><h3>Perfect</h3><p>Keep the cash position true. Payments applied the day they land, ERP written back.</p></div>' +
+      '</div>' +
+    '</div></section>' +
+    '<section class="band"><div class="container">' + sectionHead('The agents', 'My staff on this desk', 'Twelve specialists across four phases. Your people keep the human conversations.') +
+      RECV_PHASES.map(p => '<p class="phase-h">' + p.phase + '</p>' + agentGrid(p.agents)).join('') +
+    '</div></section>' +
+    '<section class="band sunken"><div class="container">' + sectionHead('Trust', 'Autonomy is earned, never assumed', 'I propose, you approve. After ten consecutive accepted proposals on a task, you may grant me autonomy for that task, and revoke it just as easily.') +
+    '</div></section>' +
+    ctaBand({ eyebrow: 'At your service', h2: 'The cash cycle, kept. Nightly.', sub: 'Bring your ledger to a walkthrough; I map your ERP in the first week, and every morning after starts reconciled.', btn: 'Ring for Alfred' }) +
+    footer() + gmRail(RAIL_RECV);
+}
+
+const RENDER_G = { home: renderHomeG, marketing: renderMarketingG, sales: renderSalesG, receivables: renderReceivablesG };
+
+/* ---------- scorecard ---------- */
+
+const ICPS = [
+  { name: "CMO", who: "Shitanshu", brief: "You own pipeline and the board narrative. Judge the Home and Marketing pages: would you take the meeting?" },
+  { name: "CSO", who: "Anand", brief: "You own the number. Judge the Home and Sales pages: does this beat what your CRM vendor pitched you?" },
+  { name: "Receivables / Finance", who: "Dhiraj", brief: "You answer for the cash. Judge the Home and Receivables pages: is this credible to a CFO?" },
+  { name: "Generalist", who: "Raghav", brief: "You run a bit of everything. Judge the Home page cold: do you understand what Alfred is in ten seconds?" },
+  { name: "Founder", who: "role-play", brief: "You'd be the economic buyer. Judge Home + one module: is this a growth investment or another SaaS line item?" },
+];
+
+function renderScorecard() {
+  const runOfShow =
+    '<div class="card" style="margin-top:36px"><h3>How to run the hour (11:30 to 12:30)</h3>' +
+    '<p class="sc-note" style="margin-top:10px">' +
+    '1. <strong>5 min</strong>, setup: everyone opens this file, picks their ICP block below.<br/>' +
+    '2. <strong>48 min</strong>, eight minutes per angle: switch the angle in the toolbar, each ICP silently reads their assigned pages, then fills their row and says one objection out loud. No debating mid-angle.<br/>' +
+    '3. <strong>5 min</strong>, decision: tally the scores, fill the decision box, assign the Friday ship owner.<br/>' +
+    'Scoring: <strong>Resonance</strong> = does this speak to my role (1 to 5). <strong>Clarity</strong> = do I get what Alfred is in ten seconds (1 to 5). <strong>CTA</strong> = tick if you would actually click it. Screenshot or print this tab at the end.</p></div>';
+
+  const v = k => scState[k] !== undefined ? scState[k] : "";
+  const blocks = ICPS.map((icp, bi) =>
+    '<div class="sc-block"><h3>' + icp.name + ' <span style="color:var(--text-muted);font-weight:400">· ' + icp.who + '</span></h3>' +
+    '<p class="role">' + icp.brief + '</p>' +
+    '<table class="sc"><thead><tr><th>Angle</th><th>Resonance 1 to 5</th><th>Clarity 1 to 5</th><th>Would click CTA</th><th>One-line reaction</th></tr></thead><tbody>' +
+    ANGLES.map((a, ai) => {
+      const k = "i" + bi + "a" + ai;
+      return '<tr><td class="angle">' + (ai + 1) + ' · ' + a.name + '</td>' +
+      '<td><input type="number" min="1" max="5" data-k="' + k + 'res" value="' + v(k + "res") + '" /></td>' +
+      '<td><input type="number" min="1" max="5" data-k="' + k + 'clar" value="' + v(k + "clar") + '" /></td>' +
+      '<td><input type="checkbox" data-k="' + k + 'cta"' + (scState[k + "cta"] ? ' checked' : '') + ' /></td>' +
+      '<td><input type="text" placeholder="…" data-k="' + k + 'note" value="' + String(v(k + "note")).replace(/"/g, '&quot;') + '" /></td></tr>';
+    }).join('') +
+    '</tbody></table></div>'
+  ).join('');
+
+  const decision =
+    '<div class="sc-decision"><p class="eyebrow">Decision</p>' +
+    '<h3 style="font-family:var(--font-display);font-size:24px;color:var(--text-primary);margin:12px 0 16px">Winner, changes, owner</h3>' +
+    '<p class="sc-note">Winning angle (or hybrid), the changes it needs before shipping, who owns the Framer update, and the Friday publish checklist.</p>' +
+    '<textarea data-k="decision" placeholder="Winning angle: …&#10;Changes before ship: …&#10;Owner: …&#10;Ship by: Friday">' + String(scState.decision || "") + '</textarea></div>';
+
+  return '<div class="container sc-wrap">' +
+    sectionHead('Workshop', 'Scorecard: five ICPs × six angles', 'Each person plays their ICP and scores every angle from that seat. High resonance with low clarity means the idea is right and the words are not.') +
+    runOfShow + blocks + decision + '</div>';
+}
+
+/* =============================================================
+   SHELL: tabs + render
+   ============================================================= */
+
+let curAngle = 0;
+let curPage = "home";
+const scState = {};
+try { Object.assign(scState, JSON.parse(localStorage.getItem("wk-scores") || "{}")); } catch (err) {}
+document.getElementById("stage").addEventListener("input", (e) => {
+  const k = e.target.dataset && e.target.dataset.k;
+  if (k) {
+    scState[k] = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    try { localStorage.setItem("wk-scores", JSON.stringify(scState)); } catch (err) {}
+  }
+});
+
+const RENDER = { home: renderHome, marketing: renderMarketing, sales: renderSales, receivables: renderReceivables };
+
+function draw() {
+  const stage = document.getElementById("stage");
+  const a = ANGLES[curAngle];
+  const gamified = a.gamified && curPage !== "scorecard";
+  clearTimeout(window._gmT);
+  _introTimers.forEach(clearTimeout); _introTimers = [];
+  gmT0 = null; gmDoneSet = new Set();
+  window._gmSkip = false; window._gmIntroDone = false; window._gmFinishType = null;
+  if (curPage === "scorecard") {
+    stage.innerHTML = renderScorecard();
+    document.getElementById("thesis").innerHTML = "<strong>Scorecard.</strong> Fill during the workshop; screenshot or print when done.";
+  } else if (gamified) {
+    stage.innerHTML = RENDER_G[curPage]();
+    document.getElementById("thesis").innerHTML =
+      "<strong>Angle " + (curAngle + 1) + " · " + a.name + ".</strong> " + a.thesis;
+  } else {
+    stage.innerHTML = RENDER[curPage](a);
+    document.getElementById("thesis").innerHTML =
+      "<strong>Angle " + (curAngle + 1) + " · " + a.name + ".</strong> " + a.thesis;
+  }
+  document.body.classList.toggle("gm-on", !!gamified);
+  drawTabs();
+  window.scrollTo(0, 0);
+  if (gamified) {
+    if (curPage === "marketing") gmIntro();
+    else gmType(GM_GREETINGS[curPage], () => { gmMark(0); gmShowChips(); });
+    gmReveals();
+    gmAttachRail();
+  } else {
+    window.onscroll = null;
+    window._gmRailTick = null;
+  }
+}
+
+function drawTabs() {
+  const at = document.getElementById("angleTabs");
+  at.querySelectorAll("button").forEach(b => b.remove());
+  ANGLES.forEach((a, i) => {
+    const b = document.createElement("button");
+    b.className = "wk-tab" + (i === curAngle && curPage !== "scorecard" ? " on" : "");
+    b.textContent = (i + 1) + " · " + a.name;
+    b.onclick = () => { curAngle = i; if (curPage === "scorecard") curPage = "home"; draw(); };
+    at.appendChild(b);
+  });
+  const pt = document.getElementById("pageTabs");
+  pt.querySelectorAll("button").forEach(b => b.remove());
+  PAGES.forEach(p => {
+    const b = document.createElement("button");
+    b.className = "wk-tab" + (p.id === curPage ? (p.id === "scorecard" ? " on-alt" : " on") : "");
+    b.textContent = p.label;
+    b.onclick = () => { curPage = p.id; draw(); };
+    pt.appendChild(b);
+  });
+}
+
+/* deep links: #a2-sales opens angle 2, sales page; #scorecard opens the scorecard */
+function applyHash() {
+  const h = location.hash.replace("#", "");
+  if (!h) return;
+  if (h === "scorecard") { curPage = "scorecard"; return; }
+  const m = h.match(/^a([1-6])(?:-(home|marketing|sales|receivables))?$/);
+  if (m) { curAngle = +m[1] - 1; curPage = m[2] || "home"; }
+}
+window.addEventListener("hashchange", () => { applyHash(); draw(); });
+applyHash();
+
+document.addEventListener("keydown", (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  if (e.key >= "1" && e.key <= "9" && +e.key <= ANGLES.length) { curAngle = +e.key - 1; if (curPage === "scorecard") curPage = "home"; draw(); }
+  const map = { h: "home", m: "marketing", s: "sales", r: "receivables", c: "scorecard" };
+  if (map[e.key]) { curPage = map[e.key]; draw(); }
+});
+
+draw();
+</script>
+</body>
+</html>
