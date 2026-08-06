@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Alfred messaging workshop · 6 angles · 6 Aug 2026</title>
+<title>Alfred messaging workshop · 7 angles · 6 Aug 2026</title>
 <link rel="icon" href="../assets/logos/alfred-favicon-white.svg" />
 <link rel="stylesheet" href="../styles.css" />
 <style>
@@ -184,6 +184,7 @@ table.sc input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(-
 .gm-step.done { color: var(--text-primary); }
 .gm-step.done .dotp { background: var(--orange-500); border-color: transparent; }
 body.gm-on main { padding-bottom: 52px; }
+.ext-frame { display: block; width: 100%; height: calc(100vh - 118px); border: 0; background: var(--bg-page); }
 @media (prefers-reduced-motion: reduce) { .chat-caret { animation: none; } }
 
 /* per-function game pieces */
@@ -571,6 +572,12 @@ const ANGLES = [
   name: "The butler",
   gamified: true,
   thesis: "Variant of angle 1, gamified. Alfred as the butler he's named for: the page is your first conversation with him. Choose your seat, read a brief, approve one move. The product loop, played instead of claimed. All interactive cards use illustrative demo data.",
+  home: {}, marketing: {}, sales: {}, receivables: {},
+},
+{
+  name: "Most informed (Damini)",
+  external: "messaging-workshop-damini-variant.html",
+  thesis: "Damini's version, embedded exactly as submitted. Positioning: you become the most informed person in every room; Alfred Core's permanent institutional memory is the moat. Deep agent and system detail, sourced stat strips. Note: no Sales page; an Alfred Core page instead. Use the nav inside the variant itself; the Page tabs above do not apply.",
   home: {}, marketing: {}, sales: {}, receivables: {},
 },
 ];
@@ -1391,6 +1398,7 @@ function draw() {
   const stage = document.getElementById("stage");
   const a = ANGLES[curAngle];
   const gamified = a.gamified && curPage !== "scorecard";
+  const external = a.external && curPage !== "scorecard";
   clearTimeout(window._gmT);
   _introTimers.forEach(clearTimeout); _introTimers = [];
   gmT0 = null; gmDoneSet = new Set();
@@ -1398,6 +1406,10 @@ function draw() {
   if (curPage === "scorecard") {
     stage.innerHTML = renderScorecard();
     document.getElementById("thesis").innerHTML = "<strong>Scorecard.</strong> Fill during the workshop; screenshot or print when done.";
+  } else if (external) {
+    stage.innerHTML = '<iframe class="ext-frame" src="' + a.external + '" title="' + a.name + '"></iframe>';
+    document.getElementById("thesis").innerHTML =
+      "<strong>Angle " + (curAngle + 1) + " · " + a.name + ".</strong> " + a.thesis;
   } else if (gamified) {
     stage.innerHTML = RENDER_G[curPage]();
     document.getElementById("thesis").innerHTML =
@@ -1447,7 +1459,7 @@ function applyHash() {
   const h = location.hash.replace("#", "");
   if (!h) return;
   if (h === "scorecard") { curPage = "scorecard"; return; }
-  const m = h.match(/^a([1-6])(?:-(home|marketing|sales|receivables))?$/);
+  const m = h.match(/^a([1-7])(?:-(home|marketing|sales|receivables))?$/);
   if (m) { curAngle = +m[1] - 1; curPage = m[2] || "home"; }
 }
 window.addEventListener("hashchange", () => { applyHash(); draw(); });

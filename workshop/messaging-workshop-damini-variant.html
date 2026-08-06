@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfred: AI Chief of Staff</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;line-height:1.5}
+.site-nav{max-width:720px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e8e6e3}
+.brand{font-size:15px;font-weight:500}
+.nav-links{display:flex;gap:10px}
+.btn-p{padding:7px 20px;border-radius:6px;background:#111;color:#fff;border:1.5px solid #111;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit}
+.btn-s{padding:7px 20px;border-radius:6px;background:transparent;color:#111;border:1.5px solid #d0d0ce;font-size:13px;cursor:pointer;font-family:inherit}
+.page-nav{max-width:720px;margin:0 auto;padding:0 24px;display:flex;border-bottom:1px solid #e8e6e3}
+.page-tab{padding:13px 18px;font-size:13px;color:#999;background:transparent;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:inherit}
+.page-tab.on{color:#111;font-weight:500;border-bottom-color:#111}
+.page{display:none}
+.page.on{display:block}
+.w{max-width:720px;margin:0 auto;padding:52px 24px 72px}
+.sec{padding:48px 0;border-top:1px solid #e8e6e3}
+.lbl{display:block;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.13em;color:#999;margin-bottom:18px;border-left:2px solid #888;padding-left:9px}
+.greet{font-size:16px;font-weight:500;color:#555;margin-bottom:18px}
+.h1{font-size:34px;font-weight:500;line-height:1.1;color:#111;margin-bottom:22px;max-width:580px}
+.sub{font-size:15px;line-height:1.82;color:#555;max-width:560px;margin-bottom:28px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.stmt{font-family:Georgia,serif;font-size:19px;line-height:1.62;color:#111;margin-top:48px;max-width:540px}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ben{background:#f4f3f1;border-radius:10px;padding:22px 24px}
+.bh{font-size:15px;font-weight:500;color:#111;margin-bottom:9px;line-height:1.38}
+.bb{font-size:13px;line-height:1.7;color:#555}
+.caps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px}
+.cap{background:#f4f3f1;border-radius:10px;padding:20px 22px}
+.cap-t{font-size:14px;font-weight:500;color:#111;margin-bottom:7px}
+.cap-b{font-size:13px;line-height:1.7;color:#555}
+.mpills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mpill{padding:6px 18px;border-radius:20px;border:1px solid #d0d0ce;background:transparent;color:#555;font-size:13px;cursor:pointer;font-family:inherit;transition:all .12s}
+.mpill.on{border-color:#111;background:#111;color:#fff}
+.mbox{background:#f4f3f1;border-radius:10px;padding:24px}
+.mbadge{display:inline-block;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:20px;margin-bottom:12px}
+.live{background:#dcfce7;color:#166534}
+.dev{background:#fef3c7;color:#92400e}
+.soon{border:1px solid #d0d0ce;color:#999}
+.mtl{font-size:15px;font-weight:500;color:#111;margin-bottom:8px}
+.mbf{font-size:14px;line-height:1.74;color:#555}
+.stages{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.stage{background:#f4f3f1;border-radius:10px;padding:20px 22px}
+.stn{font-size:11px;font-weight:500;color:#999;margin-bottom:8px}
+.stt{font-size:15px;font-weight:500;color:#111;margin-bottom:7px}
+.stb{font-size:13px;line-height:1.7;color:#555}
+.moments{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px}
+.mcard{background:#f4f3f1;border-radius:10px;padding:20px}
+.mct{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:#999;margin-bottom:9px}
+.mch{font-size:14px;font-weight:500;color:#111;margin-bottom:7px;line-height:1.3}
+.mcb{font-size:13px;line-height:1.68;color:#555}
+.prose p{font-size:15px;line-height:1.85;color:#555;max-width:580px;margin-bottom:18px}
+.prose p:last-child{margin-bottom:0}
+.core-teaser{background:#f4f3f1;border-radius:12px;padding:28px 30px;margin-top:4px}
+.core-teaser p{font-size:15px;line-height:1.78;color:#555;max-width:540px;margin-bottom:18px}
+.core-teaser a{font-size:14px;font-weight:500;color:#111;text-decoration:none;border-bottom:1px solid #111;padding-bottom:1px}
+.scen p{font-size:15px;line-height:1.85;color:#555;margin-bottom:22px;max-width:600px}
+.scen p.end{color:#111;font-weight:500;margin-bottom:0}
+.close-w{text-align:center}
+.close-h{font-size:26px;font-weight:500;color:#111;line-height:1.2;margin:0 auto 12px;max-width:500px}
+.close-s{font-size:14px;color:#999;margin-bottom:26px}
+.close-c{display:flex;gap:10px;justify-content:center}
+
+.sec-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:4px}
+.sc{background:#f4f3f1;border-radius:10px;padding:22px 24px}
+.sci{margin-bottom:14px;color:#111}
+.sct{font-size:14px;font-weight:500;color:#111;margin-bottom:8px;line-height:1.38}
+.scb{font-size:13px;line-height:1.68;color:#555}
+.sec-hl{font-size:22px;font-weight:500;color:#111;margin-bottom:22px;max-width:500px;line-height:1.22}
+
+.prob-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:4px}
+.ps{padding:0 32px 0 0}
+.ps:not(:first-child){padding-left:32px;border-left:1px solid #e8e6e3;padding-right:0}
+.ps-n{font-size:38px;font-weight:500;color:#111;line-height:1;margin-bottom:8px}
+.ps-l{font-size:14px;line-height:1.65;color:#555;margin-bottom:6px}
+.ps-src{font-size:11px;color:#999;font-style:italic}
+</style>
+</head>
+<body>
+
+<div class="site-nav">
+  <span class="brand">alfred ai</span>
+  <div class="nav-links">
+    <button class="btn-s">Seek Alfred</button>
+    <button class="btn-p">Get Alfred</button>
+  </div>
+</div>
+
+<div class="page-nav">
+  <button class="page-tab on" data-page="home" onclick="goPage('home')">Home</button>
+  <button class="page-tab" data-page="mkt" onclick="goPage('mkt')">Marketing</button>
+  <button class="page-tab" data-page="recv" onclick="goPage('recv')">Receivables</button>
+  <button class="page-tab" data-page="core" onclick="goPage('core')">Alfred Core</button>
+</div>
+
+<!-- HOME -->
+<div id="p-home" class="page on">
+  <div class="w">
+    <div>
+      <div class="greet">Hi, I am Alfred, Your AI Chief of Staff</div>
+      <div class="h1">I'm your AI chief of staff.<br>I make sure you're the most informed person in every room.</div>
+      <div class="sub">I connect every function your business runs and surface what needs your attention today. Not more data. The decision, with the reasoning already built.</div>
+      <div class="ctas">
+        <button class="btn-p">Get Alfred</button>
+        <button class="btn-s">See how it works</button>
+      </div>
+      <div class="stmt">The companies that move fastest are not smarter. They just make decisions before the window closes.</div>
+    </div>
+
+    <div class="sec">
+      <div class="prob-stats">
+        <div class="ps"><div class="ps-n">63%</div><div class="ps-l">of senior leaders miss opportunities because decisions take too long</div><div class="ps-src">PwC CMO Survey 2025</div></div>
+        <div class="ps"><div class="ps-n">+52%</div><div class="ps-l">rise in finance pressure on senior leaders between 2023 and 2025</div><div class="ps-src">The CMO Survey, Spring 2025</div></div>
+        <div class="ps"><div class="ps-n">+21%</div><div class="ps-l">rise in board pressure on senior leaders in the same period</div><div class="ps-src">The CMO Survey, Spring 2025</div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">What changes</span>
+      <div class="benefits">
+        <div class="ben">
+          <div class="bh">You stop discovering problems when they cost you.</div>
+          <div class="bb">Before I arrived, you found out about issues when a dashboard turned red or a board question caught you off guard. With me, the signal that would have become a problem is surfaced before it compounds. Every morning. Every function. Every time.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Your board meetings go from instinct to evidence.</div>
+          <div class="bb">The hard questions: why is CPA up, how much working capital is idle, which deals are at risk: have specific answers before they are asked. I build the brief the night before. You walk in knowing everything the room is about to ask.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">No deal, invoice, or spend line drifts without a flag.</div>
+          <div class="bb">I watch every function that drives your growth: marketing spend, pipeline velocity, AR aging, creative performance. When something moves in a direction it should not, you hear about it from me, not from the fallout three weeks later.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Your institutional knowledge stops walking out the door.</div>
+          <div class="bb">Every pattern I observe, every decision I help you make, every outcome I record stays with your business permanently. The intelligence your best people carry in their heads lives in Alfred Core instead. It does not resign. It does not take a better offer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">Under the hood</span>
+      <div class="core-teaser">
+        <p>Every module I run connects through Alfred Core: the memory and intelligence engine that ties everything together. It is what allows me to route a marketing signal to your sales forecast, trace a root cause across functions, and retain every pattern your business has generated since we connected.</p>
+        <p>The longer I am in your business, the more I know. The more I know, the better every recommendation gets. The moat compounds monthly and it cannot be backfilled by a competitor.</p>
+        <a href="#" onclick="goPage('core');return false;">Explore Alfred Core &rarr;</a>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">Where I work</span>
+      <div id="home-mods"></div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">How I work</span>
+      <div style="font-size:15px;font-weight:500;color:#111;margin-bottom:4px">Four moves. In order. Every time.</div>
+      <div class="stages">
+        <div class="stage">
+          <div class="stn">01</div>
+          <div class="stt">Connect</div>
+          <div class="stb">Every tool you run, linked in week one. Read-only API integrations, zero engineering required. Up to a year of historical data synced from day one so Alfred understands your business from the moment it starts, not after a six-month calibration period.</div>
+        </div>
+        <div class="stage">
+          <div class="stn">02</div>
+          <div class="stt">Analyse</div>
+          <div class="stb">I watch every signal across every connected tool, continuously. Not when you ask. Not on a schedule. Every movement in spend, pipeline, creative performance, and receivables: tracked, correlated, and understood in the context of your business's specific patterns.</div>
+        </div>
+        <div class="stage">
+          <div class="stn">03</div>
+          <div class="stt">Recommend</div>
+          <div class="stb">I tell you what to do. Not what happened. What fixes it. The specific action, the reasoning behind it, and: where it applies: the projected impact on your revenue, spend, or pipeline. Ready to review and approve in one click.</div>
+        </div>
+        <div class="stage">
+          <div class="stn">04</div>
+          <div class="stt">Execute</div>
+          <div class="stb">You approve. I act inside your connected tools. Every change is logged, every action is reversible, and every write-back is encrypted. Nothing happens without your explicit authorisation. Full audit trail, always.</div>
+        </div>
+      </div>
+    </div>
+
+        <div class="sec">
+      <span class="lbl">Trust and security</span>
+      <div class="sec-hl">I never let your data leave your environment.</div>
+      <div class="sec-grid">
+        <div class="sc">
+          <div class="sci"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="16" height="5" rx="1"/><rect x="3" y="10" width="16" height="5" rx="1"/><rect x="3" y="17" width="16" height="2" rx="1"/></svg></div>
+          <div class="sct">Data isolation</div>
+          <div class="scb">I keep your data in a logically isolated environment. I do not share infrastructure with other customers. What I learn about your business never touches anyone else's.</div>
+        </div>
+        <div class="sc">
+          <div class="sci"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2L4 5v6c0 4.5 3.5 7.5 7 8 3.5-.5 7-3.5 7-8V5L11 2z"/></svg></div>
+          <div class="sct">Private pattern library</div>
+          <div class="scb">I build a private pattern library for your organisation: a living memory of your business history, decisions, signals, and outcomes. It belongs entirely to you.</div>
+        </div>
+        <div class="sc">
+          <div class="sci"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,16 8,10 12,13 19,5"/><polyline points="15,5 19,5 19,9"/></svg></div>
+          <div class="sct">No cross-customer training</div>
+          <div class="scb">I do not use your data to train shared models, shared recommendation systems, shared benchmarks, or shared playbooks. What I learn about your business stays with you.</div>
+        </div>
+        <div class="sc">
+          <div class="sci"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h14a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><line x1="11" y1="4" x2="11" y2="18"/></svg></div>
+          <div class="sct">Foundational model usage</div>
+          <div class="scb">I use API access to foundational AI models for inference only. I never use your data to train or fine-tune those models.</div>
+        </div>
+        <div class="sc">
+          <div class="sci"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="12" height="8" rx="2"/><path d="M8 11V7a3 3 0 016 0v4"/></svg></div>
+          <div class="sct">No third-party data sharing for training</div>
+          <div class="scb">I do not sell, license, share, or make your data accessible to any third party: for training, benchmarking, resale, or commercial purposes. Ever.</div>
+        </div>
+        <div class="sc">
+          <div class="sci"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,8 3,11 7,14"/><polyline points="15,8 19,11 15,14"/><line x1="13" y1="7" x2="9" y2="15"/></svg></div>
+          <div class="sct">No commercialisation of customer intelligence</div>
+          <div class="scb">I generate no revenue from the intelligence your business generates. Your data is not my product. Your subscription is.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="close-w">
+        <div class="close-h">The best chiefs of staff don't wait to be asked. Neither do I.</div>
+        <div class="close-s">Connect your stack. First brief lands this week. No engineering required. No setup cost.</div>
+        <div class="close-c">
+          <button class="btn-p">Get Alfred</button>
+          <button class="btn-s">Talk to the team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKETING -->
+<div id="p-mkt" class="page">
+  <div class="w">
+    <div>
+      <div class="greet">Hi, I am Alfred for Marketing, Your AI Chief of Staff</div>
+      <div class="h1">I watch everything your marketing stack generates.<br>You walk in knowing what matters.</div>
+      <div class="sub">You are accountable for every spend decision, every channel move, and every board question about marketing performance. I make sure you are always ready for all three.</div>
+      <div class="ctas">
+        <button class="btn-p">Get Alfred for Marketing</button>
+        <button class="btn-s">See how it works</button>
+      </div>
+      <div class="stmt">Most marketing decisions are made on last week's data. Mine are made on this morning's signals.</div>
+    </div>
+
+    <div class="sec">
+      <div class="prob-stats">
+        <div class="ps"><div class="ps-n">54%</div><div class="ps-l">of marketing leaders say connecting data sources is their biggest barrier to insight</div><div class="ps-src">NIQ CMO Outlook 2026</div></div>
+        <div class="ps"><div class="ps-n">~90%</div><div class="ps-l">of B2B marketing teams face attribution challenges from fragmented data</div><div class="ps-src">RevSure / Heinz Marketing 2026</div></div>
+        <div class="ps"><div class="ps-n">1 in 3</div><div class="ps-l">marketing leaders relies on 5 to 15 tools just to measure ROI</div><div class="ps-src">NIQ 2026</div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">What changes</span>
+      <div class="benefits">
+        <div class="ben">
+          <div class="bh">Every marketing decision arrives with the reasoning already built.</div>
+          <div class="bb">I do not give you data to interpret. I give you the decision: what changed, what caused it, what to do, and what the projected outcome is. You review and approve: you do not reconcile. The time you used to spend building the picture goes back into strategy.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">You are the most informed person in every room where marketing gets questioned.</div>
+          <div class="bb">Board meetings, finance reviews, leadership stand-ups: every room where someone asks about marketing performance, you walk in with the attribution logic, the channel efficiency breakdown, and the forward projection already built. I have it ready the night before, not the morning of.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Creative fatigue stops becoming expensive before you notice it.</div>
+          <div class="bb">By the time the aggregate metric moves, the budget has already compounded the mistake. I catch creative fatigue at the segment level: which asset, which audience, which placement: before your overall numbers register the loss. The fix is ready at the same time as the flag.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Budget reallocation goes from a weekly debate to a one-click decision.</div>
+          <div class="bb">When a channel is underperforming and another is running efficiently, I model the reallocation, attach the projected pipeline impact, and give you the approval to run. No analyst required. No three-day turnaround. The decision arrives when it is still worth making.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Your AI visibility becomes a metric, not a mystery.</div>
+          <div class="bb">Buyers increasingly research vendors by asking AI: ChatGPT, Perplexity, Gemini. Whether your brand shows up in those answers, and what it says when it does, matters more every quarter. I track it, score it, and give you a prioritised fix list. No competitor in the category offers this.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">The six agents</span>
+      <div class="caps">
+        <div class="cap">
+          <div class="cap-t">Daily Brief Agent</div>
+          <div class="cap-b">Your morning brief, ready before you open your laptop. Every change across every connected channel overnight: spend, performance, creative, attribution: ranked by financial impact and delivered in plain language. What moved, why it moved, and the one decision it needs today.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Spend Mix Agent</div>
+          <div class="cap-b">I continuously monitor channel-level spend efficiency against your own historical baseline. When the cost-per-result on a channel diverges, I model the reallocation: specific budget amounts, projected impact on pipeline contribution, one-click approval. Not a recommendation to think about. A decision to make.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Creative Fatigue Agent</div>
+          <div class="cap-b">I track creative performance at the asset level: by audience segment, by placement, by frequency threshold. When engagement drops below the margin where the asset is still generating positive return, I flag it before your aggregate numbers register the loss. Which asset, which segment, what to do: refresh, rotate, or pull.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Anomaly Detection Agent</div>
+          <div class="cap-b">When something in your stack deviates from pattern: a CTR drop that is not seasonal, a conversion rate that does not follow spend, a tracking discrepancy making your attribution wrong: I surface it with the root cause traced and the corrective action drafted. You hear about it from me, not from the next board meeting.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">AI Visibility Agent</div>
+          <div class="cap-b">I monitor brand mention frequency and citation presence across major AI search platforms. I track whether your brand is being recommended, whether the information surfaced about you is accurate, and what content gaps are costing you mentions. A prioritised fix list arrives with every score update. This capability is unique to Alfred.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Unified KPI Cockpit</div>
+          <div class="cap-b">One reconciled view across your entire marketing stack. Consistent attribution logic. Consistent metric definitions. No more five tools that report five different numbers for the same campaign. Formatted for a leader making decisions, not a data team building reports and updated in real time, not weekly.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">What a week looks like</span>
+      <div style="font-size:15px;font-weight:500;color:#111;margin-bottom:4px">Alfred does not wait for your weekly review. Neither should you.</div>
+      <div class="moments">
+        <div class="mcard">
+          <div class="mct">Monday 8am</div>
+          <div class="mch">Your brief is ready before the stand-up.</div>
+          <div class="mcb">Three things changed over the weekend. One needs a decision today: a creative crossed the fatigue threshold in the 25-34 segment on Friday evening. The budget recommendation is modeled. You approve in 90 seconds, before anyone else has opened their laptop.</div>
+        </div>
+        <div class="mcard">
+          <div class="mct">Wednesday</div>
+          <div class="mch">A tracking gap surfaces before it becomes a data problem.</div>
+          <div class="mcb">The cost-per-SQL moved 28% in 48 hours, not a seasonal pattern, not a bid change. Alfred traces it to a pixel update on the landing page. The alert arrives with the root cause and the fix in the time it would have taken you to log into the platform.</div>
+        </div>
+        <div class="mcard">
+          <div class="mct">Friday evening</div>
+          <div class="mch">Your Monday CEO review builds itself.</div>
+          <div class="mcb">Alfred assembles the narrative overnight: channel performance, attribution breakdown, the reallocation that improved pipeline, and the forward projection for next quarter. You spend 20 minutes reviewing it on Monday morning instead of 6 hours building it over the weekend.</div>
+        </div>
+      </div>
+    </div>
+
+        <div class="sec">
+      <div class="close-w">
+        <div class="close-h">Read less. Know more. That is the only promise I make.</div>
+        <div class="close-s">Connect your marketing stack. First brief lands this week. No engineering required.</div>
+        <div class="close-c">
+          <button class="btn-p">Get Alfred for Marketing</button>
+          <button class="btn-s">Talk to the team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RECEIVABLES -->
+<div id="p-recv" class="page">
+  <div class="w">
+    <div>
+      <div class="greet">Hi, I am Alfred for Receivables, Your AI Chief of Staff</div>
+      <div class="h1">I give your collections team everything they need<br>before they pick up the phone.</div>
+      <div class="sub">Capital sitting in your AR is capital your business already owns but cannot deploy. I give your team the visibility to collect it before it costs you.</div>
+      <div class="ctas">
+        <button class="btn-p">Get Alfred for Receivables</button>
+        <button class="btn-s">See how it works</button>
+      </div>
+      <div class="stmt">Every rupee sitting idle in AR is capital you already own. My job is to find it, free it, and keep it moving: every day, not once a quarter.</div>
+    </div>
+
+    <div class="sec">
+      <div class="prob-stats">
+        <div class="ps"><div class="ps-n">63%</div><div class="ps-l">of B2B invoices in India go overdue</div><div class="ps-src">Source to confirm before publishing</div></div>
+        <div class="ps"><div class="ps-n">$600B</div><div class="ps-l">trapped in global receivables at any given time</div><div class="ps-src">Source to confirm before publishing</div></div>
+        <div class="ps"><div class="ps-n">45 days</div><div class="ps-l">MSME statutory payment window. Most B2B invoices in India breach it silently</div><div class="ps-src">MSME Development Act, India</div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">What changes</span>
+      <div class="benefits">
+        <div class="ben">
+          <div class="bh">Your collections team always knows the right account to call.</div>
+          <div class="bb">Every morning, every account in your AR is ranked by Collection Priority Score: a formula that accounts for financial exposure, payment behaviour, broken promise history, and statutory deadlines. Your team starts the day knowing exactly where to go. No guessing. No gut calls. No time spent deciding.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">No collection window closes without a flag.</div>
+          <div class="bb">I track payment drift at the account level using each customer's own historical behaviour, not their contractual terms. A customer who has always paid in 38 days and is now taking 52 is flagged weeks before their invoice goes overdue. Early is the only time that matters in collections.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Disputed invoices get a stance, not just a status.</div>
+          <div class="bb">Every deduction is classified into exactly one category: legally required and never chaseable, contractually agreed and close it out, or taken unilaterally and absolutely chaseable. The chaseable ones get a winnability score, an evidence pack, and a decay rate so you always know what is worth the fight.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Working capital stops sitting idle in your AR.</div>
+          <div class="bb">Unapplied cash, stalled disputes, and unresolved payment advices are working capital you already own but cannot deploy: into inventory, into headcount, into the next market. I identify unapplied payments, match them to the right invoices, and move them through application same day, not at month end.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Your collections operation scales without headcount scaling with it.</div>
+          <div class="bb">I rank every account so your team focuses where it changes an outcome. One lean team can manage a customer base many times its founding size when every hour goes to the account where the call makes a difference. The constraint on how fast you can add customers stops being your collections function.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">What I do</span>
+      <div class="caps">
+        <div class="cap">
+          <div class="cap-t">Collections Worklist</div>
+          <div class="cap-b">Every account in your AR book, ranked daily by Collection Priority Score: exposure, days past due, broken promise history, urgency signals. Every item is derived from a real condition in the data and disappears the moment that condition clears. Nothing manually added, nothing manually removed. The list is always exactly what needs attention today.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Early Warning</div>
+          <div class="cap-b">I build a payment baseline for every customer using their own settled invoice history, not their stated terms. The signal is drift from their own normal, not deviation from the contract. A customer who has always taken 44 days on 45-day terms is not late and never was. The signal is when they start taking 58. Five bands: Improving, Stable, Slipping, Drifting, Deteriorating.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Cash Application</div>
+          <div class="cap-b">I turn identified payments into confirmed invoice settlements. I compose settling power from every source available: the payment itself, idle on-account cash, unapplied credit notes and state every exclusion explicitly so every allocation is auditable. Auto-post triggers only when the payment is advice-directed, reconciles to zero, and identification confidence is at or above 95%. Anything short goes to a human.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Disputes and Deductions</div>
+          <div class="cap-b">Every deduction is classified at the point of cash application: statutory, agreed, or claimed. Only claimed deductions are ever chased. For each one, I name the specific documents that would move winnability, who holds each document, and its exact point value. Winnability decays as evidence goes unfetched: the decay rate is visible before the claim is lost, not discovered afterward.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Promises to Pay</div>
+          <div class="cap-b">A promise to pay is not a flag on an invoice. It is an entity: carrying a date, an amount, a channel, an author, and a history. Lifecycle states are derived from payment activity, never set manually. A promise taken against an already-disputed invoice is flagged as not genuine. Two broken promises within 90 days is treated as a credit event. Your team knows which promises are real before they rely on them.</div>
+        </div>
+        <div class="cap">
+          <div class="cap-t">Concentration Risk</div>
+          <div class="cap-b">I measure six axes of AR concentration independently: counterparty, correlated, operational, key-person, temporal, and contested. The overdue gap: share of overdue minus share of AR: catches what concentration alone misses: a large positive gap is a problem customer, not a concentration risk, and the two need different responses. Compounds, where two risks stack on the same accounts, are deduplicated: ten warnings about one problem is nine warnings too many.</div>
+        </div>
+      </div>
+    </div>
+
+        <div class="sec">
+      <div class="close-w">
+        <div class="close-h">Every rupee in your AR is capital you already own. I help you collect it before it costs you.</div>
+        <div class="close-s">Connect your ERP. First brief lands this week. No engineering required.</div>
+        <div class="close-c">
+          <button class="btn-p">Get Alfred for Receivables</button>
+          <button class="btn-s">Talk to the team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ALFRED CORE -->
+<div id="p-core" class="page">
+  <div class="w">
+    <div>
+      <div class="greet">Hi, I am Alfred Core, The Intelligence Engine Behind Every Decision</div>
+      <div class="h1">I am the memory that stays<br>when your best people leave.</div>
+      <div class="sub">I am the intelligence layer beneath every Alfred module. The memory that connects your functions, compounds your decisions, and never leaves your business.</div>
+      <div class="ctas">
+        <button class="btn-p">Explore Alfred Core</button>
+        <button class="btn-s">Talk to the team</button>
+      </div>
+      <div class="stmt">The product can be cloned. The memory cannot.</div>
+    </div>
+
+    <div class="sec">
+      <div class="prose">
+        <p>Every business accumulates intelligence over time. Which customers pay slowly. Which campaigns perform in Q4 but not Q2. Which deal patterns consistently win at above-average close rates. Which channels produce quality leads versus volume. This intelligence exists in every business: shaped by years of specific patterns, specific wins, specific mistakes.</p>
+        <p>The problem is where it lives. It lives in your best analyst's mental model. In a spreadsheet your head of marketing built three years ago. In the intuition of a sales leader who has been with you since the beginning. In the institutional knowledge of a collections manager who knows every account's quirks by heart.</p>
+        <p>When those people leave, the intelligence leaves with them. I am built for one purpose: to make that intelligence permanent, connected across every function, and continuously improving: so that every decision you make today is informed by everything your business has ever learned.</p>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">What changes</span>
+      <div class="benefits">
+        <div class="ben">
+          <div class="bh">Nothing gets lost when your team changes.</div>
+          <div class="bb">Every pattern I observe, every outcome I record, every decision I help make is retained permanently. The institutional intelligence your best people carry: who pays late, which deal pattern wins, which campaigns work in which conditions: does not leave when they do. It stays with me, available to everyone, always.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Decisions that span functions get made with full context.</div>
+          <div class="bb">When marketing spend drops, I check what it means for pipeline. When pipeline stalls, I check what it means for finance. When finance flags a cash constraint, I check whether planned marketing spend needs to pause. Every function connected. Every decision made with the full picture, not just the slice any one team can see.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Root causes get found, not just symptoms.</div>
+          <div class="bb">Every other tool tells you what happened. I tell you why, tracing the full chain across functions with a confidence score on every hypothesis. When a forecast drops, I trace it to the specific operational or deal-level change that caused it, not just the number that changed. One root cause, one decision, not five alerts across five tools.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">Nothing gets lost in the gap between functions.</div>
+          <div class="bb">The intelligence gap between functions is where the most expensive mistakes happen. A marketing spend decision made without knowing pipeline health. A credit extension made without knowing collection patterns. A hiring plan made without knowing operational capacity. I close every one of those gaps, permanently.</div>
+        </div>
+        <div class="ben">
+          <div class="bh">The longer I am in your business, the harder you are to compete with.</div>
+          <div class="bb">After six months, I hold six months of your company's specific patterns: which customers behave which way, which campaigns work in which conditions, which deal signals predict which outcomes at your company. A competitor cannot compress that. It is the moat that compounds every month you are ahead.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="lbl">Four systems. One connected intelligence.</span>
+      <div class="stages">
+        <div class="stage">
+          <div class="stn">System 01</div>
+          <div class="stt">Unified Institutional Memory</div>
+          <div class="stb">A single persistent store that every module reads and writes. I capture every signal, decision, and outcome across your connected systems, together with the context behind them. I learn how your organisation actually works: the patterns, the rhythms, the history. Every new data source enriches the whole. What I learn in one function sharpens every recommendation I make in every other.</div>
+        </div>
+        <div class="stage">
+          <div class="stn">System 02</div>
+          <div class="stt">Cross-Module Signal Router</div>
+          <div class="stb">Every signal from every module, routed in real time to every function it affects. Filtered by relevance. Weighted by urgency. Deduplicated so one problem does not generate five alerts across five surfaces. Functions operate from a common view of reality rather than fragmented interpretations. No briefing, answer, or recommendation I give ever starts from zero.</div>
+        </div>
+        <div class="stage" style="grid-column:1/-1">
+          <div class="stn">System 03</div>
+          <div class="stt">Causal Reasoning Engine</div>
+          <div class="stb">I trace not just what happened, but why, across every function, with a confidence score on every hypothesis. I understand the impact of a signal at the moment it occurs, not after it has compounded. Cause and effect become visible early. One root cause, one recommended fix, every downstream implication resolved before anyone asks.</div>
+        </div>
+        <div class="stage">
+          <div class="stn">System 04</div>
+          <div class="stt">Compounding Intelligence</div>
+          <div class="stb">Every inference I make in one domain sharpens every other. Every new data source enriches the whole. The longer I run, the more accurate every recommendation becomes across every function. A competitor starting later cannot compress months of your specific patterns. The memory compounds. The moat only grows.</div>
+        </div>
+      </div>
+    </div>
+
+        <div class="sec">
+      <span class="lbl">What compounds</span>
+      <div style="font-size:15px;font-weight:500;color:#111;margin-bottom:4px">I get smarter the longer I run.</div>
+      <div class="moments">
+        <div class="mcard">
+          <div class="mct">Week 1</div>
+          <div class="mch">First context captured. My memory clock starts.</div>
+          <div class="mcb">I begin mapping your organisation's signals, decisions, and outcomes. Every data point from every connected tool, retained from day one. Nothing I learn from here is ever discarded.</div>
+        </div>
+        <div class="mcard">
+          <div class="mct">Month 1</div>
+          <div class="mch">I know your organisation's rhythms, patterns, and decision history.</div>
+          <div class="mcb">I have seen one full cycle of your business. I know what normal looks like, what drift looks like, and what good decisions have produced for your specific organisation.</div>
+        </div>
+        <div class="mcard">
+          <div class="mct">Month 3 and beyond</div>
+          <div class="mch">Every recommendation I make is sharper than the one before it.</div>
+          <div class="mcb">The memory compounds with every new data source. What I learn in one function sharpens my judgment in every other. A competitor cannot compress this. It only grows.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="close-w">
+        <div class="close-h">The best chiefs of staff never let knowledge walk out the door. Neither do I.</div>
+        <div class="close-s">Connect your stack. I start building your business's memory from day one.</div>
+        <div class="close-c">
+          <button class="btn-p">Explore Alfred Core</button>
+          <button class="btn-s">Talk to the team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function goPage(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('on')});
+  document.getElementById('p-'+id).classList.add('on');
+  document.querySelectorAll('.page-tab').forEach(function(t){t.classList.remove('on')});
+  var tab=document.querySelector('[data-page="'+id+'"]');
+  if(tab)tab.classList.add('on');
+  window.scrollTo(0,0);
+}
+
+var MODS=[
+  {id:'mkt',name:'Marketing',st:'live',sl:'Live',tl:'Read less, know more.',bf:'I watch every campaign, every channel, every creative. When something moves, I tell you what changed, why, and what to do. Your morning brief is ready before you open your laptop. Your decisions arrive before your competitors notice the same signal.'},
+  {id:'sales',name:'Sales',st:'dev',sl:'In development',tl:'Catch it at risk, not at lost.',bf:'I watch every live deal against every deal your team has ever closed. When a deal drifts from the pattern that wins, I flag it before the CRM does. I forecast from your own closed history, not from stage probability guesses.'},
+  {id:'recv',name:'Receivables',st:'live',sl:'Live',tl:'Free the capital you already own.',bf:'Every rupee in your AR is capital you already own. I track every invoice, every payment pattern, and every account showing early drift and tell you who to chase, when, and what to say before the collection window closes.'},
+  {id:'fin',name:'Finance',st:'soon',sl:'Coming soon',tl:null,bf:'Budget deviation, cash flow forecasting, spend efficiency across the whole P&L. Alfred for Finance brings the same intelligence layer to your numbers team: proactive, explained, and actionable.'},
+  {id:'ops',name:'Operations',st:'soon',sl:'Coming soon',tl:null,bf:'Bottleneck detection, capacity signals, process health across the organisation. Alfred for Operations surfaces what is slowing your team before it slows your customers.'}
+];
+var am='mkt';
+
+function renderMods(){
+  var m=MODS.find(function(x){return x.id===am});
+  var pills=MODS.map(function(x){return '<button class="mpill'+(x.id===am?' on':'')+'" onclick="sMod(\''+x.id+'\')">'+x.name+'</button>'}).join('');
+  document.getElementById('home-mods').innerHTML='<div class="mpills">'+pills+'</div><div class="mbox"><span class="mbadge '+m.st+'">'+m.sl+'</span>'+(m.tl?'<div class="mtl">'+m.tl+'</div>':'')+'<div class="mbf">'+m.bf+'</div></div>';
+}
+function sMod(id){am=id;renderMods();}
+renderMods();
+</script>
+</body>
+</html>
