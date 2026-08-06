@@ -154,6 +154,13 @@
       "order": 22,
       "icon": "check",
       "count": 8
+    },
+    {
+      "id": "agent-pages",
+      "name": "Agent pages",
+      "order": 23,
+      "icon": "web-clarity",
+      "count": 8
     }
   ],
   "sections": [
@@ -10055,6 +10062,457 @@
           }
         }
       ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "agent-profile-hero",
+      "global": "LibAgentProfileHero",
+      "file": "library/sections/agent-pages.js",
+      "name": "Agent profile hero",
+      "tier": 2,
+      "description": "The agent detail-page opener: a first-person greeting line, capability headline, role chips and a works-with row beside the persona initial tile on the gradient. Translates the Hi-I'm-Helena template.",
+      "pageTypes": [
+        "feature",
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "agent detail page hero (Hi, I'm <name>, your <role>)"
+        }
+      ],
+      "props": [
+        {
+          "name": "greeting",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "initial",
+          "type": "string"
+        },
+        {
+          "name": "roleChips",
+          "type": "string[]"
+        },
+        {
+          "name": "worksWith",
+          "type": "string[]"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "old-way-new-way",
+      "global": "LibOldWayNewWay",
+      "file": "library/sections/agent-pages.js",
+      "name": "Old way, new way",
+      "tier": 2,
+      "description": "Paired pain-and-answer rows: the old operating loop in muted cards against the with-Alfred loop beside it. The agent-detail before/after, kept personal rather than pricing-flavored.",
+      "pageTypes": [
+        "feature",
+        "landing",
+        "comparison"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "agent detail 'why me' before/after grid"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "rows",
+          "type": "Array<{old, now}>"
+        },
+        {
+          "name": "oldLabel",
+          "type": "string"
+        },
+        {
+          "name": "nowLabel",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "definition-pillar",
+      "global": "LibDefinitionPillar",
+      "file": "library/sections/agent-pages.js",
+      "name": "Definition pillar opener",
+      "tier": 2,
+      "description": "The answer-engine pillar opener: what-is headline, a quotable definition block on an accent spine with a fictional-analyst citation, and on-this-page chips. Translates the SEO pillar template.",
+      "pageTypes": [
+        "blog",
+        "resource"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "SEO pillar pages: definition-first long-form openers"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "term",
+          "type": "string"
+        },
+        {
+          "name": "definition",
+          "type": "string"
+        },
+        {
+          "name": "citation",
+          "type": "string"
+        },
+        {
+          "name": "toc",
+          "type": "string[]"
+        },
+        {
+          "name": "tocLabel",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "entity-compare-table",
+      "global": "LibEntityCompareTable",
+      "file": "library/sections/agent-pages.js",
+      "name": "Entity comparison table",
+      "tier": 2,
+      "description": "The category-education centerpiece: dashboards versus assistants versus Alfred across five dimensions, last column highlighted. Concept comparison, distinct from the pricing us-vs-them table.",
+      "pageTypes": [
+        "blog",
+        "comparison",
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "pillar-page agent-vs-assistant-vs-automation tables"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "columns",
+          "type": "string[]"
+        },
+        {
+          "name": "rows",
+          "type": "Array<{dim, cells}>"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "tool-card-grid",
+      "global": "LibToolCardGrid",
+      "file": "library/sections/agent-pages.js",
+      "name": "Free tools hub grid",
+      "tier": 2,
+      "description": "The engineering-as-marketing hub: live filter chips over a grid of micro-tool cards, each a linked name, category badge and one-line outcome. Translates the 126-tool free-tools hub.",
+      "pageTypes": [
+        "resource",
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "/free-tools hub: filter bar + outcome-first tool cards"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "filters",
+          "type": "string[]"
+        },
+        {
+          "name": "tools",
+          "type": "Array<{name, cat, line}>"
+        },
+        {
+          "name": "countLabel",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "directory-hub",
+      "global": "LibDirectoryHub",
+      "file": "library/sections/agent-pages.js",
+      "name": "Directory hub",
+      "tier": 2,
+      "description": "The programmatic browse hub: an authority-count headline, grouped browse cards with count badges, and the counter-pitch quote that turns a directory into a product argument.",
+      "pageTypes": [
+        "resource"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "/agencies hub-and-spoke directory with counter-pitch testimonial"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "groups",
+          "type": "Array<{label, cards: {name, count}[]}>"
+        },
+        {
+          "name": "counterQuote",
+          "type": "string"
+        },
+        {
+          "name": "counterAttrib",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "affiliate-deal",
+      "global": "LibAffiliateDeal",
+      "file": "library/sections/agent-pages.js",
+      "name": "Affiliate deal band",
+      "tier": 2,
+      "description": "Number-first referral economics: the 25%-recurring claim as the headline, audience chips, and a worked-example earnings table ending in a display-size annual figure. Translates the affiliates page.",
+      "pageTypes": [
+        "landing",
+        "resource"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "/affiliates: 25% recurring deal + earnings calculator"
+        }
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "titleAccent",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "audiences",
+          "type": "string[]"
+        },
+        {
+          "name": "mathLabel",
+          "type": "string"
+        },
+        {
+          "name": "mathRows",
+          "type": "Array<{label, value}>"
+        },
+        {
+          "name": "cta",
+          "type": "string"
+        },
+        {
+          "name": "secondaryCta",
+          "type": "string"
+        },
+        {
+          "name": "footnote",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "category": "agent-pages",
+      "id": "cross-sell-grid",
+      "global": "LibCrossSellGrid",
+      "file": "library/sections/agent-pages.js",
+      "name": "Cross-sell module grid",
+      "tier": 2,
+      "description": "The compact end-of-page module grid reused across their site: initial tiles, one live module on the gradient, waitlist lines and learn-more links in a single quiet band.",
+      "pageTypes": [
+        "feature",
+        "blog",
+        "resource",
+        "landing"
+      ],
+      "usedBy": [
+        {
+          "site": "enrichlabs.ai",
+          "url": "https://enrichlabs.ai",
+          "note": "four-agent cross-sell grid reused at page bottoms"
+        }
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "modules",
+          "type": "Array<{initial, name, line, live?}>"
+        },
+        {
+          "name": "linkLabel",
+          "type": "string"
+        }
+      ],
+      "variants": [
+        {
+          "id": "default",
+          "name": "Default",
+          "props": {}
+        }
+      ]
     }
   ],
   "recipes": [
@@ -10062,6 +10520,11 @@
       "slug": "agent-employee",
       "name": "Recipe: Agent employee page",
       "subtitle": "The Helena pattern: story, capabilities, team, proof, trial FAQ"
+    },
+    {
+      "slug": "agent-profile",
+      "name": "Recipe: Agent profile page",
+      "subtitle": "The Helena agent-detail template: first-person hero, old-way/new-way, capability depth, cross-sell"
     },
     {
       "slug": "blog-article",
