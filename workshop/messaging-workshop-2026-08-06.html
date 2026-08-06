@@ -576,8 +576,8 @@ const ANGLES = [
 },
 {
   name: "Most informed (Damini)",
-  external: "messaging-workshop-damini-variant.html",
-  thesis: "Damini's version, embedded exactly as submitted. Positioning: you become the most informed person in every room; Alfred Core's permanent institutional memory is the moat. Deep agent and system detail, sourced stat strips. Note: no Sales page; an Alfred Core page instead. Use the nav inside the variant itself; the Page tabs above do not apply.",
+  dm: true,
+  thesis: "Damini's version, copy verbatim, restyled onto the design system. Positioning: you become the most informed person in every room; Alfred Core's permanent institutional memory is the moat. Deep agent and system detail, sourced stat strips. Note: this cut has no Sales page; the Sales tab shows her Alfred Core page instead.",
   home: {}, marketing: {}, sales: {}, receivables: {},
 },
 ];
@@ -1330,6 +1330,170 @@ function renderReceivablesG() {
 
 const RENDER_G = { home: renderHomeG, marketing: renderMarketingG, sales: renderSalesG, receivables: renderReceivablesG };
 
+/* =============================================================
+   DAMINI VARIANT, restyled onto the design system (copy verbatim)
+   ============================================================= */
+
+function dmStats(intro, stats) {
+  return '<section class="band sunken"><div class="container">' +
+    '<p class="intro" style="margin-top:0;max-width:720px;font-size:var(--text-xl);color:var(--text-primary)">' + intro + '</p>' +
+    '<div class="grid g3">' + stats.map(s =>
+      '<div class="rv"><div class="statnum"><span class="solid">' + s.n + '</span></div><div class="statlbl">' + s.l + '</div><div class="statsrc">' + s.s + '</div></div>'
+    ).join('') + '</div>' +
+  '</div></section>';
+}
+
+function dmCards(eyebrow, h2, intro, items, cols) {
+  return '<section class="band"><div class="container">' + sectionHead(eyebrow, h2, intro) +
+    '<div class="grid ' + (cols || 'g2') + '">' + items.map((c, i) =>
+      '<div class="card rv" data-rvd="' + Math.min(i * 60, 240) + '">' + (c.k ? '<span class="verb">' + c.k + '</span>' : '') + '<h3>' + c.t + '</h3><p>' + c.d + '</p></div>'
+    ).join('') + '</div>' +
+  '</div></section>';
+}
+
+function dmHero(chipText, h1, sub, ctaP, ctaS, chipCls) {
+  return '<section class="hero"><div class="container hero-inner">' +
+    '<span class="chip ' + (chipCls || '') + '"><span class="dot"></span>' + chipText + '</span>' +
+    '<h1 class="h1">' + h1 + '</h1>' +
+    '<p class="hero-sub">' + sub + '</p>' +
+    '<div class="hero-ctas"><button class="btn btn-p">' + ctaP + '</button><button class="btn btn-s">' + ctaS + '</button></div>' +
+  '</div></section>';
+}
+
+function renderHomeDM() {
+  return nav() +
+    dmHero('Hi, I am Alfred, your AI Chief of Staff',
+      "I'm your AI chief of staff. I make sure you're " + g('the most informed person in every room.'),
+      'I connect every function your business runs and surface what needs your attention today. Not more data. The decision, with the reasoning already built.',
+      'Get Alfred', 'See how it works') +
+    dmStats('The companies that move fastest are not smarter. They just make decisions before the window closes.', [
+      { n: '63%', l: 'of senior leaders miss opportunities because decisions take too long', s: 'PwC CMO Survey 2025' },
+      { n: '+52%', l: 'rise in finance pressure on senior leaders between 2023 and 2025', s: 'The CMO Survey, Spring 2025' },
+      { n: '+21%', l: 'rise in board pressure on senior leaders in the same period', s: 'The CMO Survey, Spring 2025' },
+    ]) +
+    dmCards('What changes', 'You stop discovering problems when they cost you.', '', [
+      { t: 'Problems surface before they compound.', d: 'Before I arrived, you found out about issues when a dashboard turned red or a board question caught you off guard. With me, the signal that would have become a problem is surfaced before it compounds. Every morning. Every function. Every time.' },
+      { t: 'Your board meetings go from instinct to evidence.', d: 'The hard questions: why is CPA up, how much working capital is idle, which deals are at risk: have specific answers before they are asked. I build the brief the night before. You walk in knowing everything the room is about to ask.' },
+      { t: 'No deal, invoice, or spend line drifts without a flag.', d: 'I watch every function that drives your growth: marketing spend, pipeline velocity, AR aging, creative performance. When something moves in a direction it should not, you hear about it from me, not from the fallout three weeks later.' },
+      { t: 'Your institutional knowledge stops walking out the door.', d: 'Every pattern I observe, every decision I help you make, every outcome I record stays with your business permanently. The intelligence your best people carry in their heads lives in Alfred Core instead. It does not resign. It does not take a better offer.' },
+    ]) +
+    '<section class="band sunken"><div class="container">' + sectionHead('Under the hood', 'Every module connects through Alfred Core', 'Every module I run connects through Alfred Core: the memory and intelligence engine that ties everything together. It is what allows me to route a marketing signal to your sales forecast, trace a root cause across functions, and retain every pattern your business has generated since we connected.') +
+      '<p class="intro rv">The longer I am in your business, the more I know. The more I know, the better every recommendation gets. The moat compounds monthly and it cannot be backfilled by a competitor.</p>' +
+      '<div style="margin-top:24px"><button class="btn btn-s" onclick="gmGo(\'sales\')">Explore Alfred Core</button></div>' +
+    '</div></section>' +
+    dmCards('How I work', 'Four moves. In order. Every time.', '', [
+      { k: '01 · Connect', t: 'Every tool you run, linked in week one.', d: 'Read-only API integrations, zero engineering required. Up to a year of historical data synced from day one so Alfred understands your business from the moment it starts, not after a six-month calibration period.' },
+      { k: '02 · Analyse', t: 'Every signal, watched continuously.', d: "Not when you ask. Not on a schedule. Every movement in spend, pipeline, creative performance, and receivables: tracked, correlated, and understood in the context of your business's specific patterns." },
+      { k: '03 · Recommend', t: 'I tell you what to do. Not what happened.', d: 'What fixes it. The specific action, the reasoning behind it, and, where it applies, the projected impact on your revenue, spend, or pipeline. Ready to review and approve in one click.' },
+      { k: '04 · Execute', t: 'You approve. I act inside your connected tools.', d: 'Every change is logged, every action is reversible, and every write-back is encrypted. Nothing happens without your explicit authorisation. Full audit trail, always.' },
+    ], 'g4') +
+    dmCards('Trust and security', 'I never let your data leave your environment.', '', [
+      { t: 'Data isolation', d: 'I keep your data in a logically isolated environment. I do not share infrastructure with other customers. What I learn about your business never touches anyone else\'s.' },
+      { t: 'Private pattern library', d: 'I build a private pattern library for your organisation: a living memory of your business history, decisions, signals, and outcomes. It belongs entirely to you.' },
+      { t: 'No cross-customer training', d: 'I do not use your data to train shared models, shared recommendation systems, shared benchmarks, or shared playbooks. What I learn about your business stays with you.' },
+      { t: 'Foundational model usage', d: 'I use API access to foundational AI models for inference only. I never use your data to train or fine-tune those models.' },
+      { t: 'No third-party data sharing', d: 'I do not sell, license, share, or make your data accessible to any third party: for training, benchmarking, resale, or commercial purposes. Ever.' },
+      { t: 'No commercialisation of customer intelligence', d: 'I generate no revenue from the intelligence your business generates. Your data is not my product. Your subscription is.' },
+    ], 'g3') +
+    ctaBand({ eyebrow: 'Next step', h2: "The best chiefs of staff don't wait to be asked. Neither do I.", sub: 'Connect your stack. First brief lands this week. No engineering required. No setup cost.', btn: 'Get Alfred' }) +
+    footer();
+}
+
+function renderMarketingDM() {
+  return nav() +
+    dmHero('Alfred for Marketing · Live',
+      'I watch everything your marketing stack generates. ' + g('You walk in knowing what matters.'),
+      'You are accountable for every spend decision, every channel move, and every board question about marketing performance. I make sure you are always ready for all three.',
+      'Get Alfred for Marketing', 'See how it works') +
+    dmStats("Most marketing decisions are made on last week's data. Mine are made on this morning's signals.", [
+      { n: '54%', l: 'of marketing leaders say connecting data sources is their biggest barrier to insight', s: 'NIQ CMO Outlook 2026' },
+      { n: '~90%', l: 'of B2B marketing teams face attribution challenges from fragmented data', s: 'RevSure / Heinz Marketing 2026' },
+      { n: '1 in 3', l: 'marketing leaders relies on 5 to 15 tools just to measure ROI', s: 'NIQ 2026' },
+    ]) +
+    dmCards('What changes', 'Every decision arrives with the reasoning already built.', '', [
+      { t: 'You review and approve: you do not reconcile.', d: 'I do not give you data to interpret. I give you the decision: what changed, what caused it, what to do, and what the projected outcome is. The time you used to spend building the picture goes back into strategy.' },
+      { t: 'You are the most informed person in every room where marketing gets questioned.', d: 'Board meetings, finance reviews, leadership stand-ups: you walk in with the attribution logic, the channel efficiency breakdown, and the forward projection already built. I have it ready the night before, not the morning of.' },
+      { t: 'Creative fatigue stops becoming expensive before you notice it.', d: 'By the time the aggregate metric moves, the budget has already compounded the mistake. I catch creative fatigue at the segment level: which asset, which audience, which placement: before your overall numbers register the loss. The fix is ready at the same time as the flag.' },
+      { t: 'Budget reallocation goes from a weekly debate to a one-click decision.', d: 'When a channel is underperforming and another is running efficiently, I model the reallocation, attach the projected pipeline impact, and give you the approval to run. No analyst required. No three-day turnaround. The decision arrives when it is still worth making.' },
+      { t: 'Your AI visibility becomes a metric, not a mystery.', d: 'Buyers increasingly research vendors by asking AI: ChatGPT, Perplexity, Gemini. Whether your brand shows up in those answers, and what it says when it does, matters more every quarter. I track it, score it, and give you a prioritised fix list.' },
+    ]) +
+    dmCards('The six agents', 'Six agents on your funnel', '', [
+      { k: 'briefs', t: 'Daily Brief Agent', d: 'Your morning brief, ready before you open your laptop. Every change across every connected channel overnight: spend, performance, creative, attribution: ranked by financial impact and delivered in plain language. What moved, why it moved, and the one decision it needs today.' },
+      { k: 'reallocates', t: 'Spend Mix Agent', d: 'I continuously monitor channel-level spend efficiency against your own historical baseline. When the cost-per-result on a channel diverges, I model the reallocation: specific budget amounts, projected impact on pipeline contribution, one-click approval. Not a recommendation to think about. A decision to make.' },
+      { k: 'watches', t: 'Creative Fatigue Agent', d: 'I track creative performance at the asset level: by audience segment, by placement, by frequency threshold. When engagement drops below the margin where the asset is still generating positive return, I flag it before your aggregate numbers register the loss. Which asset, which segment, what to do: refresh, rotate, or pull.' },
+      { k: 'flags', t: 'Anomaly Detection Agent', d: 'When something in your stack deviates from pattern: a CTR drop that is not seasonal, a conversion rate that does not follow spend, a tracking discrepancy making your attribution wrong: I surface it with the root cause traced and the corrective action drafted. You hear about it from me, not from the next board meeting.' },
+      { k: 'scouts', t: 'AI Visibility Agent', d: 'I monitor brand mention frequency and citation presence across major AI search platforms. I track whether your brand is being recommended, whether the information surfaced about you is accurate, and what content gaps are costing you mentions. A prioritised fix list arrives with every score update.' },
+      { k: 'reconciles', t: 'Unified KPI Cockpit', d: 'One reconciled view across your entire marketing stack. Consistent attribution logic. Consistent metric definitions. No more five tools that report five different numbers for the same campaign. Formatted for a leader making decisions, not a data team building reports, and updated in real time, not weekly.' },
+    ], 'g3') +
+    dmCards('What a week looks like', 'Alfred does not wait for your weekly review. Neither should you.', 'Illustrative.', [
+      { k: 'Monday 8am', t: 'Your brief is ready before the stand-up.', d: 'Three things changed over the weekend. One needs a decision today: a creative crossed the fatigue threshold in the 25 to 34 segment on Friday evening. The budget recommendation is modeled. You approve in 90 seconds, before anyone else has opened their laptop.' },
+      { k: 'Wednesday', t: 'A tracking gap surfaces before it becomes a data problem.', d: 'The cost-per-SQL moved 28% in 48 hours: not a seasonal pattern, not a bid change. Alfred traces it to a pixel update on the landing page. The alert arrives with the root cause and the fix in the time it would have taken you to log into the platform.' },
+      { k: 'Friday evening', t: 'Your Monday CEO review builds itself.', d: 'Alfred assembles the narrative overnight: channel performance, attribution breakdown, the reallocation that improved pipeline, and the forward projection for next quarter. You spend 20 minutes reviewing it on Monday morning instead of 6 hours building it over the weekend.' },
+    ], 'g3') +
+    ctaBand({ eyebrow: 'Next step', h2: 'Read less. Know more. That is the only promise I make.', sub: 'Connect your marketing stack. First brief lands this week. No engineering required.', btn: 'Get Alfred for Marketing' }) +
+    footer();
+}
+
+function renderCoreDM() {
+  return nav() +
+    dmHero('Alfred Core · In this cut, Core stands where Sales would',
+      'I am the memory that stays ' + g('when your best people leave.'),
+      'I am the intelligence layer beneath every Alfred module. The memory that connects your functions, compounds your decisions, and never leaves your business.',
+      'Explore Alfred Core', 'Talk to the team', 'peri') +
+    '<section class="band sunken"><div class="container">' + sectionHead('The premise', 'The product can be cloned. The memory cannot.', '') +
+      '<div style="max-width:680px">' +
+      '<p class="intro rv">Every business accumulates intelligence over time. Which customers pay slowly. Which campaigns perform in Q4 but not Q2. Which deal patterns consistently win at above-average close rates. This intelligence exists in every business: shaped by years of specific patterns, specific wins, specific mistakes.</p>' +
+      '<p class="intro rv">The problem is where it lives. It lives in your best analyst\'s mental model. In a spreadsheet your head of marketing built three years ago. In the intuition of a sales leader who has been with you since the beginning.</p>' +
+      '<p class="intro rv">When those people leave, the intelligence leaves with them. I am built for one purpose: to make that intelligence permanent, connected across every function, and continuously improving: so that every decision you make today is informed by everything your business has ever learned.</p>' +
+      '</div>' +
+    '</div></section>' +
+    dmCards('Four systems', 'Four systems. One connected intelligence.', '', [
+      { k: 'System 01', t: 'Unified Institutional Memory', d: 'A single persistent store that every module reads and writes. I capture every signal, decision, and outcome across your connected systems, together with the context behind them. Every new data source enriches the whole. What I learn in one function sharpens every recommendation I make in every other.' },
+      { k: 'System 02', t: 'Cross-Module Signal Router', d: 'Every signal from every module, routed in real time to every function it affects. Filtered by relevance. Weighted by urgency. Deduplicated so one problem does not generate five alerts across five surfaces. No briefing, answer, or recommendation I give ever starts from zero.' },
+      { k: 'System 03', t: 'Causal Reasoning Engine', d: 'I trace not just what happened, but why, across every function, with a confidence score on every hypothesis. Cause and effect become visible early. One root cause, one recommended fix, every downstream implication resolved before anyone asks.' },
+      { k: 'System 04', t: 'Compounding Intelligence', d: 'Every inference I make in one domain sharpens every other. The longer I run, the more accurate every recommendation becomes across every function. A competitor starting later cannot compress months of your specific patterns. The memory compounds. The moat only grows.' },
+    ]) +
+    dmCards('What compounds', 'I get smarter the longer I run.', '', [
+      { k: 'Week 1', t: 'First context captured. My memory clock starts.', d: "I begin mapping your organisation's signals, decisions, and outcomes. Every data point from every connected tool, retained from day one. Nothing I learn from here is ever discarded." },
+      { k: 'Month 1', t: "I know your organisation's rhythms, patterns, and decision history.", d: 'I have seen one full cycle of your business. I know what normal looks like, what drift looks like, and what good decisions have produced for your specific organisation.' },
+      { k: 'Month 3 and beyond', t: 'Every recommendation I make is sharper than the one before it.', d: 'The memory compounds with every new data source. What I learn in one function sharpens my judgment in every other. A competitor cannot compress this. It only grows.' },
+    ], 'g3') +
+    ctaBand({ eyebrow: 'Next step', h2: 'The best chiefs of staff never let knowledge walk out the door. Neither do I.', sub: "Connect your stack. I start building your business's memory from day one.", btn: 'Explore Alfred Core' }) +
+    footer();
+}
+
+function renderReceivablesDM() {
+  return nav() +
+    dmHero('Alfred for Receivables',
+      'I give your collections team everything they need ' + g('before they pick up the phone.'),
+      'Capital sitting in your AR is capital your business already owns but cannot deploy. I give your team the visibility to collect it before it costs you.',
+      'Get Alfred for Receivables', 'See how it works', 'peri') +
+    dmStats('Every rupee sitting idle in AR is capital you already own. My job is to find it, free it, and keep it moving: every day, not once a quarter.', [
+      { n: '63%', l: 'of B2B invoices in India go overdue', s: 'Source to confirm before publishing' },
+      { n: '$600B', l: 'trapped in global receivables at any given time', s: 'Source to confirm before publishing' },
+      { n: '45 days', l: 'MSME statutory payment window. Most B2B invoices in India breach it silently', s: 'MSME Development Act, India' },
+    ]) +
+    dmCards('What changes', 'Your collections team always knows the right account to call.', '', [
+      { t: 'The worklist decides itself.', d: 'Every morning, every account in your AR is ranked by Collection Priority Score: a formula that accounts for financial exposure, payment behaviour, broken promise history, and statutory deadlines. Your team starts the day knowing exactly where to go. No guessing. No gut calls.' },
+      { t: 'No collection window closes without a flag.', d: "I track payment drift at the account level using each customer's own historical behaviour, not their contractual terms. A customer who has always paid in 38 days and is now taking 52 is flagged weeks before their invoice goes overdue. Early is the only time that matters in collections." },
+      { t: 'Disputed invoices get a stance, not just a status.', d: 'Every deduction is classified into exactly one category: legally required and never chaseable, contractually agreed and close it out, or taken unilaterally and absolutely chaseable. The chaseable ones get a winnability score, an evidence pack, and a decay rate so you always know what is worth the fight.' },
+      { t: 'Working capital stops sitting idle in your AR.', d: 'Unapplied cash, stalled disputes, and unresolved payment advices are working capital you already own but cannot deploy. I identify unapplied payments, match them to the right invoices, and move them through application same day, not at month end.' },
+      { t: 'Collections scales without headcount scaling with it.', d: 'I rank every account so your team focuses where it changes an outcome. One lean team can manage a customer base many times its founding size when every hour goes to the account where the call makes a difference.' },
+    ]) +
+    dmCards('What I do', 'Six systems on the cash cycle', '', [
+      { k: 'ranks', t: 'Collections Worklist', d: 'Every account in your AR book, ranked daily by Collection Priority Score: exposure, days past due, broken promise history, urgency signals. Every item is derived from a real condition in the data and disappears the moment that condition clears. Nothing manually added, nothing manually removed.' },
+      { k: 'warns', t: 'Early Warning', d: 'I build a payment baseline for every customer using their own settled invoice history, not their stated terms. The signal is drift from their own normal, not deviation from the contract. Five bands: Improving, Stable, Slipping, Drifting, Deteriorating.' },
+      { k: 'matches', t: 'Cash Application', d: 'I turn identified payments into confirmed invoice settlements, composing settling power from every source available and stating every exclusion explicitly so every allocation is auditable. Auto-post triggers only when the payment is advice-directed, reconciles to zero, and identification confidence is at or above 95%. Anything short goes to a human.' },
+      { k: 'resolves', t: 'Disputes and Deductions', d: 'Every deduction is classified at the point of cash application: statutory, agreed, or claimed. Only claimed deductions are ever chased. For each one, I name the specific documents that would move winnability, who holds each document, and its exact point value. The decay rate is visible before the claim is lost, not discovered afterward.' },
+      { k: 'verifies', t: 'Promises to Pay', d: 'A promise to pay is not a flag on an invoice. It is an entity: carrying a date, an amount, a channel, an author, and a history. A promise taken against an already-disputed invoice is flagged as not genuine. Two broken promises within 90 days is treated as a credit event. Your team knows which promises are real before they rely on them.' },
+      { k: 'measures', t: 'Concentration Risk', d: 'I measure six axes of AR concentration independently: counterparty, correlated, operational, key-person, temporal, and contested. Compounds, where two risks stack on the same accounts, are deduplicated: ten warnings about one problem is nine warnings too many.' },
+    ], 'g3') +
+    ctaBand({ eyebrow: 'Next step', h2: 'Every rupee in your AR is capital you already own.', sub: 'Connect your ERP. First brief lands this week. No engineering required.', btn: 'Get Alfred for Receivables' }) +
+    footer();
+}
+
+const RENDER_DM = { home: renderHomeDM, marketing: renderMarketingDM, sales: renderCoreDM, receivables: renderReceivablesDM };
+
 /* ---------- scorecard ---------- */
 
 const ICPS = [
@@ -1410,6 +1574,10 @@ function draw() {
     stage.innerHTML = '<iframe class="ext-frame" src="' + a.external + '" title="' + a.name + '"></iframe>';
     document.getElementById("thesis").innerHTML =
       "<strong>Angle " + (curAngle + 1) + " · " + a.name + ".</strong> " + a.thesis;
+  } else if (a.dm && curPage !== "scorecard") {
+    stage.innerHTML = RENDER_DM[curPage]();
+    document.getElementById("thesis").innerHTML =
+      "<strong>Angle " + (curAngle + 1) + " · " + a.name + ".</strong> " + a.thesis;
   } else if (gamified) {
     stage.innerHTML = RENDER_G[curPage]();
     document.getElementById("thesis").innerHTML =
@@ -1430,6 +1598,7 @@ function draw() {
   } else {
     window.onscroll = null;
     window._gmRailTick = null;
+    if (a.dm && curPage !== "scorecard") gmReveals();
   }
 }
 
